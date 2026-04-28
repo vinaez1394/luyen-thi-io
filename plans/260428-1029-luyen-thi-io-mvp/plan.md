@@ -18,7 +18,7 @@ Ship được phiên bản đầu tiên cho học sinh thật dùng thử với:
 | Phase | Tên | Trạng thái | Tiến độ |
 |-------|-----|-----------|---------|
 | 01 | Foundation — D1 Schema + Wrangler | ✅ Hoàn thành | 100% |
-| 02 | Theme System + Design Tokens | ⬜ Chưa làm | 0% |
+| 02 | Theme System + Design Tokens | ✅ Hoàn thành | 100% |
 | 03 | Auth — Google OAuth | ⬜ Chưa làm | 0% |
 | 04 | Quiz Engine — Core | ⬜ Chưa làm | 0% |
 | 05 | Quiz Engine — Drag & Drop | ⬜ Chưa làm | 0% |
