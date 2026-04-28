@@ -1,0 +1,82 @@
+{
+  "id": "MATH-L1-P1",
+  "title": "Toán Tư Duy — Level 1 — Bài 1",
+  "skill": "math",
+  "level": "level-1",
+  "part": 1,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc kỹ từng câu hỏi và chọn đáp án đúng nhất. Mỗi câu chỉ có 1 đáp án đúng.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Find the next number in the sequence: 1, 4, 9, 16, 25, ...",
+      "options": ["30", "34", "36", "40"],
+      "correct": "36",
+      "explanation_vi": "Đây là dãy số bình phương: 1², 2², 3², 4², 5²... Số tiếp theo là 6² = 36. Hoặc hiểu theo cách cộng dồn: +3, +5, +7, +9, +11 → 25 + 11 = 36."
+    },
+    {
+      "id": "q2",
+      "prompt": "Tom is 7 years old and his sister is 4. In how many years will the sum of their ages be 17?",
+      "options": ["2", "3", "4", "5"],
+      "correct": "3",
+      "explanation_vi": "Tổng tuổi hiện tại là 7 + 4 = 11. Cần tổng = 17, tức cần thêm 6. Vì mỗi năm tổng tăng 2 (mỗi người thêm 1 tuổi), nên cần 6 ÷ 2 = 3 năm."
+    },
+    {
+      "id": "q3",
+      "prompt": "A ribbon is cut into 8 pieces. Each cut takes 2 minutes. How many minutes does it take in total?",
+      "options": ["16", "14", "12", "10"],
+      "correct": "14",
+      "explanation_vi": "Để cắt 8 mảnh chỉ cần 7 lần cắt (không phải 8). Mỗi lần cắt mất 2 phút → 7 × 2 = 14 phút."
+    },
+    {
+      "id": "q4",
+      "prompt": "In a line, Mary is 3rd from the front and 8th from the back. How many people are in the line?",
+      "options": ["11", "10", "12", "9"],
+      "correct": "10",
+      "explanation_vi": "Mary đứng thứ 3 từ phía trước: có 2 người phía trước Mary. Mary đứng thứ 8 từ phía sau: có 7 người phía sau Mary. Tổng = 2 + 1 (Mary) + 7 = 10 người."
+    },
+    {
+      "id": "q5",
+      "prompt": "A farm has cows and ducks. There are 7 animals and 22 legs in total. How many cows are there?",
+      "options": ["3", "4", "5", "6"],
+      "correct": "4",
+      "explanation_vi": "Giả sử tất cả 7 con đều là vịt → 7 × 2 = 14 chân. Thực tế có 22 chân, thừa 8 chân. Mỗi con bò thay thế vịt sẽ thêm 4 - 2 = 2 chân. Vậy có 8 ÷ 2 = 4 con bò."
+    },
+    {
+      "id": "q6",
+      "prompt": "Think of a number. Subtract 4, then multiply by 3 to get 18. What is the number?",
+      "options": ["10", "8", "12", "14"],
+      "correct": "10",
+      "explanation_vi": "Tính ngược: 18 ÷ 3 = 6. Rồi 6 + 4 = 10. Kiểm tra: (10 - 4) × 3 = 6 × 3 = 18 ✓"
+    },
+    {
+      "id": "q7",
+      "prompt": "How many digits are needed to number the pages of a book from page 1 to page 25?",
+      "options": ["25", "32", "41", "45"],
+      "correct": "41",
+      "explanation_vi": "Trang 1–9: có 9 trang, mỗi trang dùng 1 chữ số → 9 chữ số. Trang 10–25: có 16 trang, mỗi trang dùng 2 chữ số → 32 chữ số. Tổng: 9 + 32 = 41 chữ số."
+    },
+    {
+      "id": "q8",
+      "prompt": "1 papaya weighs as much as 2 mangoes. 1 mango weighs as much as 3 apples. How many apples weigh the same as 1 papaya?",
+      "options": ["4", "5", "6", "7"],
+      "correct": "6",
+      "explanation_vi": "1 đu đủ = 2 xoài. Vì 1 xoài = 3 táo nên 2 xoài = 6 táo. Vậy 1 đu đủ = 6 táo."
+    },
+    {
+      "id": "q9",
+      "prompt": "If today is Sunday, what day will it be 12 days from now?",
+      "options": ["Thursday", "Friday", "Saturday", "Monday"],
+      "correct": "Friday",
+      "explanation_vi": "12 ÷ 7 = 1 tuần dư 5 ngày. Đếm 5 ngày sau Chủ nhật: Thứ 2 → Thứ 3 → Thứ 4 → Thứ 5 → Thứ 6 (Friday)."
+    },
+    {
+      "id": "q10",
+      "prompt": "5 cubes are stacked in a single vertical column. How many faces of the cubes are not visible (hidden)?",
+      "options": ["6", "8", "10", "12"],
+      "correct": "8",
+      "explanation_vi": "5 khối lập phương xếp chồng có 4 điểm tiếp xúc (giữa cube 1-2, 2-3, 3-4, 4-5). Mỗi điểm tiếp xúc che đi 2 mặt → 4 × 2 = 8 mặt bị che."
+    }
+  ]
+}

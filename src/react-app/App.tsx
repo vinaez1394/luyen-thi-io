@@ -15,6 +15,7 @@ import { ProtectedRoute } from "./components/ui/ProtectedRoute";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { OnboardingPage } from "./pages/OnboardingPage";
+import { QuizPage } from "./pages/QuizPage";
 
 // Dashboard placeholder — sẽ thay thế ở Phase 07
 function DashboardPlaceholder() {
@@ -50,29 +51,7 @@ function DashboardPlaceholder() {
   );
 }
 
-// Quiz placeholder — sẽ thay thế ở Phase 04
-function QuizPlaceholder() {
-  return (
-    <div
-      style={{
-        minHeight: "100dvh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "var(--space-3)",
-        padding: "var(--space-4)",
-      }}
-    >
-      <div style={{ fontSize: "64px" }}>📝</div>
-      <h1 style={{ fontSize: "var(--font-xl)", color: "var(--color-primary)", fontWeight: "900" }}>
-        Quiz Engine đang được xây dựng...
-      </h1>
-      <p style={{ color: "var(--color-text-muted)" }}>Phase 04 sẽ hoàn thiện tính năng này!</p>
-      <a href="/" className="btn btn-outline">← Về trang chủ</a>
-    </div>
-  );
-}
+
 
 export default function App() {
   return (
@@ -82,7 +61,7 @@ export default function App() {
           {/* ===== PUBLIC ROUTES (không cần login) ===== */}
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/quiz/:id" element={<QuizPlaceholder />} />
+          <Route path="/quiz/:id" element={<QuizPage />} />
 
           {/* ===== PROTECTED ROUTES (cần login) ===== */}
           <Route
