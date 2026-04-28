@@ -197,3 +197,8 @@ dist
 !.env.example
 .dev.vars*
 !.dev.vars.example
+
+### Antigravity Brain ###
+# Chúng ta chia sẻ brain.json lên git để AI của cả 2 hiểu dự án
+# Nhưng KHÔNG chia sẻ session.json (vì mỗi người làm 1 việc khác nhau)
+.brain/session.json
