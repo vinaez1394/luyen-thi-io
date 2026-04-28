@@ -1,6 +1,24 @@
 import { Hono } from "hono";
+import { healthRoute } from "./routes/health";
+import { authRoute } from "./routes/auth";
+import { studentRoute } from "./routes/student";
+
 const app = new Hono<{ Bindings: Env }>();
 
-app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
+// =============================================
+// Routes
+// =============================================
+
+// Health check (Phase 01)
+app.route("/api/health", healthRoute);
+
+// Auth — Google OAuth (Phase 03)
+app.route("/api/auth", authRoute);
+
+// Student profile (Phase 03 — Onboarding)
+app.route("/api/student", studentRoute);
+
+// Default API route
+app.get("/api/", (c) => c.json({ name: "luyen-thi-io API", version: "0.1.0" }));
 
 export default app;

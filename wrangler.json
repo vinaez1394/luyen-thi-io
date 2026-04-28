@@ -11,5 +11,24 @@
 	"assets": {
 		"directory": "./dist/client",
 		"not_found_handling": "single-page-application"
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "luyen-thi-db",
+			"database_id": "cc1f5652-8b63-45c2-8fa4-15509f0e6278"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "CONTENT",
+			"bucket_name": "luyen-thi-content"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "4372fcfaa47143c4a37d1101f0fa55e9"
+		}
+	]
 }

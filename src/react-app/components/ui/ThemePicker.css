@@ -1,0 +1,106 @@
+/* ThemePicker.css */
+
+.theme-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.theme-picker__label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+}
+
+.theme-picker__current {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.theme-picker__current strong {
+  color: var(--color-primary);
+}
+
+/* Grid 3x2 */
+.theme-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-1);
+}
+
+/* Compact: 6 swatches in a row */
+.theme-picker--compact .theme-picker__grid {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* ===== Swatch Button ===== */
+.theme-swatch {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--swatch-bg);
+  border: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition:
+    transform var(--transition-bounce),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* Màu accent strip ở dưới swatch */
+.theme-swatch::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--swatch-color);
+  border-radius: 0 0 calc(var(--radius-md) - 3px) calc(var(--radius-md) - 3px);
+}
+
+.theme-swatch:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--swatch-color);
+}
+
+.theme-swatch--active {
+  border-color: var(--swatch-color);
+  box-shadow: 0 0 0 3px var(--swatch-color), var(--shadow-md);
+  transform: scale(1.05);
+}
+
+.theme-swatch__emoji {
+  font-size: 24px;
+  line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+.theme-swatch__check {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 12px;
+  font-weight: var(--font-black);
+  color: var(--swatch-color);
+  animation: bounceIn 0.3s ease-out;
+}
+
+/* Compact mode — smaller swatches */
+.theme-picker--compact .theme-swatch {
+  width: 44px;
+  height: 44px;
+}
+
+.theme-picker--compact .theme-swatch__emoji {
+  font-size: 18px;
+}

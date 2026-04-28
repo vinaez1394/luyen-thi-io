@@ -1,66 +1,111 @@
-// src/App.tsx
+/**
+ * App.tsx — Root component với React Router
+ *
+ * Routes:
+ *   /           → HomePage (PUBLIC — không cần login)
+ *   /login      → LoginPage (public)
+ *   /onboarding → OnboardingPage (protected)
+ *   /dashboard  → DashboardPage (protected) — Phase 07
+ *   /quiz/:id   → QuizPage (free bài: public; premium: protected)
+ */
 
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
-import honoLogo from "./assets/hono.svg";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeProvider } from "./components/ui/ThemeProvider";
+import { ProtectedRoute } from "./components/ui/ProtectedRoute";
+import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage";
+import { OnboardingPage } from "./pages/OnboardingPage";
 
-function App() {
-	const [count, setCount] = useState(0);
-	const [name, setName] = useState("unknown");
-
-	return (
-		<>
-			<div>
-				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-				<a href="https://hono.dev/" target="_blank">
-					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" />
-				</a>
-				<a href="https://workers.cloudflare.com/" target="_blank">
-					<img
-						src={cloudflareLogo}
-						className="logo cloudflare"
-						alt="Cloudflare logo"
-					/>
-				</a>
-			</div>
-			<h1>Vite + React + Hono + Cloudflare</h1>
-			<div className="card">
-				<button
-					onClick={() => setCount((count) => count + 1)}
-					aria-label="increment"
-				>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<div className="card">
-				<button
-					onClick={() => {
-						fetch("/api/")
-							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
-					}}
-					aria-label="get name"
-				>
-					Name from API is: {name}
-				</button>
-				<p>
-					Edit <code>worker/index.ts</code> to change the name
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the logos to learn more</p>
-		</>
-	);
+// Dashboard placeholder — sẽ thay thế ở Phase 07
+function DashboardPlaceholder() {
+  return (
+    <div
+      style={{
+        minHeight: "100dvh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "var(--space-3)",
+        padding: "var(--space-4)",
+      }}
+    >
+      <div style={{ fontSize: "64px" }}>🎉</div>
+      <h1 style={{ fontSize: "var(--font-2xl)", color: "var(--color-primary)", fontWeight: "900" }}>
+        Đăng nhập thành công!
+      </h1>
+      <p style={{ color: "var(--color-text-muted)" }}>Dashboard sẽ được build ở Phase 07</p>
+      <button
+        className="btn btn-outline"
+        id="btn-dashboard-logout"
+        onClick={() => {
+          fetch("/api/auth/logout", { method: "POST" }).then(() => {
+            window.location.href = "/";
+          });
+        }}
+      >
+        Đăng xuất
+      </button>
+    </div>
+  );
 }
 
-export default App;
+// Quiz placeholder — sẽ thay thế ở Phase 04
+function QuizPlaceholder() {
+  return (
+    <div
+      style={{
+        minHeight: "100dvh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "var(--space-3)",
+        padding: "var(--space-4)",
+      }}
+    >
+      <div style={{ fontSize: "64px" }}>📝</div>
+      <h1 style={{ fontSize: "var(--font-xl)", color: "var(--color-primary)", fontWeight: "900" }}>
+        Quiz Engine đang được xây dựng...
+      </h1>
+      <p style={{ color: "var(--color-text-muted)" }}>Phase 04 sẽ hoàn thiện tính năng này!</p>
+      <a href="/" className="btn btn-outline">← Về trang chủ</a>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* ===== PUBLIC ROUTES (không cần login) ===== */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/quiz/:id" element={<QuizPlaceholder />} />
+
+          {/* ===== PROTECTED ROUTES (cần login) ===== */}
+          <Route
+            path="/onboarding"
+            element={
+              <ProtectedRoute>
+                <OnboardingPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPlaceholder />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+}

@@ -1,0 +1,87 @@
+/**
+ * tokens.css — Design Tokens cho luyen-thi-io
+ * Spacing, Typography, Radius, Shadow, Animation
+ * ⚠️ KHÔNG thay đổi file này nếu không có lý do rõ ràng
+ */
+
+:root {
+  /* ===== TYPOGRAPHY ===== */
+  --font-family:  'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-xs:   14px;   /* Nhỏ nhất cho phép — accessibility */
+  --font-sm:   15px;
+  --font-md:   17px;   /* Body text */
+  --font-lg:   20px;
+  --font-xl:   24px;
+  --font-2xl:  30px;
+  --font-3xl:  36px;
+  --font-4xl:  48px;
+
+  --font-normal:    400;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-extrabold: 800;
+  --font-black:     900;
+
+  --line-height-tight:  1.25;
+  --line-height-normal: 1.5;
+  --line-height-loose:  1.75;
+
+  /* ===== SPACING (bội số 8px) ===== */
+  --space-1:   8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  40px;
+  --space-6:  48px;
+  --space-8:  64px;
+  --space-10: 80px;
+  --space-12: 96px;
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-sm:  12px;   /* Input, Badge nhỏ */
+  --radius-md:  20px;   /* Card, Button */
+  --radius-lg:  28px;   /* Dialog, Modal */
+  --radius-xl:  999px;  /* Pill / Tag */
+
+  /* ===== SHADOWS ===== */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+  /* Shadow màu — dùng cho card highlight */
+  --shadow-primary: 0 4px 20px rgba(99, 102, 241, 0.25);
+  --shadow-success: 0 4px 20px rgba(16, 185, 129, 0.25);
+  --shadow-danger:  0 4px 20px rgba(248, 113, 113, 0.25);
+
+  /* ===== TRANSITIONS ===== */
+  --transition-fast:   150ms ease-out;
+  --transition-normal: 250ms ease-out;
+  --transition-slow:   400ms ease-out;
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ===== SIZES (Touch targets — min 44px cho mobile) ===== */
+  --btn-height-sm: 40px;
+  --btn-height-md: 52px;   /* Default — min touch target mobile */
+  --btn-height-lg: 60px;
+
+  --icon-sm: 20px;
+  --icon-md: 24px;
+  --icon-lg: 32px;
+  --icon-xl: 48px;
+
+  /* ===== LAYOUT ===== */
+  --max-width: 480px;   /* Mobile-first max width */
+  --max-width-md: 768px;
+  --max-width-lg: 1024px;
+
+  /* ===== Z-INDEX ===== */
+  --z-base:    0;
+  --z-above:   10;
+  --z-dropdown:100;
+  --z-modal:   200;
+  --z-toast:   300;
+  --z-overlay: 400;
+}

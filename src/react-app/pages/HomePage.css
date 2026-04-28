@@ -1,0 +1,321 @@
+/* HomePage.css */
+
+.home-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+/* ===== HEADER ===== */
+.home-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-above);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="night"] .home-header {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.home-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-header__logo-icon {
+  font-size: 24px;
+}
+
+.home-header__logo-text {
+  font-size: var(--font-lg);
+  font-weight: var(--font-black);
+  color: var(--color-primary);
+}
+
+/* ===== HERO ===== */
+.home-hero {
+  position: relative;
+  padding: var(--space-8) var(--space-3) var(--space-5);
+  overflow: hidden;
+  text-align: center;
+}
+
+.home-hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.home-hero__blob--1 {
+  width: 500px;
+  height: 500px;
+  background: var(--color-primary);
+  top: -200px;
+  right: -150px;
+}
+
+.home-hero__blob--2 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-secondary);
+  bottom: -150px;
+  left: -100px;
+}
+
+.home-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-2);
+}
+
+.home-hero__title {
+  font-size: var(--font-4xl);
+  font-weight: var(--font-black);
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.home-hero__title-highlight {
+  color: var(--color-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-hero__desc {
+  font-size: var(--font-md);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-3);
+}
+
+.home-hero__ctas {
+  display: flex;
+  gap: var(--space-1);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Stats row */
+.home-stats {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.home-stat {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  min-width: 100px;
+}
+
+.home-stat__value {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-black);
+  color: var(--color-primary);
+}
+
+.home-stat__label {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* ===== LESSONS SECTION ===== */
+.home-lessons {
+  flex: 1;
+  padding: var(--space-5) var(--space-3);
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-lessons__header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.home-lessons__title {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.home-lessons__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-md);
+}
+
+/* Lesson Grid */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+@media (min-width: 600px) {
+  .lesson-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .lesson-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.lesson-card--locked {
+  opacity: 0.7;
+}
+
+.lesson-card__emoji {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.lesson-card__content {
+  flex: 1;
+}
+
+.lesson-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.lesson-card__title {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin-bottom: 4px;
+  line-height: var(--line-height-tight);
+}
+
+.lesson-card__meta {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.lesson-card__lock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-warning);
+  margin-top: 4px;
+}
+
+.lesson-card__arrow {
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-2);
+  font-size: var(--font-xl);
+  color: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.lesson-card:hover .lesson-card__arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* CTA Banner */
+.home-cta-banner {
+  margin-top: var(--space-4);
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  color: #fff;
+}
+
+.home-cta-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-cta-banner__text strong {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+}
+
+.home-cta-banner__text span {
+  font-size: var(--font-sm);
+  opacity: 0.9;
+}
+
+.home-cta-banner .btn {
+  background: #fff;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.home-cta-banner .btn:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+/* ===== FOOTER ===== */
+.home-footer {
+  text-align: center;
+  padding: var(--space-3);
+  font-size: var(--font-xs);
+  color: var(--color-text-light);
+  border-top: 1px solid var(--color-border);
+}
