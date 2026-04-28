@@ -1,0 +1,271 @@
+/**
+ * components.css — Shared Component Styles
+ * Button, Card, Badge, Input, Tag, Divider...
+ * Dùng var(--color-*) và var(--space-*) — KHÔNG hardcode
+ */
+
+/* ===================================================
+   BUTTON
+   =================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  height: var(--btn-height-md);
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  font-family: var(--font-family);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-bounce),
+    box-shadow var(--transition-fast);
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: var(--shadow-primary);
+}
+
+/* Secondary / Outline */
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.btn-outline:hover:not(:disabled) {
+  background: var(--color-primary-light);
+}
+
+/* Ghost */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+/* Danger */
+.btn-danger {
+  background: var(--color-danger);
+  color: #fff;
+}
+.btn-danger:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: var(--shadow-danger);
+}
+
+/* Success */
+.btn-success {
+  background: var(--color-success);
+  color: #fff;
+}
+.btn-success:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: var(--shadow-success);
+}
+
+/* Sizes */
+.btn-sm {
+  height: var(--btn-height-sm);
+  padding: 0 var(--space-2);
+  font-size: var(--font-sm);
+}
+.btn-lg {
+  height: var(--btn-height-lg);
+  padding: 0 var(--space-4);
+  font-size: var(--font-lg);
+}
+
+/* ===================================================
+   CARD
+   =================================================== */
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition:
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal),
+    background var(--transition-fast);
+}
+
+.card-hover:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  background: var(--color-card-hover);
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+.card-interactive:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+.card-interactive:active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===================================================
+   BADGE / TAG
+   =================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: var(--radius-xl);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  white-space: nowrap;
+}
+
+.badge-primary {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+.badge-success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+.badge-danger {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+.badge-warning {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+.badge-accent {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+/* ===================================================
+   STAR DISPLAY
+   =================================================== */
+.stars {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.star {
+  font-size: var(--font-xl);
+  color: var(--color-star-empty);
+  transition: color var(--transition-fast), transform var(--transition-bounce);
+  line-height: 1;
+}
+
+.star.filled {
+  color: var(--color-star-fill);
+  filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
+}
+
+.star.animate {
+  animation: starPop 0.4s var(--transition-bounce) forwards;
+}
+
+/* ===================================================
+   INPUT
+   =================================================== */
+.input {
+  display: block;
+  width: 100%;
+  height: var(--btn-height-md);
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text);
+  font-size: var(--font-md);
+  font-family: var(--font-family);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-text-light);
+}
+
+.input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* ===================================================
+   DIVIDER
+   =================================================== */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-2) 0;
+}
+
+/* ===================================================
+   SKELETON LOADER
+   =================================================== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-subtle) 25%,
+    var(--color-border) 50%,
+    var(--color-bg-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ===================================================
+   PROGRESS BAR
+   =================================================== */
+.progress {
+  height: 8px;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-subtle);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-primary);
+  transition: width var(--transition-slow);
+}
+
+/* ===================================================
+   ANIMATION UTILITIES
+   =================================================== */
+.animate-fadeIn   { animation: fadeIn   0.3s ease-out; }
+.animate-scaleIn  { animation: scaleIn  0.25s ease-out; }
+.animate-bounceIn { animation: bounceIn 0.4s ease-out; }
+.animate-pulse    { animation: pulse    2s ease-in-out infinite; }
