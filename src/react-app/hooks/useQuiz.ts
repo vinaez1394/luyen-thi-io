@@ -25,7 +25,7 @@ export function useQuiz(quizId: string) {
     try {
       const res = await fetch(`/api/quiz/${quizId}`);
       if (res.status === 403) {
-        const data = await res.json<{ error: string }>();
+        const data = (await res.json()) as { error: string };
         if (data.error === "premium") {
           setIsPremium(true);
           setState("error");
@@ -33,7 +33,7 @@ export function useQuiz(quizId: string) {
         }
       }
       if (!res.ok) throw new Error("Không tải được bài học");
-      const data = await res.json<Quiz>();
+      const data = (await res.json()) as Quiz;
       setQuiz(data);
       setState("ready");
     } catch (e) {
@@ -63,7 +63,7 @@ export function useQuiz(quizId: string) {
         body: JSON.stringify({ answers, timeSpent: spent }),
       });
       if (!res.ok) throw new Error("Nộp bài thất bại");
-      const data = await res.json<QuizResult>();
+      const data = (await res.json()) as QuizResult;
       setResult(data);
       setState("submitted");
     } catch (e) {

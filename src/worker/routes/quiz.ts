@@ -6,7 +6,7 @@
  */
 
 import { Hono } from "hono";
-import { getSession, getSessionTokenFromCookie } from "../lib/session";
+import { getSession } from "../lib/session";
 import { gradeQuiz, calcPercentage, calcStars } from "../lib/scoring";
 import { updateStarsAfterQuiz } from "../lib/stars";
 
