@@ -1,0 +1,103 @@
+/**
+ * QuizResultScreen.tsx — Màn hình kết quả sau khi nộp bài
+ * Animation sao xuất hiện từng cái, banner mời đăng nhập (guest)
+ */
+
+import { useEffect, useState } from "react";
+import type { QuizResult } from "../../types/quiz";
+import "./Quiz.css";
+
+interface QuizResultScreenProps {
+  result: QuizResult;
+  onReview: () => void;
+  onHome: () => void;
+  isLoggedIn: boolean;
+  onLogin: () => void;
+}
+
+export function QuizResultScreen({
+  result,
+  onReview,
+  onHome,
+  isLoggedIn,
+  onLogin,
+}: QuizResultScreenProps) {
+  const [visibleStars, setVisibleStars] = useState(0);
+
+  // Animation sao xuất hiện từng cái, delay 300ms
+  useEffect(() => {
+    if (visibleStars < result.starsEarned) {
+      const timer = setTimeout(() => setVisibleStars((s) => s + 1), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [visibleStars, result.starsEarned]);
+
+  const getMessage = () => {
+    if (result.percentage >= 90) return "Xuất sắc! 🎉";
+    if (result.percentage >= 80) return "Giỏi lắm! 😊";
+    if (result.percentage >= 60) return "Cố gắng tốt! 💪";
+    return "Cần luyện thêm nhé! 📚";
+  };
+
+  return (
+    <div className="quiz-result">
+      {/* Kết quả tổng quan */}
+      <div className="quiz-result__card card">
+        <h2 className="quiz-result__message">{getMessage()}</h2>
+
+        {/* Sao animation */}
+        <div className="quiz-result__stars" aria-label={`${result.starsEarned} sao`}>
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span
+              key={i}
+              className={`quiz-result__star ${i < visibleStars ? "quiz-result__star--visible" : ""}`}
+              style={{ animationDelay: `${i * 300}ms` }}
+            >
+              ⭐
+            </span>
+          ))}
+        </div>
+
+        {/* Điểm số */}
+        <div className="quiz-result__score">
+          <span className="quiz-result__score-num">{result.score}</span>
+          <span className="quiz-result__score-sep">/</span>
+          <span className="quiz-result__score-total">{result.maxScore}</span>
+          <span className="quiz-result__score-pct">({result.percentage}%)</span>
+        </div>
+
+        {/* Thông báo lưu điểm */}
+        {result.saved ? (
+          <p className="quiz-result__saved">✅ Đã lưu +{result.starsEarned} ⭐ vào hồ sơ bé!</p>
+        ) : (
+          <div className="quiz-result__unsaved">
+            <p>⚠️ Điểm chưa được lưu</p>
+          </div>
+        )}
+      </div>
+
+      {/* Banner mời đăng nhập (guest) */}
+      {!isLoggedIn && (
+        <div className="quiz-result__login-banner">
+          <div>
+            <strong>Đăng nhập để lưu điểm và theo dõi tiến độ!</strong>
+            <p>Điểm số lần này sẽ không được lưu vì bạn chưa đăng nhập.</p>
+          </div>
+          <button className="btn btn-primary" id="btn-result-login" onClick={onLogin}>
+            Đăng nhập ngay
+          </button>
+        </div>
+      )}
+
+      {/* Actions */}
+      <div className="quiz-result__actions">
+        <button className="btn btn-outline" id="btn-result-review" onClick={onReview}>
+          Xem đáp án
+        </button>
+        <button className="btn btn-primary" id="btn-result-home" onClick={onHome}>
+          Về trang chủ
+        </button>
+      </div>
+    </div>
+  );
+}

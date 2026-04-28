@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "schema_version": "1.1.0",
+    "awf_version": "4.0.0"
+  },
+  "project": {
+    "name": "Luyện Thi",
+    "domain": "luyenthi.io.vn",
+    "type": "Web Application",
+    "status": "Development (MVP)"
+  },
+  "tech_stack": {
+    "frontend": {
+      "framework": "React 19 + Vite",
+      "router": "React Router DOM",
+      "styling": "CSS Custom Properties (Themes)",
+      "dnd": "dnd-kit"
+    },
+    "backend": {
+      "framework": "Hono",
+      "platform": "Cloudflare Workers",
+      "database": "Cloudflare D1 (SQLite)",
+      "storage": "Cloudflare R2",
+      "cache": "Cloudflare KV"
+    }
+  },
+  "database_schema": {
+    "summary": "Nền tảng luyện thi với hệ thống Freemium, lưu trữ thông tin học sinh, kết quả làm bài và cài đặt nội dung.",
+    "tables": [
+      "users",
+      "student_profiles",
+      "student_stats",
+      "dream_goals",
+      "quiz_attempts",
+      "daily_activity",
+      "subscriptions",
+      "quiz_configs"
+    ],
+    "relationships_explained": "Mỗi user (phụ huynh) có 1 student_profile (học sinh). Học sinh có thống kê (student_stats), nhiều bài làm (quiz_attempts) và phần thưởng (dream_goals)."
+  },
+  "api_endpoints": [
+    {
+      "path": "/api/auth/google",
+      "explained": "Chuyển hướng người dùng sang trang đăng nhập Google."
+    },
+    {
+      "path": "/api/auth/callback",
+      "explained": "Xử lý đăng nhập Google, tạo session và user trong DB."
+    },
+    {
+      "path": "/api/auth/me",
+      "explained": "Lấy thông tin user hiện tại đang đăng nhập."
+    },
+    {
+      "path": "/api/auth/logout",
+      "explained": "Đăng xuất và xóa session cookie."
+    },
+    {
+      "path": "/api/student/profile",
+      "explained": "Tạo hồ sơ cho bé lần đầu đăng nhập (chọn tên, avatar, theme)."
+    }
+  ],
+  "features": [
+    "Hệ thống Theme với 6 màu sắc",
+    "Đăng nhập Google OAuth qua Cloudflare KV",
+    "Mô hình Freemium (Không cần đăng nhập vẫn làm được bài free)",
+    "Onboarding học sinh mới"
+  ],
+  "knowledge_items": {
+    "patterns": [
+      "Sử dụng CSS Custom Properties cho Design Tokens và Themes",
+      "Sử dụng Cloudflare KV làm Session Storage với HTTP-only Cookies"
+    ],
+    "gotchas": [
+      "Client ID và Secret lưu trong .dev.vars (không push lên git)",
+      "Bài tập FREE không lưu điểm vào database nếu khách chưa đăng nhập"
+    ]
+  }
+}
