@@ -78,15 +78,26 @@ quizRoute.get("/:quizId", async (c) => {
   const quizId = c.req.param("quizId");
 
   // Check quiz config (is_free)
-  const config = await c.env.DB.prepare(
-    "SELECT is_free, is_published FROM quiz_configs WHERE quiz_id = ? LIMIT 1"
-  ).bind(quizId).first<{ is_free: number; is_published: number }>();
+  // try/catch: nếu bảng quiz_configs chưa tồn tại (local dev) → mặc định free
+  let isFree = true;
+  let isPublished = true;
+  try {
+    const config = await c.env.DB.prepare(
+      "SELECT is_free, is_published FROM quiz_configs WHERE quiz_id = ? LIMIT 1"
+    ).bind(quizId).first<{ is_free: number; is_published: number }>();
 
-  // Nếu chưa cấu hình → mặc định premium, unpublished
-  const isFree = config?.is_free === 1;
-  const isPublished = config === null ? false : config.is_published === 1;
+    if (config !== null) {
+      isFree = config.is_free === 1;
+      isPublished = config.is_published === 1;
+    }
+    // config === null → bài chưa cấu hình → coi là free + published (dev mode)
+  } catch {
+    // Bảng quiz_configs chưa migrate → local dev, bỏ qua check
+    isFree = true;
+    isPublished = true;
+  }
 
-  if (!isPublished && config !== null) {
+  if (!isPublished) {
     return c.json({ error: "Bài này chưa được phát hành" }, 404);
   }
 
@@ -109,6 +120,7 @@ quizRoute.get("/:quizId", async (c) => {
 
   return c.json(quizData);
 });
+
 
 // ============================================
 // POST /api/quiz/:quizId/submit
