@@ -10,6 +10,21 @@ import { getSession, getSessionTokenFromCookie } from "../lib/session";
 import { gradeQuiz, calcPercentage, calcStars } from "../lib/scoring";
 import { updateStarsAfterQuiz } from "../lib/stars";
 
+// Static content map dùng cho local dev (khi chưa có R2)
+// Production: dùng R2 bucket CONTENT
+const LOCAL_QUIZ_MAP: Record<string, object> = {};
+
+// Dynamic import trong dev mode (Vite tree-shakes trong production)
+try {
+  // Chỉ load trong môi trường local
+  const mathL1P1 = await import("../../../content/math/MATH-L1-P1.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P1"] = mathL1P1.default;
+} catch {
+  // Trong production (Cloudflare Workers) import này sẽ fail — OK, dùng R2
+}
+
 type Env = {
   DB: D1Database;
   SESSION: KVNamespace;
@@ -39,7 +54,7 @@ async function getOptionalSession(
 // Helper: Load quiz JSON (từ R2 hoặc fallback static)
 // ============================================
 async function loadQuizJson(quizId: string, env: Env): Promise<object | null> {
-  // Thử load từ R2 trước (production)
+  // Production: load từ R2 bucket CONTENT
   if (env.CONTENT) {
     const obj = await env.CONTENT.get(`quizzes/${quizId}.json`);
     if (obj) {
@@ -47,6 +62,12 @@ async function loadQuizJson(quizId: string, env: Env): Promise<object | null> {
       return JSON.parse(text);
     }
   }
+
+  // Local dev fallback: dùng static import
+  if (LOCAL_QUIZ_MAP[quizId]) {
+    return LOCAL_QUIZ_MAP[quizId];
+  }
+
   return null;
 }
 
