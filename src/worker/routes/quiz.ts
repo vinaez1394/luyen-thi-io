@@ -13,7 +13,7 @@ import { updateStarsAfterQuiz } from "../lib/stars";
 type Env = {
   DB: D1Database;
   SESSION: KVNamespace;
-  R2?: R2Bucket; // optional để test local không cần R2
+  CONTENT?: R2Bucket; // R2 binding tên "CONTENT" theo wrangler.json
 };
 
 export const quizRoute = new Hono<{ Bindings: Env }>();
@@ -39,9 +39,9 @@ async function getOptionalSession(
 // Helper: Load quiz JSON (từ R2 hoặc fallback static)
 // ============================================
 async function loadQuizJson(quizId: string, env: Env): Promise<object | null> {
-  // Thử load từ R2 trước
-  if (env.R2) {
-    const obj = await env.R2.get(`quizzes/${quizId}.json`);
+  // Thử load từ R2 trước (production)
+  if (env.CONTENT) {
+    const obj = await env.CONTENT.get(`quizzes/${quizId}.json`);
     if (obj) {
       const text = await obj.text();
       return JSON.parse(text);
