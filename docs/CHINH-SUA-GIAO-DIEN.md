@@ -293,7 +293,10 @@ try {
 | Key | File JSON | Môn |
 |-----|-----------|-----|
 | `MATH-L1-P1` | `content/math/MATH-L1-P1.json` | Toán Tư Duy |
+| `MATH-L1-P2` | `content/math/MATH-L1-P2.json` | Toán Tư Duy |
+| `MATH-L1-P3` | `content/math/MATH-L1-P3.json` | Toán Tư Duy |
 | `MATH-L1-P5` | `content/math/MATH-L1-P5.json` | Toán Tư Duy |
+| `MATH-L1-P6` | `content/math/MATH-L1-P6.json` | Toán Tư Duy |
 | `RW001` | `content/flyers/RW001.json` | Cambridge Flyers |
 
 ---
@@ -304,10 +307,56 @@ try {
 |---|---|---|
 | "Không tải được bài học" | Bài chưa đăng ký trong `quiz.ts` | Xem **Mục 10** — thêm import vào `LOCAL_QUIZ_MAP` |
 | "Không tải được bài học" | `id` trong `subjects.ts` không khớp tên file JSON | Kiểm tra `id` và tên file |
+| **"Dạng bài đang được phát triển"** | File JSON thiếu `"type"` ở cấp root, hoặc sai giá trị | Xem **Mục 11** — dùng đúng schema JSON |
 | Bài không hiện ở trang chủ | `showOnHome: false` | Đổi thành `true` |
 | Click bài → trang trắng | Slug URL sai | Kiểm tra `slug` trong `subjects.ts` |
 | Môn không có trong dropdown | `available: false` | Đổi thành `true` |
 | Card môn không click được | `available: false` | Đổi thành `true` |
+
+---
+
+## 1️⃣1️⃣ SCHEMA CHUẨN CHO FILE JSON BÀI HỌC
+
+> ⚠️ **Đây là nguyên nhân phổ biến nhất gây lỗi "Dạng bài đang được phát triển"**
+
+Khi tạo file JSON bài học mới, **bắt buộc phải có đủ các trường sau ở cấp root** (ngoài mảng `questions`):
+
+```json
+{
+  "id": "MATH-L1-P2",
+  "title": "Toán Tư Duy — Level 1 — Bài 2",
+  "subject": "toan-tu-duy",
+  "skill": "math",
+  "level": "level-1",
+  "part": 2,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc kỹ từng câu hỏi và chọn đáp án đúng nhất.",
+  "questions": [ ... ]
+}
+```
+
+### Các giá trị hợp lệ cho trường `type`
+
+| Giá trị | Dạng bài | Ghi chú |
+|---|---|---|
+| `"multiple-choice"` | Chọn 1 trong 4 đáp án | Dùng cho hầu hết bài Toán & Flyers |
+| `"multiple-choice-image"` | Chọn đáp án + có hình ảnh | Như multiple-choice nhưng có ảnh |
+| `"fill-blank"` | Điền vào chỗ trống | Prompt phải chứa `___` |
+
+> **Lỗi thường gặp:**
+> - Dùng `"multiple_choice"` (gạch dưới) thay vì `"multiple-choice"` (gạch ngang) → **Sai!**
+> - Đặt `type` vào từng câu hỏi thay vì ở cấp root → **Không có tác dụng!**
+> - Quên trường `type` hoàn toàn → Hiển thị "Dạng bài đang được phát triển"
+
+### Checklist trước khi tạo bài mới
+
+```
+✅ File JSON có trường "type": "multiple-choice" ở cấp root?
+✅ Bài đã đăng ký trong quiz.ts → LOCAL_QUIZ_MAP?
+✅ Bài đã thêm vào subjects.ts → lessons[]?
+✅ Chạy: npx tsc -b (không có lỗi)?
+```
 
 ---
 
