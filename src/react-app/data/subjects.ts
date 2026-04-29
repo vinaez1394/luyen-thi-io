@@ -134,6 +134,17 @@ export const SUBJECTS: Subject[] = [
         emoji: "🧮",
         showOnHome: true,
       },
+      {
+        id: "MATH-L1-P9",
+        slug: "math-l1-p9",
+        title: "Toán Tư Duy (English) — Level 1 — Bài 9",
+        skill: "math",
+        level: "Level 1",
+        questions: 10,
+        is_free: true,
+        emoji: "🧮",
+        showOnHome: true,
+      },
     ],
   },
 
