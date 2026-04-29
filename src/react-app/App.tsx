@@ -23,29 +23,8 @@ import { LoginPage } from "./pages/LoginPage";
 import { OnboardingPage } from "./pages/OnboardingPage";
 import { QuizPage } from "./pages/QuizPage";
 import { SubjectPage } from "./pages/SubjectPage";
+import { DashboardPage } from "./pages/DashboardPage";
 
-// Dashboard placeholder — sẽ thay thế ở Phase 07
-function DashboardPlaceholder() {
-  return (
-    <div
-      style={{
-        minHeight: "60dvh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "var(--space-3)",
-        padding: "var(--space-4)",
-      }}
-    >
-      <div style={{ fontSize: "64px" }}>🎉</div>
-      <h1 style={{ fontSize: "var(--font-2xl)", color: "var(--color-primary)", fontWeight: "900" }}>
-        Đăng nhập thành công!
-      </h1>
-      <p style={{ color: "var(--color-text-muted)" }}>Dashboard sẽ được build ở Phase 07</p>
-    </div>
-  );
-}
 
 export default function App() {
   return (
@@ -74,7 +53,7 @@ export default function App() {
               path="/dashboard"
               element={
                 <ProtectedRoute>
-                  <DashboardPlaceholder />
+                  <DashboardPage />
                 </ProtectedRoute>
               }
             />
