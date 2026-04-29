@@ -25,7 +25,7 @@ export function QuizPage() {
   // Ho tro 2 kieu URL:
   //   /quiz/:id           <- URL cu (backward-compat)
   //   /:subject/:quizId   <- URL moi (VD: /toan-tu-duy/math-l1-p1)
-  const { id, subject, quizId: quizSlug } = useParams<{
+  const { id, quizId: quizSlug } = useParams<{
     id?: string;
     subject?: string;
     quizId?: string;

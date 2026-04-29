@@ -7,7 +7,7 @@
  * - Hiển thị dưới dạng preview card + mở modal khi click
  */
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import type { VocabWord } from "../../types/vocabulary";
 import { HangmanGame } from "./HangmanGame";
 import type { HangmanResult } from "./HangmanGame";
