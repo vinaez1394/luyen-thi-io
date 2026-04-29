@@ -1,0 +1,172 @@
+{
+  "id": "MATH-L1-P2",
+  "title": "Toán Tư Duy — Level 1 — Bài 2",
+  "subject": "toan-tu-duy",
+  "skill": "math",
+  "level": "Level 1",
+  "is_free": true,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "Find the " },
+        { "text": "next", "tooltip": { "vi": "tiếp theo", "ipa": "nekst" } },
+        { "text": " number in the " },
+        { "text": "sequence", "tooltip": { "vi": "dãy số", "ipa": "ˈsiːkwəns" } },
+        { "text": ": 2, 5, 10, 17, 26, __?" }
+      ],
+      "options": ["35", "37", "39", "41"],
+      "correct": "37",
+      "explanation_vi": "Hiệu giữa các số tăng dần: +3, +5, +7, +9 → tiếp theo là +11. Vậy 26 + 11 = 37."
+    },
+    {
+      "id": "q2",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "A " },
+        { "text": "father", "tooltip": { "vi": "người cha", "ipa": "ˈfɑːðər" } },
+        { "text": " is 30 and his " },
+        { "text": "son", "tooltip": { "vi": "người con trai", "ipa": "sʌn" } },
+        { "text": " is 4. In how many " },
+        { "text": "years", "tooltip": { "vi": "năm", "ipa": "jɪərz" } },
+        { "text": " will their " },
+        { "text": "total", "tooltip": { "vi": "tổng cộng", "ipa": "ˈtoʊtəl" } },
+        { "text": " age be 40?" }
+      ],
+      "options": ["3", "4", "5", "6"],
+      "correct": "3",
+      "explanation_vi": "Tổng tuổi hiện tại: 30 + 4 = 34. Cần đạt 40 → thiếu 6 tuổi. Mỗi năm trôi qua, cả hai người cùng già thêm 1 tuổi → tổng tăng 2 mỗi năm. Vậy cần 6 ÷ 2 = 3 năm. Kiểm tra: cha = 33, con = 7, tổng = 40 ✓"
+    },
+    {
+      "id": "q3",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "A " },
+        { "text": "tailor", "tooltip": { "vi": "thợ may", "ipa": "ˈteɪlər" } },
+        { "text": " cuts a " },
+        { "text": "cloth", "tooltip": { "vi": "tấm vải", "ipa": "klɒθ" } },
+        { "text": " into 10 " },
+        { "text": "pieces", "tooltip": { "vi": "mảnh, miếng", "ipa": "ˈpiːsɪz" } },
+        { "text": ". Each " },
+        { "text": "cut", "tooltip": { "vi": "lần cắt", "ipa": "kʌt" } },
+        { "text": " takes 1 minute. What is the total time?" }
+      ],
+      "options": ["9", "10", "11", "8"],
+      "correct": "9",
+      "explanation_vi": "Để có 10 mảnh, cần 9 lần cắt (giống như cắt 1 sợi dây thành 10 đoạn cần 9 nhát). 9 lần × 1 phút = 9 phút."
+    },
+    {
+      "id": "q4",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "John is 6th from the " },
+        { "text": "left", "tooltip": { "vi": "bên trái", "ipa": "left" } },
+        { "text": " and 5th from the " },
+        { "text": "right", "tooltip": { "vi": "bên phải", "ipa": "raɪt" } },
+        { "text": " in a " },
+        { "text": "row", "tooltip": { "vi": "hàng ngang", "ipa": "roʊ" } },
+        { "text": ". How many people are in total?" }
+      ],
+      "options": ["11", "10", "9", "12"],
+      "correct": "10",
+      "explanation_vi": "John đứng thứ 6 từ trái → có 5 người bên trái John. Đứng thứ 5 từ phải → có 4 người bên phải John. Tổng = 5 + 1 (John) + 4 = 10 người."
+    },
+    {
+      "id": "q5",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "Spiders have 8 " },
+        { "text": "legs", "tooltip": { "vi": "chân", "ipa": "legz" } },
+        { "text": " and " },
+        { "text": "beetles", "tooltip": { "vi": "bọ cánh cứng", "ipa": "ˈbiːtəlz" } },
+        { "text": " have 6 legs. There are 5 " },
+        { "text": "insects", "tooltip": { "vi": "côn trùng", "ipa": "ˈɪnsekts" } },
+        { "text": " with 34 legs in total. How many " },
+        { "text": "spiders", "tooltip": { "vi": "con nhện", "ipa": "ˈspaɪdərz" } },
+        { "text": " are there?" }
+      ],
+      "options": ["2", "3", "4", "1"],
+      "correct": "2",
+      "explanation_vi": "Giả sử tất cả đều là bọ cánh cứng: 5 × 6 = 30 chân. Thực tế có 34 chân → dư 4 chân. Mỗi con nhện thay thế bọ cánh cứng thêm 8 - 6 = 2 chân. Vậy số nhện = 4 ÷ 2 = 2 con."
+    },
+    {
+      "id": "q6",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "Add 6 to a number, then " },
+        { "text": "divide", "tooltip": { "vi": "chia", "ipa": "dɪˈvaɪd" } },
+        { "text": " by 2, the " },
+        { "text": "result", "tooltip": { "vi": "kết quả", "ipa": "rɪˈzʌlt" } },
+        { "text": " is 7. What is the number?" }
+      ],
+      "options": ["8", "10", "12", "14"],
+      "correct": "8",
+      "explanation_vi": "Tính ngược: kết quả là 7. Trước khi chia 2: 7 × 2 = 14. Trước khi cộng 6: 14 - 6 = 8. Kiểm tra: (8 + 6) ÷ 2 = 7 ✓"
+    },
+    {
+      "id": "q7",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "How many " },
+        { "text": "digits", "tooltip": { "vi": "chữ số (0-9)", "ipa": "ˈdɪdʒɪts" } },
+        { "text": " are needed to number " },
+        { "text": "pages", "tooltip": { "vi": "các trang sách", "ipa": "peɪdʒɪz" } },
+        { "text": " 1 to 18?" }
+      ],
+      "options": ["18", "27", "25", "30"],
+      "correct": "27",
+      "explanation_vi": "Trang 1 đến 9: mỗi trang 1 chữ số → 9 chữ số. Trang 10 đến 18: mỗi trang 2 chữ số, có 9 trang → 9 × 2 = 18 chữ số. Tổng cộng: 9 + 18 = 27 chữ số."
+    },
+    {
+      "id": "q8",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "2 " },
+        { "text": "cats", "tooltip": { "vi": "con mèo", "ipa": "kæts" } },
+        { "text": " weigh as much as 1 " },
+        { "text": "dog", "tooltip": { "vi": "con chó", "ipa": "dɒg" } },
+        { "text": ". 3 dogs weigh as much as 1 " },
+        { "text": "pig", "tooltip": { "vi": "con lợn", "ipa": "pɪg" } },
+        { "text": ". How many cats weigh as much as 1 pig?" }
+      ],
+      "options": ["5", "6", "7", "8"],
+      "correct": "6",
+      "explanation_vi": "1 chó = 2 mèo. 1 heo = 3 chó = 3 × 2 mèo = 6 mèo. Vậy cần 6 con mèo để bằng cân 1 con heo."
+    },
+    {
+      "id": "q9",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "Today is " },
+        { "text": "Wednesday", "tooltip": { "vi": "Thứ Tư", "ipa": "ˈwenzdeɪ" } },
+        { "text": ". What " },
+        { "text": "day", "tooltip": { "vi": "ngày trong tuần", "ipa": "deɪ" } },
+        { "text": " is it 15 days " },
+        { "text": "later", "tooltip": { "vi": "sau đó, về sau", "ipa": "ˈleɪtər" } },
+        { "text": "?" }
+      ],
+      "options": ["Wednesday", "Thursday", "Friday", "Saturday"],
+      "correct": "Thursday",
+      "explanation_vi": "15 ÷ 7 = 2 tuần dư 1 ngày. Vậy 15 ngày sau Thứ Tư = Thứ Tư + 1 ngày = Thứ Năm (Thursday)."
+    },
+    {
+      "id": "q10",
+      "type": "multiple_choice",
+      "prompt": [
+        { "text": "3 " },
+        { "text": "cubes", "tooltip": { "vi": "khối lập phương", "ipa": "kjuːbz" } },
+        { "text": " are placed in a row on a table, " },
+        { "text": "touching", "tooltip": { "vi": "tiếp xúc, chạm nhau", "ipa": "ˈtʌtʃɪŋ" } },
+        { "text": " side-by-side. How many " },
+        { "text": "faces", "tooltip": { "vi": "mặt (của khối)", "ipa": "feɪsɪz" } },
+        { "text": " are " },
+        { "text": "hidden", "tooltip": { "vi": "bị che khuất, ẩn đi", "ipa": "ˈhɪdən" } },
+        { "text": " (touching each other)?" }
+      ],
+      "options": ["2", "3", "4", "5"],
+      "correct": "4",
+      "explanation_vi": "3 khối lập phương xếp thành hàng có 2 chỗ tiếp giáp. Tại mỗi chỗ tiếp giáp, 2 mặt bị ẩn (1 mặt của khối bên trái, 1 mặt của khối bên phải). Tổng mặt ẩn = 2 × 2 = 4."
+    }
+  ]
+}

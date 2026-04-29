@@ -69,6 +69,17 @@ export const SUBJECTS: Subject[] = [
         showOnHome: true,
       },
       {
+        id: "MATH-L1-P2",
+        slug: "math-l1-p2",
+        title: "Toán Tư Duy — Level 1 — Bài 2",
+        skill: "math",
+        level: "Level 1",
+        questions: 10,
+        is_free: true,
+        emoji: "🧮",
+        showOnHome: true,
+      },
+      {
         id: "MATH-L1-P5",
         slug: "math-l1-p5",
         title: "Toán Tư Duy — Level 1 — Bài 5",
