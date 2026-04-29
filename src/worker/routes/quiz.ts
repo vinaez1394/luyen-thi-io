@@ -38,6 +38,13 @@ try {
 } catch { /* Production: dùng R2 */ }
 
 try {
+  const mathL1P4 = await import("../../../content/math/MATH-L1-P4.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P4"] = mathL1P4.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
   const mathL1P5 = await import("../../../content/math/MATH-L1-P5.json", {
     assert: { type: "json" },
   });
@@ -49,6 +56,34 @@ try {
     assert: { type: "json" },
   });
   LOCAL_QUIZ_MAP["MATH-L1-P6"] = mathL1P6.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
+  const mathL1P7 = await import("../../../content/math/MATH-L1-P7.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P7"] = mathL1P7.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
+  const mathL1P8 = await import("../../../content/math/MATH-L1-P8.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P8"] = mathL1P8.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
+  const mathL1P9 = await import("../../../content/math/MATH-L1-P9.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P9"] = mathL1P9.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
+  const mathL1P10 = await import("../../../content/math/MATH-L1-P10.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P10"] = mathL1P10.default;
 } catch { /* Production: dùng R2 */ }
 
 try {

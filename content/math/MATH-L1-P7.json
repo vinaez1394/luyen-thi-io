@@ -1,0 +1,169 @@
+{
+  "id": "MATH-L1-P7",
+  "title": "Toán Tư Duy (English) — Level 1 — Bài 7",
+  "subject": "toan-tu-duy",
+  "skill": "math",
+  "level": "level-1",
+  "part": 7,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc kỹ từng câu hỏi và chọn đáp án đúng nhất. Các từ gạch chân có thể click để xem nghĩa tiếng Việt. Mỗi câu chỉ có 1 đáp án đúng.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": [
+        { "text": "Next " },
+        { "text": "number", "tooltip": { "vi": "số", "ipa": "ˈnʌmbər" } },
+        { "text": ": 1, 2, 4, 7, 11, __?" }
+      ],
+      "options": ["14", "15", "16", "17"],
+      "correct": "16",
+      "explanation_vi": "Hiệu số tăng dần: +1, +2, +3, +4. Tiếp theo là +5. 11 + 5 = 16."
+    },
+    {
+      "id": "q2",
+      "prompt": [
+        { "text": "Sum", "tooltip": { "vi": "tổng", "ipa": "sʌm" } },
+        { "text": " of " },
+        { "text": "ages", "tooltip": { "vi": "tuổi tác", "ipa": "ˈeɪdʒɪz" } },
+        { "text": " of 3 " },
+        { "text": "sisters", "tooltip": { "vi": "chị em gái", "ipa": "ˈsɪstərz" } },
+        { "text": " is 12. What is the sum in 3 " },
+        { "text": "years", "tooltip": { "vi": "năm", "ipa": "jɪərz" } },
+        { "text": "?" }
+      ],
+      "options": ["15", "18", "21", "24"],
+      "correct": "21",
+      "explanation_vi": "Mỗi người sẽ tăng thêm 3 tuổi trong 3 năm tới. Tổng cộng 3 chị em sẽ tăng: 3 x 3 = 9 tuổi. Tổng số tuổi mới: 12 + 9 = 21."
+    },
+    {
+      "id": "q3",
+      "prompt": [
+        { "text": "10 meters of " },
+        { "text": "ribbon", "tooltip": { "vi": "dải ruy băng", "ipa": "ˈrɪbən" } },
+        { "text": ". " },
+        { "text": "Cut", "tooltip": { "vi": "cắt", "ipa": "kʌt" } },
+        { "text": " into 2-meter " },
+        { "text": "pieces", "tooltip": { "vi": "mảnh, đoạn", "ipa": "ˈpiːsɪz" } },
+        { "text": ". How many cuts?" }
+      ],
+      "options": ["4", "5", "6", "3"],
+      "correct": "4",
+      "explanation_vi": "Chia 10 mét thành các đoạn 2 mét sẽ được: 10 / 2 = 5 đoạn. Để có 5 đoạn, ta cần thực hiện 4 lần cắt."
+    },
+    {
+      "id": "q4",
+      "prompt": [
+        { "text": "Queue", "tooltip": { "vi": "hàng đợi", "ipa": "kjuː" } },
+        { "text": " of 25. Ken is 10th from the " },
+        { "text": "front", "tooltip": { "vi": "phía trước", "ipa": "frʌnt" } },
+        { "text": ". Ben is " },
+        { "text": "immediately", "tooltip": { "vi": "ngay sát, ngay lập tức", "ipa": "ɪˈmiːdiətli" } },
+        { "text": " " },
+        { "text": "behind", "tooltip": { "vi": "phía sau", "ipa": "bɪˈhaɪnd" } },
+        { "text": " Ken. What is Ben's " },
+        { "text": "position", "tooltip": { "vi": "vị trí", "ipa": "pəˈzɪʃən" } },
+        { "text": " from the " },
+        { "text": "back", "tooltip": { "vi": "phía cuối", "ipa": "bæk" } },
+        { "text": "?" }
+      ],
+      "options": ["14", "15", "16", "17"],
+      "correct": "15",
+      "explanation_vi": "Ken đứng thứ 10 từ trên xuống, nên Ben (ngay sau Ken) đứng thứ 11. Tổng có 25 người. Số người đứng sau Ben là: 25 - 11 = 14 người. Tính từ dưới lên, Ben đứng thứ 15 (14 người + chính Ben)."
+    },
+    {
+      "id": "q5",
+      "prompt": [
+        { "text": "9 " },
+        { "text": "vehicles", "tooltip": { "vi": "phương tiện", "ipa": "ˈviːɪkəlz" } },
+        { "text": ", 28 " },
+        { "text": "wheels", "tooltip": { "vi": "bánh xe", "ipa": "wiːlz" } },
+        { "text": " (" },
+        { "text": "Cars", "tooltip": { "vi": "ô tô", "ipa": "kɑːrz" } },
+        { "text": " and " },
+        { "text": "bikes", "tooltip": { "vi": "xe đạp", "ipa": "baɪks" } },
+        { "text": "). How many cars?" }
+      ],
+      "options": ["4", "5", "6", "7"],
+      "correct": "5",
+      "explanation_vi": "Giả sử tất cả 9 xe đều là xe đạp (2 bánh), tổng số bánh là: 9 x 2 = 18 bánh. Còn thiếu: 28 - 18 = 10 bánh. Mỗi ô tô (4 bánh) hơn xe đạp 2 bánh. Số ô tô là: 10 / 2 = 5 chiếc."
+    },
+    {
+      "id": "q6",
+      "prompt": [
+        { "text": "Subtract", "tooltip": { "vi": "trừ đi", "ipa": "səbˈtrækt" } },
+        { "text": " 3, " },
+        { "text": "multiply", "tooltip": { "vi": "nhân", "ipa": "ˈmʌltɪplaɪ" } },
+        { "text": " by 5, " },
+        { "text": "add", "tooltip": { "vi": "cộng", "ipa": "æd" } },
+        { "text": " 2, you get 27. What is the number?" }
+      ],
+      "options": ["6", "7", "8", "9"],
+      "correct": "8",
+      "explanation_vi": "Tính ngược từ kết quả 27: Trừ 2 = 25. Chia 5 = 5. Cộng 3 = 8. Số ban đầu là 8."
+    },
+    {
+      "id": "q7",
+      "prompt": [
+        { "text": "A " },
+        { "text": "book", "tooltip": { "vi": "sách", "ipa": "bʊk" } },
+        { "text": " has 15 " },
+        { "text": "pages", "tooltip": { "vi": "trang", "ipa": "peɪdʒɪz" } },
+        { "text": ". How many " },
+        { "text": "digits", "tooltip": { "vi": "chữ số (0-9)", "ipa": "ˈdɪdʒɪts" } },
+        { "text": " are used?" }
+      ],
+      "options": ["21", "23", "20", "19"],
+      "correct": "21",
+      "explanation_vi": "Từ trang 1 đến 9: dùng 9 chữ số. Từ trang 10 đến 15 có 6 trang, mỗi trang 2 chữ số (6 x 2 = 12). Tổng cộng: 9 + 12 = 21 chữ số."
+    },
+    {
+      "id": "q8",
+      "prompt": [
+        { "text": "1 " },
+        { "text": "box", "tooltip": { "vi": "hộp", "ipa": "bɑːks" } },
+        { "text": " = 4 " },
+        { "text": "bags", "tooltip": { "vi": "túi", "ipa": "bæɡz" } },
+        { "text": ". 1 bag = 5 " },
+        { "text": "balls", "tooltip": { "vi": "quả bóng", "ipa": "bɔːlz" } },
+        { "text": ". 1 box = ? balls." }
+      ],
+      "options": ["9", "15", "20", "25"],
+      "correct": "20",
+      "explanation_vi": "1 hộp có 4 túi. Mỗi túi có 5 quả bóng. Vậy 1 hộp có: 4 x 5 = 20 quả bóng."
+    },
+    {
+      "id": "q9",
+      "prompt": [
+        { "text": "Today", "tooltip": { "vi": "hôm nay", "ipa": "təˈdeɪ" } },
+        { "text": " is " },
+        { "text": "Saturday", "tooltip": { "vi": "Thứ Bảy", "ipa": "ˈsætərdeɪ" } },
+        { "text": ". What day was 10 days " },
+        { "text": "ago", "tooltip": { "vi": "trước đây", "ipa": "əˈɡoʊ" } },
+        { "text": "?" }
+      ],
+      "options": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+      "correct": "Wednesday",
+      "explanation_vi": "10 ngày = 1 tuần (7 ngày) và dư 3 ngày. 3 ngày trước Thứ Bảy là Thứ Tư (Wednesday)."
+    },
+    {
+      "id": "q10",
+      "prompt": [
+        { "text": "4 " },
+        { "text": "cubes", "tooltip": { "vi": "khối lập phương", "ipa": "kjuːbz" } },
+        { "text": " in a " },
+        { "text": "straight", "tooltip": { "vi": "thẳng", "ipa": "streɪt" } },
+        { "text": " " },
+        { "text": "row", "tooltip": { "vi": "hàng", "ipa": "roʊ" } },
+        { "text": ". How many " },
+        { "text": "hidden", "tooltip": { "vi": "bị che khuất", "ipa": "ˈhɪdən" } },
+        { "text": " " },
+        { "text": "faces", "tooltip": { "vi": "mặt", "ipa": "feɪsɪz" } },
+        { "text": "?" }
+      ],
+      "options": ["4", "6", "8", "10"],
+      "correct": "6",
+      "explanation_vi": "Xếp 4 khối lập phương thành một hàng thẳng sẽ có 3 chỗ tiếp xúc giữa các khối. Mỗi chỗ tiếp xúc làm ẩn đi 2 mặt. Vậy số mặt bị ẩn là: 3 x 2 = 6 mặt."
+    }
+  ]
+}
