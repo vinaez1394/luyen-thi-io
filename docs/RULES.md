@@ -21,7 +21,8 @@
 - ❌ KHÔNG viết inline style trực tiếp nếu có thể dùng CSS class
 
 ### Business Logic
-- ❌ KHÔNG trừ sao của học sinh (sao chỉ cộng, không bao giờ trừ)
+- ✅ SAO chỉ bị trừ trong trường hợp DUY NHẤT: Word Tooltip sau khi hết lượt miễn phí (-1⭐/lần, cho đến 0 thì khóa)
+- ❌ KHÔNG trừ sao trong bất kỳ trường hợp nào khác (sai đáp án, thoát bài, v.v.)
 - ❌ KHÔNG hiện quảng cáo hoặc upsell TRONG lúc bé đang làm bài
 - ❌ KHÔNG copy nội dung từ đề thi Cambridge thật (bản quyền)
 - ❌ KHÔNG cho bé trực tiếp upload ảnh trong MVP (chỉ preset)
@@ -58,6 +59,10 @@
 - ✅ Mọi loại bài đều có field `instructions_vi` trong JSON
 - ✅ Màn hình kết quả phải hiện: sao nhận được + animation + "Còn X sao nữa là đến Dream Box"
 - ✅ Mỗi câu sai phải có `explanation_vi` để giải thích sau khi nộp
+- ✅ Bài tiếng Anh (`ui_language: "en"`) → toàn bộ UI quiz bằng tiếng Anh ("Next →", "← Previous", "Submit")
+- ✅ Bài tiếng Việt / Toán (`ui_language: "vi"`) → UI bằng tiếng Việt ("← Câu trước", "Câu tiếp →", "Nộp bài")
+- ✅ Field `prompt` trong JSON có thể là string (cũ) hoặc array segments (mới — hỗ trợ Word Tooltip)
+- ✅ Từ có tooltip: `text-decoration: underline dotted var(--color-primary)`
 
 ---
 
@@ -92,4 +97,4 @@
 
 ---
 
-*Cập nhật: 2026-04-28*
+*Cập nhật: 2026-04-28 | Thay đổi: Cho phép trừ sao trong Word Tooltip, thêm rules ngôn ngữ UI, thêm annotated segments format*

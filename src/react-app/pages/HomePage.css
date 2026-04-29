@@ -319,3 +319,232 @@
   color: var(--color-text-light);
   border-top: 1px solid var(--color-border);
 }
+
+/* ===== CHINH PHỤC MÔN HỌC ===== */
+.home-subjects {
+  padding: var(--space-5) var(--space-3);
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-subjects__header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.home-subjects__title {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.home-subjects__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-md);
+}
+
+/* Grid 3 cột — mỗi thẻ tỉ lệ 4:3 */
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .subject-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .subject-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Subject card — tỉ lệ 4:3 */
+.subject-card {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-bounce);
+  user-select: none;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Accent line ở top theo màu môn học */
+.subject-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--subject-color, var(--color-primary));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.subject-card--active {
+  cursor: pointer;
+}
+
+.subject-card--active:hover {
+  border-color: var(--subject-color, var(--color-primary));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.subject-card--active:hover::before {
+  opacity: 1;
+}
+
+.subject-card--soon {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.subject-card__emoji {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.subject-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.subject-card__name {
+  font-size: var(--font-md);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+}
+
+.subject-card__desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.subject-card__count {
+  font-size: var(--font-xs);
+  color: var(--subject-color, var(--color-primary));
+  font-weight: var(--font-bold);
+  margin-top: 2px;
+}
+
+.subject-card__arrow {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-size: var(--font-lg);
+  color: var(--subject-color, var(--color-primary));
+  opacity: 0;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.subject-card--active:hover .subject-card__arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.subject-card__soon-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 10px !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SECTION: CHƠI HẾT MÌNH
+════════════════════════════════════════════════════════════════════ */
+.home-games {
+  padding: var(--space-6) var(--space-4);
+  max-width: var(--max-width-lg);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-games__header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.home-games__title {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.home-games__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-md);
+}
+
+/* Grid: Hangman full width + 2 coming-soon nhỏ */
+.home-games__grid {
+  display: grid;
+  grid-template-columns: 1fr 160px 160px;
+  gap: var(--space-2);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .home-games__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Coming soon card */
+.home-game-coming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-card);
+  border: 2px dashed var(--color-border);
+  border-radius: 20px;
+  padding: var(--space-3) var(--space-2);
+  text-align: center;
+  min-height: 140px;
+}
+
+.home-game-coming__icon {
+  font-size: 36px;
+  line-height: 1;
+  filter: grayscale(0.4);
+}
+
+.home-game-coming__name {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+}
+
+.home-game-coming__badge {
+  font-size: 11px;
+  font-weight: var(--font-bold);
+  background: var(--color-bg-subtle);
+  color: var(--color-text-light);
+  border-radius: var(--radius-xl);
+  padding: 2px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

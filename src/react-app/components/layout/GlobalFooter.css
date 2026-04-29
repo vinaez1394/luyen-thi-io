@@ -1,0 +1,74 @@
+/* GlobalFooter.css */
+.global-footer {
+  background: var(--color-card);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-3);
+  margin-top: auto;
+}
+
+.global-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.global-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.global-footer__logo {
+  font-size: var(--font-lg);
+  font-weight: var(--font-extrabold);
+  color: var(--color-primary);
+  font-family: var(--font-family);
+}
+
+.global-footer__slogan {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--font-semibold);
+}
+
+.global-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.global-footer__link {
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-family);
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  min-height: 32px;
+}
+.global-footer__link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.global-footer__sep {
+  color: var(--color-border);
+  font-size: var(--font-sm);
+}
+
+.global-footer__copy {
+  font-size: var(--font-xs);
+  color: var(--color-text-light);
+  margin: 0;
+}

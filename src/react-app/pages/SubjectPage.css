@@ -1,0 +1,203 @@
+/**
+ * SubjectPage.css — Styles cho trang danh sách bài học của môn
+ */
+
+.subject-page {
+  min-height: 60dvh;
+  background: var(--color-bg);
+}
+
+/* Trạng thái không tồn tại */
+.subject-page--not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-3);
+  text-align: center;
+  min-height: 60dvh;
+}
+
+/* Hero header */
+.subject-page__hero {
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-3) var(--space-5);
+  text-align: center;
+  position: relative;
+}
+
+/* Accent strip sử dụng màu môn học */
+.subject-page__hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--subject-color, var(--color-primary));
+}
+
+.subject-page__back {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  background: none;
+  border: none;
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.subject-page__back:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+.subject-page__hero-emoji {
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: var(--space-1);
+}
+
+.subject-page__hero-title {
+  font-size: var(--font-3xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.subject-page__hero-desc {
+  font-size: var(--font-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.subject-page__hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--subject-color, var(--color-primary));
+}
+
+/* Lessons area */
+.subject-page__lessons {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-3);
+}
+
+.subject-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* Lesson grid — 1 cột, full width */
+.subject-lesson-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Lesson card */
+.subject-lesson-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  position: relative;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-bounce),
+    box-shadow var(--transition-fast);
+}
+
+.subject-lesson-card:hover {
+  border-left-color: var(--subject-color, var(--color-primary));
+  transform: translateX(4px);
+}
+
+.subject-lesson-card--locked {
+  opacity: 0.7;
+}
+
+.subject-lesson-card__number {
+  font-size: var(--font-xl);
+  font-weight: var(--font-black);
+  color: var(--color-border);
+  width: 32px;
+  text-align: center;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.subject-lesson-card:hover .subject-lesson-card__number {
+  color: var(--subject-color, var(--color-primary));
+}
+
+.subject-lesson-card__emoji {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.subject-lesson-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.subject-lesson-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.subject-lesson-card__title {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.subject-lesson-card__meta {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.subject-lesson-card__arrow {
+  font-size: var(--font-xl);
+  color: var(--subject-color, var(--color-primary));
+  opacity: 0;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.subject-lesson-card:hover .subject-lesson-card__arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .subject-page__back {
+    position: static;
+    margin-bottom: var(--space-2);
+    display: inline-block;
+  }
+  .subject-page__hero {
+    padding-top: var(--space-3);
+  }
+}
