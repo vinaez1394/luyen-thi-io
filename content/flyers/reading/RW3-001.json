@@ -1,0 +1,49 @@
+{
+  "id": "RW3-001",
+  "title": "Cambridge Flyers — Reading Part 5 — Drag & Drop Fill",
+  "subject": "flyers",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 5,
+  "type": "drag-drop-fill",
+  "is_free": true,
+  "ui_language": "en",
+  "instructions_vi": "Kéo các từ trong hộp từ vào đúng chỗ trống trong câu.",
+  "questions": [
+    {
+      "id": "q1",
+      "template": "The {0} is very {1} today.",
+      "word_bank": ["weather", "sunny", "cat", "blue"],
+      "correct": ["weather", "sunny"],
+      "explanation_vi": "Câu đúng: The weather is very sunny today. (Thời tiết hôm nay rất nắng.)"
+    },
+    {
+      "id": "q2",
+      "template": "She {0} to school by {1} every day.",
+      "word_bank": ["goes", "bike", "runs", "train", "eats"],
+      "correct": ["goes", "bike"],
+      "explanation_vi": "Câu đúng: She goes to school by bike every day. (Cô ấy đi học bằng xe đạp mỗi ngày.)"
+    },
+    {
+      "id": "q3",
+      "template": "Tom likes to {0} books in the {1}.",
+      "word_bank": ["read", "library", "eat", "garden", "swim"],
+      "correct": ["read", "library"],
+      "explanation_vi": "Câu đúng: Tom likes to read books in the library. (Tom thích đọc sách trong thư viện.)"
+    },
+    {
+      "id": "q4",
+      "template": "My {0} is eight years {1}.",
+      "word_bank": ["sister", "old", "brother", "tall", "happy"],
+      "correct": ["sister", "old"],
+      "explanation_vi": "Câu đúng: My sister is eight years old. (Em gái tôi tám tuổi.)"
+    },
+    {
+      "id": "q5",
+      "template": "There are {0} birds sitting on the {1}.",
+      "word_bank": ["three", "fence", "two", "tree", "five"],
+      "correct": ["three", "fence"],
+      "explanation_vi": "Câu đúng: There are three birds sitting on the fence. (Có ba con chim đang ngồi trên hàng rào.)"
+    }
+  ]
+}

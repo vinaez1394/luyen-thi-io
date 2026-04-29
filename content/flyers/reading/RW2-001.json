@@ -1,0 +1,50 @@
+{
+  "id": "RW2-001",
+  "title": "Cambridge Flyers — Reading Part 2 — Drag & Drop Match",
+  "subject": "flyers",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "drag-drop-match",
+  "is_free": true,
+  "ui_language": "en",
+  "instructions_vi": "Kéo các từ tiếng Anh và thả vào ô nghĩa tiếng Việt tương ứng.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Match each word with its meaning.",
+      "pairs": [
+        { "left": "cat",      "right": "con mèo" },
+        { "left": "dog",      "right": "con chó" },
+        { "left": "bird",     "right": "con chim" },
+        { "left": "fish",     "right": "con cá" },
+        { "left": "rabbit",   "right": "con thỏ" }
+      ],
+      "explanation_vi": "cat = con mèo, dog = con chó, bird = con chim, fish = con cá, rabbit = con thỏ"
+    },
+    {
+      "id": "q2",
+      "prompt": "Match the school subjects with their Vietnamese meanings.",
+      "pairs": [
+        { "left": "Maths",    "right": "Toán học" },
+        { "left": "Science",  "right": "Khoa học" },
+        { "left": "Art",      "right": "Mỹ thuật" },
+        { "left": "Music",    "right": "Âm nhạc" },
+        { "left": "PE",       "right": "Thể dục" }
+      ],
+      "explanation_vi": "Maths = Toán, Science = Khoa học, Art = Mỹ thuật, Music = Âm nhạc, PE = Thể dục"
+    },
+    {
+      "id": "q3",
+      "prompt": "Match the colours with their Vietnamese meanings.",
+      "pairs": [
+        { "left": "red",      "right": "đỏ" },
+        { "left": "blue",     "right": "xanh dương" },
+        { "left": "green",    "right": "xanh lá" },
+        { "left": "yellow",   "right": "vàng" },
+        { "left": "purple",   "right": "tím" }
+      ],
+      "explanation_vi": "red = đỏ, blue = xanh dương, green = xanh lá, yellow = vàng, purple = tím"
+    }
+  ]
+}

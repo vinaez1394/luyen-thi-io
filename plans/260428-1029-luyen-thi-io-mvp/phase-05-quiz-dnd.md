@@ -1,5 +1,5 @@
 # Phase 05: Quiz Engine — Drag & Drop
-> Trạng thái: ⬜ Chưa làm | Phụ thuộc: Phase 04
+> Trạng thái: ✅ Hoàn thành | Phụ thuộc: Phase 04
 
 ---
 
