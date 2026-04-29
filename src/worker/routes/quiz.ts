@@ -73,6 +73,13 @@ try {
 } catch { /* Production: dùng R2 */ }
 
 try {
+  const mathL1P10 = await import("../../../content/math/MATH-L1-P10.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P10"] = mathL1P10.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
   const rw001 = await import("../../../content/flyers/RW001.json", {
     assert: { type: "json" },
   });

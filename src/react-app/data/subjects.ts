@@ -60,7 +60,7 @@ export const SUBJECTS: Subject[] = [
       {
         id: "MATH-L1-P1",
         slug: "math-l1-p1",
-        title: "Toán Tư Duy — Level 1 — Bài 1",
+        title: "Toán Tư Duy (English) — Level 1 — Bài 1",
         skill: "math",
         level: "Level 1",
         questions: 10,
@@ -71,7 +71,7 @@ export const SUBJECTS: Subject[] = [
       {
         id: "MATH-L1-P2",
         slug: "math-l1-p2",
-        title: "Toán Tư Duy — Level 1 — Bài 2",
+        title: "Toán Tư Duy (English) — Level 1 — Bài 2",
         skill: "math",
         level: "Level 1",
         questions: 10,
@@ -82,7 +82,7 @@ export const SUBJECTS: Subject[] = [
       {
         id: "MATH-L1-P3",
         slug: "math-l1-p3",
-        title: "Toán Tư Duy — Level 1 — Bài 3",
+        title: "Toán Tư Duy (English) — Level 1 — Bài 3",
         skill: "math",
         level: "Level 1",
         questions: 10,
@@ -93,7 +93,7 @@ export const SUBJECTS: Subject[] = [
       {
         id: "MATH-L1-P5",
         slug: "math-l1-p5",
-        title: "Toán Tư Duy — Level 1 — Bài 5",
+        title: "Toán Tư Duy (English) — Level 1 — Bài 5",
         skill: "math",
         level: "Level 1",
         questions: 10,
@@ -104,7 +104,7 @@ export const SUBJECTS: Subject[] = [
       {
         id: "MATH-L1-P6",
         slug: "math-l1-p6",
-        title: "Toán Tư Duy — Level 1 — Bài 6",
+        title: "Toán Tư Duy (English) — Level 1 — Bài 6",
         skill: "math",
         level: "Level 1",
         questions: 10,
@@ -138,6 +138,17 @@ export const SUBJECTS: Subject[] = [
         id: "MATH-L1-P9",
         slug: "math-l1-p9",
         title: "Toán Tư Duy (English) — Level 1 — Bài 9",
+        skill: "math",
+        level: "Level 1",
+        questions: 10,
+        is_free: true,
+        emoji: "🧮",
+        showOnHome: true,
+      },
+      {
+        id: "MATH-L1-P10",
+        slug: "math-l1-p10",
+        title: "Toán Tư Duy (English) — Level 1 — Bài 10",
         skill: "math",
         level: "Level 1",
         questions: 10,
