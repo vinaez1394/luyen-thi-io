@@ -8,7 +8,7 @@
  * ĐỂ THÊM MÔN HỌC VÀO DROPDOWN: chỉnh sửa src/react-app/data/subjects.ts
  */
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useTheme, THEMES } from "../ui/ThemeProvider";
@@ -28,9 +28,19 @@ export function GlobalHeader() {
   const [avatarOpen,    setAvatarOpen]    = useState(false);
   const [subjectOpen,   setSubjectOpen]   = useState(false);
 
-  const themeRef   = useRef<HTMLDivElement>(null);
-  const avatarRef  = useRef<HTMLDivElement>(null);
-  const subjectRef = useRef<HTMLDivElement>(null);
+  const themeRef        = useRef<HTMLDivElement>(null);
+  const avatarRef       = useRef<HTMLDivElement>(null);
+  const subjectRef      = useRef<HTMLDivElement>(null);
+  const subjectCloseTimer = useRef<number | null>(null);
+
+  const openSubjectMenu  = useCallback(() => {
+    if (subjectCloseTimer.current) clearTimeout(subjectCloseTimer.current);
+    setSubjectOpen(true);
+  }, []);
+
+  const closeSubjectMenu = useCallback(() => {
+    subjectCloseTimer.current = window.setTimeout(() => setSubjectOpen(false), 120);
+  }, []);
 
   // Đóng tất cả dropdowns khi click ra ngoài
   useEffect(() => {
@@ -87,8 +97,8 @@ export function GlobalHeader() {
             <div
               ref={subjectRef}
               className="global-header__nav-dropdown-wrapper"
-              onMouseEnter={() => setSubjectOpen(true)}
-              onMouseLeave={() => setSubjectOpen(false)}
+              onMouseEnter={openSubjectMenu}
+              onMouseLeave={closeSubjectMenu}
             >
               <button
                 className={`global-header__nav-link global-header__nav-link--dropdown ${
@@ -105,30 +115,37 @@ export function GlobalHeader() {
 
               {/* Dropdown panel */}
               {subjectOpen && (
-                <div className="nav-subject-dropdown" role="menu">
-                  {availableSubjects.map((s) => (
+                <div
+                  className="nav-subject-dropdown"
+                  role="menu"
+                  onMouseEnter={openSubjectMenu}
+                  onMouseLeave={closeSubjectMenu}
+                >
+                  <div className="nav-subject-dropdown__inner-card">
+                    {availableSubjects.map((s) => (
+                      <button
+                        key={s.id}
+                        className="nav-subject-dropdown__item"
+                        role="menuitem"
+                        id={`btn-nav-subject-${s.id}`}
+                        onClick={() => { navigate(`/${s.id}`); setSubjectOpen(false); }}
+                        style={{ "--subject-color": s.color } as React.CSSProperties}
+                      >
+                        <span className="nav-subject-dropdown__emoji">{s.emoji}</span>
+                        <div className="nav-subject-dropdown__info">
+                          <span className="nav-subject-dropdown__name">{s.label}</span>
+                          <span className="nav-subject-dropdown__desc">{s.desc}</span>
+                        </div>
+                      </button>
+                    ))}
+                    <div className="nav-subject-dropdown__divider" />
                     <button
-                      key={s.id}
-                      className="nav-subject-dropdown__item"
-                      role="menuitem"
-                      id={`btn-nav-subject-${s.id}`}
-                      onClick={() => { navigate(`/${s.id}`); setSubjectOpen(false); }}
-                      style={{ "--subject-color": s.color } as React.CSSProperties}
+                      className="nav-subject-dropdown__see-all"
+                      onClick={() => { navigate("/"); setSubjectOpen(false); }}
                     >
-                      <span className="nav-subject-dropdown__emoji">{s.emoji}</span>
-                      <div className="nav-subject-dropdown__info">
-                        <span className="nav-subject-dropdown__name">{s.label}</span>
-                        <span className="nav-subject-dropdown__desc">{s.desc}</span>
-                      </div>
+                      Xem tất cả môn học →
                     </button>
-                  ))}
-                  <div className="nav-subject-dropdown__divider" />
-                  <button
-                    className="nav-subject-dropdown__see-all"
-                    onClick={() => { navigate("/"); setSubjectOpen(false); }}
-                  >
-                    Xem tất cả môn học →
-                  </button>
+                  </div>
                 </div>
               )}
             </div>
