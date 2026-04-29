@@ -52,6 +52,20 @@ try {
 } catch { /* Production: dùng R2 */ }
 
 try {
+  const mathL1P7 = await import("../../../content/math/MATH-L1-P7.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P7"] = mathL1P7.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
+  const mathL1P8 = await import("../../../content/math/MATH-L1-P8.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P8"] = mathL1P8.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
   const rw001 = await import("../../../content/flyers/RW001.json", {
     assert: { type: "json" },
   });

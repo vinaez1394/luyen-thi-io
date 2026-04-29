@@ -297,6 +297,8 @@ try {
 | `MATH-L1-P3` | `content/math/MATH-L1-P3.json` | Toán Tư Duy |
 | `MATH-L1-P5` | `content/math/MATH-L1-P5.json` | Toán Tư Duy |
 | `MATH-L1-P6` | `content/math/MATH-L1-P6.json` | Toán Tư Duy |
+| `MATH-L1-P7` | `content/math/MATH-L1-P7.json` | Toán Tư Duy |
+| `MATH-L1-P8` | `content/math/MATH-L1-P8.json` | Toán Tư Duy |
 | `RW001` | `content/flyers/RW001.json` | Cambridge Flyers |
 
 ---
