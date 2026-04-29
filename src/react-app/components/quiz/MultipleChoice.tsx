@@ -5,6 +5,7 @@
  */
 
 import type { QuizComponentProps } from "../../types/quiz";
+import { WordTooltip } from "../vocabulary/WordTooltip";
 import "./Quiz.css";
 
 export function MultipleChoice({
@@ -13,6 +14,8 @@ export function MultipleChoice({
   onAnswer,
   isSubmitted,
   correctAnswer,
+  vocabRemainingFree = 3,
+  onVocabLookup,
 }: QuizComponentProps) {
   const selected = Array.isArray(userAnswer) ? userAnswer[0] : userAnswer;
   const correct = Array.isArray(correctAnswer) ? correctAnswer[0] : correctAnswer;
@@ -41,8 +44,15 @@ export function MultipleChoice({
         </div>
       )}
 
-      {/* Câu hỏi */}
-      <p className="quiz-question__prompt">{question.prompt}</p>
+      {/* Câu hỏi — Phase 4.5: hỗ trợ annotated prompt */}
+      <p className="quiz-question__prompt">
+        <WordTooltip
+          prompt={question.prompt}
+          remainingFree={vocabRemainingFree}
+          onLookup={onVocabLookup ?? (() => ({ allowed: false, willCostStar: false }))}
+          isReview={isSubmitted}
+        />
+      </p>
 
       {/* Đáp án */}
       <div className={`mc-options ${question.image_url ? "mc-options--image" : ""}`}>

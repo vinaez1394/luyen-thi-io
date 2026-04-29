@@ -1,28 +1,35 @@
 /**
- * App.tsx — Root component với React Router
+ * App.tsx — Root component với React Router + AppLayout
  *
  * Routes:
- *   /           → HomePage (PUBLIC — không cần login)
- *   /login      → LoginPage (public)
- *   /onboarding → OnboardingPage (protected)
- *   /dashboard  → DashboardPage (protected) — Phase 07
- *   /quiz/:id   → QuizPage (free bài: public; premium: protected)
+ *   /                    -> HomePage (PUBLIC)
+ *   /login               -> LoginPage (public)
+ *   /:subject            -> SubjectPage (danh sách bài của môn)
+ *   /:subject/:quizId    -> QuizPage (bài học cụ thể)
+ *   /quiz/:id            -> QuizPage (URL cũ — backward-compat)
+ *   /onboarding          -> OnboardingPage (protected)
+ *   /dashboard           -> DashboardPage (protected) — Phase 07
+ *
+ * ĐỂ THÊM ROUTE MỚI: thêm <Route> vào Routes bên dưới
+ * Thứ tự routes quan trọng: cụ thể trước, wildcard sau
  */
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./components/ui/ThemeProvider";
 import { ProtectedRoute } from "./components/ui/ProtectedRoute";
+import { AppLayout } from "./components/layout/AppLayout";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { OnboardingPage } from "./pages/OnboardingPage";
 import { QuizPage } from "./pages/QuizPage";
+import { SubjectPage } from "./pages/SubjectPage";
 
 // Dashboard placeholder — sẽ thay thế ở Phase 07
 function DashboardPlaceholder() {
   return (
     <div
       style={{
-        minHeight: "100dvh",
+        minHeight: "60dvh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -36,54 +43,52 @@ function DashboardPlaceholder() {
         Đăng nhập thành công!
       </h1>
       <p style={{ color: "var(--color-text-muted)" }}>Dashboard sẽ được build ở Phase 07</p>
-      <button
-        className="btn btn-outline"
-        id="btn-dashboard-logout"
-        onClick={() => {
-          fetch("/api/auth/logout", { method: "POST" }).then(() => {
-            window.location.href = "/";
-          });
-        }}
-      >
-        Đăng xuất
-      </button>
     </div>
   );
 }
-
-
 
 export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <Routes>
-          {/* ===== PUBLIC ROUTES (không cần login) ===== */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/quiz/:id" element={<QuizPage />} />
+        {/* AppLayout bọc toàn bộ app — GlobalHeader + Footer + MobileNav */}
+        <AppLayout>
+          <Routes>
+            {/* ── PUBLIC ROUTES ── */}
+            <Route path="/"        element={<HomePage />} />
+            <Route path="/login"   element={<LoginPage />} />
 
-          {/* ===== PROTECTED ROUTES (cần login) ===== */}
-          <Route
-            path="/onboarding"
-            element={
-              <ProtectedRoute>
-                <OnboardingPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <DashboardPlaceholder />
-              </ProtectedRoute>
-            }
-          />
+            {/* ── Backward-compat URL cũ ── */}
+            <Route path="/quiz/:id" element={<QuizPage />} />
 
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+            {/* ── PROTECTED ROUTES ── */}
+            <Route
+              path="/onboarding"
+              element={
+                <ProtectedRoute>
+                  <OnboardingPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardPlaceholder />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* ── SUBJECT ROUTES (PHẢI ĐẶT CUỐI — wildcard) ── */}
+            {/* /toan-tu-duy         -> trang danh sách bài Toán Tư Duy */}
+            {/* /toan-tu-duy/math-l1-p1 -> bài cụ thể */}
+            <Route path="/:subject"          element={<SubjectPage />} />
+            <Route path="/:subject/:quizId"  element={<QuizPage />} />
+
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AppLayout>
       </BrowserRouter>
     </ThemeProvider>
   );

@@ -20,9 +20,11 @@ Ship được phiên bản đầu tiên cho học sinh thật dùng thử với:
 | 01 | Foundation — D1 Schema + Wrangler | ✅ Hoàn thành | 100% |
 | 02 | Theme System + Design Tokens | ✅ Hoàn thành | 100% |
 | 03 | Auth — Google OAuth | ✅ Hoàn thành | 100% |
-| 04 | Quiz Engine — Core | ⬜ Chưa làm | 0% |
+| 04 | Quiz Engine — Core | ✅ Hoàn thành | 100% |
+| **0.5** | **App Shell — Layout Framework** | ✅ Hoàn thành | 100% |
 | 05 | Quiz Engine — Drag & Drop | ⬜ Chưa làm | 0% |
 | 06 | Quiz Engine — Audio + Submit | ⬜ Chưa làm | 0% |
+| **4.5** | **Word Tooltip + Hangman Vocabulary** | ⬜ Chưa làm | 0% |
 | 07 | Student Dashboard (Trang Chủ Bé) | ⬜ Chưa làm | 0% |
 | 08 | Dream Box + Email Approval | ⬜ Chưa làm | 0% |
 | 09 | Avatar + Profile | ⬜ Chưa làm | 0% |
@@ -40,11 +42,15 @@ Phase 01 (Database)
     ↓
 Phase 02 (Themes)   Phase 03 (Auth)
     ↓                   ↓
-Phase 04 (Quiz Engine Core)
+Phase 04 (Quiz Engine Core) ✅
+    ↓
+Phase 0.5 (App Shell) ← TIẾP THEO — làm ngay
     ↓
 Phase 05 (DnD)    Phase 06 (Audio)
     ↓                   ↓
-Phase 07 (Dashboard) ← cần Auth + Quiz done
+Phase 4.5 (Word Tooltip + Hangman) ← sau khi có Quiz hoàn chỉnh
+    ↓
+Phase 07 (Dashboard) ← cần Auth + Quiz + App Shell done
     ↓
 Phase 08 (Dream Box) ← cần Dashboard done
 Phase 09 (Avatar)    ← có thể song song với 08
@@ -78,13 +84,17 @@ Phase 11 (Polish)
 - `phase-02-themes.md` — Theme System + CSS Design Tokens
 - `phase-03-auth.md` — Google OAuth
 - `phase-04-quiz-core.md` — Quiz Engine (MC + FillBlank)
+- `phase-00-app-shell.md` — **[MỚI]** App Shell: Layout Framework ← TIẾP THEO
 - `phase-05-quiz-dnd.md` — Quiz Engine (DragDrop)
 - `phase-06-quiz-audio.md` — Audio Player + Submit Logic
+- `phase-45-vocabulary.md` — **[MỚI]** Word Tooltip + Hangman Vocabulary
 - `phase-07-dashboard.md` — Student Dashboard
 - `phase-08-dreambox.md` — Hộp Quà Ước Mơ + Email
 - `phase-09-avatar.md` — Avatar + Profile
 - `phase-10-content.md` — JSON content 10 bài
 - `phase-11-polish.md` — Mobile test + Polish
+
+> Spec chi tiết: `docs/SPEC-APP-SHELL.md` và `docs/SPEC-WORD-TOOLTIP-HANGMAN.md`
 
 ---
 

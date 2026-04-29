@@ -15,15 +15,27 @@ import { updateStarsAfterQuiz } from "../lib/stars";
 const LOCAL_QUIZ_MAP: Record<string, object> = {};
 
 // Dynamic import trong dev mode (Vite tree-shakes trong production)
+// ⚠️ MỖI KHI THÊM BÀI MỚI → thêm import tương ứng vào đây
 try {
-  // Chỉ load trong môi trường local
   const mathL1P1 = await import("../../../content/math/MATH-L1-P1.json", {
     assert: { type: "json" },
   });
   LOCAL_QUIZ_MAP["MATH-L1-P1"] = mathL1P1.default;
-} catch {
-  // Trong production (Cloudflare Workers) import này sẽ fail — OK, dùng R2
-}
+} catch { /* Production: dùng R2 */ }
+
+try {
+  const mathL1P5 = await import("../../../content/math/MATH-L1-P5.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P5"] = mathL1P5.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
+  const rw001 = await import("../../../content/flyers/RW001.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["RW001"] = rw001.default;
+} catch { /* Production: dùng R2 */ }
 
 type Env = {
   DB: D1Database;

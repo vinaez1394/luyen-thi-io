@@ -1,10 +1,12 @@
 /**
  * QuizResultScreen.tsx — Màn hình kết quả sau khi nộp bài
- * Animation sao xuất hiện từng cái, banner mời đăng nhập (guest)
+ * Phase 4.5: thêm HangmanLauncher để ôn từ vựng
  */
 
 import { useEffect, useState } from "react";
 import type { QuizResult } from "../../types/quiz";
+import type { VocabWord } from "../../types/vocabulary";
+import { HangmanLauncher } from "../vocabulary/HangmanLauncher";
 import "./Quiz.css";
 
 interface QuizResultScreenProps {
@@ -13,6 +15,10 @@ interface QuizResultScreenProps {
   onHome: () => void;
   isLoggedIn: boolean;
   onLogin: () => void;
+  // Phase 4.5
+  vocabPendingWords?: VocabWord[];
+  onVocabMarkCorrect?: (word: string) => void;
+  onHangmanStarsEarned?: (stars: number) => void;
 }
 
 export function QuizResultScreen({
@@ -21,6 +27,9 @@ export function QuizResultScreen({
   onHome,
   isLoggedIn,
   onLogin,
+  vocabPendingWords = [],
+  onVocabMarkCorrect,
+  onHangmanStarsEarned,
 }: QuizResultScreenProps) {
   const [visibleStars, setVisibleStars] = useState(0);
 
@@ -75,6 +84,16 @@ export function QuizResultScreen({
           </div>
         )}
       </div>
+
+      {/* ── Phase 4.5: Hangman Launcher ──────────────────────── */}
+      {onVocabMarkCorrect && onHangmanStarsEarned && (
+        <HangmanLauncher
+          pendingWords={vocabPendingWords}
+          isLoggedIn={isLoggedIn}
+          onMarkCorrect={onVocabMarkCorrect}
+          onStarsEarned={onHangmanStarsEarned}
+        />
+      )}
 
       {/* Banner mời đăng nhập (guest) */}
       {!isLoggedIn && (

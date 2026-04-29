@@ -1,7 +1,11 @@
 /**
  * quiz.ts — TypeScript interfaces cho Quiz Engine
  * Thêm type mới vào QuizType → Engine tự động hỗ trợ
+ *
+ * Phase 4.5: Question.prompt có thể là AnnotatedPrompt (TextSegment[])
  */
+
+import type { AnnotatedPrompt } from "./vocabulary";
 
 // ============================================
 // Tất cả dạng bài hiện có và tương lai
@@ -26,7 +30,8 @@ export type LevelType = "flyers" | "movers" | "ket" | "pet" | "level-1" | "level
 // ============================================
 export interface Question {
   id: string;
-  prompt: string;
+  /** Phase 4.5: có thể là string thuần (cũ) hoặc TextSegment[] (mới, có tooltip) */
+  prompt: AnnotatedPrompt;
   image_url?: string;          // optional — dùng khi type = multiple-choice-image
   audio_url?: string;          // optional — dùng khi type = audio-*
   options: string[];           // Danh sách đáp án
@@ -81,4 +86,7 @@ export interface QuizComponentProps {
   onAnswer: (questionId: string, answer: string | string[]) => void;
   isSubmitted: boolean;    // true sau khi nộp bài → show đáp án
   correctAnswer?: string | string[];
+  // Phase 4.5: Word Tooltip (optional — không phải bài nào cũng có)
+  vocabRemainingFree?: number;
+  onVocabLookup?: (word: string, vi: string, ipa?: string) => { allowed: boolean; willCostStar: boolean };
 }

@@ -2,18 +2,37 @@
  * QuizPage.tsx — Page wrapper cho Quiz
  * Xử lý: load quiz, navigate câu hỏi, submit, kết quả
  * Hỗ trợ: guest (không login), freemium paywall
+ *
+ * Phase 4.5: useVocabulary được khởi tạo ở đây và truyền xuống
+ *
+ * Layout:
+ *   AppLayout (global, từ App.tsx)
+ *   └── QuizLayout (quiz-specific: sub-header, progress bubbles, exit)
+ *       └── QuizEngine (nội dung câu hỏi + prev/next)
  */
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuiz } from "../hooks/useQuiz";
 import { useAuth } from "../hooks/useAuth";
+import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
+import { QuizLayout } from "../components/layout/QuizLayout";
 import "../components/quiz/Quiz.css";
 
 export function QuizPage() {
-  const { id: quizId = "" } = useParams<{ id: string }>();
+  // Ho tro 2 kieu URL:
+  //   /quiz/:id           <- URL cu (backward-compat)
+  //   /:subject/:quizId   <- URL moi (VD: /toan-tu-duy/math-l1-p1)
+  const { id, subject, quizId: quizSlug } = useParams<{
+    id?: string;
+    subject?: string;
+    quizId?: string;
+  }>();
+
+  // Chuyen slug thanh ID goc: math-l1-p1 -> MATH-L1-P1
+  const quizId = (id ?? quizSlug ?? "").toUpperCase().replace(/-/g, "-");
   const navigate = useNavigate();
   const { isLoggedIn, loginWithGoogle } = useAuth();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -25,20 +44,22 @@ export function QuizPage() {
     loadQuiz, handleAnswer, submitQuiz,
   } = useQuiz(quizId);
 
-  // Load bài khi vào trang
+  // Phase 4.5: Vocabulary system
+  const vocab = useVocabulary({
+    quizId,
+    isLoggedIn,
+  });
+
   useEffect(() => {
     loadQuiz();
   }, [loadQuiz]);
 
-  // Sau khi submit → show result
   const handleSubmit = async () => {
     await submitQuiz();
     setShowResult(true);
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Navigation giữa các câu
   const handleNext = () => {
     if (quiz && currentQuestion < quiz.questions.length - 1) {
       setCurrentQuestion((q) => q + 1);
@@ -100,23 +121,40 @@ export function QuizPage() {
         onLogin={loginWithGoogle}
         onReview={() => setShowResult(false)}
         onHome={() => navigate("/")}
+        // Phase 4.5: truyền vocab xuống để hiện Hangman
+        vocabPendingWords={vocab.getPendingWords()}
+        onVocabMarkCorrect={vocab.markWordCorrect}
+        onHangmanStarsEarned={(_stars) => {
+          // Phase 07: sẽ gọi API cộng sao vào DB
+          // Hiện tại chỉ log
+          console.log(`[Phase 4.5] Hangman: +${_stars} ⭐`);
+        }}
       />
     );
   }
 
-  // ===== Quiz Engine =====
+  // ===== Quiz (với QuizLayout) =====
   return (
-    <QuizEngine
+    <QuizLayout
       quiz={quiz}
-      answers={answers}
-      result={result}
-      isSubmitted={state === "submitted" && !showResult}
       currentQuestion={currentQuestion}
-      onAnswer={handleAnswer}
-      onNext={handleNext}
-      onPrev={handlePrev}
-      onSubmit={handleSubmit}
-      allAnswered={allAnswered}
-    />
+      answers={answers}
+    >
+      <QuizEngine
+        quiz={quiz}
+        answers={answers}
+        result={result}
+        isSubmitted={state === "submitted" && !showResult}
+        currentQuestion={currentQuestion}
+        onAnswer={handleAnswer}
+        onNext={handleNext}
+        onPrev={handlePrev}
+        onSubmit={handleSubmit}
+        allAnswered={allAnswered}
+        // Phase 4.5: vocab props
+        vocabRemainingFree={vocab.remainingFree}
+        onVocabLookup={vocab.lookupWord}
+      />
+    </QuizLayout>
   );
 }

@@ -1,0 +1,147 @@
+/**
+ * WordTooltip.css — Styles cho Word Tooltip component
+ */
+
+/* ── Từ có thể tra ──────────────────────────────────────────────────────────── */
+.word-tooltip {
+  display: inline;
+  line-height: inherit;
+}
+
+.word-tooltip__word {
+  display: inline;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--color-primary);
+  color: inherit;
+  font-weight: inherit;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  position: relative;
+}
+
+.word-tooltip__word:hover {
+  color: var(--color-primary);
+  border-bottom-style: solid;
+}
+
+.word-tooltip__word:focus-visible {
+  outline: 2px solid var(--color-primary);
+  border-radius: 2px;
+}
+
+/* ── Popup ──────────────────────────────────────────────────────────────────── */
+.word-tooltip__popup {
+  /* Vị trí fixed để không bị clipped */
+  position: fixed;
+  transform: translate(-50%, calc(-100% - 12px));
+  z-index: var(--z-modal);
+
+  /* Visual */
+  background: var(--color-card);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3);
+  box-shadow: var(--shadow-lg);
+  min-width: 180px;
+  max-width: 260px;
+  text-align: center;
+
+  /* Arrow chỉ xuống */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Arrow */
+.word-tooltip__popup::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: var(--color-primary);
+  pointer-events: none;
+}
+.word-tooltip__popup::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: var(--color-card);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.word-tooltip__popup-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+.word-tooltip__popup-close:hover {
+  color: var(--color-danger);
+  background: var(--color-bg-subtle);
+}
+
+.word-tooltip__popup-word {
+  font-size: var(--font-lg);
+  font-weight: var(--font-black);
+  color: var(--color-primary);
+  line-height: 1.2;
+  padding-right: 20px; /* space for close btn */
+}
+
+.word-tooltip__popup-ipa {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-family: monospace;
+  letter-spacing: 0.5px;
+}
+
+.word-tooltip__popup-vi {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
+  padding-top: 6px;
+  margin-top: 2px;
+}
+
+.word-tooltip__popup-cost {
+  font-size: var(--font-xs);
+  color: var(--color-warning);
+  font-weight: var(--font-bold);
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+}
+
+.word-tooltip__popup-free {
+  font-size: 11px;
+  color: var(--color-text-light);
+}
+
+/* ── Mobile: popup canh giữa màn hình ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  .word-tooltip__popup {
+    position: fixed;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    min-width: 240px;
+  }
+  .word-tooltip__popup::after,
+  .word-tooltip__popup::before {
+    display: none;
+  }
+}
