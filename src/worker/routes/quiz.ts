@@ -31,6 +31,13 @@ try {
 } catch { /* Production: dùng R2 */ }
 
 try {
+  const mathL1P3 = await import("../../../content/math/MATH-L1-P3.json", {
+    assert: { type: "json" },
+  });
+  LOCAL_QUIZ_MAP["MATH-L1-P3"] = mathL1P3.default;
+} catch { /* Production: dùng R2 */ }
+
+try {
   const mathL1P5 = await import("../../../content/math/MATH-L1-P5.json", {
     assert: { type: "json" },
   });
