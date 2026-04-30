@@ -470,5 +470,8 @@
       "correct": "8",
       "explanation_vi": "Hình vuông 2x2 tạo bởi 4 khối sẽ có 4 điểm tiếp xúc (2 tiếp xúc ngang, 2 tiếp xúc dọc). Mỗi điểm tiếp xúc làm ẩn đi 2 mặt. Vậy có 4 x 2 = 8 mặt bị ẩn giữa các khối."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

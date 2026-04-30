@@ -488,5 +488,8 @@
       "correct": "8",
       "explanation_vi": "5 khối lập phương xếp chồng có 4 điểm tiếp xúc (giữa cube 1-2, 2-3, 3-4, 4-5). Mỗi điểm tiếp xúc che đi 2 mặt → 4 × 2 = 8 mặt bị che."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

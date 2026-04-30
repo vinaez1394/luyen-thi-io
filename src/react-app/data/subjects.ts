@@ -27,6 +27,18 @@ export interface Lesson {
   emoji: string;
   /** Hiện trong "Bài Luyện Tập" ở trang chủ? (default: true) */
   showOnHome?: boolean;
+  /**
+   * [Phase IA] Mức độ lớp — chỉ dùng cho lộ trình lop6
+   * "3-4" = phù hợp bé lớp 3-4
+   * "4-5" = phù hợp bé lớp 4-5
+   * "5-6" = phù hợp bé lớp 5 chuẩn bị thi lớp 6
+   */
+  grade_target?: "3-4" | "4-5" | "5-6";
+  /**
+   * [Phase IA] Game củng cố mở ra sau khi hoàn thành bài này
+   * null = không có game, bỏ qua
+   */
+  unlocks_game?: "hangman" | "crossword" | null;
 }
 
 export interface Subject {
@@ -39,6 +51,18 @@ export interface Subject {
   color: string;
   /** false = hiện badge "Sắp có", không click được */
   available: boolean;
+  /**
+   * [Phase IA] Lộ trình học tập
+   * "cambridge" = Chứng chỉ Cambridge (Starters → Movers → Flyers → KET → PET)
+   * "lop6"      = Thi tuyển sinh lớp 6 THCS (Toán / Tiếng Việt / Tiếng Anh / Khoa học)
+   */
+  pathway: "cambridge" | "lop6";
+  /**
+   * [Phase IA] Nhóm trong lộ trình
+   * Cambridge: "starters" | "movers" | "flyers" | "ket" | "pet" | "ielts"
+   * Lớp 6:     "toan" | "tieng-viet" | "tieng-anh" | "khoa-hoc"
+   */
+  group: string;
   lessons: Lesson[];
 }
 
@@ -47,128 +71,80 @@ export interface Subject {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const SUBJECTS: Subject[] = [
-  // ─── Toán Tư Duy ─────────────────────────────────────────────────────────
+  // ═══════════════════════════════════════════════════════════════════════════
+  // LỘ TRÌNH 2: THI LỚP 6 (pathway: "lop6")
+  // Nhóm Môn: Toán | Tiếng Việt | Tiếng Anh | Khoa học
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // ─── Lớp 6: Nhóm Toán Tư Duy & Logic ─────────────────────────────────────
   {
     id: "toan-tu-duy",
     label: "Toán Tư Duy",
     emoji: "🧮",
-    desc: "Tư duy logic & toán học",
+    desc: "Tư duy logic & toán học — Nhóm Toán Lớp 6",
     color: "#7c3aed",
     available: true,
+    pathway: "lop6",
+    group: "toan",
     lessons: [
       // 👇 THÊM BÀI TOÁN MỚI TẠI ĐÂY
-      {
-        id: "MATH-L1-P1",
-        slug: "math-l1-p1",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 1",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P2",
-        slug: "math-l1-p2",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 2",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P3",
-        slug: "math-l1-p3",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 3",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P4",
-        slug: "math-l1-p4",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 4",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P5",
-        slug: "math-l1-p5",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 5",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P6",
-        slug: "math-l1-p6",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 6",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P7",
-        slug: "math-l1-p7",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 7",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P8",
-        slug: "math-l1-p8",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 8",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P9",
-        slug: "math-l1-p9",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 9",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
-      {
-        id: "MATH-L1-P10",
-        slug: "math-l1-p10",
-        title: "Toán Tư Duy (English) — Level 1 — Bài 10",
-        skill: "math",
-        level: "Level 1",
-        questions: 10,
-        is_free: true,
-        emoji: "🧮",
-        showOnHome: true,
-      },
+      // grade_target: "4-5" = phù hợp bé đang học lớp 4–5, chuẩn bị thi lớp 6
+      { id: "MATH-L1-P1",  slug: "math-l1-p1",  title: "Toán Tư Duy — Level 1 — Bài 1",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P2",  slug: "math-l1-p2",  title: "Toán Tư Duy — Level 1 — Bài 2",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P3",  slug: "math-l1-p3",  title: "Toán Tư Duy — Level 1 — Bài 3",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P4",  slug: "math-l1-p4",  title: "Toán Tư Duy — Level 1 — Bài 4",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P5",  slug: "math-l1-p5",  title: "Toán Tư Duy — Level 1 — Bài 5",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P6",  slug: "math-l1-p6",  title: "Toán Tư Duy — Level 1 — Bài 6",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P7",  slug: "math-l1-p7",  title: "Toán Tư Duy — Level 1 — Bài 7",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P8",  slug: "math-l1-p8",  title: "Toán Tư Duy — Level 1 — Bài 8",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
+      { id: "MATH-L1-P9",  slug: "math-l1-p9",  title: "Toán Tư Duy — Level 1 — Bài 9",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "5-6", unlocks_game: "hangman" },
+      { id: "MATH-L1-P10", slug: "math-l1-p10", title: "Toán Tư Duy — Level 1 — Bài 10", skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "5-6", unlocks_game: "hangman" },
     ],
   },
+
+  // ─── Lớp 6: Nhóm Tiếng Việt (sắp có) ──────────────────────────────────────
+  {
+    id: "tieng-viet-l6",
+    label: "Tiếng Việt Lớp 6",
+    emoji: "📖",
+    desc: "Ngôn ngữ & Cảm thụ — Nhóm Tiếng Việt Lớp 6",
+    color: "#dc2626",
+    available: false,
+    pathway: "lop6",
+    group: "tieng-viet",
+    lessons: [],
+  },
+
+  // ─── Lớp 6: Nhóm Tiếng Anh (sắp có) ───────────────────────────────────────
+  {
+    id: "tieng-anh-l6",
+    label: "Tiếng Anh Lớp 6",
+    emoji: "🌐",
+    desc: "Ngoại ngữ & Hội nhập — Nhóm Tiếng Anh Lớp 6",
+    color: "#0891b2",
+    available: false,
+    pathway: "lop6",
+    group: "tieng-anh",
+    lessons: [],
+  },
+
+  // ─── Lớp 6: Nhóm Khoa học & Xã hội (sắp có) ───────────────────────────────
+  {
+    id: "khoa-hoc-l6",
+    label: "Khoa học & Xã hội",
+    emoji: "🔬",
+    desc: "KHTN & KHXH — Nhóm Khoa học Lớp 6",
+    color: "#16a34a",
+    available: false,
+    pathway: "lop6",
+    group: "khoa-hoc",
+    lessons: [],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // LỘ TRÌNH 1: CAMBRIDGE (pathway: "cambridge")
+  // Cấp độ: Starters → Movers → Flyers → KET → PET
+  // ═══════════════════════════════════════════════════════════════════════════
 
   // ─── Cambridge Flyers ────────────────────────────────────────────────────
   {
@@ -178,6 +154,8 @@ export const SUBJECTS: Subject[] = [
     desc: "Trình độ A2 — 9 đến 12 tuổi",
     color: "#6366f1",
     available: true,
+    pathway: "cambridge",
+    group: "flyers",
     lessons: [
       // 👇 THÊM BÀI FLYERS MỚI TẠI ĐÂY
       {
@@ -263,9 +241,22 @@ export const SUBJECTS: Subject[] = [
     desc: "Trình độ A1 — 7 đến 9 tuổi",
     color: "#10b981",
     available: false,
-    lessons: [
-      // 👇 THÊM BÀI MOVERS MỚI TẠI ĐÂY
-    ],
+    pathway: "cambridge",
+    group: "movers",
+    lessons: [],
+  },
+
+  // ─── Cambridge Starters ──────────────────────────────────────────────────
+  {
+    id: "starters",
+    label: "Cambridge Starters",
+    emoji: "⭐",
+    desc: "Pre-A1 — 5 đến 7 tuổi",
+    color: "#f97316",
+    available: false,
+    pathway: "cambridge",
+    group: "starters",
+    lessons: [],
   },
 
   // ─── Cambridge KET ───────────────────────────────────────────────────────
@@ -276,6 +267,8 @@ export const SUBJECTS: Subject[] = [
     desc: "Key English Test — A2",
     color: "#f59e0b",
     available: false,
+    pathway: "cambridge",
+    group: "ket",
     lessons: [],
   },
 
@@ -287,6 +280,8 @@ export const SUBJECTS: Subject[] = [
     desc: "Preliminary English Test — B1",
     color: "#ef4444",
     available: false,
+    pathway: "cambridge",
+    group: "pet",
     lessons: [],
   },
 
@@ -298,6 +293,8 @@ export const SUBJECTS: Subject[] = [
     desc: "Luyện nền tảng IELTS",
     color: "#8b5cf6",
     available: false,
+    pathway: "cambridge",
+    group: "ielts",
     lessons: [],
   },
 ];
@@ -321,3 +318,23 @@ export const ALL_LESSONS = SUBJECTS.flatMap((s) =>
 /** Tìm môn học theo slug */
 export const findSubject = (id: string) =>
   SUBJECTS.find((s) => s.id === id) ?? null;
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// [Phase IA] PATHWAY HELPERS — Dùng cho routing /cambridge và /lop6
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/** Tất cả môn Cambridge (để render CambridgePage) */
+export const getCambridgeSubjects = () =>
+  SUBJECTS.filter((s) => s.pathway === "cambridge");
+
+/** Tất cả môn Lớp 6 (để render Lop6Page) */
+export const getLop6Subjects = () =>
+  SUBJECTS.filter((s) => s.pathway === "lop6");
+
+/** Tìm môn theo pathway + group (URL: /cambridge/flyers → findByPathwayGroup("cambridge","flyers")) */
+export const findByPathwayGroup = (pathway: string, group: string) =>
+  SUBJECTS.find((s) => s.pathway === pathway && s.group === group) ?? null;
+
+/** Lấy tất cả môn theo pathway */
+export const getSubjectsByPathway = (pathway: "cambridge" | "lop6") =>
+  SUBJECTS.filter((s) => s.pathway === pathway);

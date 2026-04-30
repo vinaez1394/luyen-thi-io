@@ -468,5 +468,8 @@
       "correct": "10",
       "explanation_vi": "6 khối lập phương xếp chồng có 5 chỗ tiếp xúc (giữa cube 1-2, 2-3, 3-4, 4-5, 5-6). Mỗi chỗ tiếp xúc che đi 2 mặt → 5 × 2 = 10 mặt bị che."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

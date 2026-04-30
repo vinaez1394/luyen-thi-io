@@ -479,5 +479,8 @@
       "correct": "4",
       "explanation_vi": "3 khối xếp hàng có 2 chỗ tiếp giáp. Tại mỗi chỗ, 2 mặt bị ẩn. Tổng = 2 × 2 = 4 mặt."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

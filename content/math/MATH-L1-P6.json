@@ -520,5 +520,8 @@
       "correct": "4",
       "explanation_vi": "Hình chữ L làm từ 3 khối lập phương sẽ có 2 chỗ tiếp xúc nối với nhau. Mỗi chỗ tiếp xúc làm ẩn đi 2 mặt. Vậy có 2 x 2 = 4 mặt bị ẩn."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }
