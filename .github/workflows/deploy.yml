@@ -1,0 +1,149 @@
+name: Deploy to Cloudflare Workers
+
+# ════════════════════════════════════════
+# Trigger: push lên nhánh main hoặc dev
+# ════════════════════════════════════════
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  deploy:
+    name: 🚀 Deploy Worker
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Cài Node.js 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # 3. Cài dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build (TypeScript + Vite)
+      - name: Build
+        run: npm run build
+
+      # 5. Deploy lên Cloudflare Workers
+      # CLOUDFLARE_API_TOKEN được lưu trong GitHub Secrets
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # 6. Upload content lên R2 (chỉ khi có file thay đổi trong content/)
+      - name: Upload quiz content to R2
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P1.json --file content/math/MATH-L1-P1.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P2
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P2.json --file content/math/MATH-L1-P2.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P3
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P3.json --file content/math/MATH-L1-P3.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P4
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P4.json --file content/math/MATH-L1-P4.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P5
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P5.json --file content/math/MATH-L1-P5.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P6
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P6.json --file content/math/MATH-L1-P6.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P7
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P7.json --file content/math/MATH-L1-P7.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P8
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P8.json --file content/math/MATH-L1-P8.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P9
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P9.json --file content/math/MATH-L1-P9.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload MATH-L1-P10
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P10.json --file content/math/MATH-L1-P10.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload RW001 (Flyers Reading)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/RW001.json --file content/flyers/RW001.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload RW2-001 (Flyers Reading)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/RW2-001.json --file content/flyers/reading/RW2-001.json --content-type application/json
+        continue-on-error: true
+
+      - name: Upload RW3-001 (Flyers Reading)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: r2 object put luyen-thi-content/quizzes/RW3-001.json --file content/flyers/reading/RW3-001.json --content-type application/json
+        continue-on-error: true
