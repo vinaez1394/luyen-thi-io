@@ -10,6 +10,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { findByPathwayGroup } from "../data/subjects";
 import { getPathwayFromPathname, getLessonUrl, getPathwayUrl } from "../utils/urlHelpers";
+import { Breadcrumb, useBreadcrumbs } from "../components/ui/Breadcrumb";
 import "./SubjectPage.css";
 
 const SKILL_LABELS: Record<string, string> = {
@@ -62,25 +63,23 @@ export function SubjectPage() {
     }
   };
 
-  // Back button — về trang lộ trình (/cambridge hoặc /lop6)
-  const backLabel = pathway === "cambridge" ? "← Cambridge" : pathway === "lop6" ? "← Tất cả môn Lớp 6" : "← Trang chủ";
-  const backUrl   = pathway ? getPathwayUrl(pathway) : "/";
+  // Breadcrumb trail và back button
+  const backUrl      = pathway ? getPathwayUrl(pathway) : "/";
+  const breadcrumbs  = useBreadcrumbs(location.pathname, subject?.label);
 
   return (
     <div className="subject-page">
+
+      {/* Breadcrumb */}
+      <div className="subject-page__breadcrumb-bar">
+        <Breadcrumb items={breadcrumbs} />
+      </div>
 
       {/* Header môn học */}
       <div
         className="subject-page__hero"
         style={{ "--subject-color": subject.color } as React.CSSProperties}
       >
-        <button
-          className="subject-page__back"
-          onClick={() => navigate(backUrl)}
-          id="btn-subject-back"
-        >
-          {backLabel}
-        </button>
         <div className="subject-page__hero-emoji">{subject.emoji}</div>
         <h1 className="subject-page__hero-title">{subject.label}</h1>
         <p className="subject-page__hero-desc">{subject.desc}</p>
