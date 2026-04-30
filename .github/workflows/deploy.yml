@@ -11,7 +11,7 @@ on:
 
 jobs:
   deploy:
-    name: 🚀 Deploy Worker
+    name: 🚀 Deploy Worker + Sync R2
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -35,115 +35,100 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 5. Deploy lên Cloudflare Workers
-      # CLOUDFLARE_API_TOKEN được lưu trong GitHub Secrets
+      # 5. Deploy Worker lên Cloudflare
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      # 6. Upload content lên R2 (chỉ khi có file thay đổi trong content/)
-      - name: Upload quiz content to R2
+      # 6. Sync toàn bộ content JSON lên R2
+      - name: Sync MATH-L1-P1
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P1.json --file content/math/MATH-L1-P1.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P2
+      - name: Sync MATH-L1-P2
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P2.json --file content/math/MATH-L1-P2.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P3
+      - name: Sync MATH-L1-P3
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P3.json --file content/math/MATH-L1-P3.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P4
+      - name: Sync MATH-L1-P4
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P4.json --file content/math/MATH-L1-P4.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P5
+      - name: Sync MATH-L1-P5
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P5.json --file content/math/MATH-L1-P5.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P6
+      - name: Sync MATH-L1-P6
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P6.json --file content/math/MATH-L1-P6.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P7
+      - name: Sync MATH-L1-P7
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P7.json --file content/math/MATH-L1-P7.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P8
+      - name: Sync MATH-L1-P8
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P8.json --file content/math/MATH-L1-P8.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P9
+      - name: Sync MATH-L1-P9
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P9.json --file content/math/MATH-L1-P9.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload MATH-L1-P10
+      - name: Sync MATH-L1-P10
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/MATH-L1-P10.json --file content/math/MATH-L1-P10.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload RW001 (Flyers Reading)
+      - name: Sync RW001
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/RW001.json --file content/flyers/RW001.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload RW2-001 (Flyers Reading)
+      - name: Sync RW2-001
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/RW2-001.json --file content/flyers/reading/RW2-001.json --content-type application/json
         continue-on-error: true
 
-      - name: Upload RW3-001 (Flyers Reading)
+      - name: Sync RW3-001
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: r2 object put luyen-thi-content/quizzes/RW3-001.json --file content/flyers/reading/RW3-001.json --content-type application/json
         continue-on-error: true

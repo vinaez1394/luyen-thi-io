@@ -43,6 +43,12 @@ interface GoogleUserInfo {
 // =============================================
 authRoute.get("/google", (c) => {
   const clientId = c.env.GOOGLE_CLIENT_ID;
+
+  // Guard: nếu chưa set secret trên Cloudflare → trả lỗi rõ ràng
+  if (!clientId) {
+    return c.json({ error: "GOOGLE_CLIENT_ID not configured" }, 500);
+  }
+
   const redirectUri = new URL("/api/auth/callback", c.req.url).toString();
 
   const params = new URLSearchParams({
@@ -54,7 +60,8 @@ authRoute.get("/google", (c) => {
     prompt: "select_account",
   });
 
-  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
+  // ⚠️ FIX: phải dùng params.toString() — template literal không tự convert URLSearchParams
+  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
   return c.redirect(googleAuthUrl);
 });
 
