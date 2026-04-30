@@ -74,28 +74,44 @@ authRoute.get("/callback", async (c) => {
 
   // User từ chối hoặc lỗi từ Google
   if (error || !code) {
-    return c.redirect("/?auth_error=cancelled");
+    return c.redirect(`/?auth_error=cancelled&detail=${encodeURIComponent(error ?? "no_code")}`);
+  }
+
+  // Guard: thiếu secrets
+  const clientId = (c.env.GOOGLE_CLIENT_ID ?? "").trim();
+  const clientSecret = (c.env.GOOGLE_CLIENT_SECRET ?? "").trim();
+  if (!clientId || !clientSecret) {
+    console.error("Missing OAuth secrets", { clientId: !!clientId, clientSecret: !!clientSecret });
+    return c.redirect("/?auth_error=config_missing");
   }
 
   try {
-    const redirectUri = new URL("/api/auth/callback", c.req.url).toString();
+    // Dùng origin cố định từ request để build redirect_uri
+    const reqUrl = new URL(c.req.url);
+    const redirectUri = `${reqUrl.origin}/api/auth/callback`;
 
     // 1. Exchange code for access token
+    const tokenBody = new URLSearchParams({
+      code,
+      client_id: clientId,
+      client_secret: clientSecret,
+      redirect_uri: redirectUri,
+      grant_type: "authorization_code",
+    });
+
     const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        code,
-        client_id: c.env.GOOGLE_CLIENT_ID,
-        client_secret: c.env.GOOGLE_CLIENT_SECRET,
-        redirect_uri: redirectUri,
-        grant_type: "authorization_code",
-      }),
+      body: tokenBody,
     });
 
     if (!tokenRes.ok) {
-      console.error("Token exchange failed:", await tokenRes.text());
-      return c.redirect("/?auth_error=token_failed");
+      const errText = await tokenRes.text();
+      console.error("Token exchange failed:", errText);
+      // Parse lỗi từ Google để debug
+      let googleErrCode = "token_failed";
+      try { googleErrCode = (JSON.parse(errText) as { error: string }).error ?? "token_failed"; } catch { /* ignore */ }
+      return c.redirect(`/?auth_error=${encodeURIComponent(googleErrCode)}`);
     }
 
     const tokenData = (await tokenRes.json()) as { access_token: string };
