@@ -133,7 +133,7 @@
 .reg-google-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;   /* căn giữa */
   gap: 10px;
   width: 100%;
   height: 54px;
@@ -149,7 +149,7 @@
     opacity var(--transition-fast),
     transform var(--transition-bounce),
     box-shadow var(--transition-fast);
-  box-shadow: 0 4px 20px rgba(var(--color-primary-rgb, 124, 58, 237), 0.4);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
   position: relative;
   overflow: hidden;
 }
@@ -162,23 +162,15 @@
   opacity: 0;
   transition: opacity var(--transition-fast);
 }
-
 .reg-google-btn:hover::before { opacity: 1; }
 .reg-google-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(124,58,237,0.5); }
 .reg-google-btn:active { transform: scale(0.97); }
 
-/* Google icon background circle */
 .reg-google-btn svg {
   background: #fff;
   border-radius: 50%;
   padding: 2px;
   flex-shrink: 0;
-}
-
-.reg-google-arrow {
-  margin-left: auto;
-  font-size: 18px;
-  opacity: 0.8;
 }
 
 .reg-google-note {
@@ -286,6 +278,123 @@
   color: var(--color-primary);
   text-decoration: underline;
 }
+
+/* ══════════════════════════════════════
+   Email start button
+══════════════════════════════════════ */
+.reg-email-start-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-border);
+  background: var(--color-card);
+  font-size: var(--font-md);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-bounce);
+}
+.reg-email-start-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-subtle);
+  transform: translateY(-1px);
+}
+.reg-email-start-btn:active { transform: scale(0.97); }
+
+/* ══════════════════════════════════════
+   Email form
+══════════════════════════════════════ */
+.reg-email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reg-field { display: flex; flex-direction: column; gap: 5px; }
+
+.reg-label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+.reg-input {
+  height: 46px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-subtle);
+  padding: 0 14px;
+  font-size: var(--font-md);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.reg-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+}
+.reg-input::placeholder { color: var(--color-text-light); }
+
+.reg-input--code {
+  font-size: 1.6rem;
+  font-weight: var(--font-black);
+  letter-spacing: 0.5em;
+  text-align: center;
+  height: 60px;
+}
+
+.reg-field-hint {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.reg-submit-btn {
+  height: 50px;
+  border-radius: var(--radius-xl);
+  border: none;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #6c3ddf 100%);
+  color: #fff;
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-bounce);
+  box-shadow: 0 4px 16px rgba(124,58,237,0.35);
+}
+.reg-submit-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
+.reg-submit-btn:active:not(:disabled) { transform: scale(0.97); }
+.reg-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.reg-resend-btn {
+  background: none; border: none;
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+  cursor: pointer; text-align: center; padding: 4px;
+  font-family: var(--font-family);
+}
+.reg-resend-btn:disabled { color: var(--color-text-muted); cursor: default; }
+
+.reg-back-btn {
+  background: none; border: none;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--font-semibold);
+  cursor: pointer; text-align: center; padding: 4px;
+  font-family: var(--font-family);
+  transition: color var(--transition-fast);
+}
+.reg-back-btn:hover { color: var(--color-text); }
 
 /* ══════════════════════════════════════
    Loading state
