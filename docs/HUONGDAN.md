@@ -1,21 +1,24 @@
 # 📘 HƯỚNG DẪN DỰ ÁN — luyen-thi-io
 > Tài liệu tổng quan đầy đủ cho owner, cộng tác viên và AI.
-> Cập nhật lần cuối: 2026-04-29 | Phase 0.5 (App Shell) hoàn thành
+> Cập nhật lần cuối: 2026-04-30 | IA Restructure (Phase 01-06) hoàn thành — Dual Pathway, Onboarding, Game Integration
 
 ---
 
 ## 🎯 DỰ ÁN LÀ GÌ?
 
-**luyen-thi-io** là nền tảng luyện thi tiếng Anh Cambridge Flyers cho học sinh Việt Nam 9–12 tuổi.
+**luyen-thi-io** là nền tảng luyện tập cho học sinh Việt Nam 9–12 tuổi, hỗ trợ **2 lộ trình học**:
+- 🇬🇧 **Cambridge** — Starters → Movers → Flyers → KET → PET
+- 🏫 **Thi Lớp 6** — Toán Tư Duy / Tiếng Việt / Tiếng Anh / Khoa học
 
 ### Vấn đề giải quyết
-- Trẻ em học tiếng Anh nhưng không được luyện đúng format thi → vào phòng thi bị bất ngờ
+- Trẻ em không được luyện đúng format thi → vào phòng thi bị bất ngờ
 - Phụ huynh bận rộn không biết con đang tiến bộ thế nào
-- Các nền tảng nước ngoài (Cambridge One) không có hướng dẫn tiếng Việt
+- Các nền tảng nước ngoài không có hướng dẫn tiếng Việt
 
 ### Đối tượng
-- **Chính:** Phụ huynh có con 9–12 tuổi chuẩn bị thi Cambridge Flyers
-- **Phụ:** Giáo viên tiếng Anh giao bài tập cho học sinh
+- **Cambridge:** Phụ huynh có con 9–12 tuổi chuẩn bị thi Flyers
+- **Lớp 6:** Học sinh lớp 4–5 chuẩn bị thi tuyển sinh lớp 6
+- **Phụ:** Giáo viên giao bài tập cho học sinh
 
 ---
 
@@ -27,6 +30,93 @@
 | 🥈 | **Đúng format thi + hướng dẫn tiếng Việt** | *"Vào phòng thi như đã từng làm rồi"* |
 | 🥉 | **Chẩn đoán điểm yếu tự động** | *"Học đúng chỗ, không lãng phí thời gian"* |
 | 🏅 | **Hộp Quà Ước Mơ** | *"Kết nối ba mẹ và con, tạo động lực dài hạn"* |
+
+---
+
+## 🗺️ SITEMAP CHI TIẾT (Cập nhật 2026-04-30 — IA Restructure)
+
+### Cấu trúc URL
+
+```
+luyenthi.io.vn/
+│
+├── /                          ← Trang chủ (HomePage)
+│   ├── Hero section
+│   ├── HomeHangman widget     ← Game Hangman nhanh (Cambridge word list)
+│   └── Danh sách bài nổi bật  ← showOnHome: true
+│
+├── /learn                     ← Chọn lộ trình học (PathwaySelectionPage)
+│   ├── Card: 🇬🇧 Cambridge
+│   └── Card: 🏫 Thi Lớp 6
+│
+├── /login                     ← Đăng nhập (LoginPage)
+├── /register                  ← Đăng ký email (RegisterPage)
+├── /onboarding                ← [Auth Required] Thiết lập hồ sơ bé (OnboardingPage)
+│   Step 1: Nhập tên
+│   Step 2: Chọn avatar (12 preset)
+│   Step 3: Chọn lớp (3 / 4 / 5)
+│   Step 4: Chọn lộ trình (Cambridge / Lớp 6)
+│   Step 5: Chọn theme màu (6 themes)
+│   → Sau onboarding: redirect /cambridge hoặc /lop6
+│
+├── /dashboard                 ← [Auth Required] Dashboard tổng quát
+│   └── TodayMissions widget   ← 3 bài gợi ý theo pathway + grade
+│
+├── /cambridge                 ← Trang lộ trình Cambridge (CambridgePage)
+│   ├── /cambridge/starters    ← Sắp có (SubjectPage — available: false)
+│   ├── /cambridge/movers      ← Sắp có (available: false)
+│   ├── /cambridge/flyers      ← Đang có (SubjectPage — available: true)
+│   │   ├── /cambridge/flyers/rw001   ← Quiz Reading Part 4 (QuizPage)
+│   │   ├── /cambridge/flyers/rw002   ← Quiz Reading Part 3
+│   │   ├── /cambridge/flyers/rw003   ← Quiz Reading Part 1
+│   │   ├── /cambridge/flyers/l001    ← Quiz Listening Part 1
+│   │   ├── /cambridge/flyers/l002    ← Quiz Listening Part 4
+│   │   └── /cambridge/flyers/l003    ← Quiz Listening Part 2
+│   ├── /cambridge/ket         ← Sắp có (available: false)
+│   ├── /cambridge/pet         ← Sắp có (available: false)
+│   └── /cambridge/ielts       ← Sắp có (available: false)
+│
+├── /lop6                      ← Trang lộ trình Lớp 6 (Lop6Page)
+│   ├── /lop6/toan             ← Nhóm Toán Tư Duy (SubjectPage — available: true)
+│   │   ├── /lop6/toan/math-l1-p1   ← Bài 1 (free, unlocks_game: hangman)
+│   │   ├── /lop6/toan/math-l1-p2   ← Bài 2 (free)
+│   │   ├── /lop6/toan/math-l1-p3   ← Bài 3 (free)
+│   │   ├── /lop6/toan/math-l1-p4   ← Bài 4 (free)
+│   │   ├── /lop6/toan/math-l1-p5   ← Bài 5 (free)
+│   │   ├── /lop6/toan/math-l1-p6   ← Bài 6 (premium)
+│   │   ├── /lop6/toan/math-l1-p7   ← Bài 7 (premium)
+│   │   ├── /lop6/toan/math-l1-p8   ← Bài 8 (premium)
+│   │   ├── /lop6/toan/math-l1-p9   ← Bài 9 (premium, grade 5-6)
+│   │   └── /lop6/toan/math-l1-p10  ← Bài 10 (premium, grade 5-6)
+│   ├── /lop6/tieng-viet       ← Sắp có (available: false)
+│   ├── /lop6/tieng-anh        ← Sắp có (available: false)
+│   └── /lop6/khoa-hoc         ← Sắp có (available: false)
+│
+└── /quiz/:id                  ← Legacy URL (vẫn hoạt động, không redirect)
+    └── VD: /quiz/MATH-L1-P1  ← Dùng cho backward compatibility
+```
+
+### URL Conventions (Quy tắc đặt URL)
+
+| Loại | Pattern | Ví dụ |
+|------|---------|-------|
+| Lộ trình hub | `/cambridge` hoặc `/lop6` | Trang chọn nhóm môn |
+| Nhóm môn | `/:pathway/:group` | `/cambridge/flyers`, `/lop6/toan` |
+| Quiz | `/:pathway/:group/:quizId` | `/cambridge/flyers/rw001` |
+| Legacy quiz | `/quiz/:id` | `/quiz/MATH-L1-P1` |
+
+### Quyền truy cập (Access Rules)
+
+| Route | Guest | Logged in | Onboarded |
+|-------|-------|-----------|-----------|
+| `/` | ✅ | ✅ | ✅ |
+| `/learn` | ✅ | ✅ | ✅ |
+| `/cambridge` | ✅ | ✅ | ✅ |
+| `/lop6` | ✅ | ✅ | ✅ |
+| Bài miễn phí (`is_free: true`) | ✅ | ✅ | ✅ |
+| Bài premium | ❌ → paywall | ❌ → paywall | ✅ nếu đăng ký |
+| `/onboarding` | ❌ → login | ✅ | ✅ |
+| `/dashboard` | ❌ → login | ✅ | ✅ |
 
 ---
 
@@ -58,68 +148,77 @@ luyen-thi-io/
 ├── src/
 │   ├── react-app/                   ← Frontend React
 │   │   ├── components/
-│   │   │   ├── layout/              ← [MỚI Phase 0.5] App Shell
-│   │   │   │   ├── AppLayout.tsx    ← Wrapper toàn app (header + footer)
-│   │   │   │   ├── GlobalHeader.tsx ← Sticky top: logo, nav, auth, theme
+│   │   │   ├── layout/              ← App Shell
+│   │   │   │   ├── AppLayout.tsx    ← Wrapper toàn app
+│   │   │   │   ├── GlobalHeader.tsx ← Sticky top: logo, nav, auth
 │   │   │   │   ├── GlobalFooter.tsx ← Ẩn trên /quiz routes
 │   │   │   │   ├── MobileBottomNav.tsx ← 4 tabs, chỉ ≤768px
-│   │   │   │   ├── QuizLayout.tsx   ← Sub-header + progress bubbles
-│   │   │   │   └── *.css
+│   │   │   │   └── QuizLayout.tsx   ← Sub-header + progress bubbles
 │   │   │   ├── quiz/                ← Quiz Engine
-│   │   │   │   ├── QuizEngine.tsx   ← Controller: không còn QuizHeader riêng
+│   │   │   │   ├── QuizEngine.tsx
 │   │   │   │   ├── MultipleChoice.tsx
 │   │   │   │   ├── FillBlank.tsx
-│   │   │   │   └── ...
-│   │   │   ├── vocabulary/          ← [MỚI Phase 4.5] Word Tooltip + Hangman
-│   │   │   │   ├── AnnotatedText.tsx   ← Render array segments có tooltip
-│   │   │   │   ├── TooltipWord.tsx     ← Từ có gạch chân chấm chấm
-│   │   │   │   ├── HangmanGame.tsx     ← Game component
-│   │   │   │   └── VocabularyWidget.tsx← Widget trên Dashboard
-│   │   │   ├── dashboard/           ← Trang chủ bé
-│   │   │   ├── dream-box/           ← Hộp Quà Ước Mơ
-│   │   │   └── ui/                  ← Shared: Button, Card, ExitConfirmDialog...
-│   │   ├── pages/                   ← LoginPage, QuizPage, DashboardPage...
-│   │   ├── hooks/                   ← useAuth, useQuiz, useWordLookup...
+│   │   │   │   └── DragDropMatch.tsx
+│   │   │   ├── vocabulary/          ← Word Tooltip + Hangman
+│   │   │   │   ├── AnnotatedText.tsx   ← Render segments có tooltip
+│   │   │   │   ├── TooltipWord.tsx
+│   │   │   │   ├── HangmanGame.tsx     ← Game chính
+│   │   │   │   └── HomeHangman.tsx     ← [Phase 05] Widget standalone trang chủ
+│   │   │   ├── dashboard/           ← Dashboard components
+│   │   │   │   ├── TodayMissions.tsx   ← [Phase 04] 3 bài gợi ý theo pathway+grade
+│   │   │   │   ├── WelcomeHeader.tsx
+│   │   │   │   └── SkillMap.tsx
+│   │   │   ├── onboarding/          ← [Phase 04] Onboarding components
+│   │   │   │   ├── GradePicker.tsx     ← Chọn lớp 3/4/5
+│   │   │   │   └── PathwayPicker.tsx   ← Chọn Cambridge/Lớp 6
+│   │   │   └── ui/                  ← Shared: Button, Card...
+│   │   ├── pages/
+│   │   │   ├── HomePage.tsx
+│   │   │   ├── PathwaySelectionPage.tsx  ← [Phase 02] /learn
+│   │   │   ├── CambridgePage.tsx         ← [Phase 02] /cambridge
+│   │   │   ├── Lop6Page.tsx              ← [Phase 02] /lop6
+│   │   │   ├── SubjectPage.tsx           ← [Phase 02] /:pathway/:group
+│   │   │   ├── QuizPage.tsx              ← /:pathway/:group/:id
+│   │   │   ├── OnboardingPage.tsx        ← [Phase 04] 5-step wizard
+│   │   │   ├── DashboardPage.tsx
+│   │   │   ├── LoginPage.tsx
+│   │   │   └── RegisterPage.tsx
+│   │   ├── data/
+│   │   │   └── subjects.ts               ← [Phase 01] Data môn học + lesson
+│   │   ├── hooks/
+│   │   │   ├── useAuth.ts
+│   │   │   ├── useDashboard.ts           ← [Phase 04] Includes todayLessons
+│   │   │   └── useVocabulary.ts
 │   │   └── styles/
-│   │       ├── themes.css           ← 6 CSS themes
-│   │       ├── tokens.css           ← Design tokens
+│   │       ├── themes.css               ← 6 CSS themes
+│   │       ├── tokens.css               ← Design tokens
 │   │       └── base.css
 │   └── worker/                      ← Hono backend
 │       ├── index.ts
-│       ├── db/
-│       │   ├── schema.sql           ← D1 tables SQL
-│       │   └── migrations/
-│       │       └── 002-vocabulary.sql ← [MỚI Phase 4.5]
+│       ├── migrations/
+│       │   ├── 0001_initial.sql
+│       │   ├── 0002_vocabulary.sql
+│       │   └── 0003_add_grade_pathway.sql ← [Phase 04] thêm cột mới
 │       └── routes/
 │           ├── auth.ts
 │           ├── quiz.ts
-│           ├── student.ts
-│           ├── vocabulary.ts        ← [MỚI Phase 4.5]
+│           ├── student.ts        ← [Phase 05] POST /stars endpoint
+│           ├── vocabulary.ts
 │           └── dream.ts
 ├── content/                         ← Bài học JSON (upload lên R2)
 │   ├── math/
-│   │   └── MATH-L1-P1.json         ← Bài mẫu đang hoạt động
+│   │   └── MATH-L1-P{1..10}.json
 │   └── flyers/
-│       ├── listening/               ← L4-001.json...
-│       └── reading/                 ← RW4-001.json...
-├── public/
-│   └── avatars/                     ← 12 SVG avatars
+│       ├── RW001.json, RW002.json, RW003.json
+│       └── L001.json, L002.json, L003.json
+├── public/avatars/                  ← 12 SVG avatars
 ├── docs/
-│   ├── BRIEF.md                     ← Product vision đầy đủ
-│   ├── CONTEXT.md                   ← AI đọc trước khi code
-│   ├── RULES.md                     ← Quy tắc bắt buộc
-│   ├── SPEC-APP-SHELL.md            ← [MỚI] Spec chi tiết App Shell
-│   ├── SPEC-WORD-TOOLTIP-HANGMAN.md ← [MỚI] Spec Word Tooltip + Hangman
-│   └── HUONGDAN.md                  ← File này
 ├── plans/
-│   └── 260428-1029-luyen-thi-io-mvp/
-│       ├── plan.md                  ← Tổng quan 13 phases (có Phase 0.5 + 4.5)
-│       ├── phase-00-app-shell.md    ← [MỚI] ✅ Hoàn thành
-│       ├── phase-45-vocabulary.md  ← [MỚI] Chờ Phase 05-06 xong
-│       └── ...phase-11-polish.md
-├── README.md
+│   ├── 260428-1029-luyen-thi-io-mvp/  ← Plan gốc (13 phases)
+│   └── 260430-1350-ia-restructure/    ← [MỚI] IA Restructure 6 phases (✅ XONG)
 └── wrangler.json
 ```
+
 
 ---
 
@@ -185,15 +284,19 @@ Giống như rạp chiếu phim: rạp (engine) không đổi, chỉ đổi phim
 ### Các bảng chính
 
 ```
-users               <- Phu huynh dang ky bang Google
-student_profiles    <- Ho so be (ten, avatar, theme mau)
-student_stats       <- Thong ke (sao, streak, skill levels)
-dream_goals         <- Hop Qua Uoc Mo
-quiz_attempts       <- Ket qua tung bai lam
-daily_activity      <- Theo doi streak hang ngay
-subscriptions       <- Goi dang ky tra phi
-vocabulary_words    <- [MOI Phase 4.5] Kho tu toan he thong (word, vi_meaning, ipa, level)
-student_vocabulary  <- [MOI Phase 4.5] Theo doi tung be (times_looked_up, is_mastered...)
+users               ← Phụ huynh đăng ký bằng Google / Email
+student_profiles    ← Hồ sơ bé
+                        + current_grade   INTEGER  [Phase 04] Lớp hiện tại (3/4/5)
+                        + selected_pathway TEXT     [Phase 04] 'cambridge'|'lop6'
+                        + total_stars     INTEGER  Tổng sao tích lũy
+student_stats       ← Thống kê (streak, skill levels)
+                        + last_quiz_id    TEXT     [Phase 05] ID bài làm gần nhất
+dream_goals         ← Hộp Quà Ước Mơ
+quiz_attempts       ← Kết quả từng bài làm
+daily_activity      ← Theo dõi streak hàng ngày
+subscriptions       ← Gói đăng ký trả phí
+vocabulary_words    ← Kho từ toàn hệ thống (word, vi_meaning, ipa, level)
+student_vocabulary  ← Theo dõi từng bé (times_looked_up, is_mastered...)
 ```
 
 ### Quy tắc quan trọng về D1
@@ -201,6 +304,37 @@ student_vocabulary  <- [MOI Phase 4.5] Theo doi tung be (times_looked_up, is_mas
 - ✅ daily_activity dùng **composite PK** (student_id + date_key) → query streak nhanh
 - ✅ Timestamps luôn là INTEGER (unixepoch) — không dùng TEXT ISO date
 - ❌ KHÔNG dùng `JSON_EXTRACT` trong WHERE clause → full table scan chậm
+
+---
+
+## 📡 API ENDPOINTS (Cloudflare Workers + Hono)
+
+### Auth
+| Method | URL | Mô tả |
+|--------|-----|---------|
+| GET | `/api/auth/google` | Redirect đến Google OAuth |
+| GET | `/api/auth/callback` | OAuth callback, tạo session |
+| POST | `/api/auth/register` | Đăng ký bằng email/password |
+| POST | `/api/auth/login` | Đăng nhập email/password |
+| GET | `/api/auth/logout` | Xóa session |
+| GET | `/api/auth/me` | Thông tin user hiện tại |
+
+### Student
+| Method | URL | Mô tả | Phase |
+|--------|-----|---------|-------|
+| POST | `/api/student/profile` | Tạo/cập nhật hồ sơ bé (name, avatar, grade, pathway, theme) | 04 |
+| POST | `/api/student/stars` | Cộng dồn sao sau Hangman (`stars`, `source`, `quiz_id`) | 05 |
+
+### Quiz
+| Method | URL | Mô tả |
+|--------|-----|---------|
+| GET | `/api/quiz/:id` | Lấy nội dung bài quiz (từ R2) |
+| POST | `/api/quiz/:id/submit` | Nộp bài, tính điểm, lưu kết quả |
+
+### Vocabulary
+| Method | URL | Mô tả |
+|--------|-----|---------|
+| GET | `/api/vocab/lookup?word=X` | Tra cứu từ (kèm IPA, nghĩa Việt) |
 
 ---
 
@@ -314,28 +448,44 @@ Thêm vào `wrangler.json`:
 
 ---
 
-## 🚦 TIẾN ĐỘ DỰ ÁN
+## 🚦 TIẾN ĐỘ DỰ ÁN (Cập nhật 2026-04-30)
 
-### MVP — 11 Phases
+### ✅ IA Restructure — 6 phases (HOÀN THÀNH)
 
-| Phase | Tên | Trạng thái | Folder chính |
-|-------|-----|-----------|-------------|
-| **01** | Foundation — D1 Schema + Wrangler | ✅ Hoàn thành | `src/worker/db/` |
-| **02** | Theme System + Design Tokens | ✅ Hoàn thành | `src/react-app/styles/` |
-| **03** | Auth — Google OAuth | ✅ Hoàn thành | `src/worker/routes/auth.ts` |
-| **04** | Quiz Engine — MC + FillBlank | ✅ Hoàn thành | `components/quiz/` |
-| **0.5** | App Shell — Layout Framework | ✅ Hoàn thành | `components/layout/` |
-| **05** | Quiz Engine — Drag & Drop | ⬜ Chưa làm | `components/quiz/DragDrop*` |
-| **06** | Quiz Engine — Audio + Timer | ⬜ Chưa làm | `components/quiz/Audio*` |
-| **4.5** | Word Tooltip + Hangman Vocabulary | ⬜ Chưa làm | `components/vocabulary/` |
-| **07** | Student Dashboard | ⬜ Chưa làm | `components/dashboard/` |
-| **08** | Dream Box + Email Approval | ⬜ Chưa làm | `worker/routes/dream.ts` |
-| **09** | Avatar + Profile | ⬜ Chưa làm | `public/avatars/` |
-| **10** | Nội dung JSON — 10 bài đầu tiên | ⬜ Chưa làm | `content/flyers/` |
-| **11** | Polish + Mobile Test | ⬜ Chưa làm | Toàn bộ |
+| Phase | Tên | Trạng thái | Nội dung chính |
+|-------|-----|-----------|----------------|
+| **IA-01** | Schema Foundation | ✅ Hoàn thành | `subjects.ts`: Subject/Lesson type, pathway/group |
+| **IA-02** | Routing Architecture | ✅ Hoàn thành | `/cambridge`, `/lop6`, `/learn`, `SubjectPage` |
+| **IA-03** | Navigation & Breadcrumbs | ✅ Hoàn thành | Breadcrumb, nav lộ trình trong QuizLayout |
+| **IA-04** | Onboarding & Dashboard | ✅ Hoàn thành | 5-step wizard, `TodayMissions`, D1 migration 0003 |
+| **IA-05** | Game Integration | ✅ Hoàn thành | `POST /stars`, HomeHangman dynamic words |
+| **IA-06** | Testing & Deploy | ✅ Hoàn thành | Build + push `dev` → Cloudflare |
+
+### MVP Original — 11 Phases
+
+| Phase | Tên | Trạng thái |
+|-------|-----|-----------|
+| **01** | Foundation — D1 Schema | ✅ Hoàn thành |
+| **02** | Theme System + Design Tokens | ✅ Hoàn thành |
+| **03** | Auth — Google OAuth + Email | ✅ Hoàn thành |
+| **04** | Quiz Engine — MC + FillBlank | ✅ Hoàn thành |
+| **0.5** | App Shell — Layout Framework | ✅ Hoàn thành |
+| **05** | Quiz Engine — Drag & Drop | ✅ Hoàn thành (`DragDropMatch.tsx`) |
+| **4.5** | Word Tooltip + Hangman | ✅ Hoàn thành |
+| **06** | Quiz Engine — Audio + Timer | ⏳ Chưa làm |
+| **07** | Student Dashboard (full stats) | ⏳ Chưa làm |
+| **08** | Dream Box + Email Approval | ⏳ Chưa làm |
+| **09–11** | Avatar, Nội dung JSON, Polish | ⏳ Chưa làm |
+
+### 🔜 Ưu tiên tiếp theo
+1. Quiz Audio (Listening Flyers — Cloudflare Workers AI)
+2. Weekly Report Email (Resend.com, mỗi Chủ nhật)
+3. Dream Box + Email confirmation flow
+4. Thanh toán PayOS (Free/Premium thật sự)
+5. Thêm bài mới: Flyers Reading + Listening JSON
 
 ### Sau MVP
-- **Phase 2:** Thanh toán PayOS, Weekly Report email, Admin CMS, Dream Box 3 giai đoạn
+- **Phase 2:** PayOS, Weekly Report, Admin CMS, Dream Box 3 giai đoạn
 - **Phase 3:** Movers/KET/PET, AI Speaking, Mobile PWA
 
 ---
