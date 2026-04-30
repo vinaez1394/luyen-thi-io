@@ -1,6 +1,9 @@
 /**
  * HomeHangman.tsx — Widget Hangman độc lập cho trang chủ
  *
+ * Phase 05: Ưu tiên từ vựng từ bài vừa làm (last_quiz_id từ localStorage).
+ *           Fallback về Cambridge word list nếu không có.
+ *
  * Khác với HangmanLauncher (trong quiz), đây là widget standalone:
  * - Tự dùng Cambridge word list (không cần quiz)
  * - Nhúng trực tiếp vào trang chủ, section "Chơi hết mình"
@@ -13,7 +16,7 @@ import { HangmanGame } from "./HangmanGame";
 import type { HangmanResult } from "./HangmanGame";
 import "./HomeHangman.css";
 
-// ─── Cambridge word list (đủ lớn để luôn có 5 từ mới) ────────────────────────
+// ─── Cambridge word list (fallback) ───────────────────────────────────────────
 const CAMBRIDGE_WORDS: VocabWord[] = [
   { word: "adventure",  vi: "cuộc phiêu lưu",    ipa: "ədˈventʃər",  sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
   { word: "beautiful",  vi: "đẹp, xinh đẹp",      ipa: "ˈbjuːtɪfəl",  sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
@@ -33,7 +36,7 @@ const CAMBRIDGE_WORDS: VocabWord[] = [
   { word: "patient",    vi: "kiên nhẫn",            ipa: "ˈpeɪʃənt",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
   { word: "rainbow",    vi: "cầu vồng",             ipa: "ˈreɪnboʊ",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
   { word: "scissors",   vi: "cái kéo",              ipa: "ˈsɪzərz",    sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "together",   vi: "cùng nhau",            ipa: "təˈɡeðər",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
+  { word: "together",   vi: "cùng nhau",            ipa: "ˈteɡeðər",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
   { word: "umbrella",   vi: "cái ô, cái dù",        ipa: "ʌmˈbrelə",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
   { word: "village",    vi: "làng quê, thôn",       ipa: "ˈvɪlɪdʒ",    sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
   { word: "weather",    vi: "thời tiết",            ipa: "ˈweðər",     sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
@@ -56,19 +59,65 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-// ─── Preview: 3 từ mẫu để hiện trên card ─────────────────────────────────────
+// ─── Load từ vựng từ quiz JSON (Phase 05) ─────────────────────────────────────
+async function loadWordsFromQuiz(quizId: string): Promise<VocabWord[]> {
+  try {
+    const folder = quizId.startsWith("RW") || quizId.startsWith("RL")
+      ? "flyers"
+      : quizId.startsWith("MATH")
+        ? "math"
+        : "flyers";
+    const res = await fetch(`/content/${folder}/${quizId}.json`);
+    if (!res.ok) throw new Error("not found");
+    const quiz = await res.json() as {
+      questions?: { vocabulary?: { word: string; meaning: string; ipa?: string }[] }[];
+    };
+    const words: VocabWord[] = [];
+    for (const q of quiz.questions ?? []) {
+      for (const v of q.vocabulary ?? []) {
+        if (v.word && words.length < 15) {
+          words.push({
+            word:            v.word,
+            vi:              v.meaning ?? "",
+            ipa:             v.ipa ?? "",
+            sourceQuizId:    quizId,
+            correctSessions: 0,
+            isMastered:      false,
+          });
+        }
+      }
+    }
+    return words.length >= 3 ? words : [];
+  } catch {
+    return [];
+  }
+}
+
+// ─── Preview: 3 từ mẫu hiện trên card ────────────────────────────────────────
 const PREVIEW_WORDS = CAMBRIDGE_WORDS.slice(0, 3);
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export function HomeHangman() {
-  const [open, setOpen]               = useState(false);
-  const [result, setResult]           = useState<HangmanResult | null>(null);
+  const [open,         setOpen]         = useState(false);
+  const [result,       setResult]       = useState<HangmanResult | null>(null);
   const [sessionWords, setSessionWords] = useState<VocabWord[]>([]);
 
-  // Mỗi lần mở → chọn 5 từ random mới
-  const handleOpen = () => {
-    setSessionWords(shuffle(CAMBRIDGE_WORDS).slice(0, 5));
+  // Phase 05: ưu tiên từ bài vừa làm → fallback Cambridge
+  const handleOpen = async () => {
     setResult(null);
+
+    const lastQuizId = localStorage.getItem("last_quiz_id") ?? "";
+    let words: VocabWord[] = [];
+
+    if (lastQuizId) {
+      words = await loadWordsFromQuiz(lastQuizId);
+    }
+
+    if (words.length < 3) {
+      words = CAMBRIDGE_WORDS;
+    }
+
+    setSessionWords(shuffle(words).slice(0, 5));
     setOpen(true);
   };
 

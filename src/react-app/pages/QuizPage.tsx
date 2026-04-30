@@ -67,6 +67,8 @@ export function QuizPage() {
 
   const handleSubmit = async () => {
     await submitQuiz();
+    // Phase 05: lưu quiz_id để HomeHangman dùng từ vựng bài vừa làm
+    localStorage.setItem("last_quiz_id", quizId);
     setShowResult(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -132,12 +134,24 @@ export function QuizPage() {
         onLogin={loginWithGoogle}
         onReview={() => setShowResult(false)}
         onHome={() => navigate(backUrl)}
-        // Phase 4.5: truyền vocab xuống để hiện Hangman
+        // Phase 4.5: vocab props
         vocabPendingWords={vocab.getPendingWords()}
         onVocabMarkCorrect={vocab.markWordCorrect}
-        onHangmanStarsEarned={(_stars) => {
-          // Phase 07: sẽ gọi API cộng sao vào DB
-          console.log(`[Phase 5] Hangman: +${_stars} ⭐`);
+        // Phase 05: gọi API cộng sao thật (fire-and-forget, không chặn UI)
+        onHangmanStarsEarned={(earnedStars) => {
+          if (earnedStars > 0) {
+            fetch("/api/student/stars", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                stars:   earnedStars,
+                source:  "hangman",
+                quiz_id: quizId,
+              }),
+            }).catch(() => {
+              // Silent fail — không làm gián đoạn trải nghiệm bé
+            });
+          }
         }}
       />
     );

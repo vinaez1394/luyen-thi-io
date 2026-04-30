@@ -169,6 +169,7 @@ export const SUBJECTS: Subject[] = [
         is_free: true,
         emoji: "📖",
         showOnHome: true,
+        unlocks_game: "hangman",
       },
       {
         id: "L001",
@@ -193,6 +194,7 @@ export const SUBJECTS: Subject[] = [
         is_free: true,
         emoji: "✍️",
         showOnHome: true,
+        unlocks_game: "hangman",
       },
       {
         id: "L002",
@@ -217,6 +219,7 @@ export const SUBJECTS: Subject[] = [
         is_free: false,
         emoji: "🖼️",
         showOnHome: false,
+        unlocks_game: "hangman",
       },
       {
         id: "L003",
