@@ -14,7 +14,6 @@
  * Phase 07
  */
 
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useDashboard } from "../hooks/useDashboard";
 import { WelcomeHeader } from "../components/dashboard/WelcomeHeader";
@@ -29,7 +28,6 @@ import "./DashboardPage.css";
 export function DashboardPage() {
   const { user } = useAuth();
   const { data, isLoading } = useDashboard();
-  const navigate = useNavigate();
 
   // ── Loading ──
   if (isLoading || !data) {
@@ -41,11 +39,8 @@ export function DashboardPage() {
     );
   }
 
-  // ── Guard: user phải tồn tại (ProtectedRoute xử lý rồi nhưng guard thêm) ──
-  if (!user) {
-    navigate("/login");
-    return null;
-  }
+  // Guard: ProtectedRoute đã xử lý — chỉ render null để tránh crash
+  if (!user) return null;
 
   return (
     <div className="dashboard-page">
@@ -79,7 +74,7 @@ export function DashboardPage() {
         <button
           className="btn btn-outline btn-sm"
           id="btn-db-go-home"
-          onClick={() => navigate("/")}
+          onClick={() => window.location.href = "/"}
         >
           📚 Xem tất cả bài học
         </button>
