@@ -23,7 +23,7 @@ import {
   getLop6Subjects,
 } from "../data/subjects";
 import { HomeHangman } from "../components/vocabulary/HomeHangman";
-import { getSubjectUrl, getLessonUrl } from "../utils/urlHelpers";
+import { getLessonUrl } from "../utils/urlHelpers";
 import "./HomePage.css";
 
 const SKILL_COLORS: Record<string, string> = {
