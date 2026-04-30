@@ -5,11 +5,10 @@
  *   - streak, totalStars
  *   - skillLevels
  *   - dreamGoal (nếu có)
+ *   - selectedPathway, currentGrade (Phase 04 — personalization)
+ *   - todayLessons: max 3 bài gợi ý cho hôm nay (Phase 04)
  *
  * Nếu API chưa có (trả lỗi) → dùng fallback data thông minh
- * Sau khi Phase 01 (D1) production → API sẽ trả data thực
- *
- * Phase 07
  */
 
 import { useState, useEffect } from "react";
@@ -18,16 +17,32 @@ import type { SkillLevel } from "../components/dashboard/SkillMap";
 // ============================================
 // Types
 // ============================================
+
+export interface TodayLesson {
+  id:        string;
+  title:     string;
+  subject:   string;
+  emoji:     string;
+  pathway:   string;
+  group:     string;
+  is_free:   boolean;
+  skill?:    string;
+}
+
 export interface DashboardData {
-  streak:      number;
-  totalStars:  number;
-  skillLevels: SkillLevel[];
+  streak:          number;
+  totalStars:      number;
+  skillLevels:     SkillLevel[];
   dreamGoal: {
     title:   string;
     emoji:   string;
     current: number;
     target:  number;
   } | null;
+  // Phase 04
+  selectedPathway: string | null;
+  currentGrade:    number | null;
+  todayLessons:    TodayLesson[];
 }
 
 interface DashboardState {
@@ -40,14 +55,17 @@ interface DashboardState {
 // Fallback data (khi API chưa sẵn sàng)
 // ============================================
 const FALLBACK_DATA: DashboardData = {
-  streak:     1,
-  totalStars: 0,
+  streak:          1,
+  totalStars:      0,
   skillLevels: [
     { skill: "math",      level: 2, quizzesDone: 0 },
     { skill: "reading",   level: 1, quizzesDone: 0 },
     { skill: "listening", level: 0, quizzesDone: 0 },
   ],
-  dreamGoal: null,
+  dreamGoal:       null,
+  selectedPathway: null,
+  currentGrade:    null,
+  todayLessons:    [],
 };
 
 // ============================================

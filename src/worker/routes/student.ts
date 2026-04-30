@@ -1,6 +1,7 @@
 /**
  * student.ts — Route tạo student profile (Onboarding)
  * POST /api/student/profile → tạo student_profiles + student_stats
+ * Phase 04: thêm currentGrade + selectedPathway
  */
 
 import { Hono } from "hono";
@@ -27,9 +28,11 @@ studentRoute.post("/profile", async (c) => {
 
   // Parse body
   const body = await c.req.json<{
-    displayName: string;
-    avatarId: string;
-    theme: string;
+    displayName:      string;
+    avatarId:         string;
+    theme:            string;
+    currentGrade?:    number | null;    // Phase 04: lớp bé đang học (3,4,5)
+    selectedPathway?: string | null;    // Phase 04: "cambridge" | "lop6"
   }>();
 
   const displayName = body.displayName?.trim();
@@ -43,6 +46,18 @@ studentRoute.post("/profile", async (c) => {
   const validThemes = ["purple","ocean","sakura","forest","night","sunset"];
   const theme = validThemes.includes(body.theme) ? body.theme : "purple";
 
+  // Validate currentGrade: chỉ chấp nhận 3, 4, 5
+  const validGrades = [3, 4, 5];
+  const currentGrade: number | null = body.currentGrade && validGrades.includes(body.currentGrade)
+    ? body.currentGrade
+    : null;
+
+  // Validate selectedPathway
+  const validPathways = ["cambridge", "lop6"];
+  const selectedPathway: string | null = body.selectedPathway && validPathways.includes(body.selectedPathway)
+    ? body.selectedPathway
+    : null;
+
   // Check nếu đã có profile rồi
   const existing = await c.env.DB.prepare(
     "SELECT id FROM student_profiles WHERE user_id = ? LIMIT 1"
@@ -52,13 +67,13 @@ studentRoute.post("/profile", async (c) => {
     return c.json({ error: "Hồ sơ đã tồn tại" }, 409);
   }
 
-  // Tạo profile
+  // Tạo profile (kể cả 2 field mới)
   const profileId = crypto.randomUUID();
 
   await c.env.DB.prepare(
-    `INSERT INTO student_profiles (id, user_id, display_name, avatar_id, theme)
-     VALUES (?, ?, ?, ?, ?)`
-  ).bind(profileId, userId, displayName, avatarId, theme).run();
+    `INSERT INTO student_profiles (id, user_id, display_name, avatar_id, theme, current_grade, selected_pathway)
+     VALUES (?, ?, ?, ?, ?, ?, ?)`
+  ).bind(profileId, userId, displayName, avatarId, theme, currentGrade, selectedPathway).run();
 
   // Tạo student_stats trống
   await c.env.DB.prepare(

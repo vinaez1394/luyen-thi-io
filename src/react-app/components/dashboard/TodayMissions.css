@@ -1,0 +1,160 @@
+/* TodayMissions.css — Nhiệm vụ hôm nay (Phase 04) */
+
+.today-missions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Header */
+.today-missions__header { }
+
+.today-missions__title {
+  font-size: var(--font-xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.today-missions__subtitle {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+/* List */
+.today-missions__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mission card */
+.mission-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-card);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--transition-bounce),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+  animation: slideInUp 0.4s ease-out both;
+  animation-delay: var(--mission-delay, 0ms);
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mission-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+/* Highlighted first card */
+.mission-card--highlight {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+.mission-card--highlight:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Rank badge */
+.mission-card__rank {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Emoji */
+.mission-card__emoji {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Content */
+.mission-card__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mission-card__title {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mission-card__badge {
+  align-self: flex-start;
+  font-size: 10px;
+  padding: 2px 8px;
+}
+
+/* Arrow */
+.mission-card__arrow {
+  font-size: var(--font-md);
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.mission-card:hover .mission-card__arrow {
+  transform: translateX(3px);
+  color: var(--color-primary);
+}
+
+/* Free badge */
+.mission-card__free {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: var(--color-success-light, #d1fae5);
+  color: var(--color-success, #059669);
+}
+
+/* See all link */
+.today-missions__see-all {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  cursor: pointer;
+  font-family: var(--font-family);
+  text-align: left;
+  transition: opacity var(--transition-fast);
+}
+
+.today-missions__see-all:hover { opacity: 0.75; }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .mission-card { padding: 12px 14px; }
+  .mission-card__emoji { font-size: 24px; }
+}
