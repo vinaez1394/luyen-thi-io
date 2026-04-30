@@ -74,7 +74,7 @@ authRoute.get("/callback", async (c) => {
 
   // User từ chối hoặc lỗi từ Google
   if (error || !code) {
-    return c.redirect(`/?auth_error=cancelled&detail=${encodeURIComponent(error ?? "no_code")}`);
+    return c.redirect(`/login?auth_error=cancelled&detail=${encodeURIComponent(error ?? "no_code")}`);
   }
 
   // Guard: thiếu secrets
@@ -82,7 +82,7 @@ authRoute.get("/callback", async (c) => {
   const clientSecret = (c.env.GOOGLE_CLIENT_SECRET ?? "").trim();
   if (!clientId || !clientSecret) {
     console.error("Missing OAuth secrets", { clientId: !!clientId, clientSecret: !!clientSecret });
-    return c.redirect("/?auth_error=config_missing");
+    return c.redirect("/login?auth_error=config_missing");
   }
 
   try {
@@ -111,7 +111,7 @@ authRoute.get("/callback", async (c) => {
       // Parse lỗi từ Google để debug
       let googleErrCode = "token_failed";
       try { googleErrCode = (JSON.parse(errText) as { error: string }).error ?? "token_failed"; } catch { /* ignore */ }
-      return c.redirect(`/?auth_error=${encodeURIComponent(googleErrCode)}`);
+      return c.redirect(`/login?auth_error=${encodeURIComponent(googleErrCode)}`);
     }
 
     const tokenData = (await tokenRes.json()) as { access_token: string };
@@ -125,7 +125,7 @@ authRoute.get("/callback", async (c) => {
     );
 
     if (!userInfoRes.ok) {
-      return c.redirect("/?auth_error=userinfo_failed");
+      return c.redirect("/login?auth_error=userinfo_failed");
     }
 
     const googleUser = (await userInfoRes.json()) as GoogleUserInfo;
@@ -153,7 +153,7 @@ authRoute.get("/callback", async (c) => {
     }
 
     if (!user) {
-      return c.redirect("/?auth_error=db_failed");
+      return c.redirect("/login?auth_error=db_failed");
     }
 
     // 4. Check if student profile exists (để biết redirect về onboarding hay dashboard)
@@ -178,7 +178,7 @@ authRoute.get("/callback", async (c) => {
     });
   } catch (err) {
     console.error("Auth callback error:", err);
-    return c.redirect("/?auth_error=server_error");
+    return c.redirect("/login?auth_error=server_error");
   }
 });
 
