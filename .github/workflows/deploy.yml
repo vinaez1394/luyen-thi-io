@@ -35,7 +35,37 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 5. Deploy Worker lên Cloudflare
+      # 5. D1 Migrations — chạy trước khi deploy Worker
+      # Dùng INSERT OR IGNORE → an toàn khi chạy lại nhiều lần
+      - name: D1 — Create vocabulary_bank table
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: d1 execute luyen-thi-db --remote --file src/worker/migrations/0005_seed_vocabulary_flyers_batch1.sql
+        continue-on-error: false
+
+      - name: D1 — Seed vocabulary batch 2
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: d1 execute luyen-thi-db --remote --file src/worker/migrations/0006_seed_vocabulary_flyers_batch2.sql
+        continue-on-error: false
+
+      - name: D1 — Seed vocabulary batch 3
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: d1 execute luyen-thi-db --remote --file src/worker/migrations/0007_seed_vocabulary_flyers_batch3.sql
+        continue-on-error: false
+
+      - name: D1 — Seed vocabulary batch 4
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: d1 execute luyen-thi-db --remote --file src/worker/migrations/0008_seed_vocabulary_flyers_batch4.sql
+        continue-on-error: false
+
+      # 6. Deploy Worker lên Cloudflare (sau khi DB đã sẵn sàng)
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:

@@ -128,7 +128,7 @@ export function HomeHangman() {
 
   return (
     <div className="home-hangman">
-      {/* Card preview */}
+      {/* Card preview — standalone, không còn grid 3 cột */}
       <div className="home-hangman__card">
         {/* Left: info */}
         <div className="home-hangman__info">

@@ -23,6 +23,7 @@ import { DreamBoxWidget } from "../components/dashboard/DreamBoxWidget";
 import { SkillMap } from "../components/dashboard/SkillMap";
 import { RecommendedLessons } from "../components/dashboard/RecommendedLessons";
 import { TodayMissions } from "../components/dashboard/TodayMissions";
+import { PathwayProgress } from "../components/dashboard/PathwayProgress";
 import "./DashboardPage.css";
 
 // ============================================
@@ -69,6 +70,16 @@ export function DashboardPage() {
           selectedPathway={data.selectedPathway}
           currentGrade={data.currentGrade}
           skills={data.skillLevels}
+        />
+      </section>
+
+      {/* ── 3. Tiến độ Lộ trình (Phase A ─ mới) ── */}
+      <section className="db-section db-section--pathway">
+        <PathwayProgress
+          selectedPathway={data.selectedPathway}
+          currentGrade={data.currentGrade}
+          skillLevels={data.skillLevels}
+          examName={data.dreamGoal?.emoji === "🇬🇧" ? data.dreamGoal?.title : null}
         />
       </section>
 
