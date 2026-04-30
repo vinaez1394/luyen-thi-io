@@ -14,7 +14,9 @@ import { useAuth } from "../../hooks/useAuth";
 import { useTheme, THEMES } from "../ui/ThemeProvider";
 import type { ThemeId } from "../ui/ThemeProvider";
 import { SUBJECTS } from "../../data/subjects";
+import { getSubjectUrl } from "../../utils/urlHelpers";
 import "./GlobalHeader.css";
+
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export function GlobalHeader() {
@@ -128,7 +130,7 @@ export function GlobalHeader() {
                         className="nav-subject-dropdown__item"
                         role="menuitem"
                         id={`btn-nav-subject-${s.id}`}
-                        onClick={() => { navigate(`/${s.id}`); setSubjectOpen(false); }}
+                        onClick={() => { navigate(getSubjectUrl(s)); setSubjectOpen(false); }}
                         style={{ "--subject-color": s.color } as React.CSSProperties}
                       >
                         <span className="nav-subject-dropdown__emoji">{s.emoji}</span>
@@ -308,7 +310,7 @@ export function GlobalHeader() {
                 <button
                   key={s.id}
                   className="mobile-drawer__nav-link mobile-drawer__nav-link--subject"
-                  onClick={() => { navigate(`/${s.id}`); setDrawerOpen(false); }}
+                  onClick={() => { navigate(getSubjectUrl(s)); setDrawerOpen(false); }}
                   style={{ "--subject-color": s.color } as React.CSSProperties}
                 >
                   <span className="mobile-drawer__nav-icon">{s.emoji}</span>

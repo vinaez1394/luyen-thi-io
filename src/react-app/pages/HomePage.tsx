@@ -12,8 +12,9 @@
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { SUBJECTS, HOME_LESSONS } from "../data/subjects";
+import { SUBJECTS, HOME_LESSONS, findSubject } from "../data/subjects";
 import { HomeHangman } from "../components/vocabulary/HomeHangman";
+import { getSubjectUrl, getLessonUrl } from "../utils/urlHelpers";
 import "./HomePage.css";
 
 const SKILL_COLORS: Record<string, string> = {
@@ -36,13 +37,16 @@ export function HomePage() {
   const { isLoggedIn, user, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
-  /** Điều hướng vào bài học theo URL: /:subject/:slug */
+  /** Điều hướng vào bài học theo URL mới: /:pathway/:group/:slug */
   const handleStartLesson = (subjectId: string, slug: string, isFree: boolean) => {
     if (!isFree && !isLoggedIn) {
       loginWithGoogle();
       return;
     }
-    navigate(`/${subjectId}/${slug}`);
+    const subject = findSubject(subjectId);
+    if (subject) {
+      navigate(getLessonUrl(subject, slug));
+    }
   };
 
   return (
@@ -122,11 +126,11 @@ export function HomePage() {
                 "subject-card",
                 subject.available ? "subject-card--active" : "subject-card--soon",
               ].join(" ")}
-              onClick={() => subject.available && navigate(`/${subject.id}`)}
+              onClick={() => subject.available && navigate(getSubjectUrl(subject))}
               role={subject.available ? "button" : "presentation"}
               tabIndex={subject.available ? 0 : -1}
               onKeyDown={(e) => {
-                if (e.key === "Enter" && subject.available) navigate(`/${subject.id}`);
+                if (e.key === "Enter" && subject.available) navigate(getSubjectUrl(subject));
               }}
               id={`btn-subject-${subject.id}`}
               style={{ "--subject-color": subject.color } as React.CSSProperties}

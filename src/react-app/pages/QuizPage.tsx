@@ -12,27 +12,38 @@
  */
 
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useQuiz } from "../hooks/useQuiz";
 import { useAuth } from "../hooks/useAuth";
 import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
+import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
 import "../components/quiz/Quiz.css";
 
 export function QuizPage() {
-  // Ho tro 2 kieu URL:
-  //   /quiz/:id           <- URL cu (backward-compat)
-  //   /:subject/:quizId   <- URL moi (VD: /toan-tu-duy/math-l1-p1)
-  const { id, quizId: quizSlug } = useParams<{
+  const location = useLocation();
+
+  // Hỗ trợ 2 kiểu URL:
+  //   /quiz/:id                       ← URL cũ (internal tool)
+  //   /:pathway/:subjectSlug/:quizId  ← URL mới (VD: /lop6/toan/math-l1-p1)
+  const { id, subjectSlug, quizId: quizSlug } = useParams<{
     id?: string;
-    subject?: string;
+    subjectSlug?: string;
     quizId?: string;
   }>();
 
-  // Chuyen slug thanh ID goc: math-l1-p1 -> MATH-L1-P1
-  const quizId = (id ?? quizSlug ?? "").toUpperCase().replace(/-/g, "-");
+  // Slug → ID: math-l1-p1 → MATH-L1-P1
+  const rawSlug = id ?? quizSlug ?? "";
+  const quizId  = rawSlug.toUpperCase().replace(/-/g, "-");
+
+  // Xác định pathway để navigate "về" đúng chỗ
+  const pathway = getPathwayFromPathname(location.pathname);
+  const backUrl = pathway && subjectSlug
+    ? `${getPathwayUrl(pathway)}/${subjectSlug}`
+    : "/";
+
   const navigate = useNavigate();
   const { isLoggedIn, loginWithGoogle } = useAuth();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -90,8 +101,8 @@ export function QuizPage() {
         <button className="btn btn-primary" id="btn-paywall-login" onClick={loginWithGoogle}>
           Đăng nhập bằng Google
         </button>
-        <button className="btn btn-outline" onClick={() => navigate("/")}>
-          ← Xem bài miễn phí
+        <button className="btn btn-outline" onClick={() => navigate(backUrl)}>
+          ← Về danh sách bài
         </button>
       </div>
     );
@@ -105,7 +116,7 @@ export function QuizPage() {
         <h2>Không tải được bài học</h2>
         <p>{error ?? "Có lỗi xảy ra. Vui lòng thử lại."}</p>
         <button className="btn btn-primary" onClick={loadQuiz}>Thử lại</button>
-        <button className="btn btn-outline" onClick={() => navigate("/")}>← Trang chủ</button>
+        <button className="btn btn-outline" onClick={() => navigate(backUrl)}>← Danh sách bài</button>
       </div>
     );
   }
@@ -120,14 +131,13 @@ export function QuizPage() {
         isLoggedIn={isLoggedIn}
         onLogin={loginWithGoogle}
         onReview={() => setShowResult(false)}
-        onHome={() => navigate("/")}
+        onHome={() => navigate(backUrl)}
         // Phase 4.5: truyền vocab xuống để hiện Hangman
         vocabPendingWords={vocab.getPendingWords()}
         onVocabMarkCorrect={vocab.markWordCorrect}
         onHangmanStarsEarned={(_stars) => {
           // Phase 07: sẽ gọi API cộng sao vào DB
-          // Hiện tại chỉ log
-          console.log(`[Phase 4.5] Hangman: +${_stars} ⭐`);
+          console.log(`[Phase 5] Hangman: +${_stars} ⭐`);
         }}
       />
     );
