@@ -22,10 +22,10 @@ Ship được phiên bản đầu tiên cho học sinh thật dùng thử với:
 | 03 | Auth — Google OAuth | ✅ Hoàn thành | 100% |
 | 04 | Quiz Engine — Core | ✅ Hoàn thành | 100% |
 | **0.5** | **App Shell — Layout Framework** | ✅ Hoàn thành | 100% |
-| 05 | Quiz Engine — Drag & Drop | ⬜ Chưa làm | 0% |
+| 05 | Quiz Engine — Drag & Drop | ✅ Hoàn thành | 100% |
 | 06 | Quiz Engine — Audio + Submit | ⬜ Chưa làm | 0% |
 | **4.5** | **Word Tooltip + Hangman Vocabulary** | ⬜ Chưa làm | 0% |
-| 07 | Student Dashboard (Trang Chủ Bé) | ⬜ Chưa làm | 0% |
+| 07 | Student Dashboard (Trang Chủ Bé) | ✅ Hoàn thành | 100% |
 | 08 | Dream Box + Email Approval | ⬜ Chưa làm | 0% |
 | 09 | Avatar + Profile | ⬜ Chưa làm | 0% |
 | 10 | Nội dung JSON — 10 bài đầu tiên | ⬜ Chưa làm | 0% |

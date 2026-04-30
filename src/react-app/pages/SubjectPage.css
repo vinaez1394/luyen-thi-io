@@ -7,6 +7,17 @@
   background: var(--color-bg);
 }
 
+/* Breadcrumb bar trên hero */
+.subject-page__breadcrumb-bar {
+  padding: 0.75rem 1.5rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .subject-page__breadcrumb-bar { padding: 0.5rem 1rem 0; }
+}
+
 /* Trạng thái không tồn tại */
 .subject-page--not-found {
   display: flex;
@@ -37,25 +48,7 @@
   background: var(--subject-color, var(--color-primary));
 }
 
-.subject-page__back {
-  position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-  background: none;
-  border: none;
-  font-family: var(--font-family);
-  font-size: var(--font-sm);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-muted);
-  cursor: pointer;
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-  transition: background var(--transition-fast), color var(--transition-fast);
-}
-.subject-page__back:hover {
-  background: var(--color-bg-subtle);
-  color: var(--color-text);
-}
+/* Back button - unused (replaced by Breadcrumb), kept for fallback */
 
 .subject-page__hero-emoji {
   font-size: 56px;
@@ -192,11 +185,6 @@
 
 /* Mobile */
 @media (max-width: 480px) {
-  .subject-page__back {
-    position: static;
-    margin-bottom: var(--space-2);
-    display: inline-block;
-  }
   .subject-page__hero {
     padding-top: var(--space-3);
   }

@@ -12,6 +12,9 @@
 		"publish": true
 	},
 	"dependencies": {
+		"@dnd-kit/core": "^6.3.1",
+		"@dnd-kit/sortable": "^10.0.0",
+		"@dnd-kit/utilities": "^3.2.2",
 		"hono": "4.11.1",
 		"react": "19.2.1",
 		"react-dom": "19.2.1",
@@ -40,7 +43,8 @@
 		"check": "tsc && vite build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "vite",
-		"dev:remote": "wrangler dev --remote",
+		"dev:full": "wrangler dev --port 8788",
+		"dev:remote": "wrangler dev --remote --port 8788",
 		"lint": "eslint .",
 		"preview": "npm run build && vite preview"
 	},

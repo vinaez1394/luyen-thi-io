@@ -12,151 +12,466 @@
     {
       "id": "q1",
       "prompt": [
-        { "text": "Next " },
-        { "text": "number", "tooltip": { "vi": "số", "ipa": "ˈnʌmbər" } },
-        { "text": ": 3, 4, 7, 12, 19, __?" }
+        {
+          "text": "Next "
+        },
+        {
+          "text": "number",
+          "tooltip": {
+            "vi": "số",
+            "ipa": "ˈnʌmbər"
+          }
+        },
+        {
+          "text": ": 3, 4, 7, 12, 19, __?"
+        }
       ],
-      "options": ["26", "27", "28", "29"],
+      "options": [
+        "26",
+        "27",
+        "28",
+        "29"
+      ],
       "correct": "28",
       "explanation_vi": "Hiệu số tăng dần theo dãy số lẻ: +1, +3, +5, +7, +9. Tiếp theo là 19 + 9 = 28."
     },
     {
       "id": "q2",
       "prompt": [
-        { "text": "Alice is 9, Bob is 5. Their " },
-        { "text": "sum", "tooltip": { "vi": "tổng", "ipa": "sʌm" } },
-        { "text": " of ages is 20 in how many " },
-        { "text": "years", "tooltip": { "vi": "năm", "ipa": "jɪərz" } },
-        { "text": "?" }
+        {
+          "text": "Alice is 9, Bob is 5. Their "
+        },
+        {
+          "text": "sum",
+          "tooltip": {
+            "vi": "tổng",
+            "ipa": "sʌm"
+          }
+        },
+        {
+          "text": " of ages is 20 in how many "
+        },
+        {
+          "text": "years",
+          "tooltip": {
+            "vi": "năm",
+            "ipa": "jɪərz"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "correct": "3",
       "explanation_vi": "Tổng tuổi hiện tại là 9 + 5 = 14. Cần đạt 20, nghĩa là thiếu 6 tuổi. Mỗi năm, cả 2 người cùng già đi 1 tuổi (tổng tăng 2). Số năm cần là: 6 / 2 = 3 năm."
     },
     {
       "id": "q3",
       "prompt": [
-        { "text": "5 " },
-        { "text": "cuts", "tooltip": { "vi": "lần cắt", "ipa": "kʌts" } },
-        { "text": " are made on a " },
-        { "text": "string", "tooltip": { "vi": "sợi dây", "ipa": "strɪŋ" } },
-        { "text": ". How many " },
-        { "text": "pieces", "tooltip": { "vi": "mảnh, đoạn", "ipa": "ˈpiːsɪz" } },
-        { "text": " do you get?" }
+        {
+          "text": "5 "
+        },
+        {
+          "text": "cuts",
+          "tooltip": {
+            "vi": "lần cắt",
+            "ipa": "kʌts"
+          }
+        },
+        {
+          "text": " are made on a "
+        },
+        {
+          "text": "string",
+          "tooltip": {
+            "vi": "sợi dây",
+            "ipa": "strɪŋ"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "pieces",
+          "tooltip": {
+            "vi": "mảnh, đoạn",
+            "ipa": "ˈpiːsɪz"
+          }
+        },
+        {
+          "text": " do you get?"
+        }
       ],
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "correct": "6",
       "explanation_vi": "Khi cắt một sợi dây, số đoạn luôn bằng số lần cắt cộng thêm 1. Vậy 5 lần cắt cho ra: 5 + 1 = 6 đoạn."
     },
     {
       "id": "q4",
       "prompt": [
-        { "text": "15 people in " },
-        { "text": "line", "tooltip": { "vi": "hàng, dòng", "ipa": "laɪn" } },
-        { "text": ". Sam is 4th from the " },
-        { "text": "front", "tooltip": { "vi": "phía trước", "ipa": "frʌnt" } },
-        { "text": ". What is his " },
-        { "text": "position", "tooltip": { "vi": "vị trí", "ipa": "pəˈzɪʃən" } },
-        { "text": " from the " },
-        { "text": "back", "tooltip": { "vi": "phía cuối", "ipa": "bæk" } },
-        { "text": "?" }
+        {
+          "text": "15 people in "
+        },
+        {
+          "text": "line",
+          "tooltip": {
+            "vi": "hàng, dòng",
+            "ipa": "laɪn"
+          }
+        },
+        {
+          "text": ". Sam is 4th from the "
+        },
+        {
+          "text": "front",
+          "tooltip": {
+            "vi": "phía trước",
+            "ipa": "frʌnt"
+          }
+        },
+        {
+          "text": ". What is his "
+        },
+        {
+          "text": "position",
+          "tooltip": {
+            "vi": "vị trí",
+            "ipa": "pəˈzɪʃən"
+          }
+        },
+        {
+          "text": " from the "
+        },
+        {
+          "text": "back",
+          "tooltip": {
+            "vi": "phía cuối",
+            "ipa": "bæk"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["11", "12", "13", "10"],
+      "options": [
+        "11",
+        "12",
+        "13",
+        "10"
+      ],
       "correct": "12",
       "explanation_vi": "Sam đứng thứ 4 từ trên xuống, nên có 3 người đứng trước Sam. Số người đứng sau Sam là: 15 - 4 = 11 người. Vậy Sam đứng thứ 12 từ dưới lên (11 người phía sau + chính Sam)."
     },
     {
       "id": "q5",
       "prompt": [
-        { "text": "Tricycles", "tooltip": { "vi": "xe ba bánh", "ipa": "ˈtraɪsɪkəlz" } },
-        { "text": " (3 " },
-        { "text": "wheels", "tooltip": { "vi": "bánh xe", "ipa": "wiːlz" } },
-        { "text": ") and " },
-        { "text": "bicycles", "tooltip": { "vi": "xe đạp", "ipa": "ˈbaɪsɪkəlz" } },
-        { "text": " (2 wheels). There are 6 " },
-        { "text": "total", "tooltip": { "vi": "tổng cộng", "ipa": "ˈtoʊtəl" } },
-        { "text": " vehicles with 14 wheels. How many bicycles are there?" }
+        {
+          "text": "Tricycles",
+          "tooltip": {
+            "vi": "xe ba bánh",
+            "ipa": "ˈtraɪsɪkəlz"
+          }
+        },
+        {
+          "text": " (3 "
+        },
+        {
+          "text": "wheels",
+          "tooltip": {
+            "vi": "bánh xe",
+            "ipa": "wiːlz"
+          }
+        },
+        {
+          "text": ") and "
+        },
+        {
+          "text": "bicycles",
+          "tooltip": {
+            "vi": "xe đạp",
+            "ipa": "ˈbaɪsɪkəlz"
+          }
+        },
+        {
+          "text": " (2 wheels). There are 6 "
+        },
+        {
+          "text": "total",
+          "tooltip": {
+            "vi": "tổng cộng",
+            "ipa": "ˈtoʊtəl"
+          }
+        },
+        {
+          "text": " vehicles with 14 wheels. How many bicycles are there?"
+        }
       ],
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "correct": "4",
       "explanation_vi": "Giả sử tất cả 6 xe đều là xe đạp (2 bánh), số bánh xe là: 6 x 2 = 12 bánh. Số bánh bị thiếu: 14 - 12 = 2 bánh. Mỗi xe ba bánh có nhiều hơn xe đạp 1 bánh. Số xe ba bánh là: 2 / 1 = 2 chiếc. Số xe đạp là: 6 - 2 = 4 chiếc."
     },
     {
       "id": "q6",
       "prompt": [
-        { "text": "Divide", "tooltip": { "vi": "chia", "ipa": "dɪˈvaɪd" } },
-        { "text": " a number by 3, " },
-        { "text": "add", "tooltip": { "vi": "cộng", "ipa": "æd" } },
-        { "text": " 8, you get 12. What is the number?" }
+        {
+          "text": "Divide",
+          "tooltip": {
+            "vi": "chia",
+            "ipa": "dɪˈvaɪd"
+          }
+        },
+        {
+          "text": " a number by 3, "
+        },
+        {
+          "text": "add",
+          "tooltip": {
+            "vi": "cộng",
+            "ipa": "æd"
+          }
+        },
+        {
+          "text": " 8, you get 12. What is the number?"
+        }
       ],
-      "options": ["9", "12", "15", "18"],
+      "options": [
+        "9",
+        "12",
+        "15",
+        "18"
+      ],
       "correct": "12",
       "explanation_vi": "Tính ngược từ kết quả 12: Trừ đi 8 (12 - 8 = 4). Nhân với 3 (4 x 3 = 12). Số ban đầu là 12."
     },
     {
       "id": "q7",
       "prompt": [
-        { "text": "How many " },
-        { "text": "digits", "tooltip": { "vi": "chữ số (0-9)", "ipa": "ˈdɪdʒɪts" } },
-        { "text": " are used for " },
-        { "text": "pages", "tooltip": { "vi": "trang sách", "ipa": "peɪdʒɪz" } },
-        { "text": " 1 to 22?" }
+        {
+          "text": "How many "
+        },
+        {
+          "text": "digits",
+          "tooltip": {
+            "vi": "chữ số (0-9)",
+            "ipa": "ˈdɪdʒɪts"
+          }
+        },
+        {
+          "text": " are used for "
+        },
+        {
+          "text": "pages",
+          "tooltip": {
+            "vi": "trang sách",
+            "ipa": "peɪdʒɪz"
+          }
+        },
+        {
+          "text": " 1 to 22?"
+        }
       ],
-      "options": ["33", "35", "37", "39"],
+      "options": [
+        "33",
+        "35",
+        "37",
+        "39"
+      ],
       "correct": "35",
       "explanation_vi": "Trang 1 đến 9: 9 trang x 1 chữ số = 9 chữ số. Trang 10 đến 22: có 13 trang x 2 chữ số = 26 chữ số. Tổng cộng: 9 + 26 = 35 chữ số."
     },
     {
       "id": "q8",
       "prompt": [
-        { "text": "1 " },
-        { "text": "toy", "tooltip": { "vi": "đồ chơi", "ipa": "tɔɪ" } },
-        { "text": " " },
-        { "text": "car", "tooltip": { "vi": "ô tô", "ipa": "kɑːr" } },
-        { "text": " = 5 " },
-        { "text": "marbles", "tooltip": { "vi": "viên bi", "ipa": "ˈmɑːrbəlz" } },
-        { "text": ". 1 " },
-        { "text": "teddy", "tooltip": { "vi": "gấu bông", "ipa": "ˈtedi" } },
-        { "text": " = 2 toy cars. 1 teddy = ? marbles." }
+        {
+          "text": "1 "
+        },
+        {
+          "text": "toy",
+          "tooltip": {
+            "vi": "đồ chơi",
+            "ipa": "tɔɪ"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "car",
+          "tooltip": {
+            "vi": "ô tô",
+            "ipa": "kɑːr"
+          }
+        },
+        {
+          "text": " = 5 "
+        },
+        {
+          "text": "marbles",
+          "tooltip": {
+            "vi": "viên bi",
+            "ipa": "ˈmɑːrbəlz"
+          }
+        },
+        {
+          "text": ". 1 "
+        },
+        {
+          "text": "teddy",
+          "tooltip": {
+            "vi": "gấu bông",
+            "ipa": "ˈtedi"
+          }
+        },
+        {
+          "text": " = 2 toy cars. 1 teddy = ? marbles."
+        }
       ],
-      "options": ["8", "9", "10", "11"],
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
       "correct": "10",
       "explanation_vi": "1 gấu bông = 2 đồ chơi ô tô. Mà mỗi đồ chơi ô tô = 5 viên bi. Vậy 1 gấu bông = 2 x 5 = 10 viên bi."
     },
     {
       "id": "q9",
       "prompt": [
-        { "text": "Today", "tooltip": { "vi": "hôm nay", "ipa": "təˈdeɪ" } },
-        { "text": " is " },
-        { "text": "Monday", "tooltip": { "vi": "Thứ Hai", "ipa": "ˈmʌndeɪ" } },
-        { "text": ". What day was 8 days " },
-        { "text": "ago", "tooltip": { "vi": "trước đây", "ipa": "əˈɡoʊ" } },
-        { "text": "?" }
+        {
+          "text": "Today",
+          "tooltip": {
+            "vi": "hôm nay",
+            "ipa": "təˈdeɪ"
+          }
+        },
+        {
+          "text": " is "
+        },
+        {
+          "text": "Monday",
+          "tooltip": {
+            "vi": "Thứ Hai",
+            "ipa": "ˈmʌndeɪ"
+          }
+        },
+        {
+          "text": ". What day was 8 days "
+        },
+        {
+          "text": "ago",
+          "tooltip": {
+            "vi": "trước đây",
+            "ipa": "əˈɡoʊ"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["Sunday", "Monday", "Tuesday", "Saturday"],
+      "options": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Saturday"
+      ],
       "correct": "Sunday",
       "explanation_vi": "8 ngày trước = 1 tuần (7 ngày) và lùi thêm 1 ngày. 1 ngày trước Thứ Hai là Chủ Nhật (Sunday)."
     },
     {
       "id": "q10",
       "prompt": [
-        { "text": "2 " },
-        { "text": "cubes", "tooltip": { "vi": "khối lập phương", "ipa": "kjuːbz" } },
-        { "text": " " },
-        { "text": "stacked", "tooltip": { "vi": "xếp chồng", "ipa": "stækt" } },
-        { "text": " " },
-        { "text": "vertically", "tooltip": { "vi": "theo chiều dọc", "ipa": "ˈvɜːrtɪkli" } },
-        { "text": ". How many " },
-        { "text": "faces", "tooltip": { "vi": "mặt", "ipa": "feɪsɪz" } },
-        { "text": " are not " },
-        { "text": "painted", "tooltip": { "vi": "được sơn", "ipa": "ˈpeɪntɪd" } },
-        { "text": " (" },
-        { "text": "hidden", "tooltip": { "vi": "bị che khuất", "ipa": "ˈhɪdən" } },
-        { "text": ")?" }
+        {
+          "text": "2 "
+        },
+        {
+          "text": "cubes",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːbz"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "stacked",
+          "tooltip": {
+            "vi": "xếp chồng",
+            "ipa": "stækt"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "vertically",
+          "tooltip": {
+            "vi": "theo chiều dọc",
+            "ipa": "ˈvɜːrtɪkli"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "faces",
+          "tooltip": {
+            "vi": "mặt",
+            "ipa": "feɪsɪz"
+          }
+        },
+        {
+          "text": " are not "
+        },
+        {
+          "text": "painted",
+          "tooltip": {
+            "vi": "được sơn",
+            "ipa": "ˈpeɪntɪd"
+          }
+        },
+        {
+          "text": " ("
+        },
+        {
+          "text": "hidden",
+          "tooltip": {
+            "vi": "bị che khuất",
+            "ipa": "ˈhɪdən"
+          }
+        },
+        {
+          "text": ")?"
+        }
       ],
-      "options": ["1", "2", "3", "4"],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "correct": "2",
       "explanation_vi": "2 khối xếp chồng lên nhau sẽ có 1 điểm tiếp xúc ở giữa. Điểm tiếp xúc này che mất đi 2 mặt của khối lập phương."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

@@ -1,0 +1,153 @@
+/* CambridgePage.css */
+
+.cambridge-page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Header ── */
+.cambridge-page__back {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+}
+.cambridge-page__back:hover { color: var(--color-primary); }
+
+.cambridge-page__hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.cambridge-page__hero-flag { font-size: 3rem; line-height: 1; }
+
+.cambridge-page__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0 0 0.2rem;
+}
+
+.cambridge-page__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Progression breadcrumb */
+.cambridge-page__progression {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface-elevated);
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.cambridge-page__progression-step {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.cambridge-page__progression-arrow { opacity: 0.4; }
+
+/* ── Grid ── */
+.cambridge-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Level card ── */
+.cambridge-level-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem 1.25rem 1rem;
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background: var(--color-surface);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.cambridge-level-card:not(.cambridge-level-card--soon):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  border-color: var(--subject-color, var(--color-primary));
+}
+
+.cambridge-level-card--soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cambridge-level-card__emoji {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+
+.cambridge-level-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cambridge-level-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 0.2rem;
+}
+
+.cambridge-level-card__desc {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 0.3rem;
+}
+
+.cambridge-level-card__meta {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.cambridge-level-card__soon-badge {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #999);
+}
+
+.cambridge-level-card__arrow {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s;
+}
+
+.cambridge-level-card:not(.cambridge-level-card--soon):hover .cambridge-level-card__arrow {
+  transform: translateX(3px);
+  color: var(--subject-color, var(--color-primary));
+}
+
+@media (max-width: 600px) {
+  .cambridge-page { padding: 1.5rem 1rem 3rem; }
+  .cambridge-page__grid { grid-template-columns: 1fr; }
+}

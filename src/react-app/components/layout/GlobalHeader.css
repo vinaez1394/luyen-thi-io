@@ -498,6 +498,39 @@
   background: var(--color-primary-light);
 }
 
+/* Group label phân tầng Cambridge / Lớp 6 */
+.nav-subject-dropdown__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-subject-dropdown__group-label {
+  display: block;
+  padding: 6px 16px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #999);
+}
+
+/* Trạng thái "Sắp có" */
+.nav-subject-dropdown__item--soon {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.nav-subject-dropdown__soon-badge {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: var(--color-surface-elevated, #f0f0f0);
+  color: var(--color-text-muted, #999);
+  margin-left: auto;
+}
+
 /* ===== MOBILE DRAWER — Subject group ===== */
 .mobile-drawer__subject-group {
   display: flex;
@@ -526,4 +559,19 @@
 .mobile-drawer__nav-link--subject:hover,
 .mobile-drawer__nav-link--subject.active {
   border-left-color: var(--subject-color, var(--color-primary));
+}
+
+.mobile-drawer__nav-link--soon {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mobile-drawer__soon-badge {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: var(--color-surface-elevated, #f0f0f0);
+  color: var(--color-text-muted, #999);
 }

@@ -1,12 +1,16 @@
 /**
  * SubjectPage.tsx — Trang hiển thị tất cả bài học của 1 môn
- * URL: /:subject (VD: /toan-tu-duy, /flyers)
- * Dữ liệu: src/react-app/data/subjects.ts
+ * URL mới: /:pathway/:subjectSlug
+ *   Cambridge: /cambridge/flyers
+ *   Lớp 6:    /lop6/toan
  */
 
-import { useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { findSubject } from "../data/subjects";
+import { findByPathwayGroup } from "../data/subjects";
+import { getPathwayFromPathname, getLessonUrl, getPathwayUrl } from "../utils/urlHelpers";
+import { Breadcrumb, useBreadcrumbs } from "../components/ui/Breadcrumb";
 import "./SubjectPage.css";
 
 const SKILL_LABELS: Record<string, string> = {
@@ -26,11 +30,14 @@ const SKILL_COLORS: Record<string, string> = {
 };
 
 export function SubjectPage() {
-  const { subject: subjectId = "" } = useParams<{ subject: string }>();
+  const { subjectSlug = "" } = useParams<{ subjectSlug: string }>();
+  const location = useLocation();
   const navigate = useNavigate();
   const { isLoggedIn, loginWithGoogle } = useAuth();
 
-  const subject = findSubject(subjectId);
+  // Xác định pathway từ URL: "cambridge" hoặc "lop6"
+  const pathway = getPathwayFromPathname(location.pathname);
+  const subject = pathway ? findByPathwayGroup(pathway, subjectSlug) : null;
 
   // Môn không tồn tại hoặc chưa available
   if (!subject || !subject.available) {
@@ -51,24 +58,28 @@ export function SubjectPage() {
       loginWithGoogle();
       return;
     }
-    navigate(`/${subject.id}/${slug}`);
+    if (subject && pathway) {
+      navigate(getLessonUrl(subject, slug));
+    }
   };
+
+  // Breadcrumb trail và back button
+  const backUrl      = pathway ? getPathwayUrl(pathway) : "/";
+  const breadcrumbs  = useBreadcrumbs(location.pathname, subject?.label);
 
   return (
     <div className="subject-page">
+
+      {/* Breadcrumb */}
+      <div className="subject-page__breadcrumb-bar">
+        <Breadcrumb items={breadcrumbs} />
+      </div>
 
       {/* Header môn học */}
       <div
         className="subject-page__hero"
         style={{ "--subject-color": subject.color } as React.CSSProperties}
       >
-        <button
-          className="subject-page__back"
-          onClick={() => navigate("/")}
-          id="btn-subject-back"
-        >
-          ← Tất cả môn học
-        </button>
         <div className="subject-page__hero-emoji">{subject.emoji}</div>
         <h1 className="subject-page__hero-title">{subject.label}</h1>
         <p className="subject-page__hero-desc">{subject.desc}</p>
@@ -87,8 +98,8 @@ export function SubjectPage() {
           <div className="subject-page__empty">
             <div style={{ fontSize: 48 }}>🚧</div>
             <p>Đang soạn bài — sắp ra mắt!</p>
-            <button className="btn btn-outline" onClick={() => navigate("/")}>
-              Xem môn học khác
+            <button className="btn btn-outline" onClick={() => navigate(backUrl)}>
+              Xem môn khác
             </button>
           </div>
         ) : (

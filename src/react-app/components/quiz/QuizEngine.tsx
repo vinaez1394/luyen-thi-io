@@ -12,6 +12,8 @@ import type { Quiz, QuizType, QuizComponentProps, UserAnswers, QuizResult } from
 import type { WordTooltipProps } from "../vocabulary/WordTooltip";
 import { MultipleChoice } from "./MultipleChoice";
 import { FillBlank } from "./FillBlank";
+import { DragDropFill } from "./DragDropFill";
+import { DragDropMatch } from "./DragDropMatch";
 import { UnknownTypeScreen } from "./UnknownTypeScreen";
 import { InstructionBanner } from "./InstructionBanner";
 import "./Quiz.css";
@@ -23,10 +25,10 @@ const QUIZ_REGISTRY: Partial<Record<QuizType, FC<QuizComponentProps>>> = {
   "multiple-choice":       MultipleChoice,
   "multiple-choice-image": MultipleChoice,
   "fill-blank":            FillBlank,
-  // Phase 05:
-  // "drag-drop-fill":  DragDropFill,
-  // "drag-drop-match": DragDropMatch,
-  // "matching":        Matching,
+  // Phase 05 ✅
+  "drag-drop-fill":        DragDropFill,
+  "drag-drop-match":       DragDropMatch,
+  // "matching":           Matching,  // TODO Phase 05 optional
   // Phase 06:
   // "audio-mc":   AudioMC,
   // "audio-fill": AudioFill,

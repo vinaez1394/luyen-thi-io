@@ -62,9 +62,12 @@ export function useAuth() {
     fetchUser();
   }, [fetchUser]);
 
-  // Redirect đến Google OAuth
+  // Redirect đến Google OAuth — dùng location.assign() để đảm bảo full page navigation
   const loginWithGoogle = useCallback(() => {
-    window.location.href = "/api/auth/google";
+    // Full page navigation — bypass React Router hoàn toàn
+    const url = window.location.origin + "/api/auth/google";
+    console.log("[Auth] Navigating to:", url);
+    window.location.assign(url);
   }, []);
 
   // Logout

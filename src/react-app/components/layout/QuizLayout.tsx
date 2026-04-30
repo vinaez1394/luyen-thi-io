@@ -10,18 +10,12 @@
  */
 
 import { useState, type ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ExitConfirmDialog } from "../ui/ExitConfirmDialog";
+import { Breadcrumb, useBreadcrumbs } from "../ui/Breadcrumb";
 import type { Quiz, UserAnswers } from "../../types/quiz";
 import "./QuizLayout.css";
 
-// ─── Skill config ─────────────────────────────────────────────────────────────
-const SKILL_EMOJI: Record<string, string> = {
-  reading: "📖", listening: "🎧", writing: "✍️", math: "🧮",
-};
-const SKILL_LABEL: Record<string, string> = {
-  reading: "Reading", listening: "Listening", writing: "Writing", math: "Toán",
-};
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 interface QuizLayoutProps {
@@ -34,9 +28,13 @@ interface QuizLayoutProps {
 // ─── Component ────────────────────────────────────────────────────────────────
 export function QuizLayout({ quiz, currentQuestion, answers, children }: QuizLayoutProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [showExitDialog, setShowExitDialog] = useState(false);
 
   const totalQuestions = quiz.questions.length;
+
+  // Breadcrumb: build từ URL, item cuối = tên quiz
+  const breadcrumbs = useBreadcrumbs(location.pathname, quiz.title);
 
   return (
     <div className="quiz-layout">
@@ -46,22 +44,10 @@ export function QuizLayout({ quiz, currentQuestion, answers, children }: QuizLay
 
           {/* Left: Breadcrumb + Tên bài */}
           <div className="quiz-sub-header__left">
-            <div className="quiz-sub-header__breadcrumb" aria-label="Vị trí">
-              <span
-                className="quiz-sub-header__breadcrumb-link"
-                onClick={() => setShowExitDialog(true)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === "Enter" && setShowExitDialog(true)}
-              >
-                Trang chủ
-              </span>
-              <span className="quiz-sub-header__breadcrumb-sep">›</span>
-              <span className="quiz-sub-header__breadcrumb-current">
-                {SKILL_EMOJI[quiz.skill] ?? "📝"}{" "}
-                {SKILL_LABEL[quiz.skill] ?? quiz.skill.toUpperCase()}
-              </span>
-            </div>
+            <Breadcrumb
+              items={breadcrumbs}
+              onNavigate={() => setShowExitDialog(true)}
+            />
             <h2 className="quiz-sub-header__title">{quiz.title}</h2>
           </div>
 
@@ -116,7 +102,7 @@ export function QuizLayout({ quiz, currentQuestion, answers, children }: QuizLay
       {/* ── Exit Confirmation Dialog ── */}
       {showExitDialog && (
         <ExitConfirmDialog
-          onConfirm={() => navigate("/")}
+          onConfirm={() => navigate(-1 as never)}
           onCancel={() => setShowExitDialog(false)}
         />
       )}

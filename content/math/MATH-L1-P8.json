@@ -12,152 +12,469 @@
     {
       "id": "q1",
       "prompt": [
-        { "text": "Next " },
-        { "text": "number", "tooltip": { "vi": "số", "ipa": "ˈnʌmbər" } },
-        { "text": ": 100, 90, 81, 73, __?" }
+        {
+          "text": "Next "
+        },
+        {
+          "text": "number",
+          "tooltip": {
+            "vi": "số",
+            "ipa": "ˈnʌmbər"
+          }
+        },
+        {
+          "text": ": 100, 90, 81, 73, __?"
+        }
       ],
-      "options": ["64", "65", "66", "67"],
+      "options": [
+        "64",
+        "65",
+        "66",
+        "67"
+      ],
       "correct": "66",
       "explanation_vi": "Hiệu số giảm dần: -10, -9, -8. Tiếp theo là trừ 7: 73 - 7 = 66."
     },
     {
       "id": "q2",
       "prompt": [
-        { "text": "Grandpa", "tooltip": { "vi": "ông nội / ông ngoại", "ipa": "ˈɡrændpɑː" } },
-        { "text": " is 60. " },
-        { "text": "Grandson", "tooltip": { "vi": "cháu trai", "ipa": "ˈɡrændsʌn" } },
-        { "text": " is 8. What is the " },
-        { "text": "difference", "tooltip": { "vi": "sự khác biệt, hiệu số", "ipa": "ˈdɪfərəns" } },
-        { "text": " in their " },
-        { "text": "ages", "tooltip": { "vi": "tuổi tác", "ipa": "ˈeɪdʒɪz" } },
-        { "text": " in 10 years?" }
+        {
+          "text": "Grandpa",
+          "tooltip": {
+            "vi": "ông nội / ông ngoại",
+            "ipa": "ˈɡrændpɑː"
+          }
+        },
+        {
+          "text": " is 60. "
+        },
+        {
+          "text": "Grandson",
+          "tooltip": {
+            "vi": "cháu trai",
+            "ipa": "ˈɡrændsʌn"
+          }
+        },
+        {
+          "text": " is 8. What is the "
+        },
+        {
+          "text": "difference",
+          "tooltip": {
+            "vi": "sự khác biệt, hiệu số",
+            "ipa": "ˈdɪfərəns"
+          }
+        },
+        {
+          "text": " in their "
+        },
+        {
+          "text": "ages",
+          "tooltip": {
+            "vi": "tuổi tác",
+            "ipa": "ˈeɪdʒɪz"
+          }
+        },
+        {
+          "text": " in 10 years?"
+        }
       ],
-      "options": ["50", "52", "62", "70"],
+      "options": [
+        "50",
+        "52",
+        "62",
+        "70"
+      ],
       "correct": "52",
       "explanation_vi": "Sự khác biệt tuổi tác giữa hai người không bao giờ thay đổi theo thời gian. Hiện tại ông hơn cháu: 60 - 8 = 52 tuổi. 10 năm sau vẫn là 52 tuổi."
     },
     {
       "id": "q3",
       "prompt": [
-        { "text": "A " },
-        { "text": "clock", "tooltip": { "vi": "đồng hồ", "ipa": "klɑːk" } },
-        { "text": " " },
-        { "text": "strikes", "tooltip": { "vi": "điểm chuông, đánh chuông", "ipa": "straɪks" } },
-        { "text": " 3 times in 6 " },
-        { "text": "seconds", "tooltip": { "vi": "giây", "ipa": "ˈsekəndz" } },
-        { "text": ". How long does it take for 5 strikes?" }
+        {
+          "text": "A "
+        },
+        {
+          "text": "clock",
+          "tooltip": {
+            "vi": "đồng hồ",
+            "ipa": "klɑːk"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "strikes",
+          "tooltip": {
+            "vi": "điểm chuông, đánh chuông",
+            "ipa": "straɪks"
+          }
+        },
+        {
+          "text": " 3 times in 6 "
+        },
+        {
+          "text": "seconds",
+          "tooltip": {
+            "vi": "giây",
+            "ipa": "ˈsekəndz"
+          }
+        },
+        {
+          "text": ". How long does it take for 5 strikes?"
+        }
       ],
-      "options": ["10", "12", "15", "14"],
+      "options": [
+        "10",
+        "12",
+        "15",
+        "14"
+      ],
       "correct": "12",
       "explanation_vi": "3 tiếng chuông sẽ tạo ra 2 khoảng cách (khoảng nghỉ). 6 giây / 2 khoảng = 3 giây mỗi khoảng. 5 tiếng chuông tạo ra 4 khoảng cách. 4 x 3 = 12 giây."
     },
     {
       "id": "q4",
       "prompt": [
-        { "text": "18 people in a " },
-        { "text": "line", "tooltip": { "vi": "hàng, dòng", "ipa": "laɪn" } },
-        { "text": ". " },
-        { "text": "Max", "tooltip": { "vi": "tên riêng", "ipa": "mæks" } },
-        { "text": " is 5th from the " },
-        { "text": "right", "tooltip": { "vi": "bên phải", "ipa": "raɪt" } },
-        { "text": ". What is his " },
-        { "text": "position", "tooltip": { "vi": "vị trí", "ipa": "pəˈzɪʃən" } },
-        { "text": " from the " },
-        { "text": "left", "tooltip": { "vi": "bên trái", "ipa": "left" } },
-        { "text": "?" }
+        {
+          "text": "18 people in a "
+        },
+        {
+          "text": "line",
+          "tooltip": {
+            "vi": "hàng, dòng",
+            "ipa": "laɪn"
+          }
+        },
+        {
+          "text": ". "
+        },
+        {
+          "text": "Max",
+          "tooltip": {
+            "vi": "tên riêng",
+            "ipa": "mæks"
+          }
+        },
+        {
+          "text": " is 5th from the "
+        },
+        {
+          "text": "right",
+          "tooltip": {
+            "vi": "bên phải",
+            "ipa": "raɪt"
+          }
+        },
+        {
+          "text": ". What is his "
+        },
+        {
+          "text": "position",
+          "tooltip": {
+            "vi": "vị trí",
+            "ipa": "pəˈzɪʃən"
+          }
+        },
+        {
+          "text": " from the "
+        },
+        {
+          "text": "left",
+          "tooltip": {
+            "vi": "bên trái",
+            "ipa": "left"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["12", "13", "14", "15"],
+      "options": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
       "correct": "14",
       "explanation_vi": "Đứng thứ 5 từ bên phải nghĩa là có 4 người bên phải Max. Số người bên trái Max là: 18 - 5 = 13 người. Tính từ bên trái sang, Max đứng ở vị trí thứ 14 (13 người + chính Max)."
     },
     {
       "id": "q5",
       "prompt": [
-        { "text": "12 " },
-        { "text": "insects", "tooltip": { "vi": "côn trùng", "ipa": "ˈɪnsekts" } },
-        { "text": ". " },
-        { "text": "Spiders", "tooltip": { "vi": "nhện", "ipa": "ˈspaɪdərz" } },
-        { "text": " (8 " },
-        { "text": "legs", "tooltip": { "vi": "chân", "ipa": "leɡz" } },
-        { "text": ") and " },
-        { "text": "Ants", "tooltip": { "vi": "kiến", "ipa": "ænts" } },
-        { "text": " (6 legs). " },
-        { "text": "Total", "tooltip": { "vi": "tổng cộng", "ipa": "ˈtoʊtəl" } },
-        { "text": " 82 legs. How many ants?" }
+        {
+          "text": "12 "
+        },
+        {
+          "text": "insects",
+          "tooltip": {
+            "vi": "côn trùng",
+            "ipa": "ˈɪnsekts"
+          }
+        },
+        {
+          "text": ". "
+        },
+        {
+          "text": "Spiders",
+          "tooltip": {
+            "vi": "nhện",
+            "ipa": "ˈspaɪdərz"
+          }
+        },
+        {
+          "text": " (8 "
+        },
+        {
+          "text": "legs",
+          "tooltip": {
+            "vi": "chân",
+            "ipa": "leɡz"
+          }
+        },
+        {
+          "text": ") and "
+        },
+        {
+          "text": "Ants",
+          "tooltip": {
+            "vi": "kiến",
+            "ipa": "ænts"
+          }
+        },
+        {
+          "text": " (6 legs). "
+        },
+        {
+          "text": "Total",
+          "tooltip": {
+            "vi": "tổng cộng",
+            "ipa": "ˈtoʊtəl"
+          }
+        },
+        {
+          "text": " 82 legs. How many ants?"
+        }
       ],
-      "options": ["5", "6", "7", "8"],
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
       "correct": "7",
       "explanation_vi": "Giả sử tất cả 12 con đều là nhện (8 chân). Số chân là: 12 x 8 = 96 chân. Số chân bị thừa ra: 96 - 82 = 14 chân. Mỗi con kiến (6 chân) ít hơn nhện 2 chân. Vậy số kiến là: 14 / 2 = 7 con."
     },
     {
       "id": "q6",
       "prompt": [
-        { "text": "Divide", "tooltip": { "vi": "chia", "ipa": "dɪˈvaɪd" } },
-        { "text": " a number by 2, " },
-        { "text": "subtract", "tooltip": { "vi": "trừ đi", "ipa": "səbˈtrækt" } },
-        { "text": " 4, you get 6. What is the number?" }
+        {
+          "text": "Divide",
+          "tooltip": {
+            "vi": "chia",
+            "ipa": "dɪˈvaɪd"
+          }
+        },
+        {
+          "text": " a number by 2, "
+        },
+        {
+          "text": "subtract",
+          "tooltip": {
+            "vi": "trừ đi",
+            "ipa": "səbˈtrækt"
+          }
+        },
+        {
+          "text": " 4, you get 6. What is the number?"
+        }
       ],
-      "options": ["16", "18", "20", "22"],
+      "options": [
+        "16",
+        "18",
+        "20",
+        "22"
+      ],
       "correct": "20",
       "explanation_vi": "Tính ngược từ kết quả 6: Cộng thêm 4 = 10. Nhân với 2 = 20. Số ban đầu là 20."
     },
     {
       "id": "q7",
       "prompt": [
-        { "text": "A " },
-        { "text": "book", "tooltip": { "vi": "sách", "ipa": "bʊk" } },
-        { "text": " " },
-        { "text": "pages", "tooltip": { "vi": "trang", "ipa": "peɪdʒɪz" } },
-        { "text": " use 27 " },
-        { "text": "digits", "tooltip": { "vi": "chữ số (0-9)", "ipa": "ˈdɪdʒɪts" } },
-        { "text": ". How many pages does it have?" }
+        {
+          "text": "A "
+        },
+        {
+          "text": "book",
+          "tooltip": {
+            "vi": "sách",
+            "ipa": "bʊk"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "pages",
+          "tooltip": {
+            "vi": "trang",
+            "ipa": "peɪdʒɪz"
+          }
+        },
+        {
+          "text": " use 27 "
+        },
+        {
+          "text": "digits",
+          "tooltip": {
+            "vi": "chữ số (0-9)",
+            "ipa": "ˈdɪdʒɪts"
+          }
+        },
+        {
+          "text": ". How many pages does it have?"
+        }
       ],
-      "options": ["16", "17", "18", "19"],
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
       "correct": "18",
       "explanation_vi": "9 trang đầu dùng 9 chữ số. Số chữ số còn lại: 27 - 9 = 18 chữ số. Số trang có 2 chữ số là: 18 / 2 = 9 trang. Tổng số trang: 9 (trang 1 chữ số) + 9 (trang 2 chữ số) = 18 trang."
     },
     {
       "id": "q8",
       "prompt": [
-        { "text": "2 " },
-        { "text": "desks", "tooltip": { "vi": "bàn học", "ipa": "desks" } },
-        { "text": " = 6 " },
-        { "text": "chairs", "tooltip": { "vi": "ghế", "ipa": "tʃerz" } },
-        { "text": ". 1 desk = ? chairs." }
+        {
+          "text": "2 "
+        },
+        {
+          "text": "desks",
+          "tooltip": {
+            "vi": "bàn học",
+            "ipa": "desks"
+          }
+        },
+        {
+          "text": " = 6 "
+        },
+        {
+          "text": "chairs",
+          "tooltip": {
+            "vi": "ghế",
+            "ipa": "tʃerz"
+          }
+        },
+        {
+          "text": ". 1 desk = ? chairs."
+        }
       ],
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "correct": "3",
       "explanation_vi": "Chia cả hai vế cho 2: 6 / 2 = 3 cái ghế."
     },
     {
       "id": "q9",
       "prompt": [
-        { "text": "A " },
-        { "text": "month", "tooltip": { "vi": "tháng", "ipa": "mʌnθ" } },
-        { "text": " has 30 days. " },
-        { "text": "Today", "tooltip": { "vi": "hôm nay", "ipa": "təˈdeɪ" } },
-        { "text": " is the 5th, a " },
-        { "text": "Monday", "tooltip": { "vi": "Thứ Hai", "ipa": "ˈmʌndeɪ" } },
-        { "text": ". The 25th is what day?" }
+        {
+          "text": "A "
+        },
+        {
+          "text": "month",
+          "tooltip": {
+            "vi": "tháng",
+            "ipa": "mʌnθ"
+          }
+        },
+        {
+          "text": " has 30 days. "
+        },
+        {
+          "text": "Today",
+          "tooltip": {
+            "vi": "hôm nay",
+            "ipa": "təˈdeɪ"
+          }
+        },
+        {
+          "text": " is the 5th, a "
+        },
+        {
+          "text": "Monday",
+          "tooltip": {
+            "vi": "Thứ Hai",
+            "ipa": "ˈmʌndeɪ"
+          }
+        },
+        {
+          "text": ". The 25th is what day?"
+        }
       ],
-      "options": ["Saturday", "Sunday", "Monday", "Tuesday"],
+      "options": [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday"
+      ],
       "correct": "Sunday",
       "explanation_vi": "Từ ngày 5 đến ngày 25 cách nhau: 25 - 5 = 20 ngày. 20 ngày = 2 tuần và dư 6 ngày. 6 ngày sau Thứ Hai là Chủ Nhật (Sunday)."
     },
     {
       "id": "q10",
       "prompt": [
-        { "text": "A 2x2x2 " },
-        { "text": "larger", "tooltip": { "vi": "lớn hơn", "ipa": "ˈlɑːrdʒər" } },
-        { "text": " " },
-        { "text": "cube", "tooltip": { "vi": "khối lập phương", "ipa": "kjuːb" } },
-        { "text": " is made of " },
-        { "text": "small", "tooltip": { "vi": "nhỏ", "ipa": "smɔːl" } },
-        { "text": " cubes. How many small cubes are there?" }
+        {
+          "text": "A 2x2x2 "
+        },
+        {
+          "text": "larger",
+          "tooltip": {
+            "vi": "lớn hơn",
+            "ipa": "ˈlɑːrdʒər"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "cube",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːb"
+          }
+        },
+        {
+          "text": " is made of "
+        },
+        {
+          "text": "small",
+          "tooltip": {
+            "vi": "nhỏ",
+            "ipa": "smɔːl"
+          }
+        },
+        {
+          "text": " cubes. How many small cubes are there?"
+        }
       ],
-      "options": ["4", "6", "8", "10"],
+      "options": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
       "correct": "8",
       "explanation_vi": "Khối lớn có 2 tầng, mỗi tầng là hình vuông 2x2 gồm 4 khối nhỏ. Tổng cộng 2 x 4 = 8 khối nhỏ."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

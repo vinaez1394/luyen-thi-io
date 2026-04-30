@@ -447,3 +447,312 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ===== DRAG & DROP — SHARED ===== */
+
+/* Word chip (kéo được) */
+.dnd-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  min-height: 52px;          /* Mobile touch target ≥ 52px */
+  background: var(--color-card);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;        /* Required for dnd-kit touch sensor */
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.dnd-chip:active { cursor: grabbing; }
+
+.dnd-chip--dragging {
+  opacity: 0.6;
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ghost chip overlaid while dragging */
+.dnd-chip--overlay {
+  opacity: 0.95;
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: var(--shadow-lg);
+  cursor: grabbing;
+}
+
+.dnd-chip--disabled {
+  opacity: 0.5;
+  cursor: default;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.dnd-chip--in-zone {
+  min-height: unset;
+  padding: 4px 12px;
+  font-size: var(--font-sm);
+  border-color: var(--color-primary);
+}
+
+/* ===== DRAG-DROP-FILL ===== */
+.dnd-fill { gap: var(--space-3); }
+
+.dnd-fill__sentence {
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
+  line-height: 2.4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.dnd-fill__text {
+  color: var(--color-text);
+}
+
+/* Droppable slot (chỗ trống trong câu) */
+.dnd-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-light);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  transition: border-color var(--transition-fast), background var(--transition-fast),
+              transform 0.15s ease;
+  cursor: default;
+  vertical-align: middle;
+}
+
+.dnd-slot--hover {
+  border-color: var(--color-primary-dark);
+  background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  /* Pulse animation khi hover */
+  animation: slot-pulse 0.6s ease infinite alternate;
+}
+
+@keyframes slot-pulse {
+  from { border-color: var(--color-primary); }
+  to   { border-color: var(--color-primary-dark); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent); }
+}
+
+.dnd-slot--filled {
+  border-style: solid;
+  background: var(--color-card);
+  color: var(--color-text);
+  cursor: pointer;           /* Click để trả về */
+  /* Snap animation khi thả */
+  animation: slot-snap 0.2s ease;
+}
+
+@keyframes slot-snap {
+  0%   { transform: scale(0.88); }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.dnd-slot--correct {
+  border-color: var(--color-success) !important;
+  background: color-mix(in srgb, var(--color-success) 12%, transparent) !important;
+  color: var(--color-success) !important;
+}
+
+.dnd-slot--wrong {
+  border-color: var(--color-danger) !important;
+  background: color-mix(in srgb, var(--color-danger) 12%, transparent) !important;
+  color: var(--color-danger) !important;
+}
+
+.dnd-slot__placeholder {
+  opacity: 0.5;
+  font-weight: var(--font-normal);
+  font-style: italic;
+}
+
+.dnd-fill__correct-hint {
+  font-size: var(--font-sm);
+  color: var(--color-success);
+}
+
+/* Word Bank */
+.dnd-bank {
+  padding: var(--space-2);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.dnd-bank__label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.dnd-bank__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  min-height: 52px;
+  align-items: center;
+}
+
+.dnd-bank__empty {
+  font-size: var(--font-sm);
+  color: var(--color-success);
+  font-style: italic;
+}
+
+/* ===== DRAG-DROP-MATCH ===== */
+.dnd-match { gap: var(--space-3); }
+
+.dnd-match__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .dnd-match__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dnd-match__col-label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+/* Left draggable items */
+.dnd-match__left-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-2);
+  min-height: 52px;
+  background: var(--color-card);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  margin-bottom: var(--space-1);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+              opacity var(--transition-fast);
+}
+
+.dnd-match__left-item:active { cursor: grabbing; }
+
+.dnd-match__left-item--matched {
+  opacity: 0.5;
+  border-style: dashed;
+}
+
+.dnd-match__left-item--correct {
+  border-color: var(--color-success);
+  color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+}
+
+.dnd-match__left-item--wrong {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 10%, transparent);
+}
+
+.dnd-match__grip {
+  font-size: 18px;
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+/* Right drop zones */
+.dnd-match__right-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+.dnd-match__zone {
+  flex: 1;
+  min-height: 52px;
+  padding: var(--space-1) var(--space-2);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.dnd-match__zone--hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  animation: slot-pulse 0.6s ease infinite alternate;
+}
+
+.dnd-match__zone--filled {
+  border-style: solid;
+  border-color: var(--color-primary);
+  background: var(--color-card);
+  animation: slot-snap 0.2s ease;
+}
+
+.dnd-match__zone--correct {
+  border-color: var(--color-success) !important;
+  background: color-mix(in srgb, var(--color-success) 10%, transparent) !important;
+}
+
+.dnd-match__zone--wrong {
+  border-color: var(--color-danger) !important;
+  background: color-mix(in srgb, var(--color-danger) 10%, transparent) !important;
+}
+
+.dnd-match__zone-placeholder {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.dnd-match__right-label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dnd-match__feedback-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.dnd-match__status {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+

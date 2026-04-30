@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { healthRoute } from "./routes/health";
 import { authRoute } from "./routes/auth";
+import { emailAuthRoute } from "./routes/email-auth";
 import { studentRoute } from "./routes/student";
 import { quizRoute } from "./routes/quiz";
 
@@ -15,6 +16,9 @@ app.route("/api/health", healthRoute);
 
 // Auth — Google OAuth (Phase 03)
 app.route("/api/auth", authRoute);
+
+// Auth — Email OTP
+app.route("/api/auth/email", emailAuthRoute);
 
 // Student profile (Phase 03 — Onboarding)
 app.route("/api/student", studentRoute);

@@ -1,6 +1,6 @@
 {
   "id": "MATH-L1-P5",
-  "title": "Toán Tư Duy — Level 1 — Bài 5",
+  "title": "Toán Tư Duy (English) — Level 1 — Bài 5",
   "skill": "math",
   "level": "level-1",
   "part": 5,
@@ -11,152 +11,465 @@
     {
       "id": "q1",
       "prompt": [
-        { "text": "Find the " },
-        { "text": "next", "tooltip": { "vi": "tiếp theo", "ipa": "nekst" } },
-        { "text": " number in the " },
-        { "text": "sequence", "tooltip": { "vi": "dãy số (có quy luật)", "ipa": "ˈsiːkwəns" } },
-        { "text": ": 50, 45, 39, 32, 24, ..." }
+        {
+          "text": "Find the "
+        },
+        {
+          "text": "next",
+          "tooltip": {
+            "vi": "tiếp theo",
+            "ipa": "nekst"
+          }
+        },
+        {
+          "text": " number in the "
+        },
+        {
+          "text": "sequence",
+          "tooltip": {
+            "vi": "dãy số (có quy luật)",
+            "ipa": "ˈsiːkwəns"
+          }
+        },
+        {
+          "text": ": 50, 45, 39, 32, 24, ..."
+        }
       ],
-      "options": ["15", "16", "17", "18"],
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
       "correct": "15",
       "explanation_vi": "Quan sát phần hiệu giảm dần: 50−45=5, 45−39=6, 39−32=7, 32−24=8. Hiệu tiếp theo là 9 → 24 − 9 = 15."
     },
     {
       "id": "q2",
       "prompt": [
-        { "text": "The " },
-        { "text": "sum", "tooltip": { "vi": "tổng (cộng lại)", "ipa": "sʌm" } },
-        { "text": " of two " },
-        { "text": "brothers", "tooltip": { "vi": "anh/em trai", "ipa": "ˈbrʌðərz" } },
-        { "text": "' " },
-        { "text": "ages", "tooltip": { "vi": "tuổi (số nhiều)", "ipa": "eɪdʒɪz" } },
-        { "text": " is 15. What will the sum be in 4 years?" }
+        {
+          "text": "The "
+        },
+        {
+          "text": "sum",
+          "tooltip": {
+            "vi": "tổng (cộng lại)",
+            "ipa": "sʌm"
+          }
+        },
+        {
+          "text": " of two "
+        },
+        {
+          "text": "brothers",
+          "tooltip": {
+            "vi": "anh/em trai",
+            "ipa": "ˈbrʌðərz"
+          }
+        },
+        {
+          "text": "' "
+        },
+        {
+          "text": "ages",
+          "tooltip": {
+            "vi": "tuổi (số nhiều)",
+            "ipa": "eɪdʒɪz"
+          }
+        },
+        {
+          "text": " is 15. What will the sum be in 4 years?"
+        }
       ],
-      "options": ["19", "21", "23", "25"],
+      "options": [
+        "19",
+        "21",
+        "23",
+        "25"
+      ],
       "correct": "23",
       "explanation_vi": "Sau 4 năm, mỗi anh/em tăng thêm 4 tuổi → cả hai tăng 4 + 4 = 8. Tổng mới = 15 + 8 = 23."
     },
     {
       "id": "q3",
       "prompt": [
-        { "text": "Cutting a " },
-        { "text": "wire", "tooltip": { "vi": "dây (kim loại hoặc dây điện)", "ipa": "waɪər" } },
-        { "text": " into 7 " },
-        { "text": "pieces", "tooltip": { "vi": "mảnh, đoạn", "ipa": "ˈpiːsɪz" } },
-        { "text": " takes 18 minutes. How long does each " },
-        { "text": "cut", "tooltip": { "vi": "lần cắt", "ipa": "kʌt" } },
-        { "text": " take?" }
+        {
+          "text": "Cutting a "
+        },
+        {
+          "text": "wire",
+          "tooltip": {
+            "vi": "dây (kim loại hoặc dây điện)",
+            "ipa": "waɪər"
+          }
+        },
+        {
+          "text": " into 7 "
+        },
+        {
+          "text": "pieces",
+          "tooltip": {
+            "vi": "mảnh, đoạn",
+            "ipa": "ˈpiːsɪz"
+          }
+        },
+        {
+          "text": " takes 18 minutes. How long does each "
+        },
+        {
+          "text": "cut",
+          "tooltip": {
+            "vi": "lần cắt",
+            "ipa": "kʌt"
+          }
+        },
+        {
+          "text": " take?"
+        }
       ],
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "correct": "3",
       "explanation_vi": "Cắt 7 mảnh chỉ cần 6 lần cắt. Mỗi lần cắt mất: 18 ÷ 6 = 3 phút."
     },
     {
       "id": "q4",
       "prompt": [
-        { "text": "20 kids are standing in a " },
-        { "text": "row", "tooltip": { "vi": "hàng (người đứng thành hàng)", "ipa": "roʊ" } },
-        { "text": ". Anna is 18th from the " },
-        { "text": "right", "tooltip": { "vi": "phía phải", "ipa": "raɪt" } },
-        { "text": ". What is her " },
-        { "text": "position", "tooltip": { "vi": "vị trí, thứ tự", "ipa": "pəˈzɪʃən" } },
-        { "text": " from the " },
-        { "text": "left", "tooltip": { "vi": "phía trái", "ipa": "left" } },
-        { "text": "?" }
+        {
+          "text": "20 kids are standing in a "
+        },
+        {
+          "text": "row",
+          "tooltip": {
+            "vi": "hàng (người đứng thành hàng)",
+            "ipa": "roʊ"
+          }
+        },
+        {
+          "text": ". Anna is 18th from the "
+        },
+        {
+          "text": "right",
+          "tooltip": {
+            "vi": "phía phải",
+            "ipa": "raɪt"
+          }
+        },
+        {
+          "text": ". What is her "
+        },
+        {
+          "text": "position",
+          "tooltip": {
+            "vi": "vị trí, thứ tự",
+            "ipa": "pəˈzɪʃən"
+          }
+        },
+        {
+          "text": " from the "
+        },
+        {
+          "text": "left",
+          "tooltip": {
+            "vi": "phía trái",
+            "ipa": "left"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "correct": "3",
       "explanation_vi": "Từ phải sang: Anna đứng thứ 18 → có 17 bạn ở bên phải Anna. Từ trái sang: 20 − 18 = 2 bạn ở bên trái Anna → Anna đứng thứ 3 từ trái."
     },
     {
       "id": "q5",
       "prompt": [
-        { "text": "There are 10 " },
-        { "text": "coins", "tooltip": { "vi": "đồng xu", "ipa": "kɔɪnz" } },
-        { "text": " (5-cent and 10-cent). The " },
-        { "text": "total", "tooltip": { "vi": "tổng cộng", "ipa": "ˈtoʊtəl" } },
-        { "text": " is 70 " },
-        { "text": "cents", "tooltip": { "vi": "xu (đơn vị tiền)", "ipa": "sents" } },
-        { "text": ". How many 10-cent coins are there?" }
+        {
+          "text": "There are 10 "
+        },
+        {
+          "text": "coins",
+          "tooltip": {
+            "vi": "đồng xu",
+            "ipa": "kɔɪnz"
+          }
+        },
+        {
+          "text": " (5-cent and 10-cent). The "
+        },
+        {
+          "text": "total",
+          "tooltip": {
+            "vi": "tổng cộng",
+            "ipa": "ˈtoʊtəl"
+          }
+        },
+        {
+          "text": " is 70 "
+        },
+        {
+          "text": "cents",
+          "tooltip": {
+            "vi": "xu (đơn vị tiền)",
+            "ipa": "sents"
+          }
+        },
+        {
+          "text": ". How many 10-cent coins are there?"
+        }
       ],
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "correct": "4",
       "explanation_vi": "Nếu cả 10 đồng đều là 5 xu → 50 xu. Nhưng thực tế có 70 xu, thừa 20 xu. Mỗi khi đổi 1 đồng 5 xu thành 1 đồng 10 xu, tăng thêm 5 xu. Cần đổi 20 ÷ 5 = 4 đồng → có 4 đồng 10 xu."
     },
     {
       "id": "q6",
       "prompt": [
-        { "text": "Think of a number. " },
-        { "text": "Subtract", "tooltip": { "vi": "trừ đi", "ipa": "səbˈtrækt" } },
-        { "text": " 7, then " },
-        { "text": "divide", "tooltip": { "vi": "chia cho", "ipa": "dɪˈvaɪd" } },
-        { "text": " by 4, to get 2. What is the number?" }
+        {
+          "text": "Think of a number. "
+        },
+        {
+          "text": "Subtract",
+          "tooltip": {
+            "vi": "trừ đi",
+            "ipa": "səbˈtrækt"
+          }
+        },
+        {
+          "text": " 7, then "
+        },
+        {
+          "text": "divide",
+          "tooltip": {
+            "vi": "chia cho",
+            "ipa": "dɪˈvaɪd"
+          }
+        },
+        {
+          "text": " by 4, to get 2. What is the number?"
+        }
       ],
-      "options": ["13", "14", "15", "16"],
+      "options": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
       "correct": "15",
       "explanation_vi": "Tính ngược: 2 × 4 = 8, rồi 8 + 7 = 15. Kiểm tra: (15 − 7) ÷ 4 = 8 ÷ 4 = 2 ✓"
     },
     {
       "id": "q7",
       "prompt": [
-        { "text": "A book has 33 " },
-        { "text": "digits", "tooltip": { "vi": "chữ số (0–9)", "ipa": "ˈdɪdʒɪts" } },
-        { "text": " in its " },
-        { "text": "page numbers", "tooltip": { "vi": "số trang (ghi trên từng trang)", "ipa": "peɪdʒ ˈnʌmbərz" } },
-        { "text": ". How many pages does it have?" }
+        {
+          "text": "A book has 33 "
+        },
+        {
+          "text": "digits",
+          "tooltip": {
+            "vi": "chữ số (0–9)",
+            "ipa": "ˈdɪdʒɪts"
+          }
+        },
+        {
+          "text": " in its "
+        },
+        {
+          "text": "page numbers",
+          "tooltip": {
+            "vi": "số trang (ghi trên từng trang)",
+            "ipa": "peɪdʒ ˈnʌmbərz"
+          }
+        },
+        {
+          "text": ". How many pages does it have?"
+        }
       ],
-      "options": ["18", "19", "20", "21"],
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
       "correct": "21",
       "explanation_vi": "Trang 1–9: 9 trang × 1 chữ số = 9 chữ số. Còn lại: 33 − 9 = 24 chữ số cho trang 2 chữ số. Số trang 2 chữ số: 24 ÷ 2 = 12 trang (trang 10–21). Tổng: 9 + 12 = 21 trang."
     },
     {
       "id": "q8",
       "prompt": [
-        { "text": "3 " },
-        { "text": "apples", "tooltip": { "vi": "quả táo (số nhiều)", "ipa": "ˈæpəlz" } },
-        { "text": " weigh the same as 1 " },
-        { "text": "pineapple", "tooltip": { "vi": "quả dứa (thơm)", "ipa": "ˈpaɪnæpəl" } },
-        { "text": ". 2 pineapples weigh the same as 1 " },
-        { "text": "watermelon", "tooltip": { "vi": "quả dưa hấu", "ipa": "ˈwɔːtərmelən" } },
-        { "text": ". How many apples weigh the same as 1 watermelon?" }
+        {
+          "text": "3 "
+        },
+        {
+          "text": "apples",
+          "tooltip": {
+            "vi": "quả táo (số nhiều)",
+            "ipa": "ˈæpəlz"
+          }
+        },
+        {
+          "text": " weigh the same as 1 "
+        },
+        {
+          "text": "pineapple",
+          "tooltip": {
+            "vi": "quả dứa (thơm)",
+            "ipa": "ˈpaɪnæpəl"
+          }
+        },
+        {
+          "text": ". 2 pineapples weigh the same as 1 "
+        },
+        {
+          "text": "watermelon",
+          "tooltip": {
+            "vi": "quả dưa hấu",
+            "ipa": "ˈwɔːtərmelən"
+          }
+        },
+        {
+          "text": ". How many apples weigh the same as 1 watermelon?"
+        }
       ],
-      "options": ["5", "6", "7", "8"],
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
       "correct": "6",
       "explanation_vi": "1 dưa hấu = 2 dứa. Vì 1 dứa = 3 táo → 2 dứa = 6 táo. Vậy 1 dưa hấu = 6 táo."
     },
     {
       "id": "q9",
       "prompt": [
-        { "text": "Today is " },
-        { "text": "Thursday", "tooltip": { "vi": "Thứ Năm", "ipa": "ˈθɜːrzdeɪ" } },
-        { "text": ". What " },
-        { "text": "day", "tooltip": { "vi": "ngày (trong tuần)", "ipa": "deɪ" } },
-        { "text": " will it be 22 days " },
-        { "text": "later", "tooltip": { "vi": "sau đó, về sau", "ipa": "ˈleɪtər" } },
-        { "text": "?" }
+        {
+          "text": "Today is "
+        },
+        {
+          "text": "Thursday",
+          "tooltip": {
+            "vi": "Thứ Năm",
+            "ipa": "ˈθɜːrzdeɪ"
+          }
+        },
+        {
+          "text": ". What "
+        },
+        {
+          "text": "day",
+          "tooltip": {
+            "vi": "ngày (trong tuần)",
+            "ipa": "deɪ"
+          }
+        },
+        {
+          "text": " will it be 22 days "
+        },
+        {
+          "text": "later",
+          "tooltip": {
+            "vi": "sau đó, về sau",
+            "ipa": "ˈleɪtər"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["Thursday", "Friday", "Saturday", "Sunday"],
+      "options": [
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
       "correct": "Friday",
       "explanation_vi": "22 ÷ 7 = 3 tuần dư 1 ngày. Đếm 1 ngày sau Thứ Năm → Thứ Sáu (Friday)."
     },
     {
       "id": "q10",
       "prompt": [
-        { "text": "6 " },
-        { "text": "cubes", "tooltip": { "vi": "khối lập phương", "ipa": "kjuːbz" } },
-        { "text": " are " },
-        { "text": "stacked", "tooltip": { "vi": "xếp chồng lên nhau", "ipa": "stækt" } },
-        { "text": " in a vertical " },
-        { "text": "column", "tooltip": { "vi": "cột (thẳng đứng)", "ipa": "ˈkɒləm" } },
-        { "text": ". How many " },
-        { "text": "faces", "tooltip": { "vi": "mặt (của khối lập phương)", "ipa": "ˈfeɪsɪz" } },
-        { "text": " are " },
-        { "text": "hidden", "tooltip": { "vi": "bị che khuất, không nhìn thấy", "ipa": "ˈhɪdən" } },
-        { "text": "?" }
+        {
+          "text": "6 "
+        },
+        {
+          "text": "cubes",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːbz"
+          }
+        },
+        {
+          "text": " are "
+        },
+        {
+          "text": "stacked",
+          "tooltip": {
+            "vi": "xếp chồng lên nhau",
+            "ipa": "stækt"
+          }
+        },
+        {
+          "text": " in a vertical "
+        },
+        {
+          "text": "column",
+          "tooltip": {
+            "vi": "cột (thẳng đứng)",
+            "ipa": "ˈkɒləm"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "faces",
+          "tooltip": {
+            "vi": "mặt (của khối lập phương)",
+            "ipa": "ˈfeɪsɪz"
+          }
+        },
+        {
+          "text": " are "
+        },
+        {
+          "text": "hidden",
+          "tooltip": {
+            "vi": "bị che khuất, không nhìn thấy",
+            "ipa": "ˈhɪdən"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["8", "10", "12", "14"],
+      "options": [
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
       "correct": "10",
       "explanation_vi": "6 khối lập phương xếp chồng có 5 chỗ tiếp xúc (giữa cube 1-2, 2-3, 3-4, 4-5, 5-6). Mỗi chỗ tiếp xúc che đi 2 mặt → 5 × 2 = 10 mặt bị che."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

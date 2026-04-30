@@ -43,6 +43,12 @@ interface GoogleUserInfo {
 // =============================================
 authRoute.get("/google", (c) => {
   const clientId = c.env.GOOGLE_CLIENT_ID;
+
+  // Guard: nếu chưa set secret trên Cloudflare → trả lỗi rõ ràng
+  if (!clientId) {
+    return c.json({ error: "GOOGLE_CLIENT_ID not configured" }, 500);
+  }
+
   const redirectUri = new URL("/api/auth/callback", c.req.url).toString();
 
   const params = new URLSearchParams({
@@ -54,7 +60,8 @@ authRoute.get("/google", (c) => {
     prompt: "select_account",
   });
 
-  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
+  // ⚠️ FIX: phải dùng params.toString() — template literal không tự convert URLSearchParams
+  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
   return c.redirect(googleAuthUrl);
 });
 
@@ -67,28 +74,44 @@ authRoute.get("/callback", async (c) => {
 
   // User từ chối hoặc lỗi từ Google
   if (error || !code) {
-    return c.redirect("/?auth_error=cancelled");
+    return c.redirect(`/login?auth_error=cancelled&detail=${encodeURIComponent(error ?? "no_code")}`);
+  }
+
+  // Guard: thiếu secrets
+  const clientId = (c.env.GOOGLE_CLIENT_ID ?? "").trim();
+  const clientSecret = (c.env.GOOGLE_CLIENT_SECRET ?? "").trim();
+  if (!clientId || !clientSecret) {
+    console.error("Missing OAuth secrets", { clientId: !!clientId, clientSecret: !!clientSecret });
+    return c.redirect("/login?auth_error=config_missing");
   }
 
   try {
-    const redirectUri = new URL("/api/auth/callback", c.req.url).toString();
+    // Dùng origin cố định từ request để build redirect_uri
+    const reqUrl = new URL(c.req.url);
+    const redirectUri = `${reqUrl.origin}/api/auth/callback`;
 
     // 1. Exchange code for access token
+    const tokenBody = new URLSearchParams({
+      code,
+      client_id: clientId,
+      client_secret: clientSecret,
+      redirect_uri: redirectUri,
+      grant_type: "authorization_code",
+    });
+
     const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        code,
-        client_id: c.env.GOOGLE_CLIENT_ID,
-        client_secret: c.env.GOOGLE_CLIENT_SECRET,
-        redirect_uri: redirectUri,
-        grant_type: "authorization_code",
-      }),
+      body: tokenBody,
     });
 
     if (!tokenRes.ok) {
-      console.error("Token exchange failed:", await tokenRes.text());
-      return c.redirect("/?auth_error=token_failed");
+      const errText = await tokenRes.text();
+      console.error("Token exchange failed:", errText);
+      // Parse lỗi từ Google để debug
+      let googleErrCode = "token_failed";
+      try { googleErrCode = (JSON.parse(errText) as { error: string }).error ?? "token_failed"; } catch { /* ignore */ }
+      return c.redirect(`/login?auth_error=${encodeURIComponent(googleErrCode)}`);
     }
 
     const tokenData = (await tokenRes.json()) as { access_token: string };
@@ -102,7 +125,7 @@ authRoute.get("/callback", async (c) => {
     );
 
     if (!userInfoRes.ok) {
-      return c.redirect("/?auth_error=userinfo_failed");
+      return c.redirect("/login?auth_error=userinfo_failed");
     }
 
     const googleUser = (await userInfoRes.json()) as GoogleUserInfo;
@@ -130,7 +153,7 @@ authRoute.get("/callback", async (c) => {
     }
 
     if (!user) {
-      return c.redirect("/?auth_error=db_failed");
+      return c.redirect("/login?auth_error=db_failed");
     }
 
     // 4. Check if student profile exists (để biết redirect về onboarding hay dashboard)
@@ -155,7 +178,7 @@ authRoute.get("/callback", async (c) => {
     });
   } catch (err) {
     console.error("Auth callback error:", err);
-    return c.redirect("/?auth_error=server_error");
+    return c.redirect("/login?auth_error=server_error");
   }
 });
 

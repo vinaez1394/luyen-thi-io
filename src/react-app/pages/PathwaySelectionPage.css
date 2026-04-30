@@ -1,0 +1,151 @@
+/* PathwaySelectionPage.css */
+
+.pathway-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  gap: 2.5rem;
+}
+
+.pathway-page__header {
+  text-align: center;
+  max-width: 560px;
+}
+
+.pathway-page__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.pathway-page__subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── Cards container ── */
+.pathway-page__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 780px;
+}
+
+/* ── Each card ── */
+.pathway-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 2rem 1.75rem;
+  border-radius: 1.5rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  background: var(--color-surface);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.pathway-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+}
+
+.pathway-card--cambridge:hover { border-color: #6366f1; }
+.pathway-card--lop6:hover      { border-color: #7c3aed; }
+
+/* Flag emoji */
+.pathway-card__flag {
+  font-size: 3rem;
+  line-height: 1;
+  z-index: 1;
+}
+
+/* Body text */
+.pathway-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 1;
+  flex: 1;
+}
+
+.pathway-card__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.pathway-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Level badges */
+.pathway-card__levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.pathway-card__level-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 99px;
+  background: var(--color-surface-elevated);
+  color: var(--color-text-secondary);
+}
+
+/* CTA */
+.pathway-card__cta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  transition: transform 0.2s;
+}
+
+.pathway-card:hover .pathway-card__cta {
+  transform: translateX(4px);
+}
+
+/* Glow effect */
+.pathway-card__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.pathway-card:hover .pathway-card__glow { opacity: 1; }
+
+.pathway-card__glow--cambridge {
+  background: radial-gradient(ellipse at top right, rgba(99,102,241,0.12) 0%, transparent 70%);
+}
+
+.pathway-card__glow--lop6 {
+  background: radial-gradient(ellipse at top right, rgba(124,58,237,0.12) 0%, transparent 70%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .pathway-page { padding: 2rem 1rem; }
+  .pathway-card { padding: 1.5rem 1.25rem; }
+  .pathway-card__title { font-size: 1.2rem; }
+}

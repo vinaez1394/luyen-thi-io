@@ -1,6 +1,6 @@
 {
   "id": "MATH-L1-P3",
-  "title": "Toán Tư Duy — Level 1 — Bài 3",
+  "title": "Toán Tư Duy (English) — Level 1 — Bài 3",
   "subject": "toan-tu-duy",
   "skill": "math",
   "level": "level-1",
@@ -12,151 +12,466 @@
     {
       "id": "q1",
       "prompt": [
-        { "text": "Find the " },
-        { "text": "next", "tooltip": { "vi": "tiếp theo", "ipa": "nekst" } },
-        { "text": " number: 10, 18, 24, 28, 30, __?" }
+        {
+          "text": "Find the "
+        },
+        {
+          "text": "next",
+          "tooltip": {
+            "vi": "tiếp theo",
+            "ipa": "nekst"
+          }
+        },
+        {
+          "text": " number: 10, 18, 24, 28, 30, __?"
+        }
       ],
-      "options": ["30", "31", "32", "34"],
+      "options": [
+        "30",
+        "31",
+        "32",
+        "34"
+      ],
       "correct": "30",
       "explanation_vi": "Hiệu số giữa các số liên tiếp giảm dần: +8, +6, +4, +2, +0. Vậy số tiếp theo là 30 + 0 = 30."
     },
     {
       "id": "q2",
       "prompt": [
-        { "text": "A " },
-        { "text": "mother", "tooltip": { "vi": "người mẹ", "ipa": "ˈmʌðər" } },
-        { "text": " is 28 and her " },
-        { "text": "daughter", "tooltip": { "vi": "con gái", "ipa": "ˈdɔːtər" } },
-        { "text": " is 2. In how many " },
-        { "text": "years", "tooltip": { "vi": "năm", "ipa": "jɪərz" } },
-        { "text": " will their " },
-        { "text": "sum", "tooltip": { "vi": "tổng", "ipa": "sʌm" } },
-        { "text": " of ages be 36?" }
+        {
+          "text": "A "
+        },
+        {
+          "text": "mother",
+          "tooltip": {
+            "vi": "người mẹ",
+            "ipa": "ˈmʌðər"
+          }
+        },
+        {
+          "text": " is 28 and her "
+        },
+        {
+          "text": "daughter",
+          "tooltip": {
+            "vi": "con gái",
+            "ipa": "ˈdɔːtər"
+          }
+        },
+        {
+          "text": " is 2. In how many "
+        },
+        {
+          "text": "years",
+          "tooltip": {
+            "vi": "năm",
+            "ipa": "jɪərz"
+          }
+        },
+        {
+          "text": " will their "
+        },
+        {
+          "text": "sum",
+          "tooltip": {
+            "vi": "tổng",
+            "ipa": "sʌm"
+          }
+        },
+        {
+          "text": " of ages be 36?"
+        }
       ],
-      "options": ["2", "3", "4", "5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "correct": "3",
       "explanation_vi": "Tổng tuổi hiện tại là 28 + 2 = 30. Cần tăng thêm 36 - 30 = 6 tuổi. Mỗi năm, cả 2 người già đi 1 tuổi (tổng tăng 2). Vậy cần 6 / 2 = 3 năm."
     },
     {
       "id": "q3",
       "prompt": [
-        { "text": "Sawing", "tooltip": { "vi": "cưa", "ipa": "ˈsɔːɪŋ" } },
-        { "text": " a " },
-        { "text": "pipe", "tooltip": { "vi": "ống", "ipa": "paɪp" } },
-        { "text": " into 4 " },
-        { "text": "pieces", "tooltip": { "vi": "mảnh, đoạn", "ipa": "ˈpiːsɪz" } },
-        { "text": " takes 12 minutes. How long does it take per " },
-        { "text": "cut", "tooltip": { "vi": "lần cắt", "ipa": "kʌt" } },
-        { "text": "?" }
+        {
+          "text": "Sawing",
+          "tooltip": {
+            "vi": "cưa",
+            "ipa": "ˈsɔːɪŋ"
+          }
+        },
+        {
+          "text": " a "
+        },
+        {
+          "text": "pipe",
+          "tooltip": {
+            "vi": "ống",
+            "ipa": "paɪp"
+          }
+        },
+        {
+          "text": " into 4 "
+        },
+        {
+          "text": "pieces",
+          "tooltip": {
+            "vi": "mảnh, đoạn",
+            "ipa": "ˈpiːsɪz"
+          }
+        },
+        {
+          "text": " takes 12 minutes. How long does it take per "
+        },
+        {
+          "text": "cut",
+          "tooltip": {
+            "vi": "lần cắt",
+            "ipa": "kʌt"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["3", "4", "5", "6"],
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
       "correct": "4",
       "explanation_vi": "Để cắt thành 4 đoạn thì cần thực hiện 3 lần cắt. Thời gian cho mỗi lần cắt là 12 / 3 = 4 phút."
     },
     {
       "id": "q4",
       "prompt": [
-        { "text": "Peter is 10th from the " },
-        { "text": "front", "tooltip": { "vi": "phía trước", "ipa": "frʌnt" } },
-        { "text": " and 10th from the " },
-        { "text": "back", "tooltip": { "vi": "phía sau", "ipa": "bæk" } },
-        { "text": " in a line. How many " },
-        { "text": "total", "tooltip": { "vi": "tổng cộng", "ipa": "ˈtoʊtəl" } },
-        { "text": " people are there?" }
+        {
+          "text": "Peter is 10th from the "
+        },
+        {
+          "text": "front",
+          "tooltip": {
+            "vi": "phía trước",
+            "ipa": "frʌnt"
+          }
+        },
+        {
+          "text": " and 10th from the "
+        },
+        {
+          "text": "back",
+          "tooltip": {
+            "vi": "phía sau",
+            "ipa": "bæk"
+          }
+        },
+        {
+          "text": " in a line. How many "
+        },
+        {
+          "text": "total",
+          "tooltip": {
+            "vi": "tổng cộng",
+            "ipa": "ˈtoʊtəl"
+          }
+        },
+        {
+          "text": " people are there?"
+        }
       ],
-      "options": ["20", "19", "18", "21"],
+      "options": [
+        "20",
+        "19",
+        "18",
+        "21"
+      ],
       "correct": "19",
       "explanation_vi": "Có 9 người đứng trước Peter và 9 người đứng sau Peter. Tổng số người = 9 + 9 + 1 (Peter) = 19 người."
     },
     {
       "id": "q5",
       "prompt": [
-        { "text": "Cars", "tooltip": { "vi": "ô tô", "ipa": "kɑːrz" } },
-        { "text": " (4 " },
-        { "text": "wheels", "tooltip": { "vi": "bánh xe", "ipa": "wiːlz" } },
-        { "text": ") and " },
-        { "text": "motorcycles", "tooltip": { "vi": "xe máy", "ipa": "ˈmoʊtərˌsaɪkəlz" } },
-        { "text": " (2 wheels). There are 8 " },
-        { "text": "vehicles", "tooltip": { "vi": "phương tiện", "ipa": "ˈviːɪkəlz" } },
-        { "text": " with 26 wheels in total. How many cars are there?" }
+        {
+          "text": "Cars",
+          "tooltip": {
+            "vi": "ô tô",
+            "ipa": "kɑːrz"
+          }
+        },
+        {
+          "text": " (4 "
+        },
+        {
+          "text": "wheels",
+          "tooltip": {
+            "vi": "bánh xe",
+            "ipa": "wiːlz"
+          }
+        },
+        {
+          "text": ") and "
+        },
+        {
+          "text": "motorcycles",
+          "tooltip": {
+            "vi": "xe máy",
+            "ipa": "ˈmoʊtərˌsaɪkəlz"
+          }
+        },
+        {
+          "text": " (2 wheels). There are 8 "
+        },
+        {
+          "text": "vehicles",
+          "tooltip": {
+            "vi": "phương tiện",
+            "ipa": "ˈviːɪkəlz"
+          }
+        },
+        {
+          "text": " with 26 wheels in total. How many cars are there?"
+        }
       ],
-      "options": ["4", "5", "6", "3"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "3"
+      ],
       "correct": "5",
       "explanation_vi": "Giả sử tất cả đều là xe máy, số bánh xe sẽ là 8 x 2 = 16 bánh. Số bánh bị thiếu là 26 - 16 = 10 bánh. Mỗi chiếc ô tô thay cho xe máy sẽ bù được 2 bánh (4-2). Vậy số ô tô là 10 / 2 = 5 chiếc."
     },
     {
       "id": "q6",
       "prompt": [
-        { "text": "Multiply", "tooltip": { "vi": "nhân", "ipa": "ˈmʌltɪplaɪ" } },
-        { "text": " a number by 4, then " },
-        { "text": "subtract", "tooltip": { "vi": "trừ đi", "ipa": "səbˈtrækt" } },
-        { "text": " 5, you get 15. What is the number?" }
+        {
+          "text": "Multiply",
+          "tooltip": {
+            "vi": "nhân",
+            "ipa": "ˈmʌltɪplaɪ"
+          }
+        },
+        {
+          "text": " a number by 4, then "
+        },
+        {
+          "text": "subtract",
+          "tooltip": {
+            "vi": "trừ đi",
+            "ipa": "səbˈtrækt"
+          }
+        },
+        {
+          "text": " 5, you get 15. What is the number?"
+        }
       ],
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "correct": "5",
       "explanation_vi": "Tính ngược từ kết quả: (15 + 5) = 20. 20 / 4 = 5. Số ban đầu là 5."
     },
     {
       "id": "q7",
       "prompt": [
-        { "text": "How many " },
-        { "text": "digits", "tooltip": { "vi": "chữ số (0-9)", "ipa": "ˈdɪdʒɪts" } },
-        { "text": " are used to number " },
-        { "text": "pages", "tooltip": { "vi": "trang sách", "ipa": "peɪdʒɪz" } },
-        { "text": " 1 to 30?" }
+        {
+          "text": "How many "
+        },
+        {
+          "text": "digits",
+          "tooltip": {
+            "vi": "chữ số (0-9)",
+            "ipa": "ˈdɪdʒɪts"
+          }
+        },
+        {
+          "text": " are used to number "
+        },
+        {
+          "text": "pages",
+          "tooltip": {
+            "vi": "trang sách",
+            "ipa": "peɪdʒɪz"
+          }
+        },
+        {
+          "text": " 1 to 30?"
+        }
       ],
-      "options": ["51", "49", "50", "48"],
+      "options": [
+        "51",
+        "49",
+        "50",
+        "48"
+      ],
       "correct": "51",
       "explanation_vi": "Trang 1-9 dùng 9 chữ số. Trang 10-30 có 21 trang, mỗi trang dùng 2 chữ số (21 x 2 = 42). Tổng cộng: 9 + 42 = 51 chữ số."
     },
     {
       "id": "q8",
       "prompt": [
-        { "text": "1 " },
-        { "text": "book", "tooltip": { "vi": "sách", "ipa": "bʊk" } },
-        { "text": " = 3 " },
-        { "text": "notebooks", "tooltip": { "vi": "vở", "ipa": "ˈnoʊtbʊks" } },
-        { "text": ". 2 notebooks = 4 " },
-        { "text": "pens", "tooltip": { "vi": "bút", "ipa": "penz" } },
-        { "text": ". 1 book = ? pens." }
+        {
+          "text": "1 "
+        },
+        {
+          "text": "book",
+          "tooltip": {
+            "vi": "sách",
+            "ipa": "bʊk"
+          }
+        },
+        {
+          "text": " = 3 "
+        },
+        {
+          "text": "notebooks",
+          "tooltip": {
+            "vi": "vở",
+            "ipa": "ˈnoʊtbʊks"
+          }
+        },
+        {
+          "text": ". 2 notebooks = 4 "
+        },
+        {
+          "text": "pens",
+          "tooltip": {
+            "vi": "bút",
+            "ipa": "penz"
+          }
+        },
+        {
+          "text": ". 1 book = ? pens."
+        }
       ],
-      "options": ["5", "6", "7", "8"],
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
       "correct": "6",
       "explanation_vi": "2 quyển vở = 4 cái bút, nghĩa là 1 quyển vở = 2 cái bút. 1 quyển sách = 3 quyển vở = 3 x 2 cái bút = 6 cái bút."
     },
     {
       "id": "q9",
       "prompt": [
-        { "text": "Today is " },
-        { "text": "Friday", "tooltip": { "vi": "Thứ Sáu", "ipa": "ˈfraɪdeɪ" } },
-        { "text": ". What day is it 20 days " },
-        { "text": "later", "tooltip": { "vi": "sau đó", "ipa": "ˈleɪtər" } },
-        { "text": "?" }
+        {
+          "text": "Today is "
+        },
+        {
+          "text": "Friday",
+          "tooltip": {
+            "vi": "Thứ Sáu",
+            "ipa": "ˈfraɪdeɪ"
+          }
+        },
+        {
+          "text": ". What day is it 20 days "
+        },
+        {
+          "text": "later",
+          "tooltip": {
+            "vi": "sau đó",
+            "ipa": "ˈleɪtər"
+          }
+        },
+        {
+          "text": "?"
+        }
       ],
-      "options": ["Wednesday", "Thursday", "Friday", "Saturday"],
+      "options": [
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
       "correct": "Thursday",
       "explanation_vi": "20 ngày = 2 tuần (14 ngày) và dư 6 ngày. 6 ngày sau Thứ Sáu là Thứ Năm (Thursday)."
     },
     {
       "id": "q10",
       "prompt": [
-        { "text": "4 " },
-        { "text": "cubes", "tooltip": { "vi": "khối lập phương", "ipa": "kjuːbz" } },
-        { "text": " form a 2x2 " },
-        { "text": "square", "tooltip": { "vi": "hình vuông", "ipa": "skwer" } },
-        { "text": " " },
-        { "text": "arrangement", "tooltip": { "vi": "sự sắp xếp", "ipa": "əˈreɪndʒmənt" } },
-        { "text": " on the " },
-        { "text": "floor", "tooltip": { "vi": "sàn nhà", "ipa": "flɔːr" } },
-        { "text": ". How many " },
-        { "text": "hidden", "tooltip": { "vi": "bị che khuất", "ipa": "ˈhɪdən" } },
-        { "text": " " },
-        { "text": "faces", "tooltip": { "vi": "mặt", "ipa": "feɪsɪz" } },
-        { "text": " are between them?" }
+        {
+          "text": "4 "
+        },
+        {
+          "text": "cubes",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːbz"
+          }
+        },
+        {
+          "text": " form a 2x2 "
+        },
+        {
+          "text": "square",
+          "tooltip": {
+            "vi": "hình vuông",
+            "ipa": "skwer"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "arrangement",
+          "tooltip": {
+            "vi": "sự sắp xếp",
+            "ipa": "əˈreɪndʒmənt"
+          }
+        },
+        {
+          "text": " on the "
+        },
+        {
+          "text": "floor",
+          "tooltip": {
+            "vi": "sàn nhà",
+            "ipa": "flɔːr"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "hidden",
+          "tooltip": {
+            "vi": "bị che khuất",
+            "ipa": "ˈhɪdən"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "faces",
+          "tooltip": {
+            "vi": "mặt",
+            "ipa": "feɪsɪz"
+          }
+        },
+        {
+          "text": " are between them?"
+        }
       ],
-      "options": ["6", "8", "10", "12"],
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
       "correct": "8",
       "explanation_vi": "Hình vuông 2x2 tạo bởi 4 khối sẽ có 4 điểm tiếp xúc (2 tiếp xúc ngang, 2 tiếp xúc dọc). Mỗi điểm tiếp xúc làm ẩn đi 2 mặt. Vậy có 4 x 2 = 8 mặt bị ẩn giữa các khối."
     }
-  ]
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
 }

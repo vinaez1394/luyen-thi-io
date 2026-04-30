@@ -9,8 +9,8 @@ import { useAuth } from "../../hooks/useAuth";
 import "./MobileBottomNav.css";
 
 const NAV_ITEMS = [
-  { label: "Trang chủ", emoji: "🏠", path: "/",          id: "home" },
-  { label: "Bài học",   emoji: "📚", path: "/lessons",   id: "lessons" },
+  { label: "Trang chủ", emoji: "🏠", path: "/",         id: "home" },
+  { label: "Lộ trình",  emoji: "📚", path: "/learn",    id: "learn" },
   { label: "Tiến độ",  emoji: "📊", path: "/dashboard", id: "dashboard" },
   { label: "Hồ sơ",    emoji: "👤", path: "/profile",   id: "profile" },
 ] as const;

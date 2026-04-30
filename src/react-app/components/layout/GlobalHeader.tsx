@@ -9,18 +9,20 @@
  */
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useTheme, THEMES } from "../ui/ThemeProvider";
 import type { ThemeId } from "../ui/ThemeProvider";
 import { SUBJECTS } from "../../data/subjects";
+import { getSubjectUrl } from "../../utils/urlHelpers";
 import "./GlobalHeader.css";
+
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export function GlobalHeader() {
   const navigate  = useNavigate();
   const location  = useLocation();
-  const { user, isLoggedIn, isLoading, logout, loginWithGoogle } = useAuth();
+  const { user, isLoggedIn, isLoading, logout } = useAuth();
   const { theme, themeInfo, setTheme } = useTheme();
 
   const [drawerOpen,    setDrawerOpen]    = useState(false);
@@ -62,8 +64,9 @@ export function GlobalHeader() {
   const displayName = user?.profile?.display_name ?? user?.name ?? "Bé";
   const totalStars  = 0; // Phase 07 sẽ load từ student_stats
 
-  // Chỉ hiện môn học available trong dropdown
-  const availableSubjects = SUBJECTS.filter((s) => s.available);
+  // Phân nhóm subjects theo pathway cho dropdown
+  const cambridgeSubjects = SUBJECTS.filter((s) => s.pathway === "cambridge");
+  const lop6Subjects      = SUBJECTS.filter((s) => s.pathway === "lop6");
 
   return (
     <>
@@ -113,7 +116,7 @@ export function GlobalHeader() {
                 <span className={`nav-dropdown-chevron ${subjectOpen ? "open" : ""}`}>▾</span>
               </button>
 
-              {/* Dropdown panel */}
+              {/* Dropdown panel — phân nhóm theo pathway */}
               {subjectOpen && (
                 <div
                   className="nav-subject-dropdown"
@@ -122,28 +125,71 @@ export function GlobalHeader() {
                   onMouseLeave={closeSubjectMenu}
                 >
                   <div className="nav-subject-dropdown__inner-card">
-                    {availableSubjects.map((s) => (
-                      <button
-                        key={s.id}
-                        className="nav-subject-dropdown__item"
-                        role="menuitem"
-                        id={`btn-nav-subject-${s.id}`}
-                        onClick={() => { navigate(`/${s.id}`); setSubjectOpen(false); }}
-                        style={{ "--subject-color": s.color } as React.CSSProperties}
-                      >
-                        <span className="nav-subject-dropdown__emoji">{s.emoji}</span>
-                        <div className="nav-subject-dropdown__info">
-                          <span className="nav-subject-dropdown__name">{s.label}</span>
-                          <span className="nav-subject-dropdown__desc">{s.desc}</span>
-                        </div>
-                      </button>
-                    ))}
+
+                    {/* Cambridge group */}
+                    <div className="nav-subject-dropdown__group">
+                      <span className="nav-subject-dropdown__group-label">
+                        🇬🇧 Cambridge
+                      </span>
+                      {cambridgeSubjects.map((s) => (
+                        <button
+                          key={s.id}
+                          className={`nav-subject-dropdown__item ${
+                            !s.available ? "nav-subject-dropdown__item--soon" : ""
+                          }`}
+                          role="menuitem"
+                          id={`btn-nav-subject-${s.id}`}
+                          onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setSubjectOpen(false); } }}
+                          style={{ "--subject-color": s.color } as React.CSSProperties}
+                        >
+                          <span className="nav-subject-dropdown__emoji">{s.emoji}</span>
+                          <div className="nav-subject-dropdown__info">
+                            <span className="nav-subject-dropdown__name">{s.label}</span>
+                            <span className="nav-subject-dropdown__desc">{s.desc}</span>
+                          </div>
+                          {!s.available && (
+                            <span className="nav-subject-dropdown__soon-badge">Sắp có</span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="nav-subject-dropdown__divider" />
+
+                    {/* Lớp 6 group */}
+                    <div className="nav-subject-dropdown__group">
+                      <span className="nav-subject-dropdown__group-label">
+                        🏫 Thi Lớp 6
+                      </span>
+                      {lop6Subjects.map((s) => (
+                        <button
+                          key={s.id}
+                          className={`nav-subject-dropdown__item ${
+                            !s.available ? "nav-subject-dropdown__item--soon" : ""
+                          }`}
+                          role="menuitem"
+                          id={`btn-nav-subject-${s.id}`}
+                          onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setSubjectOpen(false); } }}
+                          style={{ "--subject-color": s.color } as React.CSSProperties}
+                        >
+                          <span className="nav-subject-dropdown__emoji">{s.emoji}</span>
+                          <div className="nav-subject-dropdown__info">
+                            <span className="nav-subject-dropdown__name">{s.label}</span>
+                            <span className="nav-subject-dropdown__desc">{s.desc}</span>
+                          </div>
+                          {!s.available && (
+                            <span className="nav-subject-dropdown__soon-badge">Sắp có</span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+
                     <div className="nav-subject-dropdown__divider" />
                     <button
                       className="nav-subject-dropdown__see-all"
-                      onClick={() => { navigate("/"); setSubjectOpen(false); }}
+                      onClick={() => { navigate("/learn"); setSubjectOpen(false); }}
                     >
-                      Xem tất cả môn học →
+                      Xem tất cả lộ trình →
                     </button>
                   </div>
                 </div>
@@ -250,13 +296,13 @@ export function GlobalHeader() {
                   )}
                 </div>
               ) : (
-                <button
+                <Link
                   className="btn btn-primary btn-sm"
-                  id="btn-header-login"
-                  onClick={loginWithGoogle}
+                  id="btn-header-register"
+                  to="/register"
                 >
-                  Đăng nhập
-                </button>
+                  Đăng ký
+                </Link>
               )}
             </div>
           )}
@@ -301,18 +347,35 @@ export function GlobalHeader() {
               <span className="mobile-drawer__nav-icon">🏠</span> Trang chủ
             </button>
 
-            {/* Môn học — expand trong drawer */}
+            {/* Lộ trình — expand trong drawer theo nhóm */}
             <div className="mobile-drawer__subject-group">
-              <div className="mobile-drawer__subject-label">📚 Môn học</div>
-              {availableSubjects.map((s) => (
+              <div className="mobile-drawer__subject-label">🇬🇧 Cambridge</div>
+              {cambridgeSubjects.map((s) => (
                 <button
                   key={s.id}
-                  className="mobile-drawer__nav-link mobile-drawer__nav-link--subject"
-                  onClick={() => { navigate(`/${s.id}`); setDrawerOpen(false); }}
+                  className={`mobile-drawer__nav-link mobile-drawer__nav-link--subject ${!s.available ? "mobile-drawer__nav-link--soon" : ""}`}
+                  onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setDrawerOpen(false); } }}
                   style={{ "--subject-color": s.color } as React.CSSProperties}
                 >
                   <span className="mobile-drawer__nav-icon">{s.emoji}</span>
                   {s.label}
+                  {!s.available && <span className="mobile-drawer__soon-badge">Sắp có</span>}
+                </button>
+              ))}
+            </div>
+
+            <div className="mobile-drawer__subject-group" style={{ marginTop: "4px" }}>
+              <div className="mobile-drawer__subject-label">🏫 Thi Lớp 6</div>
+              {lop6Subjects.map((s) => (
+                <button
+                  key={s.id}
+                  className={`mobile-drawer__nav-link mobile-drawer__nav-link--subject ${!s.available ? "mobile-drawer__nav-link--soon" : ""}`}
+                  onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setDrawerOpen(false); } }}
+                  style={{ "--subject-color": s.color } as React.CSSProperties}
+                >
+                  <span className="mobile-drawer__nav-icon">{s.emoji}</span>
+                  {s.label}
+                  {!s.available && <span className="mobile-drawer__soon-badge">Sắp có</span>}
                 </button>
               ))}
             </div>
@@ -337,14 +400,15 @@ export function GlobalHeader() {
                 <span className="mobile-drawer__nav-icon">🚪</span> Đăng xuất
               </button>
             ) : (
-              <button
+              <Link
                 className="btn btn-primary"
-                id="btn-drawer-login"
+                id="btn-drawer-register"
                 style={{ marginTop: "auto" }}
-                onClick={() => { loginWithGoogle(); setDrawerOpen(false); }}
+                to="/register"
+                onClick={() => setDrawerOpen(false)}
               >
-                Đăng nhập bằng Google
-              </button>
+                Đăng ký / Đăng nhập
+              </Link>
             )}
           </nav>
         </>
