@@ -20,6 +20,7 @@ import { ProtectedRoute } from "./components/ui/ProtectedRoute";
 import { AppLayout } from "./components/layout/AppLayout";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
 import { OnboardingPage } from "./pages/OnboardingPage";
 import { QuizPage } from "./pages/QuizPage";
 import { SubjectPage } from "./pages/SubjectPage";
@@ -34,8 +35,9 @@ export default function App() {
         <AppLayout>
           <Routes>
             {/* ── PUBLIC ROUTES ── */}
-            <Route path="/"        element={<HomePage />} />
-            <Route path="/login"   element={<LoginPage />} />
+            <Route path="/"          element={<HomePage />} />
+            <Route path="/login"     element={<LoginPage />} />
+            <Route path="/register"  element={<RegisterPage />} />
 
             {/* ── Backward-compat URL cũ ── */}
             <Route path="/quiz/:id" element={<QuizPage />} />

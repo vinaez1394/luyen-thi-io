@@ -9,7 +9,7 @@
  */
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useTheme, THEMES } from "../ui/ThemeProvider";
 import type { ThemeId } from "../ui/ThemeProvider";
@@ -20,7 +20,7 @@ import "./GlobalHeader.css";
 export function GlobalHeader() {
   const navigate  = useNavigate();
   const location  = useLocation();
-  const { user, isLoggedIn, isLoading, logout, loginWithGoogle } = useAuth();
+  const { user, isLoggedIn, isLoading, logout } = useAuth();
   const { theme, themeInfo, setTheme } = useTheme();
 
   const [drawerOpen,    setDrawerOpen]    = useState(false);
@@ -250,13 +250,13 @@ export function GlobalHeader() {
                   )}
                 </div>
               ) : (
-                <button
+                <Link
                   className="btn btn-primary btn-sm"
-                  id="btn-header-login"
-                  onClick={loginWithGoogle}
+                  id="btn-header-register"
+                  to="/register"
                 >
-                  Đăng nhập
-                </button>
+                  Đăng ký
+                </Link>
               )}
             </div>
           )}
@@ -337,14 +337,15 @@ export function GlobalHeader() {
                 <span className="mobile-drawer__nav-icon">🚪</span> Đăng xuất
               </button>
             ) : (
-              <button
+              <Link
                 className="btn btn-primary"
-                id="btn-drawer-login"
+                id="btn-drawer-register"
                 style={{ marginTop: "auto" }}
-                onClick={() => { loginWithGoogle(); setDrawerOpen(false); }}
+                to="/register"
+                onClick={() => setDrawerOpen(false)}
               >
-                Đăng nhập bằng Google
-              </button>
+                Đăng ký / Đăng nhập
+              </Link>
             )}
           </nav>
         </>
