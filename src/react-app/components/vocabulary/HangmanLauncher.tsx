@@ -1,81 +1,31 @@
 /**
  * HangmanLauncher.tsx — Nút mở Hangman + màn hình kết quả
  *
- * Render: nút "Ôn từ vựng 🎯" trên QuizResultScreen
- * Chọn 5 từ: ưu tiên pending (chưa mastered) từ bài hiện tại,
- *             bổ sung từ pending bài khác, cuối cùng bổ sung Cambridge fallback
+ * V2: Kết nối DB — từ lấy từ D1 vocabulary_bank qua API
+ *
+ * Chiến lược chọn từ:
+ * 1. Ưu tiên: từ user đã tra (tooltip) trong bài → pending review
+ * 2. Bổ sung: fetch random từ D1 vocabulary_bank
+ * 3. Fallback: từ hardcode nhỏ (nếu offline)
  */
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import type { VocabWord } from "../../types/vocabulary";
 import { HangmanGame } from "./HangmanGame";
 import type { HangmanResult } from "./HangmanGame";
+import { useHangmanWords } from "../../hooks/useHangmanWords";
 import "./HangmanLauncher.css";
-
-// Cambridge Flyers fallback word list (30 từ mẫu — sẽ mở rộng Phase tiếp)
-const CAMBRIDGE_FALLBACK: VocabWord[] = [
-  { word: "adventure", vi: "cuộc phiêu lưu", ipa: "ədˈventʃər", sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "beautiful", vi: "đẹp, xinh đẹp", ipa: "ˈbjuːtɪfəl", sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "careful",   vi: "cẩn thận",       ipa: "ˈkeəfəl",    sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "dangerous", vi: "nguy hiểm",       ipa: "ˈdeɪndʒərəs", sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "exciting",  vi: "thú vị, kích thích", ipa: "ɪkˈsaɪtɪŋ", sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "favorite",  vi: "yêu thích",       ipa: "ˈfeɪvərɪt",  sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "gentle",    vi: "nhẹ nhàng",       ipa: "ˈdʒentəl",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "honest",    vi: "thành thật",      ipa: "ˈɒnɪst",     sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "imagine",   vi: "tưởng tượng",     ipa: "ɪˈmædʒɪn",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "journey",   vi: "hành trình",      ipa: "ˈdʒɜːni",    sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "kitchen",   vi: "nhà bếp",         ipa: "ˈkɪtʃɪn",    sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "library",   vi: "thư viện",        ipa: "ˈlaɪbrəri",  sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "mountain",  vi: "núi",             ipa: "ˈmaʊntɪn",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "nervous",   vi: "lo lắng, bồn chồn", ipa: "ˈnɜːvəs", sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "ocean",     vi: "đại dương",       ipa: "ˈoʊʃən",     sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "patient",   vi: "kiên nhẫn",       ipa: "ˈpeɪʃənt",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "question",  vi: "câu hỏi",         ipa: "ˈkwestʃən",  sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "rainbow",   vi: "cầu vồng",        ipa: "ˈreɪnboʊ",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "scissors",  vi: "cái kéo",         ipa: "ˈsɪzərz",    sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "together",  vi: "cùng nhau",       ipa: "təˈɡeðər",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "umbrella",  vi: "cái ô, dù",       ipa: "ʌmˈbrelə",   sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "village",   vi: "làng, thôn",      ipa: "ˈvɪlɪdʒ",    sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "weather",   vi: "thời tiết",       ipa: "ˈweðər",     sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "excited",   vi: "phấn khích",      ipa: "ɪkˈsaɪtɪd",  sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-  { word: "yellow",    vi: "màu vàng",        ipa: "ˈjeloʊ",     sourceQuizId: "cambridge", correctSessions: 0, isMastered: false },
-];
 
 const HANGMAN_WORDS_PER_SESSION = 5;
 
-function shuffleArray<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-function pickHangmanWords(
-  pending: VocabWord[],
-  count = HANGMAN_WORDS_PER_SESSION
-): VocabWord[] {
-  const shuffled = shuffleArray(pending);
-  const chosen = shuffled.slice(0, count);
-
-  if (chosen.length < count) {
-    // Bổ sung từ fallback (random, không trùng)
-    const usedWords = new Set(chosen.map((w) => w.word.toLowerCase()));
-    const fallback  = shuffleArray(CAMBRIDGE_FALLBACK.filter((f) => !usedWords.has(f.word.toLowerCase())));
-    const extra     = fallback.slice(0, count - chosen.length);
-    chosen.push(...extra);
-  }
-
-  return chosen;
-}
-
 // ─── Props ────────────────────────────────────────────────────────────────────
 interface HangmanLauncherProps {
-  pendingWords: VocabWord[];   // Từ chưa mastered từ hook useVocabulary
+  pendingWords: VocabWord[];    // Từ chưa mastered từ hook useVocabulary
   isLoggedIn: boolean;
   onMarkCorrect: (word: string) => void;
   onStarsEarned: (stars: number) => void;
+  /** Nhóm từ vựng cần lấy từ DB (default "flyers") */
+  group?: string;
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -84,12 +34,17 @@ export function HangmanLauncher({
   isLoggedIn,
   onMarkCorrect,
   onStarsEarned,
+  group = "flyers",
 }: HangmanLauncherProps) {
-  const [gameOpen, setGameOpen]     = useState(false);
-  const [result, setResult]         = useState<HangmanResult | null>(null);
+  const [gameOpen, setGameOpen] = useState(false);
+  const [result, setResult]     = useState<HangmanResult | null>(null);
 
-  // 5 từ đã chọn — chỉ tính 1 lần khi mở game
-  const selectedWords = useMemo(() => pickHangmanWords(pendingWords), [pendingWords]);
+  // Hook kết nối DB — chọn 5 từ thông minh
+  const { words, isLoading, source, refresh } = useHangmanWords({
+    pendingWords,
+    group,
+    count: HANGMAN_WORDS_PER_SESSION,
+  });
 
   const handleComplete = (res: HangmanResult) => {
     setResult(res);
@@ -99,6 +54,13 @@ export function HangmanLauncher({
     }
   };
 
+  // Label hiển thị nguồn từ
+  const sourceLabel = source === "pending"
+    ? `${pendingWords.filter((w) => !w.isMastered).length} từ cần ôn`
+    : source === "db"
+      ? "250 từ Cambridge Flyers"
+      : "Từ vựng Cambridge";
+
   return (
     <>
       {/* Nút mở Hangman */}
@@ -107,14 +69,13 @@ export function HangmanLauncher({
           className="hangman-launcher-btn"
           id="btn-open-hangman"
           onClick={() => setGameOpen(true)}
+          disabled={isLoading}
         >
           <span className="hangman-launcher-btn__icon">🎯</span>
           <div className="hangman-launcher-btn__text">
             <strong>Chơi Hangman — Ôn từ vựng</strong>
             <span>
-              {pendingWords.length > 0
-                ? `${pendingWords.length} từ cần ôn`
-                : "Ôn từ Cambridge"}
+              {isLoading ? "Đang tải từ vựng..." : sourceLabel}
             </span>
           </div>
           <span className="hangman-launcher-btn__stars">+1/+2 ⭐</span>
@@ -145,17 +106,21 @@ export function HangmanLauncher({
           )}
           <button
             className="btn btn-outline btn-sm"
-            onClick={() => { setResult(null); setGameOpen(true); }}
+            onClick={() => {
+              setResult(null);
+              refresh(); // Chọn bộ từ mới từ DB
+              setGameOpen(true);
+            }}
           >
-            Chơi lại
+            Chơi lại (bộ từ mới)
           </button>
         </div>
       )}
 
       {/* Game modal */}
-      {gameOpen && (
+      {gameOpen && words.length > 0 && (
         <HangmanGame
-          words={selectedWords}
+          words={words}
           isLoggedIn={isLoggedIn}
           onComplete={handleComplete}
           onClose={() => setGameOpen(false)}
