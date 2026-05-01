@@ -1,18 +1,23 @@
 /**
  * HomeHangman.tsx — Widget Hangman độc lập cho trang chủ
  *
- * V3: Guest chơi miễn phí → sau game hiện GameLoginCTA
- * - Fetch từ D1 qua useHangmanWords
- * - Sau khi guest hoàn thành → CTA đăng nhập Google
- * - isLoggedIn: true → hiện kết quả thường (không cần CTA)
+ * V4 fixes:
+ * - Bỏ preview words trong card (user không muốn xem trước)
+ * - Auto-reload bộ từ mới khi chơi lại (pendingOpen pattern)
+ * - Pass isLoggedIn=true vào HangmanGame để không show notice bên trong
+ *   (CTA đầy đủ đã được xử lý bởi GameLoginCTA bên ngoài)
+ * - Card height: 100% cho equal-height với HomeFlashcard
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HangmanGame } from "./HangmanGame";
 import type { HangmanResult } from "./HangmanGame";
 import { GameLoginCTA } from "./GameLoginCTA";
 import { useHangmanWords } from "../../hooks/useHangmanWords";
 import "./HomeHangman.css";
+
+// Stable empty array — tránh infinite loop trong useHangmanWords
+const EMPTY_WORDS = [] as const;
 
 interface HomeHangmanProps {
   isLoggedIn?: boolean;
@@ -25,14 +30,23 @@ export function HomeHangman({
   onLogin,
   onStarsEarned,
 }: HomeHangmanProps) {
-  const [open,   setOpen]   = useState(false);
-  const [result, setResult] = useState<HangmanResult | null>(null);
+  const [open,        setOpen]        = useState(false);
+  const [result,      setResult]      = useState<HangmanResult | null>(null);
+  const [pendingOpen, setPendingOpen] = useState(false);
 
   const { words, isLoading, refresh } = useHangmanWords({
-    pendingWords: [],
+    pendingWords: EMPTY_WORDS as [],
     group: "flyers",
     count: 5,
   });
+
+  // Auto-open khi load xong (sau khi click "Chơi lại")
+  useEffect(() => {
+    if (pendingOpen && !isLoading && words.length > 0) {
+      setPendingOpen(false);
+      setOpen(true);
+    }
+  }, [pendingOpen, isLoading, words.length]);
 
   const handleOpen = () => {
     setResult(null);
@@ -41,8 +55,8 @@ export function HomeHangman({
 
   const handlePlayAgain = () => {
     setResult(null);
-    refresh();
-    setOpen(true);
+    refresh();           // Fetch bộ từ mới từ DB
+    setPendingOpen(true); // Auto-open khi words đã sẵn sàng
   };
 
   const handleComplete = (res: HangmanResult) => {
@@ -53,7 +67,7 @@ export function HomeHangman({
     }
   };
 
-  const previewWords = words.slice(0, 3);
+  const isRefreshing = pendingOpen && isLoading;
 
   return (
     <div className="home-hangman">
@@ -66,21 +80,10 @@ export function HomeHangman({
             Đoán đúng từ → nhận sao ⭐. Ôn từ vựng mỗi ngày!
           </p>
 
-          {/* Live preview từ DB */}
-          <div className="home-hangman__preview">
-            {isLoading ? (
-              <span className="home-hangman__loading">Đang tải từ vựng...</span>
-            ) : (
-              <>
-                {previewWords.map((w) => (
-                  <span key={w.word} className="home-hangman__preview-word">
-                    <span className="home-hangman__preview-en">{w.word}</span>
-                    <span className="home-hangman__preview-vi">{w.vi}</span>
-                  </span>
-                ))}
-                <span className="home-hangman__preview-more">+247 từ...</span>
-              </>
-            )}
+          {/* Stats — không hiện từ, chỉ hiện count */}
+          <div className="home-hangman__stats">
+            <span className="home-hangman__stat-badge">📚 250+ từ Cambridge</span>
+            <span className="home-hangman__stat-badge">🎯 5 từ / lượt</span>
           </div>
 
           <button
@@ -89,11 +92,11 @@ export function HomeHangman({
             onClick={handleOpen}
             disabled={isLoading || words.length === 0}
           >
-            🎯 Chơi ngay — Miễn phí
+            {isLoading ? "Đang tải..." : "🎯 Chơi ngay — Miễn phí"}
           </button>
         </div>
 
-        {/* Right: ASCII preview */}
+        {/* Right: ASCII hangman preview */}
         <div className="home-hangman__visual" aria-hidden="true">
           <svg viewBox="0 0 160 180" className="home-hangman__svg">
             <line x1="15" y1="165" x2="145" y2="165" strokeWidth="4" className="hh-line" />
@@ -105,25 +108,15 @@ export function HomeHangman({
             <line x1="105" y1="75" x2="83"  y2="95"  strokeWidth="3" className="hh-body" />
           </svg>
 
-          <div className="home-hangman__slots">
-            {(isLoading ? "??????" : (words[0]?.word ?? "HANGMAN").toUpperCase())
-              .split("")
-              .map((c, i) => (
-                <span
-                  key={i}
-                  className={`home-hangman__slot ${i < 2 ? "home-hangman__slot--shown" : ""}`}
-                >
-                  {i < 2 ? c : ""}
-                </span>
-              ))}
+          <div className="home-hangman__slots" aria-label="Từ cần đoán">
+            {"_ _ _ _ _".split(" ").map((c, i) => (
+              <span key={i} className="home-hangman__slot">{c}</span>
+            ))}
           </div>
-          {!isLoading && words[0] && (
-            <div className="home-hangman__hint-vi">{words[0].vi}</div>
-          )}
         </div>
       </div>
 
-      {/* Kết quả — Guest: CTA đăng nhập | Logged in: kết quả thường */}
+      {/* Kết quả — Guest: CTA | Logged in: kết quả thường */}
       {result && (
         !isLoggedIn && onLogin ? (
           <GameLoginCTA
@@ -143,18 +136,22 @@ export function HomeHangman({
               {result.correctWords.length}/5 đúng
               {result.starsEarned > 0 && ` — +${result.starsEarned} ⭐`}
             </span>
-            <button className="btn btn-outline btn-sm" onClick={handlePlayAgain}>
-              Chơi lại (bộ từ mới)
+            <button
+              className="btn btn-outline btn-sm"
+              onClick={handlePlayAgain}
+              disabled={isRefreshing}
+            >
+              {isRefreshing ? "Đang tải..." : "Chơi lại (bộ từ mới)"}
             </button>
           </div>
         )
       )}
 
-      {/* Game modal */}
+      {/* Game modal — isLoggedIn=true để không show notice bên trong */}
       {open && words.length > 0 && (
         <HangmanGame
           words={words}
-          isLoggedIn={isLoggedIn}
+          isLoggedIn={true}
           onComplete={handleComplete}
           onClose={() => setOpen(false)}
           onMarkCorrect={() => {}}

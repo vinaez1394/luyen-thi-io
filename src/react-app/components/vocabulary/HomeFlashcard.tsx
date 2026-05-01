@@ -1,17 +1,22 @@
 /**
  * HomeFlashcard.tsx — Widget Flashcard độc lập cho trang chủ
  *
- * Guest chơi miễn phí → sau game hiện GameLoginCTA
- * - Fetch từ D1 qua useHangmanWords (game=flashcard)
- * - Card preview hiển thị từ live từ DB
+ * V2 fixes:
+ * - Bỏ preview words trong card
+ * - Auto-reload bộ từ mới khi chơi lại (pendingOpen pattern)
+ * - Pass isLoggedIn=true vào FlashcardGame để không show notice bên trong
+ * - Card height: 100% cho equal-height với HomeHangman
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FlashcardGame } from "./FlashcardGame";
 import type { FlashcardResult } from "./FlashcardGame";
 import { GameLoginCTA } from "./GameLoginCTA";
 import { useHangmanWords } from "../../hooks/useHangmanWords";
 import "./HomeFlashcard.css";
+
+// Stable empty array — tránh infinite loop
+const EMPTY_WORDS = [] as const;
 
 interface HomeFlashcardProps {
   isLoggedIn?: boolean;
@@ -24,15 +29,24 @@ export function HomeFlashcard({
   onLogin,
   onStarsEarned,
 }: HomeFlashcardProps) {
-  const [open,   setOpen]   = useState(false);
-  const [result, setResult] = useState<FlashcardResult | null>(null);
+  const [open,        setOpen]        = useState(false);
+  const [result,      setResult]      = useState<FlashcardResult | null>(null);
+  const [pendingOpen, setPendingOpen] = useState(false);
 
   const { words, isLoading, refresh } = useHangmanWords({
-    pendingWords: [],
+    pendingWords: EMPTY_WORDS as [],
     group: "flyers",
     game: "flashcard",
     count: 5,
   });
+
+  // Auto-open khi load xong (sau khi click "Học lại")
+  useEffect(() => {
+    if (pendingOpen && !isLoading && words.length > 0) {
+      setPendingOpen(false);
+      setOpen(true);
+    }
+  }, [pendingOpen, isLoading, words.length]);
 
   const handleOpen = () => {
     setResult(null);
@@ -41,8 +55,8 @@ export function HomeFlashcard({
 
   const handlePlayAgain = () => {
     setResult(null);
-    refresh();
-    setOpen(true);
+    refresh();            // Fetch bộ từ mới từ DB
+    setPendingOpen(true);  // Auto-open khi words sẵn sàng
   };
 
   const handleComplete = (res: FlashcardResult) => {
@@ -53,7 +67,7 @@ export function HomeFlashcard({
     }
   };
 
-  const previewWords = words.slice(0, 2);
+  const isRefreshing = pendingOpen && isLoading;
 
   return (
     <div className="home-flashcard">
@@ -66,21 +80,10 @@ export function HomeFlashcard({
             Lật thẻ xem nghĩa → đánh giá bản thân → ghi nhớ hiệu quả!
           </p>
 
-          {/* Preview từ DB */}
-          <div className="home-flashcard__preview">
-            {isLoading ? (
-              <span className="home-flashcard__loading">Đang tải từ vựng...</span>
-            ) : (
-              <>
-                {previewWords.map((w) => (
-                  <span key={w.word} className="home-flashcard__preview-word">
-                    <span className="home-flashcard__preview-en">{w.word}</span>
-                    <span className="home-flashcard__preview-vi">{w.vi}</span>
-                  </span>
-                ))}
-                <span className="home-flashcard__preview-more">+248 thẻ...</span>
-              </>
-            )}
+          {/* Stats — không hiện từ, chỉ hiện count */}
+          <div className="home-flashcard__stats">
+            <span className="home-flashcard__stat-badge">📚 250+ thẻ từ vựng</span>
+            <span className="home-flashcard__stat-badge">🃏 5 thẻ / lượt</span>
           </div>
 
           <button
@@ -89,26 +92,20 @@ export function HomeFlashcard({
             onClick={handleOpen}
             disabled={isLoading || words.length === 0}
           >
-            🃏 Học ngay — Miễn phí
+            {isLoading ? "Đang tải..." : "🃏 Học ngay — Miễn phí"}
           </button>
         </div>
 
-        {/* Right: card flip preview */}
+        {/* Right: demo card stack visual */}
         <div className="home-flashcard__visual" aria-hidden="true">
           <div className="home-flashcard__demo">
-            {/* Front card */}
             <div className="home-flashcard__demo-card home-flashcard__demo-card--front">
               <span className="home-flashcard__demo-badge">EN</span>
-              <span className="home-flashcard__demo-word">
-                {isLoading ? "???" : (words[0]?.word ?? "word")}
-              </span>
+              <span className="home-flashcard__demo-word">word</span>
               <span className="home-flashcard__demo-flip">↩ lật thẻ</span>
             </div>
-            {/* Shadow back card */}
             <div className="home-flashcard__demo-card home-flashcard__demo-card--back" aria-hidden="true">
-              <span className="home-flashcard__demo-vi">
-                {isLoading ? "..." : (words[0]?.vi ?? "")}
-              </span>
+              <span className="home-flashcard__demo-vi">nghĩa</span>
             </div>
           </div>
         </div>
@@ -134,18 +131,22 @@ export function HomeFlashcard({
               {result.knownWords.length}/5 đã biết
               {result.starsEarned > 0 && ` — +${result.starsEarned} ⭐`}
             </span>
-            <button className="btn btn-outline btn-sm" onClick={handlePlayAgain}>
-              Học lại (bộ mới)
+            <button
+              className="btn btn-outline btn-sm"
+              onClick={handlePlayAgain}
+              disabled={isRefreshing}
+            >
+              {isRefreshing ? "Đang tải..." : "Học lại (bộ mới)"}
             </button>
           </div>
         )
       )}
 
-      {/* Game modal */}
+      {/* Game modal — isLoggedIn=true để không show notice bên trong */}
       {open && words.length > 0 && (
         <FlashcardGame
           words={words}
-          isLoggedIn={isLoggedIn}
+          isLoggedIn={true}
           onComplete={handleComplete}
           onClose={() => setOpen(false)}
         />

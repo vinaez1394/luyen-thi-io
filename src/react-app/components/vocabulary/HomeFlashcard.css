@@ -7,19 +7,21 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  height: 100%;
 }
 
 /* Main card container */
 .home-flashcard__card {
   background: var(--color-card);
   border: 2px solid var(--color-border);
-  border-radius: 20px;          /* ★ Dùng giá trị cứng — --radius-lg = 28px, dùng 20px để match HomeHangman */
+  border-radius: 20px;
   padding: var(--space-3);
   display: flex;
   gap: var(--space-3);
   align-items: center;
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+  flex: 1;
 }
 
 .home-flashcard__card:hover {
@@ -58,45 +60,23 @@
   line-height: 1.5;
 }
 
-/* Preview words */
-.home-flashcard__preview {
+/* Stats badges (replaces preview words) */
+.home-flashcard__stats {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  align-items: center;
 }
 
-.home-flashcard__loading {
-  font-size: var(--font-sm);
-  color: var(--color-text-muted);
-  font-style: italic;
-}
-
-.home-flashcard__preview-word {
+.home-flashcard__stat-badge {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-sm);
-  padding: 4px 10px;
-  min-width: 64px;
-}
-
-.home-flashcard__preview-en {
-  font-size: 13px;
-  font-weight: var(--font-bold);
+  gap: 4px;
+  background: rgba(57, 73, 171, 0.1);
   color: #3949ab;
-}
-
-.home-flashcard__preview-vi {
-  font-size: 11px;
-  color: var(--color-text-muted);
-}
-
-.home-flashcard__preview-more {
-  font-size: var(--font-xs);
-  color: var(--color-text-light);
-  font-style: italic;
+  font-size: 12px;
+  font-weight: var(--font-bold);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
 }
 
 /* CTA button — indigo theme */
