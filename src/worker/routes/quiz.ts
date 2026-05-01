@@ -103,6 +103,16 @@ try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-ME
 try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE3-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE3-P1"] = d.default; } catch { /* R2 */ }
 try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE4-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE4-P1"] = d.default; } catch { /* R2 */ }
 try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE5-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE5-P1"] = d.default; } catch { /* R2 */ }
+// ── Reading Passage P2 ──
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE3-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE3-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE4-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE4-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE5-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE5-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-MED-GRADE3-P2.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-MED-GRADE3-P2"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-MED-GRADE4-P2.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-MED-GRADE4-P2"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-MED-GRADE5-P2.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-MED-GRADE5-P2"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE3-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE3-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE4-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE4-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE5-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE5-P2"] = d.default; } catch { /* R2 */ }
 
 type Env = {
   DB: D1Database;
