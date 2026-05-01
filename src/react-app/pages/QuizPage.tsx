@@ -17,10 +17,12 @@ import { useQuiz } from "../hooks/useQuiz";
 import { useAuth } from "../hooks/useAuth";
 import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
+import { ReadingEngine } from "../components/quiz/ReadingEngine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
 import "../components/quiz/Quiz.css";
+import type { ReadingQuiz } from "../types/reading";
 
 export function QuizPage() {
   const location = useLocation();
@@ -173,7 +175,19 @@ export function QuizPage() {
     );
   }
 
-  // ===== Quiz (với QuizLayout) =====
+  // ===== Reading Passage — Engine riêng (tự quản lý state + nộp bài) =====
+  if ((quiz as unknown as ReadingQuiz).type === "reading-passage") {
+    return (
+      <ReadingEngine
+        quiz={quiz as unknown as ReadingQuiz}
+        onComplete={() => {
+          localStorage.setItem("last_quiz_id", quizId);
+        }}
+      />
+    );
+  }
+
+  // ===== Quiz thường (với QuizLayout) =====
   return (
     <QuizLayout
       quiz={quiz}

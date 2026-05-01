@@ -1,0 +1,134 @@
+{
+  "id": "READING-HARD-GRADE5-P1",
+  "title": "Bài Đọc Hiểu — Hard — Lớp 5-6 — Trí Tuệ Nhân Tạo trong Giáo Dục",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "hard",
+  "grade_min": 5,
+  "grade_max": 6,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Đọc kỹ từng đoạn văn rồi trả lời các câu hỏi bên dưới.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Đọc đoạn văn và chọn từ thích hợp điền vào chỗ trống.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Artificial Intelligence, or AI, has become a (0) common part of modern education. Many schools and universities now use AI tools to support both teachers and students. The main (1) _____ of AI is its ability to personalise lessons for each student based on their individual learning pace and (2) _____. AI systems can also detect when a student is struggling and (3) _____ extra help immediately. However, some people worry that too much reliance on technology may (4) _____ students' ability to think independently and solve problems on their own.",
+        "text_segments": [
+          { "text": "Artificial Intelligence, or " },
+          { "text": "AI", "tooltip": { "vi": "Trí Tuệ Nhân Tạo", "ipa": "ˌeɪˈaɪ" } },
+          { "text": ", has become a " },
+          { "text": "(0) common", "highlight": true },
+          { "text": " part of modern education. Many schools and universities now use AI tools to support both teachers and students. The main (1) _____ of AI is its ability to " },
+          { "text": "personalise", "tooltip": { "vi": "cá nhân hoá", "ipa": "ˈpɜːsənəlaɪz" } },
+          { "text": " lessons for each student based on their individual learning pace and (2) _____. AI systems can also " },
+          { "text": "detect", "tooltip": { "vi": "phát hiện", "ipa": "dɪˈtekt" } },
+          { "text": " when a student is struggling and (3) _____ extra help immediately. However, some people worry that too much " },
+          { "text": "reliance", "tooltip": { "vi": "sự phụ thuộc", "ipa": "rɪˈlaɪəns" } },
+          { "text": " on technology may (4) _____ students' ability to think " },
+          { "text": "independently", "tooltip": { "vi": "một cách độc lập, tự chủ", "ipa": "ˌɪndɪˈpendəntli" } },
+          { "text": " and solve problems on their own." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "The main (1) _____ of AI is its ability to personalise lessons for each student.",
+          "options": ["advantage", "difficulty", "opinion"],
+          "correct": "advantage",
+          "explanation_vi": "'Advantage' nghĩa là ưu điểm — lợi thế lớn nhất của AI là khả năng cá nhân hoá việc học cho từng học sinh."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "AI personalises lessons based on their individual learning pace and (2) _____.",
+          "options": ["needs", "games", "scores"],
+          "correct": "needs",
+          "explanation_vi": "'Needs' nghĩa là nhu cầu — AI điều chỉnh bài học theo tốc độ học và nhu cầu riêng của từng học sinh."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "AI systems can detect when a student is struggling and (3) _____ extra help immediately.",
+          "options": ["offer", "refuse", "delay"],
+          "correct": "offer",
+          "explanation_vi": "'Offer extra help' nghĩa là cung cấp sự hỗ trợ thêm — AI có thể đề xuất trợ giúp ngay khi phát hiện học sinh gặp khó khăn."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Too much reliance on technology may (4) _____ students' ability to think independently.",
+          "options": ["reduce", "improve", "measure"],
+          "correct": "reduce",
+          "explanation_vi": "'Reduce ability' nghĩa là làm giảm khả năng — lo ngại rằng phụ thuộc quá vào công nghệ sẽ làm yếu đi khả năng tư duy độc lập."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Đọc đoạn văn và trả lời câu hỏi.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Glaciers are large, slow-moving rivers of ice that form over hundreds or thousands of years in places where snow accumulates faster than it melts. They can be found in many parts of the world, including mountain ranges, the Arctic, and the Antarctic. Glaciers are incredibly powerful forces of nature and have shaped much of our planet's landscape. As they move, glaciers can cut through mountains and carve out valleys, lakes, and fjords. The water stored in glaciers is vital for millions of people worldwide. In many regions, glaciers act as natural water towers, slowly releasing meltwater into rivers and streams during the warmer months when rainfall is low. However, due to climate change, glaciers around the world are melting at an alarming rate, which threatens the water supply of communities and businesses that depend on them.",
+        "text_segments": [
+          { "text": "Glaciers are large, slow-moving rivers of " },
+          { "text": "ice", "tooltip": { "vi": "băng, nước đá", "ipa": "aɪs" } },
+          { "text": " that form over hundreds or thousands of years in places where snow " },
+          { "text": "accumulates", "tooltip": { "vi": "tích tụ, chất chồng lên", "ipa": "əˈkjuːmjuleɪts" } },
+          { "text": " faster than it melts. They can be found in many parts of the world, including mountain ranges, the Arctic, and the Antarctic. Glaciers are incredibly powerful forces of nature and have shaped much of our planet's landscape. As they move, glaciers can cut through mountains and " },
+          { "text": "carve out", "tooltip": { "vi": "đục khoét, tạo thành", "ipa": "kɑːv aʊt" } },
+          { "text": " valleys, lakes, and " },
+          { "text": "fjords", "tooltip": { "vi": "vịnh hẹp (dạng địa hình ở Na Uy)", "ipa": "fjɔːdz" } },
+          { "text": ". The water stored in glaciers is vital for millions of people worldwide. In many regions, glaciers act as natural water towers, slowly releasing " },
+          { "text": "meltwater", "tooltip": { "vi": "nước băng tan", "ipa": "ˈmeltwɔːtə" } },
+          { "text": " into rivers and streams during the warmer months when rainfall is low. However, due to " },
+          { "text": "climate change", "tooltip": { "vi": "biến đổi khí hậu", "ipa": "ˈklaɪmət tʃeɪndʒ" } },
+          { "text": ", glaciers are melting at an alarming rate, which threatens the water supply of communities and " },
+          { "text": "businesses", "tooltip": { "vi": "doanh nghiệp (công ty, cửa hàng, nhà máy)", "ipa": "ˈbɪznɪsɪz" } },
+          { "text": " that depend on them." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Glaciers only exist in cold polar regions like the Arctic and Antarctic.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'including mountain ranges, the Arctic, and the Antarctic' — băng hà cũng tồn tại ở các dãy núi, không chỉ ở địa cực."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Glaciers provide an important source of fresh water for many communities around the world.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'The water stored in glaciers is vital for millions of people worldwide' — nước từ băng hà là nguồn sống thiết yếu với hàng triệu người."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What are glaciers compared to in the passage?",
+          "options": ["rivers of lava", "natural water towers", "giant ice machines"],
+          "correct": "natural water towers",
+          "explanation_vi": "Bài viết 'glaciers act as natural water towers, slowly releasing meltwater into rivers and streams.'"
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage meaning 'commercial organisations such as companies, shops or factories'.",
+          "correct": "businesses",
+          "explanation_vi": "'Businesses' nghĩa là doanh nghiệp — bao gồm các công ty, cửa hàng, nhà máy. Đây là từ xuất hiện cuối đoạn văn."
+        }
+      ]
+    }
+  ]
+}

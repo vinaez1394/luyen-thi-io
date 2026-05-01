@@ -93,6 +93,17 @@ try {
   LOCAL_QUIZ_MAP["RW001"] = rw001.default;
 } catch { /* Production: dùng R2 */ }
 
+// ⚠️ READING PASSAGE — Lớp 6 Tiếng Anh (Phase Reading)
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE3-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE4-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE5-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE5-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-MED-GRADE3-P1.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-MED-GRADE3-P1"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-MED-GRADE4-P1.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-MED-GRADE4-P1"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-MED-GRADE5-P1.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-MED-GRADE5-P1"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE3-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE3-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE4-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE4-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE5-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE5-P1"] = d.default; } catch { /* R2 */ }
+
 type Env = {
   DB: D1Database;
   SESSION: KVNamespace;
@@ -113,6 +124,10 @@ function getR2Key(quizId: string): string {
   // Lớp 6 — Toán Tư Duy
   if (/^MATH-L\d+-P\d+$/.test(quizId)) {
     return `quizzes/lop6/toan/${quizId}.json`;
+  }
+  // Lớp 6 — Tiếng Anh Reading (READING-EASY-GRADE3-P1, READING-MED-GRADE4-P1, ...)
+  if (/^READING-(EASY|MED|HARD)-GRADE\d+-P\d+$/.test(quizId)) {
+    return `quizzes/lop6/tieng-anh/reading/${quizId}.json`;
   }
   // Cambridge Flyers — Reading / Writing (RW001, RW2-001, RW3-001...)
   if (/^RW/.test(quizId)) {

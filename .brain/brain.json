@@ -14,7 +14,8 @@
       "framework": "React 19 + Vite",
       "router": "React Router DOM",
       "styling": "CSS Custom Properties (Themes)",
-      "dnd": "dnd-kit"
+      "dnd": "dnd-kit",
+      "audio": "Web Speech API (speechSynthesis)"
     },
     "backend": {
       "framework": "Hono",
@@ -70,16 +71,21 @@
     "Đăng nhập Google OAuth qua Cloudflare KV",
     "Mô hình Freemium (Không cần đăng nhập vẫn làm được bài free)",
     "Hệ thống đa lộ trình (Dual Pathway): Cambridge Flyers và Lớp 6",
-    "Game Hangman học từ vựng tích hợp vào bài quiz"
+    "Game Hangman học từ vựng tích hợp vào bài quiz, có âm thanh Web Speech API",
+    "Game Flashcard học từ vựng dạng lật thẻ, không thưởng sao, có âm thanh Web Speech API",
+    "GameLoginCTA: Full-screen overlay modal tự động xuất hiện sau game để chuyển đổi Guest -> User"
   ],
   "knowledge_items": {
     "patterns": [
       "Sử dụng CSS Custom Properties cho Design Tokens và Themes",
-      "Sử dụng Cloudflare KV làm Session Storage với HTTP-only Cookies"
+      "Sử dụng Cloudflare KV làm Session Storage với HTTP-only Cookies",
+      "Sử dụng Overlay Modals (Backdrop blur) để giữ chân Guest thay vì redirect",
+      "Web Speech API được dùng cho phát âm tiếng Anh mà không cần audio file bên thứ 3"
     ],
     "gotchas": [
       "Client ID và Secret lưu trong .dev.vars (không push lên git)",
-      "Bài tập FREE không lưu điểm vào database nếu khách chưa đăng nhập"
+      "Bài tập FREE không lưu điểm vào database nếu khách chưa đăng nhập",
+      "Cần stop event (e.stopPropagation) khi ấn button 🔊 trên mặt Flashcard để tránh bị flip card"
     ]
   }
 }

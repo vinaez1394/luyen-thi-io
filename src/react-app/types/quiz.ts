@@ -20,7 +20,8 @@ export type QuizType =
   | "audio-mc"               // Listening P1, P4 — nghe + chọn (Phase 06)
   | "audio-fill"             // Listening P2 — nghe + điền bảng (Phase 06)
   | "audio-matching"         // Listening P3 — nghe + nối (Phase 06)
-  | "audio-true-false";      // Listening P5 — nghe + đúng/sai (Phase 06)
+  | "audio-true-false"       // Listening P5 — nghe + đúng/sai (Phase 06)
+  | "reading-passage";       // Lớp 6 Tiếng Anh — passage + sections (ReadingEngine)
 
 export type SkillType = "reading" | "listening" | "writing" | "math";
 export type LevelType = "flyers" | "movers" | "ket" | "pet" | "level-1" | "level-2";

@@ -39,6 +39,15 @@ export interface Lesson {
    * null = không có game, bỏ qua
    */
   unlocks_game?: "hangman" | "crossword" | null;
+  // ─── Reading Passage fields (dạng bài mới - Lớp 6 Tiếng Anh) ───────────
+  /** Độ khó của bài — easy / medium / hard */
+  difficulty?: "easy" | "medium" | "hard";
+  /** Phù hợp từ lớp bao nhiêu */
+  grade_min?: number;
+  /** Phù hợp đến lớp bao nhiêu */
+  grade_max?: number;
+  /** Nằm trong pool rút đề thi thử tự động */
+  in_pool?: boolean;
 }
 
 export interface Subject {
@@ -115,17 +124,148 @@ export const SUBJECTS: Subject[] = [
     lessons: [],
   },
 
-  // ─── Lớp 6: Nhóm Tiếng Anh (sắp có) ───────────────────────────────────────
+  // ─── Lớp 6: Nhóm Tiếng Anh ─────────────────────────────────────────────
   {
     id: "tieng-anh-l6",
     label: "Tiếng Anh Lớp 6",
-    emoji: "🌐",
-    desc: "Ngoại ngữ & Hội nhập — Nhóm Tiếng Anh Lớp 6",
+    emoji: "🇬🇧",
+    desc: "Reading Comprehension — Luyện đọc hiểu thi lớp 6",
     color: "#0891b2",
-    available: false,
+    available: true,                // ← ĐÃ BẬT (Phase Reading)
     pathway: "lop6",
     group: "tieng-anh",
-    lessons: [],
+    lessons: [
+      // ──────────────── EASY ────────────────────────────────────────────────
+      // Slug phẳng để tránh React Router wildcard issue với "/" trong URL
+      {
+        id:         "READING-EASY-GRADE3-P1",
+        slug:       "reading-easy-grade3-p1",
+        title:      "Đọc Hiểu — Easy — Lớp 3-4",
+        skill:      "reading",
+        questions:  8,
+        is_free:    true,
+        emoji:      "📖",
+        showOnHome: true,
+        difficulty: "easy",
+        grade_min:  3,
+        grade_max:  4,
+        in_pool:    true,
+      },
+      {
+        id:         "READING-EASY-GRADE4-P1",
+        slug:       "reading-easy-grade4-p1",
+        title:      "Đọc Hiểu — Easy — Lớp 4-5",
+        skill:      "reading",
+        questions:  8,
+        is_free:    true,
+        emoji:      "📖",
+        showOnHome: false,
+        difficulty: "easy",
+        grade_min:  4,
+        grade_max:  5,
+        in_pool:    true,
+      },
+      {
+        id:         "READING-EASY-GRADE5-P1",
+        slug:       "reading-easy-grade5-p1",
+        title:      "Đọc Hiểu — Easy — Lớp 5-6",
+        skill:      "reading",
+        questions:  8,
+        is_free:    true,
+        emoji:      "📖",
+        showOnHome: false,
+        difficulty: "easy",
+        grade_min:  5,
+        grade_max:  6,
+        in_pool:    true,
+      },
+      // ──────────────── MEDIUM ──────────────────────────────────────────────
+      {
+        id:         "READING-MED-GRADE3-P1",
+        slug:       "reading-med-grade3-p1",
+        title:      "Đọc Hiểu — Medium — Lớp 3-4",
+        skill:      "reading",
+        questions:  8,
+        is_free:    false,
+        emoji:      "📚",
+        showOnHome: false,
+        difficulty: "medium",
+        grade_min:  3,
+        grade_max:  4,
+        in_pool:    true,
+      },
+      {
+        id:         "READING-MED-GRADE4-P1",
+        slug:       "reading-med-grade4-p1",
+        title:      "Đọc Hiểu — Medium — Lớp 4-5",
+        skill:      "reading",
+        questions:  8,
+        is_free:    false,
+        emoji:      "📚",
+        showOnHome: false,
+        difficulty: "medium",
+        grade_min:  4,
+        grade_max:  5,
+        in_pool:    true,
+      },
+      {
+        id:         "READING-MED-GRADE5-P1",
+        slug:       "reading-med-grade5-p1",
+        title:      "Đọc Hiểu — Medium — Lớp 5-6",
+        skill:      "reading",
+        questions:  8,
+        is_free:    false,
+        emoji:      "📚",
+        showOnHome: false,
+        difficulty: "medium",
+        grade_min:  5,
+        grade_max:  6,
+        in_pool:    true,
+      },
+      // ──────────────── HARD ────────────────────────────────────────────────
+      {
+        id:         "READING-HARD-GRADE3-P1",
+        slug:       "reading-hard-grade3-p1",
+        title:      "Đọc Hiểu — Hard — Lớp 3-4",
+        skill:      "reading",
+        questions:  8,
+        is_free:    false,
+        emoji:      "🏆",
+        showOnHome: false,
+        difficulty: "hard",
+        grade_min:  3,
+        grade_max:  4,
+        in_pool:    true,
+      },
+      {
+        id:         "READING-HARD-GRADE4-P1",
+        slug:       "reading-hard-grade4-p1",
+        title:      "Đọc Hiểu — Hard — Lớp 4-5",
+        skill:      "reading",
+        questions:  8,
+        is_free:    false,
+        emoji:      "🏆",
+        showOnHome: false,
+        difficulty: "hard",
+        grade_min:  4,
+        grade_max:  5,
+        in_pool:    true,
+      },
+      {
+        id:         "READING-HARD-GRADE5-P1",
+        slug:       "reading-hard-grade5-p1",
+        title:      "Đọc Hiểu — Hard — Lớp 5-6",
+        skill:      "reading",
+        questions:  8,
+        is_free:    false,
+        emoji:      "🏆",
+        showOnHome: false,
+        difficulty: "hard",
+        grade_min:  5,
+        grade_max:  6,
+        in_pool:    true,
+      },
+    ],
   },
 
   // ─── Lớp 6: Nhóm Khoa học & Xã hội (sắp có) ───────────────────────────────

@@ -1,0 +1,124 @@
+{
+  "id": "READING-EASY-GRADE5-P1",
+  "title": "Bài Đọc Hiểu — Easy — Lớp 5-6 — Cuộc Sống Học Đường",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "easy",
+  "grade_min": 5,
+  "grade_max": 6,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Đọc kỹ từng đoạn văn rồi trả lời các câu hỏi bên dưới.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Đọc đoạn văn và chọn từ thích hợp điền vào chỗ trống.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Going to school is an important part of every child's life. At school, students do not only (0) learn new subjects but also make new friends. Each morning, students arrive at school and (1) _____ to their classrooms. Teachers work hard to (2) _____ lessons interesting and easy to understand. After school, many students join (3) _____ activities such as sports clubs or music groups. A good school environment helps students (4) _____ their talents and become confident young people.",
+        "text_segments": [
+          { "text": "Going to school is an important part of every child's life. At school, students do not only " },
+          { "text": "(0) learn", "highlight": true },
+          { "text": " new subjects but also make new friends. Each morning, students arrive at school and (1) _____ to their classrooms. Teachers work hard to (2) _____ lessons interesting and easy to understand. After school, many students join (3) _____ activities such as sports clubs or music groups. A good school " },
+          { "text": "environment", "tooltip": { "vi": "môi trường", "ipa": "ɪnˈvaɪrənmənt" } },
+          { "text": " helps students (4) _____ their " },
+          { "text": "talents", "tooltip": { "vi": "tài năng", "ipa": "ˈtælənt" } },
+          { "text": " and become " },
+          { "text": "confident", "tooltip": { "vi": "tự tin", "ipa": "ˈkɒnfɪdənt" } },
+          { "text": " young people." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Each morning, students arrive at school and (1) _____ to their classrooms.",
+          "options": ["go", "run", "fly"],
+          "correct": "go",
+          "explanation_vi": "'Go to their classrooms' — đi vào lớp học là hành động tự nhiên khi đến trường."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Teachers work hard to (2) _____ lessons interesting and easy to understand.",
+          "options": ["make", "break", "take"],
+          "correct": "make",
+          "explanation_vi": "'Make lessons interesting' — thầy cô cố gắng làm cho bài học trở nên thú vị."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "After school, many students join (3) _____ activities such as sports clubs or music groups.",
+          "options": ["extra", "normal", "boring"],
+          "correct": "extra",
+          "explanation_vi": "'Extra activities' hay 'extracurricular activities' — các hoạt động ngoại khoá sau giờ học."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "A good school environment helps students (4) _____ their talents.",
+          "options": ["develop", "forget", "hide"],
+          "correct": "develop",
+          "explanation_vi": "'Develop their talents' — phát triển tài năng. Môi trường học tốt giúp học sinh khám phá và phát triển năng khiếu."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Đọc đoạn văn và trả lời câu hỏi.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "The Internet has changed the way people live and work. Today, millions of people use the Internet every day to search for information, communicate with friends, and watch videos. For students, the Internet is a powerful tool for learning. They can find answers to difficult questions, watch educational videos, and even take online courses from home. However, spending too much time on the Internet can also be harmful. Some students spend hours playing online games instead of studying or exercising. Experts suggest that students should use the Internet wisely by setting a time limit each day and choosing useful websites and applications.",
+        "text_segments": [
+          { "text": "The " },
+          { "text": "Internet", "tooltip": { "vi": "mạng Internet", "ipa": "ˈɪntənet" } },
+          { "text": " has changed the way people live and work. Today, millions of people use the Internet every day to search for information, " },
+          { "text": "communicate", "tooltip": { "vi": "liên lạc, giao tiếp", "ipa": "kəˈmjuːnɪkeɪt" } },
+          { "text": " with friends, and watch videos. For students, the Internet is a powerful tool for learning. They can find answers to difficult questions, watch " },
+          { "text": "educational", "tooltip": { "vi": "có tính giáo dục", "ipa": "ˌedʒuˈkeɪʃənl" } },
+          { "text": " videos, and even take online courses from home. However, spending too much time on the Internet can also be " },
+          { "text": "harmful", "tooltip": { "vi": "có hại", "ipa": "ˈhɑːmfl" } },
+          { "text": ". Some students spend hours playing online games instead of studying or exercising. Experts suggest that students should use the Internet wisely by setting a time limit each day." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "The Internet is only useful for entertainment, not for studying.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'the Internet is a powerful tool for learning' — Internet rất hữu ích cho việc học, không chỉ giải trí."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Spending too much time on the Internet can have negative effects on students.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'spending too much time on the Internet can also be harmful' — dùng quá nhiều có thể gây hại."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What do experts suggest students should do to use the Internet wisely?",
+          "options": ["avoid the Internet completely", "set a time limit each day", "only use it for games"],
+          "correct": "set a time limit each day",
+          "explanation_vi": "Bài viết 'students should use the Internet wisely by setting a time limit each day.'"
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage meaning 'people with great knowledge or skill in a particular subject'.",
+          "correct": "experts",
+          "explanation_vi": "'Experts' nghĩa là các chuyên gia — những người có kiến thức sâu về một lĩnh vực."
+        }
+      ]
+    }
+  ]
+}

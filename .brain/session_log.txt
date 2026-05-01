@@ -1,0 +1,2 @@
+[21:45] RUN SUCCESS: App running at http://localhost:8788/lop6/tieng-anh/reading-easy-grade3-p1
+[21:53] END phase-05-polish ✅ — badge difficulty, mobile CSS fixes, TSC clean
