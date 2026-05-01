@@ -64,9 +64,10 @@ export function GlobalHeader() {
   const displayName = user?.profile?.display_name ?? user?.name ?? "Bé";
   const totalStars  = 0; // Phase 07 sẽ load từ student_stats
 
-  // Phân nhóm subjects theo pathway cho dropdown
-  const cambridgeSubjects = SUBJECTS.filter((s) => s.pathway === "cambridge");
-  const lop6Subjects      = SUBJECTS.filter((s) => s.pathway === "lop6");
+  // Chỉ hiển thị môn đang có bài (available: true) — môn chưa có tự động ẩn
+  const cambridgeSubjects = SUBJECTS.filter((s) => s.pathway === "cambridge" && s.available);
+  const lop6Subjects      = SUBJECTS.filter((s) => s.pathway === "lop6"      && s.available);
+
 
   return (
     <>
