@@ -49,7 +49,7 @@ jobs:
           ./node_modules/.bin/wrangler d1 execute luyen-thi-db --remote --yes --file src/worker/migrations/0007_seed_vocabulary_flyers_batch3.sql
           ./node_modules/.bin/wrangler d1 execute luyen-thi-db --remote --yes --file src/worker/migrations/0008_seed_vocabulary_flyers_batch4.sql
           echo "✅ D1 seed complete — 250 words loaded"
-        continue-on-error: true
+        continue-on-error: false
 
       # 6. Deploy Worker lên Cloudflare (sau khi DB đã sẵn sàng)
       - name: Deploy to Cloudflare Workers
