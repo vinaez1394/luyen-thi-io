@@ -99,6 +99,29 @@ type Env = {
   CONTENT?: R2Bucket; // R2 binding tên "CONTENT" theo wrangler.json
 };
 
+/**
+ * Ánh xạ quiz ID → đúng đường dẫn trong R2
+ * Cấu trúc: quizzes/<track>/<exam>/<subject>/<id>.json
+ *
+ * Cambridge Flyers Math:    MATH-L1-P1  → quizzes/cambridge/flyers/math/MATH-L1-P1.json
+ * Cambridge Flyers Reading: RW001       → quizzes/cambridge/flyers/reading/RW001.json
+ * Lớp 6 (tương lai):        L6-MATH-... → quizzes/lop6/math/...
+ */
+function getR2Key(quizId: string): string {
+  if (/^MATH-L\d+-P\d+$/.test(quizId)) {
+    return `quizzes/cambridge/flyers/math/${quizId}.json`;
+  }
+  if (/^RW/.test(quizId)) {
+    return `quizzes/cambridge/flyers/reading/${quizId}.json`;
+  }
+  if (quizId.startsWith('L6-')) {
+    return `quizzes/lop6/${quizId}.json`;
+  }
+  // Fallback — không nên xảy ra, log để debug
+  console.warn(`[quiz] Unknown quizId format: ${quizId}, using flat path`);
+  return `quizzes/${quizId}.json`;
+}
+
 export const quizRoute = new Hono<{ Bindings: Env }>();
 
 // ============================================
@@ -122,9 +145,10 @@ async function getOptionalSession(
 // Helper: Load quiz JSON (từ R2 hoặc fallback static)
 // ============================================
 async function loadQuizJson(quizId: string, env: Env): Promise<object | null> {
-  // Production: load từ R2 bucket CONTENT
+  // Production: load từ R2 bucket CONTENT theo đúng hierarchy
   if (env.CONTENT) {
-    const obj = await env.CONTENT.get(`quizzes/${quizId}.json`);
+    const r2Key = getR2Key(quizId);
+    const obj = await env.CONTENT.get(r2Key);
     if (obj) {
       const text = await obj.text();
       return JSON.parse(text);
