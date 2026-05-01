@@ -949,3 +949,158 @@ Khi có quyết định mới hoặc thay đổi lớn:
 
 *Tổng hợp từ phiên brainstorm & planning ngày 2026-04-28*
 *GitHub repo: https://github.com/vinaez1394/luyen-thi-io*
+
+---
+
+## 🗃️ D1 DATABASE OPERATIONS — SEED & MIGRATION
+
+> Cập nhật: 2026-05-01 | Ghi chú từ sự cố seeding 250 từ Flyers
+
+### Wrangler là gì?
+
+**Wrangler** là công cụ CLI chính thức của Cloudflare để:
+- Deploy Worker lên Cloudflare
+- Đọc/ghi dữ liệu vào D1 database từ máy tính hoặc CI/CD
+- Quản lý R2, KV, Workers từ terminal
+
+Trong dự án này, Wrangler được dùng qua **GitHub Actions** để tự động deploy mỗi khi `git push`.
+
+---
+
+### Vì sao D1 seed bị lỗi? (Giải thích gốc rễ)
+
+Cloudflare có 2 hệ thống quyền **hoàn toàn độc lập**:
+
+```
+User Account (Super Admin)
+└── Có toàn quyền trên Dashboard Cloudflare
+    ← KHÔNG tự động áp dụng cho API Token
+
+API Token "luyen-thi-io build token"
+└── Chỉ có đúng những quyền được cấp khi tạo token
+    ← Workers Scripts: Edit ✅
+    ← D1: Edit ❌ (thiếu — nguyên nhân gốc rễ)
+```
+
+**Lỗi thực tế xuất hiện:**
+```
+Authentication error [code: 10000]
+A request to /accounts/***/d1/database/.../import failed.
+```
+
+**Vì sao mất nhiều thời gian?**
+1. Lần thử 1: dùng `wrangler-action command:` → fail (thiếu quyền D1)
+2. Lần thử 2: đổi sang `run:` với env vars → fail (thiếu accountId)
+3. Lần thử 3: hardcode accountId + `--yes` flag → fail (vẫn thiếu quyền)
+4. Thử wrangler login local → OAuth callback bị treo trên Safari
+5. **Giải pháp thành công:** Dùng Cloudflare D1 Console trực tiếp trên browser
+
+---
+
+### ✅ Fix lâu dài — CI tự động seed hoạt động
+
+**Bước 1: Tạo API Token mới đúng quyền**
+
+1. Vào [dash.cloudflare.com](https://dash.cloudflare.com) → **My Profile → API Tokens → Create Token**
+2. Chọn **"Create Custom Token"**
+3. Cấu hình permissions:
+   ```
+   Account - D1 - Edit                    ← BẮT BUỘC cho D1
+   Account - Workers Scripts - Edit        ← Cho deploy Worker
+   Account - Workers KV Storage - Edit     ← Cho KV operations
+   User - User Details - Read              ← Cho wrangler whoami
+   ```
+4. Account Resources: **Include → Vinaez1394@gmail.com's Account**
+5. Nhấn **Create Token** → Copy token value (chỉ hiển thị 1 lần!)
+
+**Bước 2: Update GitHub Secret**
+
+1. GitHub repo → **Settings → Secrets and variables → Actions**
+2. Tìm `CLOUDFLARE_API_TOKEN` → nhấn **Edit (✏️)**
+3. Paste token mới vào → **Save**
+
+**Bước 3: Verify**
+
+Push bất kỳ thay đổi nhỏ lên `dev`. GitHub Actions sẽ:
+```
+✅ Build
+✅ D1 — Run vocabulary seed migrations  ← Giờ sẽ xanh
+✅ Deploy to Cloudflare Workers
+```
+
+---
+
+### Quy trình thêm từ vựng mới (sau khi fix token)
+
+**Cách A — Qua GitHub Actions (khuyến nghị sau khi fix)**
+
+1. Tạo file migration mới: `src/worker/migrations/0009_seed_vocab_batch5.sql`
+2. Viết SQL dạng `INSERT OR IGNORE INTO vocabulary_bank (...) VALUES (...)`
+3. Thêm lệnh vào `.github/workflows/deploy.yml` trong step D1
+4. `git push origin dev` → Actions tự seed
+
+**Cách B — Qua Cloudflare D1 Console (dùng ngay, không cần token)**
+
+1. Mở: `https://dash.cloudflare.com/55e3a88290a27547ff01294004561906/workers/d1/databases/cc1f5652-8b63-45c2-8fa4-15509f0e6278/console`
+2. Paste SQL → **Execute**
+3. Verify: `SELECT COUNT(*) FROM vocabulary_bank;`
+
+**Cách C — Wrangler local (sau khi đã login thành công)**
+
+```bash
+# Bước 1: Login (chỉ cần làm 1 lần, token lưu local)
+npx wrangler login
+# → Mở browser → Approve trên Chrome/Firefox (KHÔNG dùng Safari)
+
+# Bước 2: Chạy migration
+npx wrangler d1 execute luyen-thi-db --remote --yes \
+  --file src/worker/migrations/0009_seed_vocab_batch5.sql
+
+# Bước 3: Verify
+npx wrangler d1 execute luyen-thi-db --remote --yes \
+  --command "SELECT COUNT(*) FROM vocabulary_bank;"
+```
+
+> ⚠️ **Lưu ý wrangler login:** Safari có thể bị treo do localhost callback. Dùng **Chrome** hoặc **Firefox** khi chạy `wrangler login`.
+
+---
+
+### Trạng thái vocabulary_bank hiện tại (2026-05-01)
+
+| Thông tin | Giá trị |
+|-----------|---------|
+| **Tổng từ** | 250 |
+| **Chương trình** | Cambridge A2 Flyers |
+| **Topics** | 17 chủ đề (animals, body, clothes, food, health, home, nature, feelings, places, school, sports, transport, materials, time, adjectives, verbs, people) |
+| **Seeded bằng** | Cloudflare D1 Console (manual, 2026-05-01) |
+| **File SQL** | `src/worker/migrations/0005–0008_*.sql` |
+
+---
+
+### Thông tin kỹ thuật D1 Database
+
+```
+Database name:  luyen-thi-db
+Database ID:    cc1f5652-8b63-45c2-8fa4-15509f0e6278
+Account ID:     55e3a88290a27547ff01294004561906  (visible trong CF URL)
+GitHub Secret:  CLOUDFLARE_API_TOKEN  (cần có quyền D1:Edit)
+```
+
+---
+
+### Verify nhanh D1 từ D1 Console
+
+```sql
+-- Tổng số từ
+SELECT COUNT(*) as total FROM vocabulary_bank;
+
+-- Theo topic
+SELECT topic, COUNT(*) as c FROM vocabulary_bank GROUP BY topic ORDER BY topic;
+
+-- Kiểm tra từ cụ thể
+SELECT word, translation_vi, topic FROM vocabulary_bank WHERE word = 'butterfly';
+
+-- Từ dùng được cho Hangman
+SELECT word FROM vocabulary_bank WHERE game_hangman = 1 AND topic = 'animals';
+```
+
