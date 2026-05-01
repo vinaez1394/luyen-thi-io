@@ -415,9 +415,18 @@
   font-size: var(--font-md);
 }
 
-/* Hangman standalone — full width */
-.home-games__single {
-  width: 100%;
+/* 2 games grid — stacked on mobile, side-by-side on tablet+ */
+.home-games__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .home-games__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
 }
 
 /* ===== SECTION 6: CTA BANNER ===== */

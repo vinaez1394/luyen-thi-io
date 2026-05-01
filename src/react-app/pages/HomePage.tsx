@@ -23,6 +23,7 @@ import {
   getLop6Subjects,
 } from "../data/subjects";
 import { HomeHangman } from "../components/vocabulary/HomeHangman";
+import { HomeFlashcard } from "../components/vocabulary/HomeFlashcard";
 import { getLessonUrl } from "../utils/urlHelpers";
 import "./HomePage.css";
 
@@ -294,12 +295,19 @@ export function HomePage() {
         <div className="home-games__header">
           <h2 className="home-games__title">🎮 Ôn Luyện Qua Trò Chơi</h2>
           <p className="home-games__subtitle">
-            Đoán từ vựng Cambridge — vừa vui vừa nhớ lâu!
+            Chơi miễn phí — đăng nhập để lưu kết quả và nhận ⭐
           </p>
         </div>
 
-        <div className="home-games__single">
-          <HomeHangman />
+        <div className="home-games__grid">
+          <HomeHangman
+            isLoggedIn={isLoggedIn}
+            onLogin={loginWithGoogle}
+          />
+          <HomeFlashcard
+            isLoggedIn={isLoggedIn}
+            onLogin={loginWithGoogle}
+          />
         </div>
       </section>
 

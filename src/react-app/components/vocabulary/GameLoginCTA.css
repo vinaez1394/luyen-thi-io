@@ -1,0 +1,136 @@
+/* GameLoginCTA.css — CTA đăng nhập sau khi chơi game (Guest) */
+
+.game-cta {
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Premium gradient border trick */
+  background: linear-gradient(160deg, rgba(57,73,171,0.12) 0%, rgba(0,150,136,0.1) 100%);
+  border: 1.5px solid rgba(121,134,203,0.25);
+}
+
+/* Decorative glow */
+.game-cta::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 130px;
+  height: 130px;
+  background: radial-gradient(circle, rgba(121,134,203,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Result row */
+.game-cta__result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.game-cta__score-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+  animation: ctaPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes ctaPop {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.game-cta__score-text {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text, #e8eaf6);
+}
+
+.game-cta__wrong-words {
+  font-size: 0.78rem;
+  color: var(--color-text-muted, #9fa8da);
+  font-style: italic;
+}
+
+/* Divider */
+.game-cta__divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+}
+
+/* Headline */
+.game-cta__headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.game-cta__headline strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text, #e8eaf6);
+}
+
+.game-cta__headline p {
+  font-size: 0.82rem;
+  color: var(--color-text-muted, #9fa8da);
+  max-width: 260px;
+  line-height: 1.4;
+}
+
+/* Google login button */
+.game-cta__google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 280px;
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  color: #3c4043;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.game-cta__google-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.game-cta__google-btn:active { transform: translateY(0); }
+
+.game-cta__google-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Play again link */
+.game-cta__replay {
+  background: none;
+  border: none;
+  color: var(--color-text-muted, #9fa8da);
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+  padding: 0;
+}
+
+.game-cta__replay:hover { color: var(--color-text, #e8eaf6); }

@@ -1,26 +1,35 @@
 /**
  * HomeHangman.tsx — Widget Hangman độc lập cho trang chủ
  *
- * V2: Kết nối D1 vocabulary_bank qua /api/vocabulary/random
- * - Fetch 5 từ ngẫu nhiên từ 250 từ Flyers mỗi session
- * - Preview 3 từ mẫu từ DB (live, không hardcode)
- * - Tự refresh bộ từ khi chơi lại
+ * V3: Guest chơi miễn phí → sau game hiện GameLoginCTA
+ * - Fetch từ D1 qua useHangmanWords
+ * - Sau khi guest hoàn thành → CTA đăng nhập Google
+ * - isLoggedIn: true → hiện kết quả thường (không cần CTA)
  */
 
 import { useState } from "react";
 import { HangmanGame } from "./HangmanGame";
 import type { HangmanResult } from "./HangmanGame";
+import { GameLoginCTA } from "./GameLoginCTA";
 import { useHangmanWords } from "../../hooks/useHangmanWords";
 import "./HomeHangman.css";
 
-// ─── Component ────────────────────────────────────────────────────────────────
-export function HomeHangman() {
+interface HomeHangmanProps {
+  isLoggedIn?: boolean;
+  onLogin?: () => void;
+  onStarsEarned?: (stars: number) => void;
+}
+
+export function HomeHangman({
+  isLoggedIn = false,
+  onLogin,
+  onStarsEarned,
+}: HomeHangmanProps) {
   const [open,   setOpen]   = useState(false);
   const [result, setResult] = useState<HangmanResult | null>(null);
 
-  // Kết nối DB — không có pendingWords vì đây là widget standalone trang chủ
   const { words, isLoading, refresh } = useHangmanWords({
-    pendingWords: [],  // Trang chủ không có quiz context
+    pendingWords: [],
     group: "flyers",
     count: 5,
   });
@@ -32,21 +41,22 @@ export function HomeHangman() {
 
   const handlePlayAgain = () => {
     setResult(null);
-    refresh(); // Lấy bộ từ mới từ DB
+    refresh();
     setOpen(true);
   };
 
   const handleComplete = (res: HangmanResult) => {
     setResult(res);
     setOpen(false);
+    if (isLoggedIn && res.starsEarned > 0) {
+      onStarsEarned?.(res.starsEarned);
+    }
   };
 
-  // Preview 3 từ đầu từ DB (live)
   const previewWords = words.slice(0, 3);
 
   return (
     <div className="home-hangman">
-      {/* Card preview */}
       <div className="home-hangman__card">
         {/* Left: info */}
         <div className="home-hangman__info">
@@ -79,25 +89,22 @@ export function HomeHangman() {
             onClick={handleOpen}
             disabled={isLoading || words.length === 0}
           >
-            🎯 Chơi ngay
+            🎯 Chơi ngay — Miễn phí
           </button>
         </div>
 
-        {/* Right: ASCII hangman preview */}
+        {/* Right: ASCII preview */}
         <div className="home-hangman__visual" aria-hidden="true">
           <svg viewBox="0 0 160 180" className="home-hangman__svg">
-            {/* Giá treo */}
             <line x1="15" y1="165" x2="145" y2="165" strokeWidth="4" className="hh-line" />
             <line x1="50" y1="165" x2="50"  y2="15"  strokeWidth="4" className="hh-line" />
             <line x1="50" y1="15"  x2="105" y2="15"  strokeWidth="4" className="hh-line" />
             <line x1="105" y1="15" x2="105" y2="38"  strokeWidth="4" className="hh-line" />
-            {/* Hình người (đang đoán dở — 3/6) */}
             <circle cx="105" cy="50" r="12" strokeWidth="3" className="hh-body" />
             <line x1="105" y1="62" x2="105" y2="108" strokeWidth="3" className="hh-body" />
             <line x1="105" y1="75" x2="83"  y2="95"  strokeWidth="3" className="hh-body" />
           </svg>
 
-          {/* Hiển thị chữ cái của từ preview đầu tiên từ DB */}
           <div className="home-hangman__slots">
             {(isLoading ? "??????" : (words[0]?.word ?? "HANGMAN").toUpperCase())
               .split("")
@@ -116,30 +123,41 @@ export function HomeHangman() {
         </div>
       </div>
 
-      {/* Kết quả sau khi chơi */}
+      {/* Kết quả — Guest: CTA đăng nhập | Logged in: kết quả thường */}
       {result && (
-        <div className="home-hangman__result animate-fadeIn">
-          <span className="home-hangman__result-score">
-            {result.starsEarned === 2 ? "🌟🌟" : result.starsEarned === 1 ? "⭐" : "💪"}
-          </span>
-          <span>
-            {result.correctWords.length}/5 đúng
-            {result.starsEarned > 0 && ` — +${result.starsEarned} ⭐`}
-          </span>
-          <button className="btn btn-outline btn-sm" onClick={handlePlayAgain}>
-            Chơi lại (bộ từ mới)
-          </button>
-        </div>
+        !isLoggedIn && onLogin ? (
+          <GameLoginCTA
+            starsEarned={result.starsEarned}
+            correctCount={result.correctWords.length}
+            totalCount={5}
+            wrongWords={result.wrongWords}
+            onLogin={onLogin}
+            onPlayAgain={handlePlayAgain}
+          />
+        ) : (
+          <div className="home-hangman__result animate-fadeIn">
+            <span className="home-hangman__result-score">
+              {result.starsEarned === 2 ? "🌟🌟" : result.starsEarned === 1 ? "⭐" : "💪"}
+            </span>
+            <span>
+              {result.correctWords.length}/5 đúng
+              {result.starsEarned > 0 && ` — +${result.starsEarned} ⭐`}
+            </span>
+            <button className="btn btn-outline btn-sm" onClick={handlePlayAgain}>
+              Chơi lại (bộ từ mới)
+            </button>
+          </div>
+        )
       )}
 
       {/* Game modal */}
       {open && words.length > 0 && (
         <HangmanGame
           words={words}
-          isLoggedIn={false}   // trang chủ không check login cho game
+          isLoggedIn={isLoggedIn}
           onComplete={handleComplete}
           onClose={() => setOpen(false)}
-          onMarkCorrect={() => {}}  // trang chủ không lưu mastery
+          onMarkCorrect={() => {}}
         />
       )}
     </div>
