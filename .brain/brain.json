@@ -34,9 +34,10 @@
       "quiz_attempts",
       "daily_activity",
       "subscriptions",
-      "quiz_configs"
+      "vocabulary_words",
+      "student_vocabulary"
     ],
-    "relationships_explained": "Mỗi user (phụ huynh) có 1 student_profile (học sinh). Học sinh có thống kê (student_stats), nhiều bài làm (quiz_attempts) và phần thưởng (dream_goals)."
+    "relationships_explained": "Mỗi user (phụ huynh) có 1 student_profile (học sinh). Học sinh (có chọn grade và pathway) có thống kê (student_stats), nhiều bài làm (quiz_attempts) và phần thưởng (dream_goals). Hệ thống vocabulary theo dõi tiến độ học từ vựng riêng của từng học sinh."
   },
   "api_endpoints": [
     {
@@ -57,14 +58,19 @@
     },
     {
       "path": "/api/student/profile",
-      "explained": "Tạo hồ sơ cho bé lần đầu đăng nhập (chọn tên, avatar, theme)."
+      "explained": "Tạo/Cập nhật hồ sơ bé (tên, avatar, theme, lớp học, lộ trình)."
+    },
+    {
+      "path": "/api/student/stars",
+      "explained": "Cộng sao cho học sinh (từ game Hangman) và lưu trạng thái bài học."
     }
   ],
   "features": [
     "Hệ thống Theme với 6 màu sắc",
     "Đăng nhập Google OAuth qua Cloudflare KV",
     "Mô hình Freemium (Không cần đăng nhập vẫn làm được bài free)",
-    "Onboarding học sinh mới"
+    "Hệ thống đa lộ trình (Dual Pathway): Cambridge Flyers và Lớp 6",
+    "Game Hangman học từ vựng tích hợp vào bài quiz"
   ],
   "knowledge_items": {
     "patterns": [

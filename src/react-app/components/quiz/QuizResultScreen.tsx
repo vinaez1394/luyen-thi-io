@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import type { QuizResult } from "../../types/quiz";
 import type { VocabWord } from "../../types/vocabulary";
 import { HangmanLauncher } from "../vocabulary/HangmanLauncher";
+import { FlashcardLauncher } from "../vocabulary/FlashcardLauncher";
 import "./Quiz.css";
 
 interface QuizResultScreenProps {
@@ -15,10 +16,14 @@ interface QuizResultScreenProps {
   onHome: () => void;
   isLoggedIn: boolean;
   onLogin: () => void;
-  // Phase 4.5
+  // Phase 4.5 — Hangman
   vocabPendingWords?: VocabWord[];
   onVocabMarkCorrect?: (word: string) => void;
   onHangmanStarsEarned?: (stars: number) => void;
+  // Phase 05 — Flashcard
+  onFlashcardStarsEarned?: (stars: number) => void;
+  /** Pathway quiz đang luyện: dùng để chọn group từ vựng phù hợp */
+  quizPathway?: "cambridge" | "lop6";
 }
 
 export function QuizResultScreen({
@@ -30,6 +35,8 @@ export function QuizResultScreen({
   vocabPendingWords = [],
   onVocabMarkCorrect,
   onHangmanStarsEarned,
+  onFlashcardStarsEarned,
+  quizPathway,
 }: QuizResultScreenProps) {
   const [visibleStars, setVisibleStars] = useState(0);
 
@@ -85,14 +92,34 @@ export function QuizResultScreen({
         )}
       </div>
 
-      {/* ── Phase 4.5: Hangman Launcher ──────────────────────── */}
-      {onVocabMarkCorrect && onHangmanStarsEarned && (
-        <HangmanLauncher
-          pendingWords={vocabPendingWords}
-          isLoggedIn={isLoggedIn}
-          onMarkCorrect={onVocabMarkCorrect}
-          onStarsEarned={onHangmanStarsEarned}
-        />
+      {/* ── Game ôn từ vựng ──────────────────────────── */}
+      {(onVocabMarkCorrect || onFlashcardStarsEarned) && (
+        <div className="quiz-result__games">
+          <div className="quiz-result__games-label">
+            <span>🎮</span> Ôn luyện từ vựng
+          </div>
+
+          {/* Hangman */}
+          {onVocabMarkCorrect && onHangmanStarsEarned && (
+            <HangmanLauncher
+              pendingWords={vocabPendingWords}
+              isLoggedIn={isLoggedIn}
+              onMarkCorrect={onVocabMarkCorrect}
+              onStarsEarned={onHangmanStarsEarned}
+              group={quizPathway === "lop6" ? "flyers" : "flyers"}
+            />
+          )}
+
+          {/* Flashcard */}
+          {onFlashcardStarsEarned && (
+            <FlashcardLauncher
+              pendingWords={vocabPendingWords}
+              isLoggedIn={isLoggedIn}
+              onStarsEarned={onFlashcardStarsEarned}
+              group="flyers"
+            />
+          )}
+        </div>
       )}
 
       {/* Banner mời đăng nhập (guest) */}

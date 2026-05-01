@@ -44,6 +44,9 @@ export function QuizPage() {
     ? `${getPathwayUrl(pathway)}/${subjectSlug}`
     : "/";
 
+  // Xác định quizPathway để truyền cho game từ vựng
+  const quizPathway = (pathway === "lop6" ? "lop6" : "cambridge") as "cambridge" | "lop6";
+
   const navigate = useNavigate();
   const { isLoggedIn, loginWithGoogle } = useAuth();
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -134,10 +137,11 @@ export function QuizPage() {
         onLogin={loginWithGoogle}
         onReview={() => setShowResult(false)}
         onHome={() => navigate(backUrl)}
+        quizPathway={quizPathway}
         // Phase 4.5: vocab props
         vocabPendingWords={vocab.getPendingWords()}
         onVocabMarkCorrect={vocab.markWordCorrect}
-        // Phase 05: gọi API cộng sao thật (fire-and-forget, không chặn UI)
+        // Phase 05: Hangman — cộng sao thật
         onHangmanStarsEarned={(earnedStars) => {
           if (earnedStars > 0) {
             fetch("/api/student/stars", {
@@ -148,9 +152,21 @@ export function QuizPage() {
                 source:  "hangman",
                 quiz_id: quizId,
               }),
-            }).catch(() => {
-              // Silent fail — không làm gián đoạn trải nghiệm bé
-            });
+            }).catch(() => {});
+          }
+        }}
+        // Phase 05: Flashcard — cộng sao thật
+        onFlashcardStarsEarned={(earnedStars) => {
+          if (earnedStars > 0) {
+            fetch("/api/student/stars", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                stars:   earnedStars,
+                source:  "flashcard",
+                quiz_id: quizId,
+              }),
+            }).catch(() => {});
           }
         }}
       />
