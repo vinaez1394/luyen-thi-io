@@ -1,0 +1,124 @@
+{
+  "id": "READING-MED-GRADE3-P1",
+  "title": "Bài Đọc Hiểu — Medium — Lớp 3-4 — Nghề Nghiệp & Chợ",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "medium",
+  "grade_min": 3,
+  "grade_max": 4,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Đọc kỹ từng đoạn văn rồi trả lời các câu hỏi bên dưới.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Đọc đoạn văn và chọn từ thích hợp điền vào chỗ trống.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "There are many different (0) jobs in the world, and each one is important in its own way. A doctor's main (1) _____ is to help sick people get better. Teachers (2) _____ knowledge to students so that they can build a better future. Farmers work very hard every day to (3) _____ food for everyone to eat. Without these people working together, our society could not (4) _____ properly.",
+        "text_segments": [
+          { "text": "There are many different " },
+          { "text": "(0) jobs", "highlight": true },
+          { "text": " in the world, and each one is important in its own way. A doctor's main (1) _____ is to help sick people get better. Teachers (2) _____ " },
+          { "text": "knowledge", "tooltip": { "vi": "kiến thức", "ipa": "ˈnɒlɪdʒ" } },
+          { "text": " to students so that they can build a better future. " },
+          { "text": "Farmers", "tooltip": { "vi": "nông dân", "ipa": "ˈfɑːməz" } },
+          { "text": " work very hard every day to (3) _____ food for everyone to eat. Without these people working together, our " },
+          { "text": "society", "tooltip": { "vi": "xã hội", "ipa": "səˈsaɪəti" } },
+          { "text": " could not (4) _____ properly." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "A doctor's main (1) _____ is to help sick people get better.",
+          "options": ["duty", "hobby", "problem"],
+          "correct": "duty",
+          "explanation_vi": "'Duty' nghĩa là nhiệm vụ — nhiệm vụ chính của bác sĩ là chữa bệnh cho người."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Teachers (2) _____ knowledge to students so that they can build a better future.",
+          "options": ["pass", "sell", "hide"],
+          "correct": "pass",
+          "explanation_vi": "'Pass knowledge' — truyền đạt kiến thức. Thầy cô truyền kiến thức cho học sinh."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Farmers work very hard every day to (3) _____ food for everyone to eat.",
+          "options": ["grow", "buy", "throw"],
+          "correct": "grow",
+          "explanation_vi": "'Grow food' — trồng lương thực. Nông dân trồng thực phẩm cho mọi người."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Without these people working together, our society could not (4) _____ properly.",
+          "options": ["function", "sleep", "travel"],
+          "correct": "function",
+          "explanation_vi": "'Function' nghĩa là vận hành, hoạt động — xã hội không thể hoạt động được nếu thiếu những người này."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Đọc đoạn văn và trả lời câu hỏi.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "In Vietnam, traditional markets are still very popular, especially in rural areas. A typical market opens early in the morning and closes around noon. Sellers come to the market to sell fresh vegetables, fruit, meat, and fish. Buyers can also find household goods, clothing, and handmade products there. Unlike supermarkets, prices at traditional markets are not fixed, so customers often bargain with the sellers to get a better price. Many people prefer shopping at traditional markets because the products are fresher and cheaper. These markets are also important places for local communities to meet and share news.",
+        "text_segments": [
+          { "text": "In Vietnam, " },
+          { "text": "traditional", "tooltip": { "vi": "truyền thống", "ipa": "trəˈdɪʃənl" } },
+          { "text": " markets are still very popular, especially in " },
+          { "text": "rural", "tooltip": { "vi": "nông thôn, vùng quê", "ipa": "ˈrʊərəl" } },
+          { "text": " areas. A typical market opens early in the morning and closes around noon. Sellers come to the market to sell fresh vegetables, fruit, meat, and fish. Buyers can also find " },
+          { "text": "household", "tooltip": { "vi": "đồ gia dụng, trong gia đình", "ipa": "ˈhaʊshəʊld" } },
+          { "text": " goods, clothing, and handmade products there. Unlike supermarkets, prices at traditional markets are not fixed, so customers often " },
+          { "text": "bargain", "tooltip": { "vi": "mặc cả, thương lượng giá", "ipa": "ˈbɑːɡɪn" } },
+          { "text": " with the sellers to get a better price. Many people prefer shopping at traditional markets because the products are fresher and cheaper." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Traditional markets in Vietnam are more common in cities than in the countryside.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'especially in rural areas' — chợ truyền thống phổ biến hơn ở vùng nông thôn, không phải thành phố."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "At traditional markets, customers can negotiate the price with sellers.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'customers often bargain with the sellers to get a better price' — khách hàng có thể mặc cả giá."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "When do traditional markets usually close?",
+          "options": ["in the early morning", "around noon", "in the evening"],
+          "correct": "around noon",
+          "explanation_vi": "Bài viết 'opens early in the morning and closes around noon' — chợ đóng cửa vào khoảng buổi trưa."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage meaning 'to try to get a lower price by discussing with the seller'.",
+          "correct": "bargain",
+          "explanation_vi": "'Bargain' nghĩa là mặc cả — thương lượng để mua được giá tốt hơn."
+        }
+      ]
+    }
+  ]
+}

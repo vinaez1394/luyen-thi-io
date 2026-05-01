@@ -1,8 +1,6 @@
 name: Deploy to Cloudflare Workers
 
-# ════════════════════════════════════════
 # Trigger: push lên nhánh main hoặc dev
-# ════════════════════════════════════════
 on:
   push:
     branches:
@@ -31,104 +29,60 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4. Build (TypeScript + Vite)
+      # 4. Build (TypeScript + Vite → dist/luyen_thi_io/)
       - name: Build
         run: npm run build
 
       # 5. Deploy Worker lên Cloudflare
+      # Dùng wrangler từ node_modules (KHÔNG dùng cloudflare/wrangler-action vì hay lỗi)
+      # Giống cách R2 sync bên dưới — đã test và hoạt động ổn định
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+        run: ./node_modules/.bin/wrangler deploy
 
-      # 6. Sync toàn bộ content JSON lên R2
-      - name: Sync MATH-L1-P1
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P1.json --file content/math/MATH-L1-P1.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P2
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P2.json --file content/math/MATH-L1-P2.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P3
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P3.json --file content/math/MATH-L1-P3.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P4
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P4.json --file content/math/MATH-L1-P4.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P5
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P5.json --file content/math/MATH-L1-P5.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P6
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P6.json --file content/math/MATH-L1-P6.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P7
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P7.json --file content/math/MATH-L1-P7.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P8
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P8.json --file content/math/MATH-L1-P8.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P9
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P9.json --file content/math/MATH-L1-P9.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync MATH-L1-P10
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/MATH-L1-P10.json --file content/math/MATH-L1-P10.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync RW001
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/RW001.json --file content/flyers/RW001.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync RW2-001
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/RW2-001.json --file content/flyers/reading/RW2-001.json --content-type application/json
-        continue-on-error: true
-
-      - name: Sync RW3-001
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: r2 object put luyen-thi-content/quizzes/RW3-001.json --file content/flyers/reading/RW3-001.json --content-type application/json
-        continue-on-error: true
+      # 6. Sync content JSON → R2 (KHÔNG thay đổi từ các lần deploy thành công)
+      - name: Sync content JSON → R2 (theo SITEMAP)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+        run: |
+          echo "🗑️ Xóa files sai vị trí (cambridge/flyers/math/)..."
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P1.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P2.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P3.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P4.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P5.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P6.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P7.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P8.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P9.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P10.json --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/MATH-L1-P1.json --remote || true
+          echo "▶ Lớp 6 / Toán Tư Duy..."
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P1.json  --file content/math/MATH-L1-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P2.json  --file content/math/MATH-L1-P2.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P3.json  --file content/math/MATH-L1-P3.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P4.json  --file content/math/MATH-L1-P4.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P5.json  --file content/math/MATH-L1-P5.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P6.json  --file content/math/MATH-L1-P6.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P7.json  --file content/math/MATH-L1-P7.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P8.json  --file content/math/MATH-L1-P8.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P9.json  --file content/math/MATH-L1-P9.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P10.json --file content/math/MATH-L1-P10.json --content-type application/json --remote
+          echo "▶ Cambridge / Flyers / Reading..."
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW001.json   --file content/flyers/RW001.json                  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW2-001.json --file content/flyers/reading/RW2-001.json         --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW3-001.json --file content/flyers/reading/RW3-001.json         --content-type application/json --remote
+          echo "▶ Lớp 6 / Tiếng Anh / Reading Passage (9 bài MỚI)..."
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE5-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE5-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-MED-GRADE3-P1.json  --file content/lop6/tieng-anh/reading/READING-MED-GRADE3-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-MED-GRADE4-P1.json  --file content/lop6/tieng-anh/reading/READING-MED-GRADE4-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-MED-GRADE5-P1.json  --file content/lop6/tieng-anh/reading/READING-MED-GRADE5-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-HARD-GRADE3-P1.json --file content/lop6/tieng-anh/reading/READING-HARD-GRADE3-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-HARD-GRADE4-P1.json --file content/lop6/tieng-anh/reading/READING-HARD-GRADE4-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-HARD-GRADE5-P1.json --file content/lop6/tieng-anh/reading/READING-HARD-GRADE5-P1.json --content-type application/json --remote
+          echo "✅ R2 sync hoàn tất: lop6/toan(10) + cambridge/flyers/reading(3) + lop6/tieng-anh/reading(9)"

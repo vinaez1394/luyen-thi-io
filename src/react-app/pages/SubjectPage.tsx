@@ -29,6 +29,12 @@ const SKILL_COLORS: Record<string, string> = {
   mixed: "badge-primary",
 };
 
+const DIFFICULTY_CONFIG: Record<string, { label: string; className: string }> = {
+  easy:   { label: "Dễ",        className: "badge-difficulty-easy" },
+  medium: { label: "Trung bình", className: "badge-difficulty-medium" },
+  hard:   { label: "Khó",        className: "badge-difficulty-hard" },
+};
+
 export function SubjectPage() {
   const { subjectSlug = "" } = useParams<{ subjectSlug: string }>();
   const location = useLocation();
@@ -126,6 +132,11 @@ export function SubjectPage() {
                     <span className={`badge ${SKILL_COLORS[lesson.skill]}`}>
                       {SKILL_LABELS[lesson.skill]}
                     </span>
+                    {lesson.difficulty && DIFFICULTY_CONFIG[lesson.difficulty] && (
+                      <span className={`badge ${DIFFICULTY_CONFIG[lesson.difficulty].className}`}>
+                        {DIFFICULTY_CONFIG[lesson.difficulty].label}
+                      </span>
+                    )}
                     {lesson.part && (
                       <span className="badge badge-primary">Part {lesson.part}</span>
                     )}

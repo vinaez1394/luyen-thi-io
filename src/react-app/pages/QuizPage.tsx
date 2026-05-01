@@ -17,10 +17,12 @@ import { useQuiz } from "../hooks/useQuiz";
 import { useAuth } from "../hooks/useAuth";
 import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
+import { ReadingEngine } from "../components/quiz/ReadingEngine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
 import "../components/quiz/Quiz.css";
+import type { ReadingQuiz } from "../types/reading";
 
 export function QuizPage() {
   const location = useLocation();
@@ -43,6 +45,9 @@ export function QuizPage() {
   const backUrl = pathway && subjectSlug
     ? `${getPathwayUrl(pathway)}/${subjectSlug}`
     : "/";
+
+  // Xác định quizPathway để truyền cho game từ vựng
+  const quizPathway = (pathway === "lop6" ? "lop6" : "cambridge") as "cambridge" | "lop6";
 
   const navigate = useNavigate();
   const { isLoggedIn, loginWithGoogle } = useAuth();
@@ -134,10 +139,11 @@ export function QuizPage() {
         onLogin={loginWithGoogle}
         onReview={() => setShowResult(false)}
         onHome={() => navigate(backUrl)}
+        quizPathway={quizPathway}
         // Phase 4.5: vocab props
         vocabPendingWords={vocab.getPendingWords()}
         onVocabMarkCorrect={vocab.markWordCorrect}
-        // Phase 05: gọi API cộng sao thật (fire-and-forget, không chặn UI)
+        // Phase 05: Hangman — cộng sao thật
         onHangmanStarsEarned={(earnedStars) => {
           if (earnedStars > 0) {
             fetch("/api/student/stars", {
@@ -148,16 +154,42 @@ export function QuizPage() {
                 source:  "hangman",
                 quiz_id: quizId,
               }),
-            }).catch(() => {
-              // Silent fail — không làm gián đoạn trải nghiệm bé
-            });
+            }).catch(() => {});
+          }
+        }}
+        // Phase 05: Flashcard — cộng sao thật
+        onFlashcardStarsEarned={(earnedStars) => {
+          if (earnedStars > 0) {
+            fetch("/api/student/stars", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                stars:   earnedStars,
+                source:  "flashcard",
+                quiz_id: quizId,
+              }),
+            }).catch(() => {});
           }
         }}
       />
     );
   }
 
-  // ===== Quiz (với QuizLayout) =====
+  // ===== Reading Passage — kiểm tra NGAY sau khi có quiz (trước QuizLayout) =====
+  // ReadingQuiz KHÔNG có quiz.questions — phải tách ra trước để tránh crash
+  if ((quiz as unknown as ReadingQuiz).type === "reading-passage") {
+    return (
+      <ReadingEngine
+        quiz={quiz as unknown as ReadingQuiz}
+        onComplete={() => {
+          localStorage.setItem("last_quiz_id", quizId);
+        }}
+      />
+    );
+  }
+
+
+  // ===== Quiz thường (với QuizLayout) =====
   return (
     <QuizLayout
       quiz={quiz}

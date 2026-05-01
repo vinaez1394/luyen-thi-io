@@ -21,6 +21,7 @@
  */
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./hooks/useAuth";
 import { ThemeProvider } from "./components/ui/ThemeProvider";
 import { ProtectedRoute } from "./components/ui/ProtectedRoute";
 import { AppLayout } from "./components/layout/AppLayout";
@@ -36,6 +37,16 @@ import { PathwaySelectionPage }  from "./pages/PathwaySelectionPage";
 import { CambridgePage }         from "./pages/CambridgePage";
 import { Lop6Page }              from "./pages/Lop6Page";
 
+/**
+ * HomeRoute — Redirect User đã login → /dashboard
+ * Guest vẫn thấy Landing Page tại /
+ */
+function HomeRoute() {
+  const { isLoggedIn } = useAuth();
+  if (isLoggedIn) return <Navigate to="/dashboard" replace />;
+  return <HomePage />;
+}
+
 export default function App() {
   return (
     <ThemeProvider>
@@ -43,7 +54,7 @@ export default function App() {
         <AppLayout>
           <Routes>
             {/* ── PUBLIC ── */}
-            <Route path="/"         element={<HomePage />} />
+            <Route path="/"         element={<HomeRoute />} />
             <Route path="/learn"    element={<PathwaySelectionPage />} />
             <Route path="/login"    element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />

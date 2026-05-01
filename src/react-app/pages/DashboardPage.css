@@ -21,6 +21,12 @@
   overflow: hidden;
 }
 
+/* Pathway progress section không cần overflow hidden */
+.db-section--pathway {
+  overflow: visible;
+}
+
+
 .db-footer {
   display: flex;
   justify-content: center;

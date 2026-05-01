@@ -1,0 +1,137 @@
+/* PathwayProgress.css */
+
+.pathway-progress {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.pathway-progress__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pathway-progress__title {
+  font-size: var(--font-lg);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+}
+
+.pathway-progress__badge {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  padding: 4px 12px;
+  border-radius: var(--radius-xl);
+  flex-shrink: 0;
+}
+
+.pathway-progress__badge--cambridge {
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+}
+
+.pathway-progress__badge--lop6 {
+  background: rgba(124, 58, 237, 0.12);
+  color: #7c3aed;
+}
+
+/* Cambridge: vertical skill bars */
+.pathway-progress__skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pathway-skill__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.pathway-skill__pct {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+}
+
+.pathway-skill__done {
+  font-size: var(--font-sm);
+}
+
+.pathway-skill__bar {
+  height: 8px;
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.pathway-skill__fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-xl);
+  transition: width 0.6s ease;
+  min-width: 4px;
+}
+
+.pathway-skill__fill--done {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+/* Lớp 6: 2x2 group grid */
+.pathway-progress__groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+@media (max-width: 480px) {
+  .pathway-progress__groups {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pathway-group {
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+}
+
+.pathway-group__label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.pathway-group__bar {
+  height: 6px;
+  background: var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.pathway-group__fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-xl);
+  transition: width 0.6s ease;
+  min-width: 2px;
+}
+
+.pathway-group__pct {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+}

@@ -1,0 +1,126 @@
+{
+  "id": "READING-HARD-GRADE4-P1",
+  "title": "Bài Đọc Hiểu — Hard — Lớp 4-5 — Công Nghệ & Mạng Xã Hội",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "hard",
+  "grade_min": 4,
+  "grade_max": 5,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Đọc kỹ từng đoạn văn rồi trả lời các câu hỏi bên dưới.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Đọc đoạn văn và chọn từ thích hợp điền vào chỗ trống.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "The smartphone has become one of the most (0) significant inventions of the modern age. These small devices allow people to (1) _____ instantly with friends and family anywhere in the world. Smartphones also give users (2) _____ to a vast amount of information through the Internet at any time. Many people use them to (3) _____ tasks such as shopping, paying bills, and booking travel. However, spending too much time on a smartphone can (4) _____ productivity and cause problems for people's physical and mental health.",
+        "text_segments": [
+          { "text": "The smartphone has become one of the most " },
+          { "text": "(0) significant", "highlight": true, "tooltip": { "vi": "đáng kể, quan trọng", "ipa": "sɪɡˈnɪfɪkənt" } },
+          { "text": " inventions of the modern age. These small devices allow people to (1) _____ instantly with friends and family anywhere in the world. Smartphones also give users (2) _____ to a vast amount of information through the Internet at any time. Many people use them to (3) _____ tasks such as shopping, paying bills, and booking travel. However, spending too much time on a smartphone can (4) _____ " },
+          { "text": "productivity", "tooltip": { "vi": "năng suất làm việc", "ipa": "ˌprɒdʌkˈtɪvɪti" } },
+          { "text": " and cause problems for people's physical and " },
+          { "text": "mental", "tooltip": { "vi": "về tinh thần, tâm lý", "ipa": "ˈmentl" } },
+          { "text": " health." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "These small devices allow people to (1) _____ instantly with friends and family anywhere in the world.",
+          "options": ["communicate", "compete", "complain"],
+          "correct": "communicate",
+          "explanation_vi": "'Communicate' nghĩa là liên lạc, giao tiếp — điện thoại thông minh cho phép kết nối tức thời với mọi người."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Smartphones also give users (2) _____ to a vast amount of information through the Internet.",
+          "options": ["access", "damage", "limits"],
+          "correct": "access",
+          "explanation_vi": "'Access to information' nghĩa là tiếp cận thông tin — điện thoại thông minh cho phép truy cập kho dữ liệu khổng lồ."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Many people use them to (3) _____ tasks such as shopping, paying bills, and booking travel.",
+          "options": ["complete", "avoid", "delay"],
+          "correct": "complete",
+          "explanation_vi": "'Complete tasks' nghĩa là hoàn thành công việc — người dùng dùng điện thoại để thực hiện các công việc hàng ngày."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Spending too much time on a smartphone can (4) _____ productivity.",
+          "options": ["reduce", "increase", "measure"],
+          "correct": "reduce",
+          "explanation_vi": "'Reduce productivity' nghĩa là giảm năng suất — dùng điện thoại quá nhiều khiến con người làm việc kém hiệu quả hơn."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Đọc đoạn văn và trả lời câu hỏi.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Social media platforms such as Facebook, Instagram, and YouTube have transformed the way people communicate and share information. Billions of people around the world use these platforms daily to connect with others, share photos and videos, and follow news and entertainment. For businesses, social media has become a powerful marketing tool that allows them to reach millions of potential customers at a low cost. However, social media also has serious drawbacks. Research has shown that excessive use of social media can lead to feelings of anxiety, loneliness, and low self-esteem, particularly among teenagers. False information, often called 'fake news', can spread very quickly on these platforms and cause confusion or panic in society. Experts recommend that users should be critical of what they read online and verify information before sharing it with others.",
+        "text_segments": [
+          { "text": "Social media " },
+          { "text": "platforms", "tooltip": { "vi": "nền tảng mạng xã hội", "ipa": "ˈplætfɔːmz" } },
+          { "text": " such as Facebook, Instagram, and YouTube have " },
+          { "text": "transformed", "tooltip": { "vi": "biến đổi, thay đổi hoàn toàn", "ipa": "trænsˈfɔːmd" } },
+          { "text": " the way people communicate and share information. Billions of people around the world use these platforms daily. For businesses, social media has become a powerful " },
+          { "text": "marketing", "tooltip": { "vi": "tiếp thị, quảng bá", "ipa": "ˈmɑːkɪtɪŋ" } },
+          { "text": " tool. However, social media also has serious " },
+          { "text": "drawbacks", "tooltip": { "vi": "nhược điểm, mặt trái", "ipa": "ˈdrɔːbæks" } },
+          { "text": ". Research has shown that excessive use can lead to feelings of " },
+          { "text": "anxiety", "tooltip": { "vi": "lo lắng, căng thẳng", "ipa": "æŋˈzaɪəti" } },
+          { "text": " and low " },
+          { "text": "self-esteem", "tooltip": { "vi": "lòng tự trọng, sự tự tin vào bản thân", "ipa": "ˌself ɪˈstiːm" } },
+          { "text": ". Experts recommend that users should be critical of what they read online and verify information before sharing it." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Social media is an expensive marketing tool that only large companies can afford.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'reach millions of potential customers at a low cost' — mạng xã hội cho phép tiếp cận khách hàng với chi phí thấp, không đắt."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Fake news on social media can cause concern and confusion among the public.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'False information can spread very quickly on these platforms and cause confusion or panic in society.'"
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What do experts advise users to do with information they find on social media?",
+          "options": ["share it immediately", "ignore it completely", "verify it before sharing"],
+          "correct": "verify it before sharing",
+          "explanation_vi": "Bài viết 'verify information before sharing it with others' — kiểm tra thông tin trước khi chia sẻ."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage meaning 'the negative aspects or disadvantages of something'.",
+          "correct": "drawbacks",
+          "explanation_vi": "'Drawbacks' nghĩa là nhược điểm, mặt trái — những bất lợi hoặc hạn chế của thứ gì đó."
+        }
+      ]
+    }
+  ]
+}

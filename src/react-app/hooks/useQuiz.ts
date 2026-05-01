@@ -73,7 +73,10 @@ export function useQuiz(quizId: string) {
 
   // Số câu đã trả lời
   const answeredCount = Object.keys(answers).length;
-  const totalQuestions = quiz?.questions.length ?? 0;
+  // Tương thích cả Quiz thường (questions[]) và ReadingQuiz (sections[].questions)
+  const totalQuestions = (quiz as any)?.questions?.length
+    ?? (quiz as any)?.sections?.reduce((s: number, sec: any) => s + (sec.questions?.length ?? 0), 0)
+    ?? 0;
   const allAnswered = answeredCount === totalQuestions && totalQuestions > 0;
 
   return {

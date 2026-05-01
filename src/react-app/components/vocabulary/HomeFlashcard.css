@@ -1,0 +1,201 @@
+/* HomeFlashcard.css — Widget Flashcard cho trang chủ
+   FIX: Dùng --radius-lg (28px) thay vì --radius-xl (999px = pill!)
+*/
+
+.home-flashcard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+}
+
+/* Main card container */
+.home-flashcard__card {
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  border-radius: 20px;
+  padding: var(--space-3);
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+  flex: 1;
+}
+
+.home-flashcard__card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #3949ab;
+}
+
+/* Info side */
+.home-flashcard__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home-flashcard__label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #3949ab;
+}
+
+.home-flashcard__title {
+  font-size: var(--font-lg);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.home-flashcard__desc {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Stats badges (replaces preview words) */
+.home-flashcard__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.home-flashcard__stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(57, 73, 171, 0.1);
+  color: #3949ab;
+  font-size: 12px;
+  font-weight: var(--font-bold);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+/* CTA button — indigo theme */
+.home-flashcard__btn {
+  background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.home-flashcard__btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(57, 73, 171, 0.35);
+}
+
+.home-flashcard__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Visual side — demo card stack */
+.home-flashcard__visual {
+  flex-shrink: 0;
+  width: 120px;
+  min-width: 120px;
+  position: relative;
+  height: 128px;
+}
+
+/* Demo cards */
+.home-flashcard__demo-card {
+  position: absolute;
+  width: 104px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.75rem 0.5rem;
+}
+
+/* Front card (EN) — visible */
+.home-flashcard__demo-card--front {
+  background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%);
+  box-shadow: 0 6px 18px rgba(57, 73, 171, 0.4);
+  top: 0;
+  left: 8px;
+  z-index: 2;
+  height: 106px;
+}
+
+/* Back card (VI) — offset, slightly visible */
+.home-flashcard__demo-card--back {
+  background: linear-gradient(135deg, #2e7d32 0%, #004d40 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  top: 12px;
+  left: 0;
+  z-index: 1;
+  height: 100px;
+  opacity: 0.8;
+}
+
+.home-flashcard__demo-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+}
+
+.home-flashcard__demo-word {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+}
+
+.home-flashcard__demo-vi {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+
+.home-flashcard__demo-flip {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Result */
+.home-flashcard__result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px var(--space-2);
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .home-flashcard__card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .home-flashcard__visual {
+    display: none;
+  }
+  .home-flashcard__btn {
+    align-self: stretch;
+    text-align: center;
+  }
+}

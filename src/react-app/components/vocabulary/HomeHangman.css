@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  height: 100%;
 }
 
 /* ── Card preview ─────────────────────────────────────────────────────────── */
@@ -20,6 +21,7 @@
   padding: var(--space-3);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+  flex: 1;
 }
 
 .home-hangman__card:hover {
@@ -57,39 +59,23 @@
   margin: 0;
 }
 
-/* ── Preview words ────────────────────────────────────────────────────────── */
-.home-hangman__preview {
+/* ── Stat badges (replaces preview words) ──────────────────────────────── */
+.home-hangman__stats {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  align-items: center;
 }
 
-.home-hangman__preview-word {
+.home-hangman__stat-badge {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-sm);
-  padding: 4px 10px;
-  min-width: 64px;
-}
-
-.home-hangman__preview-en {
-  font-size: 13px;
-  font-weight: var(--font-bold);
+  gap: 4px;
+  background: var(--color-primary-light, #e8f5e9);
   color: var(--color-primary);
-}
-
-.home-hangman__preview-vi {
-  font-size: 11px;
-  color: var(--color-text-muted);
-}
-
-.home-hangman__preview-more {
-  font-size: var(--font-xs);
-  color: var(--color-text-light);
-  font-style: italic;
+  font-size: 12px;
+  font-weight: var(--font-bold);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
 }
 
 /* ── Visual (right) ───────────────────────────────────────────────────────── */
