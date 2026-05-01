@@ -57,25 +57,25 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
-      # 7. Sync toàn bộ content JSON lên R2 (1 step gọn, nhanh hơn 13 steps riêng)
+      # 7. Sync toàn bộ content JSON lên R2 (--remote = upload lên Cloudflare thật)
       - name: Sync content JSON → R2
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: |
           echo "▶ Uploading math content..."
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P1.json  --file content/math/MATH-L1-P1.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P2.json  --file content/math/MATH-L1-P2.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P3.json  --file content/math/MATH-L1-P3.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P4.json  --file content/math/MATH-L1-P4.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P5.json  --file content/math/MATH-L1-P5.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P6.json  --file content/math/MATH-L1-P6.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P7.json  --file content/math/MATH-L1-P7.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P8.json  --file content/math/MATH-L1-P8.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P9.json  --file content/math/MATH-L1-P9.json  --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P10.json --file content/math/MATH-L1-P10.json --content-type application/json
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P1.json  --file content/math/MATH-L1-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P2.json  --file content/math/MATH-L1-P2.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P3.json  --file content/math/MATH-L1-P3.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P4.json  --file content/math/MATH-L1-P4.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P5.json  --file content/math/MATH-L1-P5.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P6.json  --file content/math/MATH-L1-P6.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P7.json  --file content/math/MATH-L1-P7.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P8.json  --file content/math/MATH-L1-P8.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P9.json  --file content/math/MATH-L1-P9.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/MATH-L1-P10.json --file content/math/MATH-L1-P10.json --content-type application/json --remote
           echo "▶ Uploading flyers content..."
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/RW001.json    --file content/flyers/RW001.json              --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/RW2-001.json  --file content/flyers/reading/RW2-001.json    --content-type application/json
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/RW3-001.json  --file content/flyers/reading/RW3-001.json    --content-type application/json
-          echo "✅ R2 sync complete — 13 files uploaded"
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/RW001.json    --file content/flyers/RW001.json              --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/RW2-001.json  --file content/flyers/reading/RW2-001.json    --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/RW3-001.json  --file content/flyers/reading/RW3-001.json    --content-type application/json --remote
+          echo "✅ R2 sync complete — 13 files uploaded to REMOTE"
