@@ -36,24 +36,24 @@ jobs:
         run: npm run build
 
       # 5. D1 Migrations — chạy trước khi deploy Worker
-      # Gộp 4 batch vào 1 step để tránh overhead và dễ debug
+      # INSERT OR IGNORE → safe to re-run multiple times
       - name: D1 — Run vocabulary seed migrations
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: |
           echo "▶ Seeding vocabulary_bank into D1..."
-          npx wrangler d1 execute luyen-thi-db --remote --file src/worker/migrations/0005_seed_vocabulary_flyers_batch1.sql
+          ./node_modules/.bin/wrangler d1 execute luyen-thi-db --remote --yes --file src/worker/migrations/0005_seed_vocabulary_flyers_batch1.sql
           echo "✅ Batch 1 done (table + 80 words)"
-          npx wrangler d1 execute luyen-thi-db --remote --file src/worker/migrations/0006_seed_vocabulary_flyers_batch2.sql
+          ./node_modules/.bin/wrangler d1 execute luyen-thi-db --remote --yes --file src/worker/migrations/0006_seed_vocabulary_flyers_batch2.sql
           echo "✅ Batch 2 done (90 words)"
-          npx wrangler d1 execute luyen-thi-db --remote --file src/worker/migrations/0007_seed_vocabulary_flyers_batch3.sql
+          ./node_modules/.bin/wrangler d1 execute luyen-thi-db --remote --yes --file src/worker/migrations/0007_seed_vocabulary_flyers_batch3.sql
           echo "✅ Batch 3 done (80 words)"
-          npx wrangler d1 execute luyen-thi-db --remote --file src/worker/migrations/0008_seed_vocabulary_flyers_batch4.sql
+          ./node_modules/.bin/wrangler d1 execute luyen-thi-db --remote --yes --file src/worker/migrations/0008_seed_vocabulary_flyers_batch4.sql
           echo "✅ Batch 4 done (30 words)"
           echo ""
           echo "▶ Verifying word count..."
-          npx wrangler d1 execute luyen-thi-db --remote --command "SELECT COUNT(*) as total FROM vocabulary_bank;" --json
+          ./node_modules/.bin/wrangler d1 execute luyen-thi-db --remote --yes --command "SELECT topic, COUNT(*) as c FROM vocabulary_bank GROUP BY topic ORDER BY topic;"
         continue-on-error: false
 
       # 6. Deploy Worker lên Cloudflare (sau khi DB đã sẵn sàng)
