@@ -175,7 +175,8 @@ export function QuizPage() {
     );
   }
 
-  // ===== Reading Passage — Engine riêng (tự quản lý state + nộp bài) =====
+  // ===== Reading Passage — kiểm tra NGAY sau khi có quiz (trước QuizLayout) =====
+  // ReadingQuiz KHÔNG có quiz.questions — phải tách ra trước để tránh crash
   if ((quiz as unknown as ReadingQuiz).type === "reading-passage") {
     return (
       <ReadingEngine
@@ -186,6 +187,7 @@ export function QuizPage() {
       />
     );
   }
+
 
   // ===== Quiz thường (với QuizLayout) =====
   return (
