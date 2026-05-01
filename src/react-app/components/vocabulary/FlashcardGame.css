@@ -1,0 +1,269 @@
+/* ─── FlashcardGame.css — Premium 3D flip card design ──────────────────────── */
+
+/* Overlay */
+.fc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fcFadeIn 0.25s ease;
+}
+
+@keyframes fcFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal container */
+.fc-modal {
+  background: var(--color-surface, #1e2030);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.fc-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+.fc-header__title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text, #e8eaf6);
+}
+.fc-header__progress {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--color-text-muted, #9fa8da);
+  background: rgba(255, 255, 255, 0.07);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+.fc-header__close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted, #9fa8da);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.fc-header__close:hover { color: var(--color-text, #e8eaf6); }
+
+/* Progress dots */
+.fc-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+.fc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+.fc-dot--pending  { background: rgba(255,255,255,0.15); }
+.fc-dot--current  { background: #7986cb; transform: scale(1.3); box-shadow: 0 0 6px #7986cb; }
+.fc-dot--known    { background: #66bb6a; }
+.fc-dot--unknown  { background: #ef5350; }
+
+/* Instruction */
+.fc-instruction {
+  font-size: 0.82rem;
+  color: var(--color-text-muted, #9fa8da);
+  margin: 0;
+  height: 1.4em;
+  transition: opacity 0.3s;
+}
+
+/* ─── 3D Card ─────────────────────────────────────────────────────────────── */
+.fc-card-scene {
+  width: 100%;
+  max-width: 340px;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+
+.fc-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1.25rem;
+}
+
+.fc-card--flipped {
+  transform: rotateY(180deg);
+}
+
+.fc-card__front,
+.fc-card__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Front: deep blue-purple gradient */
+.fc-card__front {
+  background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%);
+}
+
+/* Back: warm green-teal gradient */
+.fc-card__back {
+  background: linear-gradient(135deg, #2e7d32 0%, #004d40 100%);
+  transform: rotateY(180deg);
+}
+
+.fc-card__badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.fc-card__badge--vi {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.fc-card__word {
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.fc-card__word-small {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+}
+.fc-card__ipa {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Courier New', monospace;
+}
+.fc-card__meaning {
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.fc-card__tap-hint {
+  position: absolute;
+  bottom: 0.9rem;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ─── Rate buttons ─────────────────────────────────────────────────────────── */
+.fc-actions {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.fc-actions--visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.fc-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.875rem;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+.fc-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.fc-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.fc-btn:not(:disabled):active {
+  transform: translateY(0);
+}
+
+.fc-btn--unknown {
+  background: rgba(239, 83, 80, 0.15);
+  color: #ef9a9a;
+  border: 1.5px solid rgba(239, 83, 80, 0.35);
+}
+.fc-btn--unknown:not(:disabled):hover {
+  background: rgba(239, 83, 80, 0.25);
+  border-color: #ef5350;
+}
+
+.fc-btn--known {
+  background: rgba(102, 187, 106, 0.15);
+  color: #a5d6a7;
+  border: 1.5px solid rgba(102, 187, 106, 0.35);
+}
+.fc-btn--known:not(:disabled):hover {
+  background: rgba(102, 187, 106, 0.25);
+  border-color: #66bb6a;
+}
+
+.fc-btn__icon { font-size: 1.2rem; }
+
+/* Guest notice */
+.fc-guest {
+  font-size: 0.78rem;
+  color: var(--color-text-muted, #9fa8da);
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .fc-modal { padding: 1.25rem 1rem; border-radius: 1.25rem; }
+  .fc-card-scene { height: 180px; }
+}

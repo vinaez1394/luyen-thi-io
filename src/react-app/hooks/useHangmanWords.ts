@@ -37,6 +37,8 @@ interface UseHangmanWordsOptions {
   pendingWords: VocabWord[];
   /** Nhóm từ khi fetch từ DB (mặc định "flyers") */
   group?: string;
+  /** Game filter: hangman | flashcard | choice (mặc định hangman) */
+  game?: "hangman" | "flashcard" | "choice";
   /** Số lượng từ / session */
   count?: number;
 }
@@ -51,6 +53,7 @@ interface UseHangmanWordsResult {
 export function useHangmanWords({
   pendingWords,
   group = "flyers",
+  game = "hangman",
   count = WORDS_PER_SESSION,
 }: UseHangmanWordsOptions): UseHangmanWordsResult {
   const [words, setWords]     = useState<VocabWord[]>([]);
@@ -83,7 +86,7 @@ export function useHangmanWords({
       const exclude = chosen.map((w) => w.word).join(",");
 
       try {
-        const url = `/api/vocabulary/random?limit=${need}&group=${group}${exclude ? `&exclude=${encodeURIComponent(exclude)}` : ""}`;
+        const url = `/api/vocabulary/random?limit=${need}&group=${group}&game=${game}${exclude ? `&exclude=${encodeURIComponent(exclude)}` : ""}`;
         const res  = await fetch(url);
 
         if (res.ok) {
@@ -116,7 +119,7 @@ export function useHangmanWords({
 
     buildWordList();
     return () => { cancelled = true; };
-  }, [pendingWords, group, count, seed]);
+  }, [pendingWords, group, game, count, seed]);
 
   const refresh = () => setSeed((s) => s + 1);
 
