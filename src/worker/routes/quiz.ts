@@ -100,25 +100,30 @@ type Env = {
 };
 
 /**
- * Ánh xạ quiz ID → đúng đường dẫn trong R2
- * Cấu trúc: quizzes/<track>/<exam>/<subject>/<id>.json
+ * Ánh xạ quiz ID → đúng đường dẫn trong R2 — theo đúng SITEMAP
  *
- * Cambridge Flyers Math:    MATH-L1-P1  → quizzes/cambridge/flyers/math/MATH-L1-P1.json
- * Cambridge Flyers Reading: RW001       → quizzes/cambridge/flyers/reading/RW001.json
- * Lớp 6 (tương lai):        L6-MATH-... → quizzes/lop6/math/...
+ * cấu trúc: quizzes/<pathway>/<group>/<id>.json
+ *
+ * Lớp 6 / Toán Tư Duy:        MATH-L1-P1   → quizzes/lop6/toan/MATH-L1-P1.json
+ * Cambridge / Flyers / Reading: RW001        → quizzes/cambridge/flyers/reading/RW001.json
+ * Cambridge / Flyers / Listening: L001       → quizzes/cambridge/flyers/listening/L001.json
+ * Cambridge / Movers (tương lai): MOV-R001   → quizzes/cambridge/movers/reading/MOV-R001.json
  */
 function getR2Key(quizId: string): string {
+  // Lớp 6 — Toán Tư Duy
   if (/^MATH-L\d+-P\d+$/.test(quizId)) {
-    return `quizzes/cambridge/flyers/math/${quizId}.json`;
+    return `quizzes/lop6/toan/${quizId}.json`;
   }
+  // Cambridge Flyers — Reading / Writing (RW001, RW2-001, RW3-001...)
   if (/^RW/.test(quizId)) {
     return `quizzes/cambridge/flyers/reading/${quizId}.json`;
   }
-  if (quizId.startsWith('L6-')) {
-    return `quizzes/lop6/${quizId}.json`;
+  // Cambridge Flyers — Listening (L001, L002, L003...)
+  if (/^L\d{3}$/.test(quizId)) {
+    return `quizzes/cambridge/flyers/listening/${quizId}.json`;
   }
-  // Fallback — không nên xảy ra, log để debug
-  console.warn(`[quiz] Unknown quizId format: ${quizId}, using flat path`);
+  // Fallback — không nên xảy ra
+  console.warn(`[quiz] Unknown quizId format: "${quizId}" — using flat path. Add rule to getR2Key().`);
   return `quizzes/${quizId}.json`;
 }
 
