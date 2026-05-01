@@ -1,6 +1,6 @@
 {
   "id": "READING-MED-GRADE3-P1",
-  "title": "Bài Đọc Hiểu — Medium — Lớp 3-4 — Nghề Nghiệp & Chợ",
+  "title": "Reading Comprehension — Medium — Grade 3-4 — Jobs & Market",
   "type": "reading-passage",
   "skill": "reading",
   "difficulty": "medium",
@@ -10,13 +10,13 @@
   "pathway": "lop6",
   "subject": "tieng-anh",
   "ui_language": "vi",
-  "instructions_vi": "Đọc kỹ từng đoạn văn rồi trả lời các câu hỏi bên dưới.",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
   "total_points": 16,
   "sections": [
     {
       "id": "section-1",
       "type": "cloze",
-      "title": "I. Đọc đoạn văn và chọn từ thích hợp điền vào chỗ trống.",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
       "points": 8,
       "points_per_question": 2,
       "passage": {
@@ -71,7 +71,7 @@
     {
       "id": "section-2",
       "type": "comprehension",
-      "title": "II. Đọc đoạn văn và trả lời câu hỏi.",
+      "title": "II. Read the passage and answer the questions.",
       "points": 8,
       "points_per_question": 2,
       "passage": {

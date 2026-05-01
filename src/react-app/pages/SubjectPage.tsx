@@ -14,25 +14,25 @@ import { Breadcrumb, useBreadcrumbs } from "../components/ui/Breadcrumb";
 import "./SubjectPage.css";
 
 const SKILL_LABELS: Record<string, string> = {
-  reading: "Đọc",
-  listening: "Nghe",
-  writing: "Viết",
-  math: "Toán",
-  mixed: "Tổng hợp",
+  reading:   "Reading",
+  listening: "Listening",
+  writing:   "Writing",
+  math:      "Math",
+  mixed:     "Mixed",
 };
 
 const SKILL_COLORS: Record<string, string> = {
-  reading: "badge-primary",
+  reading:   "badge-primary",
   listening: "badge-accent",
-  writing: "badge-success",
-  math: "badge-warning",
-  mixed: "badge-primary",
+  writing:   "badge-success",
+  math:      "badge-warning",
+  mixed:     "badge-primary",
 };
 
 const DIFFICULTY_CONFIG: Record<string, { label: string; className: string }> = {
-  easy:   { label: "Dễ",        className: "badge-difficulty-easy" },
-  medium: { label: "Trung bình", className: "badge-difficulty-medium" },
-  hard:   { label: "Khó",        className: "badge-difficulty-hard" },
+  easy:   { label: "Easy",   className: "badge-difficulty-easy" },
+  medium: { label: "Medium", className: "badge-difficulty-medium" },
+  hard:   { label: "Hard",   className: "badge-difficulty-hard" },
 };
 
 export function SubjectPage() {
@@ -50,10 +50,10 @@ export function SubjectPage() {
     return (
       <div className="subject-page subject-page--not-found">
         <div style={{ fontSize: 64 }}>🔍</div>
-        <h1>Môn học không tồn tại</h1>
-        <p>Có thể môn này chưa ra mắt hoặc đường dẫn không đúng.</p>
+        <h1>Subject not found</h1>
+        <p>This subject may not be available yet or the URL is incorrect.</p>
         <button className="btn btn-primary" onClick={() => navigate("/")}>
-          ← Về trang chủ
+          ← Back to Home
         </button>
       </div>
     );
@@ -90,10 +90,10 @@ export function SubjectPage() {
         <h1 className="subject-page__hero-title">{subject.label}</h1>
         <p className="subject-page__hero-desc">{subject.desc}</p>
         <div className="subject-page__hero-stats">
-          <span>{subject.lessons.length} bài học</span>
+          <span>{subject.lessons.length} lessons</span>
           <span>·</span>
           <span>
-            {subject.lessons.filter((l) => l.is_free).length} bài miễn phí
+            {subject.lessons.filter((l) => l.is_free).length} free
           </span>
         </div>
       </div>
@@ -103,9 +103,9 @@ export function SubjectPage() {
         {subject.lessons.length === 0 ? (
           <div className="subject-page__empty">
             <div style={{ fontSize: 48 }}>🚧</div>
-            <p>Đang soạn bài — sắp ra mắt!</p>
+            <p>Coming soon — lessons are being prepared!</p>
             <button className="btn btn-outline" onClick={() => navigate(backUrl)}>
-              Xem môn khác
+              Browse other subjects
             </button>
           </div>
         ) : (
@@ -144,13 +144,13 @@ export function SubjectPage() {
                       <span className="badge badge-primary">{lesson.level}</span>
                     )}
                     {lesson.is_free ? (
-                      <span className="badge badge-success">Miễn phí</span>
+                      <span className="badge badge-success">Free</span>
                     ) : (
                       <span className="badge badge-warning">🔒 Premium</span>
                     )}
                   </div>
                   <h3 className="subject-lesson-card__title">{lesson.title}</h3>
-                  <p className="subject-lesson-card__meta">{lesson.questions} câu hỏi</p>
+                  <p className="subject-lesson-card__meta">{lesson.questions} questions</p>
                 </div>
                 <div className="subject-lesson-card__arrow">→</div>
               </div>
