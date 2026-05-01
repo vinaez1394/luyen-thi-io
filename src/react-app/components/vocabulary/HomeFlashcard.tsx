@@ -111,35 +111,32 @@ export function HomeFlashcard({
         </div>
       </div>
 
-      {/* Kết quả — Guest: CTA | Logged in: kết quả thường */}
-      {result && (
-        !isLoggedIn && onLogin ? (
-          <GameLoginCTA
-            starsEarned={result.starsEarned}
-            correctCount={result.knownWords.length}
-            totalCount={5}
-            wrongWords={result.unknownWords}
-            onLogin={onLogin}
-            onPlayAgain={handlePlayAgain}
-          />
-        ) : (
-          <div className="home-flashcard__result animate-fadeIn">
-            <span>
-              {result.starsEarned === 2 ? "🌟🌟" : result.starsEarned === 1 ? "⭐" : "💪"}
-            </span>
-            <span>
-              {result.knownWords.length}/5 đã biết
-              {result.starsEarned > 0 && ` — +${result.starsEarned} ⭐`}
-            </span>
-            <button
-              className="btn btn-outline btn-sm"
-              onClick={handlePlayAgain}
-              disabled={isRefreshing}
-            >
-              {isRefreshing ? "Đang tải..." : "Học lại (bộ mới)"}
-            </button>
-          </div>
-        )
+      {/* Kết quả logged-in: hiện bên dưới card */}
+      {result && isLoggedIn && (
+        <div className="home-flashcard__result animate-fadeIn">
+          <span>💪</span>
+          <span>{result.knownWords.length}/5 thẻ đã biết</span>
+          <button
+            className="btn btn-outline btn-sm"
+            onClick={handlePlayAgain}
+            disabled={isRefreshing}
+          >
+            {isRefreshing ? "Đang tải..." : "Học lại (bộ mới)"}
+          </button>
+        </div>
+      )}
+
+      {/* Guest: login modal popup (không hiện sao) */}
+      {result && !isLoggedIn && onLogin && (
+        <GameLoginCTA
+          showStars={false}
+          scoreLabel="thẻ đã biết"
+          correctCount={result.knownWords.length}
+          totalCount={5}
+          wrongWords={result.unknownWords}
+          onLogin={onLogin}
+          onPlayAgain={handlePlayAgain}
+        />
       )}
 
       {/* Game modal — isLoggedIn=true để không show notice bên trong */}

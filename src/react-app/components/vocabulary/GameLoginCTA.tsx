@@ -1,27 +1,29 @@
 /**
  * GameLoginCTA.tsx — CTA đăng nhập sau khi guest chơi game
  *
- * Hiển thị:
- * - Kết quả (score + stars)
- * - Từ cần ôn thêm
- * - "Đăng nhập với Google để lưu ⭐" — nút Google to rõ
- * - "Chơi lại (không lưu)" — link mờ
- *
- * Dùng cho cả Hangman và Flashcard trên trang chủ.
+ * V2: Hiển thị dạng FULL OVERLAY MODAL (giống game popup), không phải div bên dưới
+ * - Backdrop tối với blur
+ * - Hỗ trợ ESC để đóng (= chơi lại)
+ * - showStars: false → ẩn phần sao (dùng cho Flashcard)
+ * - scoreLabel: "từ đúng" | "thẻ đã biết" tùy game
  */
 
+import { useEffect } from "react";
 import "./GameLoginCTA.css";
 
 interface GameLoginCTAProps {
-  starsEarned: number;
   correctCount: number;
   totalCount: number;
   wrongWords?: string[];
   onLogin: () => void;
   onPlayAgain: () => void;
+
+  // Options
+  starsEarned?: number;   // Bỏ qua nếu showStars=false
+  showStars?: boolean;    // Mặc định true — false cho Flashcard
+  scoreLabel?: string;    // Mặc định "từ đúng"
 }
 
-// Google SVG logo (inline — không cần external dep)
 function GoogleIcon() {
   return (
     <svg className="game-cta__google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -34,58 +36,78 @@ function GoogleIcon() {
 }
 
 export function GameLoginCTA({
-  starsEarned,
   correctCount,
   totalCount,
   wrongWords = [],
   onLogin,
   onPlayAgain,
+  starsEarned = 0,
+  showStars = true,
+  scoreLabel = "từ đúng",
 }: GameLoginCTAProps) {
+  // ESC → chơi lại (đóng modal)
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onPlayAgain();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onPlayAgain]);
+
   const scoreEmoji =
-    starsEarned === 2 ? "🌟🌟" :
-    starsEarned === 1 ? "⭐"   :
+    showStars && starsEarned === 2 ? "🌟🌟" :
+    showStars && starsEarned === 1 ? "⭐" :
     correctCount >= totalCount * 0.6 ? "💪" : "📚";
 
   return (
-    <div className="game-cta animate-fadeIn">
-      {/* Kết quả */}
-      <div className="game-cta__result">
-        <div className="game-cta__score-emoji">{scoreEmoji}</div>
-        <div className="game-cta__score-text">
-          {correctCount}/{totalCount} từ đúng
-          {starsEarned > 0 && ` — +${starsEarned} ⭐`}
-        </div>
-        {wrongWords.length > 0 && (
-          <div className="game-cta__wrong-words">
-            Cần ôn: {wrongWords.slice(0, 4).join(", ")}
-            {wrongWords.length > 4 && ` +${wrongWords.length - 4} từ`}
+    <div
+      className="game-cta-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Đăng nhập để lưu kết quả"
+      onClick={(e) => { if (e.target === e.currentTarget) onPlayAgain(); }}
+    >
+      <div className="game-cta animate-fadeIn">
+
+        {/* Kết quả */}
+        <div className="game-cta__result">
+          <div className="game-cta__score-emoji">{scoreEmoji}</div>
+          <div className="game-cta__score-text">
+            {correctCount}/{totalCount} {scoreLabel}
+            {showStars && starsEarned > 0 && ` — +${starsEarned} ⭐`}
           </div>
-        )}
+          {wrongWords.length > 0 && (
+            <div className="game-cta__wrong-words">
+              Cần ôn: {wrongWords.slice(0, 4).join(", ")}
+              {wrongWords.length > 4 && ` +${wrongWords.length - 4} từ`}
+            </div>
+          )}
+        </div>
+
+        <div className="game-cta__divider" />
+
+        {/* Headline */}
+        <div className="game-cta__headline">
+          <strong>🎉 Đăng nhập để lưu kết quả!</strong>
+          <p>Theo dõi tiến độ, nhận ⭐ thưởng và mở khóa 500+ bài luyện tập.</p>
+        </div>
+
+        {/* Nút Google */}
+        <button
+          className="game-cta__google-btn"
+          id="btn-game-cta-google"
+          onClick={onLogin}
+          aria-label="Đăng nhập bằng Google"
+        >
+          <GoogleIcon />
+          Đăng nhập với Google — Miễn phí
+        </button>
+
+        {/* Chơi lại */}
+        <button className="game-cta__replay" onClick={onPlayAgain}>
+          Chơi lại (không lưu kết quả)
+        </button>
       </div>
-
-      <div className="game-cta__divider" />
-
-      {/* Headline */}
-      <div className="game-cta__headline">
-        <strong>🎉 Đăng nhập để lưu kết quả!</strong>
-        <p>Theo dõi tiến độ, nhận ⭐ thưởng và mở khóa 500+ bài luyện tập.</p>
-      </div>
-
-      {/* Nút Google */}
-      <button
-        className="game-cta__google-btn"
-        id="btn-game-cta-google"
-        onClick={onLogin}
-        aria-label="Đăng nhập bằng Google"
-      >
-        <GoogleIcon />
-        Đăng nhập với Google — Miễn phí
-      </button>
-
-      {/* Chơi lại mà không lưu */}
-      <button className="game-cta__replay" onClick={onPlayAgain}>
-        Chơi lại (không lưu kết quả)
-      </button>
     </div>
   );
 }

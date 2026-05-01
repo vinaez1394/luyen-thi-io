@@ -116,35 +116,37 @@ export function HomeHangman({
         </div>
       </div>
 
-      {/* Kết quả — Guest: CTA | Logged in: kết quả thường */}
-      {result && (
-        !isLoggedIn && onLogin ? (
-          <GameLoginCTA
-            starsEarned={result.starsEarned}
-            correctCount={result.correctWords.length}
-            totalCount={5}
-            wrongWords={result.wrongWords}
-            onLogin={onLogin}
-            onPlayAgain={handlePlayAgain}
-          />
-        ) : (
-          <div className="home-hangman__result animate-fadeIn">
-            <span className="home-hangman__result-score">
-              {result.starsEarned === 2 ? "🌟🌟" : result.starsEarned === 1 ? "⭐" : "💪"}
-            </span>
-            <span>
-              {result.correctWords.length}/5 đúng
-              {result.starsEarned > 0 && ` — +${result.starsEarned} ⭐`}
-            </span>
-            <button
-              className="btn btn-outline btn-sm"
-              onClick={handlePlayAgain}
-              disabled={isRefreshing}
-            >
-              {isRefreshing ? "Đang tải..." : "Chơi lại (bộ từ mới)"}
-            </button>
-          </div>
-        )
+      {/* Kết quả logged-in: hiện bên dưới card */}
+      {result && isLoggedIn && (
+        <div className="home-hangman__result animate-fadeIn">
+          <span className="home-hangman__result-score">
+            {result.starsEarned === 2 ? "🌟🌟" : result.starsEarned === 1 ? "⭐" : "💪"}
+          </span>
+          <span>
+            {result.correctWords.length}/5 đúng
+            {result.starsEarned > 0 && ` — +${result.starsEarned} ⭐`}
+          </span>
+          <button
+            className="btn btn-outline btn-sm"
+            onClick={handlePlayAgain}
+            disabled={isRefreshing}
+          >
+            {isRefreshing ? "Đang tải..." : "Chơi lại (bộ từ mới)"}
+          </button>
+        </div>
+      )}
+
+      {/* Guest: login modal popup */}
+      {result && !isLoggedIn && onLogin && (
+        <GameLoginCTA
+          starsEarned={result.starsEarned}
+          showStars={true}
+          correctCount={result.correctWords.length}
+          totalCount={5}
+          wrongWords={result.wrongWords}
+          onLogin={onLogin}
+          onPlayAgain={handlePlayAgain}
+        />
       )}
 
       {/* Game modal — isLoggedIn=true để không show notice bên trong */}

@@ -1,20 +1,25 @@
 /**
  * FlashcardGame.tsx — Mini game học từ vựng bằng thẻ lật
  *
+ * V2 changes:
+ * - Thêm nút 🔊 phát âm (Web Speech API) — gọi khi hiện mặt trước
+ * - Bỏ cơ chế thưởng sao (starsEarned luôn = 0, không hiện trong UI)
+ * - starsEarned giữ trong FlashcardResult để tương thích ngược
+ *
  * Luật chơi:
  * - 5 thẻ / session
- * - Mỗi thẻ: mặt trước = từ tiếng Anh + IPA, mặt sau = nghĩa tiếng Việt
- * - Sau khi lật → user đánh giá: "Biết rồi ✅" / "Chưa biết ❌"
- * - 5/5 = 2⭐ | 4/5 = 1⭐ | ≤3 = 0⭐
+ * - Mặt trước: từ tiếng Anh + IPA + nút 🔊
+ * - Mặt sau: nghĩa tiếng Việt
+ * - Sau khi lật → đánh giá: "Biết rồi ✅" / "Chưa biết ❌"
  */
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import type { VocabWord } from "../../types/vocabulary";
 import "./FlashcardGame.css";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 export interface FlashcardResult {
-  starsEarned: number;
+  starsEarned: number; // Luôn = 0 (bỏ cơ chế sao cho flashcard)
   knownWords: string[];
   unknownWords: string[];
 }
@@ -26,6 +31,17 @@ interface FlashcardGameProps {
   onClose: () => void;
 }
 
+// ─── Pronunciation (Web Speech API) ──────────────────────────────────────────
+function speak(word: string) {
+  if (!("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel(); // Hủy bất kỳ âm nào đang phát
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang  = "en-US";
+  utterance.rate  = 0.82;
+  utterance.pitch = 1.0;
+  window.speechSynthesis.speak(utterance);
+}
+
 // ─── Component ────────────────────────────────────────────────────────────────
 export function FlashcardGame({
   words,
@@ -33,47 +49,62 @@ export function FlashcardGame({
   onComplete,
   onClose,
 }: FlashcardGameProps) {
-  const [cardIndex,   setCardIndex]   = useState(0);
-  const [isFlipped,   setIsFlipped]   = useState(false);
-  const [knownWords,  setKnownWords]  = useState<string[]>([]);
-  const [unknownWords,setUnknownWords]= useState<string[]>([]);
-  const [phase,       setPhase]       = useState<"playing" | "done">("playing");
+  const [cardIndex,    setCardIndex]    = useState(0);
+  const [isFlipped,    setIsFlipped]    = useState(false);
+  const [knownWords,   setKnownWords]   = useState<string[]>([]);
+  const [unknownWords, setUnknownWords] = useState<string[]>([]);
+  const [phase,        setPhase]        = useState<"playing" | "done">("playing");
+  const [isSpeaking,   setIsSpeaking]   = useState(false);
 
   const current = words[cardIndex];
+
+  // Tự động phát âm khi sang thẻ mới
+  useEffect(() => {
+    if (current && phase === "playing" && !isFlipped) {
+      // Nhỏ delay để animation card xuất hiện trước
+      const t = setTimeout(() => speak(current.word), 350);
+      return () => clearTimeout(t);
+    }
+  }, [cardIndex, phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleFlip = useCallback(() => {
     if (phase !== "playing") return;
     setIsFlipped((f) => !f);
   }, [phase]);
 
+  const handleSpeak = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation(); // Không flip card khi bấm phát âm
+    if (!current) return;
+    setIsSpeaking(true);
+    speak(current.word);
+    setTimeout(() => setIsSpeaking(false), 900);
+  }, [current]);
+
   const handleRate = useCallback((known: boolean) => {
-    if (!isFlipped) return; // Phải lật trước mới được đánh giá
+    if (!isFlipped) return;
 
     const newKnown   = known ? [...knownWords, current.word] : knownWords;
     const newUnknown = !known ? [...unknownWords, current.word] : unknownWords;
 
     if (cardIndex + 1 >= words.length) {
-      // Xong tất cả thẻ
-      const score      = newKnown.length;
-      const starsEarned = score === 5 ? 2 : score === 4 ? 1 : 0;
       setKnownWords(newKnown);
       setUnknownWords(newUnknown);
       setPhase("done");
-      onComplete({ starsEarned, knownWords: newKnown, unknownWords: newUnknown });
+      // starsEarned = 0 — bỏ cơ chế sao cho flashcard
+      onComplete({ starsEarned: 0, knownWords: newKnown, unknownWords: newUnknown });
     } else {
       setKnownWords(newKnown);
       setUnknownWords(newUnknown);
       setIsFlipped(false);
-      setTimeout(() => setCardIndex((i) => i + 1), 300); // Chờ flip-back animation
+      setTimeout(() => setCardIndex((i) => i + 1), 300);
     }
   }, [isFlipped, cardIndex, current, knownWords, unknownWords, words.length, onComplete]);
 
   if (!current) return null;
 
-  // Progress dots
   const dots = words.map((_, i) => {
-    if (i < cardIndex)            return knownWords.includes(words[i].word) ? "known" : "unknown";
-    if (i === cardIndex)          return "current";
+    if (i < cardIndex)   return knownWords.includes(words[i].word) ? "known" : "unknown";
+    if (i === cardIndex) return "current";
     return "pending";
   });
 
@@ -104,7 +135,7 @@ export function FlashcardGame({
 
         {/* 3D Flip Card */}
         <div
-          className={`fc-card-scene`}
+          className="fc-card-scene"
           onClick={handleFlip}
           role="button"
           tabIndex={0}
@@ -112,13 +143,24 @@ export function FlashcardGame({
           onKeyDown={(e) => e.key === "Enter" && handleFlip()}
         >
           <div className={`fc-card ${isFlipped ? "fc-card--flipped" : ""}`}>
-            {/* Mặt trước: từ tiếng Anh */}
+            {/* Mặt trước: từ tiếng Anh + IPA + 🔊 */}
             <div className="fc-card__front">
               <div className="fc-card__badge">EN</div>
               <div className="fc-card__word">{current.word}</div>
               {current.ipa && (
                 <div className="fc-card__ipa">/{current.ipa}/</div>
               )}
+
+              {/* Nút phát âm — không flip card */}
+              <button
+                className={`fc-card__speak ${isSpeaking ? "fc-card__speak--active" : ""}`}
+                onClick={handleSpeak}
+                aria-label={`Phát âm từ ${current.word}`}
+                title="Nghe phát âm"
+              >
+                🔊
+              </button>
+
               <div className="fc-card__tap-hint">Bấm để lật ↩</div>
             </div>
 
@@ -153,9 +195,9 @@ export function FlashcardGame({
           </button>
         </div>
 
-        {/* Guest notice */}
+        {/* Guest notice — chỉ hiện khi không có isLoggedIn (trong quiz page) */}
         {!isLoggedIn && (
-          <div className="fc-guest">ℹ️ Đăng nhập để lưu tiến độ & nhận sao</div>
+          <div className="fc-guest">ℹ️ Đăng nhập để lưu tiến độ & nhận thưởng</div>
         )}
       </div>
     </div>
