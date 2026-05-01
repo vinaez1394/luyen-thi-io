@@ -952,7 +952,100 @@ Khi có quyết định mới hoặc thay đổi lớn:
 
 ---
 
+## 📦 R2 CONTENT OPERATIONS — QUY TẮC BẮT BUỘC ĐỌC TRƯỚC KHI UPLOAD
+
+> ⚠️ **QUAN TRỌNG:** Đọc section này TRƯỚC KHI thêm bất kỳ file content mới vào R2.
+> Cập nhật: 2026-05-01 | Rút ra từ các lần upload sai folder.
+
+### 🗺️ Mapping Rules — Quiz ID → R2 Path
+
+Mỗi quiz ID phải nằm đúng vị trí theo SITEMAP. Quy tắc:
+
+| Pattern | Ví dụ ID | R2 Path | URL tương ứng |
+|---------|----------|---------|---------------|
+| `MATH-L{n}-P{n}` | `MATH-L1-P1` | `quizzes/lop6/toan/MATH-L1-P1.json` | `/lop6/toan/math-l1-p1` |
+| `RW{xxx}` | `RW001`, `RW2-001` | `quizzes/cambridge/flyers/reading/RW001.json` | `/cambridge/flyers/rw001` |
+| `L{nnn}` | `L001`, `L002` | `quizzes/cambridge/flyers/listening/L001.json` | `/cambridge/flyers/l001` |
+| `MOV-*` | `MOV-R001` | `quizzes/cambridge/movers/reading/MOV-R001.json` | `/cambridge/movers/rw001` |
+| `L6-*` | (tương lai) | `quizzes/lop6/<group>/...json` | `/lop6/...` |
+
+### 📁 Cấu trúc R2 Bucket `luyen-thi-content`
+
+```
+luyen-thi-content/
+└── quizzes/
+    ├── lop6/
+    │   ├── toan/           ← MATH-L1-P1 ... P10
+    │   ├── tieng-viet/     ← (tương lai)
+    │   └── khoa-hoc/       ← (tương lai)
+    └── cambridge/
+        ├── flyers/
+        │   ├── reading/    ← RW001, RW2-001, RW3-001
+        │   ├── listening/  ← L001, L002, L003
+        │   └── speaking/   ← (tương lai)
+        ├── movers/
+        │   └── reading/    ← (tương lai)
+        └── starters/       ← (tương lai)
+```
+
+### ✅ Checklist trước khi upload file mới lên R2
+
+```
+[ ] 1. Đọc SITEMAP (section đầu HUONGDAN.md) → xác định pathway + group
+[ ] 2. Xác định R2 path theo bảng Mapping Rules ở trên
+[ ] 3. Kiểm tra getR2Key() trong quiz.ts có đúng pattern chưa
+[ ] 4. Thêm vào deploy.yml với --remote flag
+[ ] 5. Verify sau khi deploy (xem hướng dẫn bên dưới)
+```
+
+### 🔍 Cách verify bài học đang đọc đúng R2 path
+
+**Cách 1 — Gọi API trực tiếp (nhanh nhất):**
+
+```bash
+# Kiểm tra bài Toán Lớp 6
+curl https://luyen-thi-io.workers.dev/api/quiz/MATH-L1-P1
+
+# Kiểm tra bài Cambridge Flyers Reading
+curl https://luyen-thi-io.workers.dev/api/quiz/RW001
+
+# Kết quả mong đợi: JSON đề bài
+# Kết quả lỗi: {"error":"Không tìm thấy bài học này"} → sai path hoặc chưa upload
+```
+
+**Cách 2 — Xem Worker logs real-time:**
+
+```bash
+# Xem log Worker đang chạy (bao gồm cả console.warn nếu R2 path sai)
+npx wrangler tail --remote
+# Sau đó mở bài học trên web → log sẽ xuất hiện
+```
+
+**Cách 3 — Kiểm tra R2 dashboard:**
+
+Vào Cloudflare → R2 → `luyen-thi-content` → duyệt folder theo SITEMAP.
+
+**Cách 4 — Debug log tự động:**
+
+Nếu quiz ID không match bất kỳ pattern nào, Worker sẽ log:
+```
+[quiz] Unknown quizId format: "XYZ" — using flat path. Add rule to getR2Key().
+```
+→ Thấy log này = cần thêm rule mới vào `getR2Key()` trong `quiz.ts`.
+
+### ⚠️ Lỗi thường gặp & cách fix
+
+| Lỗi | Nguyên nhân | Fix |
+|-----|------------|-----|
+| `{"error":"Không tìm thấy bài học này"}` | File chưa upload hoặc sai path | Kiểm tra R2 dashboard, re-deploy |
+| Upload vào local (Resource location: local) | Thiếu `--remote` flag | Thêm `--remote` vào lệnh wrangler |
+| Upload đúng R2 nhưng sai folder | Không đọc SITEMAP trước | Xóa file sai + upload lại đúng path |
+| CI "Success" nhưng R2 không có file | Token thiếu `Workers R2 Storage:Edit` | Tạo token mới với đủ quyền |
+
+---
+
 ## 🗃️ D1 DATABASE OPERATIONS — SEED & MIGRATION
+
 
 > Cập nhật: 2026-05-01 | Ghi chú từ sự cố seeding 250 từ Flyers
 
