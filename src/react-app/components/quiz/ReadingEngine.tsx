@@ -17,6 +17,7 @@
 
 import { useState, useCallback } from "react";
 import type { ReadingQuiz, ReadingAnswers, ReadingResult } from "../../types/reading";
+import type { WordTooltipProps } from "../vocabulary/WordTooltip";
 import { ReadingSection } from "./ReadingSection";
 import { GameLoginCTA } from "../vocabulary/GameLoginCTA";
 import { useAuth } from "../../hooks/useAuth";
@@ -65,12 +66,16 @@ interface ReadingEngineProps {
   quiz: ReadingQuiz;
   /** Gọi khi user nộp bài xong */
   onComplete?: (result: ReadingResult) => void;
+  /** Vocab tooltip — số lượt tra còn miễn phí */
+  vocabRemainingFree?: number;
+  /** Vocab tooltip — callback khi user click tra từ */
+  onVocabLookup?: WordTooltipProps["onLookup"];
 }
 
 // ============================================
 // ReadingEngine — component chính
 // ============================================
-export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
+export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVocabLookup }: ReadingEngineProps) {
   const { isLoggedIn, loginWithGoogle } = useAuth();
 
   const [answers, setAnswers] = useState<ReadingAnswers>({});
@@ -170,6 +175,8 @@ export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
             isSubmitted={isSubmitted}
             correctAnswers={result?.correctAnswers}
             onAnswer={handleAnswer}
+            vocabRemainingFree={vocabRemainingFree}
+            onVocabLookup={onVocabLookup}
           />
         ))}
       </div>

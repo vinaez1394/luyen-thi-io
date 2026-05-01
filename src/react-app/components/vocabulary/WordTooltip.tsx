@@ -79,6 +79,10 @@ export function WordTooltip({ prompt, remainingFree, onLookup, isReview }: WordT
   return (
     <span className="word-tooltip" ref={containerRef}>
       {prompt.map((seg, i) => {
+        // Highlight segment (e.g. sample answer in Reading cloze)
+        if (seg.highlight) {
+          return <span key={i} className="re-passage__highlight">{seg.text}</span>;
+        }
         if (!seg.tooltip) {
           return <span key={i}>{seg.text}</span>;
         }

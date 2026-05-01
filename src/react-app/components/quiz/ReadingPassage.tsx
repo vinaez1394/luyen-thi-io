@@ -3,58 +3,28 @@
  *
  * Expanded: Hiện đoạn văn đầy đủ + nút "Thu gọn ▲" ở cuối
  * Collapsed: Compact bar với title rút gọn + nút "Mở lại ▼"
- * Hỗ trợ tooltip inline (hover để xem nghĩa tiếng Việt + IPA)
+ * Tooltip: click vào từ gạch chân → popup (dùng WordTooltip chuẩn)
  */
 
-import type { ReadingPassageData, TextSegment } from "../../types/reading";
+import type { ReadingPassageData } from "../../types/reading";
+import { WordTooltip } from "../vocabulary/WordTooltip";
+import type { WordTooltipProps } from "../vocabulary/WordTooltip";
 
 // ============================================
 // Props
 // ============================================
 interface ReadingPassageProps {
-  passage:      ReadingPassageData;
-  isOpen:       boolean;
-  onToggle:     () => void;
-  sectionTitle: string;
+  passage:             ReadingPassageData;
+  isOpen:              boolean;
+  onToggle:            () => void;
+  sectionTitle:        string;
+  vocabRemainingFree?: number;
+  onVocabLookup?:      WordTooltipProps["onLookup"];
+  isReview?:           boolean;
 }
 
-// ============================================
-// AnnotatedText — render text_segments với tooltip
-// ============================================
-function AnnotatedText({ segments }: { segments: TextSegment[] }) {
-  return (
-    <>
-      {segments.map((seg, i) => {
-        // Từ được tô (0) common — điền sẵn làm mẫu
-        if (seg.highlight) {
-          return (
-            <span key={i} className="re-passage__highlight">
-              {seg.text}
-            </span>
-          );
-        }
-
-        // Từ có tooltip
-        if (seg.tooltip) {
-          return (
-            <span key={i} className="re-tooltip-wrap">
-              <span className="re-tooltip-trigger">{seg.text}</span>
-              <span className="re-tooltip-box">
-                🇻🇳 {seg.tooltip.vi}
-                {seg.tooltip.ipa && (
-                  <> &nbsp;|&nbsp; /{seg.tooltip.ipa}/&nbsp;</>
-                )}
-              </span>
-            </span>
-          );
-        }
-
-        // Text thông thường
-        return <span key={i}>{seg.text}</span>;
-      })}
-    </>
-  );
-}
+// Fallback noop nếu không có onVocabLookup (bài chưa login)
+const DEFAULT_LOOKUP: WordTooltipProps["onLookup"] = () => ({ allowed: true, willCostStar: false });
 
 // ============================================
 // ReadingPassage
@@ -64,9 +34,11 @@ export function ReadingPassage({
   isOpen,
   onToggle,
   sectionTitle,
+  vocabRemainingFree = 3,
+  onVocabLookup,
+  isReview,
 }: ReadingPassageProps) {
 
-  // Lấy snippet cho collapsed bar (40 ký tự đầu của raw_text)
   const snippet = passage.raw_text
     ? passage.raw_text.slice(0, 50) + "…"
     : sectionTitle;
@@ -95,7 +67,12 @@ export function ReadingPassage({
       <div className="re-passage__content">
         <div className="re-passage__badge">📄 Đoạn văn</div>
         <div className="re-passage__text">
-          <AnnotatedText segments={passage.text_segments} />
+          <WordTooltip
+            prompt={passage.text_segments}
+            remainingFree={vocabRemainingFree}
+            onLookup={onVocabLookup ?? DEFAULT_LOOKUP}
+            isReview={isReview}
+          />
         </div>
       </div>
 
