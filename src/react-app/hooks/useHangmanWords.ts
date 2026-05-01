@@ -1,13 +1,13 @@
 /**
- * useHangmanWords.ts — Hook lấy 5 từ cho Hangman
+ * useHangmanWords.ts — Hook lấy từ cho Hangman/Flashcard
  *
- * Chiến lược:
- * 1. Dùng từ user đã tra (pendingWords từ useVocabulary)
- * 2. Nếu thiếu → fetch từ D1 vocabulary_bank qua API
- * 3. Nếu API lỗi → fallback về hardcode (offline support)
+ * BUG FIX: pendingWords là array → mỗi render tạo reference mới
+ * → useEffect re-run vô hạn → cancelled = true → setLoading(false) không chạy
+ *
+ * FIX: Dùng serialized string key thay vì array reference trong deps.
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { VocabWord } from "../types/vocabulary";
 
 const WORDS_PER_SESSION = 5;
@@ -21,7 +21,6 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a;
 }
 
-// Fallback tối thiểu — chỉ dùng khi API lỗi VÀ pendingWords trống
 const EMERGENCY_FALLBACK: VocabWord[] = [
   { word: "adventure", vi: "cuộc phiêu lưu", ipa: "ədˈventʃər", sourceQuizId: "fallback", correctSessions: 0, isMastered: false },
   { word: "beautiful",  vi: "đẹp, xinh đẹp",  ipa: "ˈbjuːtɪfəl", sourceQuizId: "fallback", correctSessions: 0, isMastered: false },
@@ -33,21 +32,17 @@ const EMERGENCY_FALLBACK: VocabWord[] = [
 ];
 
 interface UseHangmanWordsOptions {
-  /** Từ user đã tra (từ useVocabulary) — ưu tiên trước */
   pendingWords: VocabWord[];
-  /** Nhóm từ khi fetch từ DB (mặc định "flyers") */
   group?: string;
-  /** Game filter: hangman | flashcard | choice (mặc định hangman) */
   game?: "hangman" | "flashcard" | "choice";
-  /** Số lượng từ / session */
   count?: number;
 }
 
 interface UseHangmanWordsResult {
-  words: VocabWord[];          // 5 từ đã chọn, sẵn sàng chơi
+  words: VocabWord[];
   isLoading: boolean;
   source: "pending" | "db" | "fallback";
-  refresh: () => void;         // Gọi để chọn bộ từ mới
+  refresh: () => void;
 }
 
 export function useHangmanWords({
@@ -56,10 +51,18 @@ export function useHangmanWords({
   game = "hangman",
   count = WORDS_PER_SESSION,
 }: UseHangmanWordsOptions): UseHangmanWordsResult {
-  const [words, setWords]     = useState<VocabWord[]>([]);
+  const [words, setWords]       = useState<VocabWord[]>([]);
   const [isLoading, setLoading] = useState(true);
-  const [source, setSource]   = useState<"pending" | "db" | "fallback">("db");
-  const [seed, setSeed]       = useState(0); // increment để refresh
+  const [source, setSource]     = useState<"pending" | "db" | "fallback">("db");
+  const [seed, setSeed]         = useState(0);
+
+  // ★ KEY FIX: Serialize pendingWords thành string để làm dep ổn định.
+  // Dùng array reference trực tiếp gây infinite loop:
+  // [] mới mỗi render → effect re-run → cancelled = true → isLoading mãi true
+  const pendingKey = useMemo(
+    () => pendingWords.map((w) => `${w.word}:${w.isMastered ? 1 : 0}`).join("|"),
+    [pendingWords]
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -67,12 +70,12 @@ export function useHangmanWords({
     async function buildWordList() {
       setLoading(true);
 
-      // 1. Lấy từ pending (chưa mastered, ưu tiên tất cả)
+      // Parse pendingKey ngược lại để lấy pending words từ prop
+      // (vẫn đọc từ closure — pendingKey chỉ để trigger effect đúng lúc)
       const pending = shuffleArray(pendingWords.filter((w) => !w.isMastered));
       const chosen: VocabWord[] = pending.slice(0, count);
 
       if (chosen.length >= count) {
-        // Đủ từ pending → không cần fetch DB
         if (!cancelled) {
           setWords(chosen);
           setSource("pending");
@@ -81,13 +84,15 @@ export function useHangmanWords({
         return;
       }
 
-      // 2. Thiếu từ → fetch bổ sung từ D1
+      // Fetch từ DB
       const need    = count - chosen.length;
       const exclude = chosen.map((w) => w.word).join(",");
 
       try {
-        const url = `/api/vocabulary/random?limit=${need}&group=${group}&game=${game}${exclude ? `&exclude=${encodeURIComponent(exclude)}` : ""}`;
-        const res  = await fetch(url);
+        const url = `/api/vocabulary/random?limit=${need}&group=${group}&game=${game}${
+          exclude ? `&exclude=${encodeURIComponent(exclude)}` : ""
+        }`;
+        const res = await fetch(url);
 
         if (res.ok) {
           const data = await res.json() as { ok: boolean; words: VocabWord[] };
@@ -105,10 +110,12 @@ export function useHangmanWords({
         console.warn("[useHangmanWords] API error, using fallback:", err);
       }
 
-      // 3. API lỗi → dùng emergency fallback
-      const usedWords  = new Set(chosen.map((w) => w.word.toLowerCase()));
-      const fallback   = shuffleArray(EMERGENCY_FALLBACK.filter((f) => !usedWords.has(f.word.toLowerCase())));
-      const emergency  = [...chosen, ...fallback].slice(0, count);
+      // Emergency fallback — luôn chạy được dù API lỗi
+      const usedWords = new Set(chosen.map((w) => w.word.toLowerCase()));
+      const fallback  = shuffleArray(
+        EMERGENCY_FALLBACK.filter((f) => !usedWords.has(f.word.toLowerCase()))
+      );
+      const emergency = [...chosen, ...fallback].slice(0, count);
 
       if (!cancelled) {
         setWords(shuffleArray(emergency));
@@ -119,7 +126,9 @@ export function useHangmanWords({
 
     buildWordList();
     return () => { cancelled = true; };
-  }, [pendingWords, group, game, count, seed]);
+
+  // ★ pendingKey (string) thay vì pendingWords (array ref) — ổn định, không gây loop
+  }, [pendingKey, group, game, count, seed]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const refresh = () => setSeed((s) => s + 1);
 
