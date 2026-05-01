@@ -5,22 +5,24 @@ name: Deploy to Cloudflare Workers
 # ════════════════════════════════════════
 #
 # ⚠️ QUYẾT ĐỊNH KIẾN TRÚC (2026-05-01):
-# Deploy qua GitHub Actions (file này), KHÔNG dùng `wrangler deploy` trực tiếp từ CLI
-# Lý do: wrangler CLI bị lỗi liên tục trên môi trường local (auth/network issues)
-# Cách deploy: git push → GitHub Actions tự động chạy
+# Deploy qua GitHub Actions (file này), KHÔNG dùng `wrangler deploy` trực tiếp từ CLI local
+# Lý do: wrangler CLI bị lỗi auth/network liên tục trên môi trường local
+# Cách deploy: git push → GitHub Actions tự động chạy (1m 20-30s)
 #
-# ✅ Bước deploy chính: cloudflare/wrangler-action@v3 (step 5)
-#    → Đây là cách CHÍNH THỨC Cloudflare khuyến nghị cho CI/CD
-#    → Không cần wrangler login, dùng CLOUDFLARE_API_TOKEN secret trên GitHub
-#
-# 📁 R2 Content Sync: wrangler r2 object put (step 6)
-#    → Vẫn dùng wrangler CLI bên trong GitHub Actions (không bị lỗi auth)
-#    → Chỉ bị lỗi khi chạy locally vì thiếu token/network
+# ✅ CƠ CHẾ DEPLOY:
+#   1. npm run build → tạo dist/luyen_thi_io/ (worker bundled + assets)
+#   2. cloudflare/wrangler-action@v3 chạy từ dist/luyen_thi_io/
+#      với wrangler.json có "no_bundle": true, "main": "index.js"
+#   3. wrangler r2 object put → sync content JSON lên R2
 #
 # 🚫 ĐÃ XÓA: Step D1 vocabulary seed (wrangler d1 execute)
-#    → Vocabulary đã được seed đầy đủ (250+ từ) — không cần chạy lại mỗi lần deploy
-#    → Để seed lại thủ công: wrangler d1 execute luyen-thi-db --remote --file <file>
-#    → Migrations mới thêm thủ công khi cần
+#   Lý do: Vocabulary đã seed đầy đủ (250+ từ) — không cần chạy lại mỗi deploy
+#   Để seed thủ công: wrangler d1 execute luyen-thi-db --remote --file <file>
+#
+# 📝 LỊCH SỬ LỖI:
+#   - Run #41 (2026-05-01 22:04): FAIL — wrangler-action thiếu workingDirectory
+#     Error: npx failed with exit code 1 (wrangler không tìm thấy dist/luyen_thi_io/)
+#   - Fix: thêm workingDirectory: dist/luyen_thi_io cho wrangler-action
 # ════════════════════════════════════════
 
 on:
@@ -51,16 +53,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4. Build (TypeScript + Vite)
+      # 4. Build (TypeScript + Vite → dist/luyen_thi_io/)
       - name: Build
         run: npm run build
 
-      # 5. Deploy Worker lên Cloudflare (sau khi build xong)
-      # ✅ Đây là bước deploy chính — dùng official Cloudflare action
+      # 5. Deploy Worker lên Cloudflare
+      # workingDirectory: dist/luyen_thi_io/ — nơi có index.js + wrangler.json (no_bundle: true)
+      # Không build lại từ source, dùng bundle đã build ở step 4
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: dist/luyen_thi_io
 
       # 6. Sync content JSON → R2 theo đúng SITEMAP
       # Thêm bài mới ở đây khi có content mới
@@ -70,62 +74,60 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: |
           # ──────────────────────────────────────────────
-          # 🗑️ Cleanup: Xóa files đã upload sai vị trí
+          # 🗑️ Cleanup: Xóa files đã upload sai vị trí cũ
           # ──────────────────────────────────────────────
           echo "🗑️ Xóa files sai vị trí (cambridge/flyers/math/)..."
-          for f in MATH-L1-P1 MATH-L1-P2 MATH-L1-P3 MATH-L1-P4 MATH-L1-P5 \
-                   MATH-L1-P6 MATH-L1-P7 MATH-L1-P8 MATH-L1-P9 MATH-L1-P10; do
-            ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/$f.json --remote || true
-          done
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P1.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P2.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P3.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P4.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P5.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P6.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P7.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P8.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P9.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P10.json --remote || true
           ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/MATH-L1-P1.json --remote || true
 
           # ──────────────────────────────────────────────
           # 📐 Lớp 6 / Toán Tư Duy (10 bài)
           # ──────────────────────────────────────────────
           echo "▶ Lớp 6 / Toán Tư Duy..."
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            ./node_modules/.bin/wrangler r2 object put \
-              luyen-thi-content/quizzes/lop6/toan/MATH-L1-P$i.json \
-              --file content/math/MATH-L1-P$i.json \
-              --content-type application/json --remote
-          done
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P1.json  --file content/math/MATH-L1-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P2.json  --file content/math/MATH-L1-P2.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P3.json  --file content/math/MATH-L1-P3.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P4.json  --file content/math/MATH-L1-P4.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P5.json  --file content/math/MATH-L1-P5.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P6.json  --file content/math/MATH-L1-P6.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P7.json  --file content/math/MATH-L1-P7.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P8.json  --file content/math/MATH-L1-P8.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P9.json  --file content/math/MATH-L1-P9.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P10.json --file content/math/MATH-L1-P10.json --content-type application/json --remote
 
           # ──────────────────────────────────────────────
           # 📖 Cambridge / Flyers / Reading (3 bài)
           # ──────────────────────────────────────────────
           echo "▶ Cambridge / Flyers / Reading..."
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW001.json   --file content/flyers/RW001.json                    --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW2-001.json --file content/flyers/reading/RW2-001.json           --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW3-001.json --file content/flyers/reading/RW3-001.json           --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW001.json   --file content/flyers/RW001.json                   --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW2-001.json --file content/flyers/reading/RW2-001.json          --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW3-001.json --file content/flyers/reading/RW3-001.json          --content-type application/json --remote
 
           # ──────────────────────────────────────────────
           # 📚 Lớp 6 / Tiếng Anh / Reading Passage (9 bài)
-          # Thêm mới 2026-05-01: ReadingEngine integration
-          # Easy: phù hợp lớp 3-4, 4-5, 5-6
-          # Medium: phù hợp lớp 3-4, 4-5, 5-6
-          # Hard: phù hợp lớp 3-4, 4-5, 5-6
+          # Thêm 2026-05-01: ReadingEngine Phase 01-05
           # ──────────────────────────────────────────────
           echo "▶ Lớp 6 / Tiếng Anh / Reading Passage (9 bài)..."
-          READING_DIR="content/lop6/tieng-anh/reading"
-          R2_BASE="luyen-thi-content/quizzes/lop6/tieng-anh/reading"
-
-          for slug in \
-            READING-EASY-GRADE3-P1 \
-            READING-EASY-GRADE4-P1 \
-            READING-EASY-GRADE5-P1 \
-            READING-MED-GRADE3-P1  \
-            READING-MED-GRADE4-P1  \
-            READING-MED-GRADE5-P1  \
-            READING-HARD-GRADE3-P1 \
-            READING-HARD-GRADE4-P1 \
-            READING-HARD-GRADE5-P1; do
-            ./node_modules/.bin/wrangler r2 object put \
-              $R2_BASE/$slug.json \
-              --file $READING_DIR/$slug.json \
-              --content-type application/json --remote
-          done
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE5-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE5-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-MED-GRADE3-P1.json  --file content/lop6/tieng-anh/reading/READING-MED-GRADE3-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-MED-GRADE4-P1.json  --file content/lop6/tieng-anh/reading/READING-MED-GRADE4-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-MED-GRADE5-P1.json  --file content/lop6/tieng-anh/reading/READING-MED-GRADE5-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-HARD-GRADE3-P1.json --file content/lop6/tieng-anh/reading/READING-HARD-GRADE3-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-HARD-GRADE4-P1.json --file content/lop6/tieng-anh/reading/READING-HARD-GRADE4-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-HARD-GRADE5-P1.json --file content/lop6/tieng-anh/reading/READING-HARD-GRADE5-P1.json --content-type application/json --remote
 
           echo "✅ R2 sync hoàn tất:"
           echo "   - lop6/toan: 10 bài"
           echo "   - cambridge/flyers/reading: 3 bài"
-          echo "   - lop6/tieng-anh/reading: 9 bài (MỚI)"
+          echo "   - lop6/tieng-anh/reading: 9 bài (ReadingEngine)"
