@@ -26,6 +26,8 @@
   align-items: center;
   gap: var(--space-2);
   padding: 0 var(--space-3);
+  /* Prevent horizontal overflow on small screens */
+  overflow: hidden;
 }
 
 /* ===== LOGO ===== */
@@ -370,17 +372,64 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  /* Hamburger: visible on mobile, hidden on desktop (default display:none) */
+  .global-header__hamburger {
+    display: flex;
+    order: 1;          /* ← far left */
+    flex-shrink: 0;
+  }
+
+  /* Logo: immediately right of hamburger */
+  .global-header__logo {
+    order: 2;
+  }
+
+  /* Desktop nav: hidden */
   .global-header__nav {
     display: none;
   }
-  .global-header__hamburger {
-    display: flex;
+
+  /* Spacer pushes auth to the right */
+  .global-header__spacer {
+    order: 3;
   }
+
+  /* Stars: hide — shown in MobileBottomNav */
+  .global-header__stars {
+    display: none;
+    order: 4;
+  }
+
+  /* Theme button: hidden on mobile to save space */
+  .global-header__theme-btn {
+    display: none;
+  }
+
+  /* Auth (avatar / register): stays right */
+  .global-header__auth {
+    order: 5;
+    flex-shrink: 0;
+  }
+
+  /* Reduce logo text size */
   .global-header__logo-text {
     font-size: var(--font-md);
   }
-  .global-header__stars {
-    display: none; /* Hiện trên Mobile Bottom Nav */
+
+  /* Tighter inner padding */
+  .global-header__inner {
+    padding: 0 var(--space-2);
+    gap: var(--space-1);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+  .global-header__logo-text {
+    display: none; /* Only show icon 🎓 on very small screens */
+  }
+  .global-header__inner {
+    padding: 0 8px;
   }
 }
 

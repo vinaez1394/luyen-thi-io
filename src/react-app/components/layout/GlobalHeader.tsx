@@ -74,6 +74,19 @@ export function GlobalHeader() {
       <header className="global-header" role="banner">
         <div className="global-header__inner">
 
+          {/* ── Hamburger (Mobile) — LEFT of logo ── */}
+          <button
+            className="global-header__hamburger"
+            id="btn-header-hamburger"
+            onClick={() => setDrawerOpen(true)}
+            aria-label="Mở menu"
+            aria-expanded={drawerOpen}
+          >
+            <div className="hamburger__line" />
+            <div className="hamburger__line" />
+            <div className="hamburger__line" />
+          </button>
+
           {/* ── Logo ── */}
           <button
             className="global-header__logo"
@@ -308,18 +321,6 @@ export function GlobalHeader() {
             </div>
           )}
 
-          {/* ── Hamburger (Mobile) ── */}
-          <button
-            className="global-header__hamburger"
-            id="btn-header-hamburger"
-            onClick={() => setDrawerOpen(true)}
-            aria-label="Mở menu"
-            aria-expanded={drawerOpen}
-          >
-            <div className="hamburger__line" />
-            <div className="hamburger__line" />
-            <div className="hamburger__line" />
-          </button>
 
         </div>
       </header>
