@@ -20,22 +20,22 @@ import "./GlobalHeader.css";
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export function GlobalHeader() {
-  const navigate  = useNavigate();
-  const location  = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { user, isLoggedIn, isLoading, logout } = useAuth();
   const { theme, themeInfo, setTheme } = useTheme();
 
-  const [drawerOpen,    setDrawerOpen]    = useState(false);
-  const [themeOpen,     setThemeOpen]     = useState(false);
-  const [avatarOpen,    setAvatarOpen]    = useState(false);
-  const [subjectOpen,   setSubjectOpen]   = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const [avatarOpen, setAvatarOpen] = useState(false);
+  const [subjectOpen, setSubjectOpen] = useState(false);
 
-  const themeRef        = useRef<HTMLDivElement>(null);
-  const avatarRef       = useRef<HTMLDivElement>(null);
-  const subjectRef      = useRef<HTMLDivElement>(null);
+  const themeRef = useRef<HTMLDivElement>(null);
+  const avatarRef = useRef<HTMLDivElement>(null);
+  const subjectRef = useRef<HTMLDivElement>(null);
   const subjectCloseTimer = useRef<number | null>(null);
 
-  const openSubjectMenu  = useCallback(() => {
+  const openSubjectMenu = useCallback(() => {
     if (subjectCloseTimer.current) clearTimeout(subjectCloseTimer.current);
     setSubjectOpen(true);
   }, []);
@@ -62,11 +62,11 @@ export function GlobalHeader() {
   }, [location.pathname]);
 
   const displayName = user?.profile?.display_name ?? user?.name ?? "Bé";
-  const totalStars  = 0; // Phase 07 sẽ load từ student_stats
+  const totalStars = 0; // Phase 07 sẽ load từ student_stats
 
   // Chỉ hiển thị môn đang có bài (available: true) — môn chưa có tự động ẩn
   const cambridgeSubjects = SUBJECTS.filter((s) => s.pathway === "cambridge" && s.available);
-  const lop6Subjects      = SUBJECTS.filter((s) => s.pathway === "lop6"      && s.available);
+  const lop6Subjects = SUBJECTS.filter((s) => s.pathway === "lop6" && s.available);
 
 
   return (
@@ -118,9 +118,8 @@ export function GlobalHeader() {
               onMouseLeave={closeSubjectMenu}
             >
               <button
-                className={`global-header__nav-link global-header__nav-link--dropdown ${
-                  subjectOpen ? "active" : ""
-                }`}
+                className={`global-header__nav-link global-header__nav-link--dropdown ${subjectOpen ? "active" : ""
+                  }`}
                 id="btn-nav-mon-hoc"
                 onClick={() => navigate("/")}
                 aria-haspopup="true"
@@ -148,9 +147,8 @@ export function GlobalHeader() {
                       {cambridgeSubjects.map((s) => (
                         <button
                           key={s.id}
-                          className={`nav-subject-dropdown__item ${
-                            !s.available ? "nav-subject-dropdown__item--soon" : ""
-                          }`}
+                          className={`nav-subject-dropdown__item ${!s.available ? "nav-subject-dropdown__item--soon" : ""
+                            }`}
                           role="menuitem"
                           id={`btn-nav-subject-${s.id}`}
                           onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setSubjectOpen(false); } }}
@@ -173,14 +171,13 @@ export function GlobalHeader() {
                     {/* Lớp 6 group */}
                     <div className="nav-subject-dropdown__group">
                       <span className="nav-subject-dropdown__group-label">
-                        🏫 Thi Lớp 6
+                        🏫 Luyện Thi Lớp 6
                       </span>
                       {lop6Subjects.map((s) => (
                         <button
                           key={s.id}
-                          className={`nav-subject-dropdown__item ${
-                            !s.available ? "nav-subject-dropdown__item--soon" : ""
-                          }`}
+                          className={`nav-subject-dropdown__item ${!s.available ? "nav-subject-dropdown__item--soon" : ""
+                            }`}
                           role="menuitem"
                           id={`btn-nav-subject-${s.id}`}
                           onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setSubjectOpen(false); } }}
@@ -367,7 +364,7 @@ export function GlobalHeader() {
             </div>
 
             <div className="mobile-drawer__subject-group" style={{ marginTop: "4px" }}>
-              <div className="mobile-drawer__subject-label">🏫 Thi Lớp 6</div>
+              <div className="mobile-drawer__subject-label">🏫 Luyện Thi Lớp 6</div>
               {lop6Subjects.map((s) => (
                 <button
                   key={s.id}

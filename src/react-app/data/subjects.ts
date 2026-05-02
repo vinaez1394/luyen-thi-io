@@ -48,6 +48,16 @@ export interface Lesson {
   grade_max?: number;
   /** Nằm trong pool rút đề thi thử tự động */
   in_pool?: boolean;
+  /**
+   * Bài được gợi ý — hiện badge "Recommended" trên card
+   * Thường là bài Easy đầu tiên mỗi grade trong Reading
+   */
+  recommended?: boolean;
+  /**
+   * Thời gian ước tính hoàn thành (phút)
+   * Math: ~12 phút / Reading: ~10 phút
+   */
+  est_minutes?: number;
 }
 
 export interface Subject {
@@ -97,17 +107,17 @@ export const SUBJECTS: Subject[] = [
     group: "toan",
     lessons: [
       // 👇 THÊM BÀI TOÁN MỚI TẠI ĐÂY
-      // grade_target: "4-5" = phù hợp bé đang học lớp 4–5, chuẩn bị thi lớp 6
-      { id: "MATH-L1-P1",  slug: "math-l1-p1",  title: "Toán Tư Duy — Level 1 — Bài 1",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P2",  slug: "math-l1-p2",  title: "Toán Tư Duy — Level 1 — Bài 2",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P3",  slug: "math-l1-p3",  title: "Toán Tư Duy — Level 1 — Bài 3",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P4",  slug: "math-l1-p4",  title: "Toán Tư Duy — Level 1 — Bài 4",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P5",  slug: "math-l1-p5",  title: "Toán Tư Duy — Level 1 — Bài 5",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P6",  slug: "math-l1-p6",  title: "Toán Tư Duy — Level 1 — Bài 6",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P7",  slug: "math-l1-p7",  title: "Toán Tư Duy — Level 1 — Bài 7",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P8",  slug: "math-l1-p8",  title: "Toán Tư Duy — Level 1 — Bài 8",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "4-5", unlocks_game: "hangman" },
-      { id: "MATH-L1-P9",  slug: "math-l1-p9",  title: "Toán Tư Duy — Level 1 — Bài 9",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "5-6", unlocks_game: "hangman" },
-      { id: "MATH-L1-P10", slug: "math-l1-p10", title: "Toán Tư Duy — Level 1 — Bài 10", skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "5-6", unlocks_game: "hangman" },
+      // grade_target: "3-4" = phù hợp bé đang học lớp 3–4, chuẩn bị thi lớp 6
+      { id: "MATH-L1-P1",  slug: "math-l1-p1",  title: "Toán Tư Duy — Level 1 — Bài 1",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P2",  slug: "math-l1-p2",  title: "Toán Tư Duy — Level 1 — Bài 2",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P3",  slug: "math-l1-p3",  title: "Toán Tư Duy — Level 1 — Bài 3",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: true,  grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P4",  slug: "math-l1-p4",  title: "Toán Tư Duy — Level 1 — Bài 4",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: false, grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P5",  slug: "math-l1-p5",  title: "Toán Tư Duy — Level 1 — Bài 5",  skill: "math", level: "Level 1", questions: 10, is_free: true,  emoji: "🧮", showOnHome: false, grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P6",  slug: "math-l1-p6",  title: "Toán Tư Duy — Level 1 — Bài 6",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P7",  slug: "math-l1-p7",  title: "Toán Tư Duy — Level 1 — Bài 7",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P8",  slug: "math-l1-p8",  title: "Toán Tư Duy — Level 1 — Bài 8",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "3-4", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P9",  slug: "math-l1-p9",  title: "Toán Tư Duy — Level 1 — Bài 9",  skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "5-6", est_minutes: 12, unlocks_game: "hangman" },
+      { id: "MATH-L1-P10", slug: "math-l1-p10", title: "Toán Tư Duy — Level 1 — Bài 10", skill: "math", level: "Level 1", questions: 10, is_free: false, emoji: "🧮", showOnHome: false, grade_target: "5-6", est_minutes: 12, unlocks_game: "hangman" },
     ],
   },
 
@@ -138,46 +148,55 @@ export const SUBJECTS: Subject[] = [
       // ──────────────── EASY ────────────────────────────────────────────────
       // Slug phẳng để tránh React Router wildcard issue với "/" trong URL
       {
-        id:         "READING-EASY-GRADE3-P1",
-        slug:       "reading-easy-grade3-p1",
-        title:      "Reading Comprehension — Easy — Grade 3-4",
-        skill:      "reading",
-        questions:  8,
-        is_free:    true,
-        emoji:      "📖",
-        showOnHome: true,
-        difficulty: "easy",
-        grade_min:  3,
-        grade_max:  4,
-        in_pool:    true,
+        id:          "READING-EASY-GRADE3-P1",
+        slug:        "reading-easy-grade3-p1",
+        title:       "Reading Comprehension — Easy — Grade 3-4",
+        skill:       "reading",
+        questions:   8,
+        is_free:     true,
+        emoji:       "📖",
+        showOnHome:  true,
+        difficulty:  "easy",
+        grade_min:   3,
+        grade_max:   4,
+        grade_target: "3-4",
+        in_pool:     true,
+        recommended: true,
+        est_minutes: 10,
       },
       {
-        id:         "READING-EASY-GRADE4-P1",
-        slug:       "reading-easy-grade4-p1",
-        title:      "Reading Comprehension — Easy — Grade 4-5",
-        skill:      "reading",
-        questions:  8,
-        is_free:    true,
-        emoji:      "📖",
-        showOnHome: false,
-        difficulty: "easy",
-        grade_min:  4,
-        grade_max:  5,
-        in_pool:    true,
+        id:          "READING-EASY-GRADE4-P1",
+        slug:        "reading-easy-grade4-p1",
+        title:       "Reading Comprehension — Easy — Grade 4-5",
+        skill:       "reading",
+        questions:   8,
+        is_free:     true,
+        emoji:       "📖",
+        showOnHome:  false,
+        difficulty:  "easy",
+        grade_min:   4,
+        grade_max:   5,
+        grade_target: "4-5",
+        in_pool:     true,
+        recommended: true,
+        est_minutes: 10,
       },
       {
-        id:         "READING-EASY-GRADE5-P1",
-        slug:       "reading-easy-grade5-p1",
-        title:      "Reading Comprehension — Easy — Grade 5-6",
-        skill:      "reading",
-        questions:  8,
-        is_free:    true,
-        emoji:      "📖",
-        showOnHome: false,
-        difficulty: "easy",
-        grade_min:  5,
-        grade_max:  6,
-        in_pool:    true,
+        id:          "READING-EASY-GRADE5-P1",
+        slug:        "reading-easy-grade5-p1",
+        title:       "Reading Comprehension — Easy — Grade 5-6",
+        skill:       "reading",
+        questions:   8,
+        is_free:     true,
+        emoji:       "📖",
+        showOnHome:  false,
+        difficulty:  "easy",
+        grade_min:   5,
+        grade_max:   6,
+        grade_target: "5-6",
+        in_pool:     true,
+        recommended: true,
+        est_minutes: 10,
       },
       // ──────────────── MEDIUM ──────────────────────────────────────────────
       {
@@ -192,6 +211,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         grade_min:  3,
         grade_max:  4,
+        grade_target: "3-4",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -206,6 +227,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         grade_min:  4,
         grade_max:  5,
+        grade_target: "4-5",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -220,6 +243,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         grade_min:  5,
         grade_max:  6,
+        grade_target: "5-6",
+        est_minutes:  10,
         in_pool:    true,
       },
       // ──────────────── HARD ────────────────────────────────────────────────
@@ -235,6 +260,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         grade_min:  3,
         grade_max:  4,
+        grade_target: "3-4",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -249,6 +276,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         grade_min:  4,
         grade_max:  5,
+        grade_target: "4-5",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -263,6 +292,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         grade_min:  5,
         grade_max:  6,
+        grade_target: "5-6",
+        est_minutes:  10,
         in_pool:    true,
       },
       // ── P2 Series ────────────────────────────────────────────────────────────
@@ -278,6 +309,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         grade_min:  3,
         grade_max:  4,
+        grade_target: "3-4",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -292,6 +325,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         grade_min:  4,
         grade_max:  5,
+        grade_target: "4-5",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -306,6 +341,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         grade_min:  5,
         grade_max:  6,
+        grade_target: "5-6",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -320,6 +357,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         grade_min:  3,
         grade_max:  4,
+        grade_target: "3-4",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -334,6 +373,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         grade_min:  4,
         grade_max:  5,
+        grade_target: "4-5",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -348,6 +389,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         grade_min:  5,
         grade_max:  6,
+        grade_target: "5-6",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -362,6 +405,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         grade_min:  3,
         grade_max:  4,
+        grade_target: "3-4",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -376,6 +421,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         grade_min:  4,
         grade_max:  5,
+        grade_target: "4-5",
+        est_minutes:  10,
         in_pool:    true,
       },
       {
@@ -390,6 +437,8 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         grade_min:  5,
         grade_max:  6,
+        grade_target: "5-6",
+        est_minutes:  10,
         in_pool:    true,
       },
     ],
