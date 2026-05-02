@@ -26,8 +26,8 @@
   align-items: center;
   gap: var(--space-2);
   padding: 0 var(--space-3);
-  /* Prevent horizontal overflow on small screens */
-  overflow: hidden;
+  /* NOTE: Do NOT add overflow:hidden here — dropdown menus are position:absolute
+     and will be clipped/unclickable if parent has overflow:hidden */
 }
 
 /* ===== LOGO ===== */

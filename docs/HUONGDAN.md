@@ -232,6 +232,42 @@ git push origin dev
 
 ---
 
+## ⚠️ QUY TẮC CSS — TRÁNH PHÁ VỠ UI KHI SỬA
+
+> **Mỗi lần sửa CSS layout/responsive, BẮT BUỘC kiểm tra lại các quy tắc này.**
+
+### 🚫 Rule CSS-01: KHÔNG thêm `overflow:hidden` vào container có dropdown con
+
+```css
+/* ❌ SAI — dropdown position:absolute bị clip, menu không click được */
+.global-header__inner { overflow: hidden; }
+
+/* ✅ ĐÚNG — để mặc định (overflow: visible) */
+.global-header__inner { /* không set overflow */ }
+```
+
+**Các container CẤM thêm overflow:hidden:**
+- `.global-header__inner` — chứa `.nav-subject-dropdown` (position: absolute)
+- `.global-header__nav-dropdown-wrapper` — wrapper dropdown môn học
+- Bất kỳ parent nào của `position: absolute` / `position: fixed` children
+
+**Lỗi thực tế (2026-05-02):** Thêm `overflow:hidden` vào `.global-header__inner` để fix mobile scroll → clip dropdown → menu không click được.
+
+### 🚫 Rule CSS-02: Sửa responsive phải test ĐỒNG THỜI desktop + mobile
+
+Trước khi push, verify 2 breakpoint trong DevTools (Cmd+Shift+M / F12):
+- **Desktop 1200px**: nav hiện, hamburger ẩn, dropdown mở được, link click được
+- **Mobile 375px**: hamburger trái, drawer mở, không scroll ngang
+
+### ✅ Checklist CSS trước khi push
+
+- [ ] `npx tsc -b --noEmit` pass
+- [ ] Desktop: mở dropdown Môn học → click được
+- [ ] Mobile: hamburger bên trái, drawer mở
+- [ ] Không horizontal scroll ở bất kỳ breakpoint
+
+---
+
 ## 📡 R2 CONTENT — MAPPING RULES
 
 | Quiz ID Pattern | R2 Path | URL |
