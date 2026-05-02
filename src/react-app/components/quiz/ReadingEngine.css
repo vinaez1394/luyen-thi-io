@@ -421,6 +421,8 @@
   left: 0;
   right: 0;
   padding: var(--space-2, 10px) var(--space-3, 16px);
+  /* Default padding-bottom — overridden per breakpoint below */
+  padding-bottom: max(var(--space-2, 10px), env(safe-area-inset-bottom, 0px));
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--color-border, #e2e8f0);
@@ -556,23 +558,35 @@
 .re-tooltip-trigger:focus { outline: none; }
 .re-tooltip-wrap:focus-within .re-tooltip-box { display: block; }
 
-/* Footer — tránh bị iOS keyboard che (safe area) */
-.re-footer {
-  padding-bottom: max(var(--space-2, 10px), env(safe-area-inset-bottom));
+/* Footer safe-area + MobileBottomNav offset (mobile ≤ 768px)
+   MobileBottomNav = 64px fixed at bottom. Footer must sit ABOVE it. */
+@media (max-width: 768px) {
+  .re-footer {
+    bottom: 64px; /* = MobileBottomNav height */
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Body needs enough padding so last question clears footer + bottom-nav */
+  .re-engine__body {
+    padding-bottom: calc(64px + 80px); /* bottom-nav(64) + footer(~80) */
+  }
 }
 
-/* Tablet+ */
-@media (min-width: 640px) {
+/* Tablet+ (≥ 769px, no MobileBottomNav) */
+@media (min-width: 769px) {
   .re-engine__body {
     padding: var(--space-4, 24px);
-    padding-bottom: 120px;
+    padding-bottom: 140px; /* Enough clearance for fixed footer */
   }
 
   .re-footer {
+    bottom: 0; /* No bottom nav on tablet/desktop */
     max-width: 720px;
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
     border-radius: var(--radius-md, 16px) var(--radius-md, 16px) 0 0;
+    padding-bottom: max(var(--space-3, 16px), env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -636,10 +650,10 @@
     justify-content: flex-start;
   }
 
-  /* Footer tighter on phone */
+  /* Footer on small phone — padding already set by @media 768px above */
   .re-footer {
-    padding: 10px var(--space-2, 10px);
-    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    padding-left: var(--space-2, 10px);
+    padding-right: var(--space-2, 10px);
   }
 
   .re-footer__submit-btn {
