@@ -151,17 +151,17 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
           <div className="re-result">
             <span className="re-result__stars">{starsLabel}</span>
             <div className="re-result__score">
-              {result.correctCount}/{result.totalQuestions} câu đúng
+              {result.correctCount}/{result.totalQuestions} correct
             </div>
             <div className="re-result__label">
               {result.percentage}% — {
-                result.percentage >= 80 ? "Xuất sắc! 🎉" :
-                result.percentage >= 60 ? "Khá tốt! 👍" :
-                "Cố gắng hơn nhé! 💪"
+                result.percentage >= 80 ? "Excellent! 🎉" :
+                result.percentage >= 60 ? "Good job! 👍" :
+                "Keep practising! 💪"
               }
             </div>
             <button className="re-result__retry-btn" onClick={handleRetry}>
-              🔄 Làm lại
+              🔄 Try Again
             </button>
           </div>
         )}
@@ -185,7 +185,7 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
       {!isSubmitted && (
         <div className="re-footer">
           <div className="re-footer__progress-text">
-            Đã trả lời {answeredCount}/{totalQuestions} câu
+            Answered {answeredCount}/{totalQuestions}
           </div>
           <div className="re-footer__progress-bar">
             <div
@@ -198,9 +198,9 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
             onClick={handleSubmit}
             disabled={!allAnswered}
             id="btn-reading-submit"
-            title={!allAnswered ? "Vui lòng trả lời tất cả câu hỏi" : ""}
+            title={!allAnswered ? "Please answer all questions first" : ""}
           >
-            Nộp bài ✓
+            Submit ✓
           </button>
         </div>
       )}
@@ -212,7 +212,7 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
           totalCount={result.totalQuestions}
           starsEarned={result.starsEarned}
           showStars={true}
-          scoreLabel="câu đúng"
+          scoreLabel="correct"
           onLogin={loginWithGoogle}
           onPlayAgain={() => {
             setShowLoginCTA(false);

@@ -50,12 +50,12 @@ export function ReadingPassage({
         <button
           className="re-passage__collapsed-bar"
           onClick={onToggle}
-          aria-label="Mở lại đoạn văn"
+          aria-label="Expand passage"
         >
           <span className="re-passage__collapsed-label">
             📄 {snippet}
           </span>
-          <span className="re-passage__open-btn">Mở lại ▼</span>
+          <span className="re-passage__open-btn">Show ▼</span>
         </button>
       </div>
     );
@@ -65,7 +65,7 @@ export function ReadingPassage({
   return (
     <div className="re-passage">
       <div className="re-passage__content">
-        <div className="re-passage__badge">📄 Đoạn văn</div>
+        <div className="re-passage__badge">📄 Passage</div>
         <div className="re-passage__text">
           <WordTooltip
             prompt={passage.text_segments}
@@ -81,9 +81,9 @@ export function ReadingPassage({
         <button
           className="re-passage__toggle-btn"
           onClick={onToggle}
-          aria-label="Thu gọn đoạn văn"
+          aria-label="Collapse passage"
         >
-          Thu gọn đoạn văn ▲
+          Collapse passage ▲
         </button>
       </div>
     </div>

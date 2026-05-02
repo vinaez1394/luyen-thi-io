@@ -33,7 +33,7 @@ export function ReadingSection({
     <div className="re-section">
       <div className="re-section__header">
         <span>{section.title}</span>
-        <span className="re-section__points">{section.points} điểm</span>
+        <span className="re-section__points">{section.points} pts</span>
       </div>
 
       <ReadingPassage
