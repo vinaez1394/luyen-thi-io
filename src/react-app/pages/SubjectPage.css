@@ -500,14 +500,10 @@
   font-weight: 700;
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .badge-grade-34 { background: #14532d; color: #4ade80; border-color: #15803d; }
-  .badge-grade-45 { background: #7c2d12; color: #fb923c; border-color: #c2410c; }
-  .badge-grade-56 { background: #7f1d1d; color: #f87171; border-color: #b91c1c; }
-}
+/* ⚠️ Không dùng prefers-color-scheme — App dùng data-theme attribute (6 themes).
+   Dark mode sẽ được handle bởi [data-theme="night"] không phải OS system preference. */
 
-/* Card header row: grade badge left, difficulty badge right */
+/* Card header row: grade badge left, skill badge right */
 .sp-lesson-card__header {
   display: flex;
   align-items: center;
@@ -554,17 +550,4 @@
   background: #fef3c7;
   color: #92400e;
   border: 1px solid #f59e0b;
-}
-
-@media (prefers-color-scheme: dark) {
-  .sp-badge-premium { background: #78350f; color: #fde68a; border-color: #d97706; }
-}
-
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .badge-difficulty-easy   { background: #14532d; color: #86efac; border-color: #15803d; }
-  .badge-difficulty-medium { background: #713f12; color: #fde047; border-color: #854d0e; }
-  .badge-difficulty-hard   { background: #7f1d1d; color: #fca5a5; border-color: #b91c1c; }
-  .sp-grade-tab__count     { background: color-mix(in srgb, var(--color-border) 60%, transparent); }
 }
