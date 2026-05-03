@@ -624,3 +624,60 @@
   background: var(--color-surface-elevated, #f0f0f0);
   color: var(--color-text-muted, #999);
 }
+
+/* ===== MOBILE DRAWER — Theme Switcher ===== */
+.mobile-drawer__divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+.mobile-drawer__theme-section {
+  padding: var(--space-1) 0;
+}
+
+.mobile-drawer__theme-label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text-muted);
+  padding: 4px var(--space-2) 10px;
+}
+
+.mobile-drawer__theme-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  padding: 0 var(--space-2);
+}
+
+.mobile-drawer__theme-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.mobile-drawer__theme-btn:hover {
+  background: var(--color-bg-subtle);
+}
+.mobile-drawer__theme-btn.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.mobile-drawer__theme-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.mobile-drawer__theme-emoji {
+  font-size: 14px;
+  line-height: 1;
+}

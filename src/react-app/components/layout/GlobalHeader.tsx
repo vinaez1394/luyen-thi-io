@@ -387,6 +387,31 @@ export function GlobalHeader() {
               <span className="mobile-drawer__nav-icon">📊</span> Tiến độ
             </button>
 
+            {/* ——— Theme Switcher ——— */}
+            <div className="mobile-drawer__divider" />
+            <div className="mobile-drawer__theme-section">
+              <div className="mobile-drawer__theme-label">
+                🎨 Đổi giao diện màu
+              </div>
+              <div className="mobile-drawer__theme-grid">
+                {THEMES.map((t) => (
+                  <button
+                    key={t.id}
+                    className={`mobile-drawer__theme-btn${theme === t.id ? " selected" : ""}`}
+                    onClick={() => setTheme(t.id as ThemeId)}
+                    title={t.label}
+                    aria-label={t.label}
+                  >
+                    <div
+                      className="mobile-drawer__theme-swatch"
+                      style={{ background: t.primary }}
+                    />
+                    <span className="mobile-drawer__theme-emoji">{t.emoji}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div style={{ height: 1, background: "var(--color-border)", margin: "8px 0" }} />
 
             {isLoggedIn ? (
