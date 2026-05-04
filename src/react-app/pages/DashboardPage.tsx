@@ -73,6 +73,7 @@ export function DashboardPage() {
           user={user}
           streak={data.streak}
           totalStars={data.totalStars}
+          currentGrade={data.currentGrade}
         />
       </section>
 
@@ -128,7 +129,12 @@ export function DashboardPage() {
         {/* Subject Progress Grid */}
         {ps ? (
           <section className="db-section db-section--progress">
-            <h2 className="db-section__title">📊 Tiến độ các môn</h2>
+            <h2 className="db-section__title">
+              📊 Tiến độ các môn
+              {data.currentGrade && (
+                <span className="db-section__grade-tag">🏫 Lớp {data.currentGrade}</span>
+              )}
+            </h2>
 
             {/* Grade missing warning */}
             {ps.gradeMissing && (
@@ -136,7 +142,7 @@ export function DashboardPage() {
                 ⚠️ Hãy cập nhật lớp cho bé để tính tiến độ chính xác hơn →{" "}
                 <button
                   className="db-grade-alert__link"
-                  onClick={() => navigate("/dashboard/profile")}
+                  onClick={() => navigate("/onboarding")}
                 >
                   Cập nhật ngay
                 </button>
@@ -149,6 +155,8 @@ export function DashboardPage() {
                   key={subject}
                   subject={subject}
                   data={subjectData}
+                  pathway="lop6"
+                  onNavigate={(path) => navigate(path)}
                 />
               ))}
             </div>
@@ -228,6 +236,8 @@ export function DashboardPage() {
                       key={subject}
                       subject={subject}
                       data={subjectData}
+                      pathway="cambridge"
+                      onNavigate={(path) => navigate(path)}
                     />
                   ))}
                 </div>

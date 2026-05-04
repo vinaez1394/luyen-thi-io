@@ -47,19 +47,22 @@ function getAvatar(avatarId: string | undefined): string {
 // Props
 // ============================================
 interface WelcomeHeaderProps {
-  user: AuthUser;
-  streak: number;
-  totalStars: number;
+  user:         AuthUser;
+  streak:       number;
+  totalStars:   number;
+  currentGrade: number | null;  // Phase Dashboard: lớp hiện tại của bé
 }
 
 // ============================================
 // Component
 // ============================================
-export function WelcomeHeader({ user, streak, totalStars }: WelcomeHeaderProps) {
+export function WelcomeHeader({ user, streak, totalStars, currentGrade }: WelcomeHeaderProps) {
   const displayName =
     user.profile?.display_name ?? user.name.split(" ").pop() ?? "bé";
   const avatar = getAvatar(user.profile?.avatar_id);
   const greeting = getGreeting();
+
+  const gradeLabel = currentGrade ? `Lớp ${currentGrade}` : null;
 
   return (
     <div className="db-welcome">
@@ -71,7 +74,14 @@ export function WelcomeHeader({ user, streak, totalStars }: WelcomeHeaderProps) 
         <div className="db-welcome__text">
           <p className="db-welcome__greeting">{greeting},</p>
           <h1 className="db-welcome__name">{displayName}! 👋</h1>
-          <p className="db-welcome__tagline">Hôm nay mình sẽ học gì nào?</p>
+          {gradeLabel ? (
+            <p className="db-welcome__tagline">
+              <span className="db-welcome__grade-badge">🏫 {gradeLabel}</span>
+              · Hôm nay mình sẽ học gì nào?
+            </p>
+          ) : (
+            <p className="db-welcome__tagline">Hôm nay mình sẽ học gì nào?</p>
+          )}
         </div>
       </div>
 

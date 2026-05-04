@@ -12,8 +12,15 @@ import type { SubjectProgress } from "../../hooks/useDashboard";
 import "./SubjectProgressCard.css";
 
 interface Props {
-  subject:  string;  // key, e.g. "toan", "tieng-anh"
-  data:     SubjectProgress;
+  subject:    string;
+  data:       SubjectProgress;
+  pathway?:   "lop6" | "cambridge";   // nếu có → card clickąble
+  onNavigate?: (path: string) => void; // callback navigate
+}
+
+// Build link path từ pathway + subject key
+function subjectPath(pathway: string, subject: string): string {
+  return `/${pathway}/${subject}`;
 }
 
 const BADGE_CONFIG = {
@@ -23,13 +30,25 @@ const BADGE_CONFIG = {
   pending: { label: "Chưa đủ dữ liệu", color: "gray",   icon: "⏳" },
 } as const;
 
-export function SubjectProgressCard({ data }: Props) {
+export function SubjectProgressCard({ data, subject, pathway, onNavigate }: Props) {
   const pct      = data.totalFree > 0 ? Math.round((data.doneFree / data.totalFree) * 100) : 0;
   const badge    = BADGE_CONFIG[data.badge];
   const hasFree  = data.totalFree > 0;
+  const clickable = !!pathway && !!onNavigate;
+
+  const handleClick = () => {
+    if (clickable) onNavigate!(subjectPath(pathway!, subject));
+  };
 
   return (
-    <div className="spc-card" role="article" aria-label={`Tiến độ môn ${data.label}`}>
+    <div
+      className={`spc-card ${clickable ? "spc-card--clickable" : ""}`}
+      role={clickable ? "button" : "article"}
+      tabIndex={clickable ? 0 : undefined}
+      aria-label={`Tiến độ môn ${data.label}${clickable ? " — click để xem" : ""}`}
+      onClick={clickable ? handleClick : undefined}
+      onKeyDown={clickable ? (e) => { if (e.key === "Enter" || e.key === " ") handleClick(); } : undefined}
+    >
       {/* Header */}
       <div className="spc-card__header">
         <span className="spc-card__emoji" aria-hidden="true">{data.emoji}</span>

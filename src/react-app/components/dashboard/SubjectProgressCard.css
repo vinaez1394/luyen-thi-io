@@ -13,7 +13,19 @@
   transition: box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
-.spc-card:hover {
+.spc-card--clickable {
+  cursor: pointer;
+}
+
+.spc-card--clickable:hover,
+.spc-card--clickable:focus-visible {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.spc-card:not(.spc-card--clickable):hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
