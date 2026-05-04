@@ -314,13 +314,21 @@
   padding: 8px 24px;
   border-radius: var(--radius-full, 9999px);
   border: 2px solid var(--color-border, #e2e8f0);
-  background: var(--color-card, #ffffff);   /* fix dark theme: không dùng transparent */
+  background: var(--color-card, #ffffff);
   color: var(--color-text, #1e293b);
   font-size: var(--font-sm, 14px);
   font-weight: var(--font-bold, 700);
   cursor: pointer;
   transition: all 0.15s;
   font-family: inherit;
+  /* Đảm bảo text luôn hiển thị đúng */
+  text-align: center;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
 }
 
 .re-tf-btn--true:hover:not(:disabled) {
@@ -333,14 +341,14 @@
 }
 
 .re-tf-btn--true.re-tf-btn--selected {
-  background: #16a34a;
-  border-color: #16a34a;
-  color: white;
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #ffffff !important;  /* Force white text */
 }
 .re-tf-btn--false.re-tf-btn--selected {
-  background: #dc2626;
-  border-color: #dc2626;
-  color: white;
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;  /* Force white text — fix dark mode hiding text */
 }
 
 /* Sau submit */
@@ -596,7 +604,8 @@
 @media (max-width: 480px) {
   .re-engine__body {
     padding: var(--space-2, 10px);
-    padding-bottom: 100px;
+    padding-top: 68px;   /* Bù cho sub-header fixed (64px + 4px) */
+    padding-bottom: 40px;
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -635,7 +644,10 @@
   }
   .re-tf-btn {
     flex: 1;
+    min-width: 0;       /* Tránh overflow khi flex:1 */
     min-height: 48px;
+    padding: 8px 12px;  /* Giảm padding ngang để text không bị clip */
+    font-size: var(--font-sm, 14px);
   }
 
   /* Write-word input full width */

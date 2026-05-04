@@ -19,8 +19,8 @@
   background: var(--color-card);
   border-bottom: 1px solid var(--color-border);
   padding: 10px var(--space-3);
-  position: sticky;
-  top: 64px; /* Nằm ngay dưới GlobalHeader */
+  position: sticky;       /* Desktop: sticky within scroll flow */
+  top: 64px;              /* Ngay dưới GlobalHeader (64px sticky) */
   z-index: calc(var(--z-dropdown) - 1);
   box-shadow: var(--shadow-xs);
 }
@@ -167,9 +167,20 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
+  /* Mobile: dùng position:fixed để luôn pin cố định dưới GlobalHeader,
+     không phụ thuộc vào scroll context của parent */
   .quiz-sub-header {
-    padding: 8px var(--space-2);
+    position: fixed;
     top: 64px;
+    left: 0;
+    right: 0;
+    padding: 8px var(--space-2);
+    z-index: 90; /* Dưới GlobalHeader (z-index 100) nhưng trên content */
+  }
+
+  /* Bù khoảng cách cho nội dung bên dưới không bị che */
+  .quiz-layout__content {
+    padding-top: 72px; /* chiều cao sub-header trên mobile (~58px) + buffer */
   }
 
   .quiz-sub-header__inner {
