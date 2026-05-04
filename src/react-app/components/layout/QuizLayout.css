@@ -113,6 +113,12 @@
     transform var(--transition-bounce),
     box-shadow var(--transition-fast);
   flex-shrink: 0;
+  /* Clickable bubbles */
+  cursor: pointer;
+}
+.quiz-progress-bubble:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 /* Đã trả lời → xanh lá */
@@ -193,25 +199,14 @@
     max-width: none; /* Let it fill available space */
   }
 
+  /* Ẩn title h2 trên mobile — breadcrumb đã hiện tên bài, tránh lặp 2 lần */
   .quiz-sub-header__title {
-    font-size: var(--font-xs);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: none;
   }
 
-  .quiz-progress-bubbles {
-    max-width: 140px;
-    gap: 3px;
-  }
-
-  .quiz-progress-bubble {
-    width: 8px;
-    height: 8px;
-  }
-
-  .quiz-sub-header__count {
-    font-size: 10px;
+  /* Ẩn progress bubbles khỏi sub-header trên mobile — chúng sẽ nằm ở footer */
+  .quiz-sub-header__progress {
+    display: none;
   }
 
   .quiz-layout {

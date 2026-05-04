@@ -312,6 +312,7 @@ export function QuizPage() {
         onNext={handleNext}
         onPrev={handlePrev}
         onSubmit={handleSubmit}
+        onJumpTo={(i) => setCurrentQuestion(i)}
         allAnswered={allAnswered}
         // Phase 4.5: vocab props
         vocabRemainingFree={vocab.remainingFree}
