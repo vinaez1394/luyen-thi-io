@@ -16,7 +16,6 @@ import { FillBlank } from "./FillBlank";
 import { DragDropFill } from "./DragDropFill";
 import { DragDropMatch } from "./DragDropMatch";
 import { UnknownTypeScreen } from "./UnknownTypeScreen";
-import { InstructionBanner } from "./InstructionBanner";
 import "./Quiz.css";
 
 // ============================================
@@ -110,11 +109,6 @@ export function QuizEngine({
 
   return (
     <div className="quiz-engine">
-      {/* Hướng dẫn — chỉ hiện ở câu đầu tiên */}
-      {currentQuestion === 0 && !isSubmitted && (
-        <InstructionBanner text={quiz.instructions_vi} />
-      )}
-
       {/* Nội dung câu hỏi */}
       <div className="quiz-engine__content">
         {QuizComponent ? (
