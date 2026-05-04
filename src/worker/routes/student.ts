@@ -239,7 +239,7 @@ studentRoute.get("/dashboard", async (c) => {
 });
 
 
-// Phase 05: gọi từ QuizPage sau onHangmanStarsEarned
+// POST /api/student/stars — Cộng sao từ Hangman hoặc Flashcard
 // =============================================
 studentRoute.post("/stars", async (c) => {
   // Auth check
@@ -257,12 +257,15 @@ studentRoute.post("/stars", async (c) => {
     quiz_id: string;
   }>();
 
-  // Validate
+  // Validate stars
   const stars = Math.floor(body.stars ?? 0);
   if (stars < 1 || stars > 2) {
     return c.json({ error: "Số sao không hợp lệ (1–2)" }, 400);
   }
-  if (body.source !== "hangman") {
+
+  // Validate source — cho phép hangman, flashcard
+  const VALID_SOURCES = ["hangman", "flashcard"];
+  if (!VALID_SOURCES.includes(body.source)) {
     return c.json({ error: "Source không hợp lệ" }, 400);
   }
 
@@ -273,18 +276,52 @@ studentRoute.post("/stars", async (c) => {
 
   if (!profile) return c.json({ error: "Chưa có hồ sơ" }, 404);
 
-  // Cộng dồn sao vào student_profiles (total_stars)
-  await c.env.DB.prepare(
-    `UPDATE student_profiles SET total_stars = COALESCE(total_stars, 0) + ? WHERE id = ?`
-  ).bind(stars, profile.id).run();
+  const studentId = profile.id;
+  const today = new Date().toISOString().slice(0, 10);
 
-  // Lưu last_quiz_id vào student_stats (cho HomeHangman)
+  // 1. Cộng dồn sao vào student_stats (đúng bảng)
+  await c.env.DB.prepare(
+    `UPDATE student_stats SET total_stars = COALESCE(total_stars, 0) + ? WHERE student_id = ?`
+  ).bind(stars, studentId).run();
+
+  // 2. Lưu last_quiz_id vào student_stats (cho HomeHangman)
   const quizId = (body.quiz_id ?? "").trim().slice(0, 64);
   if (quizId) {
     await c.env.DB.prepare(
       `UPDATE student_stats SET last_quiz_id = ? WHERE student_id = ?`
-    ).bind(quizId, profile.id).run();
+    ).bind(quizId, studentId).run();
   }
+
+  // 3. Cập nhật daily_activity (upsert)
+  await c.env.DB.prepare(
+    `INSERT INTO daily_activity (student_id, date_key, sessions, stars)
+     VALUES (?, ?, 1, ?)
+     ON CONFLICT(student_id, date_key) DO UPDATE SET
+       sessions = sessions + 1,
+       stars = stars + excluded.stars`
+  ).bind(studentId, today, stars).run();
+
+  // 4. Tính lại streak
+  const activityRows = await c.env.DB.prepare(
+    `SELECT date_key FROM daily_activity WHERE student_id = ? ORDER BY date_key DESC`
+  ).bind(studentId).all<{ date_key: string }>();
+
+  const dates = activityRows.results.map((r) => r.date_key);
+  let streak = 0;
+  const cursor = new Date(today);
+  for (const d of dates) {
+    const expected = cursor.toISOString().slice(0, 10);
+    if (d === expected) {
+      streak++;
+      cursor.setDate(cursor.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+
+  await c.env.DB.prepare(
+    `UPDATE student_stats SET current_streak = ?, longest_streak = MAX(longest_streak, ?) WHERE student_id = ?`
+  ).bind(streak, streak, studentId).run();
 
   return c.json({ ok: true, starsAdded: stars });
 });

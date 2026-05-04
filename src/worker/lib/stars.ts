@@ -60,4 +60,36 @@ export async function updateStarsAfterQuiz(params: StarsUpdateParams) {
      SET current_progress = current_progress + ?
      WHERE student_id = ? AND goal_type = 'stars' AND status = 'approved'`
   ).bind(starsEarned, studentId).run();
+
+  // 5. Tính lại streak — đếm số ngày liên tiếp tính đến hôm nay
+  // Lấy tất cả date_key có hoạt động của student, sắp xếp mới nhất trước
+  const activityRows = await env.DB.prepare(
+    `SELECT date_key FROM daily_activity
+     WHERE student_id = ?
+     ORDER BY date_key DESC`
+  ).bind(studentId).all<{ date_key: string }>();
+
+  const dates = activityRows.results.map((r) => r.date_key);
+
+  // Đếm streak: bắt đầu từ hôm nay, kiểm tra từng ngày liên tiếp
+  let streak = 0;
+  const cursor = new Date(today);
+  for (const d of dates) {
+    const expected = cursor.toISOString().slice(0, 10);
+    if (d === expected) {
+      streak++;
+      cursor.setDate(cursor.getDate() - 1); // lùi 1 ngày
+    } else {
+      break; // chuỗi bị đứt
+    }
+  }
+
+  // Cập nhật current_streak và longest_streak (nếu đang phá kỷ lục)
+  await env.DB.prepare(
+    `UPDATE student_stats
+     SET
+       current_streak = ?,
+       longest_streak = MAX(longest_streak, ?)
+     WHERE student_id = ?`
+  ).bind(streak, streak, studentId).run();
 }

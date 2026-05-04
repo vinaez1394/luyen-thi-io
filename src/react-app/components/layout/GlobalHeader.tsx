@@ -62,7 +62,37 @@ export function GlobalHeader() {
   }, [location.pathname]);
 
   const displayName = user?.profile?.display_name ?? user?.name ?? "Bé";
-  const totalStars = 0; // Phase 07 sẽ load từ student_stats
+
+  // Load total stars từ API (chỉ khi đăng nhập)
+  const [totalStars, setTotalStars] = useState(0);
+
+  useEffect(() => {
+    if (!isLoggedIn) { setTotalStars(0); return; }
+
+    let cancelled = false;
+    fetch("/api/student/dashboard")
+      .then((r) => r.ok ? r.json() : null)
+      .then((d: { totalStars?: number } | null) => {
+        if (!cancelled && d?.totalStars != null) setTotalStars(d.totalStars);
+      })
+      .catch(() => {});
+
+    // Lắng nghe event khi kiếm được sao → refresh
+    const onStarsUpdate = () => {
+      fetch("/api/student/dashboard")
+        .then((r) => r.ok ? r.json() : null)
+        .then((d: { totalStars?: number } | null) => {
+          if (!cancelled && d?.totalStars != null) setTotalStars(d.totalStars);
+        })
+        .catch(() => {});
+    };
+    window.addEventListener("stars:updated", onStarsUpdate);
+    return () => {
+      cancelled = true;
+      window.removeEventListener("stars:updated", onStarsUpdate);
+    };
+  }, [isLoggedIn]);
+
 
   // Chỉ hiển thị môn đang có bài (available: true) — môn chưa có tự động ẩn
   const cambridgeSubjects = SUBJECTS.filter((s) => s.pathway === "cambridge" && s.available);

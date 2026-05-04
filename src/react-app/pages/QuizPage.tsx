@@ -194,7 +194,9 @@ export function QuizPage() {
                 source:  "hangman",
                 quiz_id: quizId,
               }),
-            }).catch(() => {});
+            })
+              .then((r) => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); })
+              .catch(() => {});
           }
         }}
         // Phase 05: Flashcard — cộng sao thật
@@ -208,7 +210,9 @@ export function QuizPage() {
                 source:  "flashcard",
                 quiz_id: quizId,
               }),
-            }).catch(() => {});
+            })
+              .then((r) => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); })
+              .catch(() => {});
           }
         }}
       />
