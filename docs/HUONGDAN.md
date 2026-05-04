@@ -1,5 +1,5 @@
 # 📘 HƯỚNG DẪN DỰ ÁN — luyen-thi-io
-> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-01 | Reading Engine hoàn thành
+> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-04 | Profile Settings & Dashboard
 
 ---
 
@@ -57,6 +57,7 @@ luyenthi.io.vn/
 │       └── /lop6/tieng-anh/reading-hard-grade5-p1
 ├── /onboarding                 ← [Auth Required] 5-step wizard
 ├── /dashboard                  ← [Auth Required]
+├── /profile                    ← [Auth Required] Cài đặt hồ sơ (Profile Settings)
 └── /quiz/:id                   ← Legacy URL (backward compat)
 ```
 
@@ -116,6 +117,23 @@ luyen-thi-io/
 │       └── READING-HARD-GRADE3-P1.json ... (×3)
 └── .github/workflows/deploy.yml
 ```
+
+---
+
+## ⚙️ TÍNH NĂNG DASHBOARD & HỒ SƠ (Cập nhật 2026-05-04)
+
+### 1. Dashboard
+- Gọi `GET /api/student/dashboard` để lấy toàn bộ dữ liệu: `currentGrade`, `selectedPathway`, `streak`, `totalStars`, `skillLevels`, `dreamGoal`.
+- Dữ liệu `currentGrade` và `selectedPathway` được đồng bộ xuống `localStorage` (`student_grade`, `student_pathway`) ngay khi dashboard load để dùng ở các trang khác mà không cần fetch lại.
+
+### 2. Trang Cài Đặt Hồ Sơ (`/profile`)
+- Nằm trong dropdown avatar góc phải trên: "Cài đặt" → `/profile`.
+- Cho phép phụ huynh/học sinh cập nhật: Tên hiển thị, Avatar, Lớp đang học, Lộ trình học.
+- Dùng `PATCH /api/student/profile` để cập nhật từng phần thông tin, khắc phục lỗi 409 Conflict của luồng Onboarding cũ.
+
+### 3. Logic "Ôn tập lại" (Review Mode)
+- Nếu học sinh truy cập bài tập thuộc lớp bé hơn (`grade_max` < `currentGrade`), một Notification Banner "Ôn tập lại" sẽ xuất hiện.
+- Học sinh có thể bấm "Bắt đầu ôn tập", điểm số bài này sẽ KHÔNG làm ảnh hưởng đến lộ trình và tiến độ (`skillLevels`) chính thức của lớp hiện tại.
 
 ---
 
@@ -356,7 +374,9 @@ Paste SQL → Execute.
 |--------|-----|-------|
 | GET | `/api/quiz/:id` | Lấy nội dung bài (từ R2) |
 | POST | `/api/quiz/:id/submit` | Nộp bài, lưu kết quả |
-| POST | `/api/student/profile` | Cập nhật hồ sơ bé |
+| POST | `/api/student/profile` | Tạo hồ sơ bé (Onboarding) |
+| PATCH | `/api/student/profile` | Cập nhật hồ sơ bé (Cài đặt) |
+| GET | `/api/student/dashboard` | Lấy data tổng hợp (grade, pathway, streak, stars) |
 | POST | `/api/student/stars` | Cộng sao (Hangman, Flashcard) |
 
 ---
@@ -483,4 +503,4 @@ Dùng lệnh `/debug` → AI hỏi thông tin, điều tra, sửa đúng chỗ.
 ---
 
 *GitHub: https://github.com/vinaez1394/luyen-thi-io*
-*Cập nhật: 2026-05-01 | Reading Engine + Deploy Fix*
+*Cập nhật: 2026-05-04 | Profile Settings + Dashboard Flow*
