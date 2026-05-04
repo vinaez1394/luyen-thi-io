@@ -14,25 +14,30 @@ interface StarsUpdateParams {
   maxScore: number;
   timeSpent: number;
   answersJson: string;
+  pathway: string | null;   // 'lop6' | 'cambridge' | null
+  subject: string | null;   // 'toan' | 'tieng-anh' | 'reading' | ...
+  isFree: number;           // 1 = free, 0 = premium
   env: Env;
 }
 
 export async function updateStarsAfterQuiz(params: StarsUpdateParams) {
   const {
     studentId, starsEarned, quizId, skill, partNumber,
-    score, maxScore, timeSpent, answersJson, env,
+    score, maxScore, timeSpent, answersJson, pathway, subject, isFree, env,
   } = params;
 
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-  // 1. Lưu quiz_attempts
+  // 1. Lưu quiz_attempts (bao gồm metadata mới: pathway, subject, is_free)
   await env.DB.prepare(
     `INSERT INTO quiz_attempts
-     (id, student_id, quiz_id, skill, part_number, score, max_score, stars_earned, answers_json, time_spent, completed_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, unixepoch())`
+     (id, student_id, quiz_id, skill, part_number, score, max_score, stars_earned,
+      answers_json, time_spent, pathway, subject, is_free, completed_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, unixepoch())`
   ).bind(
     crypto.randomUUID(), studentId, quizId, skill, partNumber,
-    score, maxScore, starsEarned, answersJson, timeSpent
+    score, maxScore, starsEarned, answersJson, timeSpent,
+    pathway, subject, isFree
   ).run();
 
   // 2. Cập nhật student_stats (total_stars)

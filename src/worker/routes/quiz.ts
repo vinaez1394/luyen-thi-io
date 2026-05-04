@@ -152,6 +152,38 @@ function getR2Key(quizId: string): string {
   return `quizzes/${quizId}.json`;
 }
 
+/**
+ * detectQuizMeta — Detect pathway, subject, is_free từ quiz ID
+ *
+ * Quiz ID patterns:
+ *   MATH-L1-P1        → lop6 / toan
+ *   READING-*-GRADE*  → lop6 / tieng-anh
+ *   RW*, RW2-*, RW3-* → cambridge / reading
+ *   L001-L003         → cambridge / listening
+ *
+ * is_free: tra cứu từ quiz_configs table (nếu không có → mặc định free=1)
+ */
+function detectQuizMeta(quizId: string): { pathway: string | null; subject: string | null } {
+  // Lớp 6 — Toán Tư Duy
+  if (/^MATH-L\d+-P\d+$/i.test(quizId)) {
+    return { pathway: "lop6", subject: "toan" };
+  }
+  // Lớp 6 — Tiếng Anh Reading
+  if (/^READING-(EASY|MED|HARD)-GRADE\d+-P\d+$/i.test(quizId)) {
+    return { pathway: "lop6", subject: "tieng-anh" };
+  }
+  // Cambridge — Reading/Writing (Flyers)
+  if (/^RW/i.test(quizId)) {
+    return { pathway: "cambridge", subject: "reading" };
+  }
+  // Cambridge — Listening (Flyers)
+  if (/^L\d{3}$/i.test(quizId)) {
+    return { pathway: "cambridge", subject: "listening" };
+  }
+  // Không xác định được
+  return { pathway: null, subject: null };
+}
+
 export const quizRoute = new Hono<{ Bindings: Env }>();
 
 // ============================================
@@ -285,6 +317,18 @@ quizRoute.post("/:quizId/submit", async (c) => {
     ).bind(userId).first<{ id: string }>();
 
     if (profile) {
+      // Detect metadata cho dashboard progress tracking
+      const meta = detectQuizMeta(quizId);
+
+      // is_free: tra cứu từ quiz_configs (fallback = 1 nếu chưa config)
+      let quizIsFree = 1;
+      try {
+        const cfg = await c.env.DB.prepare(
+          "SELECT is_free FROM quiz_configs WHERE quiz_id = ? LIMIT 1"
+        ).bind(quizId).first<{ is_free: number }>();
+        if (cfg !== null) quizIsFree = cfg.is_free;
+      } catch { /* quiz_configs chưa migrate → mặc định free */ }
+
       await updateStarsAfterQuiz({
         studentId: profile.id,
         starsEarned,
@@ -295,6 +339,9 @@ quizRoute.post("/:quizId/submit", async (c) => {
         maxScore: total,
         timeSpent: body.timeSpent ?? 0,
         answersJson: JSON.stringify(body.answers),
+        pathway: meta.pathway,
+        subject: meta.subject,
+        isFree: quizIsFree,
         env: c.env,
       });
       saved = true;

@@ -42,6 +42,17 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: ./node_modules/.bin/wrangler deploy
 
+      # 5.5 Chạy D1 migrations (ALTER TABLE an toàn — bỏ qua nếu column đã tồn tại)
+      - name: Apply D1 Migrations
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+        run: |
+          echo "⚙️ Chạy migration 0009 — thêm pathway/subject/is_free vào quiz_attempts..."
+          ./node_modules/.bin/wrangler d1 execute luyen-thi-db \
+            --file src/worker/migrations/0009_add_quiz_attempt_metadata.sql \
+            --remote || echo "⚠️ Migration đã chạy trước đó (column exists) — bỏ qua, tiếp tục"
+
       # 6. Sync content JSON → R2 (KHÔNG thay đổi từ các lần deploy thành công)
       - name: Sync content JSON → R2 (theo SITEMAP)
         env:
