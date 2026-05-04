@@ -17,7 +17,8 @@
 .re-engine__body {
   flex: 1;
   padding: var(--space-3, 16px);
-  padding-bottom: 100px; /* Chừa chỗ cho sticky footer */
+  padding-top: var(--space-4, 24px); /* Thêm khoảng cách sau sub-header */
+  padding-bottom: 40px; /* Không cần chừa cho sticky footer nữa */
   max-width: 720px;
   margin: 0 auto;
   width: 100%;
@@ -313,7 +314,8 @@
   padding: 8px 24px;
   border-radius: var(--radius-full, 9999px);
   border: 2px solid var(--color-border, #e2e8f0);
-  background: transparent;
+  background: var(--color-card, #ffffff);   /* fix dark theme: không dùng transparent */
+  color: var(--color-text, #1e293b);
   font-size: var(--font-sm, 14px);
   font-weight: var(--font-bold, 700);
   cursor: pointer;
@@ -665,5 +667,62 @@
   /* Result panel */
   .re-result {
     padding: var(--space-3, 16px) var(--space-2, 10px);
+  }
+}
+
+/* ============================================
+   READING SUB-HEADER CENTER
+   (Progress "X/N" + Nộp bài button, nằm trong quiz-sub-header)
+   ============================================ */
+.re-subheader-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.re-subheader-center__count {
+  font-size: var(--font-xs, 12px);
+  font-weight: var(--font-bold, 700);
+  color: var(--color-text-muted, #64748b);
+  white-space: nowrap;
+}
+
+.re-subheader-center__submit-btn {
+  min-height: 34px;
+  padding: 6px 18px;
+  border-radius: var(--radius-full, 9999px);
+  border: none;
+  background: #16a34a;
+  color: white;
+  font-size: var(--font-sm, 13px);
+  font-weight: var(--font-bold, 700);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.re-subheader-center__submit-btn:hover:not(:disabled) {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.re-subheader-center__submit-btn:disabled {
+  background: var(--color-border, #e2e8f0);
+  color: var(--color-text-muted, #94a3b8);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .re-subheader-center__submit-btn {
+    font-size: 11px;
+    padding: 5px 12px;
+    min-height: 30px;
+  }
+  .re-subheader-center__count {
+    font-size: 10px;
   }
 }

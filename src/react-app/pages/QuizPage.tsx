@@ -22,6 +22,7 @@ import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
 import "../components/quiz/Quiz.css";
+import "../components/layout/QuizLayout.css";
 import type { ReadingQuiz } from "../types/reading";
 
 export function QuizPage() {
@@ -53,7 +54,10 @@ export function QuizPage() {
   const { isLoggedIn, loginWithGoogle } = useAuth();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [reviewDismissed, setReviewDismissed] = useState(false); // "ôn tập lại" banner
+  const [reviewDismissed, setReviewDismissed] = useState(false);
+  // Reading Engine: progress + submit trigger
+  const [readingProgress, setReadingProgress] = useState({ answered: 0, total: 0 });
+  const [readingSubmitTrigger, setReadingSubmitTrigger] = useState(0);
 
   const {
     quiz, state, error, isPremium,
@@ -211,19 +215,85 @@ export function QuizPage() {
     );
   }
 
-  // ===== Reading Passage — kiểm tra NGAY sau khi có quiz (trước QuizLayout) =====
-  // ReadingQuiz KHÔNG có quiz.questions — phải tách ra trước để tránh crash
+  // ===== Reading Passage — bọc trong sub-header riêng =====
   if ((quiz as unknown as ReadingQuiz).type === "reading-passage") {
+    const rQuiz = quiz as unknown as ReadingQuiz;
+    const allReadingAnswered = readingProgress.total > 0 &&
+      readingProgress.answered >= readingProgress.total;
+
     return (
-      <ReadingEngine
-        quiz={quiz as unknown as ReadingQuiz}
-        onComplete={() => {
-          localStorage.setItem("last_quiz_id", quizId);
-        }}
-      />
+      <div className="quiz-layout">
+
+        {/* ── Reading Sub-Header ── */}
+        <div className="quiz-sub-header" role="banner" aria-label="Thông tin bài đọc">
+          <div className="quiz-sub-header__inner">
+
+            {/* Left: Breadcrumb + Title */}
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  📚 Đọc hiểu
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{rQuiz.title}</h2>
+            </div>
+
+            {/* Center: Progress + Submit */}
+            <div className="re-subheader-center">
+              <span className="re-subheader-center__count">
+                {readingProgress.answered}/{readingProgress.total || rQuiz.sections.reduce((s, sec) => s + sec.questions.length, 0)}
+              </span>
+              <button
+                id="btn-reading-submit-header"
+                className="re-subheader-center__submit-btn"
+                onClick={() => setReadingSubmitTrigger(t => t + 1)}
+                disabled={!allReadingAnswered}
+                title={!allReadingAnswered ? "Hãy trả lời hết câu hỏi trước" : "Nộp bài"}
+              >
+                Nộp bài ✓
+              </button>
+            </div>
+
+            {/* Right: Exit */}
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ── Reading Content ── */}
+        <div className="quiz-layout__content">
+          <ReadingEngine
+            quiz={rQuiz}
+            onComplete={() => {
+              localStorage.setItem("last_quiz_id", quizId);
+            }}
+            onProgressChange={(answered, total) =>
+              setReadingProgress({ answered, total })
+            }
+            submitTrigger={readingSubmitTrigger}
+          />
+        </div>
+      </div>
     );
   }
-
 
   // ===== Quiz thường (với QuizLayout) =====
   return (

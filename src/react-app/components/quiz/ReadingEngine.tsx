@@ -15,7 +15,7 @@
  *   - Logged-in → POST /api/quiz/:id/submit để lưu điểm
  */
 
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { ReadingQuiz, ReadingAnswers, ReadingResult } from "../../types/reading";
 import type { WordTooltipProps } from "../vocabulary/WordTooltip";
 import { ReadingSection } from "./ReadingSection";
@@ -64,18 +64,19 @@ function calculateResult(quiz: ReadingQuiz, answers: ReadingAnswers): ReadingRes
 // ============================================
 interface ReadingEngineProps {
   quiz: ReadingQuiz;
-  /** Gọi khi user nộp bài xong */
   onComplete?: (result: ReadingResult) => void;
-  /** Vocab tooltip — số lượt tra còn miễn phí */
   vocabRemainingFree?: number;
-  /** Vocab tooltip — callback khi user click tra từ */
   onVocabLookup?: WordTooltipProps["onLookup"];
+  /** Callback để QuizPage biết số câu đã trả lời */
+  onProgressChange?: (answered: number, total: number) => void;
+  /** Tăng lên 1 mỗi khi QuizPage muốn trigger submit từ sub-header */
+  submitTrigger?: number;
 }
 
 // ============================================
 // ReadingEngine — component chính
 // ============================================
-export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVocabLookup }: ReadingEngineProps) {
+export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVocabLookup, onProgressChange, submitTrigger }: ReadingEngineProps) {
   const { isLoggedIn, loginWithGoogle } = useAuth();
 
   const [answers, setAnswers] = useState<ReadingAnswers>({});
@@ -88,6 +89,24 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
   const answeredCount  = Object.keys(answers).filter(k => answers[k] !== "").length;
   const allAnswered    = answeredCount >= totalQuestions;
   const progressPct    = Math.round((answeredCount / totalQuestions) * 100);
+
+  // Scroll to top khi mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [quiz.id]);
+
+  // Báo QuizPage biết progress
+  useEffect(() => {
+    onProgressChange?.(answeredCount, totalQuestions);
+  }, [answeredCount, totalQuestions, onProgressChange]);
+
+  // Submit trigger từ sub-header bên ngoài
+  useEffect(() => {
+    if (submitTrigger && submitTrigger > 0) {
+      handleSubmit();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitTrigger]);
 
   // Handler khi user trả lời 1 câu
   const handleAnswer = useCallback((questionId: string, answer: string) => {
@@ -181,8 +200,9 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
         ))}
       </div>
 
-      {/* Sticky Footer — Progress + Nộp bài */}
-      {!isSubmitted && (
+      {/* Sticky Footer — ẨN khi có sub-header từ QuizPage (chỉ hiện nếu không có sub-header) */}
+      {/* Footer chỉ dự phòng khi ReadingEngine render standalone (không qua QuizPage wrapper) */}
+      {!isSubmitted && !onProgressChange && (
         <div className="re-footer">
           <div className="re-footer__progress-text">
             Answered {answeredCount}/{totalQuestions}
