@@ -85,6 +85,62 @@ studentRoute.post("/profile", async (c) => {
 });
 
 // =============================================
+// PATCH /api/student/profile — Cập nhật hồ sơ bé
+// Cho phép update: display_name, avatar_id, current_grade, selected_pathway
+// =============================================
+studentRoute.patch("/profile", async (c) => {
+  const cookieHeader = c.req.header("Cookie") ?? null;
+  const token = getSessionTokenFromCookie(cookieHeader);
+  if (!token) return c.json({ error: "Chưa đăng nhập" }, 401);
+
+  const userId = await getSession(c.env.SESSION, token);
+  if (!userId) return c.json({ error: "Session hết hạn" }, 401);
+
+  const body = await c.req.json<{
+    displayName?:     string;
+    avatarId?:        string;
+    currentGrade?:    number | null;
+    selectedPathway?: string | null;
+  }>();
+
+  const profile = await c.env.DB.prepare(
+    "SELECT id FROM student_profiles WHERE user_id = ? LIMIT 1"
+  ).bind(userId).first<{ id: string }>();
+
+  if (!profile) return c.json({ error: "Chưa có hồ sơ" }, 404);
+
+  const updates: string[] = [];
+  const bindings: (string | number | null)[] = [];
+
+  if (body.displayName !== undefined) {
+    const name = (body.displayName ?? "").trim();
+    if (name.length < 2) return c.json({ error: "Tên bé cần ít nhất 2 ký tự" }, 400);
+    updates.push("display_name = ?"); bindings.push(name);
+  }
+  if (body.avatarId !== undefined) {
+    const valid = ["cat","dog","rabbit","bear","fox","penguin","owl","elephant","lion","duck","frog","panda"];
+    updates.push("avatar_id = ?"); bindings.push(valid.includes(body.avatarId) ? body.avatarId : "cat");
+  }
+  if (body.currentGrade !== undefined) {
+    const g = [3,4,5].includes(body.currentGrade as number) ? body.currentGrade : null;
+    updates.push("current_grade = ?"); bindings.push(g);
+  }
+  if (body.selectedPathway !== undefined) {
+    const p = ["cambridge","lop6"].includes(body.selectedPathway as string) ? body.selectedPathway : null;
+    updates.push("selected_pathway = ?"); bindings.push(p);
+  }
+
+  if (updates.length === 0) return c.json({ error: "Không có gì để cập nhật" }, 400);
+
+  bindings.push(profile.id);
+  await c.env.DB.prepare(
+    `UPDATE student_profiles SET ${updates.join(", ")} WHERE id = ?`
+  ).bind(...bindings).run();
+
+  return c.json({ ok: true });
+});
+
+// =============================================
 // GET /api/student/dashboard — Lấy data cho DashboardPage
 // Trả về: currentGrade, selectedPathway, streak, totalStars, skillLevels, dreamGoal
 // =============================================

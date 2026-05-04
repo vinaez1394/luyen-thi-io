@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.1.0",
     "awf_version": "4.0.2",
-    "last_updated": "2026-05-02T10:55:00+07:00"
+    "last_updated": "2026-05-04T12:35:00+07:00"
   },
   "project": {
     "name": "luyen-thi-io",
@@ -43,7 +43,8 @@
     { "method": "GET", "path": "/api/quiz/:id", "desc": "Lấy bài quiz từ R2" },
     { "method": "POST", "path": "/api/quiz/:id/submit", "desc": "Nộp bài, lưu kết quả" },
     { "method": "POST", "path": "/api/student/profile", "desc": "Cập nhật hồ sơ bé" },
-    { "method": "POST", "path": "/api/student/stars", "desc": "Cộng sao (Hangman, Flashcard)" }
+    { "method": "POST", "path": "/api/student/stars", "desc": "Cộng sao (Hangman, Flashcard)" },
+    { "method": "GET", "path": "/api/student/dashboard", "desc": "Lấy data cho DashboardPage (currentGrade, selectedPathway, streak, totalStars, skillLevels, dreamGoal)" }
   ],
   "quiz_types": {
     "multiple-choice": "QuizEngine — 4 ô chọn 1",
@@ -82,7 +83,8 @@
       "Dashboard + TodayMissions",
       "ReadingEngine (9 bài, 4 loại câu hỏi)",
       "Vocabulary bank 250 từ Cambridge Flyers",
-      "MobileBottomNav UI Fixes (Reading Submit button, Hamburger Menu)"
+      "MobileBottomNav UI Fixes (Reading Submit button, Hamburger Menu)",
+      "Dashboard Progress + Grade Tracking (Grade Badges, 'Ôn tập lại' Notification)"
     ],
     "todo": [
       "SubjectPage Redesign (Grade Tabs + Filter Chips + Grid Layout)",

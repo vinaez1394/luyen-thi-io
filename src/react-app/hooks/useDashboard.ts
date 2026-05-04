@@ -126,9 +126,12 @@ export function useDashboard() {
           : null;
 
         if (!cancelled) {
-          // Persist currentGrade → localStorage cho QuizPage dùng ("ôn tập lại" notification)
+          // Persist currentGrade & selectedPathway → localStorage cho QuizPage + SettingsPage
           if (dashData.currentGrade) {
             localStorage.setItem("student_grade", String(dashData.currentGrade));
+          }
+          if (dashData.selectedPathway) {
+            localStorage.setItem("student_pathway", dashData.selectedPathway);
           }
           setState({
             data: { ...dashData, progressSummary },

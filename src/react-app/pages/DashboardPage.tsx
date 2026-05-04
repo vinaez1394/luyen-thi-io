@@ -142,7 +142,7 @@ export function DashboardPage() {
                 ⚠️ Hãy cập nhật lớp cho bé để tính tiến độ chính xác hơn →{" "}
                 <button
                   className="db-grade-alert__link"
-                  onClick={() => navigate("/onboarding")}
+                  onClick={() => navigate("/profile")}
                 >
                   Cập nhật ngay
                 </button>
