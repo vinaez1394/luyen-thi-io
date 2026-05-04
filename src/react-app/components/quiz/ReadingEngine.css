@@ -275,7 +275,9 @@
   font-family: inherit;
 }
 
-.re-option:hover:not(:disabled) {
+/* Hover: chỉ áp dụng khi button CHƯA ở trạng thái nào (không selected, không correct, không wrong)
+   Lý do: hover (specificity 0-2-0) > selected (0-1-0) → nếu không exclude sẽ ghi đè color:white */
+.re-option:hover:not(:disabled):not(.re-option--selected):not(.re-option--correct):not(.re-option--wrong) {
   border-color: var(--color-primary, #7c3aed);
   color: var(--color-primary, #7c3aed);
 }
