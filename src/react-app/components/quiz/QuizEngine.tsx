@@ -96,6 +96,33 @@ export function QuizEngine({
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [quiz.id]);
 
+  // Enter key → Next question (desktop UX)
+  // Chỉ hoạt động khi câu hiện tại đã được trả lời và chưa submit
+  const currentQuestionId = question?.id;
+  const isCurrentAnswered = !!(currentQuestionId && answers[currentQuestionId]);
+
+  useEffect(() => {
+    if (isSubmitted) return;
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key !== "Enter") return;
+      // Không trigger nếu đang focus vào input/textarea
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+
+      if (!isCurrentAnswered) return;  // Phải trả lời trước
+
+      if (currentQuestion < totalQuestions - 1) {
+        onNext();
+      } else if (allAnswered) {
+        onSubmit();
+      }
+    };
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [isSubmitted, isCurrentAnswered, currentQuestion, totalQuestions, allAnswered, onNext, onSubmit]);
+
   // Xác định ngôn ngữ UI từ quiz data (field ui_language, fallback theo skill)
   const uiLang: UiLang =
     (quiz as any).ui_language === "en" ||

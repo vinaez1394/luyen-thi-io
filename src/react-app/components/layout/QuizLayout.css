@@ -206,12 +206,9 @@
     display: none;
   }
 
+  /* NOTE: overflow-x hidden chỉ áp cho layout, không ghi đè padding-top ở trên */
   .quiz-layout {
-    overflow-x: hidden; /* Prevent horizontal scroll */
-  }
-
-  .quiz-layout__content {
-    padding: 0; /* Inner components handle their own padding */
+    overflow-x: hidden;
   }
 }
 
