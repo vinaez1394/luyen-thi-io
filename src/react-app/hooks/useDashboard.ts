@@ -126,6 +126,10 @@ export function useDashboard() {
           : null;
 
         if (!cancelled) {
+          // Persist currentGrade → localStorage cho QuizPage dùng ("ôn tập lại" notification)
+          if (dashData.currentGrade) {
+            localStorage.setItem("student_grade", String(dashData.currentGrade));
+          }
           setState({
             data: { ...dashData, progressSummary },
             isLoading: false,

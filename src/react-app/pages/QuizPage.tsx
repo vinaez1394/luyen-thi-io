@@ -53,6 +53,7 @@ export function QuizPage() {
   const { isLoggedIn, loginWithGoogle } = useAuth();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [reviewDismissed, setReviewDismissed] = useState(false); // "ôn tập lại" banner
 
   const {
     quiz, state, error, isPremium,
@@ -129,6 +130,41 @@ export function QuizPage() {
   }
 
   if (!quiz) return null;
+
+  // ===== Notification: "Ôn tập lại" — bé làm bài dưới grade của mình =====
+  const studentGrade = parseInt(localStorage.getItem("student_grade") ?? "0", 10) || null;
+  const quizGradeMax = (quiz as { grade_max?: number }).grade_max ?? null;
+  const isReviewMode  = !!(studentGrade && quizGradeMax && quizGradeMax < studentGrade);
+
+  if (isReviewMode && !reviewDismissed) {
+    return (
+      <div className="qp-review-notice" role="dialog" aria-label="Thông báo ôn tập">
+        <div className="qp-review-notice__icon">📚</div>
+        <h2 className="qp-review-notice__title">Bé đang ôn tập lại!</h2>
+        <p className="qp-review-notice__desc">
+          Bài này dành cho <strong>Lớp {quizGradeMax}</strong>,
+          nhưng bé đang học <strong>Lớp {studentGrade}</strong>.
+          <br />
+          Ôn lại kiến thức cũ rất tốt! 💪
+        </p>
+        <div className="qp-review-notice__actions">
+          <button
+            id="btn-review-start"
+            className="btn btn-primary"
+            onClick={() => setReviewDismissed(true)}
+          >
+            Bắt đầu ôn tập →
+          </button>
+          <button
+            className="btn btn-ghost"
+            onClick={() => navigate(backUrl)}
+          >
+            ← Chọn bài khác
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // ===== Kết quả =====
   if (showResult && result) {

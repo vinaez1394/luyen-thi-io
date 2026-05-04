@@ -51,6 +51,8 @@ export interface Quiz {
   part: number;
   type: QuizType;
   is_free: boolean;
+  grade_min?: number;   // Lớp tối thiểu phù hợp (3, 4, 5) — dùng cho "ôn tập lại" notification
+  grade_max?: number;   // Lớp tối đa phù hợp
   audio_url?: string;          // Audio cho cả bài (Listening)
   instructions_vi: string;     // Hướng dẫn tiếng Việt
   questions: Question[];

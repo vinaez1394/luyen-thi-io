@@ -85,7 +85,104 @@ studentRoute.post("/profile", async (c) => {
 });
 
 // =============================================
-// POST /api/student/stars — Cộng sao Hangman
+// GET /api/student/dashboard — Lấy data cho DashboardPage
+// Trả về: currentGrade, selectedPathway, streak, totalStars, skillLevels, dreamGoal
+// =============================================
+studentRoute.get("/dashboard", async (c) => {
+  // Auth check
+  const cookieHeader = c.req.header("Cookie") ?? null;
+  const token = getSessionTokenFromCookie(cookieHeader);
+  if (!token) return c.json({ error: "Chưa đăng nhập" }, 401);
+
+  const userId = await getSession(c.env.SESSION, token);
+  if (!userId) return c.json({ error: "Session hết hạn" }, 401);
+
+  // Query profile + stats (JOIN)
+  const row = await c.env.DB.prepare(`
+    SELECT
+      sp.id            AS profileId,
+      sp.display_name  AS displayName,
+      sp.avatar_id     AS avatarId,
+      sp.theme,
+      sp.current_grade AS currentGrade,
+      sp.selected_pathway AS selectedPathway,
+      ss.total_stars   AS totalStars,
+      ss.current_streak AS streak,
+      ss.lvl_listening_p1, ss.lvl_listening_p2,
+      ss.lvl_reading_p1,   ss.lvl_reading_p2,
+      ss.lvl_writing_p1,
+      ss.last_quiz_id  AS lastQuizId
+    FROM student_profiles sp
+    LEFT JOIN student_stats ss ON ss.student_id = sp.id
+    WHERE sp.user_id = ?
+    LIMIT 1
+  `).bind(userId).first<{
+    profileId:        string;
+    displayName:      string;
+    avatarId:         string;
+    theme:            string;
+    currentGrade:     number | null;
+    selectedPathway:  string | null;
+    totalStars:       number;
+    streak:           number;
+    lvl_listening_p1: number;
+    lvl_listening_p2: number;
+    lvl_reading_p1:   number;
+    lvl_reading_p2:   number;
+    lvl_writing_p1:   number;
+    lastQuizId:       string | null;
+  }>();
+
+  if (!row) return c.json({ error: "Chưa có hồ sơ" }, 404);
+
+  // Skill levels (từ các cột lvl_*)
+  const skillLevels = [
+    { skill: "listening", level: Math.round((row.lvl_listening_p1 + row.lvl_listening_p2) / 2), quizzesDone: 0 },
+    { skill: "reading",   level: Math.round((row.lvl_reading_p1   + row.lvl_reading_p2)   / 2), quizzesDone: 0 },
+    { skill: "writing",   level: row.lvl_writing_p1 ?? 0, quizzesDone: 0 },
+  ];
+
+  // Dream goal (lấy goal đang active)
+  const goal = await c.env.DB.prepare(`
+    SELECT exam_id, reward_label, goal_target, current_progress
+    FROM dream_goals
+    WHERE student_id = ? AND status = 'approved'
+    ORDER BY created_at DESC
+    LIMIT 1
+  `).bind(row.profileId).first<{
+    exam_id:          string;
+    reward_label:     string;
+    goal_target:      number;
+    current_progress: number;
+  }>();
+
+  const EXAM_EMOJI: Record<string, string> = {
+    flyers:  "🦋",
+    movers:  "🐿️",
+    starters:"🌟",
+    ket:     "🎓",
+    lop6:    "🏫",
+  };
+
+  const dreamGoal = goal ? {
+    title:   goal.reward_label,
+    emoji:   EXAM_EMOJI[goal.exam_id] ?? "🎯",
+    current: goal.current_progress,
+    target:  goal.goal_target,
+  } : null;
+
+  return c.json({
+    currentGrade:    row.currentGrade,
+    selectedPathway: row.selectedPathway,
+    streak:          row.streak ?? 0,
+    totalStars:      row.totalStars ?? 0,
+    skillLevels,
+    dreamGoal,
+    todayLessons:    [],   // Phase future — hiện trả về rỗng
+  });
+});
+
+
 // Phase 05: gọi từ QuizPage sau onHangmanStarsEarned
 // =============================================
 studentRoute.post("/stars", async (c) => {
