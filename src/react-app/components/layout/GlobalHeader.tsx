@@ -139,12 +139,12 @@ export function GlobalHeader() {
                 >
                   <div className="nav-subject-dropdown__inner-card">
 
-                    {/* Cambridge group */}
+                    {/* Lớp 6 group — LUÔN XẾP TRƯỚC */}
                     <div className="nav-subject-dropdown__group">
                       <span className="nav-subject-dropdown__group-label">
-                        🇬🇧 Cambridge
+                        🏫 Luyện Thi Lớp 6
                       </span>
-                      {cambridgeSubjects.map((s) => (
+                      {lop6Subjects.map((s) => (
                         <button
                           key={s.id}
                           className={`nav-subject-dropdown__item ${!s.available ? "nav-subject-dropdown__item--soon" : ""
@@ -168,12 +168,12 @@ export function GlobalHeader() {
 
                     <div className="nav-subject-dropdown__divider" />
 
-                    {/* Lớp 6 group */}
+                    {/* Cambridge group */}
                     <div className="nav-subject-dropdown__group">
                       <span className="nav-subject-dropdown__group-label">
-                        🏫 Luyện Thi Lớp 6
+                        🇬🇧 Cambridge
                       </span>
-                      {lop6Subjects.map((s) => (
+                      {cambridgeSubjects.map((s) => (
                         <button
                           key={s.id}
                           className={`nav-subject-dropdown__item ${!s.available ? "nav-subject-dropdown__item--soon" : ""
@@ -346,10 +346,10 @@ export function GlobalHeader() {
               <span className="mobile-drawer__nav-icon">🏠</span> Trang chủ
             </button>
 
-            {/* Lộ trình — expand trong drawer theo nhóm */}
+            {/* Lộ trình — Lớp 6 LUÔN XẾP TRƯỚC trong drawer */}
             <div className="mobile-drawer__subject-group">
-              <div className="mobile-drawer__subject-label">🇬🇧 Cambridge</div>
-              {cambridgeSubjects.map((s) => (
+              <div className="mobile-drawer__subject-label">🏫 Luyện Thi Lớp 6</div>
+              {lop6Subjects.map((s) => (
                 <button
                   key={s.id}
                   className={`mobile-drawer__nav-link mobile-drawer__nav-link--subject ${!s.available ? "mobile-drawer__nav-link--soon" : ""}`}
@@ -364,8 +364,8 @@ export function GlobalHeader() {
             </div>
 
             <div className="mobile-drawer__subject-group" style={{ marginTop: "4px" }}>
-              <div className="mobile-drawer__subject-label">🏫 Luyện Thi Lớp 6</div>
-              {lop6Subjects.map((s) => (
+              <div className="mobile-drawer__subject-label">🇬🇧 Cambridge</div>
+              {cambridgeSubjects.map((s) => (
                 <button
                   key={s.id}
                   className={`mobile-drawer__nav-link mobile-drawer__nav-link--subject ${!s.available ? "mobile-drawer__nav-link--soon" : ""}`}
