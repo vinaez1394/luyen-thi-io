@@ -243,6 +243,26 @@
   white-space: nowrap;
 }
 
+/* Grade badge — hiện cạnh tên user, VD: "Lớp 4" */
+.gh-grade-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  color: var(--color-primary);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .gh-grade-badge { display: none; } /* Ẩn trên mobile — tiết kiệm không gian */
+}
+
 /* Avatar dropdown */
 .avatar-dropdown {
   position: absolute;

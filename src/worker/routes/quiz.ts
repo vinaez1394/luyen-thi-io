@@ -114,6 +114,17 @@ try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HA
 try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE4-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE4-P2"] = d.default; } catch { /* R2 */ }
 try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-HARD-GRADE5-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-HARD-GRADE5-P2"] = d.default; } catch { /* R2 */ }
 
+// ⚠️ WRITING — Lớp 6 Tiếng Anh (Phase Writing — 9 bài)
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-HARD-GRADE5-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-HARD-GRADE5-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-HARD-GRADE5-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-HARD-GRADE5-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-HARD-GRADE5-P3.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-HARD-GRADE5-P3"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE4-P1.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE4-P1"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE4-P2.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE4-P2"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE4-P3.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE4-P3"]  = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-EASY-GRADE3-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-EASY-GRADE3-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-EASY-GRADE3-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-EASY-GRADE3-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-EASY-GRADE3-P3.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-EASY-GRADE3-P3"] = d.default; } catch { /* R2 */ }
+
 type Env = {
   DB: D1Database;
   SESSION: KVNamespace;
@@ -138,6 +149,10 @@ function getR2Key(quizId: string): string {
   // Lớp 6 — Tiếng Anh Reading (READING-EASY-GRADE3-P1, READING-MED-GRADE4-P1, ...)
   if (/^READING-(EASY|MED|HARD)-GRADE\d+-P\d+$/.test(quizId)) {
     return `quizzes/lop6/tieng-anh/reading/${quizId}.json`;
+  }
+  // LỜp 6 — Tiếng Anh Writing (WRITING-EASY-GRADE3-P1, WRITING-MED-GRADE4-P1, ...)
+  if (/^WRITING-(EASY|MED|HARD)-GRADE\d+-P\d+$/.test(quizId)) {
+    return `quizzes/lop6/tieng-anh/writing/${quizId}.json`;
   }
   // Cambridge Flyers — Reading / Writing (RW001, RW2-001, RW3-001...)
   if (/^RW/.test(quizId)) {

@@ -1,6 +1,7 @@
 /**
- * SubjectPage.css — v2
- * Responsive grid: desktop auto-fill(180px) / tablet 3col / mobile 2col
+ * SubjectPage.css — v4
+ * v4: Skill Tab Bar + Grade Selector Card thay thế grade tabs cũ
+ * Responsive grid: desktop 4col / tablet 3col / mobile 2col
  * Rule: KHÔNG overflow:hidden trên container có dropdown
  */
 
@@ -74,12 +75,20 @@
   color: var(--color-text-muted);
   margin-bottom: 0;
 }
-
-@media (max-width: 480px) {
-  .subject-page__hero { padding-top: var(--space-3); }
-  .subject-page__hero-emoji { font-size: 40px; }
-  .subject-page__hero-title { font-size: var(--font-2xl); }
+.subject-page__hero-pathway-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 15%, var(--color-card));
+  color: var(--subject-color, var(--color-primary));
+  border: 1px solid color-mix(in srgb, var(--subject-color, var(--color-primary)) 35%, transparent);
+  margin-bottom: var(--space-2);
 }
+
 
 .subject-page__hero-meta {
   margin-top: var(--space-1);
@@ -139,74 +148,215 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   CONTROLS: GRADE TABS + FILTER CHIPS
-   NOTE: NO overflow:hidden here — chips/tabs must not clip any dropdown
+   SKILL TAB BAR — horizontal scrollable, auto-detect skills
+   Hiển thị phía trên Grade Card, chỉ render khi subject có > 1 skill
 ═══════════════════════════════════════════════════════════════════════════ */
 
-.sp-controls {
+.sp-skill-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: var(--space-3) var(--space-3) 0;
   max-width: 1100px;
   margin: 0 auto;
-  padding: var(--space-3) var(--space-3) 0;
-  /* ⚠️ RULE: overflow không được set thành hidden ở đây */
+  scrollbar-width: none;        /* Firefox */
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Grade tabs */
-.sp-grade-tabs {
-  display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-  margin-bottom: var(--space-2);
-  border-bottom: 2px solid var(--color-border);
-  padding-bottom: 0;
-}
+.sp-skill-tabs::-webkit-scrollbar { display: none; }
 
-.sp-grade-tab {
-  display: flex;
+.sp-skill-tab {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 0.45rem 1rem;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px; /* align với border parent */
+  padding: 0.55rem 1.1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 40px;
+  background: var(--color-card);
   font-size: var(--font-sm);
   font-weight: var(--font-semibold);
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
   white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    border-color var(--transition-fast),
+    background   var(--transition-fast),
+    color        var(--transition-fast),
+    box-shadow   var(--transition-fast);
 }
 
-.sp-grade-tab:hover {
-  color: var(--color-text);
-}
-
-.sp-grade-tab--active {
+.sp-skill-tab:hover {
+  border-color: var(--subject-color, var(--color-primary));
   color: var(--subject-color, var(--color-primary));
-  border-bottom-color: var(--subject-color, var(--color-primary));
 }
 
-.sp-grade-tab__count {
+.sp-skill-tab--active {
+  border-color: var(--subject-color, var(--color-primary));
+  background: var(--subject-color, var(--color-primary));
+  color: #fff;
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--subject-color, var(--color-primary)) 35%, transparent);
+}
+
+.sp-skill-tab__emoji { font-size: 1rem; line-height: 1; }
+
+.sp-skill-tab__label { font-weight: var(--font-semibold); }
+
+.sp-skill-tab__count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 20px;
   height: 20px;
   padding: 0 5px;
-  background: var(--color-border);
   border-radius: 10px;
   font-size: 11px;
   font-weight: var(--font-bold);
-  color: var(--color-text-muted);
-  transition: background var(--transition-fast), color var(--transition-fast);
+  background: color-mix(in srgb, currentColor 18%, transparent);
+  color: inherit;
 }
 
-.sp-grade-tab--active .sp-grade-tab__count {
-  background: var(--subject-color, var(--color-primary));
+.sp-skill-tab--active .sp-skill-tab__count {
+  background: rgba(255, 255, 255, 0.25);
   color: #fff;
 }
 
-/* Filter chips row */
+@media (max-width: 480px) {
+  .sp-skill-tabs { padding: var(--space-2) var(--space-2) 0; gap: 4px; }
+  .sp-skill-tab  { padding: 0.45rem 0.85rem; font-size: var(--font-xs); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTROLS WRAPPER
+═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-controls {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-3) 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GRADE SELECTOR CARD — thiết kế nổi bật, phân biệt với chip filter
+   Đây là thành phần "cá nhân hóa", không phải bộ lọc thông thường
+═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-grade-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 8%, var(--color-card));
+  border: 1.5px solid color-mix(in srgb, var(--subject-color, var(--color-primary)) 25%, var(--color-border));
+  border-left: 4px solid var(--subject-color, var(--color-primary));
+  border-radius: var(--radius-lg, 12px);
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.sp-grade-card__label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sp-grade-card__pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── Grade Pill ── */
+.sp-grade-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--color-bg);
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background   var(--transition-fast),
+    color        var(--transition-fast),
+    box-shadow   var(--transition-fast);
+  position: relative;
+}
+
+.sp-grade-pill:hover {
+  border-color: var(--subject-color, var(--color-primary));
+  color: var(--subject-color, var(--color-primary));
+}
+
+/* Active = grade đang xem */
+.sp-grade-pill--active {
+  border-color: var(--subject-color, var(--color-primary));
+  background: var(--subject-color, var(--color-primary));
+  color: #fff;
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--subject-color, var(--color-primary)) 30%, transparent);
+}
+
+/* Grade của user: border đậm hơn khi chưa active */
+.sp-grade-pill--own:not(.sp-grade-pill--active) {
+  border-color: color-mix(in srgb, var(--subject-color, var(--color-primary)) 50%, var(--color-border));
+  color: var(--color-text);
+}
+
+.sp-grade-pill__label { font-weight: var(--font-bold); }
+
+.sp-grade-pill__ctx {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.sp-grade-pill__ctx--own {
+  font-size: 10px;
+  font-weight: var(--font-bold);
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.sp-grade-pill--active .sp-grade-pill__ctx--own {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.sp-grade-pill__count {
+  font-size: 11px;
+  font-weight: var(--font-bold);
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: color-mix(in srgb, currentColor 15%, transparent);
+  color: inherit;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Hint text khi chọn grade khác của user */
+.sp-grade-card__hint {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 0;
+  padding-top: 2px;
+}
+
+@media (max-width: 480px) {
+  .sp-grade-card { padding: var(--space-2); }
+  .sp-grade-pill { padding: 0.4rem 0.75rem; font-size: var(--font-xs); }
+  .sp-grade-pill__ctx--own { display: none; } /* Tiết kiệm space trên mobile */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DIFFICULTY FILTER CHIPS (giữ lại, bỏ free/premium)
+═══════════════════════════════════════════════════════════════════════════ */
+
 .sp-filter-row {
   display: flex;
   flex-wrap: wrap;
@@ -234,8 +384,8 @@
   cursor: pointer;
   transition:
     border-color var(--transition-fast),
-    background var(--transition-fast),
-    color var(--transition-fast);
+    background   var(--transition-fast),
+    color        var(--transition-fast);
   white-space: nowrap;
 }
 

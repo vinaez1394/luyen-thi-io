@@ -1,5 +1,5 @@
 # 📘 HƯỚNG DẪN DỰ ÁN — luyen-thi-io
-> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-04 | Profile Settings & Dashboard
+> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-05 | Writing Engine
 
 ---
 
@@ -147,6 +147,7 @@ luyen-thi-io/
 | `fill-blank` | QuizEngine | Gõ vào ô trống |
 | `drag-drop-match` | QuizEngine | Kéo nối 2 cột |
 | `reading-passage` | **ReadingEngine** | Đọc hiểu — 2 sections, 4 loại câu |
+| `writing` | **WritingEngine** | Viết câu — 2 sections (rearrange + sentence-building) |
 
 ### ReadingEngine — 4 loại câu hỏi
 
@@ -191,6 +192,75 @@ luyen-thi-io/
 
 > Schema đầy đủ: `~/.gemini/antigravity/skills/exam-luyenthi/references/reading-passage-schema.md`
 
+### WritingEngine — 2 loại câu hỏi
+
+| section type | question type | Component | Mô tả |
+|-------------|--------------|-----------|-------|
+| `rearrange` | `drag-drop-fill` | **DragDropFill** (tái sử dụng) | Kéo cụm từ vào slot đúng vị trí |
+| `sentence-building` | `write-sentence` | **SentenceInput** (mới) | Gõ câu hoàn chỉnh vào ô text |
+
+### Cấu trúc JSON Writing
+
+```json
+{
+  "id": "WRITING-HARD-GRADE5-P1",
+  "type": "writing",
+  "difficulty": "hard",
+  "grade_min": 5, "grade_max": 6,
+  "total_points": 14,
+  "sections": [
+    {
+      "id": "sec-1", "type": "rearrange", "points": 8,
+      "instruction": "...",
+      "example": { "display_cues": "...", "answer": "..." },
+      "questions": [
+        {
+          "id": "q1", "type": "drag-drop-fill",
+          "display_cues": "the city government / has launched / ... /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["the city government", "has launched", ...],
+          "correct": ["the city government", "has launched", ...],
+          "explanation": {
+            "correct_sentence": "...",
+            "structure_vi": "S + have/has + V3 + O + to-V",
+            "grammar_notes": ["..."],
+            "vocab_notes": [{"word": "...", "vi": "...", "ipa": "..."}],
+            "common_mistakes": ["❌ Sai: ..."]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2", "type": "sentence-building", "points": 6,
+      "questions": [
+        {
+          "id": "q5", "type": "write-sentence",
+          "display_cues": "Nguyen Hue Flower Street / be / ... /.//",
+          "accepted_answers": ["Nguyen Hue Flower Street is one of...", ...],
+          "explanation": { ... }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Chấm điểm Writing
+
+- **Section 1 (rearrange):** Phải đúng TOÀN BỘ thứ tự → mới tính 1 câu đúng
+- **Section 2 (sentence-building):** So sánh với `accepted_answers[]` sau khi normalize (trim, lowercase, bỏ dấu câu cuối)
+- **Giải thích:** Hiển thị `explanation` SAU KHI nộp bài dù đúng hay sai, gồm 4 phần:
+  - `correct_sentence` — Đáp án chuẩn
+  - `structure_vi` — Sơ đồ cấu trúc câu
+  - `grammar_notes` — Quy tắc ngữ pháp áp dụng
+  - `common_mistakes` — Lỗi thường gặp để đối chiếu
+
+### CollapsibleBlock — Accordion thu gọn/mở
+
+Cả 2 section đều có Hướng dẫn + Ví dụ mẫu hiển thị dạng **Accordion mặc định ĐÓNG**:
+- User click "▼ Xem" → mở ra xem hướng dẫn + ví dụ
+- Tiết kiệm màn hình mobile, không bắt buộc đọc
+
 ---
 
 ## 📦 THÊM BÀI MỚI — QUYTRÌNH CHUẨN
@@ -213,6 +283,25 @@ luyen-thi-io/
 3. Thêm vào `subjects.ts` → `lessons[]` (với `difficulty` + `grade_target`)
 4. Thêm vào `deploy.yml` → R2 sync step
 5. Push → kiểm tra browser thực tế
+
+### Nhánh C: Writing (Tiếng Anh Lớp 6)
+
+1. Tạo `content/lop6/tieng-anh/writing/{ID}.json`
+   - ID format: `WRITING-{DIFF}-GRADE{N}-P{NUM}`
+   - Ví dụ: `WRITING-HARD-GRADE5-P1`, `WRITING-MED-GRADE4-P2`
+   - **Nội dung KHÔNG được sao chép đề thật** — chỉ dùng cùng cấu trúc ngữ pháp
+2. Thêm vào `quiz.ts` → `LOCAL_QUIZ_MAP`
+3. Thêm vào `subjects.ts` → `lessons[]` (với `difficulty` + `grade_target` + `skill: "writing"`)
+4. Thêm vào `deploy.yml` → R2 sync step
+5. Push → kiểm tra browser thực tế
+
+**Ma trận 9 bài Writing (giảm dần):**
+
+| File | Grade | Ngữ pháp trọng tâm |
+|------|-------|--------------------|
+| HARD-GRADE5-P1/2/3 | 5-6 | Hiện tại hoàn thành, bị động, mệnh đề quan hệ |
+| MED-GRADE4-P1/2/3 | 4-5 | So sánh, Conditional type 1, Present Perfect |
+| EASY-GRADE3-P1/2/3 | 3-4 | Simple present/past, giới từ, mạo từ |
 
 ---
 
@@ -294,6 +383,7 @@ Trước khi push, verify 2 breakpoint trong DevTools (Cmd+Shift+M / F12):
 | `RW*`, `RW2-*`, `RW3-*` | `quizzes/cambridge/flyers/reading/{ID}.json` | `/cambridge/flyers/{slug}` |
 | `L001-L003` | `quizzes/cambridge/flyers/listening/{ID}.json` | `/cambridge/flyers/{slug}` |
 | `READING-*` | `quizzes/lop6/tieng-anh/reading/{ID}.json` | `/lop6/tieng-anh/{slug}` |
+| `WRITING-*` | `quizzes/lop6/tieng-anh/writing/{ID}.json` | `/lop6/tieng-anh/{slug}` |
 
 ### Cấu trúc R2 Bucket `luyen-thi-content`
 
@@ -427,8 +517,9 @@ purple (mặc định) | ocean | sakura | forest | night | sunset
 | Quiz Engine MCQ + FillBlank + DragDrop | ✅ |
 | Word Tooltip + Hangman | ✅ |
 | IA Restructure (dual pathway, onboarding, dashboard) | ✅ |
-| **Reading Engine** (9 bài, 4 loại câu hỏi) | ✅ **MỚI** |
+| Reading Engine (9 bài, 4 loại câu hỏi) | ✅ |
 | Vocabulary bank 250 từ Flyers | ✅ |
+| **Writing Engine** (types, JSON schema, WritingEngine component) | 🔄 **Đang làm** |
 
 ### ⏳ Chưa làm (ưu tiên)
 
@@ -503,4 +594,4 @@ Dùng lệnh `/debug` → AI hỏi thông tin, điều tra, sửa đúng chỗ.
 ---
 
 *GitHub: https://github.com/vinaez1394/luyen-thi-io*
-*Cập nhật: 2026-05-04 | Profile Settings + Dashboard Flow*
+*Cập nhật: 2026-05-05 | Writing Engine — types, JSON schema, component design*

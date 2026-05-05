@@ -1,5 +1,10 @@
 # Changelog
 
+## [2026-05-05]
+### Fixed
+- Sửa lỗi không lưu sao (stars) và streak: thêm credentials: "include" vào tất cả các `fetch` gọi API để gửi cookie đúng chuẩn.
+- Khắc phục lỗi Crash 500 trên `/api/student/dashboard` khi một số cột trong database chưa được migrate (vd: `last_quiz_id`, `current_grade`).
+
 ## [2026-04-30]
 ### Added
 - Hệ thống đa lộ trình (Dual Pathway): Cambridge Flyers và Lớp 6

@@ -1,0 +1,235 @@
+{
+  "id": "WRITING-HARD-GRADE5-P2",
+  "title": "Writing — Khó — Lớp 5-6 — Bài 2",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "used to teach / robots / will be / in classrooms / students /.//",
+        "answer": "Robots will be used to teach students in classrooms."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "were planted / thousands of trees / along the riverbank / by local volunteers / last weekend /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["thousands of trees","were planted","along the riverbank","by local volunteers","last weekend"],
+          "correct": ["thousands of trees","were planted","along the riverbank","by local volunteers","last weekend"],
+          "explanation": {
+            "correct_sentence": "Thousands of trees were planted along the riverbank by local volunteers last weekend.",
+            "structure_vi": "S + were + V3 (bị động) + nơi chốn + by + tác nhân + thời gian",
+            "grammar_notes": [
+              "✅ Câu bị động (Passive): S + be + V3. Chủ thể bị tác động đứng đầu câu.",
+              "⚠️ 'were planted' (số nhiều) — chủ ngữ 'thousands of trees' là số nhiều",
+              "✅ Thứ tự: nơi chốn → tác nhân (by…) → thời gian — thứ tự tự nhiên nhất"
+            ],
+            "vocab_notes": [
+              {"word": "plant","vi": "trồng (cây)","ipa": "plɑːnt"},
+              {"word": "riverbank","vi": "bờ sông","ipa": "ˈrɪvəbæŋk"},
+              {"word": "volunteer","vi": "tình nguyện viên","ipa": "ˌvɒlənˈtɪər"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'thousands of trees was planted' → chủ ngữ số nhiều → dùng 'were'",
+              "❌ Sai: 'thousands of trees were plant' → bị động phải dùng V3: 'planted'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "not only improves / but also teaches / cycling / balance and coordination / road safety skills /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["cycling","not only improves","balance and coordination","but also teaches","road safety skills"],
+          "correct": ["cycling","not only improves","balance and coordination","but also teaches","road safety skills"],
+          "explanation": {
+            "correct_sentence": "Cycling not only improves balance and coordination but also teaches road safety skills.",
+            "structure_vi": "S + not only + V₁ + O₁ + but also + V₂ + O₂",
+            "grammar_notes": [
+              "✅ 'not only... but also...' = không chỉ... mà còn...",
+              "✅ Hai động từ cùng dạng: 'improves' và 'teaches' (cả hai thêm -s theo chủ ngữ số ít)",
+              "✅ 'cycling' là Gerund làm chủ ngữ — số ít nên dùng 'improves', 'teaches'"
+            ],
+            "vocab_notes": [
+              {"word": "coordination","vi": "sự phối hợp, điều phối","ipa": "kəʊˌɔːdɪˈneɪʃən"},
+              {"word": "road safety","vi": "an toàn giao thông","ipa": "rəʊd ˈseɪfti"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'not only improve... but also teaches' → không nhất quán về dạng động từ",
+              "❌ Sai: 'cycling not only improves... but also teach' → thiếu -s cho chủ ngữ số ít"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "the new community centre / which was built / has attracted / two years ago / hundreds of visitors /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["the new community centre","which was built","two years ago","has attracted","hundreds of visitors"],
+          "correct": ["the new community centre","which was built","two years ago","has attracted","hundreds of visitors"],
+          "explanation": {
+            "correct_sentence": "The new community centre, which was built two years ago, has attracted hundreds of visitors.",
+            "structure_vi": "S + (Mệnh đề quan hệ: which + bị động + thời gian) + Hiện tại hoàn thành",
+            "grammar_notes": [
+              "✅ 'which was built two years ago' = mệnh đề quan hệ bổ sung thông tin",
+              "✅ 'has attracted' = Hiện tại hoàn thành — kết quả kéo dài đến nay",
+              "⚠️ 'centre' là số ít → 'has' (không phải 'have')"
+            ],
+            "vocab_notes": [
+              {"word": "community centre","vi": "trung tâm cộng đồng","ipa": "kəˈmjuːnɪti ˈsentər"},
+              {"word": "attract","vi": "thu hút","ipa": "əˈtrækt"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'the new community centre... have attracted' → chủ ngữ số ít → 'has attracted'",
+              "❌ Sai: 'which was built' đặt sai vị trí — phải ngay sau danh từ nó bổ sung"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "so well / that / she / the young pianist / performed / won first prize /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["the young pianist","performed","so well","that","she won first prize"],
+          "correct": ["the young pianist","performed","so well","that","she won first prize"],
+          "explanation": {
+            "correct_sentence": "The young pianist performed so well that she won first prize.",
+            "structure_vi": "S + V + so + adv + that + S + V (kết quả) — cấu trúc 'so...that'",
+            "grammar_notes": [
+              "✅ Cấu trúc 'so + adv + that': 'so well that' = biểu diễn giỏi đến nỗi...",
+              "⚠️ Sau 'perform' dùng trạng từ 'well' (không phải tính từ 'good')",
+              "✅ 'won' = quá khứ của 'win' (bất quy tắc) — cùng thì với 'performed'"
+            ],
+            "vocab_notes": [
+              {"word": "pianist","vi": "nghệ sĩ piano","ipa": "ˈpiːənɪst"},
+              {"word": "perform","vi": "biểu diễn","ipa": "pəˈfɔːm"},
+              {"word": "first prize","vi": "giải nhất","ipa": "fɜːst praɪz"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'performed so good that' → sau động từ dùng trạng từ 'well', không dùng tính từ 'good'",
+              "❌ Sai: 'performed so well that she wins' → cả hai vế phải cùng thì quá khứ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "the competition / hold / every two years / encourage / young talent /.//",
+        "answer": "The competition is held every two years to encourage young talent."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "the school / expect / students / submit / their projects / by Friday /.//",
+          "accepted_answers": [
+            "The school expects students to submit their projects by Friday.",
+            "the school expects students to submit their projects by friday",
+            "The school expects students to submit their projects by Friday",
+            "The school expects the students to submit their projects by Friday."
+          ],
+          "explanation": {
+            "correct_sentence": "The school expects students to submit their projects by Friday.",
+            "structure_vi": "S + expect + O (người) + to-V — cấu trúc động từ 'expect'",
+            "grammar_notes": [
+              "✅ Cấu trúc: 'expect + O + to-V' = kỳ vọng ai làm gì",
+              "✅ 'expects' thêm -s vì chủ ngữ 'the school' là số ít, thì hiện tại đơn",
+              "✅ 'by Friday' = trước thứ Sáu (deadline)"
+            ],
+            "vocab_notes": [
+              {"word": "submit","vi": "nộp, gửi lên","ipa": "səbˈmɪt"},
+              {"word": "by Friday","vi": "trước/vào thứ Sáu (hạn chót)","ipa": "baɪ ˈfraɪdeɪ"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'The school expects students submitting...' → sau 'expect + O' dùng 'to-V'",
+              "❌ Sai: 'The school expect students to...' → chủ ngữ số ít → 'expects'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "if / we / use / reusable bags / we / reduce / plastic waste / significantly /.//",
+          "accepted_answers": [
+            "If we use reusable bags, we will reduce plastic waste significantly.",
+            "if we use reusable bags, we will reduce plastic waste significantly",
+            "If we use reusable bags we will reduce plastic waste significantly.",
+            "We will reduce plastic waste significantly if we use reusable bags.",
+            "If we use reusable bags, we can reduce plastic waste significantly."
+          ],
+          "explanation": {
+            "correct_sentence": "If we use reusable bags, we will reduce plastic waste significantly.",
+            "structure_vi": "If + S + V (hiện tại đơn), S + will + V (Conditional Type 1)",
+            "grammar_notes": [
+              "✅ Conditional Type 1: điều kiện thực tế có thể xảy ra",
+              "⚠️ Mệnh đề 'if': dùng thì Hiện tại đơn 'use' (KHÔNG dùng 'will use')",
+              "✅ Mệnh đề chính: 'will reduce' hoặc 'can reduce'",
+              "✅ 'significantly' = trạng từ chỉ mức độ, đứng cuối câu"
+            ],
+            "vocab_notes": [
+              {"word": "reusable","vi": "có thể tái sử dụng","ipa": "ˌriːˈjuːzəbl"},
+              {"word": "plastic waste","vi": "rác thải nhựa","ipa": "ˈplæstɪk weɪst"},
+              {"word": "significantly","vi": "đáng kể","ipa": "sɪɡˈnɪfɪkəntli"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'If we will use reusable bags...' → mệnh đề 'if' không dùng 'will'",
+              "❌ Sai: 'If we used reusable bags, we would reduce...' → Conditional Type 2 (sai ngữ nghĩa)"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "the documentary / be / so interesting / that / the whole family / watch / without / take / eyes / off / the screen /.//",
+          "accepted_answers": [
+            "The documentary was so interesting that the whole family watched without taking their eyes off the screen.",
+            "the documentary was so interesting that the whole family watched without taking their eyes off the screen",
+            "The documentary was so interesting that the whole family watched it without taking their eyes off the screen.",
+            "The documentary is so interesting that the whole family watches without taking their eyes off the screen."
+          ],
+          "explanation": {
+            "correct_sentence": "The documentary was so interesting that the whole family watched without taking their eyes off the screen.",
+            "structure_vi": "S + was + so + adj + that + S + V + without + V-ing",
+            "grammar_notes": [
+              "✅ 'so interesting that' = hay đến mức...",
+              "✅ 'without taking' = without + V-ing (giới từ 'without' luôn đi với V-ing)",
+              "✅ 'take one's eyes off' = không rời mắt khỏi (idiom)"
+            ],
+            "vocab_notes": [
+              {"word": "documentary","vi": "phim tài liệu","ipa": "ˌdɒkjʊˈmentri"},
+              {"word": "take one's eyes off","vi": "rời mắt khỏi","ipa": "teɪk wʌnz aɪz ɒf"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'without to take their eyes' → sau 'without' dùng V-ing, không dùng to-V",
+              "❌ Sai: 'so interesting that the whole family watch' → chia đúng quá khứ đơn 'watched'"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

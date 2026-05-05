@@ -66,6 +66,20 @@ export function GlobalHeader() {
   // Load total stars từ API (chỉ khi đăng nhập)
   const [totalStars, setTotalStars] = useState(0);
 
+  // Grade badge — đọc từ localStorage, sync khi đăng nhập/đăng xuất
+  const [gradeBadge, setGradeBadge] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isLoggedIn) { setGradeBadge(null); return; }
+    try {
+      const raw = localStorage.getItem("student_grade");
+      const g = raw ? parseInt(raw, 10) : null;
+      setGradeBadge(g && g >= 3 && g <= 6 ? `Lớp ${g}` : null);
+    } catch {
+      setGradeBadge(null);
+    }
+  }, [isLoggedIn]);
+
   useEffect(() => {
     if (!isLoggedIn) { setTotalStars(0); return; }
 
@@ -303,6 +317,9 @@ export function GlobalHeader() {
                     <div className="global-header__avatar-emoji">
                       {displayName[0]?.toUpperCase() ?? "B"}
                     </div>
+                    {gradeBadge && (
+                      <span className="gh-grade-badge" title="Lớp học của bạn">{gradeBadge}</span>
+                    )}
                     <span className="global-header__avatar-name">{displayName}</span>
                   </button>
 

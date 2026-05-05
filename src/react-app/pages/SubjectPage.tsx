@@ -1,13 +1,18 @@
 /**
- * SubjectPage.tsx — Trang hiển thị tất cả bài học của 1 môn
- * URL mới: /:pathway/:subjectSlug
- *   Cambridge: /cambridge/flyers
- *   Lớp 6:    /lop6/toan
+ * SubjectPage.tsx — v4 (Skill Tabs + Grade Card + Personalized Grade)
  *
- * v3 — Grade Tabs + Filter Chips + Stats bar + Card grid (redesigned cards)
+ * URL: /:pathway/:subjectSlug
+ *   Cambridge: /cambridge/flyers
+ *   Lớp 6:    /lop6/tieng-anh
+ *
+ * Thay đổi v4:
+ *   - Skill Tab Bar: auto-detect kỹ năng có bài, ẩn nếu subject chỉ có 1 kỹ năng
+ *   - Grade Selector Card: đọc localStorage("student_grade"), contextual badge 🔥/🔄
+ *   - Bỏ filter free/premium (chỉ lock icon trên card)
+ *   - Grade tab "Tất cả" ẩn trong Grade Card (chỉ giữ 3-4 / 4-5 / 5-6)
  */
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { findByPathwayGroup } from "../data/subjects";
@@ -18,20 +23,25 @@ import "./SubjectPage.css";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const SKILL_LABELS: Record<string, string> = {
-  reading:   "Reading",
-  listening: "Listening",
-  writing:   "Writing",
-  math:      "Math",
-  mixed:     "Mixed",
-};
+/** Kỹ năng meta — thứ tự quyết định thứ tự tab */
+const SKILL_META: { key: string; label: string; emoji: string }[] = [
+  { key: "reading",    label: "Reading",    emoji: "📖" },
+  { key: "writing",   label: "Writing",    emoji: "✏️" },
+  { key: "listening", label: "Listening",  emoji: "🎧" },
+  { key: "vocabulary",label: "Vocabulary", emoji: "📝" },
+  { key: "grammar",   label: "Grammar",    emoji: "📐" },
+  { key: "math",      label: "Toán",       emoji: "🔢" },
+  { key: "mixed",     label: "Tổng hợp",   emoji: "🎯" },
+];
 
 const SKILL_COLORS: Record<string, string> = {
-  reading:   "badge-primary",
-  listening: "badge-accent",
-  writing:   "badge-success",
-  math:      "badge-warning",
-  mixed:     "badge-primary",
+  reading:    "badge-primary",
+  listening:  "badge-accent",
+  writing:    "badge-success",
+  math:       "badge-warning",
+  mixed:      "badge-primary",
+  vocabulary: "badge-accent",
+  grammar:    "badge-warning",
 };
 
 const DIFFICULTY_CONFIG: Record<string, { label: string; className: string; emoji: string }> = {
@@ -40,16 +50,16 @@ const DIFFICULTY_CONFIG: Record<string, { label: string; className: string; emoj
   hard:   { label: "Hard",   className: "badge-difficulty-hard",   emoji: "🔴" },
 };
 
-/** Tabs grade — cho cả Math lẫn Reading */
-type GradeTab = "all" | "3-4" | "4-5" | "5-6";
+type GradeTab   = "all" | "3-4" | "4-5" | "5-6";
 type DiffFilter = "all" | "easy" | "medium" | "hard";
-type FreeFilter = "all" | "free" | "premium";
 
-const GRADE_TABS: { key: GradeTab; label: string }[] = [
-  { key: "all",  label: "Tất cả" },
-  { key: "3-4",  label: "Lớp 3–4" },
-  { key: "4-5",  label: "Lớp 4–5" },
-  { key: "5-6",  label: "Lớp 5–6" },
+/** Thứ tự grade để so sánh higher/lower */
+const GRADE_ORDER: Record<GradeTab, number> = { "all": 0, "3-4": 1, "4-5": 2, "5-6": 3 };
+
+const GRADE_TABS_DISPLAY: { key: GradeTab; label: string }[] = [
+  { key: "3-4", label: "Lớp 3–4" },
+  { key: "4-5", label: "Lớp 4–5" },
+  { key: "5-6", label: "Lớp 5–6" },
 ];
 
 const DIFF_CHIPS: { key: DiffFilter; label: string; emoji: string }[] = [
@@ -59,34 +69,43 @@ const DIFF_CHIPS: { key: DiffFilter; label: string; emoji: string }[] = [
   { key: "hard",   label: "Hard",       emoji: "🔴" },
 ];
 
-const FREE_CHIPS: { key: FreeFilter; label: string; emoji: string }[] = [
-  { key: "all",     label: "Tất cả",  emoji: "📚" },
-  { key: "free",    label: "Miễn phí", emoji: "🎁" },
-  { key: "premium", label: "Premium",  emoji: "⭐" },
-];
-
-// ─── Grade badge config (website-wide fixed colors) ──────────────────────────
-
-/** Key: grade_target value → CSS class & label */
 const GRADE_BADGE: Record<string, { className: string; label: string }> = {
   "3-4": { className: "badge-grade-34", label: "Lớp 3–4" },
   "4-5": { className: "badge-grade-45", label: "Lớp 4–5" },
   "5-6": { className: "badge-grade-56", label: "Lớp 5–6" },
 };
 
-// ─── Helper: check if a lesson matches a grade tab ───────────────────────────
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function lessonMatchesGrade(lesson: Lesson, tab: GradeTab): boolean {
   if (tab === "all") return true;
-  // Primary: grade_target — exact match
   if (lesson.grade_target) return lesson.grade_target === tab;
-  // Fallback: grade_min/grade_max — exact boundary match (NOT overlap)
   if (lesson.grade_min != null && lesson.grade_max != null) {
     const [lo, hi] = tab.split("-").map(Number);
     return lesson.grade_min === lo && lesson.grade_max === hi;
   }
-  // Bài không có thông tin grade → chỉ hiện ở tab "all"
   return false;
+}
+
+/** Đọc grade user từ localStorage → map sang GradeTab */
+function getUserGradeTab(): GradeTab {
+  try {
+    const raw = localStorage.getItem("student_grade");
+    const g = raw ? parseInt(raw, 10) : null;
+    if (g === 3) return "3-4";
+    if (g === 4) return "4-5";
+    if (g === 5) return "5-6";
+  } catch {
+    // localStorage không khả dụng
+  }
+  return "5-6"; // fallback: grade cao nhất
+}
+
+function getGradeContext(tab: GradeTab, userTab: GradeTab): "own" | "higher" | "lower" {
+  const diff = GRADE_ORDER[tab] - GRADE_ORDER[userTab];
+  if (diff === 0) return "own";
+  if (diff > 0)  return "higher";
+  return "lower";
 }
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
@@ -146,7 +165,7 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, onClick }: LessonCardPro
   const diff      = lesson.difficulty ? DIFFICULTY_CONFIG[lesson.difficulty] : null;
   const grade     = lesson.grade_target ? GRADE_BADGE[lesson.grade_target] : null;
 
-  // Chỉ lấy phần đầu trước " — " (VD: "Reading Comprehension — Easy — Grade 3-4" → "Reading Comprehension")
+  // Chỉ lấy phần đầu trước " — " để tiêu đề gọn hơn
   const displayTitle = lesson.title.split(" — ")[0];
 
   return (
@@ -173,12 +192,12 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, onClick }: LessonCardPro
         ) : (
           <span />
         )}
-        <span className={`badge sp-grade-badge ${SKILL_COLORS[lesson.skill]}`}>
-          {SKILL_LABELS[lesson.skill]}
+        <span className={`badge sp-grade-badge ${SKILL_COLORS[lesson.skill] ?? "badge-primary"}`}>
+          {SKILL_META.find(s => s.key === lesson.skill)?.label ?? lesson.skill}
         </span>
       </div>
 
-      {/* Title — chỉ phần đầu */}
+      {/* Title */}
       <h3 className="sp-lesson-card__title">
         {lesson.recommended && <span className="sp-lesson-card__star">⭐</span>}
         {displayTitle}
@@ -190,7 +209,7 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, onClick }: LessonCardPro
         {lesson.est_minutes && <span>· ~{lesson.est_minutes} phút</span>}
       </div>
 
-      {/* Footer: premium (left) + difficulty (right) */}
+      {/* Footer: lock/premium (left) + difficulty (right) */}
       <div className="sp-lesson-card__footer">
         {isPremium ? (
           <span className="badge sp-badge-premium">🔒 Premium</span>
@@ -218,57 +237,82 @@ export function SubjectPage() {
   const navigate  = useNavigate();
   const { isLoggedIn, loginWithGoogle } = useAuth();
 
-  // ── Resolve subject ──
   const pathway = getPathwayFromPathname(location.pathname);
   const subject = pathway ? findByPathwayGroup(pathway, subjectSlug) : null;
 
+  // ── Khởi tạo grade từ localStorage ngay lần đầu render ──
+  const initialGradeTab = useMemo(() => getUserGradeTab(), []);
+  const [userGradeTab]  = useState<GradeTab>(initialGradeTab);
+
   // ── Filter state ──
-  const [activeGrade, setActiveGrade] = useState<GradeTab>("all");
+  const [activeSkill, setActiveSkill] = useState<string>("");
+  const [activeGrade, setActiveGrade] = useState<GradeTab>(initialGradeTab);
   const [activeDiff,  setActiveDiff]  = useState<DiffFilter>("all");
-  const [activeFree,  setActiveFree]  = useState<FreeFilter>("all");
 
-  // ── Derived data ──
-  const hasGradeTabs = useMemo(
-    () => subject?.lessons.some((l) => l.grade_target || (l.grade_min != null && l.grade_max != null)) ?? false,
-    [subject],
-  );
-  const hasDiffFilter = useMemo(
-    () => subject?.lessons.some((l) => l.difficulty) ?? false,
-    [subject],
-  );
+  // ── Available skills (chỉ những skill có bài) ──
+  const availableSkills = useMemo(() => {
+    if (!subject) return [];
+    const skillSet = new Set(subject.lessons.map(l => l.skill).filter(Boolean));
+    return SKILL_META.filter(s => skillSet.has(s.key));
+  }, [subject]);
 
+  // ── Set default skill khi load subject (chỉ 1 lần) ──
+  useEffect(() => {
+    if (availableSkills.length > 0 && !activeSkill) {
+      setActiveSkill(availableSkills[0].key);
+    }
+  }, [availableSkills, activeSkill]);
+
+  // ── Đếm bài theo từng skill (cho badge count trên tab) ──
+  const lessonCountBySkill = useMemo(() => {
+    if (!subject) return {} as Record<string, number>;
+    const counts: Record<string, number> = {};
+    for (const l of subject.lessons) {
+      if (l.skill) counts[l.skill] = (counts[l.skill] ?? 0) + 1;
+    }
+    return counts;
+  }, [subject]);
+
+  // ── Đếm bài theo grade cho mỗi tab (hiện khi cần) ──
+  const lessonCountByGrade = useMemo(() => {
+    if (!subject) return {} as Record<GradeTab, number>;
+    const counts: Partial<Record<GradeTab, number>> = {};
+    for (const tab of GRADE_TABS_DISPLAY) {
+      counts[tab.key] = subject.lessons
+        .filter(l => activeSkill ? l.skill === activeSkill : true)
+        .filter(l => lessonMatchesGrade(l, tab.key))
+        .length;
+    }
+    return counts as Record<GradeTab, number>;
+  }, [subject, activeSkill]);
+
+  // ── Lesson list sau khi filter ──
   const filtered = useMemo<Lesson[]>(() => {
     if (!subject) return [];
     const DIFF_ORDER: Record<string, number> = { easy: 0, medium: 1, hard: 2 };
     return subject.lessons
-      .filter((l) => {
-        if (!lessonMatchesGrade(l, activeGrade)) return false;
-        if (activeDiff !== "all" && l.difficulty !== activeDiff) return false;
-        if (activeFree === "free"    && !l.is_free) return false;
-        if (activeFree === "premium" &&  l.is_free) return false;
-        return true;
-      })
+      .filter(l => activeSkill ? l.skill === activeSkill : true)
+      .filter(l => lessonMatchesGrade(l, activeGrade))
+      .filter(l => activeDiff === "all" || l.difficulty === activeDiff)
       .sort((a, b) => {
-        // 1. Recommended first
         if ((b.recommended ? 1 : 0) !== (a.recommended ? 1 : 0))
           return (b.recommended ? 1 : 0) - (a.recommended ? 1 : 0);
-        // 2. Easy → Medium → Hard
         const da = a.difficulty ? (DIFF_ORDER[a.difficulty] ?? 99) : 99;
         const db = b.difficulty ? (DIFF_ORDER[b.difficulty] ?? 99) : 99;
         if (da !== db) return da - db;
-        // 3. ID alphabetical (P1 before P2)
         return a.id.localeCompare(b.id);
       });
-  }, [subject, activeGrade, activeDiff, activeFree]);
+  }, [subject, activeSkill, activeGrade, activeDiff]);
 
+  // ── Stats ──
   const stats = useMemo(() => {
     if (!subject) return { total: 0, free: 0, recommended: 0, avgMinutes: 0 };
     const all  = subject.lessons;
-    const mins = all.filter((l) => l.est_minutes).map((l) => l.est_minutes as number);
+    const mins = all.filter(l => l.est_minutes).map(l => l.est_minutes as number);
     return {
       total:       all.length,
-      free:        all.filter((l) => l.is_free).length,
-      recommended: all.filter((l) => l.recommended).length,
+      free:        all.filter(l => l.is_free).length,
+      recommended: all.filter(l => l.recommended).length,
       avgMinutes:  mins.length > 0 ? Math.round(mins.reduce((a, b) => a + b, 0) / mins.length) : 0,
     };
   }, [subject]);
@@ -287,17 +331,6 @@ export function SubjectPage() {
     );
   }
 
-  // ── Grade tab counts ──
-  const gradeTabCounts = useMemo(() => {
-    if (!subject) return {} as Record<GradeTab, number>;
-    return {
-      all:   subject.lessons.length,
-      "3-4": subject.lessons.filter((l) => lessonMatchesGrade(l, "3-4")).length,
-      "4-5": subject.lessons.filter((l) => lessonMatchesGrade(l, "4-5")).length,
-      "5-6": subject.lessons.filter((l) => lessonMatchesGrade(l, "5-6")).length,
-    } as Record<GradeTab, number>;
-  }, [subject]);
-
   // ── Event handlers ──
   const handleStart = (lesson: Lesson) => {
     if (!lesson.is_free && !isLoggedIn) {
@@ -307,76 +340,131 @@ export function SubjectPage() {
     navigate(getLessonUrl(subject, lesson.slug));
   };
 
+  // ── Khi đổi Skill Tab: reset grade về grade user, reset difficulty ──
+  const handleSkillChange = (skillKey: string) => {
+    setActiveSkill(skillKey);
+    setActiveGrade(userGradeTab);
+    setActiveDiff("all");
+  };
+
+  // ── Grade context message ──
+  const gradeContext = activeGrade !== "all" ? getGradeContext(activeGrade, userGradeTab) : null;
+
   // ── Breadcrumbs ──
   const breadcrumbs = useBreadcrumbs(location.pathname, subject.label);
+
+  // ── Hiển thị Skill Tabs chỉ khi có > 1 kỹ năng ──
+  const showSkillTabs = availableSkills.length > 1;
 
   return (
     <div className="subject-page">
       {/* Breadcrumb */}
       <Breadcrumb items={breadcrumbs} />
 
-      {/* Hero — dùng class CSS đã định nghĩa */}
+      {/* Hero */}
       <div className="subject-page__hero" style={{ "--subject-color": subject.color } as React.CSSProperties}>
-        <div className="subject-page__hero-emoji">{subject.emoji}</div>
-        <h1 className="subject-page__hero-title">{subject.label}</h1>
-        <p className="subject-page__hero-desc">{subject.desc}</p>
-        <div className="subject-page__hero-meta">
-          <span>{stats.total} bài học</span>
-          <span>·</span>
-          <span>{stats.free} bài miễn phí</span>
+        {/* Pathway badge — hiện rõ người dùng đang ở lộ trình nào */}
+        <div className="subject-page__hero-pathway-badge">
+          {pathway === "lop6" ? "🏫 Luyện Thi Lớp 6" : "🇬🇧 Cambridge"}
         </div>
+        <div className="subject-page__hero-emoji">{subject.emoji}</div>
+        <h1 className="subject-page__hero-title">
+          {pathway === "lop6" ? `Môn ${subject.label.replace(" — Luyện Thi Lớp 6", "")}` : subject.label}
+        </h1>
+        <p className="subject-page__hero-desc">
+          {pathway === "lop6"
+            ? `Luyện thi tuyển sinh lớp 6 — ${availableSkills.map(s => s.label).join(" · ")} (${stats.total} bài)`
+            : subject.desc}
+        </p>
       </div>
 
-      {/* Stats bar */}
-      <StatsBar
-        total={stats.total}
-        free={stats.free}
-        recommended={stats.recommended}
-        avgMinutes={stats.avgMinutes}
-        color={subject.color}
-      />
 
-      {/* Controls: grade tabs + filter chips + result count — wrap trong sp-controls */}
-      <div className="sp-controls" style={{ "--subject-color": subject.color } as React.CSSProperties}>
-        {/* Grade tabs */}
-        {hasGradeTabs && (
-          <div className="sp-grade-tabs">
-            {GRADE_TABS.map((tab) => (
-              <button
-                key={tab.key}
-                className={`sp-grade-tab${activeGrade === tab.key ? " sp-grade-tab--active" : ""}`}
-                onClick={() => setActiveGrade(tab.key)}
-              >
-                {tab.label}
-                <span className="sp-grade-tab__count">{gradeTabCounts[tab.key] ?? 0}</span>
-              </button>
-            ))}
-          </div>
-        )}
+      {/* ── Skill Tab Bar (chỉ hiện khi > 1 skill) ── */}
+      {showSkillTabs && (
+        <div
+          className="sp-skill-tabs"
+          style={{ "--subject-color": subject.color } as React.CSSProperties}
+          role="tablist"
+          aria-label="Chọn kỹ năng"
+        >
+          {availableSkills.map(skill => (
+            <button
+              key={skill.key}
+              role="tab"
+              aria-selected={activeSkill === skill.key}
+              className={`sp-skill-tab${activeSkill === skill.key ? " sp-skill-tab--active" : ""}`}
+              onClick={() => handleSkillChange(skill.key)}
+              id={`tab-skill-${skill.key}`}
+            >
+              <span className="sp-skill-tab__emoji">{skill.emoji}</span>
+              <span className="sp-skill-tab__label">{skill.label}</span>
+              <span className="sp-skill-tab__count">{lessonCountBySkill[skill.key] ?? 0}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
-        {/* Filter chips */}
-        <div className="sp-filter-row">
-          {/* Difficulty chips */}
-          {hasDiffFilter && (
-            <div className="sp-filter-group">
-              {DIFF_CHIPS.map((c) => (
+      {/* ── Controls wrapper ── */}
+      <div
+        className="sp-controls"
+        style={{ "--subject-color": subject.color } as React.CSSProperties}
+      >
+        {/* ── Grade Selector Card ── */}
+        <div className="sp-grade-card">
+          <span className="sp-grade-card__label">🏫 Chọn lớp</span>
+          <div className="sp-grade-card__pills">
+            {GRADE_TABS_DISPLAY.map(tab => {
+              const ctx = getGradeContext(tab.key, userGradeTab);
+              const count = lessonCountByGrade[tab.key] ?? 0;
+              return (
                 <button
-                  key={c.key}
-                  className={`sp-chip${activeDiff === c.key ? " sp-chip--active" : ""}`}
-                  onClick={() => setActiveDiff(c.key)}
+                  key={tab.key}
+                  className={[
+                    "sp-grade-pill",
+                    activeGrade === tab.key ? "sp-grade-pill--active" : "",
+                    `sp-grade-pill--${ctx}`,
+                  ].filter(Boolean).join(" ")}
+                  onClick={() => setActiveGrade(tab.key)}
+                  id={`btn-grade-${tab.key.replace("-", "")}`}
+                  title={
+                    ctx === "higher" ? "Thử thách lớp cao hơn 🔥"
+                    : ctx === "lower"  ? "Ôn lại kiến thức 🔄"
+                    : "Lớp của bạn"
+                  }
                 >
-                  {c.emoji} {c.label}
+                  <span className="sp-grade-pill__label">{tab.label}</span>
+                  <span className={`sp-grade-pill__ctx ${ctx === "own" ? "sp-grade-pill__ctx--own" : ""}`}>
+                    {ctx === "higher" && "🔥"}
+                    {ctx === "lower"  && "🔄"}
+                    {ctx === "own"    && "✓ Của bạn"}
+                  </span>
+                  {count > 0 && (
+                    <span className="sp-grade-pill__count">{count}</span>
+                  )}
                 </button>
-              ))}
-            </div>
+              );
+            })}
+          </div>
+
+          {/* Contextual hint khi chọn grade khác */}
+          {gradeContext && gradeContext !== "own" && (
+            <p className="sp-grade-card__hint">
+              {gradeContext === "higher"
+                ? "💪 Bạn đang xem bài lớp cao hơn — thử sức nào!"
+                : "🔄 Bạn đang ôn lại kiến thức lớp dưới — ôn luyện thật kỹ nhé!"}
+            </p>
           )}
-          {/* Free/Premium chips */}
+        </div>
+
+        {/* ── Difficulty chips ── */}
+        <div className="sp-filter-row">
           <div className="sp-filter-group">
-            {FREE_CHIPS.map((c) => (
+            {DIFF_CHIPS.map(c => (
               <button
                 key={c.key}
-                className={`sp-chip${activeFree === c.key ? " sp-chip--active" : ""}`}
-                onClick={() => setActiveFree(c.key)}
+                className={`sp-chip${activeDiff === c.key ? " sp-chip--active" : ""}`}
+                onClick={() => setActiveDiff(c.key)}
+                id={`btn-diff-${c.key}`}
               >
                 {c.emoji} {c.label}
               </button>
@@ -392,7 +480,7 @@ export function SubjectPage() {
         </div>
       </div>
 
-      {/* Lesson grid — dùng sp-lessons wrapper */}
+      {/* Lesson grid */}
       <div className="sp-lessons">
         {filtered.length === 0 ? (
           <div className="subject-page__empty">
@@ -400,14 +488,17 @@ export function SubjectPage() {
             <p>Không có bài học nào phù hợp với bộ lọc hiện tại.</p>
             <button
               className="btn btn-outline"
-              onClick={() => { setActiveGrade("all"); setActiveDiff("all"); setActiveFree("all"); }}
+              onClick={() => {
+                setActiveGrade(userGradeTab);
+                setActiveDiff("all");
+              }}
             >
               Xóa bộ lọc
             </button>
           </div>
         ) : (
           <div className="sp-lesson-grid">
-            {filtered.map((lesson) => (
+            {filtered.map(lesson => (
               <LessonCard
                 key={lesson.id}
                 lesson={lesson}

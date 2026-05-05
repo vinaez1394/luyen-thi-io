@@ -18,12 +18,14 @@ import { useAuth } from "../hooks/useAuth";
 import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
 import { ReadingEngine } from "../components/quiz/ReadingEngine";
+import { WritingEngine } from "../components/quiz/WritingEngine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
 import "../components/quiz/Quiz.css";
 import "../components/layout/QuizLayout.css";
 import type { ReadingQuiz } from "../types/reading";
+import type { WritingQuiz } from "../types/writing";
 
 export function QuizPage() {
   const location = useLocation();
@@ -59,6 +61,10 @@ export function QuizPage() {
   const [readingProgress, setReadingProgress] = useState({ answered: 0, total: 0 });
   const [readingSubmitTrigger, setReadingSubmitTrigger] = useState(0);
   const [readingSubmitted, setReadingSubmitted] = useState(false);
+  // Writing Engine: progress + submit trigger (same pattern as Reading)
+  const [writingProgress, setWritingProgress] = useState({ answered: 0, total: 0 });
+  const [writingSubmitTrigger, setWritingSubmitTrigger] = useState(0);
+  const [writingSubmitted, setWritingSubmitted] = useState(false);
 
   const {
     quiz, state, error, isPremium,
@@ -301,6 +307,93 @@ export function QuizPage() {
             submitTrigger={readingSubmitTrigger}
             backUrl={backUrl}
             onRetry={() => setReadingSubmitted(false)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Writing — bọc trong sub-header giống Reading =====
+  if ((quiz as unknown as WritingQuiz).type === "writing") {
+    const wQuiz = quiz as unknown as WritingQuiz;
+    const allWritingAnswered = writingProgress.total > 0 &&
+      writingProgress.answered >= writingProgress.total;
+
+    return (
+      <div className="quiz-layout">
+
+        {/* ── Writing Sub-Header — ẩn sau khi nộp bài ── */}
+        {!writingSubmitted && (
+          <div className="quiz-sub-header" role="banner" aria-label="Thông tin bài viết">
+            <div className="quiz-sub-header__inner">
+
+              {/* Left: Breadcrumb + Title */}
+              <div className="quiz-sub-header__left">
+                <div className="quiz-sub-header__breadcrumb">
+                  <span
+                    className="quiz-sub-header__breadcrumb-link"
+                    onClick={() => navigate(backUrl)}
+                    role="button" tabIndex={0}
+                    onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                  >
+                    🏠 Trang chủ
+                  </span>
+                  <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                  <span className="quiz-sub-header__breadcrumb-current">
+                    ✏️ Viết
+                  </span>
+                </div>
+                <h2 className="quiz-sub-header__title">{wQuiz.title}</h2>
+              </div>
+
+              {/* Center: Progress + Submit */}
+              <div className="re-subheader-center">
+                <span className="re-subheader-center__count">
+                  {writingProgress.answered}/{writingProgress.total || wQuiz.sections.reduce((s, sec) => s + sec.questions.length, 0)}
+                </span>
+                <button
+                  id="btn-writing-submit-header"
+                  className="re-subheader-center__submit-btn"
+                  onClick={() => setWritingSubmitTrigger(t => t + 1)}
+                  disabled={!allWritingAnswered}
+                  title={!allWritingAnswered ? "Hãy trả lời hết câu hỏi trước" : "Nộp bài"}
+                >
+                  Nộp bài ✓
+                </button>
+              </div>
+
+              {/* Right: Exit */}
+              <div className="quiz-sub-header__right">
+                <button
+                  className="quiz-sub-header__exit-btn"
+                  onClick={() => navigate(backUrl)}
+                  aria-label="Thoát bài"
+                  title="Thoát bài"
+                >
+                  ✕
+                </button>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* ── Writing Content ── */}
+        <div className="quiz-layout__content">
+          <WritingEngine
+            quiz={wQuiz}
+            onComplete={() => {
+              localStorage.setItem("last_quiz_id", quizId);
+              setWritingSubmitted(true);
+            }}
+            onProgressChange={(answered, total) =>
+              setWritingProgress({ answered, total })
+            }
+            submitTrigger={writingSubmitTrigger}
+            backUrl={backUrl}
+            onRetry={() => setWritingSubmitted(false)}
+            vocabRemainingFree={vocab.remainingFree}
+            onVocabLookup={vocab.lookupWord}
           />
         </div>
       </div>

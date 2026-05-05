@@ -1,0 +1,399 @@
+{
+  "id": "WRITING-HARD-GRADE5-P1",
+  "title": "Writing — Khó — Lớp 5-6 — Bài 1",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp và đúng nghĩa.",
+      "example": {
+        "display_cues": "recycle old newspapers and / who live nearby / communities / should / plastic bottles to help /.//",
+        "answer": "Communities should recycle old newspapers and plastic bottles to help who live nearby."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "has launched / a new programme / the city government / to promote / green energy / in schools /.//",
+          "cues_segments": [
+            { "text": "has " },
+            {
+              "text": "launched",
+              "tooltip": { "vi": "ra mắt, khởi động (chương trình)", "ipa": "lɔːntʃt" }
+            },
+            { "text": " / a new " },
+            {
+              "text": "programme",
+              "tooltip": { "vi": "chương trình", "ipa": "ˈprəʊɡræm" }
+            },
+            { "text": " / the city " },
+            {
+              "text": "government",
+              "tooltip": { "vi": "chính quyền thành phố", "ipa": "ˈɡʌvənmənt" }
+            },
+            { "text": " / to " },
+            {
+              "text": "promote",
+              "tooltip": { "vi": "quảng bá, thúc đẩy", "ipa": "prəˈməʊt" }
+            },
+            { "text": " / green energy / in schools /./" }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "the city government",
+            "has launched",
+            "a new programme",
+            "to promote",
+            "green energy in schools"
+          ],
+          "correct": [
+            "the city government",
+            "has launched",
+            "a new programme",
+            "to promote",
+            "green energy in schools"
+          ],
+          "explanation": {
+            "correct_sentence": "The city government has launched a new programme to promote green energy in schools.",
+            "structure_vi": "S (Chủ ngữ) + have/has + V3 (Hiện tại hoàn thành) + O (Tân ngữ) + to-V (Mục đích)",
+            "grammar_notes": [
+              "⚠️ Dùng 'has' (không phải 'have') vì chủ ngữ 'the city government' là số ít",
+              "✅ 'to promote' = cụm động từ chỉ mục đích (purpose), đứng sau tân ngữ",
+              "✅ 'has launched' = Hiện tại hoàn thành — diễn tả hành động vừa xảy ra với kết quả còn ảnh hưởng"
+            ],
+            "vocab_notes": [
+              { "word": "launch", "vi": "ra mắt, khởi động (sự kiện/chương trình)", "ipa": "lɔːntʃ" },
+              { "word": "promote", "vi": "quảng bá, khuyến khích", "ipa": "prəˈməʊt" },
+              { "word": "green energy", "vi": "năng lượng xanh (tái tạo)", "ipa": "ɡriːn ˈenədʒi" }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'the city government have launched' → dùng 'has' với chủ ngữ số ít",
+              "❌ Sai: 'to promoting' → sau 'to' dùng V nguyên mẫu, không thêm -ing"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "is expected / online learning / to become / in the future / the main method of studying /.//",
+          "cues_segments": [
+            { "text": "is " },
+            {
+              "text": "expected",
+              "tooltip": { "vi": "được kỳ vọng, dự kiến", "ipa": "ɪkˈspektɪd" }
+            },
+            { "text": " / online learning / to become / in the future / the main " },
+            {
+              "text": "method",
+              "tooltip": { "vi": "phương pháp", "ipa": "ˈmeθəd" }
+            },
+            { "text": " of studying /./" }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "online learning",
+            "is expected",
+            "to become",
+            "the main method of studying",
+            "in the future"
+          ],
+          "correct": [
+            "online learning",
+            "is expected",
+            "to become",
+            "the main method of studying",
+            "in the future"
+          ],
+          "explanation": {
+            "correct_sentence": "Online learning is expected to become the main method of studying in the future.",
+            "structure_vi": "S + is/are + expected + to-V (Câu bị động với động từ tường thuật)",
+            "grammar_notes": [
+              "✅ Cấu trúc: S + be expected to-V = 'được kỳ vọng sẽ...'",
+              "✅ 'in the future' là trạng ngữ thời gian, thường đứng cuối câu",
+              "⚠️ 'method of studying' — danh từ ghép: 'method of + V-ing'"
+            ],
+            "vocab_notes": [
+              { "word": "expect", "vi": "kỳ vọng, dự đoán", "ipa": "ɪkˈspekt" },
+              { "word": "method", "vi": "phương pháp", "ipa": "ˈmeθəd" }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Online learning is expected to becoming...' → sau 'expected to' dùng V nguyên mẫu",
+              "❌ Sai: đặt 'in the future' ở giữa câu → mất tự nhiên, ưu tiên cuối câu"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "have helped / millions of people / social media platforms / to stay connected / with their loved ones /.//",
+          "cues_segments": [
+            { "text": "have helped / millions of people / " },
+            {
+              "text": "social media",
+              "tooltip": { "vi": "mạng xã hội", "ipa": "ˈsəʊʃəl ˈmiːdiə" }
+            },
+            { "text": " " },
+            {
+              "text": "platforms",
+              "tooltip": { "vi": "nền tảng (công nghệ)", "ipa": "ˈplætfɔːmz" }
+            },
+            { "text": " / to stay connected / with their " },
+            {
+              "text": "loved ones",
+              "tooltip": { "vi": "những người thân yêu", "ipa": "lʌvd wʌnz" }
+            },
+            { "text": " /./" }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "social media platforms",
+            "have helped",
+            "millions of people",
+            "to stay connected",
+            "with their loved ones"
+          ],
+          "correct": [
+            "social media platforms",
+            "have helped",
+            "millions of people",
+            "to stay connected",
+            "with their loved ones"
+          ],
+          "explanation": {
+            "correct_sentence": "Social media platforms have helped millions of people to stay connected with their loved ones.",
+            "structure_vi": "S + have/has + V3 + O (người) + to-V (mục đích/kết quả)",
+            "grammar_notes": [
+              "✅ 'have helped' = Hiện tại hoàn thành — nhấn mạnh kết quả kéo dài đến hiện tại",
+              "✅ 'help + O + to-V' = giúp ai làm gì",
+              "⚠️ 'loved ones' = cụm danh từ, nghĩa là 'những người thân yêu' (không phải 'beloved ones')"
+            ],
+            "vocab_notes": [
+              { "word": "platform", "vi": "nền tảng (ứng dụng/mạng xã hội)", "ipa": "ˈplætfɔːm" },
+              { "word": "connected", "vi": "được kết nối", "ipa": "kəˈnektɪd" },
+              { "word": "loved ones", "vi": "những người thân yêu", "ipa": "lʌvd wʌnz" }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Social media platforms has helped' → chủ ngữ số nhiều 'platforms' dùng 'have'",
+              "❌ Sai: 'to staying connected' → sau 'to' (infinitive) dùng V nguyên mẫu"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "installing solar panels / will reduce / on rooftops / electricity bills / significantly /.//",
+          "cues_segments": [
+            {
+              "text": "installing",
+              "tooltip": { "vi": "lắp đặt", "ipa": "ɪnˈstɔːlɪŋ" }
+            },
+            { "text": " " },
+            {
+              "text": "solar panels",
+              "tooltip": { "vi": "tấm pin năng lượng mặt trời", "ipa": "ˈsəʊlər ˈpænlz" }
+            },
+            { "text": " / will reduce / on rooftops / " },
+            {
+              "text": "electricity",
+              "tooltip": { "vi": "điện, điện năng", "ipa": "ɪˌlekˈtrɪsəti" }
+            },
+            { "text": " bills / " },
+            {
+              "text": "significantly",
+              "tooltip": { "vi": "đáng kể, một cách rõ rệt", "ipa": "sɪɡˈnɪfɪkəntli" }
+            },
+            { "text": " /./" }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "installing solar panels on rooftops",
+            "will reduce",
+            "electricity bills",
+            "significantly",
+            "for households"
+          ],
+          "correct": [
+            "installing solar panels on rooftops",
+            "will reduce",
+            "electricity bills",
+            "significantly",
+            "for households"
+          ],
+          "explanation": {
+            "correct_sentence": "Installing solar panels on rooftops will reduce electricity bills significantly for households.",
+            "structure_vi": "V-ing (Chủ ngữ dạng danh động từ) + will + V + O + Trạng ngữ",
+            "grammar_notes": [
+              "✅ 'Installing solar panels...' = Gerund phrase làm chủ ngữ — hành động được coi như danh từ",
+              "✅ 'will reduce' = thì Tương lai đơn — diễn tả kết quả dự đoán",
+              "✅ 'significantly' = trạng từ chỉ mức độ, đứng sau động từ/tân ngữ"
+            ],
+            "vocab_notes": [
+              { "word": "solar panel", "vi": "tấm pin mặt trời", "ipa": "ˈsəʊlər ˈpænl" },
+              { "word": "significantly", "vi": "đáng kể", "ipa": "sɪɡˈnɪfɪkəntli" },
+              { "word": "rooftop", "vi": "mái nhà", "ipa": "ˈruːftɒp" }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Install solar panels...' → dùng V-ing (Gerund) làm chủ ngữ, không dùng V nguyên mẫu",
+              "❌ Sai: 'will reduces' → sau 'will' luôn dùng V nguyên mẫu (không thêm -s)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ. Chia động từ và biến đổi từ nếu cần thiết.",
+      "example": {
+        "display_cues": "students / use / smartphones / look up / information / quickly /.//",
+        "answer": "Students use smartphones to look up information quickly."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "Nguyen Hue Flower Street / be / one of / most popular / tourist attraction / Ho Chi Minh City /.//",
+          "cues_segments": [
+            { "text": "Nguyen Hue Flower Street / be / one of / most popular / " },
+            {
+              "text": "tourist attraction",
+              "tooltip": { "vi": "điểm du lịch hấp dẫn", "ipa": "ˈtʊərɪst əˈtrækʃən" }
+            },
+            { "text": " / Ho Chi Minh City /./" }
+          ],
+          "accepted_answers": [
+            "Nguyen Hue Flower Street is one of the most popular tourist attractions in Ho Chi Minh City.",
+            "nguyen hue flower street is one of the most popular tourist attractions in ho chi minh city",
+            "Nguyen Hue Flower Street is one of the most popular tourist attractions in Ho Chi Minh City",
+            "Nguyen Hue Flower Street is one of the most popular tourist attractions in Hồ Chí Minh City.",
+            "The Nguyen Hue Flower Street is one of the most popular tourist attractions in Ho Chi Minh City."
+          ],
+          "explanation": {
+            "correct_sentence": "Nguyen Hue Flower Street is one of the most popular tourist attractions in Ho Chi Minh City.",
+            "structure_vi": "S + be + one of the + (so sánh nhất) + N (số nhiều) + in + nơi chốn",
+            "grammar_notes": [
+              "✅ 'one of the most popular' → cấu trúc so sánh nhất với 'one of the'",
+              "⚠️ Bắt buộc: 'tourist attractions' (số nhiều) — sau 'one of the' luôn dùng danh từ số nhiều",
+              "✅ 'in Ho Chi Minh City' — dùng 'in' cho tên thành phố",
+              "✅ Động từ 'be' → chia thành 'is' vì chủ ngữ 'Nguyen Hue Flower Street' là số ít"
+            ],
+            "vocab_notes": [
+              { "word": "tourist attraction", "vi": "điểm thu hút khách du lịch", "ipa": "ˈtʊərɪst əˈtrækʃən" },
+              { "word": "popular", "vi": "nổi tiếng, được ưa chuộng", "ipa": "ˈpɒpjʊlər" }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'one of the most popular tourist attraction' → thiếu 's' (phải là 'attractions')",
+              "❌ Sai: 'Nguyen Hue Flower Street are...' → chia sai động từ, chủ ngữ là số ít"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "it / be / important / children / limit / screen time / protect / eyesight /.//",
+          "cues_segments": [
+            { "text": "it / be / important / children / limit / " },
+            {
+              "text": "screen time",
+              "tooltip": { "vi": "thời gian sử dụng màn hình", "ipa": "skriːn taɪm" }
+            },
+            { "text": " / protect / " },
+            {
+              "text": "eyesight",
+              "tooltip": { "vi": "thị lực, tầm nhìn", "ipa": "ˈaɪsaɪt" }
+            },
+            { "text": " /./" }
+          ],
+          "accepted_answers": [
+            "It is important for children to limit screen time to protect their eyesight.",
+            "it is important for children to limit screen time to protect their eyesight",
+            "It is important for children to limit their screen time to protect their eyesight.",
+            "It is important for children to limit screen time to protect eyesight.",
+            "It's important for children to limit screen time to protect their eyesight."
+          ],
+          "explanation": {
+            "correct_sentence": "It is important for children to limit screen time to protect their eyesight.",
+            "structure_vi": "It + be + adj + for + O + to-V₁ + to-V₂ (mục đích)",
+            "grammar_notes": [
+              "✅ Cấu trúc: 'It is + adj + for + sb + to-V' = 'Thật quan trọng để ai đó làm gì'",
+              "✅ 'to protect their eyesight' = to-V chỉ mục đích, đứng cuối câu",
+              "⚠️ 'for children' — dùng 'for' (không phải 'of') để chỉ đối tượng thực hiện hành động",
+              "✅ 'their eyesight' — thêm tính từ sở hữu 'their' cho tự nhiên hơn"
+            ],
+            "vocab_notes": [
+              { "word": "limit", "vi": "giới hạn, hạn chế", "ipa": "ˈlɪmɪt" },
+              { "word": "screen time", "vi": "thời gian nhìn màn hình", "ipa": "skriːn taɪm" },
+              { "word": "eyesight", "vi": "thị lực, khả năng nhìn", "ipa": "ˈaɪsaɪt" }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'It is important of children to...' → dùng 'for', không phải 'of'",
+              "❌ Sai: 'It is important for children limiting...' → sau 'for + O', dùng 'to-V' không phải 'V-ing'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "District 1's / students / take part in / STEM competition / enthusiastically / last November /.//",
+          "cues_segments": [
+            { "text": "District 1's / students / take part in / STEM " },
+            {
+              "text": "competition",
+              "tooltip": { "vi": "cuộc thi, cuộc cạnh tranh", "ipa": "ˌkɒmpəˈtɪʃən" }
+            },
+            { "text": " / " },
+            {
+              "text": "enthusiastically",
+              "tooltip": { "vi": "một cách nhiệt tình, hăng hái", "ipa": "ɪnˌθjuːziˈæstɪkli" }
+            },
+            { "text": " / last November /./" }
+          ],
+          "accepted_answers": [
+            "District 1's students participated in a STEM competition enthusiastically last November.",
+            "district 1's students participated in a stem competition enthusiastically last november",
+            "District 1's students took part in a STEM competition enthusiastically last November.",
+            "District 1's students participated in the STEM competition enthusiastically last November.",
+            "District 1's students took part in the STEM competition enthusiastically last November."
+          ],
+          "explanation": {
+            "correct_sentence": "District 1's students participated in a STEM competition enthusiastically last November.",
+            "structure_vi": "S + V (quá khứ đơn) + in + O + trạng từ + trạng ngữ thời gian",
+            "grammar_notes": [
+              "⚠️ 'take part in' → chia ở quá khứ đơn: 'took part in' (bất quy tắc) HOẶC dùng 'participated in' (quy tắc)",
+              "✅ 'last November' = thì Quá khứ đơn — sự kiện đã xảy ra và kết thúc trong quá khứ",
+              "✅ 'enthusiastically' = trạng từ chỉ cách thức, đứng sau tân ngữ",
+              "✅ 'a/the STEM competition' — có thể dùng mạo từ 'a' (lần đầu đề cập) hoặc 'the' (cụ thể)"
+            ],
+            "vocab_notes": [
+              { "word": "participate in", "vi": "tham gia vào", "ipa": "pɑːˈtɪsɪpeɪt ɪn" },
+              { "word": "enthusiastically", "vi": "nhiệt tình, hăng hái", "ipa": "ɪnˌθjuːziˈæstɪkli" },
+              { "word": "competition", "vi": "cuộc thi, cuộc cạnh tranh", "ipa": "ˌkɒmpəˈtɪʃən" }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'students take part in' → phải chia quá khứ: 'took part in' vì có 'last November'",
+              "❌ Sai: 'District 1's students participated enthusiastically in...' → trạng từ đặt sau tân ngữ tự nhiên hơn"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
