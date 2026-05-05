@@ -593,5 +593,95 @@ Dùng lệnh `/debug` → AI hỏi thông tin, điều tra, sửa đúng chỗ.
 
 ---
 
+---
+
 *GitHub: https://github.com/vinaez1394/luyen-thi-io*
-*Cập nhật: 2026-05-05 | Writing Engine — types, JSON schema, component design*
+*Cập nhật: 2026-05-05 | SubjectPage v4 — Skill Tabs + Grade Card + GlobalHeader Grade Badge*
+
+---
+
+## 🎨 SUBJECTPAGE v4 — THIẾT KẾ MỚI (2026-05-05)
+
+### Tổng quan thay đổi
+
+| Thành phần | Trước | Sau |
+|-----------|-------|-----|
+| Hero | Tiêu đề + mô tả ngắn + stats nhỏ | Pathway Badge + tiêu đề môn + desc tổng hợp kỹ năng |
+| StatsBar | ✅ Hiển thị (27 bài · 21 miễn phí · 3 gợi ý · ~10') | ❌ Đã bỏ — không cần thiết |
+| Grade Tabs | Inline tabs ngang + filter free/premium | Grade Selector Card nổi bật + bỏ free/premium |
+| Skill Tabs | Không có | ✅ Mới — auto-detect từ `lesson.skill` |
+| GlobalHeader | Chỉ tên user + avatar | ✅ Thêm badge "Lớp 4" cạnh tên |
+
+### Skill Tab Bar
+
+- **Tự động detect** kỹ năng có bài từ `lesson.skill` — không cần maintain danh sách thủ công
+- **Tự ẩn** khi subject chỉ có 1 kỹ năng (VD: môn Toán → ẩn Skill Tab Bar luôn)
+- **Thứ tự tab:** Reading → Writing → Listening → Vocabulary → Grammar → Toán → Tổng hợp (theo `SKILL_META` constant)
+- **Khi đổi tab:** reset Grade về grade user, reset Difficulty về "Tất cả"
+- **File CSS:** `.sp-skill-tabs`, `.sp-skill-tab`, `.sp-skill-tab--active`
+
+### Grade Selector Card
+
+- **Nguồn data:** `localStorage("student_grade")` — số nguyên (3, 4, 5) → map thành tab "3-4", "4-5", "5-6"
+- **Mapping:** grade 3 → tab "3-4" | grade 4 → tab "4-5" | grade 5 → tab "5-6"
+- **Fallback:** `null` hoặc ngoài range → default "5-6" (grade cao nhất)
+- **Contextual badge:**
+  - `own`: Tab đúng grade user → hiện `✓ Của bạn`
+  - `higher`: Tab cao hơn grade user → hiện `🔥` (Thử thách)
+  - `lower`: Tab thấp hơn grade user → hiện `🔄` (Ôn luyện)
+- **Hint message:** Hiện 1 dòng chữ nhỏ khi user chọn grade khác
+- **Không dùng API** — pure localStorage, trang load không bị skeleton
+
+### Hero mới
+
+```
+┌─────────────────────────────────────────────────────
+│  🏫 LUYỆN THI LỚP 6          ← pathway badge (pill)
+│
+│  🇬🇧  ← emoji
+│  Môn Tiếng Anh              ← tiêu đề rõ ràng
+│  Luyện thi tuyển sinh lớp 6 — Reading · Writing (27 bài)  ← desc
+└─────────────────────────────────────────────────────
+```
+
+- Pathway badge auto-render: `lop6` → "🏫 Luyện Thi Lớp 6" | `cambridge` → "🇬🇧 Cambridge"
+- Title: bỏ suffix " — Luyện Thi Lớp 6" trong `subject.label` để tránh lặp với badge
+- Desc: tổng hợp danh sách kỹ năng đang có bài + tổng số bài
+
+### GlobalHeader Grade Badge
+
+- Đọc `localStorage("student_grade")` khi `isLoggedIn = true`
+- Hiện badge `"Lớp 4"` dạng pill nhỏ giữa avatar emoji và tên user
+- **Ẩn trên mobile** (< 600px) để tiết kiệm không gian
+- **CSS class:** `.gh-grade-badge` (trong `GlobalHeader.css`)
+
+### File đã thay đổi (commit: d4a3623)
+
+| File | Thay đổi |
+|------|----------|
+| `src/react-app/pages/SubjectPage.tsx` | Viết lại hoàn toàn v4 |
+| `src/react-app/pages/SubjectPage.css` | CSS mới: Skill Tabs + Grade Card + Pathway Badge |
+| `src/react-app/components/layout/GlobalHeader.tsx` | Thêm `gradeBadge` state |
+| `src/react-app/components/layout/GlobalHeader.css` | Thêm `.gh-grade-badge` |
+
+### Filter Pipeline SubjectPage v4
+
+```
+subject.lessons[]
+  → filter: skill === activeSkill (nếu > 1 skill)
+  → filter: grade_target === activeGrade
+  → filter: difficulty === activeDiff (nếu không phải "all")
+  → sort: recommended ↓ → easy → medium → hard → id
+→ filtered[] → LessonCard grid
+```
+
+### Quyết định thiết kế
+
+| Quyết định | Lý do |
+|-----------|-------|
+| Ẩn tab "Tất cả" trong Grade Card | Học sinh cần bài phù hợp lớp, không cần xem tất cả |
+| Ẩn Skill Tabs khi chỉ 1 kỹ năng | Tránh tab đơn lẻ vô nghĩa (VD: môn Toán chỉ có "Toán") |
+| Grade từ localStorage (không API) | Zero latency, trang load ngay không skeleton |
+| Bỏ filter free/premium | Cognitive load giảm, lock 🔒 trên card đủ rõ |
+| Grade Card có border-left accent | Phân biệt rõ "cá nhân hóa" vs chip filter thông thường |
+

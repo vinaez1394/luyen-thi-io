@@ -110,47 +110,6 @@ function getGradeContext(tab: GradeTab, userTab: GradeTab): "own" | "higher" | "
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
-interface StatsBarProps {
-  total: number;
-  free: number;
-  recommended: number;
-  avgMinutes: number;
-  color: string;
-}
-
-function StatsBar({ total, free, recommended, avgMinutes, color }: StatsBarProps) {
-  return (
-    <div className="sp-stats-bar" style={{ "--subject-color": color } as React.CSSProperties}>
-      <div className="sp-stats-bar__item">
-        <span className="sp-stats-bar__value" style={{ color }}>{total}</span>
-        <span className="sp-stats-bar__label">bài luyện</span>
-      </div>
-      <div className="sp-stats-bar__divider" />
-      <div className="sp-stats-bar__item">
-        <span className="sp-stats-bar__value" style={{ color }}>{free}</span>
-        <span className="sp-stats-bar__label">miễn phí</span>
-      </div>
-      {recommended > 0 && (
-        <>
-          <div className="sp-stats-bar__divider" />
-          <div className="sp-stats-bar__item">
-            <span className="sp-stats-bar__value" style={{ color }}>{recommended}</span>
-            <span className="sp-stats-bar__label">gợi ý</span>
-          </div>
-        </>
-      )}
-      {avgMinutes > 0 && (
-        <>
-          <div className="sp-stats-bar__divider" />
-          <div className="sp-stats-bar__item">
-            <span className="sp-stats-bar__value" style={{ color }}>~{avgMinutes}'</span>
-            <span className="sp-stats-bar__label">mỗi bài</span>
-          </div>
-        </>
-      )}
-    </div>
-  );
-}
 
 interface LessonCardProps {
   lesson: Lesson;
