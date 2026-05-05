@@ -397,7 +397,12 @@ export function SubjectPage() {
                   <span className={`sp-grade-pill__ctx ${ctx === "own" ? "sp-grade-pill__ctx--own" : ""}`}>
                     {ctx === "higher" && "🔥"}
                     {ctx === "lower"  && "🔄"}
-                    {ctx === "own"    && "✓ Của bạn"}
+                    {ctx === "own"    && (
+                      <>
+                        <span className="sp-grade-pill__ctx-symbol">✓</span>
+                        <span className="sp-grade-pill__ctx-label"> Của bạn</span>
+                      </>
+                    )}
                   </span>
                   {count > 0 && (
                     <span className="sp-grade-pill__count">{count}</span>

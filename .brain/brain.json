@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.1.0",
     "awf_version": "4.0.2",
-    "last_updated": "2026-05-04T12:35:00+07:00"
+    "last_updated": "2026-05-05T21:53:00+07:00"
   },
   "project": {
     "name": "luyen-thi-io",
@@ -27,14 +27,15 @@
     "summary": "Lưu user, hồ sơ bé, kết quả học, từ vựng, Dream Box",
     "tables": [
       "users — phụ huynh đăng ký Google/Email",
-      "student_profiles — hồ sơ bé (grade, pathway, theme, avatar)",
+      "student_profiles — hồ sơ bé (grade, pathway, theme, avatar, current_grade)",
       "student_stats — streak, skill levels, last_quiz_id",
       "quiz_attempts — kết quả từng bài",
       "dream_goals — Hộp Quà Ước Mơ",
       "vocabulary_words — kho từ hệ thống",
       "student_vocabulary — theo dõi từng bé",
       "vocabulary_bank — 250 từ Cambridge Flyers A2 (17 topics, seeded 2026-05-01)"
-    ]
+    ],
+    "grade_storage": "student_profiles.current_grade (DB) ↔ localStorage('student_grade') (FE) — sync sau khi fetch /api/student/dashboard"
   },
   "api_endpoints": [
     { "method": "GET", "path": "/api/auth/google", "desc": "OAuth redirect" },
@@ -50,26 +51,49 @@
     "multiple-choice": "QuizEngine — 4 ô chọn 1",
     "fill-blank": "QuizEngine — gõ vào ô trống",
     "drag-drop-match": "QuizEngine — kéo nối 2 cột",
-    "reading-passage": "ReadingEngine — 2 sections, 4 loại câu (cloze, true-false, mc-3, write-word)"
+    "reading-passage": "ReadingEngine — 2 sections, 4 loại câu (cloze, true-false, mc-3, write-word)",
+    "writing": "WritingEngine — 2 sections (rearrange DragDropFill + sentence-building SentenceInput)"
   },
   "content_inventory": {
     "lop6_toan": "MATH-L1-P1 ... P10 (10 bài, P1-P5 free, P6-P10 premium)",
     "cambridge_flyers_reading": "RW001, RW2-001, RW3-001 (3 bài)",
     "cambridge_flyers_listening": "L001, L002, L003 (3 bài)",
-    "lop6_tieng_anh_reading": "READING-EASY/MED/HARD-GRADE3/4/5-P1 (9 bài Reading Passage)"
+    "lop6_tieng_anh_reading": "READING-EASY/MED/HARD-GRADE3/4/5-P1 (9 bài Reading Passage)",
+    "lop6_tieng_anh_writing": "WRITING-EASY-GRADE3-P1/P2/P3, WRITING-MED-GRADE4-P1/P2/P3, WRITING-HARD-GRADE5-P1/P2/P3 (9 bài Writing)"
   },
   "r2_mapping": {
     "MATH-L*-P*": "quizzes/lop6/toan/{ID}.json",
     "RW*": "quizzes/cambridge/flyers/reading/{ID}.json",
     "L00*": "quizzes/cambridge/flyers/listening/{ID}.json",
-    "READING-*": "quizzes/lop6/tieng-anh/reading/{ID}.json"
+    "READING-*": "quizzes/lop6/tieng-anh/reading/{ID}.json",
+    "WRITING-*": "quizzes/lop6/tieng-anh/writing/{ID}.json"
   },
   "deploy_rules": {
     "trigger": "git push origin dev → GitHub Actions tự chạy ~1.5 phút",
     "correct_deploy_step": "./node_modules/.bin/wrangler deploy",
     "do_not_use": "cloudflare/wrangler-action@v3 — hay tự cập nhật gây lỗi",
     "reporting_rule": "BẮT BUỘC mở browser kiểm tra thực tế trước khi báo 'hoàn thành'",
-    "github_secret": "CLOUDFLARE_API_TOKEN (cần: Workers Scripts Edit + D1 Edit + R2 Edit)"
+    "github_secret": "CLOUDFLARE_API_TOKEN (cần: Workers Scripts Edit + D1 Edit + R2 Edit)",
+    "ci_ts_note": "CI dùng TypeScript strict hơn local. Luôn chạy npx tsc --noEmit trước khi push. Set<union>.has(string) KHÔNG được phép ở CI."
+  },
+  "subjectpage_v4": {
+    "version": "v4",
+    "commit": "606869f",
+    "deployed": "2026-05-05",
+    "components": {
+      "SkillTabBar": "Auto-detect từ lesson.skill, ẩn khi chỉ 1 kỹ năng. CSS: .sp-skill-tabs, .sp-skill-tab",
+      "GradeCard": "Đọc localStorage('student_grade'), contextual badge 🔥/🔄/✓. CSS: .sp-grade-card, .sp-grade-pill",
+      "Hero": "Pathway badge 🏫/🇬🇧 + tiêu đề môn + desc tổng hợp. CSS: .subject-page__hero-pathway-badge",
+      "GlobalHeaderGradeBadge": "Badge 'Lớp X' cạnh tên user. CSS: .gh-grade-badge (ẩn mobile <600px)"
+    },
+    "grade_logic": {
+      "source": "localStorage('student_grade') — số nguyên 3/4/5",
+      "mapping": "3 → '3-4' | 4 → '4-5' | 5 → '5-6'",
+      "fallback": "null hoặc ngoài range → '5-6'",
+      "context": "own/higher/lower dùng GRADE_ORDER constant"
+    },
+    "filter_pipeline": "lesson.skill === activeSkill → grade_target === activeGrade → difficulty === activeDiff → sort recommended↓ easy→hard",
+    "removed": ["StatsBar component", "free/premium filter chips", "Grade tab 'Tất cả'"]
   },
   "features": {
     "done": [
@@ -84,10 +108,12 @@
       "ReadingEngine (9 bài, 4 loại câu hỏi)",
       "Vocabulary bank 250 từ Cambridge Flyers",
       "MobileBottomNav UI Fixes (Reading Submit button, Hamburger Menu)",
-      "Dashboard Progress + Grade Tracking (Grade Badges, 'Ôn tập lại' Notification)"
+      "Dashboard Progress + Grade Tracking (Grade Badges, 'Ôn tập lại' Notification)",
+      "WritingEngine (9 bài, DragDropFill + SentenceInput)",
+      "SubjectPage v4 (Skill Tabs + Grade Card + Pathway Badge + GlobalHeader Grade Badge)"
     ],
     "todo": [
-      "SubjectPage Redesign (Grade Tabs + Filter Chips + Grid Layout)",
+      "Thêm bài Reading/Writing mới (các chủ đề khác)",
       "Quiz Audio — Listening (Cloudflare Workers AI)",
       "Weekly Report Email (Resend.com)",
       "Dream Box + Email confirmation",
@@ -108,6 +134,14 @@
       "fix": "Thêm bottom: 64px ở .re-footer và tăng padding-bottom cho body (Rule CSS-03)",
       "file": "src/react-app/components/quiz/ReadingEngine.css",
       "date": "2026-05-02"
+    },
+    {
+      "bug": "TS2345: Argument of type 'string' not assignable to Set<union>.has()",
+      "cause": "new Set(lessons.map(l => l.skill)) infer ra Set<union_type>, nhưng SKILL_META[].key là string → has() từ chối",
+      "fix": "Explicit new Set<string>(...) + cast l.skill as string",
+      "file": "src/react-app/pages/SubjectPage.tsx",
+      "date": "2026-05-05",
+      "lesson": "CI TypeScript strict hơn local — luôn test Set<string> thay vì để TypeScript infer union Set"
     }
   ],
   "exam_luyenthi_skill": {
@@ -117,13 +151,20 @@
       "mcq": "references/json-schema.md",
       "reading_passage": "references/reading-passage-schema.md"
     },
-    "reading_id_format": "READING-{DIFF}-GRADE{N}-P{NUM}",
-    "reading_content_folder": "content/lop6/tieng-anh/reading/"
+    "id_formats": {
+      "reading": "READING-{DIFF}-GRADE{N}-P{NUM}",
+      "writing": "WRITING-{DIFF}-GRADE{N}-P{NUM}"
+    },
+    "content_folders": {
+      "reading": "content/lop6/tieng-anh/reading/",
+      "writing": "content/lop6/tieng-anh/writing/"
+    }
   },
   "business_rules": {
     "stars": "Không bao giờ hết hạn. Chỉ trừ khi tra Word Tooltip sau hết 3 lượt free/bài",
     "hangman_scoring": "5/5 +2⭐ | 4/5 +1⭐ | ≤3/5 = 0⭐",
     "mastery": "Đúng 2 lần trong 2 session khác → từ 'tốt nghiệp'",
-    "premium": "Bài P6-P10 là premium, P1-P5 free"
+    "premium": "Bài P6-P10 là premium, P1-P5 free",
+    "slug_policy": "Giữ nguyên /lop6 (SEO + DB consistency). KHÔNG đổi thành /luyenthilop6"
   }
 }

@@ -350,7 +350,8 @@
 @media (max-width: 480px) {
   .sp-grade-card { padding: var(--space-2); }
   .sp-grade-pill { padding: 0.4rem 0.75rem; font-size: var(--font-xs); }
-  .sp-grade-pill__ctx--own { display: none; } /* Tiết kiệm space trên mobile */
+  /* Ẩn chỉ text "Của bạn", giữ lại ký hiệu ✓ */
+  .sp-grade-pill__ctx-label { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
