@@ -211,7 +211,9 @@ export function SubjectPage() {
   // ── Available skills (chỉ những skill có bài) ──
   const availableSkills = useMemo(() => {
     if (!subject) return [];
-    const skillSet = new Set(subject.lessons.map(l => l.skill).filter(Boolean));
+    const skillSet = new Set<string>(
+      subject.lessons.map(l => l.skill as string).filter(Boolean)
+    );
     return SKILL_META.filter(s => skillSet.has(s.key));
   }, [subject]);
 
