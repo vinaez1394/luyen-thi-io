@@ -71,12 +71,16 @@ interface ReadingEngineProps {
   onProgressChange?: (answered: number, total: number) => void;
   /** Tăng lên 1 mỗi khi QuizPage muốn trigger submit từ sub-header */
   submitTrigger?: number;
+  /** URL để quay về trang môn học sau khi nộp bài */
+  backUrl?: string;
+  /** Callback khi user nhấn "Làm lại" — để QuizPage reset readingSubmitted */
+  onRetry?: () => void;
 }
 
 // ============================================
 // ReadingEngine — component chính
 // ============================================
-export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVocabLookup, onProgressChange, submitTrigger }: ReadingEngineProps) {
+export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVocabLookup, onProgressChange, submitTrigger, backUrl, onRetry }: ReadingEngineProps) {
   const { isLoggedIn, loginWithGoogle } = useAuth();
 
   const [answers, setAnswers] = useState<ReadingAnswers>({});
@@ -151,7 +155,8 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
     setIsSubmitted(false);
     setShowLoginCTA(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+    onRetry?.(); // Thông báo QuizPage reset header
+  }, [onRetry]);
 
   // Stars display
   const starsLabel = result ? "⭐".repeat(result.starsEarned) : "";
@@ -179,9 +184,18 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
                 "Keep practising! 💪"
               }
             </div>
-            <button className="re-result__retry-btn" onClick={handleRetry}>
-              🔄 Try Again
-            </button>
+
+            {/* Navigation buttons */}
+            <div className="re-result__actions">
+              <button className="re-result__retry-btn" onClick={handleRetry}>
+                🔄 Try Again
+              </button>
+              {backUrl && (
+                <a href={backUrl} className="re-result__back-btn">
+                  ← Back to lessons
+                </a>
+              )}
+            </div>
           </div>
         )}
 

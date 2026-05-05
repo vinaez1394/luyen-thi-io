@@ -539,6 +539,47 @@
   color: white;
 }
 
+/* Actions row: Try Again + Back */
+.re-result__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-2, 10px);
+}
+
+/* "Back to lessons" link styled as secondary button */
+.re-result__back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 32px;
+  border-radius: var(--radius-full, 9999px);
+  border: 2px solid var(--color-border, #e2e8f0);
+  background: transparent;
+  color: var(--color-text-muted, #64748b);
+  font-size: var(--font-md, 16px);
+  font-weight: var(--font-bold, 700);
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.re-result__back-btn:hover {
+  border-color: var(--color-text, #1e293b);
+  color: var(--color-text, #1e293b);
+  background: var(--color-bg, #f8f7ff);
+}
+
+@media (min-width: 480px) {
+  .re-result__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 /* ============================================
    MC-3 — list style
    ============================================ */

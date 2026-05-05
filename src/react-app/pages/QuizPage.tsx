@@ -58,6 +58,7 @@ export function QuizPage() {
   // Reading Engine: progress + submit trigger
   const [readingProgress, setReadingProgress] = useState({ answered: 0, total: 0 });
   const [readingSubmitTrigger, setReadingSubmitTrigger] = useState(0);
+  const [readingSubmitted, setReadingSubmitted] = useState(false);
 
   const {
     quiz, state, error, isPremium,
@@ -228,59 +229,61 @@ export function QuizPage() {
     return (
       <div className="quiz-layout">
 
-        {/* ── Reading Sub-Header ── */}
-        <div className="quiz-sub-header" role="banner" aria-label="Thông tin bài đọc">
-          <div className="quiz-sub-header__inner">
+        {/* ── Reading Sub-Header — ẩn sau khi nộp bài ── */}
+        {!readingSubmitted && (
+          <div className="quiz-sub-header" role="banner" aria-label="Thông tin bài đọc">
+            <div className="quiz-sub-header__inner">
 
-            {/* Left: Breadcrumb + Title */}
-            <div className="quiz-sub-header__left">
-              <div className="quiz-sub-header__breadcrumb">
-                <span
-                  className="quiz-sub-header__breadcrumb-link"
-                  onClick={() => navigate(backUrl)}
-                  role="button" tabIndex={0}
-                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
-                >
-                  🏠 Trang chủ
-                </span>
-                <span className="quiz-sub-header__breadcrumb-sep">›</span>
-                <span className="quiz-sub-header__breadcrumb-current">
-                  📚 Đọc hiểu
-                </span>
+              {/* Left: Breadcrumb + Title */}
+              <div className="quiz-sub-header__left">
+                <div className="quiz-sub-header__breadcrumb">
+                  <span
+                    className="quiz-sub-header__breadcrumb-link"
+                    onClick={() => navigate(backUrl)}
+                    role="button" tabIndex={0}
+                    onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                  >
+                    🏠 Trang chủ
+                  </span>
+                  <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                  <span className="quiz-sub-header__breadcrumb-current">
+                    📚 Đọc hiểu
+                  </span>
+                </div>
+                <h2 className="quiz-sub-header__title">{rQuiz.title}</h2>
               </div>
-              <h2 className="quiz-sub-header__title">{rQuiz.title}</h2>
-            </div>
 
-            {/* Center: Progress + Submit */}
-            <div className="re-subheader-center">
-              <span className="re-subheader-center__count">
-                {readingProgress.answered}/{readingProgress.total || rQuiz.sections.reduce((s, sec) => s + sec.questions.length, 0)}
-              </span>
-              <button
-                id="btn-reading-submit-header"
-                className="re-subheader-center__submit-btn"
-                onClick={() => setReadingSubmitTrigger(t => t + 1)}
-                disabled={!allReadingAnswered}
-                title={!allReadingAnswered ? "Hãy trả lời hết câu hỏi trước" : "Nộp bài"}
-              >
-                Nộp bài ✓
-              </button>
-            </div>
+              {/* Center: Progress + Submit */}
+              <div className="re-subheader-center">
+                <span className="re-subheader-center__count">
+                  {readingProgress.answered}/{readingProgress.total || rQuiz.sections.reduce((s, sec) => s + sec.questions.length, 0)}
+                </span>
+                <button
+                  id="btn-reading-submit-header"
+                  className="re-subheader-center__submit-btn"
+                  onClick={() => setReadingSubmitTrigger(t => t + 1)}
+                  disabled={!allReadingAnswered}
+                  title={!allReadingAnswered ? "Hãy trả lời hết câu hỏi trước" : "Nộp bài"}
+                >
+                  Nộp bài ✓
+                </button>
+              </div>
 
-            {/* Right: Exit */}
-            <div className="quiz-sub-header__right">
-              <button
-                className="quiz-sub-header__exit-btn"
-                onClick={() => navigate(backUrl)}
-                aria-label="Thoát bài"
-                title="Thoát bài"
-              >
-                ✕
-              </button>
-            </div>
+              {/* Right: Exit */}
+              <div className="quiz-sub-header__right">
+                <button
+                  className="quiz-sub-header__exit-btn"
+                  onClick={() => navigate(backUrl)}
+                  aria-label="Thoát bài"
+                  title="Thoát bài"
+                >
+                  ✕
+                </button>
+              </div>
 
+            </div>
           </div>
-        </div>
+        )}
 
         {/* ── Reading Content ── */}
         <div className="quiz-layout__content">
@@ -288,11 +291,14 @@ export function QuizPage() {
             quiz={rQuiz}
             onComplete={() => {
               localStorage.setItem("last_quiz_id", quizId);
+              setReadingSubmitted(true);
             }}
             onProgressChange={(answered, total) =>
               setReadingProgress({ answered, total })
             }
             submitTrigger={readingSubmitTrigger}
+            backUrl={backUrl}
+            onRetry={() => setReadingSubmitted(false)}
           />
         </div>
       </div>
