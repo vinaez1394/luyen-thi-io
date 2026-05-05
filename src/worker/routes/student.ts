@@ -153,26 +153,8 @@ studentRoute.get("/dashboard", async (c) => {
   const userId = await getSession(c.env.SESSION, token);
   if (!userId) return c.json({ error: "Session hết hạn" }, 401);
 
-  // Query profile + stats (JOIN)
-  const row = await c.env.DB.prepare(`
-    SELECT
-      sp.id            AS profileId,
-      sp.display_name  AS displayName,
-      sp.avatar_id     AS avatarId,
-      sp.theme,
-      sp.current_grade AS currentGrade,
-      sp.selected_pathway AS selectedPathway,
-      ss.total_stars   AS totalStars,
-      ss.current_streak AS streak,
-      ss.lvl_listening_p1, ss.lvl_listening_p2,
-      ss.lvl_reading_p1,   ss.lvl_reading_p2,
-      ss.lvl_writing_p1,
-      ss.last_quiz_id  AS lastQuizId
-    FROM student_profiles sp
-    LEFT JOIN student_stats ss ON ss.student_id = sp.id
-    WHERE sp.user_id = ?
-    LIMIT 1
-  `).bind(userId).first<{
+  // Query profile + stats — bọc try/catch để không crash nếu cột chưa migrate
+  let row: {
     profileId:        string;
     displayName:      string;
     avatarId:         string;
@@ -187,14 +169,91 @@ studentRoute.get("/dashboard", async (c) => {
     lvl_reading_p2:   number;
     lvl_writing_p1:   number;
     lastQuizId:       string | null;
-  }>();
+  } | null = null;
+
+  try {
+    // Full query với tất cả cột mới nhất
+    row = await c.env.DB.prepare(`
+      SELECT
+        sp.id            AS profileId,
+        sp.display_name  AS displayName,
+        sp.avatar_id     AS avatarId,
+        sp.theme,
+        sp.current_grade AS currentGrade,
+        sp.selected_pathway AS selectedPathway,
+        ss.total_stars   AS totalStars,
+        ss.current_streak AS streak,
+        ss.lvl_listening_p1, ss.lvl_listening_p2,
+        ss.lvl_reading_p1,   ss.lvl_reading_p2,
+        ss.lvl_writing_p1,
+        ss.last_quiz_id  AS lastQuizId
+      FROM student_profiles sp
+      LEFT JOIN student_stats ss ON ss.student_id = sp.id
+      WHERE sp.user_id = ?
+      LIMIT 1
+    `).bind(userId).first<{
+      profileId:        string;
+      displayName:      string;
+      avatarId:         string;
+      theme:            string;
+      currentGrade:     number | null;
+      selectedPathway:  string | null;
+      totalStars:       number;
+      streak:           number;
+      lvl_listening_p1: number;
+      lvl_listening_p2: number;
+      lvl_reading_p1:   number;
+      lvl_reading_p2:   number;
+      lvl_writing_p1:   number;
+      lastQuizId:       string | null;
+    }>();
+  } catch {
+    // Fallback: query đơn giản chỉ dùng cột gốc (không có current_grade, last_quiz_id)
+    // Xảy ra khi migration 0003/0010 chưa được apply lên production
+    try {
+      const fallbackRow = await c.env.DB.prepare(`
+        SELECT
+          sp.id            AS profileId,
+          sp.display_name  AS displayName,
+          sp.avatar_id     AS avatarId,
+          sp.theme,
+          ss.total_stars   AS totalStars,
+          ss.current_streak AS streak,
+          ss.lvl_listening_p1, ss.lvl_listening_p2,
+          ss.lvl_reading_p1,   ss.lvl_reading_p2,
+          ss.lvl_writing_p1
+        FROM student_profiles sp
+        LEFT JOIN student_stats ss ON ss.student_id = sp.id
+        WHERE sp.user_id = ?
+        LIMIT 1
+      `).bind(userId).first<{
+        profileId:        string;
+        displayName:      string;
+        avatarId:         string;
+        theme:            string;
+        totalStars:       number;
+        streak:           number;
+        lvl_listening_p1: number;
+        lvl_listening_p2: number;
+        lvl_reading_p1:   number;
+        lvl_reading_p2:   number;
+        lvl_writing_p1:   number;
+      }>();
+      if (fallbackRow) {
+        row = { ...fallbackRow, currentGrade: null, selectedPathway: null, lastQuizId: null };
+      }
+    } catch {
+      // Nếu cả fallback cũng fail thì trả 500 thật
+      return c.json({ error: "Database error" }, 500);
+    }
+  }
 
   if (!row) return c.json({ error: "Chưa có hồ sơ" }, 404);
 
   // Skill levels (từ các cột lvl_*)
   const skillLevels = [
-    { skill: "listening", level: Math.round((row.lvl_listening_p1 + row.lvl_listening_p2) / 2), quizzesDone: 0 },
-    { skill: "reading",   level: Math.round((row.lvl_reading_p1   + row.lvl_reading_p2)   / 2), quizzesDone: 0 },
+    { skill: "listening", level: Math.round(((row.lvl_listening_p1 ?? 0) + (row.lvl_listening_p2 ?? 0)) / 2), quizzesDone: 0 },
+    { skill: "reading",   level: Math.round(((row.lvl_reading_p1 ?? 0)   + (row.lvl_reading_p2 ?? 0))   / 2), quizzesDone: 0 },
     { skill: "writing",   level: row.lvl_writing_p1 ?? 0, quizzesDone: 0 },
   ];
 
@@ -228,8 +287,8 @@ studentRoute.get("/dashboard", async (c) => {
   } : null;
 
   return c.json({
-    currentGrade:    row.currentGrade,
-    selectedPathway: row.selectedPathway,
+    currentGrade:    row.currentGrade ?? null,
+    selectedPathway: row.selectedPathway ?? null,
     streak:          row.streak ?? 0,
     totalStars:      row.totalStars ?? 0,
     skillLevels,
