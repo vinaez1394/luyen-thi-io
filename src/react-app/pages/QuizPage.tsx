@@ -190,6 +190,7 @@ export function QuizPage() {
             fetch("/api/student/stars", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
+              credentials: "include",   // ← bắt buộc: gửi cookie session
               body: JSON.stringify({
                 stars:   earnedStars,
                 source:  "hangman",
@@ -206,6 +207,7 @@ export function QuizPage() {
             fetch("/api/student/stars", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
+              credentials: "include",   // ← bắt buộc: gửi cookie session
               body: JSON.stringify({
                 stars:   earnedStars,
                 source:  "flashcard",

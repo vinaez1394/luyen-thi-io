@@ -113,8 +113,8 @@ export function useDashboard() {
       try {
         // Fetch song song cả 2 API để giảm thời gian chờ
         const [dashRes, progressRes] = await Promise.all([
-          fetch("/api/student/dashboard"),
-          fetch("/api/student/progress-summary"),
+          fetch("/api/student/dashboard", { credentials: "include" }),
+          fetch("/api/student/progress-summary", { credentials: "include" }),
         ]);
 
         const dashData: Omit<DashboardData, "progressSummary"> = dashRes.ok

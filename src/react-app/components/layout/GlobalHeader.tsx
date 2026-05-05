@@ -70,7 +70,7 @@ export function GlobalHeader() {
     if (!isLoggedIn) { setTotalStars(0); return; }
 
     let cancelled = false;
-    fetch("/api/student/dashboard")
+    fetch("/api/student/dashboard", { credentials: "include" })
       .then((r) => r.ok ? r.json() : null)
       .then((d: { totalStars?: number } | null) => {
         if (!cancelled && d?.totalStars != null) setTotalStars(d.totalStars);
@@ -79,7 +79,7 @@ export function GlobalHeader() {
 
     // Lắng nghe event khi kiếm được sao → refresh
     const onStarsUpdate = () => {
-      fetch("/api/student/dashboard")
+      fetch("/api/student/dashboard", { credentials: "include" })
         .then((r) => r.ok ? r.json() : null)
         .then((d: { totalStars?: number } | null) => {
           if (!cancelled && d?.totalStars != null) setTotalStars(d.totalStars);

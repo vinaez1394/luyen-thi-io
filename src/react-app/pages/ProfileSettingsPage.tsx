@@ -79,6 +79,7 @@ export function ProfileSettingsPage() {
       const res = await fetch("/api/student/profile", {
         method:  "PATCH",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({
           displayName:     displayName.trim(),
           avatarId,
