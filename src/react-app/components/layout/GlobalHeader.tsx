@@ -302,6 +302,21 @@ export function GlobalHeader() {
             )}
           </div>
 
+          {/* ── Grade badge (desktop standalone icon) ── */}
+          {isLoggedIn && gradeBadge && (
+            <div
+              className="gh-grade-icon"
+              title={`Lớp học của bé: ${gradeBadge}`}
+              onClick={() => navigate("/profile")}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter") navigate("/profile"); }}
+            >
+              <span className="gh-grade-icon__emoji">🏫</span>
+              <span className="gh-grade-icon__label">{gradeBadge}</span>
+            </div>
+          )}
+
           {/* ── Auth Area ── */}
           {!isLoading && (
             <div className="global-header__auth">
@@ -317,9 +332,6 @@ export function GlobalHeader() {
                     <div className="global-header__avatar-emoji">
                       {displayName[0]?.toUpperCase() ?? "B"}
                     </div>
-                    {gradeBadge && (
-                      <span className="gh-grade-badge" title="Lớp học của bạn">{gradeBadge}</span>
-                    )}
                     <span className="global-header__avatar-name">{displayName}</span>
                   </button>
 
@@ -378,17 +390,50 @@ export function GlobalHeader() {
             role="presentation"
           />
           <nav className="mobile-drawer" aria-label="Menu di động">
-            <div className="mobile-drawer__logo">
-              <span style={{ fontSize: 24 }}>🎓</span>
-              <span style={{ fontWeight: 900, color: "var(--color-primary)", fontSize: "var(--font-lg)" }}>
-                Luyện Thi
-              </span>
+            {/* Header drawer: Logo + nút đóng (X) */}
+            <div className="mobile-drawer__header">
+              <div className="mobile-drawer__logo">
+                <span style={{ fontSize: 24 }}>🎓</span>
+                <span style={{ fontWeight: 900, color: "var(--color-primary)", fontSize: "var(--font-lg)" }}>
+                  Luyện Thi
+                </span>
+              </div>
+              <button
+                className="mobile-drawer__close-btn"
+                id="btn-drawer-close"
+                onClick={() => setDrawerOpen(false)}
+                aria-label="Đóng menu"
+              >
+                ✕
+              </button>
             </div>
+
+            {/* ── User stats card (grade + stars) — chỉ hiện khi đăng nhập ── */}
+            {isLoggedIn && (
+              <div className="mobile-drawer__user-card">
+                <div className="mobile-drawer__user-card-avatar">
+                  {displayName[0]?.toUpperCase() ?? "B"}
+                </div>
+                <div className="mobile-drawer__user-card-info">
+                  <span className="mobile-drawer__user-card-name">{displayName}</span>
+                  <div className="mobile-drawer__user-card-stats">
+                    {gradeBadge && (
+                      <span className="mobile-drawer__user-stat mobile-drawer__user-stat--grade">
+                        🏫 {gradeBadge}
+                      </span>
+                    )}
+                    <span className="mobile-drawer__user-stat mobile-drawer__user-stat--stars">
+                      ⭐ {totalStars}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Trang chủ */}
             <button
               className={`mobile-drawer__nav-link ${location.pathname === "/" ? "active" : ""}`}
-              onClick={() => navigate("/")}
+              onClick={() => { navigate("/"); setDrawerOpen(false); }}
             >
               <span className="mobile-drawer__nav-icon">🏠</span> Trang chủ
             </button>
