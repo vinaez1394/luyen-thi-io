@@ -163,11 +163,18 @@ export function DragDropFill({
 
   // bank: từ chưa dùng
   const [bank, setBank] = useState<string[]>(() => {
+    let initialBank = [...q.word_bank];
+    // Fisher-Yates shuffle để từ hiện ngẫu nhiên
+    for (let i = initialBank.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [initialBank[i], initialBank[j]] = [initialBank[j], initialBank[i]];
+    }
+
     if (Array.isArray(userAnswer) && userAnswer.length === totalSlots) {
       const used = new Set(userAnswer as string[]);
-      return q.word_bank.filter((w) => !used.has(w));
+      return initialBank.filter((w) => !used.has(w));
     }
-    return [...q.word_bank];
+    return initialBank;
   });
 
   const [activeWord, setActiveWord] = useState<string | null>(null);
