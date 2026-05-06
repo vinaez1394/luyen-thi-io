@@ -1,0 +1,242 @@
+{
+  "id": "WRITING-HARD-GRADE3-P3",
+  "title": "Writing — Khó — Lớp 3-4 — Bài 3",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "we drink / how much / water / should / every day /?//",
+          "cues_segments": [
+            {
+              "text": "we drink / how much / water / should / every day /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "how much",
+            "water",
+            "should",
+            "we drink",
+            "every day"
+          ],
+          "correct": [
+            "how much",
+            "water",
+            "should",
+            "we drink",
+            "every day"
+          ],
+          "explanation": {
+            "correct_sentence": "How much water should we drink every day?",
+            "structure_vi": "How much + danh từ không đếm được + should + S + V + trạng từ?",
+            "grammar_notes": [
+              "✅ 'water' không đếm được nên dùng 'How much'.",
+              "✅ 'should we drink' để hỏi lời khuyên."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "tall buildings / there are / in my city / many /.//",
+          "cues_segments": [
+            {
+              "text": "tall buildings / there are / in my city / many /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "there are",
+            "many",
+            "tall buildings",
+            "in my city"
+          ],
+          "correct": [
+            "there are",
+            "many",
+            "tall buildings",
+            "in my city"
+          ],
+          "explanation": {
+            "correct_sentence": "There are many tall buildings in my city.",
+            "structure_vi": "There are + many + danh từ số nhiều + in + nơi chốn",
+            "grammar_notes": [
+              "✅ Dùng 'There are' cho danh từ số nhiều ('buildings')."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "his keys / he / this morning / couldn't find /.//",
+          "cues_segments": [
+            {
+              "text": "his keys / he / this morning / couldn't find /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "he",
+            "couldn't find",
+            "his keys",
+            "this morning"
+          ],
+          "correct": [
+            "he",
+            "couldn't find",
+            "his keys",
+            "this morning"
+          ],
+          "explanation": {
+            "correct_sentence": "He couldn't find his keys this morning.",
+            "structure_vi": "S + couldn't + V + O + thời gian",
+            "grammar_notes": [
+              "✅ 'couldn't' là phủ định của 'could' (quá khứ của can) chỉ sự không thể trong quá khứ."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "to watch / tonight / a movie / are you / going /?//",
+          "cues_segments": [
+            {
+              "text": "to watch / tonight / a movie / are you / going /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "are you",
+            "going",
+            "to watch",
+            "a movie",
+            "tonight"
+          ],
+          "correct": [
+            "are you",
+            "going",
+            "to watch",
+            "a movie",
+            "tonight"
+          ],
+          "explanation": {
+            "correct_sentence": "Are you going to watch a movie tonight?",
+            "structure_vi": "Are + you + going to + V + O + thời gian?",
+            "grammar_notes": [
+              "✅ Cấu trúc tương lai gần 'be going to' dạng câu hỏi."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "my mother / cook / better / than / my sister /.//",
+          "cues_segments": [
+            {
+              "text": "my mother / cook / better / than / my sister /.//"
+            }
+          ],
+          "accepted_answers": [
+            "My mother cooks better than my sister."
+          ],
+          "explanation": {
+            "correct_sentence": "My mother cooks better than my sister.",
+            "structure_vi": "S1 + V + better than + S2",
+            "grammar_notes": [
+              "✅ 'better' là so sánh hơn của 'well' hoặc 'good'.",
+              "✅ Động từ 'cooks' thêm 's'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "we / must / turn off / lights / before / leave / room /.//",
+          "cues_segments": [
+            {
+              "text": "we / must / turn off / lights / before / leave / room /.//"
+            }
+          ],
+          "accepted_answers": [
+            "We must turn off the lights before leaving the room.",
+            "We must turn off lights before leaving the room."
+          ],
+          "explanation": {
+            "correct_sentence": "We must turn off the lights before leaving the room.",
+            "structure_vi": "S + must + V + before + V-ing",
+            "grammar_notes": [
+              "✅ Dùng 'must' chỉ sự bắt buộc.",
+              "✅ Sau giới từ 'before' động từ phải ở dạng V-ing ('leaving')."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "they / travel / Da Nang / plane / last summer /.//",
+          "cues_segments": [
+            {
+              "text": "they / travel / Da Nang / plane / last summer /.//"
+            }
+          ],
+          "accepted_answers": [
+            "They traveled to Da Nang by plane last summer.",
+            "They travelled to Da Nang by plane last summer."
+          ],
+          "explanation": {
+            "correct_sentence": "They traveled to Da Nang by plane last summer.",
+            "structure_vi": "S + V-ed + to + địa điểm + by + phương tiện + thời gian",
+            "grammar_notes": [
+              "✅ 'last summer' -> thì quá khứ đơn ('traveled' hoặc 'travelled').",
+              "✅ Đi bằng phương tiện gì dùng 'by'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    }
+  ]
+}

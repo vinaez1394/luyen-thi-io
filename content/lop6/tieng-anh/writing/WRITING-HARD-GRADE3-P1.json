@@ -1,0 +1,298 @@
+{
+  "id": "WRITING-HARD-GRADE3-P1",
+  "title": "Writing — Khó — Lớp 3-4 — Bài 1",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "because / he was sick / didn't go / yesterday / he / to school /.//",
+          "cues_segments": [
+            {
+              "text": "because / he was "
+            },
+            {
+              "text": "sick",
+              "tooltip": {
+                "vi": "ốm, bệnh",
+                "ipa": "sɪk"
+              }
+            },
+            {
+              "text": " / didn't go / yesterday / he / to school /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "he",
+            "didn't go",
+            "to school",
+            "yesterday",
+            "because",
+            "he was sick"
+          ],
+          "correct": [
+            "he",
+            "didn't go",
+            "to school",
+            "yesterday",
+            "because",
+            "he was sick"
+          ],
+          "explanation": {
+            "correct_sentence": "He didn't go to school yesterday because he was sick.",
+            "structure_vi": "S + didn't + V + nơi chốn + thời gian + because + mệnh đề lý do",
+            "grammar_notes": [
+              "✅ Quá khứ đơn dạng phủ định: 'didn't + V'.",
+              "✅ 'because' nối mệnh đề chỉ nguyên nhân."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "more expensive / the red one / the blue shirt / is / than /.//",
+          "cues_segments": [
+            {
+              "text": "more "
+            },
+            {
+              "text": "expensive",
+              "tooltip": {
+                "vi": "đắt tiền",
+                "ipa": "ɪkˈspensɪv"
+              }
+            },
+            {
+              "text": " / the red one / the blue shirt / is / than /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "the blue shirt",
+            "is",
+            "more expensive",
+            "than",
+            "the red one"
+          ],
+          "correct": [
+            "the blue shirt",
+            "is",
+            "more expensive",
+            "than",
+            "the red one"
+          ],
+          "explanation": {
+            "correct_sentence": "The blue shirt is more expensive than the red one.",
+            "structure_vi": "S1 + be + more + tính từ dài + than + S2",
+            "grammar_notes": [
+              "✅ So sánh hơn với tính từ dài: 'more expensive than'.",
+              "✅ 'one' thay thế cho 'shirt' để tránh lặp từ."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "last weekend / what / at the park / did you do /?//",
+          "cues_segments": [
+            {
+              "text": "last weekend / what / at the park / did you do /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}?",
+          "word_bank": [
+            "what",
+            "did you do",
+            "at the park",
+            "last weekend"
+          ],
+          "correct": [
+            "what",
+            "did you do",
+            "at the park",
+            "last weekend"
+          ],
+          "explanation": {
+            "correct_sentence": "What did you do at the park last weekend?",
+            "structure_vi": "What + did + S + do + nơi chốn + thời gian?",
+            "grammar_notes": [
+              "✅ Câu hỏi thì quá khứ đơn với từ để hỏi 'What'.",
+              "✅ Trạng từ thời gian 'last weekend' thường đứng cuối câu."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "faster / me / my brother / runs / than /.//",
+          "cues_segments": [
+            {
+              "text": "faster / me / my brother / runs / than /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "my brother",
+            "runs",
+            "faster",
+            "than",
+            "me"
+          ],
+          "correct": [
+            "my brother",
+            "runs",
+            "faster",
+            "than",
+            "me"
+          ],
+          "explanation": {
+            "correct_sentence": "My brother runs faster than me.",
+            "structure_vi": "S1 + V + trạng từ ngắn-er + than + tân ngữ",
+            "grammar_notes": [
+              "✅ So sánh hơn của trạng từ 'fast' là 'faster'.",
+              "✅ Ngôi thứ 3 số ít 'brother' nên động từ 'run' thêm 's'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "I / would like / glass / orange juice / please /.//",
+          "cues_segments": [
+            {
+              "text": "I / would like / glass / orange "
+            },
+            {
+              "text": "juice",
+              "tooltip": {
+                "vi": "nước ép",
+                "ipa": "dʒuːs"
+              }
+            },
+            {
+              "text": " / please /.//"
+            }
+          ],
+          "accepted_answers": [
+            "I would like a glass of orange juice, please.",
+            "I would like a glass of orange juice please."
+          ],
+          "explanation": {
+            "correct_sentence": "I would like a glass of orange juice, please.",
+            "structure_vi": "S + would like + a glass of + đồ uống",
+            "grammar_notes": [
+              "✅ Dùng 'would like' để yêu cầu lịch sự.",
+              "✅ 'a glass of' (một ly/cốc)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "the children / play / hide and seek / garden / now /.//",
+          "cues_segments": [
+            {
+              "text": "the children / play / hide and "
+            },
+            {
+              "text": "seek",
+              "tooltip": {
+                "vi": "tìm kiếm (trò trốn tìm)",
+                "ipa": "siːk"
+              }
+            },
+            {
+              "text": " / garden / now /.//"
+            }
+          ],
+          "accepted_answers": [
+            "The children are playing hide and seek in the garden now."
+          ],
+          "explanation": {
+            "correct_sentence": "The children are playing hide and seek in the garden now.",
+            "structure_vi": "S + be + V-ing + in the + nơi chốn + now",
+            "grammar_notes": [
+              "✅ Dấu hiệu 'now' -> Hiện tại tiếp diễn: 'are playing'.",
+              "✅ 'hide and seek' (trò trốn tìm)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "let's / go / beach / and / build / sandcastles /.//",
+          "cues_segments": [
+            {
+              "text": "let's / go / beach / and / build / "
+            },
+            {
+              "text": "sandcastles",
+              "tooltip": {
+                "vi": "lâu đài cát",
+                "ipa": "ˈsændˌkɑːslz"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "Let's go to the beach and build sandcastles."
+          ],
+          "explanation": {
+            "correct_sentence": "Let's go to the beach and build sandcastles.",
+            "structure_vi": "Let's + V1 + and + V2",
+            "grammar_notes": [
+              "✅ 'Let's' + động từ nguyên mẫu để rủ rê/đề nghị.",
+              "✅ 'go to the beach' (đi biển)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    }
+  ]
+}

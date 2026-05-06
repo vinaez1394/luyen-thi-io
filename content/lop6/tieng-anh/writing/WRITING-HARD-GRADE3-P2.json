@@ -1,0 +1,253 @@
+{
+  "id": "WRITING-HARD-GRADE3-P2",
+  "title": "Writing — Khó — Lớp 3-4 — Bài 2",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "we didn't / so / the weather / go camping / was bad /.//",
+          "cues_segments": [
+            {
+              "text": "we didn't / so / the weather / go "
+            },
+            {
+              "text": "camping",
+              "tooltip": {
+                "vi": "cắm trại",
+                "ipa": "ˈkæmpɪŋ"
+              }
+            },
+            {
+              "text": " / was bad /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "the weather",
+            "was bad",
+            "so",
+            "we didn't",
+            "go camping"
+          ],
+          "correct": [
+            "the weather",
+            "was bad",
+            "so",
+            "we didn't",
+            "go camping"
+          ],
+          "explanation": {
+            "correct_sentence": "The weather was bad so we didn't go camping.",
+            "structure_vi": "S1 + was + adj + so + S2 + didn't + V",
+            "grammar_notes": [
+              "✅ 'so' dùng để chỉ kết quả.",
+              "✅ Cả hai vế đều ở thì quá khứ đơn."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "in the zoo / which animal / the biggest / is /?//",
+          "cues_segments": [
+            {
+              "text": "in the zoo / which animal / the biggest / is /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}?",
+          "word_bank": [
+            "which animal",
+            "is",
+            "the biggest",
+            "in the zoo"
+          ],
+          "correct": [
+            "which animal",
+            "is",
+            "the biggest",
+            "in the zoo"
+          ],
+          "explanation": {
+            "correct_sentence": "Which animal is the biggest in the zoo?",
+            "structure_vi": "Which animal + is + the + so sánh nhất + nơi chốn?",
+            "grammar_notes": [
+              "✅ Dùng 'Which' để hỏi sự lựa chọn.",
+              "✅ 'the biggest' (to nhất) - so sánh nhất của 'big'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "any apples / at the supermarket / she / didn't buy /.//",
+          "cues_segments": [
+            {
+              "text": "any apples / at the supermarket / she / didn't buy /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "she",
+            "didn't buy",
+            "any apples",
+            "at the supermarket"
+          ],
+          "correct": [
+            "she",
+            "didn't buy",
+            "any apples",
+            "at the supermarket"
+          ],
+          "explanation": {
+            "correct_sentence": "She didn't buy any apples at the supermarket.",
+            "structure_vi": "S + didn't buy + any + N(số nhiều) + tại nơi chốn",
+            "grammar_notes": [
+              "✅ Dùng 'any' trong câu phủ định (didn't buy)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "for school / why / late / yesterday / were you /?//",
+          "cues_segments": [
+            {
+              "text": "for school / why / late / yesterday / were you /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "why",
+            "were you",
+            "late",
+            "for school",
+            "yesterday"
+          ],
+          "correct": [
+            "why",
+            "were you",
+            "late",
+            "for school",
+            "yesterday"
+          ],
+          "explanation": {
+            "correct_sentence": "Why were you late for school yesterday?",
+            "structure_vi": "Why + were + S + late for school + thời gian?",
+            "grammar_notes": [
+              "✅ Câu hỏi lý do trong quá khứ dùng 'Why were...'.",
+              "✅ 'be late for' (trễ cho việc gì)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "my father / usually / drink / coffee / the morning /.//",
+          "cues_segments": [
+            {
+              "text": "my father / usually / drink / coffee / the morning /.//"
+            }
+          ],
+          "accepted_answers": [
+            "My father usually drinks coffee in the morning."
+          ],
+          "explanation": {
+            "correct_sentence": "My father usually drinks coffee in the morning.",
+            "structure_vi": "S + trạng từ chỉ tần suất + V + O + in the morning",
+            "grammar_notes": [
+              "✅ 'usually' chỉ thói quen -> Hiện tại đơn.",
+              "✅ Động từ 'drinks' thêm 's' vì 'My father' là số ít."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "she / be / going to / visit / grandparents / tomorrow /.//",
+          "cues_segments": [
+            {
+              "text": "she / be / going to / visit / grandparents / tomorrow /.//"
+            }
+          ],
+          "accepted_answers": [
+            "She is going to visit her grandparents tomorrow.",
+            "She is going to visit grandparents tomorrow."
+          ],
+          "explanation": {
+            "correct_sentence": "She is going to visit her grandparents tomorrow.",
+            "structure_vi": "S + is going to + V + (her) grandparents + tomorrow",
+            "grammar_notes": [
+              "✅ 'tomorrow' -> Tương lai gần: 'be going to'.",
+              "✅ 'She' đi với to be 'is'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "they / play / football / after school / yesterday /?//",
+          "cues_segments": [
+            {
+              "text": "they / play / football / after school / yesterday /?//"
+            }
+          ],
+          "accepted_answers": [
+            "Did they play football after school yesterday?"
+          ],
+          "explanation": {
+            "correct_sentence": "Did they play football after school yesterday?",
+            "structure_vi": "Did + S + play + môn thể thao + after school + thời gian?",
+            "grammar_notes": [
+              "✅ Câu hỏi Yes/No ở quá khứ mượn trợ động từ 'Did' lên đầu.",
+              "✅ Động từ 'play' giữ nguyên mẫu."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    }
+  ]
+}
