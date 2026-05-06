@@ -8,7 +8,7 @@ subcategory: "toan-tu-duy-logic"
 tags: ["#ToanLogic", "#TrongCay", "#KhoangCach", "#MeoGiaiNhanh", "#Lop3", "#Lop4"]
 author: "Đội ngũ Luyện Thi"
 published_date: "2026-05-06"
-cover_image: ""
+cover_image: "https://cdn.luyenthi.io.vn/blog/kids/bai-toan-trong-cay-khoang-cach-bi-kip-dung-bao-gio-sai.jpeg"
 quiz_id: "MATH-THINKING-GRADE3-L1-P1"
 prev_post: ""
 next_post: "bai-toan-ga-tho"
