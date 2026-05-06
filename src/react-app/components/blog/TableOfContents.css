@@ -1,0 +1,94 @@
+/* TableOfContents.css */
+
+.toc {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 16px;
+  /* Sticky được kiểm soát bởi .blog-detail__toc-sidebar ở ngoài */
+}
+
+.toc__title {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.toc__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.toc__item {
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+/* ─── H2 — Mục chính (in đậm, nổi bật) ──────────────────── */
+.toc__item--h2 {
+  padding-left: 8px;
+  margin-top: 4px; /* Khoảng cách giữa các group H2 */
+}
+
+.toc__item--h2:first-child {
+  margin-top: 0;
+}
+
+.toc__item--h2 > .toc__link {
+  font-size: 0.83rem;
+  font-weight: 700;        /* ← In đậm cho H2 */
+  color: var(--color-text-primary);
+}
+
+/* ─── H3 — Mục phụ (nhỏ hơn, mờ hơn, thụt vào) ──────────── */
+.toc__item--h3 {
+  padding-left: 20px;      /* Thụt vào so với H2 */
+}
+
+.toc__item--h3 > .toc__link {
+  font-size: 0.78rem;
+  font-weight: 400;        /* ← Bình thường cho H3 */
+  color: var(--color-text-secondary, var(--color-text-muted));
+}
+
+/* ─── Active state ─────────────────────────────────────────── */
+.toc__item--active {
+  border-left-color: var(--color-primary);
+}
+
+/* Link base */
+.toc__link {
+  display: block;
+  line-height: 1.4;
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.toc__link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+/* Active link — ghi đè màu chữ */
+.toc__item--active.toc__item--h2 > .toc__link {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  font-weight: 700; /* Giữ bold */
+}
+
+.toc__item--active.toc__item--h3 > .toc__link {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  font-weight: 600; /* Hơi đậm khi active */
+}

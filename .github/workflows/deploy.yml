@@ -128,3 +128,44 @@ jobs:
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-EASY-GRADE3-P2.json --file content/lop6/tieng-anh/writing/WRITING-EASY-GRADE3-P2.json --content-type application/json --remote
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-EASY-GRADE3-P3.json --file content/lop6/tieng-anh/writing/WRITING-EASY-GRADE3-P3.json --content-type application/json --remote
           echo "✅ R2 sync hoàn tất: lop6/toan(10) + cambridge/flyers/reading(3) + lop6/tieng-anh/reading(18) + lop6/tieng-anh/writing(9)"
+
+      # ─── 7. Sync Blog Markdown + Index → R2 ──────────────────────────────────
+      # Tự động: quét content/blog/**/*.md và upload lên R2
+      # Khi thêm bài mới → chỉ cần push, không cần sửa workflow này
+      - name: Sync Blog Content → R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+        run: |
+          echo "📚 Bước 1: Regenerate blog index files..."
+          node scripts/build-blog-index.mjs
+
+          echo "📤 Bước 2: Upload blog-index.json..."
+          ./node_modules/.bin/wrangler r2 object put \
+            luyen-thi-content/blog/blog-index.json \
+            --file content/blog/blog-index.json \
+            --content-type application/json \
+            --remote
+
+          echo "📤 Bước 3: Auto-upload tất cả .md files (không cần hardcode)..."
+          BLOG_DIR="content/blog"
+          MD_COUNT=0
+
+          while IFS= read -r -d '' file; do
+            filename=$(basename "$file")
+            [[ "$filename" == _* ]] && continue
+
+            r2_path="${file#$BLOG_DIR/}"
+            r2_key="blog/posts/${r2_path}"
+
+            echo "  → ${r2_key}"
+            ./node_modules/.bin/wrangler r2 object put \
+              "luyen-thi-content/${r2_key}" \
+              --file "$file" \
+              --content-type "text/markdown; charset=utf-8" \
+              --remote
+
+            MD_COUNT=$((MD_COUNT + 1))
+          done < <(find "$BLOG_DIR" -name "*.md" -not -name "_*" -print0)
+
+          echo "✅ Blog sync xong: ${MD_COUNT} bài viết → R2 (luyen-thi-content/blog/)"

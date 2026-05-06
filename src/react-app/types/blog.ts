@@ -85,9 +85,23 @@ export const FALLBACK_COVER_IMAGES: Record<BlogCategory | "default", string> = {
 };
 
 // ─── Helper: lấy ảnh bìa (tự động fallback) ───────────────────────────────
-export function getCoverImage(post: BlogPostMeta): string {
+export function getCoverImage(post: BlogPostMeta | BlogFrontmatter): string {
   if (post.cover_image && post.cover_image.trim() !== "") {
     return post.cover_image;
   }
   return FALLBACK_COVER_IMAGES[post.category] ?? FALLBACK_COVER_IMAGES.default;
+}
+
+// ─── API Response Type cho /api/blog/:slug ─────────────────────────────────
+export interface BlogPostDetail {
+  slug: string;
+  frontmatter: BlogFrontmatter;
+  content: string; // Markdown body (đã bóc frontmatter)
+}
+
+// ─── Table of Contents Item ────────────────────────────────────────────────
+export interface TocItem {
+  id: string;    // id được gán cho heading DOM
+  text: string;  // Nội dung text của heading
+  level: 2 | 3; // Chỉ H2 và H3
 }

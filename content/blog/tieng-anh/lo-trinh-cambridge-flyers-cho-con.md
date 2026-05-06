@@ -8,15 +8,14 @@ subcategory: "flyers"
 tags: ["#Cambridge", "#Flyers", "#LoTrinh", "#KinhNghiem", "#BaMeCanBiet"]
 author: "Đội ngũ Luyện Thi"
 published_date: "2026-05-06"
-cover_image: ""
+cover_image: "https://cdn.luyenthi.io.vn/blog/parents/lo-trinh-luyen-thi-cambridge-flyers-cho-con-6-thang-tu-a-z.jpeg"
 quiz_id: ""
-prev_post: ""
+prev_post: "lo-trinh-luyen-thi-lop6-toan-cho-ba-me"
 next_post: ""
 reading_time: 8
 grade_target: "4-6"
 is_featured: true
 ---
-
 ## 📋 Cambridge Flyers Là Gì?
 
 **Cambridge English: Flyers** (hay còn gọi là YLE Flyers) là chứng chỉ tiếng Anh cấp độ **A2** trong hệ thống Cambridge English. Đây là kỳ thi phù hợp cho trẻ em độ tuổi **9 đến 12 tuổi**.
@@ -29,11 +28,11 @@ is_featured: true
 
 Kỳ thi Flyers gồm **3 phần** thi riêng biệt:
 
-| Phần | Nội dung | Thời gian | Số điểm |
-|------|----------|-----------|---------|
-| **Listening** | 5 dạng bài nghe | ~25 phút | 25 điểm |
-| **Reading & Writing** | 7 dạng bài đọc + viết | 40 phút | 50 điểm |
-| **Speaking** | Đối thoại 1-1 với giám khảo | ~7-9 phút | 15 điểm |
+| Phần                       | Nội dung                         | Thời gian | Số điểm |
+| --------------------------- | --------------------------------- | ---------- | ---------- |
+| **Listening**         | 5 dạng bài nghe                 | ~25 phút  | 25 điểm  |
+| **Reading & Writing** | 7 dạng bài đọc + viết        | 40 phút   | 50 điểm  |
+| **Speaking**          | Đối thoại 1-1 với giám khảo | ~7-9 phút | 15 điểm  |
 
 **Thang điểm:** Mỗi phần được chấm tối đa 5 khiên (shield). Đạt được **3-5 khiên/phần** là mức xuất sắc.
 
@@ -46,6 +45,7 @@ Kỳ thi Flyers gồm **3 phần** thi riêng biệt:
 **Mục tiêu:** Con nắm được 600-800 từ vựng cơ bản trong danh sách từ Cambridge Flyers.
 
 **Ba mẹ nên làm:**
+
 - Dành 20-30 phút/ngày ôn từ vựng theo chủ đề (đồ vật, động vật, hoạt động hàng ngày...).
 - Cho con nghe tiếng Anh thụ động: phim hoạt hình, bài hát tiếng Anh thiếu nhi.
 - **KHÔNG** ép con học ngữ pháp nặng giai đoạn này.
@@ -55,6 +55,7 @@ Kỳ thi Flyers gồm **3 phần** thi riêng biệt:
 **Mục tiêu:** Con hiểu luật chơi của từng dạng bài thi.
 
 **Trọng tâm:**
+
 - **Listening Part 1:** Nghe và vẽ/tô màu theo hướng dẫn.
 - **Reading Part 1:** Ghép câu mô tả với hình ảnh.
 - **Speaking:** Tập mô tả tranh 7 điểm khác biệt.
@@ -75,9 +76,9 @@ Bắt đầu làm các bộ đề thực hành chính thức (Cambridge Official
 
 ## ✅ Tài Liệu Ba Mẹ Nên Chuẩn Bị
 
-1. **Cambridge English: Flyers 1-3** (Official Practice Tests) — Sách bài tập chính thức.
-2. **Fun for Flyers (4th Edition)** — Cambridge — Giáo trình học từ vựng theo chủ đề.
-3. Trang web **Cambridge One** (miễn phí) — Luyện Listening online.
+1. **[Cambridge English: Flyers 1-3](https://s.shopee.vn/7VD16SizNV)** (Official Practice Tests) — Sách bài tập chính thức.
+2. **[Fun for Flyers ](https://s.shopee.vn/2g7lLLvHyH)(4th Edition)** — Cambridge — Giáo trình học từ vựng theo chủ đề.
+3. Trang web **[Cambridge One](https://www.cambridgeone.org/)** (miễn phí) — Luyện Listening online.
 
 ---
 

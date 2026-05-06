@@ -37,6 +37,8 @@ import { PathwaySelectionPage }  from "./pages/PathwaySelectionPage";
 import { CambridgePage }         from "./pages/CambridgePage";
 import { Lop6Page }              from "./pages/Lop6Page";
 import { ProfileSettingsPage }   from "./pages/ProfileSettingsPage";
+import { KienThucPage }          from "./pages/KienThucPage";
+import { BlogDetailPage }        from "./pages/BlogDetailPage";
 
 /**
  * HomeRoute — Redirect User đã login → /dashboard
@@ -59,6 +61,8 @@ export default function App() {
             <Route path="/learn"    element={<PathwaySelectionPage />} />
             <Route path="/login"    element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/kien-thuc"        element={<KienThucPage />} />
+            <Route path="/kien-thuc/:slug"  element={<BlogDetailPage />} />
 
             {/* ── CAMBRIDGE PATHWAY ── */}
             <Route path="/cambridge"                         element={<CambridgePage />} />

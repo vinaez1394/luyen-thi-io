@@ -1,0 +1,405 @@
+/* KienThucPage.css — Trang /kien-thuc — Blog Kiến Thức */
+
+/* ─── Wrapper ─────────────────────────────────────────────── */
+.kienthuc-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ─── HERO HEADER ─────────────────────────────────────────── */
+.kienthuc-page__hero {
+  background: var(--gradient-primary);
+  padding: 40px 24px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.kienthuc-page__hero::before {
+  /* Vệt sáng trang trí */
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.kienthuc-page__hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.kienthuc-page__hero-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.kienthuc-page__hero-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+/* Search bar */
+.kienthuc-page__search-wrap {
+  flex-shrink: 0;
+  width: 260px;
+}
+
+.kienthuc-page__search {
+  width: 100%;
+  padding: 10px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.9rem;
+  backdrop-filter: blur(8px);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.kienthuc-page__search::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.kienthuc-page__search:focus {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── 2 TABS ─────────────────────────────────────────────── */
+.kienthuc-page__tabs {
+  max-width: 960px;
+  margin: 28px auto 0;
+  display: flex;
+  gap: 4px;
+  padding: 0 4px;
+}
+
+.kienthuc-page__tab {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px 12px 0 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.kienthuc-page__tab:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.kienthuc-page__tab--active {
+  background: var(--color-card);
+  color: var(--color-primary);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+}
+
+/* ─── MAIN LAYOUT: Sidebar + Content ────────────────────── */
+.kienthuc-page__layout {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ─── SIDEBAR ─────────────────────────────────────────────── */
+.kienthuc-page__sidebar {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px;
+  position: sticky;
+  top: 80px;
+}
+
+.kienthuc-page__sidebar-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 12px;
+}
+
+.kienthuc-page__sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kienthuc-page__sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.kienthuc-page__sidebar-item:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-primary);
+}
+
+.kienthuc-page__sidebar-item--active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.kienthuc-page__sidebar-emoji {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ─── CONTENT AREA ────────────────────────────────────────── */
+.kienthuc-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Tag filter */
+.kienthuc-page__tags-wrap {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.kienthuc-page__tags-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.kienthuc-page__tag {
+  border: 1.5px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text-secondary);
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.kienthuc-page__tag:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.kienthuc-page__tag--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.kienthuc-page__tag--clear {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.kienthuc-page__tag--clear:hover {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+/* Số kết quả */
+.kienthuc-page__result-count {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  padding: 0 4px;
+}
+
+/* Grid bài viết — 2 cột */
+.kienthuc-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* ─── LOADING ─────────────────────────────────────────────── */
+.kienthuc-page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px;
+  color: var(--color-text-muted);
+}
+
+.kienthuc-page__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── ERROR ─────────────────────────────────────────────── */
+.kienthuc-page__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 40px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.kienthuc-page__error span {
+  font-size: 2.5rem;
+}
+
+/* ─── EMPTY ─────────────────────────────────────────────── */
+.kienthuc-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.kienthuc-page__empty-emoji {
+  font-size: 3rem;
+}
+
+.kienthuc-page__empty-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.kienthuc-page__empty-sub {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.kienthuc-page__retry-btn {
+  margin-top: 8px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 20px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.kienthuc-page__retry-btn:hover {
+  opacity: 0.85;
+}
+
+/* ─── RESPONSIVE — Tablet ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .kienthuc-page__hero {
+    padding: 28px 16px 0;
+  }
+
+  .kienthuc-page__hero-inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .kienthuc-page__search-wrap {
+    width: 100%;
+  }
+
+  .kienthuc-page__tabs {
+    margin-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 0;
+  }
+
+  .kienthuc-page__tab {
+    font-size: 0.82rem;
+    padding: 10px 14px;
+    white-space: nowrap;
+  }
+
+  /* Ẩn sidebar, chuyển sang horizontal scroll trên mobile */
+  .kienthuc-page__layout {
+    grid-template-columns: 1fr;
+    padding: 16px 12px 40px;
+    gap: 16px;
+  }
+
+  .kienthuc-page__sidebar {
+    position: static;
+    overflow: hidden;
+  }
+
+  .kienthuc-page__sidebar nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+
+  .kienthuc-page__sidebar-item {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 7px 12px;
+  }
+
+  .kienthuc-page__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── RESPONSIVE — Mobile nhỏ ─────────────────────────────── */
+@media (max-width: 480px) {
+  .kienthuc-page__hero-title {
+    font-size: 1.4rem;
+  }
+
+  .kienthuc-page__tab {
+    font-size: 0.78rem;
+    padding: 9px 12px;
+  }
+}

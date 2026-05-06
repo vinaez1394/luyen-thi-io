@@ -261,6 +261,15 @@ export function GlobalHeader() {
               )}
             </div>
 
+            {/* Kiến Thức Blog */}
+            <button
+              className={`global-header__nav-link ${location.pathname.startsWith("/kien-thuc") ? "active" : ""}`}
+              id="btn-nav-kienthuc"
+              onClick={() => navigate("/kien-thuc")}
+            >
+              <span>📖</span> Kiến Thức
+            </button>
+
             {/* Tiến độ */}
             <button
               className={`global-header__nav-link ${location.pathname === "/dashboard" ? "active" : ""}`}

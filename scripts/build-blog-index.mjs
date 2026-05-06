@@ -3,7 +3,9 @@
  * scripts/build-blog-index.mjs
  *
  * Script tự động quét tất cả file .md trong content/blog/
- * và tạo ra file content/blog/blog-index.json (danh sách metadata).
+ * và tạo ra 2 file:
+ *   1. content/blog/blog-index.json   — Metadata cho trang danh sách
+ *   2. content/blog/blog-posts-dev.json — Full content cho local dev Worker
  *
  * Cách chạy:
  *   node scripts/build-blog-index.mjs
@@ -21,12 +23,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ROOT = join(__dirname, "..");
 const BLOG_DIR = join(ROOT, "content", "blog");
-const OUTPUT = join(BLOG_DIR, "blog-index.json");
+const INDEX_OUTPUT = join(BLOG_DIR, "blog-index.json");
+const POSTS_DEV_OUTPUT = join(BLOG_DIR, "blog-posts-dev.json");
 
 // ─── Parse Frontmatter YAML đơn giản (không cần thư viện) ──────────────────
 function parseFrontmatter(fileContent) {
   const match = fileContent.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return null;
+  if (!match) return { frontmatter: null, content: fileContent };
 
   const yamlStr = match[1];
   const result = {};
@@ -56,7 +59,11 @@ function parseFrontmatter(fileContent) {
     result[key] = value;
   }
 
-  return result;
+  // Bóc tách content (phần sau --- thứ 2)
+  const contentMatch = fileContent.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
+  const content = contentMatch ? contentMatch[1].trim() : "";
+
+  return { frontmatter: result, content };
 }
 
 // ─── Đệ quy quét thư mục để lấy file .md ──────────────────────────────────
@@ -79,15 +86,16 @@ function main() {
   console.log("📚 Đang quét bài viết trong content/blog/...");
 
   const mdFiles = scanMarkdownFiles(BLOG_DIR).filter(
-    (f) => !f.includes("blog-index")
+    (f) => !f.includes("blog-index") && !f.includes("blog-posts-dev")
   );
 
-  const posts = [];
+  const posts = [];        // Dùng cho blog-index.json (metadata)
+  const postsDevMap = {};  // Dùng cho blog-posts-dev.json (full content)
   const errors = [];
 
   for (const filePath of mdFiles) {
-    const content = readFileSync(filePath, "utf-8");
-    const frontmatter = parseFrontmatter(content);
+    const rawContent = readFileSync(filePath, "utf-8");
+    const { frontmatter, content } = parseFrontmatter(rawContent);
 
     if (!frontmatter) {
       errors.push(`⚠️  Bỏ qua (không có frontmatter): ${relative(ROOT, filePath)}`);
@@ -99,31 +107,41 @@ function main() {
       continue;
     }
 
-    posts.push({
-      ...frontmatter,
-      slug: frontmatter.id,
-    });
+    const slug = frontmatter.id;
+
+    // Metadata cho index
+    posts.push({ ...frontmatter, slug });
+
+    // Full content cho local dev
+    postsDevMap[slug] = {
+      frontmatter: { ...frontmatter, slug },
+      content,
+    };
   }
 
-  // Sắp xếp: Bài nổi bật lên trên, sau đó theo ngày mới nhất
+  // Sắp xếp index: Bài nổi bật lên trên, sau đó theo ngày mới nhất
   posts.sort((a, b) => {
     if (a.is_featured && !b.is_featured) return -1;
     if (!a.is_featured && b.is_featured) return 1;
     return (b.published_date || "").localeCompare(a.published_date || "");
   });
 
+  // ── Ghi blog-index.json ──────────────────────────────────────────────────
   const index = {
     generated_at: new Date().toISOString(),
     total: posts.length,
     posts,
   };
+  writeFileSync(INDEX_OUTPUT, JSON.stringify(index, null, 2), "utf-8");
 
-  writeFileSync(OUTPUT, JSON.stringify(index, null, 2), "utf-8");
+  // ── Ghi blog-posts-dev.json ──────────────────────────────────────────────
+  writeFileSync(POSTS_DEV_OUTPUT, JSON.stringify(postsDevMap, null, 2), "utf-8");
 
   // Báo cáo kết quả
-  console.log(`\n✅ Đã tạo blog-index.json thành công!`);
+  console.log(`\n✅ Đã tạo thành công 2 file:`);
   console.log(`   📝 Tổng bài viết: ${posts.length}`);
-  console.log(`   📂 Output: content/blog/blog-index.json`);
+  console.log(`   📂 content/blog/blog-index.json     (metadata)`);
+  console.log(`   📂 content/blog/blog-posts-dev.json (full content - local dev)`);
 
   if (errors.length > 0) {
     console.log(`\n⚠️  Cảnh báo (${errors.length} file bị bỏ qua):`);
