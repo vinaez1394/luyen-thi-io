@@ -482,8 +482,8 @@ export function GlobalHeader() {
 
             {/* Kiến thức Blog */}
             <button
-              className={`mobile-drawer__nav-link ${location.pathname.startsWith("/blog") ? "active" : ""}`}
-              onClick={() => { navigate("/blog"); setDrawerOpen(false); }}
+              className={`mobile-drawer__nav-link ${location.pathname.startsWith("/kien-thuc") ? "active" : ""}`}
+              onClick={() => { navigate("/kien-thuc"); setDrawerOpen(false); }}
             >
               <span className="mobile-drawer__nav-icon">📖</span> Kiến thức
             </button>
