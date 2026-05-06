@@ -15,10 +15,13 @@
 		"@dnd-kit/core": "^6.3.1",
 		"@dnd-kit/sortable": "^10.0.0",
 		"@dnd-kit/utilities": "^3.2.2",
+		"gray-matter": "^4.0.3",
 		"hono": "4.11.1",
 		"react": "19.2.1",
 		"react-dom": "19.2.1",
-		"react-router-dom": "^7.14.2"
+		"react-markdown": "^10.1.0",
+		"react-router-dom": "^7.14.2",
+		"remark-gfm": "^4.0.1"
 	},
 	"devDependencies": {
 		"@cloudflare/vite-plugin": "1.15.3",
@@ -38,7 +41,8 @@
 	},
 	"private": true,
 	"scripts": {
-		"build": "tsc -b && vite build",
+		"build": "node scripts/build-blog-index.mjs && tsc -b && vite build",
+		"blog:index": "node scripts/build-blog-index.mjs",
 		"cf-typegen": "wrangler types",
 		"check": "tsc && vite build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
