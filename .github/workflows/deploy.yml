@@ -59,7 +59,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: |
-          echo "🗑️ Xóa files sai vị trí (cambridge/flyers/math/)..."
+          echo "🗑️ Xóa files cũ sai vị trí (cambridge/flyers/math/)..."
           ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P1.json  --remote || true
           ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P2.json  --remote || true
           ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P3.json  --remote || true
@@ -71,17 +71,28 @@ jobs:
           ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P9.json  --remote || true
           ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/cambridge/flyers/math/MATH-L1-P10.json --remote || true
           ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/MATH-L1-P1.json --remote || true
-          echo "▶ Lớp 6 / Toán Tư Duy..."
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P1.json  --file content/lop6/toan/MATH-L1-P1.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P2.json  --file content/lop6/toan/MATH-L1-P2.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P3.json  --file content/lop6/toan/MATH-L1-P3.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P4.json  --file content/lop6/toan/MATH-L1-P4.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P5.json  --file content/lop6/toan/MATH-L1-P5.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P6.json  --file content/lop6/toan/MATH-L1-P6.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P7.json  --file content/lop6/toan/MATH-L1-P7.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P8.json  --file content/lop6/toan/MATH-L1-P8.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P9.json  --file content/lop6/toan/MATH-L1-P9.json  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/MATH-L1-P10.json --file content/lop6/toan/MATH-L1-P10.json --content-type application/json --remote
+          echo "🗑️ Xóa R2 keys cũ lop6/toan/MATH-L1-P*..."
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P1.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P2.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P3.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P4.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P5.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P6.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P7.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P8.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P9.json  --remote || true
+          ./node_modules/.bin/wrangler r2 object delete luyen-thi-content/quizzes/lop6/toan/MATH-L1-P10.json --remote || true
+          echo "▶ Lớp 6 / Toán Tư Duy (path mới: toan-tu-duy-logic/)..."
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P1.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P1.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P2.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P2.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P3.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P3.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P4.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P4.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P5.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P5.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P6.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P6.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P7.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P7.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P8.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P8.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P9.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P9.json  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P10.json --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P10.json --content-type application/json --remote
           echo "▶ Cambridge / Flyers / Reading..."
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW001.json   --file content/flyers/RW001.json                  --content-type application/json --remote
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW2-001.json --file content/flyers/reading/RW2-001.json         --content-type application/json --remote

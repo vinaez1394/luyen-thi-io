@@ -17,73 +17,53 @@ const LOCAL_QUIZ_MAP: Record<string, object> = {};
 // Dynamic import trong dev mode (Vite tree-shakes trong production)
 // ⚠️ MỖI KHI THÊM BÀI MỚI → thêm import tương ứng vào đây
 try {
-  const mathL1P1 = await import("../../../content/lop6/toan/MATH-L1-P1.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P1"] = mathL1P1.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P1.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P1"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P2 = await import("../../../content/lop6/toan/MATH-L1-P2.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P2"] = mathL1P2.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P2.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P2"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P3 = await import("../../../content/lop6/toan/MATH-L1-P3.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P3"] = mathL1P3.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P3.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P3"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P4 = await import("../../../content/lop6/toan/MATH-L1-P4.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P4"] = mathL1P4.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P4.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P4"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P5 = await import("../../../content/lop6/toan/MATH-L1-P5.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P5"] = mathL1P5.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P5.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P5"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P6 = await import("../../../content/lop6/toan/MATH-L1-P6.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P6"] = mathL1P6.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P6.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P6"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P7 = await import("../../../content/lop6/toan/MATH-L1-P7.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P7"] = mathL1P7.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P7.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P7"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P8 = await import("../../../content/lop6/toan/MATH-L1-P8.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P8"] = mathL1P8.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P8.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P8"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P9 = await import("../../../content/lop6/toan/MATH-L1-P9.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P9"] = mathL1P9.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P9.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P9"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const mathL1P10 = await import("../../../content/lop6/toan/MATH-L1-P10.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["MATH-L1-P10"] = mathL1P10.default;
+  const d = await import("../../../content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P10.json", { assert: { type: "json" } });
+  LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P10"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
 try {
@@ -142,9 +122,9 @@ type Env = {
  * Cambridge / Movers (tương lai): MOV-R001   → quizzes/cambridge/movers/reading/MOV-R001.json
  */
 function getR2Key(quizId: string): string {
-  // Lớp 6 — Toán Tư Duy
-  if (/^MATH-L\d+-P\d+$/.test(quizId)) {
-    return `quizzes/lop6/toan/${quizId}.json`;
+  // Lớp 6 — Toán Tư Duy (MATH-THINKING-GRADE3-L1-P1 …)
+  if (/^MATH-THINKING-GRADE\d+-L\d+-P\d+$/.test(quizId)) {
+    return `quizzes/lop6/toan/toan-tu-duy-logic/${quizId}.json`;
   }
   // Lớp 6 — Tiếng Anh Reading (READING-EASY-GRADE3-P1, READING-MED-GRADE4-P1, ...)
   if (/^READING-(EASY|MED|HARD)-GRADE\d+-P\d+$/.test(quizId)) {
@@ -180,7 +160,7 @@ function getR2Key(quizId: string): string {
  */
 function detectQuizMeta(quizId: string): { pathway: string | null; subject: string | null } {
   // Lớp 6 — Toán Tư Duy
-  if (/^MATH-L\d+-P\d+$/i.test(quizId)) {
+  if (/^MATH-THINKING-GRADE\d+-L\d+-P\d+$/i.test(quizId)) {
     return { pathway: "lop6", subject: "toan" };
   }
   // Lớp 6 — Tiếng Anh Reading
