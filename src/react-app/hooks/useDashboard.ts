@@ -1,12 +1,9 @@
 /**
  * useDashboard.ts — Lấy data cho Dashboard page
  *
- * Gọi GET /api/student/dashboard để lấy:
- *   - streak, totalStars
- *   - skillLevels
- *   - dreamGoal (nếu có)
- *   - selectedPathway, currentGrade (Phase 04 — personalization)
- *   - todayLessons: max 3 bài gợi ý cho hôm nay (Phase 04)
+ * Gọi song song 2 API:
+ *   1. GET /api/student/dashboard   → streak, stars, skillLevels, dreamGoal
+ *   2. GET /api/student/progress-summary → tiến độ theo môn (Phase Dashboard)
  *
  * Nếu API chưa có (trả lỗi) → dùng fallback data thông minh
  */
@@ -29,6 +26,34 @@ export interface TodayLesson {
   skill?:    string;
 }
 
+export interface SubjectProgress {
+  doneFree:      number;
+  totalFree:     number;
+  lockedPremium: number;
+  avgScore:      number | null;
+  badge:         "gioi" | "kha" | "can_on" | "pending";
+  lastActivity:  number | null;
+  emoji:         string;
+  label:         string;
+}
+
+export interface RecentAttempt {
+  quizId:   string;
+  title:    string;
+  pathway:  string;
+  subject:  string;
+  bestPct:  number;
+  doneAt:   number;
+}
+
+export interface ProgressSummaryData {
+  lop6:           Record<string, SubjectProgress>;
+  cambridge:      Record<string, SubjectProgress>;
+  recentAttempts: RecentAttempt[];
+  lowScoreAlert:  { quizId: string; pathway: string; subject: string; bestPct: number } | null;
+  gradeMissing:   boolean;
+}
+
 export interface DashboardData {
   streak:          number;
   totalStars:      number;
@@ -43,6 +68,8 @@ export interface DashboardData {
   selectedPathway: string | null;
   currentGrade:    number | null;
   todayLessons:    TodayLesson[];
+  // Phase Dashboard (progress-summary)
+  progressSummary: ProgressSummaryData | null;
 }
 
 interface DashboardState {
@@ -66,6 +93,7 @@ const FALLBACK_DATA: DashboardData = {
   selectedPathway: null,
   currentGrade:    null,
   todayLessons:    [],
+  progressSummary: null,
 };
 
 // ============================================
@@ -83,18 +111,33 @@ export function useDashboard() {
 
     async function fetchDashboard() {
       try {
-        const res = await fetch("/api/student/dashboard");
+        // Fetch song song cả 2 API để giảm thời gian chờ
+        const [dashRes, progressRes] = await Promise.all([
+          fetch("/api/student/dashboard", { credentials: "include" }),
+          fetch("/api/student/progress-summary", { credentials: "include" }),
+        ]);
 
-        if (res.ok) {
-          const json = (await res.json()) as DashboardData;
-          if (!cancelled) {
-            setState({ data: json, isLoading: false, error: null });
+        const dashData: Omit<DashboardData, "progressSummary"> = dashRes.ok
+          ? (await dashRes.json() as Omit<DashboardData, "progressSummary">)
+          : { ...FALLBACK_DATA };
+
+        const progressSummary: ProgressSummaryData | null = progressRes.ok
+          ? (await progressRes.json() as ProgressSummaryData)
+          : null;
+
+        if (!cancelled) {
+          // Persist currentGrade & selectedPathway → localStorage cho QuizPage + SettingsPage
+          if (dashData.currentGrade) {
+            localStorage.setItem("student_grade", String(dashData.currentGrade));
           }
-        } else {
-          // API chưa có hoặc lỗi → dùng fallback
-          if (!cancelled) {
-            setState({ data: FALLBACK_DATA, isLoading: false, error: null });
+          if (dashData.selectedPathway) {
+            localStorage.setItem("student_pathway", dashData.selectedPathway);
           }
+          setState({
+            data: { ...dashData, progressSummary },
+            isLoading: false,
+            error: null,
+          });
         }
       } catch {
         // Network error → dùng fallback
@@ -110,3 +153,4 @@ export function useDashboard() {
 
   return state;
 }
+

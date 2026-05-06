@@ -95,6 +95,7 @@ export function OnboardingPage() {
       const res = await fetch("/api/student/profile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({
           displayName:     displayName.trim(),
           avatarId,

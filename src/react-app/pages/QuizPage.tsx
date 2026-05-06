@@ -18,11 +18,14 @@ import { useAuth } from "../hooks/useAuth";
 import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
 import { ReadingEngine } from "../components/quiz/ReadingEngine";
+import { WritingEngine } from "../components/quiz/WritingEngine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
 import "../components/quiz/Quiz.css";
+import "../components/layout/QuizLayout.css";
 import type { ReadingQuiz } from "../types/reading";
+import type { WritingQuiz } from "../types/writing";
 
 export function QuizPage() {
   const location = useLocation();
@@ -53,6 +56,15 @@ export function QuizPage() {
   const { isLoggedIn, loginWithGoogle } = useAuth();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [reviewDismissed, setReviewDismissed] = useState(false);
+  // Reading Engine: progress + submit trigger
+  const [readingProgress, setReadingProgress] = useState({ answered: 0, total: 0 });
+  const [readingSubmitTrigger, setReadingSubmitTrigger] = useState(0);
+  const [readingSubmitted, setReadingSubmitted] = useState(false);
+  // Writing Engine: progress + submit trigger (same pattern as Reading)
+  const [writingProgress, setWritingProgress] = useState({ answered: 0, total: 0 });
+  const [writingSubmitTrigger, setWritingSubmitTrigger] = useState(0);
+  const [writingSubmitted, setWritingSubmitted] = useState(false);
 
   const {
     quiz, state, error, isPremium,
@@ -130,6 +142,41 @@ export function QuizPage() {
 
   if (!quiz) return null;
 
+  // ===== Notification: "Ôn tập lại" — bé làm bài dưới grade của mình =====
+  const studentGrade = parseInt(localStorage.getItem("student_grade") ?? "0", 10) || null;
+  const quizGradeMax = (quiz as { grade_max?: number }).grade_max ?? null;
+  const isReviewMode  = !!(studentGrade && quizGradeMax && quizGradeMax < studentGrade);
+
+  if (isReviewMode && !reviewDismissed) {
+    return (
+      <div className="qp-review-notice" role="dialog" aria-label="Thông báo ôn tập">
+        <div className="qp-review-notice__icon">📚</div>
+        <h2 className="qp-review-notice__title">Bé đang ôn tập lại!</h2>
+        <p className="qp-review-notice__desc">
+          Bài này dành cho <strong>Lớp {quizGradeMax}</strong>,
+          nhưng bé đang học <strong>Lớp {studentGrade}</strong>.
+          <br />
+          Ôn lại kiến thức cũ rất tốt! 💪
+        </p>
+        <div className="qp-review-notice__actions">
+          <button
+            id="btn-review-start"
+            className="btn btn-primary"
+            onClick={() => setReviewDismissed(true)}
+          >
+            Bắt đầu ôn tập →
+          </button>
+          <button
+            className="btn btn-ghost"
+            onClick={() => navigate(backUrl)}
+          >
+            ← Chọn bài khác
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   // ===== Kết quả =====
   if (showResult && result) {
     return (
@@ -149,12 +196,15 @@ export function QuizPage() {
             fetch("/api/student/stars", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
+              credentials: "include",   // ← bắt buộc: gửi cookie session
               body: JSON.stringify({
                 stars:   earnedStars,
                 source:  "hangman",
                 quiz_id: quizId,
               }),
-            }).catch(() => {});
+            })
+              .then((r) => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); })
+              .catch(() => {});
           }
         }}
         // Phase 05: Flashcard — cộng sao thật
@@ -163,31 +213,192 @@ export function QuizPage() {
             fetch("/api/student/stars", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
+              credentials: "include",   // ← bắt buộc: gửi cookie session
               body: JSON.stringify({
                 stars:   earnedStars,
                 source:  "flashcard",
                 quiz_id: quizId,
               }),
-            }).catch(() => {});
+            })
+              .then((r) => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); })
+              .catch(() => {});
           }
         }}
       />
     );
   }
 
-  // ===== Reading Passage — kiểm tra NGAY sau khi có quiz (trước QuizLayout) =====
-  // ReadingQuiz KHÔNG có quiz.questions — phải tách ra trước để tránh crash
+  // ===== Reading Passage — bọc trong sub-header riêng =====
   if ((quiz as unknown as ReadingQuiz).type === "reading-passage") {
+    const rQuiz = quiz as unknown as ReadingQuiz;
+    const allReadingAnswered = readingProgress.total > 0 &&
+      readingProgress.answered >= readingProgress.total;
+
     return (
-      <ReadingEngine
-        quiz={quiz as unknown as ReadingQuiz}
-        onComplete={() => {
-          localStorage.setItem("last_quiz_id", quizId);
-        }}
-      />
+      <div className="quiz-layout">
+
+        {/* ── Reading Sub-Header — ẩn sau khi nộp bài ── */}
+        {!readingSubmitted && (
+          <div className="quiz-sub-header" role="banner" aria-label="Thông tin bài đọc">
+            <div className="quiz-sub-header__inner">
+
+              {/* Left: Breadcrumb + Title */}
+              <div className="quiz-sub-header__left">
+                <div className="quiz-sub-header__breadcrumb">
+                  <span
+                    className="quiz-sub-header__breadcrumb-link"
+                    onClick={() => navigate(backUrl)}
+                    role="button" tabIndex={0}
+                    onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                  >
+                    🏠 Trang chủ
+                  </span>
+                  <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                  <span className="quiz-sub-header__breadcrumb-current">
+                    📚 Đọc hiểu
+                  </span>
+                </div>
+                <h2 className="quiz-sub-header__title">{rQuiz.title}</h2>
+              </div>
+
+              {/* Center: Progress + Submit */}
+              <div className="re-subheader-center">
+                <span className="re-subheader-center__count">
+                  {readingProgress.answered}/{readingProgress.total || rQuiz.sections.reduce((s, sec) => s + sec.questions.length, 0)}
+                </span>
+                <button
+                  id="btn-reading-submit-header"
+                  className="re-subheader-center__submit-btn"
+                  onClick={() => setReadingSubmitTrigger(t => t + 1)}
+                  disabled={!allReadingAnswered}
+                  title={!allReadingAnswered ? "Hãy trả lời hết câu hỏi trước" : "Nộp bài"}
+                >
+                  Nộp bài ✓
+                </button>
+              </div>
+
+              {/* Right: Exit */}
+              <div className="quiz-sub-header__right">
+                <button
+                  className="quiz-sub-header__exit-btn"
+                  onClick={() => navigate(backUrl)}
+                  aria-label="Thoát bài"
+                  title="Thoát bài"
+                >
+                  ✕
+                </button>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* ── Reading Content ── */}
+        <div className="quiz-layout__content">
+          <ReadingEngine
+            quiz={rQuiz}
+            onComplete={() => {
+              localStorage.setItem("last_quiz_id", quizId);
+              setReadingSubmitted(true);
+            }}
+            onProgressChange={(answered, total) =>
+              setReadingProgress({ answered, total })
+            }
+            submitTrigger={readingSubmitTrigger}
+            backUrl={backUrl}
+            onRetry={() => setReadingSubmitted(false)}
+          />
+        </div>
+      </div>
     );
   }
 
+  // ===== Writing — bọc trong sub-header giống Reading =====
+  if ((quiz as unknown as WritingQuiz).type === "writing") {
+    const wQuiz = quiz as unknown as WritingQuiz;
+    const allWritingAnswered = writingProgress.total > 0 &&
+      writingProgress.answered >= writingProgress.total;
+
+    return (
+      <div className="quiz-layout">
+
+        {/* ── Writing Sub-Header — ẩn sau khi nộp bài ── */}
+        {!writingSubmitted && (
+          <div className="quiz-sub-header" role="banner" aria-label="Thông tin bài viết">
+            <div className="quiz-sub-header__inner">
+
+              {/* Left: Breadcrumb + Title */}
+              <div className="quiz-sub-header__left">
+                <div className="quiz-sub-header__breadcrumb">
+                  <span
+                    className="quiz-sub-header__breadcrumb-link"
+                    onClick={() => navigate(backUrl)}
+                    role="button" tabIndex={0}
+                    onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                  >
+                    🏠 Trang chủ
+                  </span>
+                  <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                  <span className="quiz-sub-header__breadcrumb-current">
+                    ✏️ Viết
+                  </span>
+                </div>
+                <h2 className="quiz-sub-header__title">{wQuiz.title}</h2>
+              </div>
+
+              {/* Center: Progress + Submit */}
+              <div className="re-subheader-center">
+                <span className="re-subheader-center__count">
+                  {writingProgress.answered}/{writingProgress.total || wQuiz.sections.reduce((s, sec) => s + sec.questions.length, 0)}
+                </span>
+                <button
+                  id="btn-writing-submit-header"
+                  className="re-subheader-center__submit-btn"
+                  onClick={() => setWritingSubmitTrigger(t => t + 1)}
+                  disabled={!allWritingAnswered}
+                  title={!allWritingAnswered ? "Hãy trả lời hết câu hỏi trước" : "Nộp bài"}
+                >
+                  Nộp bài ✓
+                </button>
+              </div>
+
+              {/* Right: Exit */}
+              <div className="quiz-sub-header__right">
+                <button
+                  className="quiz-sub-header__exit-btn"
+                  onClick={() => navigate(backUrl)}
+                  aria-label="Thoát bài"
+                  title="Thoát bài"
+                >
+                  ✕
+                </button>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* ── Writing Content ── */}
+        <div className="quiz-layout__content">
+          <WritingEngine
+            quiz={wQuiz}
+            onComplete={() => {
+              localStorage.setItem("last_quiz_id", quizId);
+              setWritingSubmitted(true);
+            }}
+            onProgressChange={(answered, total) =>
+              setWritingProgress({ answered, total })
+            }
+            submitTrigger={writingSubmitTrigger}
+            backUrl={backUrl}
+            onRetry={() => setWritingSubmitted(false)}
+            vocabRemainingFree={vocab.remainingFree}
+            onVocabLookup={vocab.lookupWord}
+          />
+        </div>
+      </div>
+    );
+  }
 
   // ===== Quiz thường (với QuizLayout) =====
   return (
@@ -206,6 +417,7 @@ export function QuizPage() {
         onNext={handleNext}
         onPrev={handlePrev}
         onSubmit={handleSubmit}
+        onJumpTo={(i) => setCurrentQuestion(i)}
         allAnswered={allAnswered}
         // Phase 4.5: vocab props
         vocabRemainingFree={vocab.remainingFree}

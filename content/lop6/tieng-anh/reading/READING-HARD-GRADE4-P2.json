@@ -1,0 +1,130 @@
+{
+  "id": "READING-HARD-GRADE4-P2",
+  "title": "Reading Comprehension — Hard — Grade 4-5 — History & Culture",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "hard",
+  "grade_min": 4,
+  "grade_max": 5,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Every country has its own unique (0) culture, shaped by history, traditions, and the people who live there. Culture includes language, food, music, art, and (1) _____ that are passed down from one generation to the next. Some traditions are hundreds of years old and are (2) _____ as important symbols of national identity. When people from different cultures meet, they can (3) _____ ideas and learn from each other, which makes societies richer and more creative. It is important to (4) _____ all cultures with respect and curiosity, even when they are very different from our own.",
+        "text_segments": [
+          { "text": "Every country has its own unique " },
+          { "text": "(0) culture", "highlight": true },
+          { "text": ", shaped by " },
+          { "text": "history", "tooltip": { "vi": "lịch sử", "ipa": "ˈhɪstri" } },
+          { "text": ", " },
+          { "text": "traditions", "tooltip": { "vi": "truyền thống", "ipa": "trəˈdɪʃnz" } },
+          { "text": ", and the people who live there. Culture includes language, food, music, art, and (1) _____ that are passed down from one generation to the next. Some traditions are hundreds of years old and are (2) _____ as important symbols of national " },
+          { "text": "identity", "tooltip": { "vi": "bản sắc, căn cước", "ipa": "aɪˈdentɪti" } },
+          { "text": ". When people from different cultures meet, they can (3) _____ ideas and learn from each other, which makes societies richer and more creative. It is important to (4) _____ all cultures with " },
+          { "text": "respect", "tooltip": { "vi": "tôn trọng", "ipa": "rɪˈspekt" } },
+          { "text": " and curiosity, even when they are very different from our own." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Culture includes language, food, music, art, and (1) _____ that are passed down from one generation to the next.",
+          "options": ["customs", "machines", "buildings"],
+          "correct": "customs",
+          "explanation_vi": "'Customs' nghĩa là phong tục — được truyền từ thế hệ này sang thế hệ khác."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Some traditions are hundreds of years old and are (2) _____ as important symbols of national identity.",
+          "options": ["regarded", "forgotten", "removed"],
+          "correct": "regarded",
+          "explanation_vi": "'Regarded as' nghĩa là được coi là — một số truyền thống được coi là biểu tượng quan trọng của bản sắc dân tộc."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "When people from different cultures meet, they can (3) _____ ideas and learn from each other.",
+          "options": ["exchange", "hide", "destroy"],
+          "correct": "exchange",
+          "explanation_vi": "'Exchange ideas' nghĩa là trao đổi ý tưởng — người từ các nền văn hóa khác nhau có thể học hỏi lẫn nhau."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "It is important to (4) _____ all cultures with respect and curiosity.",
+          "options": ["approach", "avoid", "copy"],
+          "correct": "approach",
+          "explanation_vi": "'Approach' nghĩa là tiếp cận — cần tiếp cận mọi nền văn hóa với sự tôn trọng và tò mò."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "The ancient city of Angkor Wat in Cambodia is one of the most remarkable architectural achievements in human history. Built in the 12th century by King Suryavarman II, it was originally constructed as a Hindu temple dedicated to the god Vishnu. Over time, it gradually became a Buddhist site. The temple complex covers an area of over 160 hectares and is surrounded by a vast moat. Its towers are designed to represent Mount Meru, the home of the gods in Hindu mythology. Angkor Wat was rediscovered by European explorers in the 19th century and has since become Cambodia's national symbol, appearing on its flag. Today, it attracts millions of visitors from around the world every year.",
+        "text_segments": [
+          { "text": "The ancient city of Angkor Wat in Cambodia is one of the most remarkable " },
+          { "text": "architectural", "tooltip": { "vi": "kiến trúc", "ipa": "ˌɑːrkɪˈtektʃərəl" } },
+          { "text": " achievements in human history. Built in the 12th century by King Suryavarman II, it was originally " },
+          { "text": "constructed", "tooltip": { "vi": "được xây dựng", "ipa": "kənˈstrʌktɪd" } },
+          { "text": " as a Hindu " },
+          { "text": "temple", "tooltip": { "vi": "đền thờ", "ipa": "ˈtempl" } },
+          { "text": " dedicated to the god Vishnu. Over time, it gradually became a " },
+          { "text": "Buddhist", "tooltip": { "vi": "Phật giáo", "ipa": "ˈbʊdɪst" } },
+          { "text": " site. The temple complex covers an area of over 160 " },
+          { "text": "hectares", "tooltip": { "vi": "héc-ta (đơn vị diện tích)", "ipa": "ˈhektərz" } },
+          { "text": " and is surrounded by a vast moat. Its towers are designed to represent Mount Meru, the home of the gods in Hindu " },
+          { "text": "mythology", "tooltip": { "vi": "thần thoại", "ipa": "mɪˈθɒlədʒi" } },
+          { "text": ". Angkor Wat was rediscovered by European explorers in the 19th century and has since become Cambodia's national symbol, appearing on its flag. Today, it attracts millions of visitors from around the world every year." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Angkor Wat was built as a Buddhist temple from the very beginning.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'originally constructed as a Hindu temple' — ban đầu là đền Hindu, sau mới chuyển thành nơi Phật giáo."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Angkor Wat appears on the national flag of Cambodia.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'become Cambodia's national symbol, appearing on its flag' — đúng, Angkor Wat xuất hiện trên quốc kỳ Campuchia."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What do the towers of Angkor Wat represent?",
+          "options": ["the Cambodian king", "Mount Meru, home of the gods", "a Buddhist mountain"],
+          "correct": "Mount Meru, home of the gods",
+          "explanation_vi": "Bài viết 'towers are designed to represent Mount Meru, the home of the gods in Hindu mythology'."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'a large area of water surrounding a castle or temple'.",
+          "correct": "moat",
+          "explanation_vi": "'Moat' nghĩa là hào nước — vùng nước rộng bao quanh đền Angkor Wat."
+        }
+      ]
+    }
+  ]
+}

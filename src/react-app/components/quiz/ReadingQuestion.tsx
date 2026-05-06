@@ -178,7 +178,7 @@ function WriteWordQuestion({
         value={userAnswer}
         onChange={e => onAnswer(question.id, e.target.value)}
         disabled={isSubmitted}
-        placeholder="Gõ câu trả lời..."
+        placeholder="Type your answer..."
         id={`write-${question.id}`}
         autoComplete="off"
         autoCapitalize="none"
@@ -209,7 +209,7 @@ function QuestionFeedback({
       <span className="re-feedback__text">
         {!isCorrect && (
           <span className="re-feedback__correct-answer">
-            Đáp án đúng: <strong>{correctAnswer}</strong>
+            Correct answer: <strong>{correctAnswer}</strong>
           </span>
         )}
         {explanationVi}
@@ -236,7 +236,7 @@ export function ReadingQuestion({
 
   return (
     <div className={`re-question re-question--${subType}`}>
-      <div className="re-question__label">Câu {questionNumber}:</div>
+      <div className="re-question__label">Question {questionNumber}:</div>
 
       {subType === "cloze-mc"   && <ClozeMCQuestion   {...sharedProps} />}
       {subType === "true-false" && <TrueFalseQuestion {...sharedProps} />}

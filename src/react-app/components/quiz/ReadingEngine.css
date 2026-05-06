@@ -17,7 +17,8 @@
 .re-engine__body {
   flex: 1;
   padding: var(--space-3, 16px);
-  padding-bottom: 100px; /* Chừa chỗ cho sticky footer */
+  padding-top: var(--space-4, 24px); /* Thêm khoảng cách sau sub-header */
+  padding-bottom: 40px; /* Không cần chừa cho sticky footer nữa */
   max-width: 720px;
   margin: 0 auto;
   width: 100%;
@@ -274,7 +275,9 @@
   font-family: inherit;
 }
 
-.re-option:hover:not(:disabled) {
+/* Hover: chỉ áp dụng khi button CHƯA ở trạng thái nào (không selected, không correct, không wrong)
+   Lý do: hover (specificity 0-2-0) > selected (0-1-0) → nếu không exclude sẽ ghi đè color:white */
+.re-option:hover:not(:disabled):not(.re-option--selected):not(.re-option--correct):not(.re-option--wrong) {
   border-color: var(--color-primary, #7c3aed);
   color: var(--color-primary, #7c3aed);
 }
@@ -313,12 +316,21 @@
   padding: 8px 24px;
   border-radius: var(--radius-full, 9999px);
   border: 2px solid var(--color-border, #e2e8f0);
-  background: transparent;
+  background: var(--color-card, #ffffff);
+  color: var(--color-text, #1e293b);
   font-size: var(--font-sm, 14px);
   font-weight: var(--font-bold, 700);
   cursor: pointer;
   transition: all 0.15s;
   font-family: inherit;
+  /* Đảm bảo text luôn hiển thị đúng */
+  text-align: center;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
 }
 
 .re-tf-btn--true:hover:not(:disabled) {
@@ -331,14 +343,14 @@
 }
 
 .re-tf-btn--true.re-tf-btn--selected {
-  background: #16a34a;
-  border-color: #16a34a;
-  color: white;
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #ffffff !important;  /* Force white text */
 }
 .re-tf-btn--false.re-tf-btn--selected {
-  background: #dc2626;
-  border-color: #dc2626;
-  color: white;
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;  /* Force white text — fix dark mode hiding text */
 }
 
 /* Sau submit */
@@ -421,6 +433,8 @@
   left: 0;
   right: 0;
   padding: var(--space-2, 10px) var(--space-3, 16px);
+  /* Default padding-bottom — overridden per breakpoint below */
+  padding-bottom: max(var(--space-2, 10px), env(safe-area-inset-bottom, 0px));
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--color-border, #e2e8f0);
@@ -525,6 +539,47 @@
   color: white;
 }
 
+/* Actions row: Try Again + Back */
+.re-result__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-2, 10px);
+}
+
+/* "Back to lessons" link styled as secondary button */
+.re-result__back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 32px;
+  border-radius: var(--radius-full, 9999px);
+  border: 2px solid var(--color-border, #e2e8f0);
+  background: transparent;
+  color: var(--color-text-muted, #64748b);
+  font-size: var(--font-md, 16px);
+  font-weight: var(--font-bold, 700);
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.re-result__back-btn:hover {
+  border-color: var(--color-text, #1e293b);
+  color: var(--color-text, #1e293b);
+  background: var(--color-bg, #f8f7ff);
+}
+
+@media (min-width: 480px) {
+  .re-result__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 /* ============================================
    MC-3 — list style
    ============================================ */
@@ -556,22 +611,173 @@
 .re-tooltip-trigger:focus { outline: none; }
 .re-tooltip-wrap:focus-within .re-tooltip-box { display: block; }
 
-/* Footer — tránh bị iOS keyboard che (safe area) */
-.re-footer {
-  padding-bottom: max(var(--space-2, 10px), env(safe-area-inset-bottom));
+/* Footer safe-area + MobileBottomNav offset (mobile ≤ 768px)
+   MobileBottomNav = 64px fixed at bottom. Footer must sit ABOVE it. */
+@media (max-width: 768px) {
+  .re-footer {
+    bottom: 64px; /* = MobileBottomNav height */
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Body needs enough padding so last question clears footer + bottom-nav */
+  .re-engine__body {
+    padding-bottom: calc(64px + 80px); /* bottom-nav(64) + footer(~80) */
+  }
 }
 
-/* Tablet+ */
-@media (min-width: 640px) {
+/* Tablet+ (≥ 769px, no MobileBottomNav) */
+@media (min-width: 769px) {
   .re-engine__body {
     padding: var(--space-4, 24px);
-    padding-bottom: 120px;
+    padding-bottom: 140px; /* Enough clearance for fixed footer */
   }
 
   .re-footer {
+    bottom: 0; /* No bottom nav on tablet/desktop */
     max-width: 720px;
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
     border-radius: var(--radius-md, 16px) var(--radius-md, 16px) 0 0;
+    padding-bottom: max(var(--space-3, 16px), env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  .re-engine__body {
+    padding: var(--space-2, 10px);
+    padding-top: 68px;   /* Bù cho sub-header fixed (64px + 4px) */
+    padding-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Section title wraps instead of truncating */
+  .re-section__header {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  /* Passage text slightly smaller on phone */
+  .re-passage__text {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .re-passage__content {
+    padding: var(--space-2, 10px);
+  }
+
+  /* Options fill width on phone */
+  .re-options {
+    flex-wrap: wrap;
+  }
+  .re-option {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 80px;
+    font-size: var(--font-xs);
+    padding: 0 10px;
+  }
+
+  /* True/False buttons */
+  .re-tf-options {
+    gap: 8px;
+  }
+  .re-tf-btn {
+    flex: 1;
+    min-width: 0;       /* Tránh overflow khi flex:1 */
+    min-height: 48px;
+    padding: 8px 12px;  /* Giảm padding ngang để text không bị clip */
+    font-size: var(--font-sm, 14px);
+  }
+
+  /* Write-word input full width */
+  .re-write-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* MC-3 list full width */
+  .re-mc3-options .re-option {
+    width: 100%;
+    flex: none;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  /* Footer on small phone — padding already set by @media 768px above */
+  .re-footer {
+    padding-left: var(--space-2, 10px);
+    padding-right: var(--space-2, 10px);
+  }
+
+  .re-footer__submit-btn {
+    min-height: 48px;
+    font-size: var(--font-sm);
+    padding: 0 24px;
+  }
+
+  /* Result panel */
+  .re-result {
+    padding: var(--space-3, 16px) var(--space-2, 10px);
+  }
+}
+
+/* ============================================
+   READING SUB-HEADER CENTER
+   (Progress "X/N" + Nộp bài button, nằm trong quiz-sub-header)
+   ============================================ */
+.re-subheader-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.re-subheader-center__count {
+  font-size: var(--font-xs, 12px);
+  font-weight: var(--font-bold, 700);
+  color: var(--color-text-muted, #64748b);
+  white-space: nowrap;
+}
+
+.re-subheader-center__submit-btn {
+  min-height: 34px;
+  padding: 6px 18px;
+  border-radius: var(--radius-full, 9999px);
+  border: none;
+  background: #16a34a;
+  color: white;
+  font-size: var(--font-sm, 13px);
+  font-weight: var(--font-bold, 700);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.re-subheader-center__submit-btn:hover:not(:disabled) {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.re-subheader-center__submit-btn:disabled {
+  background: var(--color-border, #e2e8f0);
+  color: var(--color-text-muted, #94a3b8);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .re-subheader-center__submit-btn {
+    font-size: 11px;
+    padding: 5px 12px;
+    min-height: 30px;
+  }
+  .re-subheader-center__count {
+    font-size: 10px;
   }
 }

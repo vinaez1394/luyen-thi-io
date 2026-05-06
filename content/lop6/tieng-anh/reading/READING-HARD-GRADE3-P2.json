@@ -1,0 +1,130 @@
+{
+  "id": "READING-HARD-GRADE3-P2",
+  "title": "Reading Comprehension — Hard — Grade 3-4 — Space & Planets",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "hard",
+  "grade_min": 3,
+  "grade_max": 4,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Our solar system is made up of the Sun and eight (0) planets that orbit around it. Each planet is unique and has different (1) _____ such as size, colour, and temperature. Mercury is the closest planet to the Sun and has (2) _____ temperatures because it has no atmosphere to protect it. Jupiter is the largest planet and has a famous (3) _____ called the Great Red Spot, which is actually a giant storm. Scientists use powerful telescopes to (4) _____ space and learn more about our universe.",
+        "text_segments": [
+          { "text": "Our " },
+          { "text": "solar system", "tooltip": { "vi": "hệ mặt trời", "ipa": "ˈsoʊlər ˈsɪstəm" } },
+          { "text": " is made up of the Sun and eight " },
+          { "text": "(0) planets", "highlight": true },
+          { "text": " that " },
+          { "text": "orbit", "tooltip": { "vi": "quay quanh quỹ đạo", "ipa": "ˈɔːrbɪt" } },
+          { "text": " around it. Each planet is unique and has different (1) _____ such as size, colour, and temperature. " },
+          { "text": "Mercury", "tooltip": { "vi": "sao Thủy", "ipa": "ˈmɜːrkjʊri" } },
+          { "text": " is the closest planet to the Sun and has (2) _____ temperatures because it has no " },
+          { "text": "atmosphere", "tooltip": { "vi": "khí quyển", "ipa": "ˈætməsfɪər" } },
+          { "text": " to protect it. Jupiter is the largest planet and has a famous (3) _____ called the Great Red Spot, which is actually a giant storm. Scientists use powerful telescopes to (4) _____ space and learn more about our universe." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Each planet is unique and has different (1) _____ such as size, colour, and temperature.",
+          "options": ["characteristics", "names", "owners"],
+          "correct": "characteristics",
+          "explanation_vi": "'Characteristics' nghĩa là đặc điểm — mỗi hành tinh có đặc điểm riêng như kích thước, màu sắc và nhiệt độ."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Mercury has (2) _____ temperatures because it has no atmosphere to protect it.",
+          "options": ["extreme", "pleasant", "mild"],
+          "correct": "extreme",
+          "explanation_vi": "'Extreme temperatures' nghĩa là nhiệt độ cực đoan — không có khí quyển bảo vệ nên sao Thủy có nhiệt độ rất khắc nghiệt."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Jupiter has a famous (3) _____ called the Great Red Spot.",
+          "options": ["feature", "moon", "ring"],
+          "correct": "feature",
+          "explanation_vi": "'Feature' nghĩa là đặc điểm nổi bật — Vết Đỏ Lớn là đặc điểm nổi tiếng của sao Mộc."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Scientists use powerful telescopes to (4) _____ space.",
+          "options": ["explore", "destroy", "ignore"],
+          "correct": "explore",
+          "explanation_vi": "'Explore' nghĩa là khám phá — các nhà khoa học dùng kính thiên văn để khám phá vũ trụ."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "The Moon is Earth's only natural satellite and has been the subject of human fascination for thousands of years. It takes approximately 27 days for the Moon to complete one orbit around the Earth. The Moon has no air, water, or weather, which means its surface is covered with craters formed by meteorite impacts over billions of years. Astronauts first landed on the Moon in 1969 during the Apollo 11 mission. The Moon's gravity affects Earth's oceans, causing the rise and fall of tides twice a day. Without the Moon's stabilising effect, Earth's axis would wobble dramatically, making life much harder for living things.",
+        "text_segments": [
+          { "text": "The Moon is Earth's only natural " },
+          { "text": "satellite", "tooltip": { "vi": "vệ tinh", "ipa": "ˈsætəlaɪt" } },
+          { "text": " and has been the subject of human " },
+          { "text": "fascination", "tooltip": { "vi": "sự cuốn hút, sự mê hoặc", "ipa": "ˌfæsɪˈneɪʃn" } },
+          { "text": " for thousands of years. It takes approximately 27 days for the Moon to complete one orbit around the Earth. The Moon has no air, water, or weather, which means its surface is covered with " },
+          { "text": "craters", "tooltip": { "vi": "miệng núi lửa, hố va chạm", "ipa": "ˈkreɪtərz" } },
+          { "text": " formed by " },
+          { "text": "meteorite", "tooltip": { "vi": "thiên thạch", "ipa": "ˈmiːtiəraɪt" } },
+          { "text": " impacts over billions of years. " },
+          { "text": "Astronauts", "tooltip": { "vi": "phi hành gia", "ipa": "ˈæstrənɔːts" } },
+          { "text": " first landed on the Moon in 1969 during the Apollo 11 mission. The Moon's gravity affects Earth's oceans, causing the rise and fall of tides twice a day. Without the Moon's stabilising effect, Earth's axis would " },
+          { "text": "wobble", "tooltip": { "vi": "lắc lư, dao động", "ipa": "ˈwɒbl" } },
+          { "text": " dramatically, making life much harder for living things." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "The Moon takes about one month to orbit the Earth.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'approximately 27 days' — khoảng 27 ngày, gần bằng một tháng."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "The Moon has weather just like Earth.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'The Moon has no air, water, or weather' — Mặt Trăng không có không khí, nước hay thời tiết."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What effect does the Moon's gravity have on Earth?",
+          "options": ["It controls the weather.", "It causes ocean tides.", "It creates earthquakes."],
+          "correct": "It causes ocean tides.",
+          "explanation_vi": "Bài viết 'The Moon's gravity affects Earth's oceans, causing the rise and fall of tides' — trọng lực Mặt Trăng tạo ra thủy triều."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage for people who travel to space.",
+          "correct": "astronauts",
+          "explanation_vi": "'Astronauts' nghĩa là phi hành gia — những người đi vào vũ trụ."
+        }
+      ]
+    }
+  ]
+}

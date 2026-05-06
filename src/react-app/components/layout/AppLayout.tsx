@@ -26,10 +26,12 @@ export function AppLayout({ children }: AppLayoutProps) {
   const pathParts = location.pathname.split("/").filter(Boolean);
   const isQuizRoute =
     location.pathname.startsWith("/quiz") ||
-    (pathParts.length === 2 &&
+    (pathParts.length >= 2 &&
       !["login", "dashboard", "onboarding", "profile", "lessons", "about", "contact", "privacy"].includes(
         pathParts[0]
-      ));
+      ) &&
+      // Chỉ match khi segment cuối có dạng quiz slug (chứa dấu gạch ngang)
+      pathParts[pathParts.length - 1].includes("-"));
 
   return (
     <div className={`app-layout ${isQuizRoute ? "app-layout--quiz" : ""}`}>

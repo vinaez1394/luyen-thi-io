@@ -1,0 +1,234 @@
+{
+  "id": "WRITING-HARD-GRADE5-P3",
+  "title": "Writing — Khó — Lớp 5-6 — Bài 3",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "that reading books / teachers / believe / broadens students' minds /.//",
+        "answer": "Teachers believe that reading books broadens students' minds."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "said / the science teacher / that / the experiment / would be / conducted outdoors /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["the science teacher","said","that the experiment","would be","conducted outdoors"],
+          "correct": ["the science teacher","said","that the experiment","would be","conducted outdoors"],
+          "explanation": {
+            "correct_sentence": "The science teacher said that the experiment would be conducted outdoors.",
+            "structure_vi": "S + said + that + S₂ + would be + V3 (Câu tường thuật — bị động)",
+            "grammar_notes": [
+              "✅ Câu tường thuật (Reported Speech): V tường thuật chia quá khứ → động từ trong mệnh đề that lùi thì",
+              "✅ 'will be conducted' → 'would be conducted' (lùi từ tương lai đơn sang would)",
+              "✅ 'conducted' = V3 của 'conduct' — câu bị động trong tường thuật"
+            ],
+            "vocab_notes": [
+              {"word": "experiment","vi": "thí nghiệm","ipa": "ɪkˈsperɪmənt"},
+              {"word": "conduct","vi": "tiến hành, thực hiện","ipa": "kənˈdʌkt"},
+              {"word": "outdoors","vi": "ngoài trời","ipa": "ˌaʊtˈdɔːz"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'said that the experiment will be conducted' → sau 'said' phải lùi thì: 'would be'",
+              "❌ Sai: 'said that the experiment would conduct' → phải dùng bị động 'would be conducted'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "despite / the heavy traffic / managed / the delivery driver / to arrive on time /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["despite","the heavy traffic","the delivery driver","managed","to arrive on time"],
+          "correct": ["despite","the heavy traffic","the delivery driver","managed","to arrive on time"],
+          "explanation": {
+            "correct_sentence": "Despite the heavy traffic, the delivery driver managed to arrive on time.",
+            "structure_vi": "Despite + danh từ/cụm danh từ, S + V + to-V",
+            "grammar_notes": [
+              "✅ 'Despite' = mặc dù — đi với danh từ/cụm danh từ (không dùng 'despite + clause')",
+              "✅ 'managed to arrive' = cố gắng và thành công làm gì — 'manage' luôn đi với to-V",
+              "⚠️ Khác 'although/though': 'although + mệnh đề (S+V)', 'despite + danh từ'"
+            ],
+            "vocab_notes": [
+              {"word": "despite","vi": "mặc dù (đi với danh từ)","ipa": "dɪˈspaɪt"},
+              {"word": "heavy traffic","vi": "giao thông đông đúc","ipa": "ˈhevi ˈtræfɪk"},
+              {"word": "manage to","vi": "cố gắng và thành công","ipa": "ˈmænɪdʒ tʊ"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Despite the heavy traffic was bad, the driver...' → sau 'despite' chỉ dùng danh từ",
+              "❌ Sai: 'managed arriving on time' → 'manage' luôn đi với to-V, không dùng V-ing"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "the charity event / raised / which / was organised / last Saturday / over ten million dong /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["the charity event","which was organised","last Saturday","raised","over ten million dong"],
+          "correct": ["the charity event","which was organised","last Saturday","raised","over ten million dong"],
+          "explanation": {
+            "correct_sentence": "The charity event, which was organised last Saturday, raised over ten million dong.",
+            "structure_vi": "S + (mệnh đề quan hệ bị động + thời gian) + V + O",
+            "grammar_notes": [
+              "✅ 'which was organised last Saturday' = mệnh đề quan hệ bị động, bổ sung cho 'the charity event'",
+              "✅ 'raised' = quá khứ đơn của 'raise' — toàn bộ câu ở quá khứ",
+              "✅ 'over ten million dong' = cụm số tiền, không cần mạo từ"
+            ],
+            "vocab_notes": [
+              {"word": "charity event","vi": "sự kiện từ thiện","ipa": "ˈtʃærɪti ɪˈvent"},
+              {"word": "organise","vi": "tổ chức","ipa": "ˈɔːɡənaɪz"},
+              {"word": "raise","vi": "quyên góp, thu được","ipa": "reɪz"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'the charity event which was organised last Saturday have raised' → chủ ngữ số ít → 'raised'",
+              "❌ Sai: 'raised over ten million dong which was organised last Saturday' → mệnh đề quan hệ phải đứng ngay sau danh từ"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "having studied / she / for six hours / decided / to go for a walk /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["having studied","for six hours","she","decided","to go for a walk"],
+          "correct": ["having studied","for six hours","she","decided","to go for a walk"],
+          "explanation": {
+            "correct_sentence": "Having studied for six hours, she decided to go for a walk.",
+            "structure_vi": "Having + V3 (Mệnh đề phân từ hoàn thành), S + V + to-V",
+            "grammar_notes": [
+              "✅ 'Having studied' = Perfect Participle — hành động xảy ra TRƯỚC hành động chính",
+              "✅ Chủ ngữ của mệnh đề phân từ phải trùng với chủ ngữ chính: 'she'",
+              "✅ 'decided to go' = 'decide' luôn đi với to-V"
+            ],
+            "vocab_notes": [
+              {"word": "having studied","vi": "sau khi đã học (phân từ hoàn thành)","ipa": "ˈhævɪŋ ˈstʌdid"},
+              {"word": "go for a walk","vi": "đi dạo","ipa": "ɡəʊ fər ə wɔːk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Having studied for six hours, the book was closed by her' → lỗi Dangling Participle: chủ ngữ phải là người học",
+              "❌ Sai: 'After studied for six hours' → sau 'after' dùng V-ing: 'after studying'"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "the competition / hold / every two years / encourage / young talent /.//",
+        "answer": "The competition is held every two years to encourage young talent."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "the teacher / tell / students / that / the test / postpone / to next week /.//",
+          "accepted_answers": [
+            "The teacher told students that the test would be postponed to next week.",
+            "the teacher told students that the test would be postponed to next week",
+            "The teacher told the students that the test would be postponed to next week.",
+            "The teacher told students that the test was postponed to next week."
+          ],
+          "explanation": {
+            "correct_sentence": "The teacher told students that the test would be postponed to next week.",
+            "structure_vi": "S + told + O + that + S₂ + would be + V3 (Câu tường thuật bị động)",
+            "grammar_notes": [
+              "✅ 'told' = quá khứ của 'tell' (bất quy tắc) — câu tường thuật",
+              "✅ 'would be postponed' = bị động trong câu tường thuật (will → would)",
+              "✅ 'postpone to' = hoãn lại đến (một thời điểm cụ thể)"
+            ],
+            "vocab_notes": [
+              {"word": "postpone","vi": "hoãn lại","ipa": "pəʊstˈpəʊn"},
+              {"word": "tell (told)","vi": "nói với, thông báo","ipa": "tel (təʊld)"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'told students that the test will be postponed' → sau 'told' phải lùi thì: 'would be'",
+              "❌ Sai: 'told students that the test would postpone' → cần bị động: 'would be postponed'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "despite / feel / ill / Lan / attend / the final exam / and / pass / it /.//",
+          "accepted_answers": [
+            "Despite feeling ill, Lan attended the final exam and passed it.",
+            "despite feeling ill, lan attended the final exam and passed it",
+            "Despite feeling ill, Lan attended the final exam and passed.",
+            "Despite being ill, Lan attended the final exam and passed it."
+          ],
+          "explanation": {
+            "correct_sentence": "Despite feeling ill, Lan attended the final exam and passed it.",
+            "structure_vi": "Despite + V-ing (+ O), S + V₁ + O₁ + and + V₂ + O₂",
+            "grammar_notes": [
+              "✅ 'Despite + V-ing' — sau 'despite' dùng V-ing (không dùng S+V)",
+              "✅ Hai động từ song song: 'attended' và 'passed' — cùng thì quá khứ đơn",
+              "✅ 'pass it' — 'it' thay thế cho 'the final exam'"
+            ],
+            "vocab_notes": [
+              {"word": "feel ill","vi": "cảm thấy ốm, không khỏe","ipa": "fiːl ɪl"},
+              {"word": "final exam","vi": "kỳ thi cuối kỳ","ipa": "ˈfaɪnl ɪɡˈzæm"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Despite she felt ill, Lan attended...' → sau 'despite' không dùng S+V",
+              "❌ Sai: 'Despite feeling ill, Lan attends... and pass' → phải chia quá khứ"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "the museum / display / over 500 artefacts / which / collect / from / different provinces / across Vietnam /.//",
+          "accepted_answers": [
+            "The museum displays over 500 artefacts which were collected from different provinces across Vietnam.",
+            "the museum displays over 500 artefacts which were collected from different provinces across vietnam",
+            "The museum displays over 500 artefacts that were collected from different provinces across Vietnam.",
+            "The museum is displaying over 500 artefacts collected from different provinces across Vietnam."
+          ],
+          "explanation": {
+            "correct_sentence": "The museum displays over 500 artefacts which were collected from different provinces across Vietnam.",
+            "structure_vi": "S + V (hiện tại đơn) + O + mệnh đề quan hệ (bị động)",
+            "grammar_notes": [
+              "✅ 'displays' = hiện tại đơn, thêm -s vì 'the museum' là số ít",
+              "✅ 'which were collected' = mệnh đề quan hệ bị động — đồ vật được thu thập",
+              "✅ 'from different provinces across Vietnam' = cụm giới từ chỉ nguồn gốc"
+            ],
+            "vocab_notes": [
+              {"word": "artefact","vi": "cổ vật, hiện vật","ipa": "ˈɑːtɪfækt"},
+              {"word": "province","vi": "tỉnh, địa phương","ipa": "ˈprɒvɪns"},
+              {"word": "display","vi": "trưng bày","ipa": "dɪˈspleɪ"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'The museum display over 500 artefacts' → 'museum' là số ít → 'displays'",
+              "❌ Sai: 'which collected' → cần bị động: 'which were collected' (đồ vật không tự thu thập)"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

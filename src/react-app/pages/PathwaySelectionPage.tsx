@@ -20,6 +20,28 @@ export function PathwaySelectionPage() {
 
       <div className="pathway-page__cards">
 
+        {/* ── Luyện Thi Lớp 6 ── */}
+        <button
+          className="pathway-card pathway-card--lop6"
+          onClick={() => navigate("/lop6")}
+          id="btn-select-lop6"
+        >
+          <div className="pathway-card__flag">🏫</div>
+          <div className="pathway-card__body">
+            <h2 className="pathway-card__title">Luyện Thi Lớp 6</h2>
+            <p className="pathway-card__desc">
+              Ôn tập toàn diện các môn thi tuyển sinh lớp 6 THCS
+            </p>
+            <div className="pathway-card__levels">
+              {["🧮 Toán", "📖 Tiếng Việt", "🇬🇧 Tiếng Anh", "🔬 Khoa học"].map((m) => (
+                <span key={m} className="pathway-card__level-badge">{m}</span>
+              ))}
+            </div>
+            <span className="pathway-card__cta">Bắt đầu →</span>
+          </div>
+          <div className="pathway-card__glow pathway-card__glow--lop6" />
+        </button>
+
         {/* ── Cambridge ── */}
         <button
           className="pathway-card pathway-card--cambridge"
@@ -40,28 +62,6 @@ export function PathwaySelectionPage() {
             <span className="pathway-card__cta">Bắt đầu →</span>
           </div>
           <div className="pathway-card__glow pathway-card__glow--cambridge" />
-        </button>
-
-        {/* ── Lớp 6 ── */}
-        <button
-          className="pathway-card pathway-card--lop6"
-          onClick={() => navigate("/lop6")}
-          id="btn-select-lop6"
-        >
-          <div className="pathway-card__flag">🏫</div>
-          <div className="pathway-card__body">
-            <h2 className="pathway-card__title">Thi vào Lớp 6</h2>
-            <p className="pathway-card__desc">
-              Ôn tập toàn diện các môn thi tuyển sinh lớp 6 THCS
-            </p>
-            <div className="pathway-card__levels">
-              {["🧮 Toán", "📖 Tiếng Việt", "🌐 Tiếng Anh", "🔬 Khoa học"].map((m) => (
-                <span key={m} className="pathway-card__level-badge">{m}</span>
-              ))}
-            </div>
-            <span className="pathway-card__cta">Bắt đầu →</span>
-          </div>
-          <div className="pathway-card__glow pathway-card__glow--lop6" />
         </button>
 
       </div>

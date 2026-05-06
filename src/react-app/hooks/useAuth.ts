@@ -42,7 +42,7 @@ export function useAuth() {
   // Fetch current user từ /api/auth/me
   const fetchUser = useCallback(async () => {
     try {
-      const res = await fetch("/api/auth/me");
+      const res = await fetch("/api/auth/me", { credentials: "include" });
       if (res.ok) {
         const data = (await res.json()) as { user: AuthUser | null };
         setState({
@@ -72,7 +72,7 @@ export function useAuth() {
 
   // Logout
   const logout = useCallback(async () => {
-    await fetch("/api/auth/logout", { method: "POST" });
+    await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
     setState({ user: null, isLoading: false, isLoggedIn: false });
     window.location.href = "/";
   }, []);

@@ -26,6 +26,8 @@
   align-items: center;
   gap: var(--space-2);
   padding: 0 var(--space-3);
+  /* NOTE: Do NOT add overflow:hidden here — dropdown menus are position:absolute
+     and will be clipped/unclickable if parent has overflow:hidden */
 }
 
 /* ===== LOGO ===== */
@@ -241,6 +243,41 @@
   white-space: nowrap;
 }
 
+/* Grade badge cũ — giữ lại để tránh lỗi nếu còn dùng ở đâu */
+.gh-grade-badge {
+  display: none; /* Đã thay bằng gh-grade-icon */
+}
+
+/* Grade icon standalone — desktop only, click dẫn đến /profile */
+.gh-grade-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1.5px solid color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-card));
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+.gh-grade-icon:hover {
+  background: color-mix(in srgb, var(--color-primary) 18%, var(--color-card));
+  border-color: var(--color-primary);
+}
+.gh-grade-icon__emoji { font-size: 14px; line-height: 1; }
+.gh-grade-icon__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* Ẩn trên mobile — thay bằng user card trong drawer */
+@media (max-width: 768px) {
+  .gh-grade-icon { display: none; }
+}
+
 /* Avatar dropdown */
 .avatar-dropdown {
   position: absolute;
@@ -334,14 +371,115 @@
   animation: slideInLeft 0.25s ease-out;
   overflow-y: auto;
 }
-.mobile-drawer__logo {
+/* Mobile drawer header: logo + close button */
+.mobile-drawer__header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 4px;
 }
+/* Giữ logo style cũ (nay nằm trong __header) */
+.mobile-drawer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Nút đóng (X) bên phải drawer header */
+.mobile-drawer__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+.mobile-drawer__close-btn:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+/* 3 stats pills — thả tự do dưới header, không có khung card */
+.mobile-drawer__stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: var(--space-1) var(--space-1);
+}
+
+/* User stats card trong drawer (grade + stars) */
+.mobile-drawer__user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--space-2) var(--space-2);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg-subtle));
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, var(--color-border));
+  margin-bottom: 2px;
+}
+.mobile-drawer__user-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.mobile-drawer__user-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.mobile-drawer__user-card-name {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mobile-drawer__user-card-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.mobile-drawer__user-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+.mobile-drawer__user-stat--grade {
+  background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  color: var(--color-primary);
+}
+.mobile-drawer__user-stat--stars {
+  background: color-mix(in srgb, #f59e0b 15%, transparent);
+  color: #b45309;
+}
+.mobile-drawer__user-stat--streak {
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+  color: #b91c1c;
+}
+
 .mobile-drawer__nav-link {
   display: flex;
   align-items: center;
@@ -370,17 +508,64 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  /* Hamburger: visible on mobile, hidden on desktop (default display:none) */
+  .global-header__hamburger {
+    display: flex;
+    order: 1;          /* ← far left */
+    flex-shrink: 0;
+  }
+
+  /* Logo: immediately right of hamburger */
+  .global-header__logo {
+    order: 2;
+  }
+
+  /* Desktop nav: hidden */
   .global-header__nav {
     display: none;
   }
-  .global-header__hamburger {
-    display: flex;
+
+  /* Spacer pushes auth to the right */
+  .global-header__spacer {
+    order: 3;
   }
+
+  /* Stars: hide — shown in MobileBottomNav */
+  .global-header__stars {
+    display: none;
+    order: 4;
+  }
+
+  /* Theme button: hidden on mobile to save space */
+  .global-header__theme-btn {
+    display: none;
+  }
+
+  /* Auth (avatar / register): stays right */
+  .global-header__auth {
+    order: 5;
+    flex-shrink: 0;
+  }
+
+  /* Reduce logo text size */
   .global-header__logo-text {
     font-size: var(--font-md);
   }
-  .global-header__stars {
-    display: none; /* Hiện trên Mobile Bottom Nav */
+
+  /* Tighter inner padding */
+  .global-header__inner {
+    padding: 0 var(--space-2);
+    gap: var(--space-1);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+  .global-header__logo-text {
+    display: none; /* Only show icon 🎓 on very small screens */
+  }
+  .global-header__inner {
+    padding: 0 8px;
   }
 }
 
@@ -574,4 +759,61 @@
   border-radius: 99px;
   background: var(--color-surface-elevated, #f0f0f0);
   color: var(--color-text-muted, #999);
+}
+
+/* ===== MOBILE DRAWER — Theme Switcher ===== */
+.mobile-drawer__divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+.mobile-drawer__theme-section {
+  padding: var(--space-1) 0;
+}
+
+.mobile-drawer__theme-label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text-muted);
+  padding: 4px var(--space-2) 10px;
+}
+
+.mobile-drawer__theme-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  padding: 0 var(--space-2);
+}
+
+.mobile-drawer__theme-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.mobile-drawer__theme-btn:hover {
+  background: var(--color-bg-subtle);
+}
+.mobile-drawer__theme-btn.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.mobile-drawer__theme-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.mobile-drawer__theme-emoji {
+  font-size: 14px;
+  line-height: 1;
 }

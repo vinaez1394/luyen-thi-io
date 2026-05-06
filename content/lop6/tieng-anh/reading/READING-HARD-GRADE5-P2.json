@@ -1,0 +1,130 @@
+{
+  "id": "READING-HARD-GRADE5-P2",
+  "title": "Reading Comprehension — Hard — Grade 5-6 — Climate Change",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "hard",
+  "grade_min": 5,
+  "grade_max": 6,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Climate change is one of the most serious (0) challenges facing our planet today. The main cause is the increase of greenhouse gases, especially carbon dioxide, which are (1) _____ into the atmosphere when we burn fossil fuels. These gases trap heat from the sun and cause global temperatures to (2) _____, a process known as global warming. As temperatures rise, ice caps at the poles are melting, causing sea levels to (3) _____. Scientists warn that if we do not take action to (4) _____ carbon emissions, extreme weather events such as floods and droughts will become more frequent.",
+        "text_segments": [
+          { "text": "Climate change is one of the most serious " },
+          { "text": "(0) challenges", "highlight": true },
+          { "text": " facing our planet today. The main cause is the increase of " },
+          { "text": "greenhouse gases", "tooltip": { "vi": "khí nhà kính", "ipa": "ˈɡriːnhaʊs ˌɡæsɪz" } },
+          { "text": ", especially carbon dioxide, which are (1) _____ into the " },
+          { "text": "atmosphere", "tooltip": { "vi": "khí quyển", "ipa": "ˈætməsfɪər" } },
+          { "text": " when we burn fossil fuels. These gases " },
+          { "text": "trap", "tooltip": { "vi": "giữ lại, bẫy", "ipa": "træp" } },
+          { "text": " heat from the sun and cause global temperatures to (2) _____, a process known as " },
+          { "text": "global warming", "tooltip": { "vi": "sự nóng lên toàn cầu", "ipa": "ˈɡloʊbl ˈwɔːrmɪŋ" } },
+          { "text": ". As temperatures rise, ice caps at the poles are melting, causing sea levels to (3) _____. Scientists warn that if we do not take action to (4) _____ carbon emissions, extreme weather events such as floods and droughts will become more frequent." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Carbon dioxide gases are (1) _____ into the atmosphere when we burn fossil fuels.",
+          "options": ["released", "removed", "stored"],
+          "correct": "released",
+          "explanation_vi": "'Released' nghĩa là thải ra — CO₂ được thải vào khí quyển khi đốt nhiên liệu hóa thạch."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Greenhouse gases cause global temperatures to (2) _____, a process known as global warming.",
+          "options": ["rise", "fall", "stay"],
+          "correct": "rise",
+          "explanation_vi": "'Rise' nghĩa là tăng lên — khí nhà kính làm nhiệt độ toàn cầu tăng lên."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Ice caps at the poles are melting, causing sea levels to (3) _____.",
+          "options": ["rise", "drop", "freeze"],
+          "correct": "rise",
+          "explanation_vi": "Băng tan khiến mực nước biển 'rise' (dâng lên)."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "If we do not take action to (4) _____ carbon emissions, extreme weather will become more frequent.",
+          "options": ["reduce", "increase", "celebrate"],
+          "correct": "reduce",
+          "explanation_vi": "'Reduce' nghĩa là giảm — cần hành động để giảm lượng khí thải carbon."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Young people around the world are increasingly taking action against climate change. In 2018, Greta Thunberg, a 15-year-old Swedish student, began striking outside the Swedish parliament every Friday to demand stronger climate policies. Her movement, known as Fridays for Future, quickly spread to over 150 countries, inspiring millions of young people to join peaceful protests. Activists argue that governments must set ambitious targets to reach net-zero carbon emissions by 2050. Individuals can also contribute by reducing energy consumption, eating less meat, using public transport, and supporting renewable energy sources such as solar and wind power. Every small action, when multiplied by millions of people, can make a significant difference to our planet's future.",
+        "text_segments": [
+          { "text": "Young people around the world are increasingly taking action against climate change. In 2018, Greta Thunberg, a 15-year-old Swedish student, began " },
+          { "text": "striking", "tooltip": { "vi": "đình công, biểu tình", "ipa": "ˈstraɪkɪŋ" } },
+          { "text": " outside the Swedish " },
+          { "text": "parliament", "tooltip": { "vi": "quốc hội", "ipa": "ˈpɑːrləmənt" } },
+          { "text": " every Friday to demand stronger climate policies. Her movement, known as Fridays for Future, quickly " },
+          { "text": "spread", "tooltip": { "vi": "lan rộng", "ipa": "spred" } },
+          { "text": " to over 150 countries, inspiring millions of young people to join peaceful " },
+          { "text": "protests", "tooltip": { "vi": "cuộc biểu tình", "ipa": "ˈproʊtests" } },
+          { "text": ". Activists argue that governments must set " },
+          { "text": "ambitious", "tooltip": { "vi": "tham vọng, đầy tham vọng", "ipa": "æmˈbɪʃəs" } },
+          { "text": " targets to reach net-zero carbon emissions by 2050. Individuals can also " },
+          { "text": "contribute", "tooltip": { "vi": "đóng góp", "ipa": "kənˈtrɪbjuːt" } },
+          { "text": " by reducing energy consumption, eating less meat, using public transport, and supporting renewable energy sources such as solar and wind power. Every small action, when multiplied by millions of people, can make a significant difference to our planet's future." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Greta Thunberg started her climate strike when she was 15 years old.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'a 15-year-old Swedish student, began striking' — đúng, cô bắt đầu biểu tình khi 15 tuổi."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "The Fridays for Future movement stayed only in Sweden.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'quickly spread to over 150 countries' — phong trào lan ra hơn 150 quốc gia, không chỉ Thụy Điển."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "According to the passage, which of the following is NOT mentioned as a way individuals can help?",
+          "options": ["eating less meat", "planting more trees", "using public transport"],
+          "correct": "planting more trees",
+          "explanation_vi": "Bài viết liệt kê giảm tiêu thụ năng lượng, ăn ít thịt, dùng phương tiện công cộng, năng lượng tái tạo — không đề cập trồng cây."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'people who strongly support a cause and take action for it'.",
+          "correct": "activists",
+          "explanation_vi": "'Activists' nghĩa là nhà hoạt động — những người tích cực đấu tranh cho một mục tiêu."
+        }
+      ]
+    }
+  ]
+}

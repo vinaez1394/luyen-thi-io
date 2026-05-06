@@ -9,6 +9,8 @@
 // ─── Annotated Segment (mới trong quiz JSON) ──────────────────────────────────
 export interface TextSegment {
   text: string;
+  /** Tô vàng từ highlight (dùng trong Reading passage) */
+  highlight?: boolean;
   /** Nếu có tooltip → đây là từ có thể tra */
   tooltip?: {
     vi: string;     // nghĩa tiếng Việt

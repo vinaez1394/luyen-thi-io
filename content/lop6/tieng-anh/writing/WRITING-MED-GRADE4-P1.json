@@ -1,0 +1,232 @@
+{
+  "id": "WRITING-MED-GRADE4-P1",
+  "title": "Writing — Trung bình — Lớp 4-5 — Bài 1",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "than cycling / is / walking to school / healthier /.//",
+        "answer": "Walking to school is healthier than cycling."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "the most exciting / we have ever / this is / visited / theme park /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["this is","the most exciting","theme park","we have ever","visited"],
+          "correct": ["this is","the most exciting","theme park","we have ever","visited"],
+          "explanation": {
+            "correct_sentence": "This is the most exciting theme park we have ever visited.",
+            "structure_vi": "This is + the + so sánh nhất + N + S + have ever + V3",
+            "grammar_notes": [
+              "✅ Cấu trúc so sánh nhất + hiện tại hoàn thành: 'the most exciting... we have ever visited'",
+              "✅ 'ever' đi với hiện tại hoàn thành để nhấn mạnh kinh nghiệm trong cuộc đời",
+              "⚠️ 'exciting' (tính từ 2 âm tiết trở lên) → dùng 'most exciting' (không phải 'excitingest')"
+            ],
+            "vocab_notes": [
+              {"word": "exciting","vi": "thú vị, hấp dẫn","ipa": "ɪkˈsaɪtɪŋ"},
+              {"word": "theme park","vi": "công viên chủ đề","ipa": "θiːm pɑːk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'the most exciting theme park we have ever visit' → sau 'have ever' dùng V3: 'visited'",
+              "❌ Sai: 'the excitingest theme park' → tính từ dài dùng 'most + adj'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "since she was / has been learning / Nam Ha / a child / English /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["Nam Ha","has been learning","English","since she was","a child"],
+          "correct": ["Nam Ha","has been learning","English","since she was","a child"],
+          "explanation": {
+            "correct_sentence": "Nam Ha has been learning English since she was a child.",
+            "structure_vi": "S + have/has been + V-ing (Hiện tại hoàn thành tiếp diễn) + since + mốc thời gian",
+            "grammar_notes": [
+              "✅ Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous): bắt đầu trong quá khứ, còn tiếp diễn",
+              "✅ 'since' + mốc thời gian cụ thể: 'since she was a child'",
+              "✅ 'has been learning' (số ít) — chủ ngữ 'Nam Ha' là số ít"
+            ],
+            "vocab_notes": [
+              {"word": "since","vi": "kể từ khi (mốc thời gian)","ipa": "sɪns"},
+              {"word": "a child","vi": "lúc còn nhỏ","ipa": "ə tʃaɪld"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Nam Ha have been learning' → chủ ngữ số ít → 'has been learning'",
+              "❌ Sai: 'Nam Ha has been learn English' → phải thêm -ing: 'learning'"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "is / the weather / much colder / than / in Ha Noi / in Da Lat /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["the weather","in Da Lat","is","much colder","than","in Ha Noi"],
+          "correct": ["the weather","in Da Lat","is","much colder","than","in Ha Noi"],
+          "explanation": {
+            "correct_sentence": "The weather in Da Lat is much colder than in Ha Noi.",
+            "structure_vi": "S + is + much + so sánh hơn + than + đối tượng so sánh",
+            "grammar_notes": [
+              "✅ So sánh hơn: 'colder than' (tính từ ngắn 1 âm tiết thêm -er)",
+              "✅ 'much colder' — dùng 'much' để nhấn mạnh mức độ hơn kém (rất lạnh hơn nhiều)",
+              "✅ 'in Da Lat' là thông tin bổ sung cho 'weather', đứng ngay sau chủ ngữ"
+            ],
+            "vocab_notes": [
+              {"word": "much colder","vi": "lạnh hơn nhiều","ipa": "mʌtʃ ˈkəʊldər"},
+              {"word": "weather","vi": "thời tiết","ipa": "ˈweðər"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'more colder than' → tính từ ngắn thêm -er, không dùng 'more'",
+              "❌ Sai: 'very colder than' → dùng 'much/far/a lot' trước so sánh hơn, không dùng 'very'"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "to join / my parents / have always / encouraged / us / community activities /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["my parents","have always","encouraged","us","to join","community activities"],
+          "correct": ["my parents","have always","encouraged","us","to join","community activities"],
+          "explanation": {
+            "correct_sentence": "My parents have always encouraged us to join community activities.",
+            "structure_vi": "S + have + always + V3 + O + to-V (Hiện tại hoàn thành + encourage)",
+            "grammar_notes": [
+              "✅ 'have always encouraged' = Hiện tại hoàn thành với trạng từ tần suất 'always'",
+              "✅ 'always' đứng giữa 'have' và V3 trong thì hoàn thành",
+              "✅ 'encourage + O + to-V' = khuyến khích ai làm gì"
+            ],
+            "vocab_notes": [
+              {"word": "encourage","vi": "khuyến khích","ipa": "ɪnˈkʌrɪdʒ"},
+              {"word": "community activities","vi": "các hoạt động cộng đồng","ipa": "kəˈmjuːnɪti ækˈtɪvɪtiz"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'have always encourage us' → phải dùng V3: 'encouraged'",
+              "❌ Sai: 'encouraged us joining' → 'encourage + O + to-V', không dùng V-ing"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "Hoi An / be / one of / most beautiful / ancient town / Vietnam /.//",
+        "answer": "Hoi An is one of the most beautiful ancient towns in Vietnam."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "this book / be / the most useful / I / read / so far /.//",
+          "accepted_answers": [
+            "This book is the most useful one I have read so far.",
+            "this book is the most useful one i have read so far",
+            "This book is the most useful one I have ever read.",
+            "This book is the most useful book I have read so far.",
+            "This is the most useful book I have read so far."
+          ],
+          "explanation": {
+            "correct_sentence": "This book is the most useful one I have read so far.",
+            "structure_vi": "This + be + the most + adj + one/N + S + have + V3 + so far",
+            "grammar_notes": [
+              "✅ 'so far' = cho đến nay — đi với Hiện tại hoàn thành",
+              "✅ 'have read' (không phải 'has') — chủ ngữ của mệnh đề quan hệ là 'I'",
+              "✅ 'the most useful' — tính từ dài (3 âm tiết) dùng 'most'"
+            ],
+            "vocab_notes": [
+              {"word": "useful","vi": "hữu ích","ipa": "ˈjuːsfʊl"},
+              {"word": "so far","vi": "cho đến nay, đến lúc này","ipa": "səʊ fɑː"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'the most useful I have read' → cần 'one' hoặc lặp danh từ 'book'",
+              "❌ Sai: 'the most useful I have ever read so far' → không dùng 'ever' và 'so far' cùng nhau"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "Minh / study / French / for / three years / but / never / visit / France /.//",
+          "accepted_answers": [
+            "Minh has studied French for three years but has never visited France.",
+            "minh has studied french for three years but has never visited france",
+            "Minh has been studying French for three years but has never visited France.",
+            "Minh has studied French for three years but never visited France."
+          ],
+          "explanation": {
+            "correct_sentence": "Minh has studied French for three years but has never visited France.",
+            "structure_vi": "S + has + V3 + for + khoảng thời gian + but + has + never + V3",
+            "grammar_notes": [
+              "✅ 'for three years' + Hiện tại hoàn thành — hành động từ 3 năm trước đến nay",
+              "✅ 'has never visited' — 'never' đứng giữa 'has' và V3",
+              "✅ Hai vế đều dùng Hiện tại hoàn thành — nhất quán về thì"
+            ],
+            "vocab_notes": [
+              {"word": "for + time","vi": "trong suốt (khoảng thời gian)","ipa": "fɔː"},
+              {"word": "never","vi": "chưa bao giờ","ipa": "ˈnevər"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Minh studied French for three years' → dùng 'for + khoảng thời gian' đến hiện tại → Hiện tại hoàn thành",
+              "❌ Sai: 'has studied... but never visit France' → vế hai cần 'has never visited'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "the mountains in the North / be / far / high / than / the hills near our town /.//",
+          "accepted_answers": [
+            "The mountains in the North are far higher than the hills near our town.",
+            "the mountains in the north are far higher than the hills near our town",
+            "The mountains in the North are much higher than the hills near our town.",
+            "The mountains in the North are a lot higher than the hills near our town."
+          ],
+          "explanation": {
+            "correct_sentence": "The mountains in the North are far higher than the hills near our town.",
+            "structure_vi": "S + are + far/much + so sánh hơn + than + đối tượng so sánh",
+            "grammar_notes": [
+              "✅ So sánh hơn: 'higher than' (high → higher, tính từ 1 âm tiết thêm -er)",
+              "✅ 'far higher' = cao hơn nhiều — 'far/much/a lot' tăng mức độ so sánh",
+              "✅ 'the mountains' số nhiều → 'are' (không phải 'is')"
+            ],
+            "vocab_notes": [
+              {"word": "mountain","vi": "núi","ipa": "ˈmaʊntɪn"},
+              {"word": "hill","vi": "đồi","ipa": "hɪl"},
+              {"word": "far higher","vi": "cao hơn nhiều","ipa": "fɑː ˈhaɪər"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'more high than' → tính từ ngắn thêm -er: 'higher than'",
+              "❌ Sai: 'The mountains... is far higher' → chủ ngữ số nhiều → 'are'"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

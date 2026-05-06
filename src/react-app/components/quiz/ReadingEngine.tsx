@@ -15,8 +15,9 @@
  *   - Logged-in → POST /api/quiz/:id/submit để lưu điểm
  */
 
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { ReadingQuiz, ReadingAnswers, ReadingResult } from "../../types/reading";
+import type { WordTooltipProps } from "../vocabulary/WordTooltip";
 import { ReadingSection } from "./ReadingSection";
 import { GameLoginCTA } from "../vocabulary/GameLoginCTA";
 import { useAuth } from "../../hooks/useAuth";
@@ -63,14 +64,23 @@ function calculateResult(quiz: ReadingQuiz, answers: ReadingAnswers): ReadingRes
 // ============================================
 interface ReadingEngineProps {
   quiz: ReadingQuiz;
-  /** Gọi khi user nộp bài xong */
   onComplete?: (result: ReadingResult) => void;
+  vocabRemainingFree?: number;
+  onVocabLookup?: WordTooltipProps["onLookup"];
+  /** Callback để QuizPage biết số câu đã trả lời */
+  onProgressChange?: (answered: number, total: number) => void;
+  /** Tăng lên 1 mỗi khi QuizPage muốn trigger submit từ sub-header */
+  submitTrigger?: number;
+  /** URL để quay về trang môn học sau khi nộp bài */
+  backUrl?: string;
+  /** Callback khi user nhấn "Làm lại" — để QuizPage reset readingSubmitted */
+  onRetry?: () => void;
 }
 
 // ============================================
 // ReadingEngine — component chính
 // ============================================
-export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
+export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVocabLookup, onProgressChange, submitTrigger, backUrl, onRetry }: ReadingEngineProps) {
   const { isLoggedIn, loginWithGoogle } = useAuth();
 
   const [answers, setAnswers] = useState<ReadingAnswers>({});
@@ -83,6 +93,24 @@ export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
   const answeredCount  = Object.keys(answers).filter(k => answers[k] !== "").length;
   const allAnswered    = answeredCount >= totalQuestions;
   const progressPct    = Math.round((answeredCount / totalQuestions) * 100);
+
+  // Scroll to top khi mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [quiz.id]);
+
+  // Báo QuizPage biết progress
+  useEffect(() => {
+    onProgressChange?.(answeredCount, totalQuestions);
+  }, [answeredCount, totalQuestions, onProgressChange]);
+
+  // Submit trigger từ sub-header bên ngoài
+  useEffect(() => {
+    if (submitTrigger && submitTrigger > 0) {
+      handleSubmit();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitTrigger]);
 
   // Handler khi user trả lời 1 câu
   const handleAnswer = useCallback((questionId: string, answer: string) => {
@@ -127,7 +155,8 @@ export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
     setIsSubmitted(false);
     setShowLoginCTA(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+    onRetry?.(); // Thông báo QuizPage reset header
+  }, [onRetry]);
 
   // Stars display
   const starsLabel = result ? "⭐".repeat(result.starsEarned) : "";
@@ -146,18 +175,27 @@ export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
           <div className="re-result">
             <span className="re-result__stars">{starsLabel}</span>
             <div className="re-result__score">
-              {result.correctCount}/{result.totalQuestions} câu đúng
+              {result.correctCount}/{result.totalQuestions} correct
             </div>
             <div className="re-result__label">
               {result.percentage}% — {
-                result.percentage >= 80 ? "Xuất sắc! 🎉" :
-                result.percentage >= 60 ? "Khá tốt! 👍" :
-                "Cố gắng hơn nhé! 💪"
+                result.percentage >= 80 ? "Excellent! 🎉" :
+                result.percentage >= 60 ? "Good job! 👍" :
+                "Keep practising! 💪"
               }
             </div>
-            <button className="re-result__retry-btn" onClick={handleRetry}>
-              🔄 Làm lại
-            </button>
+
+            {/* Navigation buttons */}
+            <div className="re-result__actions">
+              <button className="re-result__retry-btn" onClick={handleRetry}>
+                🔄 Try Again
+              </button>
+              {backUrl && (
+                <a href={backUrl} className="re-result__back-btn">
+                  ← Back to lessons
+                </a>
+              )}
+            </div>
           </div>
         )}
 
@@ -170,15 +208,18 @@ export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
             isSubmitted={isSubmitted}
             correctAnswers={result?.correctAnswers}
             onAnswer={handleAnswer}
+            vocabRemainingFree={vocabRemainingFree}
+            onVocabLookup={onVocabLookup}
           />
         ))}
       </div>
 
-      {/* Sticky Footer — Progress + Nộp bài */}
-      {!isSubmitted && (
+      {/* Sticky Footer — ẨN khi có sub-header từ QuizPage (chỉ hiện nếu không có sub-header) */}
+      {/* Footer chỉ dự phòng khi ReadingEngine render standalone (không qua QuizPage wrapper) */}
+      {!isSubmitted && !onProgressChange && (
         <div className="re-footer">
           <div className="re-footer__progress-text">
-            Đã trả lời {answeredCount}/{totalQuestions} câu
+            Answered {answeredCount}/{totalQuestions}
           </div>
           <div className="re-footer__progress-bar">
             <div
@@ -191,9 +232,9 @@ export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
             onClick={handleSubmit}
             disabled={!allAnswered}
             id="btn-reading-submit"
-            title={!allAnswered ? "Vui lòng trả lời tất cả câu hỏi" : ""}
+            title={!allAnswered ? "Please answer all questions first" : ""}
           >
-            Nộp bài ✓
+            Submit ✓
           </button>
         </div>
       )}
@@ -205,7 +246,7 @@ export function ReadingEngine({ quiz, onComplete }: ReadingEngineProps) {
           totalCount={result.totalQuestions}
           starsEarned={result.starsEarned}
           showStars={true}
-          scoreLabel="câu đúng"
+          scoreLabel="correct"
           onLogin={loginWithGoogle}
           onPlayAgain={() => {
             setShowLoginCTA(false);

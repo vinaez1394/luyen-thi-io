@@ -1,0 +1,126 @@
+{
+  "id": "READING-MED-GRADE4-P2",
+  "title": "Reading Comprehension — Medium — Grade 4-5 — Travel & Transport",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "medium",
+  "grade_min": 4,
+  "grade_max": 5,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Travelling is one of the best ways to learn about the world. People can (0) travel by many different types of transport. Taking a plane is the (1) _____ way to reach faraway countries. Trains are comfortable and you can see the (2) _____ as you go through the countryside. Buses and motorbikes are more (3) _____ for short trips in the city. When planning a trip, it is important to (4) _____ your tickets in advance to get better prices.",
+        "text_segments": [
+          { "text": "Travelling is one of the best ways to learn about the world. People can " },
+          { "text": "(0) travel", "highlight": true },
+          { "text": " by many different types of " },
+          { "text": "transport", "tooltip": { "vi": "phương tiện giao thông", "ipa": "ˈtrænspɔːt" } },
+          { "text": ". Taking a " },
+          { "text": "plane", "tooltip": { "vi": "máy bay", "ipa": "pleɪn" } },
+          { "text": " is the (1) _____ way to reach " },
+          { "text": "faraway", "tooltip": { "vi": "xa xôi", "ipa": "ˈfɑːrəweɪ" } },
+          { "text": " countries. Trains are comfortable and you can see the (2) _____ as you go through the countryside. Buses and motorbikes are more (3) _____ for short trips in the city. When planning a trip, it is important to (4) _____ your tickets in advance to get better prices." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Taking a plane is the (1) _____ way to reach faraway countries.",
+          "options": ["fastest", "cheapest", "shortest"],
+          "correct": "fastest",
+          "explanation_vi": "'Fastest' nghĩa là nhanh nhất — máy bay là phương tiện nhanh nhất để đến các nước xa."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Trains are comfortable and you can see the (2) _____ as you go through the countryside.",
+          "options": ["scenery", "menu", "airport"],
+          "correct": "scenery",
+          "explanation_vi": "'Scenery' nghĩa là phong cảnh — đi tàu hỏa có thể ngắm phong cảnh đồng quê."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Buses and motorbikes are more (3) _____ for short trips in the city.",
+          "options": ["convenient", "dangerous", "expensive"],
+          "correct": "convenient",
+          "explanation_vi": "'Convenient' nghĩa là tiện lợi — xe buýt và xe máy tiện hơn cho các chuyến đi ngắn trong thành phố."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "It is important to (4) _____ your tickets in advance to get better prices.",
+          "options": ["book", "lose", "break"],
+          "correct": "book",
+          "explanation_vi": "'Book' nghĩa là đặt trước — đặt vé sớm để được giá tốt hơn."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "The city of Hoi An in Vietnam is famous for its ancient town and beautiful lanterns. Every month, on the night of the full moon, the old town turns off electric lights and uses only candles and lanterns. Thousands of tourists from around the world come to see this magical event called the Lantern Festival. Visitors can take a boat ride along the Thu Bon River and release paper lanterns on the water. The streets are full of traditional music, food stalls, and colourful decorations. Hoi An has been recognised as a UNESCO World Heritage Site because of its well-preserved historic buildings.",
+        "text_segments": [
+          { "text": "The city of Hoi An in Vietnam is famous for its " },
+          { "text": "ancient", "tooltip": { "vi": "cổ xưa", "ipa": "ˈeɪnʃənt" } },
+          { "text": " town and beautiful lanterns. Every month, on the night of the full moon, the old town turns off " },
+          { "text": "electric", "tooltip": { "vi": "điện", "ipa": "ɪˈlektrɪk" } },
+          { "text": " lights and uses only candles and lanterns. Thousands of " },
+          { "text": "tourists", "tooltip": { "vi": "khách du lịch", "ipa": "ˈtʊərɪsts" } },
+          { "text": " from around the world come to see this magical event called the Lantern Festival. Visitors can take a boat ride along the Thu Bon River and " },
+          { "text": "release", "tooltip": { "vi": "thả (xuống nước/lên trời)", "ipa": "rɪˈliːs" } },
+          { "text": " paper lanterns on the water. The streets are full of traditional music, food stalls, and colourful decorations. Hoi An has been " },
+          { "text": "recognised", "tooltip": { "vi": "được công nhận", "ipa": "ˈrekəɡnaɪzd" } },
+          { "text": " as a UNESCO World Heritage Site because of its well-preserved historic buildings." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "The Lantern Festival in Hoi An happens every week.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'Every month, on the night of the full moon' — lễ hội đèn lồng diễn ra mỗi tháng một lần, không phải mỗi tuần."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Tourists can ride a boat on the Thu Bon River during the festival.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'Visitors can take a boat ride along the Thu Bon River' — đúng, du khách có thể đi thuyền trên sông Thu Bồn."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "Why is Hoi An recognised as a UNESCO World Heritage Site?",
+          "options": ["because of its food", "because of its well-preserved historic buildings", "because of its beaches"],
+          "correct": "because of its well-preserved historic buildings",
+          "explanation_vi": "Bài viết 'recognised as a UNESCO World Heritage Site because of its well-preserved historic buildings'."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'very old, from a long time ago'.",
+          "correct": "ancient",
+          "explanation_vi": "'Ancient' nghĩa là cổ xưa — từ này mô tả khu phố cổ của Hội An."
+        }
+      ]
+    }
+  ]
+}

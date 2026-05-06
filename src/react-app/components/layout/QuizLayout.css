@@ -19,8 +19,8 @@
   background: var(--color-card);
   border-bottom: 1px solid var(--color-border);
   padding: 10px var(--space-3);
-  position: sticky;
-  top: 64px; /* Nằm ngay dưới GlobalHeader */
+  position: sticky;       /* Desktop: sticky within scroll flow */
+  top: 64px;              /* Ngay dưới GlobalHeader (64px sticky) */
   z-index: calc(var(--z-dropdown) - 1);
   box-shadow: var(--shadow-xs);
 }
@@ -86,12 +86,9 @@
 }
 
 /* ── Center: Progress Bubbles ── */
+/* Ẩn khỏi sub-header trên cả desktop lẫn mobile — bubbles được hiện trong footer */
 .quiz-sub-header__progress {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
+  display: none;
 }
 
 .quiz-progress-bubbles {
@@ -113,6 +110,12 @@
     transform var(--transition-bounce),
     box-shadow var(--transition-fast);
   flex-shrink: 0;
+  /* Clickable bubbles */
+  cursor: pointer;
+}
+.quiz-progress-bubble:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 /* Đã trả lời → xanh lá */
@@ -167,28 +170,58 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
+  /* Mobile: dùng position:fixed để luôn pin cố định dưới GlobalHeader,
+     không phụ thuộc vào scroll context của parent */
+  .quiz-sub-header {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    padding: 8px var(--space-2);
+    z-index: 90; /* Dưới GlobalHeader (z-index 100) nhưng trên content */
+  }
+
+  /* Bù khoảng cách cho nội dung bên dưới không bị che */
+  .quiz-layout__content {
+    padding-top: 72px; /* chiều cao sub-header trên mobile (~58px) + buffer */
+  }
+
+  .quiz-sub-header__inner {
+    gap: var(--space-1);
+  }
+
   .quiz-sub-header__left {
-    flex: 0 0 auto;
-    max-width: 40%;
+    flex: 1;
+    min-width: 0;
+    max-width: none; /* Let it fill available space */
   }
 
-  .quiz-progress-bubbles {
-    max-width: 160px;
-    gap: 4px;
-  }
-
-  .quiz-progress-bubble {
-    width: 8px;
-    height: 8px;
-  }
-
+  /* Ẩn title h2 trên mobile — breadcrumb đã hiện tên bài, tránh lặp 2 lần */
   .quiz-sub-header__title {
-    font-size: var(--font-xs);
+    display: none;
+  }
+
+  /* Ẩn progress bubbles khỏi sub-header trên mobile — chúng sẽ nằm ở footer */
+  .quiz-sub-header__progress {
+    display: none;
+  }
+
+  /* NOTE: overflow-x hidden chỉ áp cho layout, không ghi đè padding-top ở trên */
+  .quiz-layout {
+    overflow-x: hidden;
   }
 }
 
 @media (max-width: 380px) {
   .quiz-sub-header__breadcrumb {
     display: none;
+  }
+
+  .quiz-progress-bubbles {
+    max-width: 100px;
+  }
+
+  .quiz-sub-header {
+    padding: 6px 8px;
   }
 }

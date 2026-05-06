@@ -156,41 +156,7 @@ export function HomePage() {
         </div>
 
         <div className="pathway-grid">
-          {/* Cambridge Card */}
-          <div
-            className="pathway-card pathway-card--cambridge"
-            role="button"
-            tabIndex={0}
-            id="btn-pathway-cambridge"
-            onClick={() => navigate("/cambridge")}
-            onKeyDown={(e) => e.key === "Enter" && navigate("/cambridge")}
-          >
-            <div className="pathway-card__header">
-              <span className="pathway-card__flag">🇬🇧</span>
-              <div>
-                <h3 className="pathway-card__title">Chứng chỉ Cambridge</h3>
-                <p className="pathway-card__subtitle">Starters → Movers → Flyers → KET → PET</p>
-              </div>
-            </div>
-
-            <div className="pathway-card__levels">
-              {cambridgeSorted.map((s) => s && (
-                <span
-                  key={s.id}
-                  className={`pathway-level-badge ${s.available ? "pathway-level-badge--active" : "pathway-level-badge--soon"}`}
-                >
-                  {s.emoji} {s.label.replace("Cambridge ", "")}
-                </span>
-              ))}
-            </div>
-
-            <div className="pathway-card__footer">
-              <span className="pathway-card__cta">Xem lộ trình →</span>
-              <span className="pathway-card__age">🧒 9–14 tuổi</span>
-            </div>
-          </div>
-
-          {/* Lớp 6 Card */}
+          {/* Lớp 6 Card — LUÔN XẾP TRƯỚC */}
           <div
             className="pathway-card pathway-card--lop6"
             role="button"
@@ -227,8 +193,43 @@ export function HomePage() {
               <span className="pathway-card__age">🧒 Lớp 3–5</span>
             </div>
           </div>
+
+          {/* Cambridge Card */}
+          <div
+            className="pathway-card pathway-card--cambridge"
+            role="button"
+            tabIndex={0}
+            id="btn-pathway-cambridge"
+            onClick={() => navigate("/cambridge")}
+            onKeyDown={(e) => e.key === "Enter" && navigate("/cambridge")}
+          >
+            <div className="pathway-card__header">
+              <span className="pathway-card__flag">🇬🇧</span>
+              <div>
+                <h3 className="pathway-card__title">Chứng chỉ Cambridge</h3>
+                <p className="pathway-card__subtitle">Starters → Movers → Flyers → KET → PET</p>
+              </div>
+            </div>
+
+            <div className="pathway-card__levels">
+              {cambridgeSorted.map((s) => s && (
+                <span
+                  key={s.id}
+                  className={`pathway-level-badge ${s.available ? "pathway-level-badge--active" : "pathway-level-badge--soon"}`}
+                >
+                  {s.emoji} {s.label.replace("Cambridge ", "")}
+                </span>
+              ))}
+            </div>
+
+            <div className="pathway-card__footer">
+              <span className="pathway-card__cta">Xem lộ trình →</span>
+              <span className="pathway-card__age">🧒 9–14 tuổi</span>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* ===== SECTION 3: SOCIAL PROOF ===== */}
       <section className="home-social-proof" aria-label="Số liệu">

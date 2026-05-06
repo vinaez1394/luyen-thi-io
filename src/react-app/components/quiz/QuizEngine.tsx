@@ -8,6 +8,7 @@
  */
 
 import type { FC } from "react";
+import { useEffect } from "react";
 import type { Quiz, QuizType, QuizComponentProps, UserAnswers, QuizResult } from "../../types/quiz";
 import type { WordTooltipProps } from "../vocabulary/WordTooltip";
 import { MultipleChoice } from "./MultipleChoice";
@@ -15,7 +16,6 @@ import { FillBlank } from "./FillBlank";
 import { DragDropFill } from "./DragDropFill";
 import { DragDropMatch } from "./DragDropMatch";
 import { UnknownTypeScreen } from "./UnknownTypeScreen";
-import { InstructionBanner } from "./InstructionBanner";
 import "./Quiz.css";
 
 // ============================================
@@ -35,7 +35,7 @@ const QUIZ_REGISTRY: Partial<Record<QuizType, FC<QuizComponentProps>>> = {
 };
 
 // ============================================
-// UI Labels — theo ui_language trong quiz
+// UI Labels — luôn dùng English (nhất quán)
 // ============================================
 type UiLang = "en" | "vi";
 
@@ -45,8 +45,8 @@ const UI_LABELS: Record<UiLang, {
   submit: string;
   review: string;
 }> = {
-  en: { prev: "← Previous", next: "Next →",      submit: "Submit ✓",   review: "Review" },
-  vi: { prev: "← Câu trước", next: "Câu tiếp →", submit: "Nộp bài ✓", review: "Xem lại" },
+  en: { prev: "← Prev",  next: "Next →",     submit: "Submit ✓",  review: "Review" },
+  vi: { prev: "← Prev",  next: "Next →",     submit: "Nộp bài ✓", review: "Review" },
 };
 
 // ============================================
@@ -62,6 +62,7 @@ interface QuizEngineProps {
   onNext:          () => void;
   onPrev:          () => void;
   onSubmit:        () => void;
+  onJumpTo?:       (index: number) => void;  // Click bubble → nhảy tới câu
   allAnswered:     boolean;
   // Phase 4.5: Word Tooltip
   vocabRemainingFree?: number;
@@ -81,12 +82,46 @@ export function QuizEngine({
   onNext,
   onPrev,
   onSubmit,
+  onJumpTo,
   allAnswered,
   vocabRemainingFree = 3,
   onVocabLookup,
 }: QuizEngineProps) {
   const question     = quiz.questions[currentQuestion];
   const QuizComponent = QUIZ_REGISTRY[quiz.type] ?? null;
+  const totalQuestions = quiz.questions.length;
+
+  // Scroll to top khi vào bài (giống ReadingEngine)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [quiz.id]);
+
+  // Enter key → Next question (desktop UX)
+  // Chỉ hoạt động khi câu hiện tại đã được trả lời và chưa submit
+  const currentQuestionId = question?.id;
+  const isCurrentAnswered = !!(currentQuestionId && answers[currentQuestionId]);
+
+  useEffect(() => {
+    if (isSubmitted) return;
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key !== "Enter") return;
+      // Không trigger nếu đang focus vào input/textarea
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+
+      if (!isCurrentAnswered) return;  // Phải trả lời trước
+
+      if (currentQuestion < totalQuestions - 1) {
+        onNext();
+      } else if (allAnswered) {
+        onSubmit();
+      }
+    };
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [isSubmitted, isCurrentAnswered, currentQuestion, totalQuestions, allAnswered, onNext, onSubmit]);
 
   // Xác định ngôn ngữ UI từ quiz data (field ui_language, fallback theo skill)
   const uiLang: UiLang =
@@ -101,11 +136,6 @@ export function QuizEngine({
 
   return (
     <div className="quiz-engine">
-      {/* Hướng dẫn — chỉ hiện ở câu đầu tiên */}
-      {currentQuestion === 0 && !isSubmitted && (
-        <InstructionBanner text={quiz.instructions_vi} />
-      )}
-
       {/* Nội dung câu hỏi */}
       <div className="quiz-engine__content">
         {QuizComponent ? (
@@ -128,37 +158,65 @@ export function QuizEngine({
       {/* ── Navigation (đang làm bài) ── */}
       {!isSubmitted && (
         <div className="quiz-engine__footer">
-          <button
-            className="btn btn-outline"
-            id="btn-quiz-prev"
-            onClick={onPrev}
-            disabled={currentQuestion === 0}
-          >
-            {labels.prev}
-          </button>
-
-          <span className="quiz-engine__progress">
-            {currentQuestion + 1} / {quiz.questions.length}
-          </span>
-
-          {currentQuestion < quiz.questions.length - 1 ? (
+          {/* Row 1: Prev / Count / Next */}
+          <div className="quiz-engine__footer-nav">
             <button
-              className="btn btn-primary"
-              id="btn-quiz-next"
-              onClick={onNext}
+              className="btn btn-outline"
+              id="btn-quiz-prev"
+              onClick={onPrev}
+              disabled={currentQuestion === 0}
             >
-              {labels.next}
+              {labels.prev}
             </button>
-          ) : (
-            <button
-              className="btn btn-success"
-              id="btn-quiz-submit"
-              onClick={onSubmit}
-              disabled={!allAnswered}
-              title={!allAnswered ? (uiLang === "en" ? "Please answer all questions" : "Vui lòng trả lời tất cả các câu") : ""}
-            >
-              {labels.submit}
-            </button>
+
+            <span className="quiz-engine__progress">
+              {currentQuestion + 1} / {totalQuestions}
+            </span>
+
+            {currentQuestion < totalQuestions - 1 ? (
+              <button
+                className="btn btn-primary"
+                id="btn-quiz-next"
+                onClick={onNext}
+              >
+                {labels.next}
+              </button>
+            ) : (
+              <button
+                className="btn btn-success"
+                id="btn-quiz-submit"
+                onClick={onSubmit}
+                disabled={!allAnswered}
+                title={!allAnswered ? "Answer all questions first" : ""}
+              >
+                {labels.submit}
+              </button>
+            )}
+          </div>
+
+          {/* Row 2: Progress Bubbles (mobile-only, click to jump) */}
+          {onJumpTo && (
+            <div className="quiz-engine__footer-bubbles" role="list" aria-label="Navigate questions">
+              {Array.from({ length: totalQuestions }, (_, i) => {
+                const questionId = quiz.questions[i]?.id;
+                const isAnswered = questionId ? questionId in answers : false;
+                const isActive   = i === currentQuestion;
+                return (
+                  <button
+                    key={i}
+                    role="listitem"
+                    aria-label={`Q${i + 1}${isAnswered ? " - answered" : ""}${isActive ? " - current" : ""}`}
+                    className={[
+                      "quiz-progress-bubble",
+                      isActive   ? "quiz-progress-bubble--active"   : "",
+                      isAnswered ? "quiz-progress-bubble--answered" : "",
+                    ].join(" ")}
+                    onClick={() => onJumpTo(i)}
+                    title={`Go to Q${i + 1}`}
+                  />
+                );
+              })}
+            </div>
           )}
         </div>
       )}
@@ -166,25 +224,51 @@ export function QuizEngine({
       {/* ── Navigation (xem lại sau khi nộp) ── */}
       {isSubmitted && (
         <div className="quiz-engine__footer">
-          <button
-            className="btn btn-outline"
-            id="btn-review-prev"
-            onClick={onPrev}
-            disabled={currentQuestion === 0}
-          >
-            {labels.prev}
-          </button>
-          <span className="quiz-engine__progress">
-            {labels.review}: {currentQuestion + 1} / {quiz.questions.length}
-          </span>
-          <button
-            className="btn btn-outline"
-            id="btn-review-next"
-            onClick={onNext}
-            disabled={currentQuestion === quiz.questions.length - 1}
-          >
-            {labels.next}
-          </button>
+          <div className="quiz-engine__footer-nav">
+            <button
+              className="btn btn-outline"
+              id="btn-review-prev"
+              onClick={onPrev}
+              disabled={currentQuestion === 0}
+            >
+              {labels.prev}
+            </button>
+            <span className="quiz-engine__progress">
+              {labels.review}: {currentQuestion + 1} / {totalQuestions}
+            </span>
+            <button
+              className="btn btn-outline"
+              id="btn-review-next"
+              onClick={onNext}
+              disabled={currentQuestion === totalQuestions - 1}
+            >
+              {labels.next}
+            </button>
+          </div>
+
+          {/* Progress Bubbles during review mode */}
+          {onJumpTo && (
+            <div className="quiz-engine__footer-bubbles" role="list">
+              {Array.from({ length: totalQuestions }, (_, i) => {
+                const questionId = quiz.questions[i]?.id;
+                const isAnswered = questionId ? questionId in answers : false;
+                const isActive   = i === currentQuestion;
+                return (
+                  <button
+                    key={i}
+                    role="listitem"
+                    className={[
+                      "quiz-progress-bubble",
+                      isActive   ? "quiz-progress-bubble--active"   : "",
+                      isAnswered ? "quiz-progress-bubble--answered" : "",
+                    ].join(" ")}
+                    onClick={() => onJumpTo(i)}
+                    title={`Q${i + 1}`}
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>

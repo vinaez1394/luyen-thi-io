@@ -1,0 +1,232 @@
+{
+  "id": "WRITING-EASY-GRADE3-P2",
+  "title": "Writing — Dễ — Lớp 3-4 — Bài 2",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp cụm từ. Phần II: Viết câu hoàn chỉnh.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "plays / after school / basketball / with his friends / David /.//",
+        "answer": "David plays basketball with his friends after school."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "can / very well / my cousin / speak / English /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["my cousin","can","speak","English","very well"],
+          "correct": ["my cousin","can","speak","English","very well"],
+          "explanation": {
+            "correct_sentence": "My cousin can speak English very well.",
+            "structure_vi": "S + can + V (nguyên mẫu) + O + trạng từ",
+            "grammar_notes": [
+              "✅ 'can' là động từ khiếm khuyết (modal verb) — đi sau 'can' luôn là V nguyên mẫu",
+              "✅ 'can speak' (không phải 'can speaks') — sau modal verb không thêm -s/-es",
+              "✅ 'very well' là trạng từ (adverb) — đứng cuối câu sau tân ngữ"
+            ],
+            "vocab_notes": [
+              {"word": "can + V","vi": "có thể làm gì","ipa": "kæn"},
+              {"word": "very well","vi": "rất giỏi, rất tốt","ipa": "ˈveri wel"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My cousin can speaks English' → sau modal verb không thêm -s: 'speak'",
+              "❌ Sai: 'My cousin can to speak' → sau 'can' dùng V nguyên mẫu, không dùng to-V"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "watching / she / instead of / TV / reads / books /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["she","reads","books","instead of","watching TV"],
+          "correct": ["she","reads","books","instead of","watching TV"],
+          "explanation": {
+            "correct_sentence": "She reads books instead of watching TV.",
+            "structure_vi": "S + V (hiện tại đơn) + O + instead of + V-ing",
+            "grammar_notes": [
+              "✅ 'instead of + V-ing' = thay vì làm gì — sau giới từ dùng V-ing",
+              "✅ 'reads' thêm -s vì chủ ngữ 'she' là ngôi thứ ba số ít",
+              "✅ 'watching TV' — 'watch TV' (không có mạo từ 'the' trước 'TV')"
+            ],
+            "vocab_notes": [
+              {"word": "instead of","vi": "thay vì","ipa": "ɪnˈsted əv"},
+              {"word": "instead of + V-ing","vi": "thay vì làm gì","ipa": "ɪnˈsted əv"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'instead of to watch TV' → sau 'instead of' dùng V-ing",
+              "❌ Sai: 'She read books instead of watching TV' → ngôi thứ ba số ít → 'reads'"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "was / at home / the whole family / together / yesterday /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["the whole family","was","together","at home","yesterday"],
+          "correct": ["the whole family","was","together","at home","yesterday"],
+          "explanation": {
+            "correct_sentence": "The whole family was together at home yesterday.",
+            "structure_vi": "S + was/were + adj/adv + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ 'the whole family' mang nghĩa tập thể số ít → dùng 'was' (không phải 'were')",
+              "✅ 'yesterday' đứng cuối câu — trạng ngữ thời gian quá khứ",
+              "✅ 'together' = cùng nhau — trạng từ chỉ cách thức"
+            ],
+            "vocab_notes": [
+              {"word": "the whole family","vi": "cả gia đình","ipa": "ðə həʊl ˈfæməli"},
+              {"word": "together","vi": "cùng nhau","ipa": "təˈɡeðər"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'The whole family were together' → ở Anh, 'family' có thể dùng 'were', nhưng ở đây dùng 'was' là chuẩn hơn trong đề thi Việt Nam",
+              "❌ Sai: 'was at home together yesterday' — thứ tự đúng: together + at home + yesterday"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "on the table / are / books and pens / some / there /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["there","are","some","books and pens","on the table"],
+          "correct": ["there","are","some","books and pens","on the table"],
+          "explanation": {
+            "correct_sentence": "There are some books and pens on the table.",
+            "structure_vi": "There are + some + N (số nhiều) + nơi chốn",
+            "grammar_notes": [
+              "✅ 'some' dùng trong câu khẳng định số nhiều: 'some books and pens'",
+              "✅ 'There are' — vì 'books and pens' là số nhiều",
+              "✅ 'on the table' = trên bàn — giới từ 'on' chỉ vị trí trên bề mặt"
+            ],
+            "vocab_notes": [
+              {"word": "some","vi": "một số (trong câu khẳng định)","ipa": "sʌm"},
+              {"word": "on the table","vi": "trên bàn","ipa": "ɒn ðə ˈteɪbl"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'There is some books and pens' → 'books and pens' số nhiều → 'There are'",
+              "❌ Sai: 'There are any books and pens' → câu khẳng định dùng 'some', không dùng 'any'"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "Lan / can / swim / but / cannot / ride a bike /.//",
+          "accepted_answers": [
+            "Lan can swim but cannot ride a bike.",
+            "lan can swim but cannot ride a bike",
+            "Lan can swim but can't ride a bike.",
+            "Lan can swim but she cannot ride a bike."
+          ],
+          "explanation": {
+            "correct_sentence": "Lan can swim but cannot ride a bike.",
+            "structure_vi": "S + can + V₁ + but + cannot + V₂",
+            "grammar_notes": [
+              "✅ 'can' và 'cannot' đều là modal verb — đi với V nguyên mẫu",
+              "✅ 'cannot' = 'can't' — cách viết đầy đủ hay viết tắt đều chấp nhận",
+              "✅ 'ride a bike' = đi xe đạp — 'ride' đi với 'a bike' (không phải 'the bike')"
+            ],
+            "vocab_notes": [
+              {"word": "swim","vi": "bơi lội","ipa": "swɪm"},
+              {"word": "ride a bike","vi": "đi xe đạp","ipa": "raɪd ə baɪk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Lan can swims but cannot rides a bike' → sau modal verb dùng V nguyên mẫu",
+              "❌ Sai: 'Lan can swim but can not to ride a bike' → sau 'cannot' không cần 'to'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "she / read / a storybook / instead of / watch / cartoons / last evening /.//",
+          "accepted_answers": [
+            "She read a storybook instead of watching cartoons last evening.",
+            "she read a storybook instead of watching cartoons last evening",
+            "She read a storybook instead of watching cartoons in the evening.",
+            "Last evening, she read a storybook instead of watching cartoons."
+          ],
+          "explanation": {
+            "correct_sentence": "She read a storybook instead of watching cartoons last evening.",
+            "structure_vi": "S + V (quá khứ) + O + instead of + V-ing + thời gian",
+            "grammar_notes": [
+              "✅ 'read' quá khứ = 'read' (phát âm /red/, đọc như 'red')",
+              "✅ 'instead of + watching' — sau 'instead of' dùng V-ing",
+              "✅ 'last evening' → quá khứ đơn"
+            ],
+            "vocab_notes": [
+              {"word": "storybook","vi": "sách truyện","ipa": "ˈstɔːribʊk"},
+              {"word": "cartoon","vi": "phim hoạt hình","ipa": "kɑːˈtuːn"},
+              {"word": "read (past: read /red/)","vi": "đọc (quá khứ đọc như 'red')","ipa": "riːd / red"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'instead of to watch cartoons' → sau 'instead of' phải dùng V-ing",
+              "❌ Sai: 'She readed a storybook' → 'read' bất quy tắc, quá khứ là 'read' (/red/)"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "there / be / no / flowers / in / the vase / on the shelf /.//",
+          "accepted_answers": [
+            "There are no flowers in the vase on the shelf.",
+            "there are no flowers in the vase on the shelf",
+            "There are no flowers in the vase.",
+            "There aren't any flowers in the vase on the shelf."
+          ],
+          "explanation": {
+            "correct_sentence": "There are no flowers in the vase on the shelf.",
+            "structure_vi": "There are + no + N (số nhiều) + nơi chốn",
+            "grammar_notes": [
+              "✅ 'There are no + N' = Không có (phủ định với danh từ số nhiều)",
+              "✅ Cũng đúng: 'There are not any flowers' = 'There aren't any flowers'",
+              "✅ 'in the vase' = trong bình → 'on the shelf' = trên kệ — hai cụm giới từ bổ sung"
+            ],
+            "vocab_notes": [
+              {"word": "vase","vi": "bình hoa","ipa": "vɑːz"},
+              {"word": "shelf","vi": "kệ, giá","ipa": "ʃelf"},
+              {"word": "There are no","vi": "Không có (nhiều)","ipa": "ðeər ɑː nəʊ"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'There is no flowers' → 'flowers' số nhiều → 'There are no'",
+              "❌ Sai: 'There are not flowers' → phủ định với danh từ không dùng 'not' một mình, dùng 'no' hoặc 'not any'"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

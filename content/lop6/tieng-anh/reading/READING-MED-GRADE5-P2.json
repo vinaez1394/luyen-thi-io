@@ -1,0 +1,126 @@
+{
+  "id": "READING-MED-GRADE5-P2",
+  "title": "Reading Comprehension — Medium — Grade 5-6 — Science & Experiments",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "medium",
+  "grade_min": 5,
+  "grade_max": 6,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Science is all around us, and doing (0) experiments is a fun way to learn how things work. A good scientist always (1) _____ a question before starting an experiment. Then, they form a (2) _____ — a possible answer to test. After conducting the experiment, the scientist records the (3) _____ and checks whether the hypothesis was correct. It is important to repeat the experiment several times to make sure the (4) _____ are reliable and not just by chance.",
+        "text_segments": [
+          { "text": "Science is all around us, and doing " },
+          { "text": "(0) experiments", "highlight": true },
+          { "text": " is a fun way to learn how things work. A good " },
+          { "text": "scientist", "tooltip": { "vi": "nhà khoa học", "ipa": "ˈsaɪəntɪst" } },
+          { "text": " always (1) _____ a question before starting an experiment. Then, they form a (2) _____ — a possible answer to test. After " },
+          { "text": "conducting", "tooltip": { "vi": "tiến hành", "ipa": "kənˈdʌktɪŋ" } },
+          { "text": " the experiment, the scientist records the (3) _____ and checks whether the " },
+          { "text": "hypothesis", "tooltip": { "vi": "giả thuyết", "ipa": "haɪˈpɒθɪsɪs" } },
+          { "text": " was correct. It is important to repeat the experiment several times to make sure the (4) _____ are reliable and not just by chance." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "A good scientist always (1) _____ a question before starting an experiment.",
+          "options": ["asks", "ignores", "forgets"],
+          "correct": "asks",
+          "explanation_vi": "'Asks a question' — nhà khoa học luôn đặt câu hỏi trước khi bắt đầu thí nghiệm."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "They form a (2) _____ — a possible answer to test.",
+          "options": ["hypothesis", "mistake", "poem"],
+          "correct": "hypothesis",
+          "explanation_vi": "'Hypothesis' nghĩa là giả thuyết — một câu trả lời có thể xảy ra cần được kiểm chứng."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "The scientist records the (3) _____ and checks whether the hypothesis was correct.",
+          "options": ["results", "names", "colours"],
+          "correct": "results",
+          "explanation_vi": "'Results' nghĩa là kết quả — nhà khoa học ghi lại kết quả sau thí nghiệm."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Make sure the (4) _____ are reliable and not just by chance.",
+          "options": ["findings", "colours", "sounds"],
+          "correct": "findings",
+          "explanation_vi": "'Findings' nghĩa là kết quả, phát hiện — cần lặp lại thí nghiệm để đảm bảo phát hiện chính xác."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Water is one of the most important substances on Earth, and understanding it helps us in everyday life. Water exists in three states: solid (ice), liquid (water), and gas (steam). When water is heated to 100 degrees Celsius, it boils and turns into steam. When cooled below zero degrees, it freezes and becomes ice. Scientists use the water cycle to explain how water moves through the environment — it evaporates from the ocean, forms clouds, and falls back to Earth as rain or snow. This cycle keeps our planet's water supply balanced. Without water, no living thing can survive.",
+        "text_segments": [
+          { "text": "Water is one of the most important " },
+          { "text": "substances", "tooltip": { "vi": "chất, vật chất", "ipa": "ˈsʌbstənsɪz" } },
+          { "text": " on Earth, and understanding it helps us in everyday life. Water exists in three states: solid (ice), liquid (water), and gas (steam). When water is heated to 100 degrees Celsius, it " },
+          { "text": "boils", "tooltip": { "vi": "sôi", "ipa": "bɔɪlz" } },
+          { "text": " and turns into steam. When cooled below zero degrees, it " },
+          { "text": "freezes", "tooltip": { "vi": "đóng băng", "ipa": "ˈfriːzɪz" } },
+          { "text": " and becomes ice. Scientists use the " },
+          { "text": "water cycle", "tooltip": { "vi": "chu trình nước", "ipa": "ˈwɔːtər ˈsaɪkl" } },
+          { "text": " to explain how water moves through the environment — it " },
+          { "text": "evaporates", "tooltip": { "vi": "bốc hơi", "ipa": "ɪˈvæpəreɪts" } },
+          { "text": " from the ocean, forms clouds, and falls back to Earth as rain or snow. This cycle keeps our planet's water supply balanced. Without water, no living thing can survive." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Water turns into steam when it is cooled below zero degrees.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'cooled below zero degrees, it freezes and becomes ice' — khi làm lạnh dưới 0 độ, nước đóng thành băng, không phải hơi nước."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "The water cycle involves water evaporating from the ocean.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'it evaporates from the ocean, forms clouds' — đúng, nước bốc hơi từ đại dương tạo thành mây."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "At what temperature does water boil?",
+          "options": ["0 degrees Celsius", "50 degrees Celsius", "100 degrees Celsius"],
+          "correct": "100 degrees Celsius",
+          "explanation_vi": "Bài viết 'heated to 100 degrees Celsius, it boils' — nước sôi ở 100 độ C."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that describes water in its solid form.",
+          "correct": "ice",
+          "explanation_vi": "'Ice' nghĩa là băng — trạng thái rắn của nước khi đóng băng."
+        }
+      ]
+    }
+  ]
+}

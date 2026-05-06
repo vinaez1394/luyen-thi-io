@@ -1,0 +1,124 @@
+{
+  "id": "READING-EASY-GRADE4-P2",
+  "title": "Reading Comprehension — Easy — Grade 4-5 — Seasons & Holidays",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "easy",
+  "grade_min": 4,
+  "grade_max": 5,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "There are four (0) seasons in a year: spring, summer, autumn, and winter. In spring, the weather becomes (1) _____ and flowers start to bloom. Summer is the hottest (2) _____ and children enjoy swimming and playing outside. In autumn, the leaves turn (3) _____ and fall from the trees. Winter is cold, and in some countries, it (4) _____ and children can make snowmen.",
+        "text_segments": [
+          { "text": "There are four " },
+          { "text": "(0) seasons", "highlight": true },
+          { "text": " in a year: spring, summer, autumn, and winter. In " },
+          { "text": "spring", "tooltip": { "vi": "mùa xuân", "ipa": "sprɪŋ" } },
+          { "text": ", the weather becomes (1) _____ and flowers start to bloom. " },
+          { "text": "Summer", "tooltip": { "vi": "mùa hè", "ipa": "ˈsʌmər" } },
+          { "text": " is the hottest (2) _____ and children enjoy swimming and playing outside. In " },
+          { "text": "autumn", "tooltip": { "vi": "mùa thu", "ipa": "ˈɔːtəm" } },
+          { "text": ", the leaves turn (3) _____ and fall from the trees. Winter is cold, and in some countries, it (4) _____ and children can make snowmen." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "In spring, the weather becomes (1) _____ and flowers start to bloom.",
+          "options": ["warmer", "colder", "darker"],
+          "correct": "warmer",
+          "explanation_vi": "'Warmer' nghĩa là ấm hơn — mùa xuân thời tiết ấm lên và hoa bắt đầu nở."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Summer is the hottest (2) _____ and children enjoy swimming and playing outside.",
+          "options": ["season", "flower", "month"],
+          "correct": "season",
+          "explanation_vi": "'Season' nghĩa là mùa — mùa hè là mùa nóng nhất trong năm."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "In autumn, the leaves turn (3) _____ and fall from the trees.",
+          "options": ["yellow", "green", "blue"],
+          "correct": "yellow",
+          "explanation_vi": "'Yellow' nghĩa là màu vàng — lá cây chuyển sang màu vàng vào mùa thu."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Winter is cold, and in some countries, it (4) _____ and children can make snowmen.",
+          "options": ["snows", "rains", "shines"],
+          "correct": "snows",
+          "explanation_vi": "'Snows' nghĩa là tuyết rơi — ở một số nước, mùa đông có tuyết và trẻ em có thể làm người tuyết."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Tet is the most important holiday in Vietnam. It takes place at the beginning of the lunar new year, usually in January or February. Families clean and decorate their homes with peach blossoms and kumquat trees. Children receive lucky money in red envelopes from their parents and grandparents. People visit their relatives and wish each other good health and happiness. Special foods are prepared, including sticky rice cake called 'banh chung'. The holiday lasts for several days, and schools and offices are closed during this time.",
+        "text_segments": [
+          { "text": "Tet is the most important " },
+          { "text": "holiday", "tooltip": { "vi": "ngày lễ", "ipa": "ˈhɒlɪdeɪ" } },
+          { "text": " in Vietnam. It takes place at the beginning of the " },
+          { "text": "lunar", "tooltip": { "vi": "âm lịch", "ipa": "ˈluːnər" } },
+          { "text": " new year, usually in January or February. Families clean and " },
+          { "text": "decorate", "tooltip": { "vi": "trang trí", "ipa": "ˈdekəreɪt" } },
+          { "text": " their homes with peach blossoms and kumquat trees. Children receive " },
+          { "text": "lucky money", "tooltip": { "vi": "tiền lì xì", "ipa": "ˈlʌki ˈmʌni" } },
+          { "text": " in red envelopes from their parents and grandparents. People visit their relatives and wish each other good health and happiness. Special foods are prepared, including sticky rice cake called 'banh chung'. The holiday lasts for several days, and schools and offices are closed during this time." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Tet always happens in January every year.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'usually in January or February' — Tết thường vào tháng 1 hoặc tháng 2, không cố định."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Children get red envelopes with money during Tet.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'Children receive lucky money in red envelopes' — đúng, trẻ em nhận lì xì trong phong bì đỏ."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What do families use to decorate their homes at Tet?",
+          "options": ["candles and lanterns", "peach blossoms and kumquat trees", "balloons and ribbons"],
+          "correct": "peach blossoms and kumquat trees",
+          "explanation_vi": "Bài viết 'decorate their homes with peach blossoms and kumquat trees' — hoa đào và cây quất."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'members of the same family'.",
+          "correct": "relatives",
+          "explanation_vi": "'Relatives' nghĩa là người thân — những người trong gia đình."
+        }
+      ]
+    }
+  ]
+}

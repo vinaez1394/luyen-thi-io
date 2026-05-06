@@ -1,0 +1,231 @@
+{
+  "id": "WRITING-EASY-GRADE3-P1",
+  "title": "Writing — Dễ — Lớp 3-4 — Bài 1",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "lives / my uncle / in a small village / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "likes / very much / my little sister / playing / in the park /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["my little sister","likes","playing","in the park","very much"],
+          "correct": ["my little sister","likes","playing","in the park","very much"],
+          "explanation": {
+            "correct_sentence": "My little sister likes playing in the park very much.",
+            "structure_vi": "S + likes + V-ing + nơi chốn + very much",
+            "grammar_notes": [
+              "✅ 'like + V-ing' = thích làm gì (dùng V-ing sau 'like/love/enjoy')",
+              "✅ 'likes' thêm -s vì chủ ngữ 'my little sister' là số ít, ngôi thứ ba",
+              "✅ 'very much' đứng cuối câu để nhấn mạnh mức độ"
+            ],
+            "vocab_notes": [
+              {"word": "like + V-ing","vi": "thích làm gì","ipa": "laɪk"},
+              {"word": "park","vi": "công viên","ipa": "pɑːk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My little sister like playing' → ngôi thứ ba số ít → thêm -s: 'likes'",
+              "❌ Sai: 'likes to play' → sau 'like' có thể dùng cả V-ing và to-V, nhưng V-ing tự nhiên hơn"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "are / twenty students / in / there / our classroom /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["there","are","twenty students","in","our classroom"],
+          "correct": ["there","are","twenty students","in","our classroom"],
+          "explanation": {
+            "correct_sentence": "There are twenty students in our classroom.",
+            "structure_vi": "There are + số đếm + N (số nhiều) + in + nơi chốn",
+            "grammar_notes": [
+              "✅ 'There are + N số nhiều' — dùng 'are' vì 'twenty students' là số nhiều",
+              "✅ 'There is + N số ít': 'There is one teacher.'",
+              "✅ Cấu trúc 'There are' diễn tả sự tồn tại, không phải hành động"
+            ],
+            "vocab_notes": [
+              {"word": "There are","vi": "có (nhiều)","ipa": "ðeər ɑː"},
+              {"word": "classroom","vi": "lớp học, phòng học","ipa": "ˈklɑːsruːm"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'There is twenty students' → 'students' số nhiều → 'There are'",
+              "❌ Sai: 'Are there twenty students' → đây là câu hỏi, không phải câu kể"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "goes / every morning / my father / to work / by motorbike /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["my father","goes","to work","by motorbike","every morning"],
+          "correct": ["my father","goes","to work","by motorbike","every morning"],
+          "explanation": {
+            "correct_sentence": "My father goes to work by motorbike every morning.",
+            "structure_vi": "S + V (hiện tại đơn) + to + nơi chốn + by + phương tiện + thời gian",
+            "grammar_notes": [
+              "✅ 'goes' thêm -es vì 'go' kết thúc bằng -o, chủ ngữ số ít ngôi thứ 3",
+              "✅ 'by motorbike' = bằng xe máy — giới từ 'by' chỉ phương tiện đi lại",
+              "✅ Thứ tự tự nhiên: nơi chốn → phương tiện → thời gian"
+            ],
+            "vocab_notes": [
+              {"word": "go to work","vi": "đi làm","ipa": "ɡəʊ tʊ wɜːk"},
+              {"word": "by motorbike","vi": "bằng xe máy","ipa": "baɪ ˈməʊtəbaɪk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My father go to work' → ngôi thứ ba số ít → 'goes'",
+              "❌ Sai: 'by a motorbike' → phương tiện giao thông không dùng mạo từ sau 'by'"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "did not / yesterday afternoon / Minh / do his homework / because / he was ill /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["Minh","did not","do his homework","yesterday afternoon","because","he was ill"],
+          "correct": ["Minh","did not","do his homework","yesterday afternoon","because","he was ill"],
+          "explanation": {
+            "correct_sentence": "Minh did not do his homework yesterday afternoon because he was ill.",
+            "structure_vi": "S + did not + V (nguyên mẫu) + thời gian + because + lý do",
+            "grammar_notes": [
+              "✅ Phủ định quá khứ đơn: 'did not + V nguyên mẫu' (không chia động từ)",
+              "⚠️ Sai lầm phổ biến: 'did not did' hoặc 'did not does' → phải là 'did not do'",
+              "✅ 'because' + S + V — giải thích lý do"
+            ],
+            "vocab_notes": [
+              {"word": "did not (didn't)","vi": "không (phủ định quá khứ)","ipa": "dɪd nɒt"},
+              {"word": "be ill","vi": "bị ốm","ipa": "biː ɪl"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Minh did not did his homework' → sau 'did not' dùng V nguyên mẫu: 'do'",
+              "❌ Sai: 'Minh didn't his homework' → cần động từ nguyên mẫu: 'do'"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "my mother / cook / breakfast / for / us / every morning /.//",
+          "accepted_answers": [
+            "My mother cooks breakfast for us every morning.",
+            "my mother cooks breakfast for us every morning",
+            "Every morning, my mother cooks breakfast for us.",
+            "My mother makes breakfast for us every morning."
+          ],
+          "explanation": {
+            "correct_sentence": "My mother cooks breakfast for us every morning.",
+            "structure_vi": "S + V (hiện tại đơn, +s/-es) + O + for + O₂ + thời gian",
+            "grammar_notes": [
+              "✅ 'cooks' thêm -s vì chủ ngữ 'my mother' là ngôi thứ ba số ít",
+              "✅ 'for us' = cho chúng tôi — 'us' là tân ngữ (không phải 'we')",
+              "✅ 'every morning' = thói quen → dùng Hiện tại đơn"
+            ],
+            "vocab_notes": [
+              {"word": "cook breakfast","vi": "nấu bữa sáng","ipa": "kʊk ˈbrekfəst"},
+              {"word": "every morning","vi": "mỗi sáng","ipa": "ˈevri ˈmɔːnɪŋ"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My mother cook breakfast' → ngôi thứ ba số ít → 'cooks'",
+              "❌ Sai: 'cooks breakfast for we' → 'we' là chủ ngữ; tân ngữ phải dùng 'us'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "there / be / a new playground / near / our school /.//",
+          "accepted_answers": [
+            "There is a new playground near our school.",
+            "there is a new playground near our school",
+            "There is a new playground near the school.",
+            "There's a new playground near our school."
+          ],
+          "explanation": {
+            "correct_sentence": "There is a new playground near our school.",
+            "structure_vi": "There is + a/an + adj + N (số ít) + trạng ngữ nơi chốn",
+            "grammar_notes": [
+              "✅ 'There is + a + N số ít' = Có một cái... (số ít, đếm được)",
+              "✅ 'a new playground' — bắt đầu bằng phụ âm 'n' → dùng 'a' (không phải 'an')",
+              "✅ 'near our school' = gần trường của chúng tôi"
+            ],
+            "vocab_notes": [
+              {"word": "playground","vi": "sân chơi","ipa": "ˈpleɪɡraʊnd"},
+              {"word": "There is / There are","vi": "Có (một/nhiều)","ipa": "ðeər ɪz / ðeər ɑː"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'There are a new playground' → số ít → 'There is'",
+              "❌ Sai: 'There is an new playground' → 'n' là phụ âm → dùng 'a'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "last Sunday / we / visit / grandparents / in the countryside /.//",
+          "accepted_answers": [
+            "Last Sunday, we visited our grandparents in the countryside.",
+            "last sunday, we visited our grandparents in the countryside",
+            "We visited our grandparents in the countryside last Sunday.",
+            "Last Sunday, we visited grandparents in the countryside."
+          ],
+          "explanation": {
+            "correct_sentence": "Last Sunday, we visited our grandparents in the countryside.",
+            "structure_vi": "Thời gian quá khứ + S + V (quá khứ đơn) + O + nơi chốn",
+            "grammar_notes": [
+              "✅ 'last Sunday' → quá khứ đơn: 'visited'",
+              "✅ 'visited' = V-ed của 'visit' (động từ có quy tắc)",
+              "✅ 'in the countryside' = ở miền quê — dùng 'the' trước 'countryside'"
+            ],
+            "vocab_notes": [
+              {"word": "visit","vi": "thăm, đến thăm","ipa": "ˈvɪzɪt"},
+              {"word": "countryside","vi": "miền quê, vùng nông thôn","ipa": "ˈkʌntrisaɪd"},
+              {"word": "grandparents","vi": "ông bà","ipa": "ˈɡrænpeərənts"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Last Sunday, we visit our grandparents' → quá khứ đơn phải thêm -ed: 'visited'",
+              "❌ Sai: 'Last Sunday, we visits our grandparents' → quá khứ đơn không thêm -s"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

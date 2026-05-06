@@ -20,22 +20,22 @@ import "./GlobalHeader.css";
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export function GlobalHeader() {
-  const navigate  = useNavigate();
-  const location  = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { user, isLoggedIn, isLoading, logout } = useAuth();
   const { theme, themeInfo, setTheme } = useTheme();
 
-  const [drawerOpen,    setDrawerOpen]    = useState(false);
-  const [themeOpen,     setThemeOpen]     = useState(false);
-  const [avatarOpen,    setAvatarOpen]    = useState(false);
-  const [subjectOpen,   setSubjectOpen]   = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const [avatarOpen, setAvatarOpen] = useState(false);
+  const [subjectOpen, setSubjectOpen] = useState(false);
 
-  const themeRef        = useRef<HTMLDivElement>(null);
-  const avatarRef       = useRef<HTMLDivElement>(null);
-  const subjectRef      = useRef<HTMLDivElement>(null);
+  const themeRef = useRef<HTMLDivElement>(null);
+  const avatarRef = useRef<HTMLDivElement>(null);
+  const subjectRef = useRef<HTMLDivElement>(null);
   const subjectCloseTimer = useRef<number | null>(null);
 
-  const openSubjectMenu  = useCallback(() => {
+  const openSubjectMenu = useCallback(() => {
     if (subjectCloseTimer.current) clearTimeout(subjectCloseTimer.current);
     setSubjectOpen(true);
   }, []);
@@ -62,16 +62,84 @@ export function GlobalHeader() {
   }, [location.pathname]);
 
   const displayName = user?.profile?.display_name ?? user?.name ?? "Bé";
-  const totalStars  = 0; // Phase 07 sẽ load từ student_stats
 
-  // Phân nhóm subjects theo pathway cho dropdown
-  const cambridgeSubjects = SUBJECTS.filter((s) => s.pathway === "cambridge");
-  const lop6Subjects      = SUBJECTS.filter((s) => s.pathway === "lop6");
+  // Load stars + streak + currentGrade từ API (chỉ khi đăng nhập)
+  // GlobalHeader luôn mount → đây là nơi DUY NHẤT write localStorage("student_grade") cho mọi trang
+  const [totalStars, setTotalStars] = useState(0);
+  const [streak, setStreak] = useState(0);
+
+  // Grade badge — set trực tiếp từ API response, không qua localStorage lazy read
+  const [gradeBadge, setGradeBadge] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setTotalStars(0);
+      setStreak(0);
+      setGradeBadge(null);
+      return;
+    }
+
+    let cancelled = false;
+
+    const fetchDashboard = () =>
+      fetch("/api/student/dashboard", { credentials: "include" })
+        .then((r) => r.ok ? r.json() : null)
+        .then((d: { totalStars?: number; streak?: number; currentGrade?: number } | null) => {
+          if (cancelled) return;
+          if (d?.totalStars  != null) setTotalStars(d.totalStars);
+          if (d?.streak      != null) setStreak(d.streak);
+
+          // ── Sync currentGrade vào localStorage + state ──
+          if (d?.currentGrade != null && d.currentGrade >= 3 && d.currentGrade <= 6) {
+            const gradeStr = String(d.currentGrade);
+            try { localStorage.setItem("student_grade", gradeStr); } catch { /* ignore */ }
+            setGradeBadge(`Lớp ${d.currentGrade}`);
+            // Thông báo cho SubjectPage và các component khác cập nhật lại grade
+            window.dispatchEvent(new Event("grade:updated"));
+          } else {
+            // API không trả currentGrade → fallback sang localStorage (onboarding chưa xong)
+            try {
+              const raw = localStorage.getItem("student_grade");
+              const g = raw ? parseInt(raw, 10) : null;
+              setGradeBadge(g && g >= 3 && g <= 6 ? `Lớp ${g}` : null);
+            } catch { setGradeBadge(null); }
+          }
+        })
+        .catch(() => {});
+
+    fetchDashboard();
+
+    // Refresh khi kiếm được sao
+    window.addEventListener("stars:updated", fetchDashboard);
+    return () => {
+      cancelled = true;
+      window.removeEventListener("stars:updated", fetchDashboard);
+    };
+  }, [isLoggedIn]);
+
+
+  // Chỉ hiển thị môn đang có bài (available: true) — môn chưa có tự động ẩn
+  const cambridgeSubjects = SUBJECTS.filter((s) => s.pathway === "cambridge" && s.available);
+  const lop6Subjects = SUBJECTS.filter((s) => s.pathway === "lop6" && s.available);
+
 
   return (
     <>
       <header className="global-header" role="banner">
         <div className="global-header__inner">
+
+          {/* ── Hamburger (Mobile) — LEFT of logo ── */}
+          <button
+            className="global-header__hamburger"
+            id="btn-header-hamburger"
+            onClick={() => setDrawerOpen(true)}
+            aria-label="Mở menu"
+            aria-expanded={drawerOpen}
+          >
+            <div className="hamburger__line" />
+            <div className="hamburger__line" />
+            <div className="hamburger__line" />
+          </button>
 
           {/* ── Logo ── */}
           <button
@@ -104,9 +172,8 @@ export function GlobalHeader() {
               onMouseLeave={closeSubjectMenu}
             >
               <button
-                className={`global-header__nav-link global-header__nav-link--dropdown ${
-                  subjectOpen ? "active" : ""
-                }`}
+                className={`global-header__nav-link global-header__nav-link--dropdown ${subjectOpen ? "active" : ""
+                  }`}
                 id="btn-nav-mon-hoc"
                 onClick={() => navigate("/")}
                 aria-haspopup="true"
@@ -126,17 +193,16 @@ export function GlobalHeader() {
                 >
                   <div className="nav-subject-dropdown__inner-card">
 
-                    {/* Cambridge group */}
+                    {/* Lớp 6 group — LUÔN XẾP TRƯỚC */}
                     <div className="nav-subject-dropdown__group">
                       <span className="nav-subject-dropdown__group-label">
-                        🇬🇧 Cambridge
+                        🏫 Luyện Thi Lớp 6
                       </span>
-                      {cambridgeSubjects.map((s) => (
+                      {lop6Subjects.map((s) => (
                         <button
                           key={s.id}
-                          className={`nav-subject-dropdown__item ${
-                            !s.available ? "nav-subject-dropdown__item--soon" : ""
-                          }`}
+                          className={`nav-subject-dropdown__item ${!s.available ? "nav-subject-dropdown__item--soon" : ""
+                            }`}
                           role="menuitem"
                           id={`btn-nav-subject-${s.id}`}
                           onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setSubjectOpen(false); } }}
@@ -156,17 +222,16 @@ export function GlobalHeader() {
 
                     <div className="nav-subject-dropdown__divider" />
 
-                    {/* Lớp 6 group */}
+                    {/* Cambridge group */}
                     <div className="nav-subject-dropdown__group">
                       <span className="nav-subject-dropdown__group-label">
-                        🏫 Thi Lớp 6
+                        🇬🇧 Cambridge
                       </span>
-                      {lop6Subjects.map((s) => (
+                      {cambridgeSubjects.map((s) => (
                         <button
                           key={s.id}
-                          className={`nav-subject-dropdown__item ${
-                            !s.available ? "nav-subject-dropdown__item--soon" : ""
-                          }`}
+                          className={`nav-subject-dropdown__item ${!s.available ? "nav-subject-dropdown__item--soon" : ""
+                            }`}
                           role="menuitem"
                           id={`btn-nav-subject-${s.id}`}
                           onClick={() => { if (s.available) { navigate(getSubjectUrl(s)); setSubjectOpen(false); } }}
@@ -247,6 +312,21 @@ export function GlobalHeader() {
             )}
           </div>
 
+          {/* ── Grade badge (desktop standalone icon) ── */}
+          {isLoggedIn && gradeBadge && (
+            <div
+              className="gh-grade-icon"
+              title={`Lớp học của bé: ${gradeBadge}`}
+              onClick={() => navigate("/profile")}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter") navigate("/profile"); }}
+            >
+              <span className="gh-grade-icon__emoji">🏫</span>
+              <span className="gh-grade-icon__label">{gradeBadge}</span>
+            </div>
+          )}
+
           {/* ── Auth Area ── */}
           {!isLoading && (
             <div className="global-header__auth">
@@ -307,18 +387,6 @@ export function GlobalHeader() {
             </div>
           )}
 
-          {/* ── Hamburger (Mobile) ── */}
-          <button
-            className="global-header__hamburger"
-            id="btn-header-hamburger"
-            onClick={() => setDrawerOpen(true)}
-            aria-label="Mở menu"
-            aria-expanded={drawerOpen}
-          >
-            <div className="hamburger__line" />
-            <div className="hamburger__line" />
-            <div className="hamburger__line" />
-          </button>
 
         </div>
       </header>
@@ -332,25 +400,48 @@ export function GlobalHeader() {
             role="presentation"
           />
           <nav className="mobile-drawer" aria-label="Menu di động">
-            <div className="mobile-drawer__logo">
-              <span style={{ fontSize: 24 }}>🎓</span>
-              <span style={{ fontWeight: 900, color: "var(--color-primary)", fontSize: "var(--font-lg)" }}>
-                Luyện Thi
-              </span>
+            {/* Header drawer: Logo + nút đóng (X) */}
+            <div className="mobile-drawer__header">
+              <div className="mobile-drawer__logo">
+                <span style={{ fontSize: 24 }}>🎓</span>
+                <span style={{ fontWeight: 900, color: "var(--color-primary)", fontSize: "var(--font-lg)" }}>
+                  Luyện Thi
+                </span>
+              </div>
+              <button
+                className="mobile-drawer__close-btn"
+                id="btn-drawer-close"
+                onClick={() => setDrawerOpen(false)}
+                aria-label="Đóng menu"
+              >
+                ✕
+              </button>
             </div>
 
-            {/* Trang chủ */}
-            <button
-              className={`mobile-drawer__nav-link ${location.pathname === "/" ? "active" : ""}`}
-              onClick={() => navigate("/")}
-            >
-              <span className="mobile-drawer__nav-icon">🏠</span> Trang chủ
-            </button>
 
-            {/* Lộ trình — expand trong drawer theo nhóm */}
+            {/* ── User stats: 3 pills thả ngay dưới header, không có khung ── */}
+            {isLoggedIn && (
+              <div className="mobile-drawer__stats-row">
+                {gradeBadge && (
+                  <span className="mobile-drawer__user-stat mobile-drawer__user-stat--grade">
+                    🏫 {gradeBadge}
+                  </span>
+                )}
+                <span className="mobile-drawer__user-stat mobile-drawer__user-stat--stars">
+                  ⭐ {totalStars}
+                </span>
+                {streak > 0 && (
+                  <span className="mobile-drawer__user-stat mobile-drawer__user-stat--streak">
+                    🔥 {streak} ngày
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Lộ trình — Lớp 6 LUÔN XẾP TRƯỚC trong drawer */}
             <div className="mobile-drawer__subject-group">
-              <div className="mobile-drawer__subject-label">🇬🇧 Cambridge</div>
-              {cambridgeSubjects.map((s) => (
+              <div className="mobile-drawer__subject-label">🏫 Luyện Thi Lớp 6</div>
+              {lop6Subjects.map((s) => (
                 <button
                   key={s.id}
                   className={`mobile-drawer__nav-link mobile-drawer__nav-link--subject ${!s.available ? "mobile-drawer__nav-link--soon" : ""}`}
@@ -365,8 +456,8 @@ export function GlobalHeader() {
             </div>
 
             <div className="mobile-drawer__subject-group" style={{ marginTop: "4px" }}>
-              <div className="mobile-drawer__subject-label">🏫 Thi Lớp 6</div>
-              {lop6Subjects.map((s) => (
+              <div className="mobile-drawer__subject-label">🇬🇧 Cambridge</div>
+              {cambridgeSubjects.map((s) => (
                 <button
                   key={s.id}
                   className={`mobile-drawer__nav-link mobile-drawer__nav-link--subject ${!s.available ? "mobile-drawer__nav-link--soon" : ""}`}
@@ -387,6 +478,31 @@ export function GlobalHeader() {
             >
               <span className="mobile-drawer__nav-icon">📊</span> Tiến độ
             </button>
+
+            {/* ——— Theme Switcher ——— */}
+            <div className="mobile-drawer__divider" />
+            <div className="mobile-drawer__theme-section">
+              <div className="mobile-drawer__theme-label">
+                🎨 Đổi giao diện màu
+              </div>
+              <div className="mobile-drawer__theme-grid">
+                {THEMES.map((t) => (
+                  <button
+                    key={t.id}
+                    className={`mobile-drawer__theme-btn${theme === t.id ? " selected" : ""}`}
+                    onClick={() => setTheme(t.id as ThemeId)}
+                    title={t.label}
+                    aria-label={t.label}
+                  >
+                    <div
+                      className="mobile-drawer__theme-swatch"
+                      style={{ background: t.primary }}
+                    />
+                    <span className="mobile-drawer__theme-emoji">{t.emoji}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <div style={{ height: 1, background: "var(--color-border)", margin: "8px 0" }} />
 

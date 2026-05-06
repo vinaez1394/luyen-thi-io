@@ -36,6 +36,7 @@ import { DashboardPage }         from "./pages/DashboardPage";
 import { PathwaySelectionPage }  from "./pages/PathwaySelectionPage";
 import { CambridgePage }         from "./pages/CambridgePage";
 import { Lop6Page }              from "./pages/Lop6Page";
+import { ProfileSettingsPage }   from "./pages/ProfileSettingsPage";
 
 /**
  * HomeRoute — Redirect User đã login → /dashboard
@@ -78,6 +79,9 @@ export default function App() {
             } />
             <Route path="/dashboard" element={
               <ProtectedRoute><DashboardPage /></ProtectedRoute>
+            } />
+            <Route path="/profile" element={
+              <ProtectedRoute><ProfileSettingsPage /></ProtectedRoute>
             } />
 
             {/* Fallback */}
