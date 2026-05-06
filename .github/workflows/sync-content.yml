@@ -1,0 +1,151 @@
+name: Sync Content → R2
+
+# Trigger: chỉ khi có file JSON trong content/ thay đổi
+# Workflow này KHÔNG build Worker, KHÔNG deploy — chỉ sync content
+on:
+  push:
+    branches:
+      - main
+      - dev
+    paths:
+      - "content/**/*.json"
+
+jobs:
+  sync:
+    name: 📦 Sync Changed Content → R2
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code (full history để diff)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # cần commit trước để git diff hoạt động
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install wrangler only
+        run: npm ci --ignore-scripts
+
+      # ─────────────────────────────────────────────────────────────────────────
+      # Smart Sync: phát hiện files nào thay đổi trong commit này
+      # Upload nếu file tồn tại local → R2
+      # Delete nếu file đã bị xóa khỏi git → R2
+      # ─────────────────────────────────────────────────────────────────────────
+      - name: Smart sync changed JSON files → R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+        run: |
+          # Hàm map local path → R2 key
+          # content/lop6/...           → quizzes/lop6/...
+          # content/Cambridge/flyers/  → quizzes/cambridge/flyers/
+          # content/blog/              → bỏ qua (handled by deploy.yml)
+          map_to_r2_key() {
+            local local_path="$1"
+            # Strip leading "content/"
+            local rel="${local_path#content/}"
+
+            case "$rel" in
+              blog/*)
+                echo ""  # skip blog — handled separately
+                ;;
+              Cambridge/*)
+                # Cambridge/ → cambridge/ (lowercase)
+                echo "quizzes/$(echo "$rel" | sed 's|Cambridge/|cambridge/|')"
+                ;;
+              *)
+                echo "quizzes/$rel"
+                ;;
+            esac
+          }
+
+          BUCKET="luyen-thi-content"
+          UPLOADED=0
+          DELETED=0
+          SKIPPED=0
+
+          echo "🔍 Phát hiện files thay đổi trong commit..."
+
+          # git diff: lấy tất cả JSON files bị thay đổi (A=added, M=modified, D=deleted, R=renamed)
+          # Format: STATUS\tFILE hoặc STATUS\tOLD_FILE\tNEW_FILE (với rename)
+          while IFS=$'\t' read -r status old_file new_file; do
+            # Với rename: old_file = file cũ, new_file = file mới
+            # Với add/modify/delete: old_file = file, new_file = empty
+            [[ -z "$new_file" ]] && new_file="$old_file"
+
+            case "$status" in
+              A|M)
+                # Added hoặc Modified → upload
+                local_file="$new_file"
+                r2_key=$(map_to_r2_key "$local_file")
+
+                if [[ -z "$r2_key" ]]; then
+                  echo "  ⏭️  Skip: $local_file (không phải content)"
+                  SKIPPED=$((SKIPPED + 1))
+                  continue
+                fi
+
+                if [[ -f "$local_file" ]]; then
+                  echo "  ⬆️  Upload: $local_file → $r2_key"
+                  ./node_modules/.bin/wrangler r2 object put \
+                    "$BUCKET/$r2_key" \
+                    --file "$local_file" \
+                    --content-type application/json \
+                    --remote
+                  UPLOADED=$((UPLOADED + 1))
+                fi
+                ;;
+
+              D)
+                # Deleted → xóa khỏi R2
+                local_file="$old_file"
+                r2_key=$(map_to_r2_key "$local_file")
+
+                if [[ -z "$r2_key" ]]; then
+                  SKIPPED=$((SKIPPED + 1))
+                  continue
+                fi
+
+                echo "  🗑️  Delete: $r2_key"
+                ./node_modules/.bin/wrangler r2 object delete \
+                  "$BUCKET/$r2_key" \
+                  --remote || echo "    (không tồn tại trên R2 — bỏ qua)"
+                DELETED=$((DELETED + 1))
+                ;;
+
+              R*)
+                # Renamed → xóa key cũ, upload key mới
+                r2_old=$(map_to_r2_key "$old_file")
+                r2_new=$(map_to_r2_key "$new_file")
+
+                if [[ -n "$r2_old" ]]; then
+                  echo "  🗑️  Delete old: $r2_old"
+                  ./node_modules/.bin/wrangler r2 object delete \
+                    "$BUCKET/$r2_old" \
+                    --remote || true
+                fi
+
+                if [[ -n "$r2_new" && -f "$new_file" ]]; then
+                  echo "  ⬆️  Upload new: $new_file → $r2_new"
+                  ./node_modules/.bin/wrangler r2 object put \
+                    "$BUCKET/$r2_new" \
+                    --file "$new_file" \
+                    --content-type application/json \
+                    --remote
+                  UPLOADED=$((UPLOADED + 1))
+                fi
+                ;;
+            esac
+
+          done < <(git diff --diff-filter=ADMR --name-status HEAD~1 HEAD -- 'content/**/*.json')
+
+          echo ""
+          echo "✅ Sync hoàn tất:"
+          echo "   ⬆️  Uploaded : $UPLOADED files"
+          echo "   🗑️  Deleted  : $DELETED files"
+          echo "   ⏭️  Skipped  : $SKIPPED files"
