@@ -110,4 +110,54 @@ Câu hỏi thô, Antigravity sẽ tự phân tích và format lại.
 
 ---
 
-*Tạo bởi Antigravity — 2026-04-29*
+## 🧠 TÍCH HỢP THỦ CÔNG (Nếu bạn muốn tự code tay)
+
+Dù khuyến khích dùng lệnh `/tạo bài học` để AI tự động làm từ A-Z, nếu bạn tự tạo một file `.json` (ví dụ: `MATH-THINKING-GRADE3-L1-P11.json`), bạn CẦN thực hiện đúng **5 BƯỚC SỐNG CÒN** sau để web nhận diện:
+
+### 🗺️ 5 Bước Đưa 1 Bài Học Lên Website
+
+**Bước 1: Lưu file JSON đúng thư mục**
+Copy file JSON và đưa vào đúng vị trí tương ứng. 
+Ví dụ môn Toán: `content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P11.json`
+
+**Bước 2: Đăng ký file với hệ thống (`quiz.ts`)**
+- Mở file: `src/worker/routes/quiz.ts`
+- Copy một khối `try { ... } catch { ... }` của bài học cũ dán xuống dưới.
+- Đổi tên file và key (ví dụ từ P10 thành P11).
+
+**Bước 3: Hiển thị bài học lên UI (`subjects.ts`)**
+- Mở file: `src/react-app/data/subjects.ts`
+- Tìm đến khối cấu hình môn học (ví dụ Toán Tư Duy).
+- Copy 1 object cấu hình bài học cũ trong mảng `lessons`, dán xuống cuối mảng và đổi `id`, `slug`, `title` thành bài 11.
+
+**Bước 4: Đồng bộ lên mây Cloudflare R2 (`deploy.yml`)**
+- Mở file: `.github/workflows/deploy.yml`
+- Tìm các dòng `wrangler r2 object put...` của môn học đó.
+- Copy 1 dòng, dán xuống và đổi tên từ bài 10 thành bài 11 để bài học được tải lên Server lưu trữ.
+
+**Bước 5: Lưu và Deploy**
+Thực hiện commit và push (`git add .`, `git commit`, `git push origin dev`). Github Actions sẽ tự động deploy và đồng bộ lên website trong ~1.5 phút.
+
+---
+
+### ⚠️ LƯU Ý "SÁT THỦ" KHI TỰ VIẾT JSON
+
+Nếu tự gõ JSON, hãy cẩn thận 3 lỗi sau vì chúng sẽ làm **SẬP TRANG** hoặc báo lỗi trắng màn hình:
+
+1. **ID trong file phải trùng khớp:**
+   Giá trị `"id": "..."` ở dòng đầu của file JSON **bắt buộc** phải khớp hoàn toàn với ID khai báo trong `subjects.ts` và tên file.
+   *(Ví dụ: file tên `MATH-THINKING-GRADE3-L1-P11.json` thì `"id": "MATH-THINKING-GRADE3-L1-P11"`)*
+
+2. **Dấu phẩy (`,`) và dấu ngoặc (`{}`, `[]`) rất nhạy cảm:**
+   - Tuyệt đối không được dư dấu phẩy ở phần tử cuối cùng của mảng (array) hay đối tượng (object).
+   - Tuyệt đối không được thiếu dấu đóng/mở ngoặc.
+   - *Mẹo:* Luôn kiểm tra file bằng [jsonlint.com](https://jsonlint.com) trước khi lưu.
+
+3. **Cấu trúc dữ liệu nghiêm ngặt:**
+   Phải có đủ trường `"type"`, mảng `"questions"`, và `"correct"` phải khớp 100% với lựa chọn trong `"options"`.
+
+> 💡 **Khuyến nghị:** Viết tay JSON rất rủi ro. Bạn nên soạn câu hỏi thô trên Word, rồi dùng lệnh `/tạo bài học` để AI làm thay bạn cả khâu JSON, thêm tooltip từ vựng, giải thích, và tự động cấu hình cả 5 bước trên!
+
+---
+
+*Tạo bởi Antigravity — Cập nhật: 2026-05-06*
