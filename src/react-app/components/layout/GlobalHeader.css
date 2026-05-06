@@ -467,6 +467,10 @@
   background: color-mix(in srgb, #f59e0b 15%, transparent);
   color: #b45309;
 }
+.mobile-drawer__user-stat--streak {
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+  color: #b91c1c;
+}
 
 .mobile-drawer__nav-link {
   display: flex;

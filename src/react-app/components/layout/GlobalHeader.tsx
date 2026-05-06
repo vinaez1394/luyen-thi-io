@@ -63,8 +63,33 @@ export function GlobalHeader() {
 
   const displayName = user?.profile?.display_name ?? user?.name ?? "Bé";
 
-  // Load total stars từ API (chỉ khi đăng nhập)
+  // Load total stars + streak từ API (chỉ khi đăng nhập)
   const [totalStars, setTotalStars] = useState(0);
+  const [streak, setStreak] = useState(0);
+
+  useEffect(() => {
+    if (!isLoggedIn) { setTotalStars(0); setStreak(0); return; }
+
+    let cancelled = false;
+    const fetchDashboard = () =>
+      fetch("/api/student/dashboard", { credentials: "include" })
+        .then((r) => r.ok ? r.json() : null)
+        .then((d: { totalStars?: number; streak?: number } | null) => {
+          if (cancelled) return;
+          if (d?.totalStars != null) setTotalStars(d.totalStars);
+          if (d?.streak     != null) setStreak(d.streak);
+        })
+        .catch(() => {});
+
+    fetchDashboard();
+
+    // Lắng nghe event khi kiếm được sao → refresh
+    window.addEventListener("stars:updated", fetchDashboard);
+    return () => {
+      cancelled = true;
+      window.removeEventListener("stars:updated", fetchDashboard);
+    };
+  }, [isLoggedIn]);
 
   // Grade badge — đọc từ localStorage, sync khi đăng nhập/đăng xuất
   const [gradeBadge, setGradeBadge] = useState<string | null>(null);
@@ -78,33 +103,6 @@ export function GlobalHeader() {
     } catch {
       setGradeBadge(null);
     }
-  }, [isLoggedIn]);
-
-  useEffect(() => {
-    if (!isLoggedIn) { setTotalStars(0); return; }
-
-    let cancelled = false;
-    fetch("/api/student/dashboard", { credentials: "include" })
-      .then((r) => r.ok ? r.json() : null)
-      .then((d: { totalStars?: number } | null) => {
-        if (!cancelled && d?.totalStars != null) setTotalStars(d.totalStars);
-      })
-      .catch(() => {});
-
-    // Lắng nghe event khi kiếm được sao → refresh
-    const onStarsUpdate = () => {
-      fetch("/api/student/dashboard", { credentials: "include" })
-        .then((r) => r.ok ? r.json() : null)
-        .then((d: { totalStars?: number } | null) => {
-          if (!cancelled && d?.totalStars != null) setTotalStars(d.totalStars);
-        })
-        .catch(() => {});
-    };
-    window.addEventListener("stars:updated", onStarsUpdate);
-    return () => {
-      cancelled = true;
-      window.removeEventListener("stars:updated", onStarsUpdate);
-    };
   }, [isLoggedIn]);
 
 
@@ -408,24 +406,26 @@ export function GlobalHeader() {
               </button>
             </div>
 
-            {/* ── User stats card (grade + stars) — chỉ hiện khi đăng nhập ── */}
+            {/* ── User stats card (grade + stars + streak) — chỉ hiện khi đăng nhập ── */}
             {isLoggedIn && (
               <div className="mobile-drawer__user-card">
                 <div className="mobile-drawer__user-card-avatar">
                   {displayName[0]?.toUpperCase() ?? "B"}
                 </div>
-                <div className="mobile-drawer__user-card-info">
-                  <span className="mobile-drawer__user-card-name">{displayName}</span>
-                  <div className="mobile-drawer__user-card-stats">
-                    {gradeBadge && (
-                      <span className="mobile-drawer__user-stat mobile-drawer__user-stat--grade">
-                        🏫 {gradeBadge}
-                      </span>
-                    )}
-                    <span className="mobile-drawer__user-stat mobile-drawer__user-stat--stars">
-                      ⭐ {totalStars}
+                <div className="mobile-drawer__user-card-stats">
+                  {gradeBadge && (
+                    <span className="mobile-drawer__user-stat mobile-drawer__user-stat--grade">
+                      🏫 {gradeBadge}
                     </span>
-                  </div>
+                  )}
+                  <span className="mobile-drawer__user-stat mobile-drawer__user-stat--stars">
+                    ⭐ {totalStars}
+                  </span>
+                  {streak > 0 && (
+                    <span className="mobile-drawer__user-stat mobile-drawer__user-stat--streak">
+                      🔥 {streak} ngày
+                    </span>
+                  )}
                 </div>
               </div>
             )}
