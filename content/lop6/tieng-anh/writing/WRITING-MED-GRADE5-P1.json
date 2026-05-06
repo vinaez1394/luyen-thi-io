@@ -40,9 +40,9 @@
           "correct": [
             "I am",
             "going to",
-            "to",
             "write",
             "a letter",
+            "to",
             "my friend"
           ],
           "explanation": {
@@ -95,11 +95,11 @@
           ],
           "correct": [
             "the trip",
-            "I",
             "was",
             "more",
             "exciting",
             "than",
+            "I",
             "thought"
           ],
           "explanation": {
@@ -162,10 +162,10 @@
           "correct": [
             "you",
             "shouldn't",
-            "play",
-            "with",
+            "play with",
             "matches",
-            "because it is dangerous"
+            "because",
+            "it is dangerous"
           ],
           "explanation": {
             "correct_sentence": "You shouldn't play with matches because it is dangerous.",

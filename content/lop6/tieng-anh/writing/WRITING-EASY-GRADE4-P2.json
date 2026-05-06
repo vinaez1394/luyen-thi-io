@@ -262,7 +262,7 @@
               "text": " people / a doctor /.//"
             }
           ],
-          "template": "{0} {1} {2} {3} {4} {5}.",
+          "template": "{0} {1} {2} {3} {4}.",
           "word_bank": [
             "she",
             "wants to be",

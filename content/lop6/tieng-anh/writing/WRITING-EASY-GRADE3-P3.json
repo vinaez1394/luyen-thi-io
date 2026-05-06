@@ -80,26 +80,25 @@
         {
           "id": "q3",
           "type": "drag-drop-fill",
-          "display_cues": "to eat / was told / a lot of vegetables / Tuan / his doctor / by /.//",
-          "template": "{0} {1} {2} {3} {4} {5}.",
-          "word_bank": ["Tuan","was told","by his doctor","to eat","a lot of","vegetables"],
-          "correct": ["Tuan","was told","by his doctor","to eat","a lot of","vegetables"],
+          "display_cues": "eats / Nam / a lot of vegetables / and fruit / every day /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["Nam","eats","a lot of vegetables","and fruit","every day"],
+          "correct": ["Nam","eats","a lot of vegetables","and fruit","every day"],
           "explanation": {
-            "correct_sentence": "Tuan was told by his doctor to eat a lot of vegetables.",
-            "structure_vi": "S + was told + by + tác nhân + to-V + O (Bị động với tell)",
+            "correct_sentence": "Nam eats a lot of vegetables and fruit every day.",
+            "structure_vi": "S + V (hiện tại đơn, +s/-es) + O + thời gian",
             "grammar_notes": [
-              "✅ 'be told + to-V' = được/bị bảo làm gì — cấu trúc bị động của 'tell + O + to-V'",
-              "✅ 'a lot of + N' = rất nhiều — dùng được với cả danh từ đếm được và không đếm được",
-              "✅ 'vegetables' = danh từ đếm được số nhiều"
+              "✅ 'Nam' là ngôi thứ ba số ít → động từ 'eat' phải thêm '-s': 'eats'",
+              "✅ 'a lot of' đi được với cả danh từ đếm được (vegetables) và không đếm được",
+              "✅ 'every day' = mỗi ngày — đứng cuối câu như trạng ngữ thời gian"
             ],
             "vocab_notes": [
-              {"word": "be told to","vi": "được/bị bảo phải","ipa": "biː təʊld tʊ"},
-              {"word": "a lot of","vi": "nhiều, rất nhiều","ipa": "ə lɒt əv"},
-              {"word": "vegetable","vi": "rau củ","ipa": "ˈvedʒtəbl"}
+              {"word": "vegetables","vi": "rau củ","ipa": "ˈvedʒtəblz"},
+              {"word": "a lot of","vi": "nhiều, rất nhiều","ipa": "ə lɒt əv"}
             ],
             "common_mistakes": [
-              "❌ Sai: 'Tuan was told by his doctor eating vegetables' → sau 'be told' dùng to-V: 'to eat'",
-              "❌ Sai: 'Tuan was tell by his doctor' → bị động quá khứ: 'was told'"
+              "❌ Sai: 'Nam eat' → ngôi thứ ba số ít phải thêm 's': 'eats'",
+              "❌ Sai: 'a lot of the vegetables' → danh từ chung không cần 'the'"
             ]
           }
         },
