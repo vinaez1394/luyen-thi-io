@@ -186,6 +186,10 @@ function detectQuizMeta(quizId: string): { pathway: string | null; subject: stri
   if (/^READING-(EASY|MED|HARD)-GRADE\d+-P\d+$/i.test(quizId)) {
     return { pathway: "lop6", subject: "tieng-anh" };
   }
+  // Lớp 6 — Tiếng Anh Writing
+  if (/^WRITING-(EASY|MED|HARD)-GRADE\d+-P\d+$/i.test(quizId)) {
+    return { pathway: "lop6", subject: "tieng-anh" };
+  }
   // Cambridge — Reading/Writing (Flyers)
   if (/^RW/i.test(quizId)) {
     return { pathway: "cambridge", subject: "reading" };
@@ -303,19 +307,34 @@ quizRoute.post("/:quizId/submit", async (c) => {
   }>();
 
   // Load quiz để chấm điểm
-  const quizData = await loadQuizJson(quizId, c.env) as {
-    questions: Array<{ id: string; correct: string | string[] }>;
-    skill: string;
-    part: number;
+  // Quiz có 2 cấu trúc:
+  //   A. { questions: [...] }           — Math / Cambridge Flyers cũ
+  //   B. { sections: [{ questions: [...] }] } — Reading / Writing mới
+  // Ta normalize về mảng questions phẳng trước khi chấm.
+  const quizRaw = await loadQuizJson(quizId, c.env) as {
+    questions?: Array<{ id: string; correct: string | string[] }>;
+    sections?: Array<{ questions?: Array<{ id: string; correct: string | string[] }> }>;
+    skill?: string;
+    part?: number;
   } | null;
 
-  if (!quizData) {
+  if (!quizRaw) {
     return c.json({ error: "Không tìm thấy bài học" }, 404);
   }
 
+  // Flatten questions từ cả 2 cấu trúc
+  const questions: Array<{ id: string; correct: string | string[] }> = [
+    ...(quizRaw.questions ?? []),
+    ...(quizRaw.sections ?? []).flatMap(s => s.questions ?? []),
+  ];
+
+  if (questions.length === 0) {
+    return c.json({ error: "Bài học không có câu hỏi" }, 422);
+  }
+
   // Chấm điểm
-  const { correctCount, correctAnswers } = gradeQuiz(quizData.questions, body.answers);
-  const total = quizData.questions.length;
+  const { correctCount, correctAnswers } = gradeQuiz(questions, body.answers);
+  const total = questions.length;
   const percentage = calcPercentage(correctCount, total);
   const starsEarned = calcStars(percentage);
 
@@ -347,8 +366,8 @@ quizRoute.post("/:quizId/submit", async (c) => {
         studentId: profile.id,
         starsEarned,
         quizId,
-        skill: quizData.skill,
-        partNumber: quizData.part,
+        skill: quizRaw.skill ?? "reading",
+        partNumber: quizRaw.part ?? 1,
         score: correctCount,
         maxScore: total,
         timeSpent: body.timeSpent ?? 0,
