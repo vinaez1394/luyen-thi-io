@@ -90,9 +90,9 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
 
   // Tổng số câu hỏi
   const totalQuestions = quiz.sections.reduce((sum, s) => sum + s.questions.length, 0);
-  const answeredCount  = Object.keys(answers).filter(k => answers[k] !== "").length;
-  const allAnswered    = answeredCount >= totalQuestions;
-  const progressPct    = Math.round((answeredCount / totalQuestions) * 100);
+  const answeredCount = Object.keys(answers).filter(k => answers[k] !== "").length;
+  const allAnswered = answeredCount >= totalQuestions;
+  const progressPct = Math.round((answeredCount / totalQuestions) * 100);
 
   // Scroll to top khi mount
   useEffect(() => {
@@ -100,9 +100,10 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
   }, [quiz.id]);
 
   // Báo QuizPage biết progress
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     onProgressChange?.(answeredCount, totalQuestions);
-  }, [answeredCount, totalQuestions, onProgressChange]);
+  }, [answeredCount, totalQuestions]); // onProgressChange intentionally excluded — inline fn ref changes every render → infinite loop
 
   // Submit trigger từ sub-header bên ngoài
   useEffect(() => {
@@ -134,6 +135,7 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
         await fetch(`/api/quiz/${quiz.id}/submit`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+          credentials: "include",  // bắt buộc: gửi cookie session để lưu điểm
           body: JSON.stringify({
             answers,
             timeSpent: 0, // ReadingEngine không track thời gian per câu
@@ -180,8 +182,8 @@ export function ReadingEngine({ quiz, onComplete, vocabRemainingFree = 3, onVoca
             <div className="re-result__label">
               {result.percentage}% — {
                 result.percentage >= 80 ? "Excellent! 🎉" :
-                result.percentage >= 60 ? "Good job! 👍" :
-                "Keep practising! 💪"
+                  result.percentage >= 60 ? "Good job! 👍" :
+                    "Keep practising! 💪"
               }
             </div>
 
