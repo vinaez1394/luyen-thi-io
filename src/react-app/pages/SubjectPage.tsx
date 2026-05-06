@@ -201,12 +201,28 @@ export function SubjectPage() {
 
   // ── Khởi tạo grade từ localStorage ngay lần đầu render ──
   const initialGradeTab = useMemo(() => getUserGradeTab(), []);
-  const [userGradeTab]  = useState<GradeTab>(initialGradeTab);
+  const [userGradeTab, setUserGradeTab] = useState<GradeTab>(initialGradeTab);
 
   // ── Filter state ──
-  const [activeSkill, setActiveSkill] = useState<string>("");
-  const [activeGrade, setActiveGrade] = useState<GradeTab>(initialGradeTab);
-  const [activeDiff,  setActiveDiff]  = useState<DiffFilter>("all");
+  const [activeSkill,      setActiveSkill]      = useState<string>("");
+  const [activeGrade,      setActiveGrade]      = useState<GradeTab>(initialGradeTab);
+  const [activeDiff,       setActiveDiff]       = useState<DiffFilter>("all");
+  // Track xem user đã chủ động đổi grade chưa (nếu đã đổi thì không auto-reset khi API về)
+  const [gradeManuallySet, setGradeManuallySet] = useState(false);
+
+  // ── Sync grade khi GlobalHeader fetch xong và dispatch 'grade:updated' ──
+  useEffect(() => {
+    const onGradeUpdated = () => {
+      const fresh = getUserGradeTab();
+      setUserGradeTab(fresh);
+      // Chỉ reset activeGrade nếu user chưa chủ động chọn
+      if (!gradeManuallySet) {
+        setActiveGrade(fresh);
+      }
+    };
+    window.addEventListener("grade:updated", onGradeUpdated);
+    return () => window.removeEventListener("grade:updated", onGradeUpdated);
+  }, [gradeManuallySet]);
 
   // ── Available skills (chỉ những skill có bài) ──
   const availableSkills = useMemo(() => {
@@ -306,6 +322,7 @@ export function SubjectPage() {
     setActiveSkill(skillKey);
     setActiveGrade(userGradeTab);
     setActiveDiff("all");
+    setGradeManuallySet(false); // reset khi đổi skill tab
   };
 
   // ── Grade context message ──
@@ -385,7 +402,7 @@ export function SubjectPage() {
                     activeGrade === tab.key ? "sp-grade-pill--active" : "",
                     `sp-grade-pill--${ctx}`,
                   ].filter(Boolean).join(" ")}
-                  onClick={() => setActiveGrade(tab.key)}
+                  onClick={() => { setActiveGrade(tab.key); setGradeManuallySet(true); }}
                   id={`btn-grade-${tab.key.replace("-", "")}`}
                   title={
                     ctx === "higher" ? "Thử thách lớp cao hơn 🔥"

@@ -63,46 +63,58 @@ export function GlobalHeader() {
 
   const displayName = user?.profile?.display_name ?? user?.name ?? "Bé";
 
-  // Load total stars + streak từ API (chỉ khi đăng nhập)
+  // Load stars + streak + currentGrade từ API (chỉ khi đăng nhập)
+  // GlobalHeader luôn mount → đây là nơi DUY NHẤT write localStorage("student_grade") cho mọi trang
   const [totalStars, setTotalStars] = useState(0);
   const [streak, setStreak] = useState(0);
 
+  // Grade badge — set trực tiếp từ API response, không qua localStorage lazy read
+  const [gradeBadge, setGradeBadge] = useState<string | null>(null);
+
   useEffect(() => {
-    if (!isLoggedIn) { setTotalStars(0); setStreak(0); return; }
+    if (!isLoggedIn) {
+      setTotalStars(0);
+      setStreak(0);
+      setGradeBadge(null);
+      return;
+    }
 
     let cancelled = false;
+
     const fetchDashboard = () =>
       fetch("/api/student/dashboard", { credentials: "include" })
         .then((r) => r.ok ? r.json() : null)
-        .then((d: { totalStars?: number; streak?: number } | null) => {
+        .then((d: { totalStars?: number; streak?: number; currentGrade?: number } | null) => {
           if (cancelled) return;
-          if (d?.totalStars != null) setTotalStars(d.totalStars);
-          if (d?.streak     != null) setStreak(d.streak);
+          if (d?.totalStars  != null) setTotalStars(d.totalStars);
+          if (d?.streak      != null) setStreak(d.streak);
+
+          // ── Sync currentGrade vào localStorage + state ──
+          if (d?.currentGrade != null && d.currentGrade >= 3 && d.currentGrade <= 6) {
+            const gradeStr = String(d.currentGrade);
+            try { localStorage.setItem("student_grade", gradeStr); } catch { /* ignore */ }
+            setGradeBadge(`Lớp ${d.currentGrade}`);
+            // Thông báo cho SubjectPage và các component khác cập nhật lại grade
+            window.dispatchEvent(new Event("grade:updated"));
+          } else {
+            // API không trả currentGrade → fallback sang localStorage (onboarding chưa xong)
+            try {
+              const raw = localStorage.getItem("student_grade");
+              const g = raw ? parseInt(raw, 10) : null;
+              setGradeBadge(g && g >= 3 && g <= 6 ? `Lớp ${g}` : null);
+            } catch { setGradeBadge(null); }
+          }
         })
         .catch(() => {});
 
     fetchDashboard();
 
-    // Lắng nghe event khi kiếm được sao → refresh
+    // Refresh khi kiếm được sao
     window.addEventListener("stars:updated", fetchDashboard);
     return () => {
       cancelled = true;
       window.removeEventListener("stars:updated", fetchDashboard);
     };
-  }, [isLoggedIn]);
-
-  // Grade badge — đọc từ localStorage, sync khi đăng nhập/đăng xuất
-  const [gradeBadge, setGradeBadge] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!isLoggedIn) { setGradeBadge(null); return; }
-    try {
-      const raw = localStorage.getItem("student_grade");
-      const g = raw ? parseInt(raw, 10) : null;
-      setGradeBadge(g && g >= 3 && g <= 6 ? `Lớp ${g}` : null);
-    } catch {
-      setGradeBadge(null);
-    }
   }, [isLoggedIn]);
 
 
