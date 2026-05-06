@@ -162,6 +162,30 @@
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
-  .lop6-page { padding: 1.5rem 1rem 3rem; }
-  .lop6-page__grid { grid-template-columns: 1fr; }
+  .lop6-page { padding: 1.25rem 0.75rem 3rem; }
+  /* 2 cột trên mobile */
+  .lop6-page__grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .lop6-subject-card { padding: 1rem 0.875rem; }
+  .lop6-subject-card__emoji { font-size: 1.9rem; }
+  .lop6-subject-card__title { font-size: 0.95rem; }
+  .lop6-subject-card__desc  { font-size: 0.75rem; }
+  .lop6-subject-card__meta  { font-size: 0.75rem; }
+  .lop6-subject-card__cta   { font-size: 0.8rem; }
+}
+
+/* ── Dark mode: đảm bảo text luôn đọc được ── */
+[data-theme="night"] .lop6-subject-card__title,
+[data-theme="night"] .lop6-subject-card__desc {
+  color: rgba(255,255,255,0.92);
+}
+[data-theme="night"] .lop6-subject-card__meta {
+  /* giữ màu môn nhưng sáng hơn một chút */
+  filter: brightness(1.4);
+}
+[data-theme="night"] .lop6-subject-card__meta--soon,
+[data-theme="night"] .lop6-subject-card__soon {
+  color: rgba(255,255,255,0.55);
+}
+[data-theme="night"] .lop6-subject-card__cta {
+  filter: brightness(1.5);
 }
