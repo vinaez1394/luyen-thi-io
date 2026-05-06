@@ -1,5 +1,5 @@
 # 📘 HƯỚNG DẪN DỰ ÁN — luyen-thi-io
-> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-05 | Writing Engine
+> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-06 | Grade Sync Mobile Fix
 
 ---
 
@@ -42,10 +42,10 @@ luyenthi.io.vn/
 │       ├── /cambridge/flyers/l002         ← Listening Part 4
 │       └── /cambridge/flyers/l003         ← Listening Part 2
 ├── /lop6                       ← Hub Lớp 6
-│   ├── /lop6/toan              ← Toán Tư Duy (available: true)
+│   ├── /lop6/toan              ← Toán (available: true)
 │   │   ├── /lop6/toan/math-l1-p1  ... math-l1-p5  (free)
 │   │   └── /lop6/toan/math-l1-p6  ... math-l1-p10 (premium)
-│   └── /lop6/tieng-anh         ← Tiếng Anh Lớp 6 (available: true)
+│   └── /lop6/tieng-anh         ← English (available: true)
 │       ├── /lop6/tieng-anh/reading-easy-grade3-p1  ← ReadingEngine
 │       ├── /lop6/tieng-anh/reading-easy-grade4-p1
 │       ├── /lop6/tieng-anh/reading-easy-grade5-p1
@@ -546,6 +546,15 @@ const totalQuestions = (quiz as any)?.questions?.length
 
 **Bài học:** Khi thêm loại quiz mới, **phải test browser thực tế**, không chỉ dựa vào `tsc` + `build` pass.
 
+### Grade hiện đúng trên Desktop (DevTools) nhưng mất trên điện thoại thật (2026-05-06)
+
+**Nguyên nhân:** API `/api/student/dashboard` bị lỗi khi lấy thông tin trên điện thoại thật (do session/DB query rơi vào fallback path vì thiếu cột), khiến `currentGrade` trả về `null`. `GlobalHeader` nhận `null` nên không write xuống `localStorage("student_grade")`. Do `localStorage` trên điện thoại thật là hoàn toàn trống (không có cache như Desktop), nên `SubjectPage` đọc bị thiếu và tự fallback sai về "Lớp 5-6".
+
+**Fix:** 
+1. Sửa `student.ts`: Thêm `current_grade` và `selected_pathway` vào query dự phòng (fallback path).
+2. Sửa `GlobalHeader.tsx` & `SubjectPage.tsx`: Header tự động ghi đè `localStorage` và phát event `grade:updated` để SubjectPage cập nhật UI ngay lập tức.
+3. Chỉnh sửa UI drawer mobile: tháo bỏ card bọc avatar, dùng 3 pill tự do (Grade, Sao, Streak) và bỏ nút "Trang chủ" để tối giản không gian.
+
 ---
 
 ## 💰 PRICING DỰ KIẾN
@@ -596,7 +605,7 @@ Dùng lệnh `/debug` → AI hỏi thông tin, điều tra, sửa đúng chỗ.
 ---
 
 *GitHub: https://github.com/vinaez1394/luyen-thi-io*
-*Cập nhật: 2026-05-05 | SubjectPage v4 — Skill Tabs + Grade Card + GlobalHeader Grade Badge*
+*Cập nhật: 2026-05-06 | Grade Sync Mobile Fix & Drawer UI Refactor*
 
 ---
 
