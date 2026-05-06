@@ -1,0 +1,367 @@
+{
+  "id": "WRITING-MED-GRADE3-P3",
+  "title": "Writing — Trung bình — Lớp 3-4 — Bài 3",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the words to make correct sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các từ/cụm từ bị xáo trộn để tạo thành câu hoàn chỉnh và có nghĩa.",
+      "example": {
+        "display_cues": "my uncle / a small village / lives / in / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "doing / what / your / is / brother /?//",
+          "cues_segments": [
+            {
+              "text": "doing / what / your / is / brother /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "what",
+            "is",
+            "your",
+            "brother",
+            "doing"
+          ],
+          "correct": [
+            "what",
+            "is",
+            "your",
+            "brother",
+            "doing"
+          ],
+          "explanation": {
+            "correct_sentence": "What is your brother doing?",
+            "structure_vi": "What + is/are + S + doing?",
+            "grammar_notes": [
+              "✅ Câu hỏi thì Hiện tại tiếp diễn.",
+              "✅ 'your brother' là số ít, dùng 'is'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "doing",
+                "vi": "đang làm",
+                "ipa": "ˈduːɪŋ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What your brother is doing?' → đảo 'is' lên trước chủ ngữ."
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "time / do / what / you / go to bed /?//",
+          "cues_segments": [
+            {
+              "text": "time / do / what / you / go to bed /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "what",
+            "time",
+            "do",
+            "you",
+            "go to bed"
+          ],
+          "correct": [
+            "what",
+            "time",
+            "do",
+            "you",
+            "go to bed"
+          ],
+          "explanation": {
+            "correct_sentence": "What time do you go to bed?",
+            "structure_vi": "What time + do + S + V?",
+            "grammar_notes": [
+              "✅ Cấu trúc hỏi giờ: 'What time'.",
+              "✅ Trợ động từ 'do' đứng trước chủ ngữ 'you'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "go to bed",
+                "vi": "đi ngủ",
+                "ipa": "ɡəʊ tʊ bed"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What do you time go to bed' → từ để hỏi là một cụm 'What time'."
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "she / works / in / a / hospital /.//",
+          "cues_segments": [
+            {
+              "text": "she / works / in / a / "
+            },
+            {
+              "text": "hospital",
+              "tooltip": {
+                "vi": "bệnh viện",
+                "ipa": "ˈhɒspɪtl"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "she",
+            "works",
+            "in",
+            "a",
+            "hospital"
+          ],
+          "correct": [
+            "she",
+            "works",
+            "in",
+            "a",
+            "hospital"
+          ],
+          "explanation": {
+            "correct_sentence": "She works in a hospital.",
+            "structure_vi": "S + V(s/es) + in/at + nơi chốn",
+            "grammar_notes": [
+              "✅ Nói về công việc thường xuyên, dùng Hiện tại đơn.",
+              "✅ Động từ 'works' thêm 's' vì chủ ngữ là 'She'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "hospital",
+                "vi": "bệnh viện",
+                "ipa": "ˈhɒspɪtl"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'She work' → thiếu s."
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "favourite / is / beef / my / food /.//",
+          "cues_segments": [
+            {
+              "text": "favourite / is / "
+            },
+            {
+              "text": "beef",
+              "tooltip": {
+                "vi": "thịt bò",
+                "ipa": "biːf"
+              }
+            },
+            {
+              "text": " / my / food /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "my",
+            "favourite",
+            "food",
+            "is",
+            "beef"
+          ],
+          "correct": [
+            "my",
+            "favourite",
+            "food",
+            "is",
+            "beef"
+          ],
+          "explanation": {
+            "correct_sentence": "My favourite food is beef.",
+            "structure_vi": "My favourite food + is + tên món ăn",
+            "grammar_notes": [
+              "✅ Cụm từ chỉ đồ ăn yêu thích: 'My favourite food'.",
+              "✅ Động từ to be ở số ít là 'is'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "favourite",
+                "vi": "yêu thích",
+                "ipa": "ˈfeɪvərɪt"
+              },
+              {
+                "word": "beef",
+                "vi": "thịt bò",
+                "ipa": "biːf"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My food favourite' → tính từ favourite phải đứng trước danh từ."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "would / you / like / some / orange juice /?//",
+          "cues_segments": [
+            {
+              "text": "would / you / like / some / orange "
+            },
+            {
+              "text": "juice",
+              "tooltip": {
+                "vi": "nước ép",
+                "ipa": "dʒuːs"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "correct_sentence": "Would you like some orange juice?",
+          "accepted_answers": [
+            "Would you like some orange juice?"
+          ],
+          "explanation": {
+            "correct_sentence": "Would you like some orange juice?",
+            "structure_vi": "Would you like + some + đồ uống?",
+            "grammar_notes": [
+              "✅ Mời ai đó dùng gì: 'Would you like...?'",
+              "✅ Với đồ ăn không đếm được dùng 'some'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "orange juice",
+                "vi": "nước cam",
+                "ipa": "ˈɒrɪndʒ dʒuːs"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Do you like some orange juice' → mời phải dùng 'Would'."
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "I / have / English / twice / a week /.//",
+          "cues_segments": [
+            {
+              "text": "I / have / English / "
+            },
+            {
+              "text": "twice",
+              "tooltip": {
+                "vi": "hai lần",
+                "ipa": "twaɪs"
+              }
+            },
+            {
+              "text": " / a week /.//"
+            }
+          ],
+          "correct_sentence": "I have English twice a week.",
+          "accepted_answers": [
+            "I have English twice a week."
+          ],
+          "explanation": {
+            "correct_sentence": "I have English twice a week.",
+            "structure_vi": "S + have/has + môn học + mức độ tần suất",
+            "grammar_notes": [
+              "✅ 'twice a week' (hai lần một tuần) để chỉ sự thường xuyên.",
+              "✅ Chủ ngữ 'I' đi với động từ nguyên mẫu 'have'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "twice a week",
+                "vi": "2 lần mỗi tuần",
+                "ipa": "twaɪs ə wiːk"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'two times a week' → dù không hoàn toàn sai ngữ pháp nhưng 'twice' chuẩn hơn trong chương trình học."
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "the / supermarket / be / behind / the post office /.//",
+          "cues_segments": [
+            {
+              "text": "the / "
+            },
+            {
+              "text": "supermarket",
+              "tooltip": {
+                "vi": "siêu thị",
+                "ipa": "ˈsuːpəmɑːkɪt"
+              }
+            },
+            {
+              "text": " / be / behind / the post office /.//"
+            }
+          ],
+          "correct_sentence": "The supermarket is behind the post office.",
+          "accepted_answers": [
+            "The supermarket is behind the post office."
+          ],
+          "explanation": {
+            "correct_sentence": "The supermarket is behind the post office.",
+            "structure_vi": "S (nơi chốn) + is + giới từ + nơi chốn",
+            "grammar_notes": [
+              "✅ Chỉ vị trí: 'behind' (phía sau).",
+              "✅ 'the supermarket' số ít nên dùng 'is'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "behind",
+                "vi": "ở đằng sau",
+                "ipa": "bɪˈhaɪnd"
+              },
+              {
+                "word": "post office",
+                "vi": "bưu điện",
+                "ipa": "pəʊst ˈɒfɪs"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'The supermarket be' → phải chia to be thành 'is'."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

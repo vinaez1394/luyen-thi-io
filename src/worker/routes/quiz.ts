@@ -111,6 +111,13 @@ try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-EA
 try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-EASY-GRADE5-P2"] = d.default; } catch { /* R2 */ }
 try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P3.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-EASY-GRADE5-P3"] = d.default; } catch { /* R2 */ }
 
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE3-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE3-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P3.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE3-P3"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE5-P1"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE5-P2"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P3.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE5-P3"] = d.default; } catch { /* R2 */ }
+
 type Env = {
   DB: D1Database;
   SESSION: KVNamespace;

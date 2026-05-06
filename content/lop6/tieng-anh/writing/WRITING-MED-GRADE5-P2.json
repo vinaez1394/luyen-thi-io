@@ -1,0 +1,366 @@
+{
+  "id": "WRITING-MED-GRADE5-P2",
+  "title": "Writing — Trung bình — Lớp 5-6 — Bài 2",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the words to make correct sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các từ/cụm từ bị xáo trộn để tạo thành câu hoàn chỉnh và có nghĩa.",
+      "example": {
+        "display_cues": "my uncle / a small village / lives / in / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "will / in the mountains / be / they / tomorrow /.//",
+          "cues_segments": [
+            {
+              "text": "will / in the mountains / be / they / tomorrow /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "they",
+            "will",
+            "be",
+            "in the mountains",
+            "tomorrow"
+          ],
+          "correct": [
+            "they",
+            "will",
+            "be",
+            "in the mountains",
+            "tomorrow"
+          ],
+          "explanation": {
+            "correct_sentence": "They will be in the mountains tomorrow.",
+            "structure_vi": "S + will be + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ 'tomorrow' là tương lai nên dùng 'will be'.",
+              "✅ Nơi chốn đứng trước thời gian."
+            ],
+            "vocab_notes": [
+              {
+                "word": "in the mountains",
+                "vi": "ở trên vùng núi",
+                "ipa": "ɪn ðə ˈmaʊntɪnz"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'They will in the mountains' → thiếu động từ 'be'."
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "because / couldn't / the tree / run down / it was too heavy / the fox /.//",
+          "cues_segments": [
+            {
+              "text": "because / couldn't / the tree / "
+            },
+            {
+              "text": "run down",
+              "tooltip": {
+                "vi": "chạy xuống",
+                "ipa": "rʌn daʊn"
+              }
+            },
+            {
+              "text": " / it was too "
+            },
+            {
+              "text": "heavy",
+              "tooltip": {
+                "vi": "nặng nề",
+                "ipa": "ˈhevi"
+              }
+            },
+            {
+              "text": " / the fox /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "the fox",
+            "couldn't",
+            "run down",
+            "the tree",
+            "because",
+            "it was too heavy"
+          ],
+          "correct": [
+            "the fox",
+            "couldn't",
+            "run down",
+            "the tree",
+            "because",
+            "it was too heavy"
+          ],
+          "explanation": {
+            "correct_sentence": "The fox couldn't run down the tree because it was too heavy.",
+            "structure_vi": "S + couldn't + V + O + because + S + be + adj",
+            "grammar_notes": [
+              "✅ Mệnh đề nguyên nhân bắt đầu bằng 'because'.",
+              "✅ 'couldn't' là dạng phủ định của 'could' ở quá khứ."
+            ],
+            "vocab_notes": [
+              {
+                "word": "heavy",
+                "vi": "nặng",
+                "ipa": "ˈhevi"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'run down the tree the fox' → sai trật tự chủ-vị."
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "you / go out / shouldn't / because / it's raining / hard /.//",
+          "cues_segments": [
+            {
+              "text": "you / go out / shouldn't / because / it's raining / hard /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "you",
+            "shouldn't",
+            "go out",
+            "because",
+            "it's raining",
+            "hard"
+          ],
+          "correct": [
+            "you",
+            "shouldn't",
+            "go out",
+            "because",
+            "it's raining",
+            "hard"
+          ],
+          "explanation": {
+            "correct_sentence": "You shouldn't go out because it's raining hard.",
+            "structure_vi": "S + shouldn't + V + because + S + be V-ing + adv",
+            "grammar_notes": [
+              "✅ Lời khuyên không nên làm gì: 'shouldn't + V'.",
+              "✅ 'raining hard' (mưa lớn) dùng trạng từ 'hard' bổ nghĩa cho động từ 'rain'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "go out",
+                "vi": "đi ra ngoài",
+                "ipa": "ɡəʊ aʊt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'raining hardly' → 'hardly' nghĩa là 'hầu như không', trạng từ của 'hard' vẫn là 'hard'."
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "often / in your free time / do / what / you / do /?//",
+          "cues_segments": [
+            {
+              "text": "often / in your free time / do / what / you / do /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}?",
+          "word_bank": [
+            "what",
+            "do",
+            "you",
+            "often",
+            "do",
+            "in your free time"
+          ],
+          "correct": [
+            "what",
+            "do",
+            "you",
+            "often",
+            "do",
+            "in your free time"
+          ],
+          "explanation": {
+            "correct_sentence": "What do you often do in your free time?",
+            "structure_vi": "What + do + S + often + do + in your free time?",
+            "grammar_notes": [
+              "✅ Cấu trúc hỏi thói quen, sở thích trong thời gian rảnh.",
+              "✅ 'often' đứng trước động từ chính 'do'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "free time",
+                "vi": "thời gian rảnh",
+                "ipa": "friː taɪm"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What do you do often' → trạng từ tần suất thường đứng trước động từ thường."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "he / have / toothache / so / he / should / go / the dentist /.//",
+          "cues_segments": [
+            {
+              "text": "he / have / "
+            },
+            {
+              "text": "toothache",
+              "tooltip": {
+                "vi": "đau răng",
+                "ipa": "ˈtuːθeɪk"
+              }
+            },
+            {
+              "text": " / so / he / should / go / the "
+            },
+            {
+              "text": "dentist",
+              "tooltip": {
+                "vi": "nha sĩ",
+                "ipa": "ˈdentɪst"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "correct_sentence": "He has a toothache so he should go to the dentist.",
+          "accepted_answers": [
+            "He has a toothache so he should go to the dentist.",
+            "He has toothache so he should go to the dentist."
+          ],
+          "explanation": {
+            "correct_sentence": "He has a toothache so he should go to the dentist.",
+            "structure_vi": "S + has (a) bệnh + so + S + should go to the dentist",
+            "grammar_notes": [
+              "✅ Động từ 'have' đi với 'He' chuyển thành 'has'.",
+              "✅ Dùng mạo từ 'a' trước các bệnh đếm được (a toothache), nhưng tiếng Anh Anh có thể bỏ 'a'.",
+              "✅ Giới từ 'to' chỉ hướng đi (go to the dentist)."
+            ],
+            "vocab_notes": [
+              {
+                "word": "dentist",
+                "vi": "nha sĩ",
+                "ipa": "ˈdentɪst"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'He have' → chia sai động từ."
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "how many / lesson / you / have / today /?//",
+          "cues_segments": [
+            {
+              "text": "how many / "
+            },
+            {
+              "text": "lesson",
+              "tooltip": {
+                "vi": "tiết học",
+                "ipa": "ˈlesn"
+              }
+            },
+            {
+              "text": " / you / have / today /?//"
+            }
+          ],
+          "correct_sentence": "How many lessons do you have today?",
+          "accepted_answers": [
+            "How many lessons do you have today?"
+          ],
+          "explanation": {
+            "correct_sentence": "How many lessons do you have today?",
+            "structure_vi": "How many + danh từ đếm được số nhiều + do + S + have?",
+            "grammar_notes": [
+              "✅ Sau 'How many' phải là danh từ số nhiều: 'lessons'.",
+              "✅ Mượn trợ động từ 'do' trước 'you'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "lessons",
+                "vi": "tiết học",
+                "ipa": "ˈlesnz"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'How many lesson' → quên thêm 's' vào từ lesson."
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "I / reading / the / story / of / Mai An Tiem /.//",
+          "cues_segments": [
+            {
+              "text": "I / reading / the / story / of / Mai An Tiem /.//"
+            }
+          ],
+          "correct_sentence": "I am reading the story of Mai An Tiem.",
+          "accepted_answers": [
+            "I am reading the story of Mai An Tiem.",
+            "I'm reading the story of Mai An Tiem."
+          ],
+          "explanation": {
+            "correct_sentence": "I am reading the story of Mai An Tiem.",
+            "structure_vi": "S + am/is/are + V-ing + O",
+            "grammar_notes": [
+              "✅ Có V-ing ('reading') nên phải thêm động từ to be 'am' đi với 'I'.",
+              "✅ Câu diễn tả hành động đang diễn ra ở hiện tại."
+            ],
+            "vocab_notes": [
+              {
+                "word": "story",
+                "vi": "câu chuyện",
+                "ipa": "ˈstɔːri"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'I reading' → thiếu to be 'am'."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

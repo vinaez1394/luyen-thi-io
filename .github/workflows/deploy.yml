@@ -133,7 +133,13 @@ jobs:
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P1.json --file content/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P1.json --content-type application/json --remote
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P2.json --file content/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P2.json --content-type application/json --remote
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P3.json --file content/lop6/tieng-anh/writing/WRITING-EASY-GRADE5-P3.json --content-type application/json --remote
-          echo "✅ R2 sync hoàn tất: lop6/toan(10) + cambridge/flyers/reading(3) + lop6/tieng-anh/reading(18) + lop6/tieng-anh/writing(15)"
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P1.json --file content/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P2.json --file content/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P2.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P3.json --file content/lop6/tieng-anh/writing/WRITING-MED-GRADE3-P3.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P1.json --file content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P1.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P2.json --file content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P2.json --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P3.json --file content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P3.json --content-type application/json --remote
+          echo "✅ R2 sync hoàn tất: lop6/toan(10) + cambridge/flyers/reading(3) + lop6/tieng-anh/reading(18) + lop6/tieng-anh/writing(21)"
 
       # ─── 7. Sync Blog Markdown + Index → R2 ──────────────────────────────────
       # Tự động: quét content/blog/**/*.md và upload lên R2

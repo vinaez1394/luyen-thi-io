@@ -1,0 +1,382 @@
+{
+  "id": "WRITING-MED-GRADE3-P2",
+  "title": "Writing — Trung bình — Lớp 3-4 — Bài 2",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the words to make correct sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các từ/cụm từ bị xáo trộn để tạo thành câu hoàn chỉnh và có nghĩa.",
+      "example": {
+        "display_cues": "my uncle / a small village / lives / in / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "time / you / get up / do / what /?//",
+          "cues_segments": [
+            {
+              "text": "time / you / get up / do / what /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "what",
+            "time",
+            "do",
+            "you",
+            "get up"
+          ],
+          "correct": [
+            "what",
+            "time",
+            "do",
+            "you",
+            "get up"
+          ],
+          "explanation": {
+            "correct_sentence": "What time do you get up?",
+            "structure_vi": "What time + do/does + S + V?",
+            "grammar_notes": [
+              "✅ Cấu trúc hỏi giờ giấc: 'What time'.",
+              "✅ Dùng trợ động từ 'do' với chủ ngữ 'you'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "get up",
+                "vi": "thức dậy",
+                "ipa": "ɡet ʌp"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What you time get up' → sai thứ tự từ."
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "a / let's / to / the / bakery / go /.//",
+          "cues_segments": [
+            {
+              "text": "a / let's / to / the / "
+            },
+            {
+              "text": "bakery",
+              "tooltip": {
+                "vi": "tiệm bánh",
+                "ipa": "ˈbeɪkəri"
+              }
+            },
+            {
+              "text": " / go /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "let's",
+            "go",
+            "to",
+            "the",
+            "bakery"
+          ],
+          "correct": [
+            "let's",
+            "go",
+            "to",
+            "the",
+            "bakery"
+          ],
+          "explanation": {
+            "correct_sentence": "Let's go to the bakery.",
+            "structure_vi": "Let's + V nguyên mẫu + (to nơi chốn).",
+            "grammar_notes": [
+              "✅ Lời rủ rê: 'Let's' (Chúng ta hãy).",
+              "✅ Động từ 'go' dùng ở dạng nguyên thể, đi kèm giới từ 'to' chỉ hướng."
+            ],
+            "vocab_notes": [
+              {
+                "word": "bakery",
+                "vi": "tiệm bánh",
+                "ipa": "ˈbeɪkəri"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Let's going' → sau let's luôn là V nguyên thể."
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "playing / his / Peter / is / guitar / room / in / the /.//",
+          "cues_segments": [
+            {
+              "text": "playing / his / Peter / is / "
+            },
+            {
+              "text": "guitar",
+              "tooltip": {
+                "vi": "đàn ghi-ta",
+                "ipa": "ɡɪˈtɑːr"
+              }
+            },
+            {
+              "text": " / room / in / the /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5} {6} {7}.",
+          "word_bank": [
+            "Peter",
+            "is",
+            "playing",
+            "the",
+            "guitar",
+            "in",
+            "his",
+            "room"
+          ],
+          "correct": [
+            "Peter",
+            "is",
+            "playing",
+            "in",
+            "the",
+            "guitar",
+            "his",
+            "room"
+          ],
+          "explanation": {
+            "correct_sentence": "Peter is playing the guitar in his room.",
+            "structure_vi": "S + be + playing + nhạc cụ + nơi chốn",
+            "grammar_notes": [
+              "✅ Hiện tại tiếp diễn mô tả việc đang xảy ra.",
+              "✅ Cụm từ 'play the guitar' luôn có mạo từ 'the'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "play the guitar",
+                "vi": "chơi ghi-ta",
+                "ipa": "pleɪ ðə ɡɪˈtɑːr"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'playing guitar' → với nhạc cụ phải có mạo từ 'the'."
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "a / lot of / my / monkeys / saw / sister / the / zoo / at /.//",
+          "cues_segments": [
+            {
+              "text": "a / lot of / my / monkeys / "
+            },
+            {
+              "text": "saw",
+              "tooltip": {
+                "vi": "đã nhìn thấy",
+                "ipa": "sɔː"
+              }
+            },
+            {
+              "text": " / sister / the / zoo / at /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5} {6} {7} {8}.",
+          "word_bank": [
+            "my",
+            "sister",
+            "saw",
+            "a",
+            "lot of",
+            "monkeys",
+            "at",
+            "the",
+            "zoo"
+          ],
+          "correct": [
+            "my",
+            "sister",
+            "saw",
+            "a",
+            "lot of",
+            "monkeys",
+            "at",
+            "the",
+            "zoo"
+          ],
+          "explanation": {
+            "correct_sentence": "My sister saw a lot of monkeys at the zoo.",
+            "structure_vi": "S + V (quá khứ) + a lot of + N + nơi chốn",
+            "grammar_notes": [
+              "✅ 'saw' là thì quá khứ của 'see'.",
+              "✅ Cụm từ 'a lot of' đi với danh từ số nhiều 'monkeys'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "a lot of",
+                "vi": "rất nhiều",
+                "ipa": "ə lɒt ɒv"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'saw a lot monkeys' → thiếu 'of'."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "she / want / to be / a nurse / in the future /.//",
+          "cues_segments": [
+            {
+              "text": "she / want / to be / a "
+            },
+            {
+              "text": "nurse",
+              "tooltip": {
+                "vi": "y tá",
+                "ipa": "nɜːs"
+              }
+            },
+            {
+              "text": " / in the future /.//"
+            }
+          ],
+          "correct_sentence": "She wants to be a nurse in the future.",
+          "accepted_answers": [
+            "She wants to be a nurse in the future."
+          ],
+          "explanation": {
+            "correct_sentence": "She wants to be a nurse in the future.",
+            "structure_vi": "S + want(s) to be + a/an + nghề nghiệp",
+            "grammar_notes": [
+              "✅ 'She' là số ít nên 'want' phải thêm 's' thành 'wants'.",
+              "✅ Dùng 'a' trước nghề nghiệp bắt đầu bằng phụ âm (a nurse)."
+            ],
+            "vocab_notes": [
+              {
+                "word": "nurse",
+                "vi": "y tá",
+                "ipa": "nɜːs"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'She want' → thiếu 's'."
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "why / do / you / like / bears /?//",
+          "cues_segments": [
+            {
+              "text": "why / do / you / like / "
+            },
+            {
+              "text": "bears",
+              "tooltip": {
+                "vi": "những con gấu",
+                "ipa": "beəz"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "correct_sentence": "Why do you like bears?",
+          "accepted_answers": [
+            "Why do you like bears?"
+          ],
+          "explanation": {
+            "correct_sentence": "Why do you like bears?",
+            "structure_vi": "Why + do/does + S + like + danh từ?",
+            "grammar_notes": [
+              "✅ Hỏi lí do bằng 'Why'.",
+              "✅ Danh từ chung khi nói về sở thích để ở dạng số nhiều (bears)."
+            ],
+            "vocab_notes": [
+              {
+                "word": "bears",
+                "vi": "loài gấu",
+                "ipa": "beəz"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Why you like bears' → thiếu trợ động từ 'do'."
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "we / not / go / school / yesterday /.//",
+          "cues_segments": [
+            {
+              "text": "we / not / go / school / "
+            },
+            {
+              "text": "yesterday",
+              "tooltip": {
+                "vi": "hôm qua",
+                "ipa": "ˈjestədeɪ"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "correct_sentence": "We did not go to school yesterday.",
+          "accepted_answers": [
+            "We did not go to school yesterday.",
+            "We didn't go to school yesterday."
+          ],
+          "explanation": {
+            "correct_sentence": "We did not go to school yesterday.",
+            "structure_vi": "S + didn't / did not + V + to + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ 'yesterday' là quá khứ, dạng phủ định dùng trợ động từ 'did not' (hoặc didn't).",
+              "✅ Phải dùng giới từ 'to' sau 'go' (go to school)."
+            ],
+            "vocab_notes": [
+              {
+                "word": "go to school",
+                "vi": "đi học",
+                "ipa": "ɡəʊ tʊ skuːl"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'We do not go' → sai thì."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
