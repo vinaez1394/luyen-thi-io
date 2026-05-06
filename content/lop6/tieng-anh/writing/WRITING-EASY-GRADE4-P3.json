@@ -1,0 +1,409 @@
+{
+  "id": "WRITING-EASY-GRADE4-P3",
+  "title": "Writing — Dễ — Lớp 4-5 — Bài 3",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý. Click vào các từ gạch chân chấm chấm để xem nghĩa.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp. Chú ý từ viết hoa đứng đầu câu và dấu câu ở cuối.",
+      "example": {
+        "display_cues": "lives / my uncle / in a small village / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "was / and sunny / it / very hot / in Hanoi yesterday /.//",
+          "cues_segments": [
+            {
+              "text": "was / and "
+            },
+            {
+              "text": "sunny",
+              "tooltip": {
+                "vi": "có nắng",
+                "ipa": "ˈsʌni"
+              }
+            },
+            {
+              "text": " / it / very hot / in Hanoi yesterday /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "it",
+            "was",
+            "very hot",
+            "and sunny",
+            "in Hanoi yesterday"
+          ],
+          "correct": [
+            "it",
+            "was",
+            "very hot",
+            "and sunny",
+            "in Hanoi yesterday"
+          ],
+          "explanation": {
+            "correct_sentence": "It was very hot and sunny in Hanoi yesterday.",
+            "structure_vi": "It + was + adj + and + adj + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ Chủ ngữ giả 'It' dùng để nói về thời tiết",
+              "✅ Dấu hiệu 'yesterday' (hôm qua) → động từ to be chia quá khứ là 'was'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "sunny",
+                "vi": "có nắng",
+                "ipa": "ˈsʌni"
+              },
+              {
+                "word": "hot",
+                "vi": "nóng",
+                "ipa": "hɒt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'It is very hot' → có yesterday nên phải dùng 'was'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "are going to / Ha Long Bay / we / next week / visit /.//",
+          "cues_segments": [
+            {
+              "text": "are going to / Ha Long Bay / we / next week / "
+            },
+            {
+              "text": "visit",
+              "tooltip": {
+                "vi": "thăm quan",
+                "ipa": "ˈvɪzɪt"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "we",
+            "are going to",
+            "visit",
+            "Ha Long Bay",
+            "next week"
+          ],
+          "correct": [
+            "we",
+            "are going to",
+            "visit",
+            "Ha Long Bay",
+            "next week"
+          ],
+          "explanation": {
+            "correct_sentence": "We are going to visit Ha Long Bay next week.",
+            "structure_vi": "S + be going to + V(nguyên mẫu) + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ Dấu hiệu 'next week' (tuần tới) → thì Tương lai gần 'be going to'",
+              "✅ Sau 'be going to' luôn là động từ nguyên mẫu ('visit')"
+            ],
+            "vocab_notes": [
+              {
+                "word": "be going to",
+                "vi": "sắp sửa, dự định",
+                "ipa": "biː ˈɡəʊɪŋ tʊ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'We are going to visiting' → sau going to phải là V nguyên mẫu"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "didn't / they / it rained heavily / because / go camping /.//",
+          "cues_segments": [
+            {
+              "text": "didn't / they / it rained "
+            },
+            {
+              "text": "heavily",
+              "tooltip": {
+                "vi": "nặng hạt, to",
+                "ipa": "ˈhevɪli"
+              }
+            },
+            {
+              "text": " / because / go "
+            },
+            {
+              "text": "camping",
+              "tooltip": {
+                "vi": "cắm trại",
+                "ipa": "ˈkæmpɪŋ"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "they",
+            "didn't",
+            "go camping",
+            "because",
+            "it rained heavily"
+          ],
+          "correct": [
+            "they",
+            "didn't",
+            "go camping",
+            "because",
+            "it rained heavily"
+          ],
+          "explanation": {
+            "correct_sentence": "They didn't go camping because it rained heavily.",
+            "structure_vi": "S + didn't + V + because + S + V(quá khứ)",
+            "grammar_notes": [
+              "✅ Quá khứ đơn: mệnh đề kết quả 'didn't go', mệnh đề nguyên nhân (sau because) 'rained'",
+              "✅ 'heavily' là trạng từ bổ nghĩa cho động từ 'rained' (mưa lớn)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "rain heavily",
+                "vi": "mưa to",
+                "ipa": "reɪn ˈhevɪli"
+              },
+              {
+                "word": "go camping",
+                "vi": "đi cắm trại",
+                "ipa": "ɡəʊ ˈkæmpɪŋ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'because it heavy rain' → sai từ loại, phải dùng động từ rained + trạng từ heavily"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "we / maths and English / on Mondays / have / and Thursdays /.//",
+          "cues_segments": [
+            {
+              "text": "we / maths and English / on Mondays / have / and Thursdays /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "we",
+            "have",
+            "maths and English",
+            "on Mondays",
+            "and Thursdays"
+          ],
+          "correct": [
+            "we",
+            "have",
+            "maths and English",
+            "on Mondays",
+            "and Thursdays"
+          ],
+          "explanation": {
+            "correct_sentence": "We have maths and English on Mondays and Thursdays.",
+            "structure_vi": "S + have + môn học + on + các thứ",
+            "grammar_notes": [
+              "✅ 'Mondays' và 'Thursdays' thêm 's' chỉ thói quen lặp lại hàng tuần",
+              "✅ Giới từ 'on' dùng trước các thứ trong tuần"
+            ],
+            "vocab_notes": [
+              {
+                "word": "maths",
+                "vi": "môn Toán",
+                "ipa": "mæθs"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'in Mondays' → các thứ trong tuần dùng giới từ 'on'"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "you / should / wear / warm coat / because / it / cold / outside /.//",
+          "cues_segments": [
+            {
+              "text": "you / should / wear / warm "
+            },
+            {
+              "text": "coat",
+              "tooltip": {
+                "vi": "áo khoác",
+                "ipa": "kəʊt"
+              }
+            },
+            {
+              "text": " / because / it / cold / outside /.//"
+            }
+          ],
+          "accepted_answers": [
+            "You should wear a warm coat because it is cold outside.",
+            "you should wear a warm coat because it is cold outside"
+          ],
+          "explanation": {
+            "correct_sentence": "You should wear a warm coat because it is cold outside.",
+            "structure_vi": "S + should + V(nguyên mẫu) + O + because + It is + adj",
+            "grammar_notes": [
+              "✅ Lời khuyên: dùng 'should' + V nguyên mẫu ('wear')",
+              "✅ Danh từ đếm được số ít 'coat' cần có mạo từ 'a' đứng trước cụm tính từ (a warm coat)",
+              "✅ Thời tiết: 'it is cold'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "warm coat",
+                "vi": "áo khoác ấm",
+                "ipa": "wɔːm kəʊt"
+              },
+              {
+                "word": "outside",
+                "vi": "bên ngoài",
+                "ipa": "ˌaʊtˈsaɪd"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'wear warm coat' → thiếu mạo từ 'a'",
+              "❌ Sai: 'because it cold' → thiếu động từ to be 'is'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "what / the weather / like / Ho Chi Minh City / today /?//",
+          "cues_segments": [
+            {
+              "text": "what / the "
+            },
+            {
+              "text": "weather",
+              "tooltip": {
+                "vi": "thời tiết",
+                "ipa": "ˈweðər"
+              }
+            },
+            {
+              "text": " / like / Ho Chi Minh City / today /?//"
+            }
+          ],
+          "accepted_answers": [
+            "What is the weather like in Ho Chi Minh City today?",
+            "what is the weather like in ho chi minh city today"
+          ],
+          "explanation": {
+            "correct_sentence": "What is the weather like in Ho Chi Minh City today?",
+            "structure_vi": "What is the weather like + in + nơi chốn + thời gian?",
+            "grammar_notes": [
+              "✅ Cấu trúc hỏi thời tiết: 'What is the weather like?'",
+              "✅ Tên thành phố đi kèm giới từ 'in' (in Ho Chi Minh City)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "weather",
+                "vi": "thời tiết",
+                "ipa": "ˈweðər"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What the weather like' → thiếu động từ to be 'is'",
+              "❌ Sai: 'How is the weather like' → Hỏi How thì không có like, What thì có like"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "my mother / buy / a new dress / me / yesterday /.//",
+          "cues_segments": [
+            {
+              "text": "my mother / buy / a new "
+            },
+            {
+              "text": "dress",
+              "tooltip": {
+                "vi": "chiếc váy",
+                "ipa": "dres"
+              }
+            },
+            {
+              "text": " / me / yesterday /.//"
+            }
+          ],
+          "accepted_answers": [
+            "My mother bought a new dress for me yesterday.",
+            "my mother bought a new dress for me yesterday",
+            "My mother bought me a new dress yesterday."
+          ],
+          "explanation": {
+            "correct_sentence": "My mother bought a new dress for me yesterday.",
+            "structure_vi": "S + bought + vật + for + người + thời gian",
+            "grammar_notes": [
+              "✅ Quá khứ của 'buy' là 'bought'",
+              "✅ Cấu trúc mua cho ai cái gì: buy something FOR someone (bought a dress for me)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "bought",
+                "vi": "đã mua (quá khứ của buy)",
+                "ipa": "bɔːt"
+              },
+              {
+                "word": "dress",
+                "vi": "cái váy",
+                "ipa": "dres"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'buyed' → buy là động từ bất quy tắc, quá khứ là bought",
+              "❌ Sai: 'bought a new dress to me' → dùng giới từ 'for' mới chính xác"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

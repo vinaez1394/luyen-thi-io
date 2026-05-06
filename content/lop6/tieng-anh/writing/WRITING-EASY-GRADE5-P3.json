@@ -1,0 +1,436 @@
+{
+  "id": "WRITING-EASY-GRADE5-P3",
+  "title": "Writing — Dễ — Lớp 5-6 — Bài 3",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý. Click vào các từ gạch chân chấm chấm để xem nghĩa.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp. Chú ý từ viết hoa đứng đầu câu và dấu câu ở cuối.",
+      "example": {
+        "display_cues": "lives / my uncle / in a small village / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "more trees / we should plant / our environment / to protect /.//",
+          "cues_segments": [
+            {
+              "text": "more trees / we should plant / our "
+            },
+            {
+              "text": "environment",
+              "tooltip": {
+                "vi": "môi trường",
+                "ipa": "ɪnˈvaɪrənmənt"
+              }
+            },
+            {
+              "text": " / to "
+            },
+            {
+              "text": "protect",
+              "tooltip": {
+                "vi": "bảo vệ",
+                "ipa": "prəˈtekt"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "we should plant",
+            "more trees",
+            "to protect",
+            "our environment"
+          ],
+          "correct": [
+            "we should plant",
+            "more trees",
+            "to protect",
+            "our environment"
+          ],
+          "explanation": {
+            "correct_sentence": "We should plant more trees to protect our environment.",
+            "structure_vi": "S + should + V + O + to-V (mục đích) + O",
+            "grammar_notes": [
+              "✅ Cấu trúc 'to + V nguyên thể' (to protect) dùng để chỉ mục đích",
+              "✅ 'should plant' đưa ra lời khuyên"
+            ],
+            "vocab_notes": [
+              {
+                "word": "environment",
+                "vi": "môi trường",
+                "ipa": "ɪnˈvaɪrənmənt"
+              },
+              {
+                "word": "protect",
+                "vi": "bảo vệ",
+                "ipa": "prəˈtekt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'for protect' → mục đích phải dùng 'to protect'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "into the river or the lake / don't / rubbish / throw /.//",
+          "cues_segments": [
+            {
+              "text": "into the river or the lake / don't / "
+            },
+            {
+              "text": "rubbish",
+              "tooltip": {
+                "vi": "rác thải",
+                "ipa": "ˈrʌbɪʃ"
+              }
+            },
+            {
+              "text": " / "
+            },
+            {
+              "text": "throw",
+              "tooltip": {
+                "vi": "vứt, ném",
+                "ipa": "θrəʊ"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "don't",
+            "throw",
+            "rubbish",
+            "into the river or the lake"
+          ],
+          "correct": [
+            "don't",
+            "throw",
+            "rubbish",
+            "into the river or the lake"
+          ],
+          "explanation": {
+            "correct_sentence": "Don't throw rubbish into the river or the lake.",
+            "structure_vi": "Don't + V(nguyên) + O + into + nơi chốn",
+            "grammar_notes": [
+              "✅ Câu mệnh lệnh phủ định bắt đầu bằng 'Don't' + V nguyên mẫu",
+              "✅ Giới từ 'into' mang nghĩa 'vào bên trong' (vứt rác vào dòng sông)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "throw rubbish",
+                "vi": "vứt rác",
+                "ipa": "θrəʊ ˈrʌbɪʃ"
+              },
+              {
+                "word": "lake",
+                "vi": "hồ nước",
+                "ipa": "leɪk"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Not throw' → câu mệnh lệnh phủ định phải dùng 'Don't'"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "goes for a walk / my grandfather / in the park / every morning /.//",
+          "cues_segments": [
+            {
+              "text": "goes for a walk / my "
+            },
+            {
+              "text": "grandfather",
+              "tooltip": {
+                "vi": "ông nội/ngoại",
+                "ipa": "ˈɡrænˌfɑːðər"
+              }
+            },
+            {
+              "text": " / in the park / every morning /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "my grandfather",
+            "goes for a walk",
+            "in the park",
+            "every morning"
+          ],
+          "correct": [
+            "my grandfather",
+            "goes for a walk",
+            "in the park",
+            "every morning"
+          ],
+          "explanation": {
+            "correct_sentence": "My grandfather goes for a walk in the park every morning.",
+            "structure_vi": "S + V(s/es) + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ 'every morning' (mỗi sáng) là dấu hiệu thì Hiện tại đơn",
+              "✅ 'grandfather' là ngôi 3 số ít nên 'go' thêm -es thành 'goes'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "go for a walk",
+                "vi": "đi dạo",
+                "ipa": "ɡəʊ fɔːr ə wɔːk"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'go for a walk' → thiếu chia động từ -es"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "how much / you / water / do / drink every day /?//",
+          "cues_segments": [
+            {
+              "text": "how much / you / water / do / drink every day /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "how much",
+            "water",
+            "do",
+            "you",
+            "drink every day"
+          ],
+          "correct": [
+            "how much",
+            "water",
+            "do",
+            "you",
+            "drink every day"
+          ],
+          "explanation": {
+            "correct_sentence": "How much water do you drink every day?",
+            "structure_vi": "How much + danh từ không đếm được + do/does + S + V?",
+            "grammar_notes": [
+              "✅ 'water' là danh từ không đếm được nên dùng từ để hỏi 'How much'",
+              "✅ 'do' là trợ động từ đứng trước chủ ngữ 'you' trong câu hỏi"
+            ],
+            "vocab_notes": [
+              {
+                "word": "how much",
+                "vi": "bao nhiêu (không đếm được)",
+                "ipa": "haʊ mʌtʃ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'How many water' → water không đếm được, dùng how much"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "turn off / the lights / when / you / leave / the room /.//",
+          "cues_segments": [
+            {
+              "text": "turn off / the lights / when / you / "
+            },
+            {
+              "text": "leave",
+              "tooltip": {
+                "vi": "rời khỏi",
+                "ipa": "liːv"
+              }
+            },
+            {
+              "text": " / the room /.//"
+            }
+          ],
+          "accepted_answers": [
+            "Turn off the lights when you leave the room.",
+            "turn off the lights when you leave the room"
+          ],
+          "explanation": {
+            "correct_sentence": "Turn off the lights when you leave the room.",
+            "structure_vi": "V(mệnh lệnh) + O + when + S + V + O",
+            "grammar_notes": [
+              "✅ Mệnh đề đầu là câu mệnh lệnh khẳng định, bắt đầu bằng động từ nguyên mẫu (Turn off)",
+              "✅ 'when' nối hai vế hành động chỉ thời điểm"
+            ],
+            "vocab_notes": [
+              {
+                "word": "turn off",
+                "vi": "tắt (đèn, máy móc)",
+                "ipa": "tɜːn ɒf"
+              },
+              {
+                "word": "leave",
+                "vi": "rời đi",
+                "ipa": "liːv"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Turn of' → sai chính tả, phải là 'off' (có 2 chữ f)"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "they / be going to / clean / the classroom / tomorrow afternoon /.//",
+          "cues_segments": [
+            {
+              "text": "they / be going to / clean / the classroom / "
+            },
+            {
+              "text": "tomorrow",
+              "tooltip": {
+                "vi": "ngày mai",
+                "ipa": "təˈmɒrəʊ"
+              }
+            },
+            {
+              "text": " afternoon /.//"
+            }
+          ],
+          "accepted_answers": [
+            "They are going to clean the classroom tomorrow afternoon.",
+            "they are going to clean the classroom tomorrow afternoon"
+          ],
+          "explanation": {
+            "correct_sentence": "They are going to clean the classroom tomorrow afternoon.",
+            "structure_vi": "S + am/is/are + going to + V(nguyên) + O + thời gian",
+            "grammar_notes": [
+              "✅ 'tomorrow afternoon' → tương lai gần. Phải chia 'be' theo chủ ngữ 'They' thành 'are going to'",
+              "✅ Sau 'be going to' là động từ nguyên mẫu (clean)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "clean",
+                "vi": "dọn dẹp",
+                "ipa": "kliːn"
+              },
+              {
+                "word": "tomorrow afternoon",
+                "vi": "chiều mai",
+                "ipa": "təˈmɒrəʊ ˌɑːftəˈnuːn"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'They be going to' → phải chia động từ to be thành 'are'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "ride / a bike / be / good / your health / and / the environment /.//",
+          "cues_segments": [
+            {
+              "text": "ride / a bike / be / "
+            },
+            {
+              "text": "good",
+              "tooltip": {
+                "vi": "tốt",
+                "ipa": "ɡʊd"
+              }
+            },
+            {
+              "text": " / your "
+            },
+            {
+              "text": "health",
+              "tooltip": {
+                "vi": "sức khỏe",
+                "ipa": "helθ"
+              }
+            },
+            {
+              "text": " / and / the "
+            },
+            {
+              "text": "environment",
+              "tooltip": {
+                "vi": "môi trường",
+                "ipa": "ɪnˈvaɪrənmənt"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "Riding a bike is good for your health and the environment.",
+            "riding a bike is good for your health and the environment",
+            "To ride a bike is good for your health and the environment."
+          ],
+          "explanation": {
+            "correct_sentence": "Riding a bike is good for your health and the environment.",
+            "structure_vi": "V-ing (chủ ngữ) + is + good for + N1 + and + N2",
+            "grammar_notes": [
+              "✅ Hành động (ride) đứng đầu câu làm chủ ngữ thì phải thêm -ing thành 'Riding'",
+              "✅ V-ing làm chủ ngữ luôn đi với to be số ít ('is')",
+              "✅ 'good for' = tốt cho cái gì (ngược với bad for)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "health",
+                "vi": "sức khỏe",
+                "ipa": "helθ"
+              },
+              {
+                "word": "environment",
+                "vi": "môi trường",
+                "ipa": "ɪnˈvaɪrənmənt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Ride a bike is...' → sai ngữ pháp, Ride là động từ thường không thể làm chủ ngữ",
+              "❌ Sai: 'good to your health' → sai giới từ, cấu trúc chuẩn là 'good for'"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

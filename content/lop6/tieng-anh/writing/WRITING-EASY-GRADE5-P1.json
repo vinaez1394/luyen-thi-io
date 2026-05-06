@@ -1,0 +1,415 @@
+{
+  "id": "WRITING-EASY-GRADE5-P1",
+  "title": "Writing — Dễ — Lớp 5-6 — Bài 1",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý. Click vào các từ gạch chân chấm chấm để xem nghĩa.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp. Chú ý từ viết hoa đứng đầu câu và dấu câu ở cuối.",
+      "example": {
+        "display_cues": "lives / my uncle / in a small village / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "will live / I think / on the moon / people / in the future /.//",
+          "cues_segments": [
+            {
+              "text": "will live / I think / on the "
+            },
+            {
+              "text": "moon",
+              "tooltip": {
+                "vi": "mặt trăng",
+                "ipa": "muːn"
+              }
+            },
+            {
+              "text": " / people / in the "
+            },
+            {
+              "text": "future",
+              "tooltip": {
+                "vi": "tương lai",
+                "ipa": "ˈfjuːtʃər"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "I think",
+            "people",
+            "will live",
+            "on the moon",
+            "in the future"
+          ],
+          "correct": [
+            "I think",
+            "people",
+            "will live",
+            "on the moon",
+            "in the future"
+          ],
+          "explanation": {
+            "correct_sentence": "I think people will live on the moon in the future.",
+            "structure_vi": "I think + S + will + V + giới từ + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ Dự đoán tương lai dùng 'will' + V nguyên mẫu",
+              "✅ 'on the moon' (trên mặt trăng) dùng giới từ 'on' và mạo từ 'the'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "in the future",
+                "vi": "trong tương lai",
+                "ipa": "ɪn ðə ˈfjuːtʃər"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'will living' → sau will phải dùng V nguyên mẫu"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "what / this weekend / will you do / with your family /?//",
+          "cues_segments": [
+            {
+              "text": "what / this weekend / will you do / with your "
+            },
+            {
+              "text": "family",
+              "tooltip": {
+                "vi": "gia đình",
+                "ipa": "ˈfæməli"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}?",
+          "word_bank": [
+            "what",
+            "will you do",
+            "with your family",
+            "this weekend"
+          ],
+          "correct": [
+            "what",
+            "will you do",
+            "with your family",
+            "this weekend"
+          ],
+          "explanation": {
+            "correct_sentence": "What will you do with your family this weekend?",
+            "structure_vi": "What + will + S + do + with + người + thời gian?",
+            "grammar_notes": [
+              "✅ Câu hỏi thì tương lai đơn với từ để hỏi: What + will + S + V?",
+              "✅ Trạng ngữ chỉ thời gian 'this weekend' đặt ở cuối câu"
+            ],
+            "vocab_notes": [
+              {
+                "word": "this weekend",
+                "vi": "cuối tuần này",
+                "ipa": "ðɪs ˌwiːkˈend"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What you will do' → câu hỏi phải đảo 'will' lên trước chủ ngữ 'you'"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "he / than / is / his older brother / taller /.//",
+          "cues_segments": [
+            {
+              "text": "he / than / is / his older "
+            },
+            {
+              "text": "brother",
+              "tooltip": {
+                "vi": "anh trai",
+                "ipa": "ˈbrʌðər"
+              }
+            },
+            {
+              "text": " / taller /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "he",
+            "is",
+            "taller",
+            "than",
+            "his older brother"
+          ],
+          "correct": [
+            "he",
+            "is",
+            "taller",
+            "than",
+            "his older brother"
+          ],
+          "explanation": {
+            "correct_sentence": "He is taller than his older brother.",
+            "structure_vi": "S1 + is + adj-er + than + S2",
+            "grammar_notes": [
+              "✅ Cấu trúc so sánh hơn với tính từ ngắn (tall): thêm đuôi '-er' thành 'taller'",
+              "✅ Bắt buộc có từ 'than' (hơn) nối giữa hai đối tượng"
+            ],
+            "vocab_notes": [
+              {
+                "word": "tall",
+                "vi": "cao",
+                "ipa": "tɔːl"
+              },
+              {
+                "word": "older brother",
+                "vi": "anh trai",
+                "ipa": "ˈoʊldər ˈbrʌðər"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'He is more tall' → tall là tính từ ngắn nên dùng đuôi -er, không dùng 'more'"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "the museum / and / we visited / saw / many old things /.//",
+          "cues_segments": [
+            {
+              "text": "the "
+            },
+            {
+              "text": "museum",
+              "tooltip": {
+                "vi": "bảo tàng",
+                "ipa": "mjuːˈziːəm"
+              }
+            },
+            {
+              "text": " / and / we visited / saw / many old things /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "we visited",
+            "the museum",
+            "and",
+            "saw",
+            "many old things"
+          ],
+          "correct": [
+            "we visited",
+            "the museum",
+            "and",
+            "saw",
+            "many old things"
+          ],
+          "explanation": {
+            "correct_sentence": "We visited the museum and saw many old things.",
+            "structure_vi": "S + V1(ed) + O1 + and + V2(bất quy tắc) + O2",
+            "grammar_notes": [
+              "✅ Cả hai hành động đều ở quá khứ, nối với nhau bằng 'and'",
+              "✅ 'saw' là dạng quá khứ của động từ bất quy tắc 'see'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "museum",
+                "vi": "bảo tàng",
+                "ipa": "mjuːˈziːəm"
+              },
+              {
+                "word": "saw",
+                "vi": "đã nhìn thấy (quá khứ của see)",
+                "ipa": "sɔː"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'we visited the museum and see' → hai vế phải cùng thì quá khứ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "they / watch / a movie / when / the phone / ring /.//",
+          "cues_segments": [
+            {
+              "text": "they / watch / a movie / when / the phone / "
+            },
+            {
+              "text": "ring",
+              "tooltip": {
+                "vi": "rung chuông",
+                "ipa": "rɪŋ"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "They were watching a movie when the phone rang.",
+            "they were watching a movie when the phone rang"
+          ],
+          "explanation": {
+            "correct_sentence": "They were watching a movie when the phone rang.",
+            "structure_vi": "S + were/was V-ing + when + S + V(quá khứ đơn)",
+            "grammar_notes": [
+              "✅ Mệnh đề Quá khứ tiếp diễn (were watching) diễn tả hành động ĐANG xảy ra",
+              "✅ Mệnh đề Quá khứ đơn (rang) diễn tả hành động xen vào",
+              "✅ Quá khứ của 'ring' là 'rang'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "rang",
+                "vi": "đã reo (chuông)",
+                "ipa": "ræŋ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'They watched a movie when the phone was ringing' → ngược thì. Hành động dài (xem) dùng tiếp diễn, hành động ngắn (chuông reo) dùng đơn."
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "will / you / go / the beach / your summer holiday /?//",
+          "cues_segments": [
+            {
+              "text": "will / you / go / the "
+            },
+            {
+              "text": "beach",
+              "tooltip": {
+                "vi": "bãi biển",
+                "ipa": "biːtʃ"
+              }
+            },
+            {
+              "text": " / your summer "
+            },
+            {
+              "text": "holiday",
+              "tooltip": {
+                "vi": "kỳ nghỉ",
+                "ipa": "ˈhɒlədeɪ"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "accepted_answers": [
+            "Will you go to the beach for your summer holiday?",
+            "will you go to the beach for your summer holiday"
+          ],
+          "explanation": {
+            "correct_sentence": "Will you go to the beach for your summer holiday?",
+            "structure_vi": "Will + S + go to + nơi chốn + for + sự kiện/dịp?",
+            "grammar_notes": [
+              "✅ Giới từ 'for' dùng để chỉ mục đích (cho kỳ nghỉ hè)",
+              "✅ Cụm từ cố định 'go to the beach'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "summer holiday",
+                "vi": "kỳ nghỉ hè",
+                "ipa": "ˈsʌmər ˈhɒlədeɪ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'go the beach' → thiếu giới từ 'to'",
+              "❌ Sai: 'in your summer holiday' → thường dùng 'for' với ý nghĩa 'dành cho kỳ nghỉ'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "this book / be / interesting / than / that one /.//",
+          "cues_segments": [
+            {
+              "text": "this book / be / "
+            },
+            {
+              "text": "interesting",
+              "tooltip": {
+                "vi": "thú vị",
+                "ipa": "ˈɪntrəstɪŋ"
+              }
+            },
+            {
+              "text": " / than / that one /.//"
+            }
+          ],
+          "accepted_answers": [
+            "This book is more interesting than that one.",
+            "this book is more interesting than that one"
+          ],
+          "explanation": {
+            "correct_sentence": "This book is more interesting than that one.",
+            "structure_vi": "S1 + is + more + tính từ dài + than + S2",
+            "grammar_notes": [
+              "✅ 'interesting' là tính từ dài (3 âm tiết) nên cấu trúc so sánh hơn dùng 'more interesting'",
+              "✅ Bắt buộc có 'than' để so sánh"
+            ],
+            "vocab_notes": [
+              {
+                "word": "more interesting",
+                "vi": "thú vị hơn",
+                "ipa": "mɔːr ˈɪntrəstɪŋ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'is interestinger' → tính từ dài không thêm đuôi -er",
+              "❌ Sai: 'is more interesting that' → chữ dùng để so sánh là 'than', không phải 'that'"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

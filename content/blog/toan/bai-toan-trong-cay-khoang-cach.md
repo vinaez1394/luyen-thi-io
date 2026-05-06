@@ -16,7 +16,6 @@ reading_time: 5
 grade_target: "3-5"
 is_featured: true
 ---
-
 ## 🌳 Bài Toán Trồng Cây Là Gì?
 
 Đây là một dạng toán rất hay gặp trong các kỳ thi vào lớp 6. Bài toán thường hỏi: **"Trồng mấy cây thì có bao nhiêu khoảng cách?"** hoặc ngược lại.
@@ -53,16 +52,20 @@ Khi trồng quanh ao, quanh vườn, quanh sân:
 ## 📝 Ví Dụ Bài Tập
 
 ### Bài 1 — Cơ bản
+
 **Đề:** Trồng 6 cây cách đều nhau dọc theo con đường, khoảng cách mỗi cây là 4m. Cây đầu đến cây cuối cách nhau bao nhiêu mét?
 
 **Giải:**
+
 - Số khoảng cách = 6 - 1 = **5 khoảng**
 - Tổng chiều dài = 5 × 4m = **20m** ✅
 
 ### Bài 2 — Nâng cao
+
 **Đề:** Một đoạn đường dài 21m. Người ta trồng cây từ đầu đến cuối đường, khoảng cách đều nhau. Biết có 8 cây, hỏi mỗi khoảng cách bao nhiêu mét?
 
 **Giải:**
+
 - Số khoảng cách = 8 - 1 = **7 khoảng**
 - Mỗi khoảng cách = 21 ÷ 7 = **3m** ✅
 
@@ -70,11 +73,11 @@ Khi trồng quanh ao, quanh vườn, quanh sân:
 
 ## ⚠️ BẪY HAY GẶP
 
-| Bẫy | Giải thích |
-|-----|------------|
-| Quên trừ 1 | "6 cây → 6 khoảng" ❌ Phải là 5 khoảng |
+| Bẫy                | Giải thích                                                            |
+| ------------------- | ----------------------------------------------------------------------- |
+| Quên trừ 1        | "6 cây → 6 khoảng" ❌ Phải là 5 khoảng                            |
 | Nhầm trường hợp | Đề nói "trồng quanh hồ" nhưng vẫn dùng công thức hàng thẳng |
-| Đơn vị | Để ý đề hỏi số cây hay tổng chiều dài |
+| Đơn vị           | Để ý đề hỏi số cây hay tổng chiều dài                        |
 
 ---
 
