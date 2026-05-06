@@ -33,7 +33,7 @@ export function PathwaySelectionPage() {
               Ôn tập toàn diện các môn thi tuyển sinh lớp 6 THCS
             </p>
             <div className="pathway-card__levels">
-              {["🧮 Toán", "📖 Tiếng Việt", "🌐 Tiếng Anh", "🔬 Khoa học"].map((m) => (
+              {["🧮 Toán", "📖 Tiếng Việt", "🇬🇧 Tiếng Anh", "🔬 Khoa học"].map((m) => (
                 <span key={m} className="pathway-card__level-badge">{m}</span>
               ))}
             </div>
