@@ -6,6 +6,7 @@ import { studentRoute } from "./routes/student";
 import { quizRoute } from "./routes/quiz";
 import { vocabularyRoute } from "./routes/vocabulary";
 import { progressRoute } from "./routes/progress";
+import { blogRoutes } from "./routes/blog";
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -33,6 +34,9 @@ app.route("/api/vocabulary", vocabularyRoute);
 
 // Progress summary (Dashboard Phase 3)
 app.route("/api/student", progressRoute);
+
+// Blog "Kiến Thức" (Phase Blog-01)
+app.route("/api/blog", blogRoutes);
 
 // Default API route
 app.get("/api/", (c) => c.json({ name: "luyen-thi-io API", version: "0.1.0" }));
