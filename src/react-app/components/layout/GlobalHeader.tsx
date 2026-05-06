@@ -418,37 +418,25 @@ export function GlobalHeader() {
               </button>
             </div>
 
-            {/* ── User stats card (grade + stars + streak) — chỉ hiện khi đăng nhập ── */}
+
+            {/* ── User stats: 3 pills thả ngay dưới header, không có khung ── */}
             {isLoggedIn && (
-              <div className="mobile-drawer__user-card">
-                <div className="mobile-drawer__user-card-avatar">
-                  {displayName[0]?.toUpperCase() ?? "B"}
-                </div>
-                <div className="mobile-drawer__user-card-stats">
-                  {gradeBadge && (
-                    <span className="mobile-drawer__user-stat mobile-drawer__user-stat--grade">
-                      🏫 {gradeBadge}
-                    </span>
-                  )}
-                  <span className="mobile-drawer__user-stat mobile-drawer__user-stat--stars">
-                    ⭐ {totalStars}
+              <div className="mobile-drawer__stats-row">
+                {gradeBadge && (
+                  <span className="mobile-drawer__user-stat mobile-drawer__user-stat--grade">
+                    🏫 {gradeBadge}
                   </span>
-                  {streak > 0 && (
-                    <span className="mobile-drawer__user-stat mobile-drawer__user-stat--streak">
-                      🔥 {streak} ngày
-                    </span>
-                  )}
-                </div>
+                )}
+                <span className="mobile-drawer__user-stat mobile-drawer__user-stat--stars">
+                  ⭐ {totalStars}
+                </span>
+                {streak > 0 && (
+                  <span className="mobile-drawer__user-stat mobile-drawer__user-stat--streak">
+                    🔥 {streak} ngày
+                  </span>
+                )}
               </div>
             )}
-
-            {/* Trang chủ */}
-            <button
-              className={`mobile-drawer__nav-link ${location.pathname === "/" ? "active" : ""}`}
-              onClick={() => { navigate("/"); setDrawerOpen(false); }}
-            >
-              <span className="mobile-drawer__nav-icon">🏠</span> Trang chủ
-            </button>
 
             {/* Lộ trình — Lớp 6 LUÔN XẾP TRƯỚC trong drawer */}
             <div className="mobile-drawer__subject-group">

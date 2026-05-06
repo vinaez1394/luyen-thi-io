@@ -213,12 +213,14 @@ studentRoute.get("/dashboard", async (c) => {
     try {
       const fallbackRow = await c.env.DB.prepare(`
         SELECT
-          sp.id            AS profileId,
-          sp.display_name  AS displayName,
-          sp.avatar_id     AS avatarId,
+          sp.id                AS profileId,
+          sp.display_name      AS displayName,
+          sp.avatar_id         AS avatarId,
           sp.theme,
-          ss.total_stars   AS totalStars,
-          ss.current_streak AS streak,
+          sp.current_grade     AS currentGrade,
+          sp.selected_pathway  AS selectedPathway,
+          ss.total_stars       AS totalStars,
+          ss.current_streak    AS streak,
           ss.lvl_listening_p1, ss.lvl_listening_p2,
           ss.lvl_reading_p1,   ss.lvl_reading_p2,
           ss.lvl_writing_p1
@@ -231,6 +233,8 @@ studentRoute.get("/dashboard", async (c) => {
         displayName:      string;
         avatarId:         string;
         theme:            string;
+        currentGrade:     number | null;
+        selectedPathway:  string | null;
         totalStars:       number;
         streak:           number;
         lvl_listening_p1: number;
@@ -240,7 +244,7 @@ studentRoute.get("/dashboard", async (c) => {
         lvl_writing_p1:   number;
       }>();
       if (fallbackRow) {
-        row = { ...fallbackRow, currentGrade: null, selectedPathway: null, lastQuizId: null };
+        row = { ...fallbackRow, lastQuizId: null };
       }
     } catch {
       // Nếu cả fallback cũng fail thì trả 500 thật

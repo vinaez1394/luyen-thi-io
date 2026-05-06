@@ -407,6 +407,14 @@
   color: var(--color-text);
 }
 
+/* 3 stats pills — thả tự do dưới header, không có khung card */
+.mobile-drawer__stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: var(--space-1) var(--space-1);
+}
+
 /* User stats card trong drawer (grade + stars) */
 .mobile-drawer__user-card {
   display: flex;
