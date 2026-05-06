@@ -437,7 +437,7 @@
 
 .sp-lesson-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
   gap: var(--space-2);
 }
 
@@ -456,6 +456,7 @@
 
 @media (max-width: 600px) {
   .sp-lesson-grid {
+    /* 2 cột cố định — dùng 1fr để không bao giờ overflow viewport */
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-1);
   }
@@ -475,11 +476,15 @@
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-lg, 12px);
   cursor: pointer;
+  /* ✅ min-width: 0 prevents flex/grid children from overflowing the cell */
+  min-width: 0;
+  overflow: hidden; /* clip nội dung card, không ảnh hưởng ribbon vì ribbon dùng overflow visible cấp grid */
+  box-sizing: border-box;
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
     transform var(--transition-bounce);
-  /* ⚠️ RULE: NO overflow:hidden — badge Recommended phải visible */
+  /* ⚠️ RULE: ribbon .sp-lesson-card__recommended dùng position absolute — đầu card, vẫn hiển thị */
 }
 
 .sp-lesson-card:hover {
@@ -597,10 +602,17 @@
 /* Mobile tweaks */
 @media (max-width: 600px) {
   .sp-lesson-card {
-    padding: var(--space-1) 0.75rem;
+    padding: var(--space-1) 0.625rem;
   }
   .sp-lesson-card__emoji { font-size: 1.5rem; }
   .sp-lesson-card__title { font-size: var(--font-xs); }
+  /* Header badges: căt ngắn nếu quá dài */
+  .sp-lesson-card__header .badge {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
