@@ -94,9 +94,9 @@ jobs:
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P9.json  --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P9.json  --content-type application/json --remote
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P10.json --file content/lop6/toan/toan-tu-duy-logic/MATH-THINKING-GRADE3-L1-P10.json --content-type application/json --remote
           echo "▶ Cambridge / Flyers / Reading..."
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW001.json   --file content/flyers/RW001.json                  --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW2-001.json --file content/flyers/reading/RW2-001.json         --content-type application/json --remote
-          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW3-001.json --file content/flyers/reading/RW3-001.json         --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW001.json   --file content/Cambridge/flyers/RW001.json                  --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW2-001.json --file content/Cambridge/flyers/reading/RW2-001.json         --content-type application/json --remote
+          ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/reading/RW3-001.json --file content/Cambridge/flyers/reading/RW3-001.json         --content-type application/json --remote
           echo "▶ Lớp 6 / Tiếng Anh / Reading Passage (9 bài MỚI)..."
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json --content-type application/json --remote
           ./node_modules/.bin/wrangler r2 object put luyen-thi-content/quizzes/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json --file content/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json --content-type application/json --remote

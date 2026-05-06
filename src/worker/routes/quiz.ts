@@ -67,7 +67,7 @@ try {
 } catch { /* Production: dùng R2 */ }
 
 try {
-  const rw001 = await import("../../../content/flyers/RW001.json", {
+  const rw001 = await import("../../../content/Cambridge/flyers/RW001.json", {
     assert: { type: "json" },
   });
   LOCAL_QUIZ_MAP["RW001"] = rw001.default;
