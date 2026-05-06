@@ -21,6 +21,10 @@ import { getPathwayFromPathname, getLessonUrl, getPathwayUrl } from "../utils/ur
 import { Breadcrumb, useBreadcrumbs } from "../components/ui/Breadcrumb";
 import "./SubjectPage.css";
 
+// ─── Quiz score cache key helper ─────────────────────────────────────────────
+const SKILL_PREF_KEY = (slug: string) => `sp_skill_${slug}`;
+
+
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 /** Kỹ năng meta — thứ tự quyết định thứ tự tab */
@@ -115,14 +119,22 @@ interface LessonCardProps {
   lesson: Lesson;
   isLoggedIn: boolean;
   subjectColor: string;
+  score?: number;       // bestPct 0-100, undefined = chưa làm
   onClick: () => void;
 }
 
-function LessonCard({ lesson, isLoggedIn, subjectColor, onClick }: LessonCardProps) {
+function LessonCard({ lesson, isLoggedIn, subjectColor, score, onClick }: LessonCardProps) {
   const isPremium = !lesson.is_free;
   const locked    = isPremium && !isLoggedIn;
   const diff      = lesson.difficulty ? DIFFICULTY_CONFIG[lesson.difficulty] : null;
   const grade     = lesson.grade_target ? GRADE_BADGE[lesson.grade_target] : null;
+
+  // Color-code % badge theo mức độ
+  const scoreBadgeClass =
+    score === undefined  ? "" :
+    score >= 80  ? "sp-score-badge--done" :   // xanh lá
+    score >= 50  ? "sp-score-badge--partial" : // vàng
+    "sp-score-badge--low";                     // đỏ
 
   // Chỉ lấy phần đầu trước " — " để tiêu đề gọn hơn
   const displayTitle = lesson.title.split(" — ")[0];
@@ -133,6 +145,7 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, onClick }: LessonCardPro
         "sp-lesson-card",
         isPremium          ? "sp-lesson-card--premium"     : "",
         lesson.recommended ? "sp-lesson-card--recommended" : "",
+        score !== undefined ? "sp-lesson-card--attempted" : "",
       ].filter(Boolean).join(" ")}
       style={{ "--subject-color": subjectColor } as React.CSSProperties}
       onClick={onClick}
@@ -142,6 +155,12 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, onClick }: LessonCardPro
       id={`btn-lesson-${lesson.slug}`}
       aria-label={`${displayTitle}${locked ? " — yêu cầu đăng nhập" : ""}`}
     >
+      {/* % Hoàn thành badge — top-right absolute */}
+      {score !== undefined && (
+        <span className={`sp-score-badge ${scoreBadgeClass}`}>
+          {score}%
+        </span>
+      )}
       {/* Header: grade badge (left) + skill badge (right) */}
       <div className="sp-lesson-card__header">
         {grade ? (
@@ -210,6 +229,20 @@ export function SubjectPage() {
   // Track xem user đã chủ động đổi grade chưa (nếu đã đổi thì không auto-reset khi API về)
   const [gradeManuallySet, setGradeManuallySet] = useState(false);
 
+  // ── Quiz scores: { [quizId]: bestPct } ──
+  const [quizScores, setQuizScores] = useState<Record<string, number>>({});
+
+  // Fetch quiz scores khi component mount (chỉ khi đã login)
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    fetch("/api/student/quiz-scores", { credentials: "include" })
+      .then(r => r.ok ? r.json() : { scores: {} })
+      .then((data: { scores: Record<string, number> }) => {
+        setQuizScores(data.scores ?? {});
+      })
+      .catch(() => { /* không hiện lỗi — badge chỉ là UI phụ */ });
+  }, [isLoggedIn]);
+
   // ── Sync grade khi GlobalHeader fetch xong và dispatch 'grade:updated' ──
   useEffect(() => {
     const onGradeUpdated = () => {
@@ -233,12 +266,15 @@ export function SubjectPage() {
     return SKILL_META.filter(s => skillSet.has(s.key));
   }, [subject]);
 
-  // ── Set default skill khi load subject (chỉ 1 lần) ──
+  // ── Set default skill khi load subject — ưu tiên sessionStorage ──
   useEffect(() => {
     if (availableSkills.length > 0 && !activeSkill) {
-      setActiveSkill(availableSkills[0].key);
+      // Khôi phục skill đã chọn trước đó (nếu có)
+      const saved = sessionStorage.getItem(SKILL_PREF_KEY(subjectSlug));
+      const valid = availableSkills.find(s => s.key === saved);
+      setActiveSkill(valid ? valid.key : availableSkills[0].key);
     }
-  }, [availableSkills, activeSkill]);
+  }, [availableSkills, activeSkill, subjectSlug]);
 
   // ── Đếm bài theo từng skill (cho badge count trên tab) ──
   const lessonCountBySkill = useMemo(() => {
@@ -317,12 +353,13 @@ export function SubjectPage() {
     navigate(getLessonUrl(subject, lesson.slug));
   };
 
-  // ── Khi đổi Skill Tab: reset grade về grade user, reset difficulty ──
+  // ── Khi đổi Skill Tab: reset grade về grade user, reset difficulty — lưu vào sessionStorage ──
   const handleSkillChange = (skillKey: string) => {
     setActiveSkill(skillKey);
+    sessionStorage.setItem(SKILL_PREF_KEY(subjectSlug), skillKey);
     setActiveGrade(userGradeTab);
     setActiveDiff("all");
-    setGradeManuallySet(false); // reset khi đổi skill tab
+    setGradeManuallySet(false);
   };
 
   // ── Grade context message ──
@@ -487,6 +524,7 @@ export function SubjectPage() {
                 lesson={lesson}
                 isLoggedIn={isLoggedIn}
                 subjectColor={subject.color}
+                score={quizScores[lesson.id]}
                 onClick={() => handleStart(lesson)}
               />
             ))}

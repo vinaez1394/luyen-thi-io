@@ -714,3 +714,58 @@
   color: #92400e;
   border: 1px solid #f59e0b;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCORE / COMPLETION BADGE — top-right corner của lesson card
+   Hiện % hoàn thành (bestPct) sau khi học sinh đã làm bài
+════════════════════════════════════════════════════════════════════════════ */
+
+.sp-score-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 10px;
+  line-height: 1.4;
+  z-index: 2;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+/* ≥ 80% — hoàn thành tốt */
+.sp-score-badge--done {
+  background: #bbf7d0;
+  color: #14532d;
+  border: 1px solid #4ade80;
+}
+
+/* 50–79% — làm được một phần */
+.sp-score-badge--partial {
+  background: #fef08a;
+  color: #713f12;
+  border: 1px solid #facc15;
+}
+
+/* < 50% — điểm thấp */
+.sp-score-badge--low {
+  background: #fecaca;
+  color: #7f1d1d;
+  border: 1px solid #f87171;
+}
+
+/* Card đã làm: thêm border nhẹ để phân biệt với chưa làm */
+.sp-lesson-card--attempted {
+  border-color: color-mix(in srgb, var(--subject-color, var(--color-primary)) 35%, var(--color-border));
+}
+
+@media (max-width: 600px) {
+  .sp-score-badge {
+    font-size: 9px;
+    padding: 1px 5px;
+    top: 4px;
+    right: 4px;
+  }
+}
+

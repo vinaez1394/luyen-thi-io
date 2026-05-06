@@ -293,3 +293,43 @@ progressRoute.get("/progress-summary", async (c) => {
 
   return c.json(response);
 });
+
+// ===================================================
+// GET /api/student/quiz-scores
+// Trả về { scores: { [quizId]: bestPct } } cho tất cả bài đã làm
+// Dùng bởi SubjectPage để hiển thị % hoàn thành trên card bài học
+// ===================================================
+progressRoute.get("/quiz-scores", async (c) => {
+  const cookieHeader = c.req.header("Cookie") ?? null;
+  const token = getSessionTokenFromCookie(cookieHeader);
+  if (!token) return c.json({ scores: {} });
+
+  const userId = await getSession(c.env.SESSION, token);
+  if (!userId) return c.json({ scores: {} });
+
+  const profile = await c.env.DB.prepare(
+    "SELECT id FROM student_profiles WHERE user_id = ? LIMIT 1"
+  ).bind(userId).first<{ id: string }>();
+
+  if (!profile) return c.json({ scores: {} });
+
+  const rows = await c.env.DB.prepare(`
+    SELECT
+      quiz_id,
+      MAX(CAST(score AS REAL) / NULLIF(max_score, 0) * 100) AS best_pct
+    FROM quiz_attempts
+    WHERE student_id = ?
+      AND score IS NOT NULL
+      AND max_score IS NOT NULL
+      AND max_score > 0
+    GROUP BY quiz_id
+  `).bind(profile.id).all<{ quiz_id: string; best_pct: number }>();
+
+  const scores: Record<string, number> = {};
+  for (const row of rows.results) {
+    scores[row.quiz_id] = Math.round(row.best_pct ?? 0);
+  }
+
+  return c.json({ scores });
+});
+
