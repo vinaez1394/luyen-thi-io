@@ -480,6 +480,14 @@ export function GlobalHeader() {
               ))}
             </div>
 
+            {/* Kiến thức Blog */}
+            <button
+              className={`mobile-drawer__nav-link ${location.pathname.startsWith("/blog") ? "active" : ""}`}
+              onClick={() => { navigate("/blog"); setDrawerOpen(false); }}
+            >
+              <span className="mobile-drawer__nav-icon">📖</span> Kiến thức
+            </button>
+
             {/* Tiến độ */}
             <button
               className={`mobile-drawer__nav-link ${location.pathname === "/dashboard" ? "active" : ""}`}
