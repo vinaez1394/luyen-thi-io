@@ -347,7 +347,7 @@ export function SubjectPage() {
   // ── Event handlers ──
   const handleStart = (lesson: Lesson) => {
     if (!lesson.is_free && !isLoggedIn) {
-      loginWithGoogle();
+      navigate("/register");
       return;
     }
     navigate(getLessonUrl(subject, lesson.slug));

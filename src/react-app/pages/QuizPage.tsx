@@ -41,7 +41,7 @@ export function QuizPage() {
 
   // Slug → ID: math-l1-p1 → MATH-L1-P1
   const rawSlug = id ?? quizSlug ?? "";
-  const quizId  = rawSlug.toUpperCase().replace(/-/g, "-");
+  const quizId = rawSlug.toUpperCase().replace(/-/g, "-");
 
   // Xác định pathway để navigate "về" đúng chỗ
   const pathway = getPathwayFromPathname(location.pathname);
@@ -116,9 +116,9 @@ export function QuizPage() {
       <div className="quiz-page-premium">
         <div style={{ fontSize: 64 }}>🔒</div>
         <h2>Bài học Premium</h2>
-        <p>Đăng nhập để mở khóa bài học này và lưu tiến độ của bé.</p>
-        <button className="btn btn-primary" id="btn-paywall-login" onClick={loginWithGoogle}>
-          Đăng nhập bằng Google
+        <p>Đăng ký tài khoản để mở khóa bài học này và lưu tiến độ của bé.</p>
+        <button className="btn btn-primary" id="btn-paywall-login" onClick={() => navigate("/register")}>
+          Đăng ký ngay
         </button>
         <button className="btn btn-outline" onClick={() => navigate(backUrl)}>
           ← Về danh sách bài
@@ -145,7 +145,7 @@ export function QuizPage() {
   // ===== Notification: "Ôn tập lại" — bé làm bài dưới grade của mình =====
   const studentGrade = parseInt(localStorage.getItem("student_grade") ?? "0", 10) || null;
   const quizGradeMax = (quiz as { grade_max?: number }).grade_max ?? null;
-  const isReviewMode  = !!(studentGrade && quizGradeMax && quizGradeMax < studentGrade);
+  const isReviewMode = !!(studentGrade && quizGradeMax && quizGradeMax < studentGrade);
 
   if (isReviewMode && !reviewDismissed) {
     return (
@@ -198,13 +198,13 @@ export function QuizPage() {
               headers: { "Content-Type": "application/json" },
               credentials: "include",   // ← bắt buộc: gửi cookie session
               body: JSON.stringify({
-                stars:   earnedStars,
-                source:  "hangman",
+                stars: earnedStars,
+                source: "hangman",
                 quiz_id: quizId,
               }),
             })
               .then((r) => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); })
-              .catch(() => {});
+              .catch(() => { });
           }
         }}
         // Phase 05: Flashcard — cộng sao thật
@@ -215,13 +215,13 @@ export function QuizPage() {
               headers: { "Content-Type": "application/json" },
               credentials: "include",   // ← bắt buộc: gửi cookie session
               body: JSON.stringify({
-                stars:   earnedStars,
-                source:  "flashcard",
+                stars: earnedStars,
+                source: "flashcard",
                 quiz_id: quizId,
               }),
             })
               .then((r) => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); })
-              .catch(() => {});
+              .catch(() => { });
           }
         }}
       />
@@ -255,7 +255,7 @@ export function QuizPage() {
                   </span>
                   <span className="quiz-sub-header__breadcrumb-sep">›</span>
                   <span className="quiz-sub-header__breadcrumb-current">
-                    📚 Đọc hiểu
+                    📚 Reading
                   </span>
                 </div>
                 <h2 className="quiz-sub-header__title">{rQuiz.title}</h2>
@@ -340,7 +340,7 @@ export function QuizPage() {
                   </span>
                   <span className="quiz-sub-header__breadcrumb-sep">›</span>
                   <span className="quiz-sub-header__breadcrumb-current">
-                    ✏️ Viết
+                    ✏️ Writing
                   </span>
                 </div>
                 <h2 className="quiz-sub-header__title">{wQuiz.title}</h2>
