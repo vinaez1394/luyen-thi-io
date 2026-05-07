@@ -213,7 +213,7 @@ export function SubjectPage() {
   const { subjectSlug = "" } = useParams<{ subjectSlug: string }>();
   const location  = useLocation();
   const navigate  = useNavigate();
-  const { isLoggedIn, loginWithGoogle } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   const pathway = getPathwayFromPathname(location.pathname);
   const subject = pathway ? findByPathwayGroup(pathway, subjectSlug) : null;
