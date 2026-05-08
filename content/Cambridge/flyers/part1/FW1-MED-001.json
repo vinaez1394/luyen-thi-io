@@ -1,0 +1,110 @@
+{
+  "id": "FW1-MED-001",
+  "title": "Flyers Reading & Writing — Part 1 — Set 1 (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a uniform",
+    "a dictionary",
+    "a stadium",
+    "a journalist",
+    "a suitcase",
+    "cousins",
+    "an ambulance",
+    "an ocean",
+    "a pilot",
+    "a museum",
+    "a theatre",
+    "a passport",
+    "environment",
+    "soap",
+    "a flashlight"
+  ],
+
+  "example": {
+    "prompt": "When you want to cut meat or vegetables into small pieces for cooking, you can use this.",
+    "answer": "a knife"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "You look in this book if you do not understand a word or want to see how to spell it.",
+      "correct": "a dictionary",
+      "explanation_vi": "Dictionary = từ điển, dùng để tra nghĩa từ và cách đánh vần."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "This is a very large building where you can watch sports like football or athletics with thousands of people.",
+      "correct": "a stadium",
+      "explanation_vi": "Stadium = sân vận động, nơi hàng nghìn người xem thể thao."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This person's job is to fly planes or helicopters to different parts of the world.",
+      "correct": "a pilot",
+      "explanation_vi": "Pilot = phi công, người lái máy bay hoặc trực thăng."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "Students or police officers often wear these special clothes so that people know who they are.",
+      "correct": "a uniform",
+      "explanation_vi": "Uniform = đồng phục, trang phục đặc biệt giúp nhận biết nghề nghiệp hoặc tổ chức."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is the largest area of salt water on Earth, and many different kinds of fish live in it.",
+      "correct": "an ocean",
+      "explanation_vi": "Ocean = đại dương, vùng nước muối lớn nhất trên Trái Đất."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "When you travel to another country, you must carry this small book which has your photo and name in it.",
+      "correct": "a passport",
+      "explanation_vi": "Passport = hộ chiếu, cuốn sách nhỏ có ảnh và tên dùng để đi nước ngoài."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This person writes stories for newspapers or reports the news on television.",
+      "correct": "a journalist",
+      "explanation_vi": "Journalist = nhà báo, người viết tin bài cho báo chí hoặc truyền hình."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "You put your clothes and things in this when you go on a long holiday.",
+      "correct": "a suitcase",
+      "explanation_vi": "Suitcase = vali, túi lớn để đựng quần áo khi đi du lịch dài ngày."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "These people are the children of your aunt or your uncle.",
+      "correct": "cousins",
+      "explanation_vi": "Cousins = anh/chị/em họ, con của cô, chú, dì, bác của bạn."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "You can go to this place to see a play, a musical, or sometimes a famous singer.",
+      "correct": "a theatre",
+      "explanation_vi": "Theatre = nhà hát, nơi xem kịch, nhạc kịch hoặc ca sĩ biểu diễn."
+    }
+  ]
+}

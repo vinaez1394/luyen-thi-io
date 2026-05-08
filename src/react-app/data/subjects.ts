@@ -985,6 +985,22 @@ export const SUBJECTS: Subject[] = [
         emoji: "📝",
         showOnHome: false,
       },
+      // ── R&W Part 1 — "Look and Read" Word Bank ──────────────────────────
+      {
+        id: "FW1-MED-001",
+        slug: "fw1-med-001",
+        title: "R&W Part 1 — Look and Read — Set 1",
+        skill: "reading",
+        part: 1,
+        level: "Flyers",
+        questions: 10,
+        is_free: true,
+        emoji: "📚",
+        showOnHome: true,
+        difficulty: "medium",
+        recommended: true,
+        est_minutes: 8,
+      },
     ],
   },
 
