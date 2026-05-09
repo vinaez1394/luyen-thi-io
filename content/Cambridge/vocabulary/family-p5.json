@@ -1,0 +1,44 @@
+{
+  "passage_id": "family-p5",
+  "topic": "family",
+  "title": "Special Twins",
+  "level": "movers",
+  "word_count": 95,
+  "segments": [
+    { "type": "text", "content": "My neighbours have a very special family. The " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-011",
+      "options": ["twins", "shark", "clock"],
+      "answer": "twins",
+      "explanation_vi": "'twins' = cặp sinh đôi — hai đứa trẻ được sinh ra cùng một lúc từ cùng một người mẹ."
+    },
+    { "type": "text", "content": " are six years old and they look exactly the same! Their " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-009",
+      "options": ["wife", "eagle", "pencil"],
+      "answer": "wife",
+      "explanation_vi": "'wife' = vợ — người phụ nữ đã kết hôn."
+    },
+    { "type": "text", "content": " and " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-007",
+      "options": ["husband", "bear", "table"],
+      "answer": "husband",
+      "explanation_vi": "'husband' = chồng — người đàn ông đã kết hôn."
+    },
+    { "type": "text", "content": " take turns walking them to school every morning. Their little " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-019",
+      "options": ["toddler", "whale", "window"],
+      "answer": "toddler",
+      "explanation_vi": "'toddler' = em bé đang tập đi — trẻ nhỏ khoảng 1-3 tuổi, đang học đi."
+    },
+    { "type": "text", "content": " is only two and runs after everyone. What a lively family!" }
+  ],
+  "explanation_vi": "Đoạn văn về gia đình đặc biệt với cặp sinh đôi (twins): vợ (wife), chồng (husband), cặp sinh đôi (twins), em bé tập đi (toddler). Một gia đình năng động và vui vẻ!",
+  "created_at": "2026-05-07"
+}

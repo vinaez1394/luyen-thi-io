@@ -1,0 +1,44 @@
+{
+  "passage_id": "animals-p6",
+  "topic": "animals",
+  "title": "A Cold Place",
+  "level": "movers",
+  "word_count": 99,
+  "segments": [
+    { "type": "text", "content": "Some animals live in very cold places. The " },
+    {
+      "type": "blank",
+      "word_id": "mv-an-010",
+      "options": ["penguin", "spider", "camel"],
+      "answer": "penguin",
+      "explanation_vi": "'penguin' = chim cánh cụt — chim không bay được, sống ở Nam Cực, bơi rất giỏi."
+    },
+    { "type": "text", "content": " cannot fly but it swims very well in icy water. A large white " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-003",
+      "options": ["bear", "fox", "bee"],
+      "answer": "bear",
+      "explanation_vi": "'bear' = con gấu — thú lớn có lông dày, thường ngủ đông vào mùa lạnh."
+    },
+    { "type": "text", "content": " walked across the frozen ground looking for fish. A small red " },
+    {
+      "type": "blank",
+      "word_id": "mv-an-003",
+      "options": ["fox", "lion", "monkey"],
+      "answer": "fox",
+      "explanation_vi": "'fox' = con cáo — thú nhỏ tinh khôn, có lông đỏ cam và đuôi bông xù."
+    },
+    { "type": "text", "content": " ran quickly through the snow. High in a tree, a night " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-013",
+      "options": ["owl", "duck", "rabbit"],
+      "answer": "owl",
+      "explanation_vi": "'owl' = con cú — chim hoạt động về đêm, có đôi mắt to và tiếng kêu 'tu hú'."
+    },
+    { "type": "text", "content": " watched silently with its big eyes. Cold places are home to many brave animals." }
+  ],
+  "explanation_vi": "Đoạn văn về động vật ở vùng lạnh: chim cánh cụt (penguin), gấu (bear), cáo (fox), cú (owl). Những loài này đã thích nghi tuyệt vời với thời tiết giá lạnh.",
+  "created_at": "2026-05-07"
+}

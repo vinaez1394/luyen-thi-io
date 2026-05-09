@@ -1,0 +1,44 @@
+{
+  "passage_id": "animals-p2",
+  "topic": "animals",
+  "title": "Wild Animals",
+  "level": "starters",
+  "word_count": 88,
+  "segments": [
+    { "type": "text", "content": "There are many amazing animals in the wild. The " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-004",
+      "options": ["cheetah", "snail", "duck"],
+      "answer": "cheetah",
+      "explanation_vi": "'cheetah' = con báo đốm — động vật chạy nhanh nhất thế giới."
+    },
+    { "type": "text", "content": " is the fastest animal on land. In the ocean, a huge " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-019",
+      "options": ["whale", "cat", "bee"],
+      "answer": "whale",
+      "explanation_vi": "'whale' = cá voi — loài động vật lớn nhất trên Trái Đất."
+    },
+    { "type": "text", "content": " swims slowly through the cold water. High in the sky, an " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-009",
+      "options": ["eagle", "rabbit", "puppy"],
+      "answer": "eagle",
+      "explanation_vi": "'eagle' = chim đại bàng — có thị giác rất tốt để nhìn từ xa."
+    },
+    { "type": "text", "content": " flies above the mountains looking for food. In the jungle, a strong " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-011",
+      "options": ["gorilla", "fish", "butterfly"],
+      "answer": "gorilla",
+      "explanation_vi": "'gorilla' = con gorilla — loài linh trưởng lớn nhất, sống ở rừng nhiệt đới."
+    },
+    { "type": "text", "content": " climbs the trees. Protecting these wild animals is very important!" }
+  ],
+  "explanation_vi": "Đoạn văn nói về các loài động vật hoang dã: báo đốm (cheetah), cá voi (whale), đại bàng (eagle), và gorilla. Chúng ta cần bảo vệ chúng.",
+  "created_at": "2026-05-07"
+}

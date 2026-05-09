@@ -1,0 +1,44 @@
+{
+  "passage_id": "animals-p7",
+  "topic": "animals",
+  "title": "Safari Day",
+  "level": "flyers",
+  "word_count": 105,
+  "segments": [
+    { "type": "text", "content": "My family went on a safari in Africa. First, we saw a " },
+    {
+      "type": "blank",
+      "word_id": "mv-an-012",
+      "options": ["lion", "bee", "octopus"],
+      "answer": "lion",
+      "explanation_vi": "'lion' = con sư tử — được gọi là 'vua của rừng xanh', sống theo bầy đàn ở đồng cỏ Châu Phi."
+    },
+    { "type": "text", "content": " sleeping under an acacia tree. A black and white " },
+    {
+      "type": "blank",
+      "word_id": "mv-an-015",
+      "options": ["zebra", "spider", "snail"],
+      "answer": "zebra",
+      "explanation_vi": "'zebra' = con ngựa vằn — có sọc đen trắng đặc trưng, sống ở đồng cỏ Châu Phi."
+    },
+    { "type": "text", "content": " ran past our jeep at full speed. A large " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-012",
+      "options": ["hippo", "kitten", "duck"],
+      "answer": "hippo",
+      "explanation_vi": "'hippo' = con hà mã — động vật lớn sống gần sông, có da rất dày và miệng to."
+    },
+    { "type": "text", "content": " opened its huge mouth near the river. And a tall " },
+    {
+      "type": "blank",
+      "word_id": "mv-an-002",
+      "options": ["camel", "butterfly", "puppy"],
+      "answer": "camel",
+      "explanation_vi": "'camel' = con lạc đà — động vật sa mạc có bướu lưng, có thể nhịn khát rất lâu."
+    },
+    { "type": "text", "content": " walked slowly across the dry land. What an amazing safari!" }
+  ],
+  "explanation_vi": "Đoạn văn kể về chuyến safari ở Châu Phi: sư tử (lion), ngựa vằn (zebra), hà mã (hippo), lạc đà (camel). Châu Phi là lục địa có đa dạng sinh vật hoang dã nhất.",
+  "created_at": "2026-05-07"
+}

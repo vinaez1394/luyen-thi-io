@@ -1,0 +1,44 @@
+{
+  "passage_id": "family-p6",
+  "topic": "family",
+  "title": "Grandpa's Stories",
+  "level": "movers",
+  "word_count": 98,
+  "segments": [
+    { "type": "text", "content": "Every evening, our family sits together in the living room. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-013",
+      "options": ["grandpa", "dolphin", "table"],
+      "answer": "grandpa",
+      "explanation_vi": "'grandpa' = ông (thân mật) — cách gọi thân thiết của ông nội hoặc ông ngoại."
+    },
+    { "type": "text", "content": " sits in his favourite chair and tells amazing stories. His " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-004",
+      "options": ["grandma", "shark", "cloud"],
+      "answer": "grandma",
+      "explanation_vi": "'grandma' = bà (thân mật) — cách gọi thân thiết của bà nội hoặc bà ngoại."
+    },
+    { "type": "text", "content": " knits and smiles while she listens. The youngest " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-022",
+      "options": ["boy", "eagle", "pencil"],
+      "answer": "boy",
+      "explanation_vi": "'boy' = con trai / cậu bé — đứa trẻ hoặc người nam trẻ tuổi."
+    },
+    { "type": "text", "content": " in our family always falls asleep first. The oldest " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-021",
+      "options": ["girl", "whale", "window"],
+      "answer": "girl",
+      "explanation_vi": "'girl' = con gái / cô bé — đứa trẻ hoặc người nữ trẻ tuổi."
+    },
+    { "type": "text", "content": " writes everything down in her diary. These evenings are the best part of the day." }
+  ],
+  "explanation_vi": "Đoạn văn về những buổi tối gia đình quây quần: ông (grandpa), bà (grandma), cậu bé (boy), cô bé (girl). Những câu chuyện của ông luôn là ký ức đẹp với các cháu.",
+  "created_at": "2026-05-07"
+}

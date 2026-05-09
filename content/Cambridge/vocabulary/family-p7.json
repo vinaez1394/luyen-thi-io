@@ -1,0 +1,44 @@
+{
+  "passage_id": "family-p7",
+  "topic": "family",
+  "title": "A New Baby",
+  "level": "movers",
+  "word_count": 101,
+  "segments": [
+    { "type": "text", "content": "Last month, something wonderful happened in our family. My " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-003",
+      "options": ["mum", "shark", "cloud"],
+      "answer": "mum",
+      "explanation_vi": "'mum' = mẹ (thân mật) — cách gọi thân thiết của người mẹ trong gia đình."
+    },
+    { "type": "text", "content": " had a new baby! Now we have a little " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-024",
+      "options": ["sister", "whale", "pencil"],
+      "answer": "sister",
+      "explanation_vi": "'sister' = chị/em gái — người chị hoặc em gái trong gia đình."
+    },
+    { "type": "text", "content": ". She is tiny and cute. My " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-006",
+      "options": ["nephew", "eagle", "table"],
+      "answer": "nephew",
+      "explanation_vi": "'nephew' = cháu trai — con trai của anh/chị/em ruột."
+    },
+    { "type": "text", "content": " — my cousin's son — came to meet her. My " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-002",
+      "options": ["niece", "camel", "window"],
+      "answer": "niece",
+      "explanation_vi": "'niece' = cháu gái — con gái của anh/chị/em ruột."
+    },
+    { "type": "text", "content": " — my other cousin's daughter — brought flowers. Our whole family is so happy!" }
+  ],
+  "explanation_vi": "Đoạn văn về tin vui có em bé mới: mẹ (mum), chị/em gái (sister), cháu trai (nephew), cháu gái (niece). Sự ra đời của em bé mang lại niềm vui cho cả gia đình.",
+  "created_at": "2026-05-07"
+}

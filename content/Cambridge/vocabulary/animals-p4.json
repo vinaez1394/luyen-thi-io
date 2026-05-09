@@ -1,0 +1,44 @@
+{
+  "passage_id": "animals-p4",
+  "topic": "animals",
+  "title": "At the Farm",
+  "level": "starters",
+  "word_count": 96,
+  "segments": [
+    { "type": "text", "content": "Last weekend, Anna visited her uncle's farm. She saw a white " },
+    {
+      "type": "blank",
+      "word_id": "st-an-009",
+      "options": ["rabbit", "shark", "wolf"],
+      "answer": "rabbit",
+      "explanation_vi": "'rabbit' = con thỏ — động vật nhỏ có tai dài, thường được nuôi làm thú cưng."
+    },
+    { "type": "text", "content": " eating carrots in the garden. A brown " },
+    {
+      "type": "blank",
+      "word_id": "st-an-016",
+      "options": ["cow", "penguin", "octopus"],
+      "answer": "cow",
+      "explanation_vi": "'cow' = con bò — loài gia súc cho sữa và thịt, thường sống ở nông trại."
+    },
+    { "type": "text", "content": " was standing in the field and eating grass. Three little " },
+    {
+      "type": "blank",
+      "word_id": "st-an-008",
+      "options": ["duck", "lion", "camel"],
+      "answer": "duck",
+      "explanation_vi": "'duck' = con vịt — chim biết bơi, sống gần ao hồ và nông trại."
+    },
+    { "type": "text", "content": "s were swimming in the pond. A small " },
+    {
+      "type": "blank",
+      "word_id": "st-an-019",
+      "options": ["kitten", "zebra", "spider"],
+      "answer": "kitten",
+      "explanation_vi": "'kitten' = mèo con — mèo nhỏ chưa trưởng thành, rất dễ thương."
+    },
+    { "type": "text", "content": " was sleeping in a basket near the door. Anna loved the farm!" }
+  ],
+  "explanation_vi": "Đoạn văn kể về chuyến thăm trang trại: thỏ (rabbit), bò (cow), vịt (duck), mèo con (kitten). Trang trại là nơi nuôi nhiều loài vật gần gũi với con người.",
+  "created_at": "2026-05-07"
+}

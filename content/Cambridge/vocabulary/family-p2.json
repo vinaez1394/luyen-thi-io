@@ -1,0 +1,52 @@
+{
+  "passage_id": "family-p2",
+  "topic": "family",
+  "title": "A Weekend with Family",
+  "level": "starters",
+  "word_count": 78,
+  "segments": [
+    { "type": "text", "content": "On Sunday, my " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-008",
+      "options": ["family", "lizard", "school"],
+      "answer": "family",
+      "explanation_vi": "'family' = gia đình — mọi người thân yêu sống cùng nhau."
+    },
+    { "type": "text", "content": " went to the park. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-007",
+      "options": ["dad", "cage", "bird"],
+      "answer": "dad",
+      "explanation_vi": "'dad' = ba/bố (thân mật) — cách gọi bố một cách thân thiết."
+    },
+    { "type": "text", "content": " played football with my " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-003",
+      "options": ["brother", "whale", "desk"],
+      "answer": "brother",
+      "explanation_vi": "'brother' = anh/em trai."
+    },
+    { "type": "text", "content": ". My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-014",
+      "options": ["grandmother", "fish", "puppy"],
+      "answer": "grandmother",
+      "explanation_vi": "'grandmother' = bà nội/bà ngoại — mẹ của cha hoặc mẹ."
+    },
+    { "type": "text", "content": " sat under a tree and read a book. My little " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-001",
+      "options": ["baby", "eagle", "pencil"],
+      "answer": "baby",
+      "explanation_vi": "'baby' = em bé — đứa trẻ còn rất nhỏ."
+    },
+    { "type": "text", "content": " slept in the pushchair. It was a perfect Sunday!" }
+  ],
+  "explanation_vi": "Đoạn văn kể về chuyến đi công viên ngày Chủ nhật: family (gia đình), dad (bố), brother (anh/em trai), grandmother (bà), baby (em bé).",
+  "created_at": "2026-05-07"
+}

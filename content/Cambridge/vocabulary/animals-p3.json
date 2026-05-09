@@ -1,0 +1,44 @@
+{
+  "passage_id": "animals-p3",
+  "topic": "animals",
+  "title": "Jungle Adventure",
+  "level": "movers",
+  "word_count": 102,
+  "segments": [
+    { "type": "text", "content": "Tom went on a jungle trip with his dad. They walked quietly through the trees. Suddenly, they saw a golden " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-017",
+      "options": ["tiger", "butterfly", "snail"],
+      "answer": "tiger",
+      "explanation_vi": "'tiger' = con hổ — loài mèo lớn nhất thế giới, có sọc vàng đen đặc trưng."
+    },
+    { "type": "text", "content": " resting under a big tree. A little " },
+    {
+      "type": "blank",
+      "word_id": "st-an-013",
+      "options": ["monkey", "fish", "puppy"],
+      "answer": "monkey",
+      "explanation_vi": "'monkey' = con khỉ — động vật leo trèo giỏi, thường sống trên cây trong rừng nhiệt đới."
+    },
+    { "type": "text", "content": " jumped from branch to branch and made them laugh. Near the river, a big " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-005",
+      "options": ["crocodile", "rabbit", "bee"],
+      "answer": "crocodile",
+      "explanation_vi": "'crocodile' = con cá sấu — bò sát sống gần sông, có hàm rất mạnh."
+    },
+    { "type": "text", "content": " lay still in the mud. Above them, a colourful " },
+    {
+      "type": "blank",
+      "word_id": "st-an-004",
+      "options": ["butterfly", "duck", "kitten"],
+      "answer": "butterfly",
+      "explanation_vi": "'butterfly' = con bướm — côn trùng có đôi cánh rất đẹp và nhiều màu sắc."
+    },
+    { "type": "text", "content": " flew past. Tom said it was the best adventure of his life!" }
+  ],
+  "explanation_vi": "Đoạn văn kể về chuyến phiêu lưu trong rừng: hổ (tiger), khỉ (monkey), cá sấu (crocodile), bướm (butterfly). Rừng nhiệt đới có rất nhiều loài động vật kỳ thú.",
+  "created_at": "2026-05-07"
+}
