@@ -17,7 +17,8 @@
 		{
 			"binding": "DB",
 			"database_name": "luyen-thi-db",
-			"database_id": "cc1f5652-8b63-45c2-8fa4-15509f0e6278"
+			"database_id": "cc1f5652-8b63-45c2-8fa4-15509f0e6278",
+			"migrations_dir": "./src/worker/migrations"
 		}
 	],
 	"r2_buckets": [

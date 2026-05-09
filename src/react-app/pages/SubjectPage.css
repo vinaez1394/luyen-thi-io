@@ -22,7 +22,9 @@
 }
 
 @media (max-width: 480px) {
-  .subject-page__breadcrumb-bar { padding: 0.5rem 1rem 0; }
+  .subject-page__breadcrumb-bar {
+    padding: 0.5rem 1rem 0;
+  }
 }
 
 /* Not-found state */
@@ -52,7 +54,9 @@
 .subject-page__hero::after {
   content: "";
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 4px;
   background: var(--subject-color, var(--color-primary));
 }
@@ -75,6 +79,7 @@
   color: var(--color-text-muted);
   margin-bottom: 0;
 }
+
 .subject-page__hero-pathway-badge {
   display: inline-block;
   padding: 4px 14px;
@@ -87,6 +92,24 @@
   color: var(--subject-color, var(--color-primary));
   border: 1px solid color-mix(in srgb, var(--subject-color, var(--color-primary)) 35%, transparent);
   margin-bottom: var(--space-2);
+}
+
+/* Cambridge inline hero: emoji + title trên cùng 1 hàng */
+.subject-page__hero-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 8px;
+}
+
+.subject-page__hero-emoji--inline {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.subject-page__hero-inline .subject-page__hero-title {
+  margin-bottom: 0;
 }
 
 
@@ -143,8 +166,13 @@
 }
 
 @media (max-width: 480px) {
-  .sp-stats-bar__item { padding: 0 0.75rem; }
-  .sp-stats-bar__value { font-size: var(--font-md); }
+  .sp-stats-bar__item {
+    padding: 0 0.75rem;
+  }
+
+  .sp-stats-bar__value {
+    font-size: var(--font-md);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -159,11 +187,14 @@
   padding: var(--space-3) var(--space-3) 0;
   max-width: 1100px;
   margin: 0 auto;
-  scrollbar-width: none;        /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
   -webkit-overflow-scrolling: touch;
 }
 
-.sp-skill-tabs::-webkit-scrollbar { display: none; }
+.sp-skill-tabs::-webkit-scrollbar {
+  display: none;
+}
 
 .sp-skill-tab {
   display: inline-flex;
@@ -181,9 +212,9 @@
   flex-shrink: 0;
   transition:
     border-color var(--transition-fast),
-    background   var(--transition-fast),
-    color        var(--transition-fast),
-    box-shadow   var(--transition-fast);
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .sp-skill-tab:hover {
@@ -198,9 +229,14 @@
   box-shadow: 0 3px 12px color-mix(in srgb, var(--subject-color, var(--color-primary)) 35%, transparent);
 }
 
-.sp-skill-tab__emoji { font-size: 1rem; line-height: 1; }
+.sp-skill-tab__emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
 
-.sp-skill-tab__label { font-weight: var(--font-semibold); }
+.sp-skill-tab__label {
+  font-weight: var(--font-semibold);
+}
 
 .sp-skill-tab__count {
   display: inline-flex;
@@ -222,8 +258,15 @@
 }
 
 @media (max-width: 480px) {
-  .sp-skill-tabs { padding: var(--space-2) var(--space-2) 0; gap: 4px; }
-  .sp-skill-tab  { padding: 0.45rem 0.85rem; font-size: var(--font-xs); }
+  .sp-skill-tabs {
+    padding: var(--space-2) var(--space-2) 0;
+    gap: 4px;
+  }
+
+  .sp-skill-tab {
+    padding: 0.45rem 0.85rem;
+    font-size: var(--font-xs);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -282,9 +325,9 @@
   cursor: pointer;
   transition:
     border-color var(--transition-fast),
-    background   var(--transition-fast),
-    color        var(--transition-fast),
-    box-shadow   var(--transition-fast);
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
   position: relative;
 }
 
@@ -307,7 +350,9 @@
   color: var(--color-text);
 }
 
-.sp-grade-pill__label { font-weight: var(--font-bold); }
+.sp-grade-pill__label {
+  font-weight: var(--font-bold);
+}
 
 .sp-grade-pill__ctx {
   font-size: 13px;
@@ -348,10 +393,19 @@
 }
 
 @media (max-width: 480px) {
-  .sp-grade-card { padding: var(--space-2); }
-  .sp-grade-pill { padding: 0.4rem 0.75rem; font-size: var(--font-xs); }
+  .sp-grade-card {
+    padding: var(--space-2);
+  }
+
+  .sp-grade-pill {
+    padding: 0.4rem 0.75rem;
+    font-size: var(--font-xs);
+  }
+
   /* Ẩn chỉ text "Của bạn", giữ lại ký hiệu ✓ */
-  .sp-grade-pill__ctx-label { display: none; }
+  .sp-grade-pill__ctx-label {
+    display: none;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -385,8 +439,8 @@
   cursor: pointer;
   transition:
     border-color var(--transition-fast),
-    background   var(--transition-fast),
-    color        var(--transition-fast);
+    background var(--transition-fast),
+    color var(--transition-fast);
   white-space: nowrap;
 }
 
@@ -502,6 +556,7 @@
 .sp-lesson-card--premium {
   opacity: 0.65;
 }
+
 .sp-lesson-card--premium:hover {
   opacity: 0.88;
   transition: opacity 0.2s ease;
@@ -537,7 +592,8 @@
 
 /* Emoji (legacy - kept for backward compat) */
 .sp-lesson-card__emoji {
-  display: none; /* Không còn dùng trong layout mới */
+  display: none;
+  /* Không còn dùng trong layout mới */
 }
 
 /* Number */
@@ -604,8 +660,15 @@
   .sp-lesson-card {
     padding: var(--space-1) 0.625rem;
   }
-  .sp-lesson-card__emoji { font-size: 1.5rem; }
-  .sp-lesson-card__title { font-size: var(--font-xs); }
+
+  .sp-lesson-card__emoji {
+    font-size: 1.5rem;
+  }
+
+  .sp-lesson-card__title {
+    font-size: var(--font-xs);
+  }
+
   /* Header badges: căt ngắn nếu quá dài */
   .sp-lesson-card__header .badge {
     max-width: 80px;
@@ -625,12 +688,14 @@
   border: 1px solid #4ade80;
   font-weight: 600;
 }
+
 .badge-difficulty-medium {
   background: #fef08a;
   color: #713f12;
   border: 1px solid #facc15;
   font-weight: 600;
 }
+
 .badge-difficulty-hard {
   background: #fecaca;
   color: #7f1d1d;
@@ -650,12 +715,14 @@
   border: 1px solid #4ade80;
   font-weight: 700;
 }
+
 .badge-grade-45 {
   background: #fed7aa;
   color: #7c2d12;
   border: 1px solid #fb923c;
   font-weight: 700;
 }
+
 .badge-grade-56 {
   background: #fecaca;
   color: #7f1d1d;
@@ -780,3 +847,196 @@
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAMBRIDGE SKILL TABS — to rõ, nổi bật hơn Lớp 6
+═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-skill-tabs--cambridge {
+  gap: 0;
+  padding: var(--space-3) var(--space-3) 0;
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-card);
+}
+
+.sp-skill-tabs--cambridge .sp-skill-tab {
+  flex: 1;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  gap: 8px;
+}
+
+.sp-skill-tabs--cambridge .sp-skill-tab:hover {
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 6%, transparent);
+  color: var(--subject-color, var(--color-primary));
+  border-bottom-color: color-mix(in srgb, var(--subject-color, var(--color-primary)) 40%, transparent);
+}
+
+.sp-skill-tabs--cambridge .sp-skill-tab--active {
+  color: var(--subject-color, var(--color-primary));
+  border-bottom: 3px solid var(--subject-color, var(--color-primary));
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 8%, var(--color-card));
+  box-shadow: none;
+}
+
+.sp-skill-tabs--cambridge .sp-skill-tab__emoji {
+  font-size: 1.25rem;
+}
+
+.sp-skill-tabs--cambridge .sp-skill-tab__label {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.sp-skill-tabs--cambridge .sp-skill-tab__count {
+  font-size: 0.75rem;
+  min-width: 22px;
+  height: 22px;
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.sp-skill-tabs--cambridge .sp-skill-tab--active .sp-skill-tab__count {
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 20%, transparent);
+  color: var(--subject-color, var(--color-primary));
+}
+
+@media (max-width: 480px) {
+  .sp-skill-tabs--cambridge .sp-skill-tab {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  .sp-skill-tabs--cambridge .sp-skill-tab__label {
+    font-size: 0.875rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAMBRIDGE PART NAVIGATION
+═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-part-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: var(--space-2);
+}
+
+.sp-part-nav__label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sp-part-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Part Pill ── */
+.sp-part-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0.6rem 1rem;
+  min-width: 90px;
+  border: 2px solid color-mix(in srgb, var(--subject-color, var(--color-primary)) 30%, var(--color-border));
+  border-radius: var(--radius-lg, 12px);
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 5%, var(--color-card));
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-bounce);
+  text-align: center;
+}
+
+.sp-part-pill:hover:not(.sp-part-pill--empty) {
+  border-color: var(--subject-color, var(--color-primary));
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 6%, var(--color-card));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--subject-color, var(--color-primary)) 20%, transparent);
+}
+
+.sp-part-pill--active {
+  border-color: var(--subject-color, var(--color-primary));
+  background: var(--subject-color, var(--color-primary));
+  color: #fff;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--subject-color, var(--color-primary)) 35%, transparent);
+  transform: translateY(-2px);
+}
+
+.sp-part-pill--empty {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+.sp-part-pill__num {
+  font-size: 0.95rem;
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.sp-part-pill--active .sp-part-pill__num {
+  color: #fff;
+}
+
+.sp-part-pill__desc {
+  font-size: 0.7rem;
+  color: var(--color-text);
+  white-space: nowrap;
+  line-height: 1.2;
+  font-weight: var(--font-medium);
+}
+
+.sp-part-pill--active .sp-part-pill__desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sp-part-pill__count {
+  font-size: 0.7rem;
+  font-weight: var(--font-bold);
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 15%, transparent);
+  color: var(--subject-color, var(--color-primary));
+  margin-top: 2px;
+}
+
+.sp-part-pill--active .sp-part-pill__count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.sp-part-pill__soon {
+  font-size: 0.65rem;
+  color: var(--color-text);
+  font-style: italic;
+  margin-top: 2px;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .sp-part-pill {
+    min-width: 70px;
+    padding: 0.5rem 0.65rem;
+  }
+  .sp-part-pill__num {
+    font-size: 0.8rem;
+  }
+  .sp-part-pill__desc {
+    font-size: 0.6rem;
+  }
+}

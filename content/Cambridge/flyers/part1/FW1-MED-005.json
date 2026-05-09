@@ -1,0 +1,107 @@
+{
+  "id": "FW1-MED-005",
+  "title": "Flyers Reading & Writing — Part 1 — Set 5 (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+  "word_bank": [
+    "a forest",
+    "an island",
+    "a camel",
+    "a dolphin",
+    "a swan",
+    "an insect",
+    "a jungle",
+    "a desert",
+    "a shell",
+    "a hill",
+    "a volcano",
+    "an eagle",
+    "a farm",
+    "a lizard",
+    "a shark"
+  ],
+  "example": {
+    "prompt": "This is a place where a farmer grows plants like vegetables and keeps animals like cows.",
+    "answer": "a farm"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This is a large bird with very strong wings that can see things from high up in the sky.",
+      "correct": "an eagle",
+      "explanation_vi": "Eagle = đại bàng, loài chim lớn có cánh rất khỏe, có thể nhìn xa từ trên trời cao."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "This is an area of land that has water all around it, so you usually need a boat to get there.",
+      "correct": "an island",
+      "explanation_vi": "Island = hòn đảo, vùng đất được bao quanh bởi nước, thường phải dùng thuyền để đến."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This clever animal lives in the ocean and often jumps out of the water to play.",
+      "correct": "a dolphin",
+      "explanation_vi": "Dolphin = cá heo, loài động vật thông minh sống ở đại dương và thường nhảy lên khỏi mặt nước để chơi đùa."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This is a very hot and dry place where it rarely rains and there is a lot of sand.",
+      "correct": "a desert",
+      "explanation_vi": "Desert = sa mạc, nơi rất nóng và khô, hiếm khi có mưa và có rất nhiều cát."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is a large, white bird with a long neck that lives on or near rivers and lakes.",
+      "correct": "a swan",
+      "explanation_vi": "Swan = thiên nga, loài chim lớn màu trắng có chiếc cổ dài, sống trên hoặc gần sông hồ."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is a large area with many trees, and it is a home for many different wild animals.",
+      "correct": "a forest",
+      "explanation_vi": "Forest = khu rừng, khu vực rộng lớn có nhiều cây cối, là nhà của nhiều loài động vật hoang dã."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This is a hard object that you can sometimes find on a beach or at the bottom of the sea.",
+      "correct": "a shell",
+      "explanation_vi": "Shell = vỏ sò/ốc, vật cứng bạn thỉnh thoảng có thể tìm thấy trên bãi biển hoặc dưới đáy biển."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "This large animal can live for a long time without drinking water in very hot places.",
+      "correct": "a camel",
+      "explanation_vi": "Camel = lạc đà, loài động vật lớn có thể sống rất lâu mà không cần uống nước ở những nơi rất nóng."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "This is like a large hill that sometimes has hot, liquid rock coming out of the top.",
+      "correct": "a volcano",
+      "explanation_vi": "Volcano = núi lửa, giống như một ngọn đồi lớn đôi khi có đá lỏng và nóng phun ra từ đỉnh."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a very small animal that usually has six legs and sometimes has wings to fly.",
+      "correct": "an insect",
+      "explanation_vi": "Insect = côn trùng, loài động vật rất nhỏ thường có sáu chân và đôi khi có cánh để bay."
+    }
+  ]
+}

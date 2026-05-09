@@ -124,6 +124,24 @@ try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-ME
 try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P2.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE5-P2"] = d.default; } catch { /* R2 */ }
 try { const d = await import("../../../content/lop6/tieng-anh/writing/WRITING-MED-GRADE5-P3.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["WRITING-MED-GRADE5-P3"] = d.default; } catch { /* R2 */ }
 
+// ⚠️ CAMBRIDGE FLYERS Part 1 — Word Bank Engine (FW1-*)
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-EASY-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-EASY-001"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-EASY-002.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-EASY-002"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-EASY-003.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-EASY-003"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-EASY-004.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-EASY-004"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-MED-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-MED-001"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-MED-002.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-MED-002"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-MED-003.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-MED-003"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-MED-004.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-MED-004"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-MED-005.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-MED-005"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-HARD-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-HARD-001"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-HARD-002.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-HARD-002"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-HARD-003.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-HARD-003"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-HARD-004.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-HARD-004"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part1/FW1-HARD-005.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW1-HARD-005"] = d.default; } catch { /* R2 */ }
+
+
+
 type Env = {
   DB: D1Database;
   SESSION: KVNamespace;
@@ -161,6 +179,10 @@ function getR2Key(quizId: string): string {
   if (/^L\d{3}$/.test(quizId)) {
     return `quizzes/cambridge/flyers/listening/${quizId}.json`;
   }
+  // Cambridge Flyers — R&W Part 1 Word Bank (FW1-*)
+  if (/^FW1-/.test(quizId)) {
+    return `quizzes/cambridge/flyers/part1/${quizId}.json`;
+  }
   // Fallback — không nên xảy ra
   console.warn(`[quiz] Unknown quizId format: "${quizId}" — using flat path. Add rule to getR2Key().`);
   return `quizzes/${quizId}.json`;
@@ -197,6 +219,10 @@ function detectQuizMeta(quizId: string): { pathway: string | null; subject: stri
   // Cambridge — Listening (Flyers)
   if (/^L\d{3}$/i.test(quizId)) {
     return { pathway: "cambridge", subject: "listening" };
+  }
+  // Cambridge — Flyers Part 1 Word Bank (FW1-*)
+  if (/^FW1-/i.test(quizId)) {
+    return { pathway: "cambridge", subject: "flyers" };
   }
   // Không xác định được
   return { pathway: null, subject: null };

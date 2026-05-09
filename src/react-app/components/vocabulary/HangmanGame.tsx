@@ -30,7 +30,7 @@ const MAX_WRONG = 6;
 function HangmanDrawing({ wrongCount }: { wrongCount: number }) {
   return (
     <svg className="hangman-svg" viewBox="0 0 200 220"
-      aria-label={`Hình treo cổ: ${wrongCount}/${MAX_WRONG} lần sai`}>
+      aria-label={`Hangman drawing: ${wrongCount}/${MAX_WRONG} mistakes`}>
       <line x1="20" y1="210" x2="180" y2="210" strokeWidth="4" className="hangman-line" />
       <line x1="60" y1="210" x2="60"  y2="20"  strokeWidth="4" className="hangman-line" />
       <line x1="60" y1="20"  x2="130" y2="20"  strokeWidth="4" className="hangman-line" />
@@ -204,7 +204,7 @@ export function HangmanGame({
           <div className="hangman-header__progress">
             {phase === "summary" ? `${summaryData?.correctWords.length ?? 0}/5 ✓` : `${wordIndex + 1} / ${words.length}`}
           </div>
-          <button className="hangman-header__close" onClick={onClose} aria-label="Đóng game">×</button>
+          <button className="hangman-header__close" onClick={onClose} aria-label="Close game">×</button>
         </div>
 
         {/* ══════════════════════════════════════════════════════════════════
@@ -214,7 +214,7 @@ export function HangmanGame({
           <>
             {/* Meaning hint */}
             <div className="hangman-hint">
-              <span className="hangman-hint__label">Nghĩa:</span>
+              <span className="hangman-hint__label">Meaning:</span>
               <span className="hangman-hint__vi">{currentWord.vi}</span>
               {currentWord.ipa && (
                 <span className="hangman-hint__ipa">/{currentWord.ipa}/</span>
@@ -226,7 +226,7 @@ export function HangmanGame({
 
             {/* Word slots */}
             <div className="hangman-word"
-              aria-label={`Từ cần đoán: ${wordLetters.map((l) => (guessed.has(l) ? l : "_")).join(" ")}`}>
+              aria-label={`Word to guess: ${wordLetters.map((l) => (guessed.has(l) ? l : "_")).join(" ")}`}>
               {wordLetters.map((letter, i) => {
                 if (letter === " ") return <span key={i} className="hangman-word__space" />;
                 const isRevealed = guessed.has(letter);
@@ -242,7 +242,7 @@ export function HangmanGame({
             {/* Wrong letters */}
             {wrongCount > 0 && (
               <div className="hangman-wrong">
-                Sai: {[...guessed].filter((l) => !wordLetters.includes(l)).join(", ")}
+                Wrong: {[...guessed].filter((l) => !wordLetters.includes(l)).join(", ")}
               </div>
             )}
 
@@ -285,8 +285,8 @@ export function HangmanGame({
               <button
                 className={`hangman-reveal__speak ${isSpeaking ? "hangman-reveal__speak--active" : ""}`}
                 onClick={() => handleSpeak(currentWord.word)}
-                aria-label={`Phát âm ${currentWord.word}`}
-                title="Nghe phát âm"
+                aria-label={`Pronounce ${currentWord.word}`}
+                title="Listen to pronunciation"
               >
                 🔊
               </button>
@@ -307,8 +307,8 @@ export function HangmanGame({
               onClick={continueToNext}
               id="btn-hangman-continue"
             >
-              {isLastWord ? "Xem kết quả →" : "Tiếp tục →"}
-              <span className="hangman-reveal__enter-hint">hoặc nhấn Enter</span>
+              {isLastWord ? "See results →" : "Continue →"}
+              <span className="hangman-reveal__enter-hint">or press Enter</span>
             </button>
           </div>
         )}
@@ -323,7 +323,7 @@ export function HangmanGame({
               <span className="hangman-summary__score-num">
                 {summaryData.correctWords.length}<span>/5</span>
               </span>
-              <span className="hangman-summary__score-label">từ đúng</span>
+              <span className="hangman-summary__score-label">correct</span>
               {summaryData.starsEarned > 0 && (
                 <span className="hangman-summary__stars">
                   +{summaryData.starsEarned} ⭐
@@ -348,8 +348,8 @@ export function HangmanGame({
                   <button
                     className="hangman-summary__speak"
                     onClick={() => handleSpeak(rec.word.word)}
-                    aria-label={`Phát âm ${rec.word.word}`}
-                    title="Nghe phát âm"
+                    aria-label={`Pronounce ${rec.word.word}`}
+                    title="Listen to pronunciation"
                   >
                     🔊
                   </button>
@@ -363,13 +363,13 @@ export function HangmanGame({
               onClick={handleFinish}
               id="btn-hangman-finish"
             >
-              Hoàn thành ✓
+              Done ✓
             </button>
 
             {/* Guest notice */}
             {!isLoggedIn && (
               <div className="hangman-guest-notice">
-                ℹ️ Đăng nhập để lưu kết quả & nhận ⭐
+                ℹ️ Sign in to save results & earn ⭐
               </div>
             )}
           </div>

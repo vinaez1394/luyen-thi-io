@@ -1,0 +1,660 @@
+/* =========================================================
+   Games.css — Styles cho PRACTICE + USE mini-games
+   Mobile-first, touch targets ≥ 48×48px
+   ========================================================= */
+
+/* ── PracticeSection ───────────────────────────────────────── */
+.practice-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.practice-header {
+  text-align: center;
+}
+.practice-header__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+.practice-header__sub {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Game phase nav (mini tabs) */
+.game-phase-nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.game-phase-pill {
+  padding: 0.3rem 0.9rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  border: 2px solid transparent;
+  transition: all 0.15s;
+}
+.game-phase-pill--active {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary);
+}
+.game-phase-pill--done {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+/* ── Score bar ─────────────────────────────────────────────── */
+.game-score-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-bg-subtle);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.game-score-bar__value {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* ── PictureMatchGame ──────────────────────────────────────── */
+.pmg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.pmg__question {
+  text-align: center;
+}
+.pmg__question-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.pmg__word {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0;
+}
+.pmg__ipa {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono, monospace);
+  margin: 0.2rem 0 0;
+}
+
+.pmg__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 340px;
+}
+
+.pmg__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  aspect-ratio: 1 / 1;            /* ⬜️ luôn hình vuông — desktop + mobile */
+  width: 100%;
+  border-radius: 16px;
+  border: 2.5px solid var(--color-border);
+  background: var(--color-card);
+  cursor: pointer;
+  padding: 0.75rem;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+  /* Touch target minimum */
+  min-width: 48px;
+  min-height: 48px;
+}
+.pmg__option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(99,102,241,.15);
+  transform: translateY(-2px);
+}
+.pmg__option:disabled { cursor: not-allowed; }
+
+/* States */
+.pmg__option--correct {
+  border-color: var(--color-success) !important;
+  background: var(--color-success-light) !important;
+  animation: flash-green 0.8s ease;
+}
+.pmg__option--wrong {
+  border-color: var(--color-danger) !important;
+  background: var(--color-danger-light) !important;
+  animation: shake 0.5s ease;
+}
+.pmg__option--highlight {
+  border-color: var(--color-success) !important;
+  background: var(--color-success-light) !important;
+}
+
+@keyframes flash-green {
+  0%, 100% { background: var(--color-success-light); }
+  50%       { background: #6EE7B7; }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+.pmg__option-emoji { font-size: 2.8rem; line-height: 1; }
+.pmg__option-image {
+  width: 100%;
+  max-width: 110px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+.pmg__option-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+.pmg__option-check {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 1rem;
+}
+
+/* ── WordBankFillGame ──────────────────────────────────────── */
+.wbf {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.wbf__sentence {
+  background: var(--color-bg-subtle);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  border: 2px solid var(--color-border);
+  transition: border-color 0.2s;
+}
+.wbf__sentence--correct { border-color: var(--color-success); background: var(--color-success-light); }
+.wbf__sentence--wrong   { border-color: var(--color-danger);  background: var(--color-danger-light); animation: shake 0.5s; }
+
+.wbf__sentence-text {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0;
+}
+.wbf__blank {
+  display: inline-block;
+  min-width: 80px;
+  border-bottom: 2.5px solid var(--color-primary);
+  padding: 0 4px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-style: italic;
+}
+.wbf__sentence-vi {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0.5rem 0 0;
+  font-style: italic;
+}
+
+.wbf__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+.wbf__chip {
+  padding: 0.55rem 1.1rem;
+  border-radius: 99px;
+  border: 2px solid var(--color-border);
+  background: var(--color-card);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.15s;
+  /* Touch target */
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+.wbf__chip:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+.wbf__chip--correct {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+.wbf__chip--wrong {
+  background: var(--color-danger-light);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  animation: shake 0.5s;
+}
+.wbf__chip:disabled { cursor: not-allowed; opacity: 0.5; }
+
+/* ── UseSection / ExampleFillSection ───────────────────────── */
+.use-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.use-header {
+  text-align: center;
+}
+.use-header__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+.use-header__sub {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ExampleFillSection sentences */
+.efs__sentences {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.efs__item {
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  transition: border-color 0.2s;
+}
+.efs__item--correct { border-color: var(--color-success); }
+.efs__item--wrong   { border-color: var(--color-danger); }
+.efs__item--pending { border-color: var(--color-border); }
+
+.efs__sentence {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+.efs__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.efs__chip {
+  padding: 0.35rem 0.8rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg-subtle);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+.efs__chip:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+.efs__chip--selected {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+.efs__chip--correct {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+.efs__chip--wrong {
+  background: var(--color-danger-light);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+.efs__chip:disabled { cursor: not-allowed; }
+
+.efs__explanation {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin: 0.5rem 0 0;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--color-border);
+  font-style: italic;
+  display: flex;
+  gap: 0.3rem;
+  align-items: flex-start;
+}
+
+.efs__submit {
+  margin-top: 0.5rem;
+}
+
+/* PassageUseSection */
+.pus {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.pus__passage {
+  background: var(--color-bg-subtle);
+  border-radius: 14px;
+  padding: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  border: 1.5px solid var(--color-border);
+}
+.pus__blank-select {
+  display: inline-block;
+  min-width: 90px;
+  border: none;
+  border-bottom: 2.5px solid var(--color-primary);
+  background: transparent;
+  padding: 0 4px 1px;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
+}
+.pus__blank-select--correct { border-color: var(--color-success); color: var(--color-success); }
+.pus__blank-select--wrong   { border-color: var(--color-danger);  color: var(--color-danger); }
+
+.pus__passage-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+}
+
+/* ── ResultScreen ──────────────────────────────────────────── */
+.result-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+.result-screen__stars {
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+}
+.result-screen__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0;
+}
+.result-screen__score {
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin: 0;
+}
+.result-screen__word-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.result-word {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 10px;
+  background: var(--color-bg-subtle);
+  font-size: 0.85rem;
+  text-align: left;
+}
+.result-word--correct { background: var(--color-success-light); }
+.result-word--wrong   { background: var(--color-danger-light); }
+.result-word__icon   { font-size: 1rem; flex-shrink: 0; }
+.result-word__text   { font-weight: 700; color: var(--color-text); }
+.result-word__vi     { color: var(--color-text-muted); margin-left: auto; font-size: 0.78rem; }
+
+.result-screen__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 280px;
+  margin-top: 0.5rem;
+}
+
+/* ── Game transition ───────────────────────────────────────── */
+.game-transition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  background: var(--color-card);
+  border-radius: 16px;
+  border: 2px solid var(--color-border);
+  animation: fade-slide-in 0.3s ease;
+}
+.game-transition__icon { font-size: 3rem; }
+.game-transition__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+.game-transition__sub {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@keyframes fade-slide-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Loading spinner (reuse) ───────────────────────────────── */
+.game-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+.game-loading__spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: lesson-spin 0.8s linear infinite;
+}
+
+/* Dark mode */
+[data-theme="night"] .pmg__option { background: var(--color-card); }
+[data-theme="night"] .wbf__chip  { background: var(--color-card); }
+
+/* ══════════════════════════════════════════════════════════════
+   DESKTOP SCALING — Practice & Use sections for children
+   ≥ 600px: medium boost | ≥ 900px: full desktop scale
+   ══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 600px) {
+  /* ── Practice section headers ─── */
+  .practice-header__title { font-size: 1.4rem; }
+  .practice-header__sub   { font-size: 1rem; }
+
+  /* ── Phase nav pills ─── */
+  .game-phase-pill { font-size: 0.92rem; padding: 0.4rem 1.2rem; }
+
+  /* ── Score bar ─── */
+  .game-score-bar { font-size: 1rem; padding: 0.6rem 1rem; }
+  .game-score-bar__value { font-size: 1.2rem; }
+
+  /* ── PictureMatchGame ─── */
+  .pmg { gap: 1.5rem; }
+  .pmg__question-label { font-size: 0.9rem; }
+  .pmg__word  { font-size: 2.6rem; }
+  .pmg__ipa   { font-size: 1.1rem; }
+
+  .pmg__grid {
+    max-width: 500px;   /* ố lưới rộng hơn → mỗi ô to hơn */
+    gap: 1rem;
+  }
+  .pmg__option {
+    /* aspect-ratio:1/1 đã xử lý ở base — chỉ cần override border/padding */
+    padding: 1.25rem;
+    border-radius: 20px;
+    border-width: 3px;
+  }
+  .pmg__option-emoji  { font-size: 4rem; }
+  .pmg__option-check  { font-size: 1.3rem; top: 8px; right: 10px; }
+
+  /* ── WordBankFillGame ─── */
+  .wbf__sentence-text { font-size: 1.2rem; }
+  .wbf__blank         { min-width: 100px; font-size: 1.1rem; }
+  .wbf__sentence-vi   { font-size: 0.95rem; }
+  .wbf__chip {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.05rem;
+    min-height: 54px;
+    border-radius: 99px;
+  }
+
+  /* ── UseSection / ExampleFillSection ─── */
+  .use-header__title { font-size: 1.4rem; }
+  .use-header__sub   { font-size: 1rem; }
+
+  .efs__item { padding: 1.1rem 1.25rem; border-radius: 16px; }
+  .efs__sentence { font-size: 1.1rem; }
+  .efs__chip {
+    padding: 0.5rem 1.1rem;
+    font-size: 1rem;
+    min-height: 52px;
+  }
+  .efs__explanation { font-size: 0.9rem; }
+
+  /* ── Game transition screen ─── */
+  .game-transition { padding: 2.5rem 1.5rem; }
+  .game-transition__icon  { font-size: 4rem; }
+  .game-transition__title { font-size: 1.4rem; }
+  .game-transition__sub   { font-size: 1rem; }
+
+  /* ── Result screen ─── */
+  .result-screen { padding: 2rem 1.5rem; gap: 1.25rem; }
+  .result-screen__stars { font-size: 3rem; }
+  .result-screen__title { font-size: 1.9rem; }
+  .result-screen__score { font-size: 1.2rem; }
+  .result-screen__actions { max-width: 340px; }
+  .result-word { font-size: 1rem; padding: 0.5rem 1rem; }
+  .result-word__vi { font-size: 0.9rem; }
+}
+
+@media (min-width: 900px) {
+  /* ── Practice section headers ─── */
+  .practice-header__title { font-size: 1.6rem; }
+  .practice-header__sub   { font-size: 1.1rem; }
+
+  /* ── Score bar ─── */
+  .game-score-bar { font-size: 1.1rem; padding: 0.75rem 1.25rem; }
+  .game-score-bar__value { font-size: 1.35rem; }
+
+  /* ── PictureMatchGame ─── */
+  .pmg__word { font-size: 3.2rem; }
+  .pmg__ipa  { font-size: 1.2rem; }
+
+  .pmg__grid {
+    max-width: 640px;   /* 2 ô × ≈310px mỗi ô — to và vuông */
+    gap: 1.5rem;
+  }
+  .pmg__option {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  .pmg__option-emoji { font-size: 6rem; }
+  .pmg__option-check { font-size: 1.5rem; top: 10px; right: 12px; }
+
+  /* ── WordBankFillGame ─── */
+  .wbf__sentence { padding: 1.25rem 1.75rem; }
+  .wbf__sentence-text { font-size: 1.35rem; line-height: 1.8; }
+  .wbf__blank         { min-width: 120px; font-size: 1.25rem; }
+  .wbf__chip {
+    padding: 0.85rem 1.75rem;
+    font-size: 1.2rem;
+    min-height: 60px;
+  }
+
+  /* ── UseSection / ExampleFillSection ─── */
+  .use-header__title { font-size: 1.7rem; }
+  .use-header__sub   { font-size: 1.1rem; }
+
+  .efs__item { padding: 1.25rem 1.5rem; }
+  .efs__sentence { font-size: 1.2rem; line-height: 1.8; }
+  .efs__chip {
+    padding: 0.6rem 1.35rem;
+    font-size: 1.1rem;
+    min-height: 56px;
+  }
+  .efs__explanation { font-size: 0.95rem; }
+
+  /* ── Game transition ─── */
+  .game-transition { padding: 3rem 2rem; gap: 1rem; }
+  .game-transition__icon  { font-size: 5rem; }
+  .game-transition__title { font-size: 1.6rem; }
+  .game-transition__sub   { font-size: 1.1rem; }
+
+  /* ── Result screen ─── */
+  .result-screen__stars { font-size: 3.5rem; }
+  .result-screen__title { font-size: 2.2rem; }
+  .result-screen__score { font-size: 1.35rem; }
+  .result-screen__actions { max-width: 380px; }
+}
+

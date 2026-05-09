@@ -25,9 +25,15 @@ type Env = {
 export const emailAuthRoute = new Hono<{ Bindings: Env }>();
 
 // ─── Helpers ──────────────────────────────────────────────────
+/** Sinh OTP 6 số bằng crypto (an toàn, không đoán được) */
 function generateOtp(): string {
-  return String(Math.floor(100000 + Math.random() * 900000));
+  const arr = new Uint32Array(1);
+  crypto.getRandomValues(arr);
+  return String(100000 + (arr[0] % 900000));
 }
+
+/** Max số lần thử nhập OTP sai trước khi OTP bị xóa */
+const MAX_OTP_ATTEMPTS = 5;
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -97,9 +103,9 @@ emailAuthRoute.post("/send-code", async (c) => {
   // Generate OTP
   const otp = generateOtp();
 
-  // Store OTP in KV: 5 minute TTL
+  // Store OTP in KV: 5 minute TTL, kèm số lần thử = 0
   const otpKey = `otp:${email}`;
-  await c.env.SESSION.put(otpKey, JSON.stringify({ otp, name }), {
+  await c.env.SESSION.put(otpKey, JSON.stringify({ otp, name, attempts: 0 }), {
     expirationTtl: 300, // 5 phút
   });
 
@@ -114,8 +120,16 @@ emailAuthRoute.post("/send-code", async (c) => {
       return c.json({ ok: false, error: "email_failed" }, 500);
     }
   } else {
-    // Dev mode: log OTP to console (không gửi email thật)
-    console.log(`[DEV] OTP for ${email}: ${otp}`);
+    // Dev mode only: log OTP khi chạy local (wrangler dev dùng localhost)
+    const isLocal = new URL(c.req.url).hostname === "localhost";
+    if (isLocal) {
+      console.log(`[DEV] OTP for ${email}: ${otp}`);
+    }
+    // Production không có RESEND_API_KEY → lỗi cấu hình
+    if (!isLocal) {
+      console.error("RESEND_API_KEY not set — email not sent for:", email);
+      return c.json({ ok: false, error: "email_not_configured" }, 500);
+    }
   }
 
   return c.json({ ok: true });
@@ -141,10 +155,29 @@ emailAuthRoute.post("/verify", async (c) => {
     return c.json({ ok: false, error: "code_invalid" }, 400);
   }
 
-  const { otp, name } = JSON.parse(stored) as { otp: string; name: string };
+  const parsed = JSON.parse(stored) as { otp: string; name: string; attempts?: number };
+  const { otp, name } = parsed;
+  const attempts = parsed.attempts ?? 0;
 
+  // Brute-force protection: tối đa 5 lần thử
   if (code !== otp) {
-    return c.json({ ok: false, error: "code_invalid" }, 400);
+    const newAttempts = attempts + 1;
+    if (newAttempts >= MAX_OTP_ATTEMPTS) {
+      // Quá 5 lần sai → xóa OTP, buộc gửi mã mới
+      await c.env.SESSION.delete(otpKey);
+      return c.json(
+        { ok: false, error: "code_expired", message: "Bạn đã nhập sai quá nhiều lần. Vui lòng gửi mã mới." },
+        400
+      );
+    }
+    // Lưu lại số lần thử, giữ nguyên TTL còn lại
+    await c.env.SESSION.put(otpKey, JSON.stringify({ otp, name, attempts: newAttempts }), {
+      expirationTtl: 300, // refresh 5 phút
+    });
+    return c.json(
+      { ok: false, error: "code_invalid", remaining: MAX_OTP_ATTEMPTS - newAttempts },
+      400
+    );
   }
 
   // OTP đúng → xóa khỏi KV

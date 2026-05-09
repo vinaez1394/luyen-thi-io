@@ -1,0 +1,306 @@
+/* =========================================================
+   VocabularyPage.css — Dashboard chọn topic từ vựng
+   ========================================================= */
+
+.vocab-page {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.vocab-hero {
+  background: var(--gradient-primary);
+  padding: 2rem 1.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.vocab-hero::after {
+  content: "📚";
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-size: 8rem;
+  opacity: 0.08;
+  pointer-events: none;
+  line-height: 1;
+}
+.vocab-hero__content {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.vocab-hero__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+.vocab-hero__subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,.85);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Cert Filter ───────────────────────────────────────────── */
+.cert-filter {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 0;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 0.5rem;
+}
+.cert-filter::-webkit-scrollbar { display: none; }
+
+.cert-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 0.6rem 1.1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+.cert-tab:hover { color: var(--cert-color, var(--color-primary)); }
+.cert-tab--active {
+  color: var(--cert-color, var(--color-primary));
+  border-bottom-color: var(--cert-color, var(--color-primary));
+  font-weight: 700;
+}
+.cert-tab__short {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.05em;
+}
+.cert-tab__label {
+  font-size: 0.72rem;
+}
+
+/* ── Cert Info ─────────────────────────────────────────────── */
+.cert-info {
+  padding: 0.6rem 1.25rem;
+  background: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--color-border);
+}
+.cert-info__label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  font-weight: 600;
+}
+.cert-info__note {
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+/* ── Topic Grid ────────────────────────────────────────────── */
+.topic-grid-wrapper {
+  flex: 1;
+  padding: 1.25rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 520px) {
+  .topic-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 720px) {
+  .topic-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Loading skeletons */
+.topic-grid-loading {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 520px) {
+  .topic-grid-loading { grid-template-columns: repeat(3, 1fr); }
+}
+
+.topic-card--skeleton {
+  height: 160px;
+  background: linear-gradient(
+    90deg,
+    var(--color-border) 25%,
+    var(--color-bg-subtle) 50%,
+    var(--color-border) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 16px;
+  cursor: default;
+}
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* Error / Empty */
+.topic-grid-error,
+.topic-grid-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* ── TopicCard ─────────────────────────────────────────────── */
+.topic-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.25rem 0.75rem 1rem;
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  min-height: 150px;
+  overflow: hidden;
+}
+.topic-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(99,102,241,.15);
+  transform: translateY(-2px);
+}
+.topic-card:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+
+/* Complete variant */
+.topic-card--complete {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+}
+
+/* Review due */
+.topic-card--review {
+  border-color: var(--color-warning);
+}
+.topic-card--review::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-warning);
+  border-radius: 16px 16px 0 0;
+}
+
+/* Badge (top-right) */
+.topic-card__badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 2px 6px;
+  line-height: 1.4;
+}
+.topic-card__badge--done {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+.topic-card__badge--review {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+/* Emoji */
+.topic-card__emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+  display: block;
+  transition: transform 0.2s;
+}
+.topic-card:hover .topic-card__emoji {
+  transform: scale(1.12);
+}
+
+/* Label */
+.topic-card__label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Count */
+.topic-card__count {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Progress bar */
+.topic-card__progress {
+  width: 100%;
+  margin-top: 0.3rem;
+}
+.topic-card__progress-bar {
+  height: 5px;
+  background: var(--color-bg-subtle);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+.topic-card__progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+.topic-card__progress-fill--seen {
+  background: var(--color-primary-light);
+}
+.topic-card__progress-fill--mastered {
+  background: var(--color-success);
+}
+.topic-card__progress-label {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--color-text-light);
+  margin-top: 3px;
+  text-align: left;
+}
+
+/* Dark mode */
+[data-theme="night"] .vocab-hero::after { opacity: 0.05; }
+[data-theme="night"] .topic-card--complete {
+  background: rgba(16,185,129,.1);
+  border-color: rgba(16,185,129,.4);
+}

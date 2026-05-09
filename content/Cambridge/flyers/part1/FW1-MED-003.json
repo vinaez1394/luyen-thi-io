@@ -1,0 +1,110 @@
+{
+  "id": "FW1-MED-003",
+  "title": "Flyers Reading & Writing — Part 1 — Set 3 (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a station",
+    "a passenger",
+    "a camera",
+    "a journey",
+    "a traffic jam",
+    "a hotel",
+    "a pilot",
+    "a souvenir",
+    "a passport",
+    "a ticket",
+    "a map",
+    "a bridge",
+    "a rucksack",
+    "a postcard",
+    "a museum"
+  ],
+
+  "example": {
+    "prompt": "When you want to cut meat or vegetables into small pieces for cooking, you can use this.",
+    "answer": "a knife"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This is a special piece of paper that shows you have paid to travel on a bus, train, or plane.",
+      "correct": "a ticket",
+      "explanation_vi": "Ticket = vé, mảnh giấy đặc biệt cho thấy bạn đã trả tiền để đi xe buýt, tàu hoặc máy bay."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "You look at this to find your way when you are lost or planning a route to a new place.",
+      "correct": "a map",
+      "explanation_vi": "Map = bản đồ, thứ bạn xem để tìm đường khi bị lạc hoặc lên kế hoạch đi đến nơi mới."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is a person who is traveling in a car, bus, or train but is not driving the vehicle.",
+      "correct": "a passenger",
+      "explanation_vi": "Passenger = hành khách, người di chuyển trên xe hơi, xe buýt, hoặc tàu nhưng không phải là người lái."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "You use this machine to take photos or record videos of your friends and family.",
+      "correct": "a camera",
+      "explanation_vi": "Camera = máy ảnh/máy quay, thiết bị dùng để chụp ảnh hoặc quay video bạn bè và gia đình."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is a building where you can pay to stay in a room and eat meals while on holiday.",
+      "correct": "a hotel",
+      "explanation_vi": "Hotel = khách sạn, tòa nhà nơi bạn trả tiền để ở trong một căn phòng và dùng bữa khi đi nghỉ mát."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "When there are too many cars on the road and they cannot move, it is called this.",
+      "correct": "a traffic jam",
+      "explanation_vi": "Traffic jam = tắc đường, khi có quá nhiều xe trên đường và chúng không thể di chuyển."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "You carry this kind of bag on your back, which is very useful when you go hiking.",
+      "correct": "a rucksack",
+      "explanation_vi": "Rucksack = ba lô, loại túi bạn mang trên lưng, rất hữu ích khi đi bộ đường dài."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "This is a structure that is built over a road or a river so that people can cross safely.",
+      "correct": "a bridge",
+      "explanation_vi": "Bridge = cây cầu, một cấu trúc được xây qua đường hoặc sông để mọi người có thể qua lại an toàn."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You might send this to a friend while you are on holiday. It usually has a picture on one side.",
+      "correct": "a postcard",
+      "explanation_vi": "Postcard = bưu thiếp, thứ bạn gửi cho bạn bè khi đi nghỉ mát, thường có hình ảnh ở một mặt."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is the time when you travel from one place to another, especially if it is a long way.",
+      "correct": "a journey",
+      "explanation_vi": "Journey = hành trình, thời gian di chuyển từ nơi này đến nơi khác, đặc biệt là đoạn đường dài."
+    }
+  ]
+}

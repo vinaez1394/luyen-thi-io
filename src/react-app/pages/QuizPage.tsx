@@ -19,6 +19,7 @@ import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
 import { ReadingEngine } from "../components/quiz/ReadingEngine";
 import { WritingEngine } from "../components/quiz/WritingEngine";
+import { FlyersPart1Engine } from "../components/quiz/FlyersPart1Engine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
@@ -26,6 +27,7 @@ import "../components/quiz/Quiz.css";
 import "../components/layout/QuizLayout.css";
 import type { ReadingQuiz } from "../types/reading";
 import type { WritingQuiz } from "../types/writing";
+import type { FlyersPart1Quiz } from "../components/quiz/FlyersPart1Engine";
 
 export function QuizPage() {
   const location = useLocation();
@@ -394,6 +396,57 @@ export function QuizPage() {
             onRetry={() => setWritingSubmitted(false)}
             vocabRemainingFree={vocab.remainingFree}
             onVocabLookup={vocab.lookupWord}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Flyers Part 1 — Word Bank Click Engine =====
+  if ((quiz as unknown as FlyersPart1Quiz).type === "flyers-part1") {
+    const fp1Quiz = quiz as unknown as FlyersPart1Quiz;
+    return (
+      <div className="quiz-layout">
+        {/* Sub-header */}
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Part 1">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  📖 Flyers Reading & Writing
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{fp1Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Engine */}
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <FlyersPart1Engine
+            quiz={fp1Quiz}
+            onSubmitResult={(_res) => {
+              localStorage.setItem("last_quiz_id", quizId);
+            }}
           />
         </div>
       </div>

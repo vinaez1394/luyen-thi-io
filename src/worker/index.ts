@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { healthRoute } from "./routes/health";
 import { authRoute } from "./routes/auth";
 import { emailAuthRoute } from "./routes/email-auth";
@@ -9,6 +10,34 @@ import { progressRoute } from "./routes/progress";
 import { blogRoutes } from "./routes/blog";
 
 const app = new Hono<{ Bindings: Env }>();
+
+// =============================================
+// 🔒 Security Headers (global middleware)
+// =============================================
+app.use("*", async (c, next) => {
+  await next();
+  // Chỉ thêm headers cho API responses, không ghi đè nếu đã có
+  c.res.headers.set("X-Content-Type-Options", "nosniff");
+  c.res.headers.set("X-Frame-Options", "DENY");
+  c.res.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  c.res.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+});
+
+// =============================================
+// 🌐 CORS — chỉ cho phép domain chính
+// =============================================
+app.use("/api/*", cors({
+  origin: [
+    "https://luyenthi.io.vn",
+    "https://www.luyenthi.io.vn",
+    "https://luyen-thi-io.vinaez1394.workers.dev",
+    "http://localhost:8788",   // wrangler dev
+  ],
+  allowMethods: ["GET", "POST", "OPTIONS"],
+  allowHeaders: ["Content-Type", "Cookie"],
+  credentials: true,
+  maxAge: 86400, // 24h preflight cache
+}));
 
 // =============================================
 // Routes

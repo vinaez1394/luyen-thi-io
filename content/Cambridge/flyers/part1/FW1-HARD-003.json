@@ -1,0 +1,110 @@
+{
+  "id": "FW1-HARD-003",
+  "title": "Flyers Reading & Writing — Part 1 — Set 3 (Hard)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a journalist",
+    "a fossil",
+    "a manager",
+    "a schedule",
+    "a secret",
+    "a goal",
+    "a stage",
+    "a reptile",
+    "a tour",
+    "a museum",
+    "an appointment",
+    "a dictionary",
+    "a uniform",
+    "a platform",
+    "a guest"
+  ],
+
+  "example": {
+    "prompt": "This is a short period of time when you visit a person or a place to learn about it, often with a guide.",
+    "answer": "a tour"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This is a type of animal, like a snake or a lizard, that has cold blood and skin covered in hard scales.",
+      "correct": "a reptile",
+      "explanation_vi": "Reptile = loài bò sát, động vật máu lạnh có da phủ vảy cứng như rắn hoặc thằn lằn."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "This is the raised floor in a theatre where actors stand so that everyone in the audience can see them perform.",
+      "correct": "a stage",
+      "explanation_vi": "Stage = sân khấu, nền sàn cao trong nhà hát để diễn viên đứng diễn cho khán giả xem."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "You have this when you have agreed to meet someone, like a doctor or a teacher, at a specific time and place.",
+      "correct": "an appointment",
+      "explanation_vi": "Appointment = cuộc hẹn, khi bạn đồng ý gặp ai đó vào một thời gian và địa điểm cụ thể."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This is a person who is in charge of an office, a shop, or a team of people and tells them what to do.",
+      "correct": "a manager",
+      "explanation_vi": "Manager = người quản lý, người phụ trách và điều hành một văn phòng, cửa hàng hay đội ngũ."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "Something that is known by only a few people and should not be told to anyone else.",
+      "correct": "a secret",
+      "explanation_vi": "Secret = bí mật, điều chỉ vài người biết và không nên kể cho ai khác."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is the hard remain of an animal or a plant that lived thousands of years ago, often found inside a rock.",
+      "correct": "a fossil",
+      "explanation_vi": "Fossil = hóa thạch, phần còn lại cứng cáp của động thực vật từ hàng ngàn năm trước trong đá."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "You wait here at a railway station when you are about to get on a train to go to another city.",
+      "correct": "a platform",
+      "explanation_vi": "Platform = sân ga, nơi bạn đợi ở nhà ga để lên tàu hỏa."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "This is a plan that shows the times when different things will happen, such as classes at school or bus trips.",
+      "correct": "a schedule",
+      "explanation_vi": "Schedule = lịch trình/thời khóa biểu, kế hoạch ghi rõ thời gian các hoạt động diễn ra."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "In a game of football, this is what you try to do by kicking the ball into the net of the other team.",
+      "correct": "a goal",
+      "explanation_vi": "Goal = bàn thắng, điều bạn cố gắng đạt được bằng cách sút bóng vào lưới đội bạn."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a person who has been invited to stay in someone’s home or is staying at a hotel.",
+      "correct": "a guest",
+      "explanation_vi": "Guest = khách, người được mời đến ở nhà ai đó hoặc đang ở khách sạn."
+    }
+  ]
+}

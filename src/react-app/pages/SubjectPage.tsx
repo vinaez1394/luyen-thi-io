@@ -67,11 +67,37 @@ const GRADE_TABS_DISPLAY: { key: GradeTab; label: string }[] = [
 ];
 
 const DIFF_CHIPS: { key: DiffFilter; label: string; emoji: string }[] = [
-  { key: "all",    label: "Mọi độ khó", emoji: "⚡" },
+  { key: "all",    label: "All Levels", emoji: "⚡" },
   { key: "easy",   label: "Easy",       emoji: "🟢" },
   { key: "medium", label: "Medium",     emoji: "🟡" },
   { key: "hard",   label: "Hard",       emoji: "🔴" },
 ];
+
+// ─── Cambridge Part Metadata ────────────────────────────────────────────────
+/** Part desc theo đề thi Flyers chính thức */
+const CAMBRIDGE_PARTS: Record<string, Record<number, { desc: string }>> = {
+  reading: {
+    1: { desc: "Look and Read" },
+    2: { desc: "Choose Word" },
+    3: { desc: "Best Answer" },
+    4: { desc: "Gap Fill" },
+    5: { desc: "Write a Word" },
+  },
+  listening: {
+    1: { desc: "Draw Lines" },
+    2: { desc: "Listen & Write" },
+    3: { desc: "Choose" },
+    4: { desc: "Tick the Box" },
+    5: { desc: "Listen & Color" },
+  },
+};
+
+/** Cambridge: Reading tab → "Reading & Writing" */
+function getCambridgeSkillMeta(skillKey: string): { label: string; emoji: string } {
+  if (skillKey === "reading")   return { label: "Reading & Writing", emoji: "📖" };
+  if (skillKey === "listening") return { label: "Listening",         emoji: "🎧" };
+  return SKILL_META.find(s => s.key === skillKey) ?? { label: skillKey, emoji: "📚" };
+}
 
 const GRADE_BADGE: Record<string, { className: string; label: string }> = {
   "3-4": { className: "badge-grade-34", label: "Lớp 3–4" },
@@ -119,11 +145,12 @@ interface LessonCardProps {
   lesson: Lesson;
   isLoggedIn: boolean;
   subjectColor: string;
-  score?: number;       // bestPct 0-100, undefined = chưa làm
+  isCambridge?: boolean;
+  score?: number;
   onClick: () => void;
 }
 
-function LessonCard({ lesson, isLoggedIn, subjectColor, score, onClick }: LessonCardProps) {
+function LessonCard({ lesson, isLoggedIn, subjectColor, isCambridge, score, onClick }: LessonCardProps) {
   const isPremium = !lesson.is_free;
   const locked    = isPremium && !isLoggedIn;
   const diff      = lesson.difficulty ? DIFFICULTY_CONFIG[lesson.difficulty] : null;
@@ -183,8 +210,8 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, score, onClick }: Lesson
 
       {/* Meta */}
       <div className="sp-lesson-card__meta">
-        <span>{lesson.questions} câu hỏi</span>
-        {lesson.est_minutes && <span>· ~{lesson.est_minutes} phút</span>}
+        <span>{lesson.questions} {isCambridge ? "questions" : "câu hỏi"}</span>
+        {lesson.est_minutes && <span>· ~{lesson.est_minutes} {isCambridge ? "min" : "phút"}</span>}
       </div>
 
       {/* Footer: lock/premium (left) + difficulty (right) */}
@@ -223,9 +250,12 @@ export function SubjectPage() {
   const [userGradeTab, setUserGradeTab] = useState<GradeTab>(initialGradeTab);
 
   // ── Filter state ──
+  const isCambridge = pathway === "cambridge";
+
   const [activeSkill,      setActiveSkill]      = useState<string>("");
   const [activeGrade,      setActiveGrade]      = useState<GradeTab>(initialGradeTab);
   const [activeDiff,       setActiveDiff]       = useState<DiffFilter>("all");
+  const [activePart,       setActivePart]       = useState<number | null>(null);
   // Track xem user đã chủ động đổi grade chưa (nếu đã đổi thì không auto-reset khi API về)
   const [gradeManuallySet, setGradeManuallySet] = useState(false);
 
@@ -256,6 +286,19 @@ export function SubjectPage() {
     window.addEventListener("grade:updated", onGradeUpdated);
     return () => window.removeEventListener("grade:updated", onGradeUpdated);
   }, [gradeManuallySet]);
+
+  // ── Cambridge: auto-select first Part có bài khi đổi skill ──
+  useEffect(() => {
+    if (!isCambridge || !subject || !activeSkill) return;
+    const parts = [...new Set(
+      subject.lessons
+        .filter(l => l.skill === activeSkill)
+        .map(l => l.part)
+        .filter((p): p is number => p != null)
+    )].sort((a, b) => a - b);
+    setActivePart(parts[0] ?? null);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCambridge, activeSkill]);
 
   // ── Available skills (chỉ những skill có bài) ──
   const availableSkills = useMemo(() => {
@@ -305,17 +348,24 @@ export function SubjectPage() {
     const DIFF_ORDER: Record<string, number> = { easy: 0, medium: 1, hard: 2 };
     return subject.lessons
       .filter(l => activeSkill ? l.skill === activeSkill : true)
-      .filter(l => lessonMatchesGrade(l, activeGrade))
+      // Cambridge: lọc theo Part; Lớp 6: lọc theo Grade
+      .filter(l => isCambridge
+        ? (activePart === null || l.part === activePart)
+        : lessonMatchesGrade(l, activeGrade)
+      )
       .filter(l => activeDiff === "all" || l.difficulty === activeDiff)
       .sort((a, b) => {
         if ((b.recommended ? 1 : 0) !== (a.recommended ? 1 : 0))
           return (b.recommended ? 1 : 0) - (a.recommended ? 1 : 0);
+        // Cambridge: sort theo Part number trước
+        const pa = a.part ?? 99, pb = b.part ?? 99;
+        if (pa !== pb) return pa - pb;
         const da = a.difficulty ? (DIFF_ORDER[a.difficulty] ?? 99) : 99;
         const db = b.difficulty ? (DIFF_ORDER[b.difficulty] ?? 99) : 99;
         if (da !== db) return da - db;
         return a.id.localeCompare(b.id);
       });
-  }, [subject, activeSkill, activeGrade, activeDiff]);
+  }, [subject, activeSkill, activeGrade, activeDiff, isCambridge, activePart]);
 
   // ── Stats ──
   const stats = useMemo(() => {
@@ -355,7 +405,14 @@ export function SubjectPage() {
 
   // ── Khi đổi Skill Tab: reset grade về grade user, reset difficulty — lưu vào sessionStorage ──
   const handleSkillChange = (skillKey: string) => {
+    // Tab "Vocabulary" trong Cambridge → navigate sang VocabularyPage
+    if (skillKey === "vocabulary" && pathway === "cambridge") {
+      const certParam = subjectSlug ?? "flyers";
+      navigate(`/cambridge/vocabulary?cert=${certParam}`);
+      return;
+    }
     setActiveSkill(skillKey);
+    setActivePart(null); // reset Part khi đổi Skill
     sessionStorage.setItem(SKILL_PREF_KEY(subjectSlug), skillKey);
     setActiveGrade(userGradeTab);
     setActiveDiff("all");
@@ -378,14 +435,32 @@ export function SubjectPage() {
 
       {/* Hero */}
       <div className="subject-page__hero" style={{ "--subject-color": subject.color } as React.CSSProperties}>
-        {/* Pathway badge — hiện rõ người dùng đang ở lộ trình nào */}
-        <div className="subject-page__hero-pathway-badge">
-          {pathway === "lop6" ? "🏫 Luyện Thi Lớp 6" : "🇬🇧 Cambridge"}
-        </div>
-        <div className="subject-page__hero-emoji">{subject.emoji}</div>
-        <h1 className="subject-page__hero-title">
-          {pathway === "lop6" ? `Môn ${subject.label.replace(" — Luyện Thi Lớp 6", "")}` : subject.label}
-        </h1>
+        {/* Pathway badge — CHỈ hiện cho Lớp 6, Cambridge không cần */}
+        {pathway !== "cambridge" && (
+          <div className="subject-page__hero-pathway-badge">
+            {pathway === "lop6" ? "🏫 Luyện Thi Lớp 6" : "🇬🇧 Cambridge"}
+          </div>
+        )}
+
+        {/* Cambridge: emoji + title cùng hàng */}
+        {isCambridge ? (
+          <div className="subject-page__hero-inline">
+            <span className="subject-page__hero-emoji subject-page__hero-emoji--inline">
+              {subject.emoji}
+            </span>
+            <h1 className="subject-page__hero-title">
+              {subject.label}
+            </h1>
+          </div>
+        ) : (
+          <>
+            <div className="subject-page__hero-emoji">{subject.emoji}</div>
+            <h1 className="subject-page__hero-title">
+              {pathway === "lop6" ? `Môn ${subject.label.replace(" — Luyện Thi Lớp 6", "")}` : subject.label}
+            </h1>
+          </>
+        )}
+
         <p className="subject-page__hero-desc">
           {pathway === "lop6"
             ? `Luyện thi tuyển sinh lớp 6 — ${availableSkills.map(s => s.label).join(" · ")} (${stats.total} bài)`
@@ -397,25 +472,28 @@ export function SubjectPage() {
       {/* ── Skill Tab Bar (chỉ hiện khi > 1 skill) ── */}
       {showSkillTabs && (
         <div
-          className="sp-skill-tabs"
+          className={`sp-skill-tabs${isCambridge ? " sp-skill-tabs--cambridge" : ""}`}
           style={{ "--subject-color": subject.color } as React.CSSProperties}
           role="tablist"
           aria-label="Chọn kỹ năng"
         >
-          {availableSkills.map(skill => (
-            <button
-              key={skill.key}
-              role="tab"
-              aria-selected={activeSkill === skill.key}
-              className={`sp-skill-tab${activeSkill === skill.key ? " sp-skill-tab--active" : ""}`}
-              onClick={() => handleSkillChange(skill.key)}
-              id={`tab-skill-${skill.key}`}
-            >
-              <span className="sp-skill-tab__emoji">{skill.emoji}</span>
-              <span className="sp-skill-tab__label">{skill.label}</span>
-              <span className="sp-skill-tab__count">{lessonCountBySkill[skill.key] ?? 0}</span>
-            </button>
-          ))}
+          {availableSkills.map(skill => {
+            const meta = isCambridge ? getCambridgeSkillMeta(skill.key) : skill;
+            return (
+              <button
+                key={skill.key}
+                role="tab"
+                aria-selected={activeSkill === skill.key}
+                className={`sp-skill-tab${activeSkill === skill.key ? " sp-skill-tab--active" : ""}`}
+                onClick={() => handleSkillChange(skill.key)}
+                id={`tab-skill-${skill.key}`}
+              >
+                <span className="sp-skill-tab__emoji">{meta.emoji}</span>
+                <span className="sp-skill-tab__label">{meta.label}</span>
+                <span className="sp-skill-tab__count">{lessonCountBySkill[skill.key] ?? 0}</span>
+              </button>
+            );
+          })}
         </div>
       )}
 
@@ -424,57 +502,99 @@ export function SubjectPage() {
         className="sp-controls"
         style={{ "--subject-color": subject.color } as React.CSSProperties}
       >
-        {/* ── Grade Selector Card ── */}
-        <div className="sp-grade-card">
-          <span className="sp-grade-card__label">🏫 Chọn lớp</span>
-          <div className="sp-grade-card__pills">
-            {GRADE_TABS_DISPLAY.map(tab => {
-              const ctx = getGradeContext(tab.key, userGradeTab);
-              const count = lessonCountByGrade[tab.key] ?? 0;
-              return (
-                <button
-                  key={tab.key}
-                  className={[
-                    "sp-grade-pill",
-                    activeGrade === tab.key ? "sp-grade-pill--active" : "",
-                    `sp-grade-pill--${ctx}`,
-                  ].filter(Boolean).join(" ")}
-                  onClick={() => { setActiveGrade(tab.key); setGradeManuallySet(true); }}
-                  id={`btn-grade-${tab.key.replace("-", "")}`}
-                  title={
-                    ctx === "higher" ? "Thử thách lớp cao hơn 🔥"
-                    : ctx === "lower"  ? "Ôn lại kiến thức 🔄"
-                    : "Lớp của bạn"
-                  }
-                >
-                  <span className="sp-grade-pill__label">{tab.label}</span>
-                  <span className={`sp-grade-pill__ctx ${ctx === "own" ? "sp-grade-pill__ctx--own" : ""}`}>
-                    {ctx === "higher" && "🔥"}
-                    {ctx === "lower"  && "🔄"}
-                    {ctx === "own"    && (
-                      <>
-                        <span className="sp-grade-pill__ctx-symbol">✓</span>
-                        <span className="sp-grade-pill__ctx-label"> Của bạn</span>
-                      </>
+        {/* ── Grade Selector Card — CHỈ hiện cho Lớp 6 pathway ── */}
+        {!isCambridge && (
+          <div className="sp-grade-card">
+            <span className="sp-grade-card__label">🏫 Chọn lớp</span>
+            <div className="sp-grade-card__pills">
+              {GRADE_TABS_DISPLAY.map(tab => {
+                const ctx = getGradeContext(tab.key, userGradeTab);
+                const count = lessonCountByGrade[tab.key] ?? 0;
+                return (
+                  <button
+                    key={tab.key}
+                    className={[
+                      "sp-grade-pill",
+                      activeGrade === tab.key ? "sp-grade-pill--active" : "",
+                      `sp-grade-pill--${ctx}`,
+                    ].filter(Boolean).join(" ")}
+                    onClick={() => { setActiveGrade(tab.key); setGradeManuallySet(true); }}
+                    id={`btn-grade-${tab.key.replace("-", "")}`}
+                    title={
+                      ctx === "higher" ? "Thử thách lớp cao hơn 🔥"
+                      : ctx === "lower"  ? "Ôn lại kiến thức 🔄"
+                      : "Lớp của bạn"
+                    }
+                  >
+                    <span className="sp-grade-pill__label">{tab.label}</span>
+                    <span className={`sp-grade-pill__ctx ${ctx === "own" ? "sp-grade-pill__ctx--own" : ""}`}>
+                      {ctx === "higher" && "🔥"}
+                      {ctx === "lower"  && "🔄"}
+                      {ctx === "own"    && (
+                        <>
+                          <span className="sp-grade-pill__ctx-symbol">✓</span>
+                          <span className="sp-grade-pill__ctx-label"> Của bạn</span>
+                        </>
+                      )}
+                    </span>
+                    {count > 0 && (
+                      <span className="sp-grade-pill__count">{count}</span>
                     )}
-                  </span>
-                  {count > 0 && (
-                    <span className="sp-grade-pill__count">{count}</span>
-                  )}
-                </button>
-              );
-            })}
-          </div>
+                  </button>
+                );
+              })}
+            </div>
 
-          {/* Contextual hint khi chọn grade khác */}
-          {gradeContext && gradeContext !== "own" && (
-            <p className="sp-grade-card__hint">
-              {gradeContext === "higher"
-                ? "💪 Bạn đang xem bài lớp cao hơn — thử sức nào!"
-                : "🔄 Bạn đang ôn lại kiến thức lớp dưới — ôn luyện thật kỹ nhé!"}
-            </p>
-          )}
-        </div>
+            {/* Contextual hint khi chọn grade khác */}
+            {gradeContext && gradeContext !== "own" && (
+              <p className="sp-grade-card__hint">
+                {gradeContext === "higher"
+                  ? "💪 Bạn đang xem bài lớp cao hơn — thử sức nào!"
+                  : "🔄 Bạn đang ôn lại kiến thức lớp dưới — ôn luyện thật kỹ nhé!"}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* ── Part Navigation — CHỈ hiện cho Cambridge pathway ── */}
+        {isCambridge && activeSkill && (
+          <div className="sp-part-nav">
+            <span className="sp-part-nav__label">📌 Choose a Part</span>
+            <div className="sp-part-pills">
+              {Object.entries(CAMBRIDGE_PARTS[activeSkill] ?? {}).map(([numStr, meta]) => {
+                const partNum = Number(numStr);
+                const count = subject.lessons.filter(
+                  l => l.skill === activeSkill && l.part === partNum
+                ).length;
+                const isActive  = activePart === partNum;
+                const isEmpty   = count === 0;
+                return (
+                  <button
+                    key={partNum}
+                    className={[
+                      "sp-part-pill",
+                      isActive ? "sp-part-pill--active"  : "",
+                      isEmpty  ? "sp-part-pill--empty"   : "",
+                    ].filter(Boolean).join(" ")}
+                    onClick={() => !isEmpty && setActivePart(isActive ? null : partNum)}
+                    id={`btn-part-${partNum}`}
+                    aria-pressed={isActive}
+                    title={isEmpty ? "Chưa có nội dung" : meta.desc}
+                  >
+                    <span className="sp-part-pill__num">Part {partNum}</span>
+                    <span className="sp-part-pill__desc">{meta.desc}</span>
+                    {!isEmpty && (
+                      <span className="sp-part-pill__count">{count} lesson{count !== 1 ? "s" : ""}</span>
+                    )}
+                    {isEmpty && (
+                      <span className="sp-part-pill__soon">Coming soon</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* ── Difficulty chips ── */}
         <div className="sp-filter-row">
@@ -494,9 +614,14 @@ export function SubjectPage() {
 
         {/* Result count */}
         <div className="sp-result-count">
-          {filtered.length < stats.total
-            ? `${filtered.length} / ${stats.total} bài`
-            : `${filtered.length} bài`}
+          {(() => {
+            const unit = isCambridge ? "lesson" : "bài";
+            const total = stats.total;
+            const shown = filtered.length;
+            return shown < total
+              ? `${shown} / ${total} ${unit}${isCambridge && total !== 1 ? "s" : ""}`
+              : `${shown} ${unit}${isCambridge && shown !== 1 ? "s" : ""}`;
+          })()}
         </div>
       </div>
 
@@ -505,7 +630,7 @@ export function SubjectPage() {
         {filtered.length === 0 ? (
           <div className="subject-page__empty">
             <div style={{ fontSize: 48 }}>🔎</div>
-            <p>Không có bài học nào phù hợp với bộ lọc hiện tại.</p>
+            <p>{isCambridge ? "No lessons match the current filter." : "Không có bài học nào phù hợp với bộ lọc hiện tại."}</p>
             <button
               className="btn btn-outline"
               onClick={() => {
@@ -513,7 +638,7 @@ export function SubjectPage() {
                 setActiveDiff("all");
               }}
             >
-              Xóa bộ lọc
+              {isCambridge ? "Clear Filters" : "Xóa bộ lọc"}
             </button>
           </div>
         ) : (
@@ -524,6 +649,7 @@ export function SubjectPage() {
                 lesson={lesson}
                 isLoggedIn={isLoggedIn}
                 subjectColor={subject.color}
+                isCambridge={isCambridge}
                 score={quizScores[lesson.id]}
                 onClick={() => handleStart(lesson)}
               />
@@ -534,7 +660,7 @@ export function SubjectPage() {
         {/* Back link */}
         <div style={{ marginTop: "var(--space-4)" }}>
           <button className="btn btn-ghost" onClick={() => navigate(pathway ? getPathwayUrl(pathway) : "/")}>
-            ← Quay lại danh sách môn học
+            {isCambridge ? "← Back to Cambridge" : "← Quay lại danh sách môn học"}
           </button>
         </div>
       </div>

@@ -86,8 +86,8 @@ export function GlobalHeader() {
         .then((r) => r.ok ? r.json() : null)
         .then((d: { totalStars?: number; streak?: number; currentGrade?: number } | null) => {
           if (cancelled) return;
-          if (d?.totalStars  != null) setTotalStars(d.totalStars);
-          if (d?.streak      != null) setStreak(d.streak);
+          if (d?.totalStars != null) setTotalStars(d.totalStars);
+          if (d?.streak != null) setStreak(d.streak);
 
           // ── Sync currentGrade vào localStorage + state ──
           if (d?.currentGrade != null && d.currentGrade >= 3 && d.currentGrade <= 6) {
@@ -105,7 +105,7 @@ export function GlobalHeader() {
             } catch { setGradeBadge(null); }
           }
         })
-        .catch(() => {});
+        .catch(() => { });
 
     fetchDashboard();
 
@@ -247,6 +247,28 @@ export function GlobalHeader() {
                           )}
                         </button>
                       ))}
+                    </div>
+
+                    <div className="nav-subject-dropdown__divider" />
+
+                    {/* Vocabulary link */}
+                    <div className="nav-subject-dropdown__group">
+                      <span className="nav-subject-dropdown__group-label">
+                        📖 Từ Vựng
+                      </span>
+                      <button
+                        className="nav-subject-dropdown__item"
+                        role="menuitem"
+                        id="btn-nav-vocabulary"
+                        onClick={() => { navigate("/cambridge/vocabulary"); setSubjectOpen(false); }}
+                        style={{ "--subject-color": "#7C3AED" } as React.CSSProperties}
+                      >
+                        <span className="nav-subject-dropdown__emoji">📚</span>
+                        <div className="nav-subject-dropdown__info">
+                          <span className="nav-subject-dropdown__name">Từ Vựng Cambridge</span>
+                          <span className="nav-subject-dropdown__desc">Học theo chủ đề, ôn luyện thông minh (SRS)</span>
+                        </div>
+                      </button>
                     </div>
 
                     <div className="nav-subject-dropdown__divider" />
@@ -478,6 +500,17 @@ export function GlobalHeader() {
                   {!s.available && <span className="mobile-drawer__soon-badge">Sắp có</span>}
                 </button>
               ))}
+
+              {/* Vocabulary link */}
+              <button
+                className={`mobile-drawer__nav-link mobile-drawer__nav-link--subject ${location.pathname.startsWith("/cambridge/vocabulary") ? "active" : ""}`}
+                id="btn-drawer-vocabulary"
+                onClick={() => { navigate("/cambridge/vocabulary"); setDrawerOpen(false); }}
+                style={{ "--subject-color": "#7C3AED" } as React.CSSProperties}
+              >
+                <span className="mobile-drawer__nav-icon">📚</span>
+                Từ Vựng Cambridge
+              </button>
             </div>
 
             {/* Kiến thức Blog */}
