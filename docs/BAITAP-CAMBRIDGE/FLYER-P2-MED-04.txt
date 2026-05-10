@@ -1,0 +1,40 @@
+CHỦ ĐỀ "THE LOST SUITCASE" (HÀNH LÝ THẤT LẠC)
+
+**Nội dung:** Cuộc trò chuyện tại sân bay khi một bạn nhỏ không tìm thấy vali của mình.
+
+**Example:**
+**Officer:** Can I see your ticket and your passport, please?
+**Sarah:** **D**
+
+**Questions:**
+
+1. **Officer:** What does your suitcase look like, Sarah?
+**Sarah:** __________
+2. **Officer:** And what was inside it?
+**Sarah:** __________
+3. **Officer:** Where did you last see it?
+**Sarah:** __________
+4. **Officer:** Don't worry. I'll call you as soon as we find it.
+**Sarah:** __________
+5. **Officer:** Would you like me to help you carry your other bags to the taxi?
+**Sarah:** __________
+
+**Options (A-H):**
+
+* **A.** Everything I need for my skiing holiday.
+* **B.** I hope you can find it before the bus leaves!
+* **C.** It’s blue with some silver stars on it.
+* **D.** Yes, I’ve got them right here in my pocket. **(Example)**
+* **E.** No, thank you. They aren't very heavy.
+* **F.** On the plane, under the seat in front of me.
+* **G.** I think my dad has already paid for them.
+* **H.** Perhaps it’s near the information desk.
+
+---
+### ĐÁP ÁN VÀ PHÂN TÍCH KỸ THUẬT
+
+C	Mô tả ngoại hình vật dụng (Look like).
+A	Liệt kê đồ vật bên trong (What was inside).
+F	Trả lời vị trí cụ thể trong quá khứ (Where).
+B	Phản hồi lại lời hứa/trấn an của người khác.
+E	Lời từ chối lịch sự kèm lý do giải thích.

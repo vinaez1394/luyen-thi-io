@@ -1,0 +1,42 @@
+
+### BỘ ĐỀ 4: CHỦ ĐỀ "HELPING DAD IN THE KITCHEN" (BẾP NÚC & ĐỒ ĂN)
+
+**Nội dung:** Con giúp bố chuẩn bị bữa tối.
+
+**Example:**
+**Dad:** Can you help me cook dinner, Mary?
+**Mary:** **F**
+
+**Questions:**
+
+1. **Dad:** Great! What are we making tonight?
+**Mary:** __________
+2. **Dad:** Where are the tomatoes? I can't see them.
+**Mary:** __________
+3. **Dad:** Can you wash them for me, please?
+**Mary:** __________
+4. **Dad:** Do you like olives on your pizza?
+**Mary:** __________
+5. **Dad:** Is the oven hot yet?
+**Mary:** __________
+
+**Options (A-H):**
+
+* **A.** No, I hate them!
+* **B.** They are in the small brown bag.
+* **C.** Yes, it’s 200 degrees now.
+* **D.** I'm wearing my favorite apron.
+* **E.** Of course, I'll do it now.
+* **F.** Yes, I’d love to, Dad! **(Example)**
+* **G.** A big cheese and tomato pizza.
+* **H.** I ate a sandwich for lunch.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+G (What making -> Pizza)
+B (Where/Tomatoes -> In the bag)
+E (Wash them -> I'll do it)
+A (Like olives -> Hate them)
+C (Oven hot -> 200 degrees)

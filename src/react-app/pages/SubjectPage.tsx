@@ -48,10 +48,10 @@ const SKILL_COLORS: Record<string, string> = {
   grammar:    "badge-warning",
 };
 
-const DIFFICULTY_CONFIG: Record<string, { label: string; className: string; emoji: string }> = {
-  easy:   { label: "Easy",   className: "badge-difficulty-easy",   emoji: "🟢" },
-  medium: { label: "Medium", className: "badge-difficulty-medium", emoji: "🟡" },
-  hard:   { label: "Hard",   className: "badge-difficulty-hard",   emoji: "🔴" },
+const DIFFICULTY_CONFIG: Record<string, { label: string; shortLabel: string; className: string; emoji: string }> = {
+  easy:   { label: "Easy",   shortLabel: "Easy", className: "badge-difficulty-easy",   emoji: "🟢" },
+  medium: { label: "Medium", shortLabel: "Med",  className: "badge-difficulty-medium", emoji: "🟡" },
+  hard:   { label: "Hard",   shortLabel: "Hard", className: "badge-difficulty-hard",   emoji: "🔴" },
 };
 
 type GradeTab   = "all" | "3-4" | "4-5" | "5-6";
@@ -170,7 +170,7 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, isCambridge, score, onCl
     <div
       className={[
         "sp-lesson-card",
-        isPremium          ? "sp-lesson-card--premium"     : "",
+        locked ? "sp-lesson-card--premium" : "",
         lesson.recommended ? "sp-lesson-card--recommended" : "",
         score !== undefined ? "sp-lesson-card--attempted" : "",
       ].filter(Boolean).join(" ")}
@@ -217,12 +217,20 @@ function LessonCard({ lesson, isLoggedIn, subjectColor, isCambridge, score, onCl
       {/* Footer: lock/premium (left) + difficulty (right) */}
       <div className="sp-lesson-card__footer">
         {isPremium ? (
-          <span className="badge sp-badge-premium">🔒 Premium</span>
+          <span className="badge sp-badge-premium">
+            🔒{" "}
+            <span className="sp-badge-text--full">Premium</span>
+            <span className="sp-badge-text--short">Pre</span>
+          </span>
         ) : (
           <span />
         )}
         {diff && (
-          <span className={`badge sp-grade-badge ${diff.className}`}>{diff.emoji} {diff.label}</span>
+          <span className={`badge sp-grade-badge ${diff.className}`}>
+            {diff.emoji}{" "}
+            <span className="sp-badge-text--full">{diff.label}</span>
+            <span className="sp-badge-text--short">{diff.shortLabel}</span>
+          </span>
         )}
       </div>
 

@@ -20,6 +20,7 @@ import { QuizEngine } from "../components/quiz/QuizEngine";
 import { ReadingEngine } from "../components/quiz/ReadingEngine";
 import { WritingEngine } from "../components/quiz/WritingEngine";
 import { FlyersPart1Engine } from "../components/quiz/FlyersPart1Engine";
+import { FlyersPart2Engine } from "../components/quiz/FlyersPart2Engine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
@@ -28,6 +29,7 @@ import "../components/layout/QuizLayout.css";
 import type { ReadingQuiz } from "../types/reading";
 import type { WritingQuiz } from "../types/writing";
 import type { FlyersPart1Quiz } from "../components/quiz/FlyersPart1Engine";
+import type { FlyersPart2Quiz } from "../components/quiz/FlyersPart2Engine";
 
 export function QuizPage() {
   const location = useLocation();
@@ -444,6 +446,57 @@ export function QuizPage() {
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
           <FlyersPart1Engine
             quiz={fp1Quiz}
+            onSubmitResult={(_res) => {
+              localStorage.setItem("last_quiz_id", quizId);
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Flyers Part 2 — Conversation Matching Engine =====
+  if ((quiz as unknown as FlyersPart2Quiz).type === "flyers-part2") {
+    const fp2Quiz = quiz as unknown as FlyersPart2Quiz;
+    return (
+      <div className="quiz-layout">
+        {/* Sub-header */}
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Part 2">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  📖 Flyers Reading & Writing
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{fp2Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Engine */}
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <FlyersPart2Engine
+            quiz={fp2Quiz}
             onSubmitResult={(_res) => {
               localStorage.setItem("last_quiz_id", quizId);
             }}

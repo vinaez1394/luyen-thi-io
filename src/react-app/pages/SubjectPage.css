@@ -780,6 +780,16 @@
   background: #fef3c7;
   color: #92400e;
   border: 1px solid #f59e0b;
+  white-space: nowrap;
+}
+
+/* Two-span text: desktop = full, mobile = short */
+.sp-badge-text--short { display: none; }
+.sp-badge-text--full  { display: inline; }
+
+@media (max-width: 600px) {
+  .sp-badge-text--full  { display: none; }
+  .sp-badge-text--short { display: inline; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

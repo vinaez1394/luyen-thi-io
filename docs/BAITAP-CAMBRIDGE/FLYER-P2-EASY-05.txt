@@ -1,0 +1,42 @@
+
+### BỘ ĐỀ 5: CHỦ ĐỀ "A NEW HOBBY" (SỞ THÍCH & TRÒ CHƠI)
+
+**Nội dung:** Hai người bạn nói về một trò chơi mới mua.
+
+**Example:**
+**Jane:** Look at this new board game I bought!
+**Jack:** **E**
+
+**Questions:**
+
+1. **Jane:** Is it a computer game?
+**Jack:** __________
+2. **Jane:** How many people can play it?
+**Jack:** __________
+3. **Jane:** Is it difficult to learn?
+**Jack:** __________
+4. **Jane:** Where shall we play it?
+**Jack:** __________
+5. **Jane:** Do you want to start now?
+**Jack:** __________
+
+**Options (A-H):**
+
+* **A.** Between two and four players.
+* **B.** In the garden, at the wooden table.
+* **C.** I bought it at the shop near here.
+* **D.** No, it's quite simple, actually.
+* **E.** Wow! It looks really interesting. **(Example)**
+* **F.** Yes, let’s go!
+* **G.** No, it’s a card game about space.
+* **H.** I played football yesterday.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+G (Computer game -> Card game)
+A (How many people -> 2-4 players)
+D (Difficult -> Simple)
+B (Where play -> Garden/Table)
+F (Start now -> Let's go)

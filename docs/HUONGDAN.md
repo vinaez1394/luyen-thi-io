@@ -34,6 +34,8 @@ luyenthi.io.vn/
 ├── /                           ← Trang chủ
 ├── /learn                      ← Chọn lộ trình
 ├── /cambridge                  ← Hub Cambridge
+│   ├── /cambridge/vocabulary            ← VocabularyPage (Dashboard chọn topic)
+│   │   └── /cambridge/vocabulary/:topic ← VocabularyLesson (LEARN→PRACTICE→USE)
 │   └── /cambridge/flyers       ← SubjectPage (available: true)
 │       ├── /cambridge/flyers/rw001        ← Reading Part 4
 │       ├── /cambridge/flyers/rw2-001      ← Reading Part 3
@@ -428,9 +430,10 @@ Account ID:    55e3a88290a27547ff01294004561906
 | `student_stats` | Streak, skill levels, last_quiz_id |
 | `quiz_attempts` | Kết quả từng bài |
 | `dream_goals` | Hộp Quà Ước Mơ |
-| `vocabulary_words` | Kho từ vựng hệ thống |
-| `student_vocabulary` | Theo dõi từng bé |
-| `vocabulary_bank` | 250 từ Cambridge Flyers A2 (17 topics) |
+| `vocabulary_words` | Kho từ vựng hệ thống (legacy) |
+| `student_vocabulary` | Theo dõi tiến độ từng bé (legacy) |
+| `vocabulary_bank` | 250+ từ Cambridge (Starters/Movers/Flyers, nhiều topics) |
+| `student_vocabulary_progress` | **[NEW]** SRS progress: mastery_level, next_review_at, session stats |
 
 ### Thêm từ vựng mới
 
@@ -468,6 +471,13 @@ Paste SQL → Execute.
 | PATCH | `/api/student/profile` | Cập nhật hồ sơ bé (Cài đặt) |
 | GET | `/api/student/dashboard` | Lấy data tổng hợp (grade, pathway, streak, stars) |
 | POST | `/api/student/stars` | Cộng sao (Hangman, Flashcard) |
+
+### Vocabulary Module (Phase 2026)
+| Method | URL | Mô tả |
+|--------|-----|-------|
+| GET | `/api/vocabulary/topics?cert=flyers` | Danh sách topics + tiến độ học sinh |
+| GET | `/api/vocabulary/lesson?topic=animals&cert=flyers&offset=0` | Lấy session 8 từ (SRS-aware) |
+| POST | `/api/vocabulary/progress` | Lưu kết quả từng từ, tính SRS next_review_at |
 
 ---
 

@@ -1,0 +1,44 @@
+
+
+### BỘ ĐỀ 3: CHỦ ĐỀ "A COLD DAY" (SỨC KHỎE & CƠ THỂ)
+
+**Nội dung:** Đoạn hội thoại giữa hai bạn nhỏ về việc một bạn bị ốm.
+
+**Example:**
+**Sarah:** Hello Peter, why weren’t you at school yesterday?
+**Peter:** **C**
+
+**Questions:**
+
+1. **Sarah:** Oh dear! Do you feel better today?
+**Peter:** __________
+2. **Sarah:** Did the doctor give you any medicine?
+**Peter:** __________
+3. **Sarah:** Where is the medicine now?
+**Peter:** __________
+4. **Sarah:** When can you come back to school?
+**Peter:** __________
+5. **Sarah:** I can bring your homework to your house.
+**Peter:** __________
+
+**Options (A-H):**
+
+* **A.** Yes, it's in the kitchen.
+* **B.** On Monday, I think.
+* **C.** I had a very bad headache. **(Example)**
+* **D.** That's very kind of you, thanks!
+* **E.** No, I'm going to the cinema.
+* **F.** Yes, a little bit, thank you.
+* **G.** Yes, he gave me some red pills.
+* **H.** I like my teacher a lot.
+
+---
+
+
+### ĐÁP ÁN (ANSWER KEY)
+
+F (Feel better -> A little bit)
+G (Doctor/Medicine -> Pills)
+A (Where/Medicine -> Kitchen)
+B (When -> Monday)
+D (Bring homework -> Kind of you)

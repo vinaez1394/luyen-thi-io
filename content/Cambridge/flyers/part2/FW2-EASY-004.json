@@ -1,0 +1,45 @@
+{
+  "id": "FW2-EASY-004",
+  "title": "Set 4: Helping Dad in the Kitchen",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "topic": "food",
+  "conversation": [
+    { "speaker": "Dad", "text": "Can you help me cook dinner, Mary?", "example": true },
+    { "speaker": "Mary", "answerKey": "F", "example": true },
+    { "speaker": "Dad", "text": "Great! What are we making tonight?" },
+    { "speaker": "Mary", "questionIndex": 0 },
+    { "speaker": "Dad", "text": "Where are the tomatoes? I can't see them." },
+    { "speaker": "Mary", "questionIndex": 1 },
+    { "speaker": "Dad", "text": "Can you wash them for me, please?" },
+    { "speaker": "Mary", "questionIndex": 2 },
+    { "speaker": "Dad", "text": "Do you like olives on your pizza?" },
+    { "speaker": "Mary", "questionIndex": 3 },
+    { "speaker": "Dad", "text": "Is the oven hot yet?" },
+    { "speaker": "Mary", "questionIndex": 4 }
+  ],
+  "options": [
+    { "letter": "A", "text": "No, I hate them!" },
+    { "letter": "B", "text": "They are in the small brown bag." },
+    { "letter": "C", "text": "Yes, it’s 200 degrees now." },
+    { "letter": "D", "text": "I'm wearing my favorite apron." },
+    { "letter": "E", "text": "Of course, I'll do it now." },
+    { "letter": "F", "text": "Yes, I’d love to, Dad!" },
+    { "letter": "G", "text": "A big cheese and tomato pizza." },
+    { "letter": "H", "text": "I ate a sandwich for lunch." }
+  ],
+  "answers": ["G", "B", "E", "A", "C"],
+  "explanations_vi": [
+    "Bố hỏi tối nay làm món gì (What are we making), Mary đáp là món pizza phô mai và cà chua (pizza).",
+    "Bố hỏi cà chua ở đâu (Where), Mary đáp chúng nằm trong cái túi nhỏ màu nâu (brown bag).",
+    "Bố nhờ Mary rửa cà chua (wash them), Mary đồng ý sẽ làm ngay (I'll do it now).",
+    "Bố hỏi Mary có thích ô-liu trên pizza không, Mary đáp không, cô bé ghét chúng (hate them!).",
+    "Bố hỏi lò nướng đã nóng chưa, Mary đáp rồi, đang ở 200 độ (200 degrees)."
+  ]
+}

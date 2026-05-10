@@ -1,3 +1,5 @@
 [21:45] RUN SUCCESS: App running at http://localhost:8788/lop6/tieng-anh/reading-easy-grade3-p1
 [21:53] END phase-05-polish ✅ — badge difficulty, mobile CSS fixes, TSC clean
 [11:07] RUN SUCCESS: App running at http://localhost:8788
+[11:05] DEPLOY SUCCESS: https://luyen-thi-io.vinaez1394.workers.dev — Version 4760dc12-1a98-4fd7-bba8-bcfff2734427
+[11:16] SAVE BRAIN: Vocabulary UI Overhaul — Desktop scaling + EN localization (7 files) + Flashcard flip fix (CSS Grid). 1098 từ / 18 topics HOÀN TẤT.
