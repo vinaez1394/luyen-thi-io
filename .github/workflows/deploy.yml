@@ -1,7 +1,14 @@
 name: Deploy Worker
 
-# Trigger: chỉ khi code thay đổi (src/, config, scripts, docs)
-# Content JSON → R2 được handle bởi sync-content.yml riêng
+# ═══════════════════════════════════════════════════════════════
+#  QUY TẮC DEPLOY:
+#  - Push lên nhánh "dev"  → Tự động deploy lên Staging
+#                             URL: https://luyen-thi-io-staging.vinaez1394.workers.dev
+#                             Tên miền riêng: dev.luyenthi.io.vn (cấu hình thủ công 1 lần)
+#
+#  - Push lên nhánh "main" → Tự động deploy lên Production
+#                             URL: https://luyenthi.io.vn
+# ═══════════════════════════════════════════════════════════════
 on:
   push:
     branches:
@@ -20,66 +27,107 @@ on:
       - ".github/workflows/deploy.yml"
 
 jobs:
-  deploy:
-    name: 🚀 Deploy Worker
+  # ─────────────────────────────────────────────────────────────
+  # JOB 1: Deploy lên STAGING (chỉ khi push vào nhánh "dev")
+  # ─────────────────────────────────────────────────────────────
+  deploy-staging:
+    name: 🧪 Deploy → Staging (dev.luyenthi.io.vn)
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      # 1. Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Node.js 20
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
 
-      # 3. Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4. Build
       - name: Build
         run: npm run build
 
-      # 5. Deploy Worker
-      - name: Deploy to Cloudflare Workers
+      - name: 🚀 Deploy to Staging (luyen-thi-io-staging)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+        run: ./node_modules/.bin/wrangler deploy --env staging
+
+      - name: Apply D1 Migrations (Staging)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+        run: |
+          echo "⚙️ Chạy migration cho Staging..."
+          ./node_modules/.bin/wrangler d1 execute luyen-thi-db \
+            --file src/worker/migrations/0009_add_quiz_attempt_metadata.sql \
+            --remote || echo "⚠️ Migration đã chạy trước đó — bỏ qua"
+
+      - name: 🎉 Staging deployed!
+        run: echo "✅ Staging live tại https://luyen-thi-io-staging.vinaez1394.workers.dev"
+
+  # ─────────────────────────────────────────────────────────────
+  # JOB 2: Deploy lên PRODUCTION (chỉ khi push/merge vào nhánh "main")
+  # ─────────────────────────────────────────────────────────────
+  deploy-production:
+    name: 🚀 Deploy → Production (luyenthi.io.vn)
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: 🚀 Deploy to Production
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: ./node_modules/.bin/wrangler deploy
 
-      # 6. D1 Migrations (idempotent — bỏ qua nếu column đã tồn tại)
-      - name: Apply D1 Migrations
+      - name: Apply D1 Migrations (Production)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: |
-          echo "⚙️ Chạy migration 0009..."
+          echo "⚙️ Chạy migration cho Production..."
           ./node_modules/.bin/wrangler d1 execute luyen-thi-db \
             --file src/worker/migrations/0009_add_quiz_attempt_metadata.sql \
             --remote || echo "⚠️ Migration đã chạy trước đó — bỏ qua"
 
-      # 7. Sync Blog Content → R2
       - name: Sync Blog Content → R2
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
         run: |
-          echo "📚 Bước 1: Regenerate blog index..."
+          echo "📚 Regenerate blog index..."
           node scripts/build-blog-index.mjs
 
-          echo "📤 Bước 2: Upload blog-index.json..."
+          echo "📤 Upload blog-index.json..."
           ./node_modules/.bin/wrangler r2 object put \
             luyen-thi-content/blog/blog-index.json \
             --file content/blog/blog-index.json \
             --content-type application/json \
             --remote
 
-          echo "📤 Bước 3: Auto-upload tất cả .md files..."
+          echo "📤 Auto-upload tất cả .md files..."
           BLOG_DIR="content/blog"
           MD_COUNT=0
 
@@ -101,3 +149,6 @@ jobs:
           done < <(find "$BLOG_DIR" -name "*.md" -not -name "_*" -print0)
 
           echo "✅ Blog sync xong: ${MD_COUNT} bài → R2"
+
+      - name: 🎉 Production deployed!
+        run: echo "✅ Production live tại https://luyenthi.io.vn"

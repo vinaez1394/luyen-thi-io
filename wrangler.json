@@ -42,5 +42,35 @@
 			"id": "6138368c8bb44137834e5298c04cc2c2",
 			"preview_id": "ff35161d593b43d2a0d85e06689aa001"
 		}
-	]
+	],
+
+	"env": {
+		"staging": {
+			"name": "luyen-thi-io-staging",
+			"d1_databases": [
+				{
+					"binding": "DB",
+					"database_name": "luyen-thi-db",
+					"database_id": "cc1f5652-8b63-45c2-8fa4-15509f0e6278",
+					"migrations_dir": "./src/worker/migrations"
+				}
+			],
+			"r2_buckets": [
+				{
+					"binding": "CONTENT",
+					"bucket_name": "luyen-thi-content"
+				}
+			],
+			"kv_namespaces": [
+				{
+					"binding": "SESSION",
+					"id": "4372fcfaa47143c4a37d1101f0fa55e9"
+				},
+				{
+					"binding": "CACHE",
+					"id": "6138368c8bb44137834e5298c04cc2c2"
+				}
+			]
+		}
+	}
 }
