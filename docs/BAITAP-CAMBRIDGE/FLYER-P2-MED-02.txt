@@ -1,0 +1,42 @@
+
+
+CHỦ ĐỀ "A CAMPING TRIP" (CHUYẾN CẮM TRẠI)
+
+**Nội dung:** Cuộc trò chuyện giữa Harry và Ben về chuyến đi cắm trại sắp tới.
+
+**Example:**
+**Harry:** Are you ready for the camping trip next week, Ben?
+**Ben:** **D**
+
+**Questions:**
+
+1. **Harry:** Where are we going to put our tents when we arrive?
+**Ben:** __________
+2. **Harry:** Will it be very cold at night in the forest?
+**Ben:** __________
+3. **Harry:** Who is bringing the torches for us to see in the dark?
+**Ben:** __________
+4. **Harry:** I hope we see some interesting wild animals!
+**Ben:** __________
+5. **Harry:** Shall we go for a swim in the lake on Tuesday?
+**Ben:** __________
+
+**Options (A-H):**
+
+* **A.** I think William has got two in his rucksack.
+* **B.** So do I, as long as they aren't dangerous!
+* **C.** I went there with my parents last summer.
+* **D.** Yes, I’ve already packed my rucksack! **(Example)**
+* **E.** Only if the water isn't too freezing.
+* **F.** Next to the river, where the ground is flat.
+* **G.** I'll take a map so we don't get lost.
+* **H.** Perhaps, so you should bring a warm blanket.
+
+---
+### ĐÁP ÁN VÀ PHÂN TÍCH LOGIC
+
+F	Hỏi địa điểm cụ thể (Where) -> Trả lời mô tả vị trí (Next to the river).
+H	Hỏi về khả năng (Will it be...) -> Trả lời bằng dự đoán (Perhaps) và lời khuyên.
+A	Hỏi người chịu trách nhiệm (Who) -> Chỉ ra một người khác (William).
+B	Câu bày tỏ hy vọng (I hope) -> Phản hồi bằng sự đồng tình (So do I).
+E	Lời rủ rê (Shall we...) -> Trả lời bằng một điều kiện (Only if...).

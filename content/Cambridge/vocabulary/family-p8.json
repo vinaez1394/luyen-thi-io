@@ -1,0 +1,44 @@
+{
+  "passage_id": "family-p8",
+  "topic": "family",
+  "title": "Family Careers",
+  "level": "flyers",
+  "word_count": 108,
+  "segments": [
+    { "type": "text", "content": "In my family, everyone has an interesting job. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-009",
+      "options": ["father", "dolphin", "book"],
+      "answer": "father",
+      "explanation_vi": "'father' = cha/bố — người đàn ông trong gia đình."
+    },
+    { "type": "text", "content": " is an engineer who designs bridges. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-011",
+      "options": ["mother", "shark", "window"],
+      "answer": "mother",
+      "explanation_vi": "'mother' = mẹ — người phụ nữ trong gia đình, sinh ra và nuôi dưỡng con cái."
+    },
+    { "type": "text", "content": " works as a doctor at the city hospital. My older " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-003",
+      "options": ["brother", "eagle", "table"],
+      "answer": "brother",
+      "explanation_vi": "'brother' = anh/em trai — người anh hoặc em trai trong gia đình."
+    },
+    { "type": "text", "content": " just started university to study science. My " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-001",
+      "options": ["aunt", "whale", "pencil"],
+      "answer": "aunt",
+      "explanation_vi": "'aunt' = cô/dì/mợ — chị hoặc em gái của cha hoặc mẹ."
+    },
+    { "type": "text", "content": " is a famous photographer who travels the world. I want to work hard and make my family proud!" }
+  ],
+  "explanation_vi": "Đoạn văn về nghề nghiệp trong gia đình: bố (father) - kỹ sư, mẹ (mother) - bác sĩ, anh trai (brother) - sinh viên, cô/dì (aunt) - nhiếp ảnh gia. Mỗi người có một công việc đặc biệt.",
+  "created_at": "2026-05-07"
+}

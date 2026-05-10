@@ -1,0 +1,110 @@
+{
+  "id": "FW1-MED-002",
+  "title": "Flyers Reading & Writing — Part 1 — Set 2 (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a whistle",
+    "a stadium",
+    "a race",
+    "a snowboard",
+    "a coach",
+    "a prize",
+    "a knee",
+    "a stomach",
+    "a toothache",
+    "a bandage",
+    "a nurse",
+    "a team",
+    "health",
+    "a chemist's",
+    "an ambulance"
+  ],
+
+  "example": {
+    "prompt": "When you are very ill, you go to this place to see a doctor or a nurse.",
+    "answer": "a hospital"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This is a person whose job is to help a team or a player improve at a sport.",
+      "correct": "a coach",
+      "explanation_vi": "Coach = huấn luyện viên, người có công việc giúp một đội hoặc một người chơi cải thiện trong thể thao."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "You might get this painful feeling if you eat too many sweets and do not brush your teeth.",
+      "correct": "a toothache",
+      "explanation_vi": "Toothache = đau răng, cảm giác đau đớn khi ăn quá nhiều kẹo và không đánh răng."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is a group of people who play a sport or a game together against another group.",
+      "correct": "a team",
+      "explanation_vi": "Team = đội, một nhóm người cùng chơi một môn thể thao hoặc trò chơi chống lại nhóm khác."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "You use this long piece of white cloth to wrap around a part of your body that is hurt.",
+      "correct": "a bandage",
+      "explanation_vi": "Bandage = băng cứu thương, mảnh vải dài màu trắng dùng để quấn quanh phần cơ thể bị thương."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is a competition to see who is the fastest at running, swimming, or cycling.",
+      "correct": "a race",
+      "explanation_vi": "Race = cuộc đua, cuộc thi để xem ai nhanh nhất trong chạy, bơi lội hoặc đạp xe."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "A referee blows this small object to make a loud sound and stop a game of football.",
+      "correct": "a whistle",
+      "explanation_vi": "Whistle = cái còi, vật nhỏ mà trọng tài thổi để tạo ra âm thanh lớn và dừng trận bóng đá."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This is the part of your body where your food goes after you swallow it.",
+      "correct": "a stomach",
+      "explanation_vi": "Stomach = dạ dày, phần cơ thể nơi thức ăn đi vào sau khi bạn nuốt."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "This person works in a hospital or clinic and looks after people who are not well.",
+      "correct": "a nurse",
+      "explanation_vi": "Nurse = y tá, người làm việc trong bệnh viện hoặc phòng khám và chăm sóc những người bị ốm."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You can go to this shop to buy medicine when you have a cold or a headache.",
+      "correct": "a chemist's",
+      "explanation_vi": "Chemist's = hiệu thuốc, cửa hàng bạn có thể đến mua thuốc khi bị cảm hoặc đau đầu."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "Something you win, like a cup or a medal, for being the best in a competition.",
+      "correct": "a prize",
+      "explanation_vi": "Prize = giải thưởng (cúp, huy chương), thứ bạn giành được khi là người giỏi nhất trong cuộc thi."
+    }
+  ]
+}

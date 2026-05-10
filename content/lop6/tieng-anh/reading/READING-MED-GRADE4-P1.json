@@ -1,0 +1,126 @@
+{
+  "id": "READING-MED-GRADE4-P1",
+  "title": "Reading Comprehension — Medium — Grade 4-5 — Health & Sports",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "medium",
+  "grade_min": 4,
+  "grade_max": 5,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Keeping (0) healthy is one of the most important things we can do in life. Regular exercise helps to (1) _____ our muscles strong and our hearts working well. Doctors recommend that children should (2) _____ at least sixty minutes of physical activity every day. Eating a (3) _____ diet with plenty of vegetables, fruit, and water is also essential. If people do not exercise and eat too much junk food, they can become (4) _____ and develop serious health problems.",
+        "text_segments": [
+          { "text": "Keeping " },
+          { "text": "(0) healthy", "highlight": true },
+          { "text": " is one of the most important things we can do in life. Regular " },
+          { "text": "exercise", "tooltip": { "vi": "tập thể dục", "ipa": "ˈeksəsaɪz" } },
+          { "text": " helps to (1) _____ our " },
+          { "text": "muscles", "tooltip": { "vi": "cơ bắp", "ipa": "ˈmʌslz" } },
+          { "text": " strong and our hearts working well. Doctors " },
+          { "text": "recommend", "tooltip": { "vi": "khuyến nghị, đề xuất", "ipa": "ˌrekəˈmend" } },
+          { "text": " that children should (2) _____ at least sixty minutes of physical activity every day. Eating a (3) _____ diet with plenty of vegetables, fruit, and water is also " },
+          { "text": "essential", "tooltip": { "vi": "thiết yếu, rất quan trọng", "ipa": "ɪˈsenʃl" } },
+          { "text": ". If people do not exercise and eat too much junk food, they can become (4) _____ and develop serious health problems." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Regular exercise helps to (1) _____ our muscles strong and our hearts working well.",
+          "options": ["keep", "break", "lose"],
+          "correct": "keep",
+          "explanation_vi": "'Keep our muscles strong' — giữ cho cơ bắp chắc khoẻ. Đây là cụm từ tự nhiên khi nói về lợi ích tập thể dục."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Children should (2) _____ at least sixty minutes of physical activity every day.",
+          "options": ["do", "watch", "stop"],
+          "correct": "do",
+          "explanation_vi": "'Do physical activity' — thực hiện hoạt động thể chất. 'Do exercise' là cụm từ chuẩn."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Eating a (3) _____ diet with plenty of vegetables, fruit, and water is also essential.",
+          "options": ["balanced", "expensive", "simple"],
+          "correct": "balanced",
+          "explanation_vi": "'Balanced diet' — chế độ ăn cân bằng, đầy đủ dưỡng chất. Đây là cụm từ phổ biến trong sức khoẻ."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "If people do not exercise and eat too much junk food, they can become (4) _____.",
+          "options": ["overweight", "taller", "smarter"],
+          "correct": "overweight",
+          "explanation_vi": "'Overweight' nghĩa là thừa cân — hậu quả của việc lười tập và ăn thức ăn không lành mạnh."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Football is the world's most popular sport, with billions of fans in almost every country. The sport began in England in the nineteenth century and quickly spread around the world. Today, professional football players are among the most famous and highest-paid people on Earth. A standard football match lasts ninety minutes and is played between two teams of eleven players each. The aim is to kick the ball into the opponent's goal to score points. Players are not allowed to use their hands, except for the goalkeeper who protects the goal. The FIFA World Cup, held every four years, is the most-watched sporting event in history.",
+        "text_segments": [
+          { "text": "Football is the world's most popular sport, with billions of fans in almost every country. The sport began in England in the nineteenth century and quickly " },
+          { "text": "spread", "tooltip": { "vi": "lan rộng, truyền đi", "ipa": "spred" } },
+          { "text": " around the world. Today, " },
+          { "text": "professional", "tooltip": { "vi": "chuyên nghiệp", "ipa": "prəˈfeʃənl" } },
+          { "text": " football players are among the most famous and highest-paid people on Earth. A standard football match lasts ninety minutes and is played between two teams of eleven players each. The aim is to kick the ball into the " },
+          { "text": "opponent's", "tooltip": { "vi": "của đối phương", "ipa": "əˈpəʊnənts" } },
+          { "text": " goal to score points. Players are not allowed to use their hands, except for the " },
+          { "text": "goalkeeper", "tooltip": { "vi": "thủ môn", "ipa": "ˈɡəʊlˌkiːpə" } },
+          { "text": " who protects the goal. The FIFA World Cup, held every four years, is the most-watched sporting event in history." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Football was first played in France before spreading to other countries.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'The sport began in England' — bóng đá bắt nguồn từ Anh, không phải Pháp."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "In football, all players are forbidden from touching the ball with their hands.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'except for the goalkeeper' — thủ môn được phép dùng tay, vì vậy không phải tất cả cầu thủ đều bị cấm."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "How often is the FIFA World Cup organised?",
+          "options": ["every two years", "every four years", "every six years"],
+          "correct": "every four years",
+          "explanation_vi": "Bài viết 'The FIFA World Cup, held every four years' — World Cup diễn ra 4 năm một lần."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage meaning 'the player whose job is to prevent the ball from going into the goal'.",
+          "correct": "goalkeeper",
+          "explanation_vi": "'Goalkeeper' là thủ môn — người bảo vệ khung thành, được phép dùng tay."
+        }
+      ]
+    }
+  ]
+}

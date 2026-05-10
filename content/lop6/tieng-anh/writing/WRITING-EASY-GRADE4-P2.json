@@ -1,0 +1,477 @@
+{
+  "id": "WRITING-EASY-GRADE4-P2",
+  "title": "Writing — Dễ — Lớp 4-5 — Bài 2",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý. Click vào các từ gạch chân chấm chấm để xem nghĩa.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp. Chú ý từ viết hoa đứng đầu câu và dấu câu ở cuối.",
+      "example": {
+        "display_cues": "lives / my uncle / in a small village / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "likes / collecting stamps / Lan / reading comic books / and /.//",
+          "cues_segments": [
+            {
+              "text": "likes / "
+            },
+            {
+              "text": "collecting",
+              "tooltip": {
+                "vi": "sưu tầm",
+                "ipa": "kəˈlektɪŋ"
+              }
+            },
+            {
+              "text": " "
+            },
+            {
+              "text": "stamps",
+              "tooltip": {
+                "vi": "tem (thư)",
+                "ipa": "stæmps"
+              }
+            },
+            {
+              "text": " / Lan / reading "
+            },
+            {
+              "text": "comic books",
+              "tooltip": {
+                "vi": "truyện tranh",
+                "ipa": "ˈkɒmɪk bʊks"
+              }
+            },
+            {
+              "text": " / and /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "Lan",
+            "likes",
+            "collecting stamps",
+            "and",
+            "reading comic books"
+          ],
+          "correct": [
+            "Lan",
+            "likes",
+            "collecting stamps",
+            "and",
+            "reading comic books"
+          ],
+          "explanation": {
+            "correct_sentence": "Lan likes collecting stamps and reading comic books.",
+            "structure_vi": "S + likes + V-ing + and + V-ing",
+            "grammar_notes": [
+              "✅ Sau động từ chỉ sở thích (like, love, enjoy), động từ khác phải ở dạng V-ing",
+              "✅ Từ nối 'and' (và) dùng để nối 2 hành động song song (collecting và reading)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "collect stamps",
+                "vi": "sưu tầm tem",
+                "ipa": "kəˈlekt stæmps"
+              },
+              {
+                "word": "comic book",
+                "vi": "truyện tranh",
+                "ipa": "ˈkɒmɪk bʊk"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Lan like collecting' → Lan là số ít, động từ like phải thêm 's'",
+              "❌ Sai: 'likes collect stamps' → sau like phải dùng V-ing"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "are / the children / in the park / flying kites / now /.//",
+          "cues_segments": [
+            {
+              "text": "are / the children / in the park / "
+            },
+            {
+              "text": "flying kites",
+              "tooltip": {
+                "vi": "thả diều",
+                "ipa": "ˈflaɪɪŋ kaɪts"
+              }
+            },
+            {
+              "text": " / now /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "the children",
+            "are",
+            "flying kites",
+            "in the park",
+            "now"
+          ],
+          "correct": [
+            "the children",
+            "are",
+            "flying kites",
+            "in the park",
+            "now"
+          ],
+          "explanation": {
+            "correct_sentence": "The children are flying kites in the park now.",
+            "structure_vi": "S + am/is/are + V-ing + nơi chốn + thời gian",
+            "grammar_notes": [
+              "✅ Dấu hiệu 'now' (bây giờ) → thì Hiện tại tiếp diễn",
+              "✅ 'The children' (những đứa trẻ) là số nhiều → dùng to be 'are'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "children",
+                "vi": "những đứa trẻ",
+                "ipa": "ˈtʃɪldrən"
+              },
+              {
+                "word": "fly a kite",
+                "vi": "thả diều",
+                "ipa": "flaɪ ə kaɪt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'The children is flying' → children là số nhiều, phải dùng are",
+              "❌ Sai: 'flying kites now in the park' → nơi chốn thường đứng trước thời gian"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "did you / in the countryside / your grandparents / visit / last summer /?//",
+          "cues_segments": [
+            {
+              "text": "did you / in the "
+            },
+            {
+              "text": "countryside",
+              "tooltip": {
+                "vi": "vùng quê",
+                "ipa": "ˈkʌntrisaɪd"
+              }
+            },
+            {
+              "text": " / your "
+            },
+            {
+              "text": "grandparents",
+              "tooltip": {
+                "vi": "ông bà",
+                "ipa": "ˈɡrænpeərənts"
+              }
+            },
+            {
+              "text": " / visit / last summer /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "did you",
+            "visit",
+            "your grandparents",
+            "in the countryside",
+            "last summer"
+          ],
+          "correct": [
+            "did you",
+            "visit",
+            "your grandparents",
+            "in the countryside",
+            "last summer"
+          ],
+          "explanation": {
+            "correct_sentence": "Did you visit your grandparents in the countryside last summer?",
+            "structure_vi": "Did + S + V(nguyên mẫu) + O + nơi chốn + thời gian?",
+            "grammar_notes": [
+              "✅ Đây là câu hỏi thì quá khứ đơn, ta đảo trợ động từ 'Did' lên đầu câu",
+              "✅ Sau 'Did', động từ 'visit' giữ nguyên không thêm -ed"
+            ],
+            "vocab_notes": [
+              {
+                "word": "visit",
+                "vi": "thăm",
+                "ipa": "ˈvɪzɪt"
+              },
+              {
+                "word": "last summer",
+                "vi": "mùa hè năm ngoái",
+                "ipa": "lɑːst ˈsʌmər"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Did you visited' → đã có did thì động từ không chia nữa",
+              "❌ Sai: 'You did visit' → câu hỏi phải đưa trợ động từ ra đầu"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "wants to be / she / because / she loves helping people / a doctor /.//",
+          "cues_segments": [
+            {
+              "text": "wants to be / she / "
+            },
+            {
+              "text": "because",
+              "tooltip": {
+                "vi": "bởi vì",
+                "ipa": "bɪˈkɒz"
+              }
+            },
+            {
+              "text": " / she loves "
+            },
+            {
+              "text": "helping",
+              "tooltip": {
+                "vi": "giúp đỡ",
+                "ipa": "ˈhelpɪŋ"
+              }
+            },
+            {
+              "text": " people / a doctor /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "she",
+            "wants to be",
+            "a doctor",
+            "because",
+            "she loves helping people"
+          ],
+          "correct": [
+            "she",
+            "wants to be",
+            "a doctor",
+            "because",
+            "she loves helping people"
+          ],
+          "explanation": {
+            "correct_sentence": "She wants to be a doctor because she loves helping people.",
+            "structure_vi": "S + wants to be + nghề nghiệp + because + S + V",
+            "grammar_notes": [
+              "✅ Cấu trúc chỉ ước mơ nghề nghiệp: 'want to be a/an + noun'",
+              "✅ Sau 'love', động từ dùng V-ing ('helping')"
+            ],
+            "vocab_notes": [
+              {
+                "word": "want to be",
+                "vi": "muốn trở thành",
+                "ipa": "wɒnt tʊ biː"
+              },
+              {
+                "word": "help people",
+                "vi": "giúp đỡ mọi người",
+                "ipa": "help ˈpiːpəl"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'wants be a doctor' → thiếu 'to' sau want",
+              "❌ Sai: 'because she love' → she là số ít, love phải thêm s"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "we / go / the cinema / twice a month / Sundays /.//",
+          "cues_segments": [
+            {
+              "text": "we / go / the "
+            },
+            {
+              "text": "cinema",
+              "tooltip": {
+                "vi": "rạp chiếu phim",
+                "ipa": "ˈsɪnəmə"
+              }
+            },
+            {
+              "text": " / "
+            },
+            {
+              "text": "twice",
+              "tooltip": {
+                "vi": "hai lần",
+                "ipa": "twaɪs"
+              }
+            },
+            {
+              "text": " a month / Sundays /.//"
+            }
+          ],
+          "accepted_answers": [
+            "We go to the cinema twice a month on Sundays.",
+            "we go to the cinema twice a month on Sundays"
+          ],
+          "explanation": {
+            "correct_sentence": "We go to the cinema twice a month on Sundays.",
+            "structure_vi": "S + go to + nơi chốn + tần suất + on + thứ",
+            "grammar_notes": [
+              "✅ Cụm từ cố định: 'go to the cinema' (đi xem phim)",
+              "✅ Dùng giới từ 'on' trước các thứ trong tuần (on Sundays)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "twice a month",
+                "vi": "hai lần một tháng",
+                "ipa": "twaɪs ə mʌnθ"
+              },
+              {
+                "word": "cinema",
+                "vi": "rạp chiếu phim",
+                "ipa": "ˈsɪnəmə"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'go the cinema' → thiếu giới từ 'to'",
+              "❌ Sai: 'in Sundays' → đi với thứ phải dùng 'on'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "my father / be / listen / music / the living room /.//",
+          "cues_segments": [
+            {
+              "text": "my father / be / listen / music / the "
+            },
+            {
+              "text": "living room",
+              "tooltip": {
+                "vi": "phòng khách",
+                "ipa": "ˈlɪvɪŋ ruːm"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "My father is listening to music in the living room.",
+            "my father is listening to music in the living room"
+          ],
+          "explanation": {
+            "correct_sentence": "My father is listening to music in the living room.",
+            "structure_vi": "S + is/am/are + V-ing + giới từ + O + nơi chốn",
+            "grammar_notes": [
+              "✅ Câu mô tả hành động đang diễn ra (chia tiếp diễn 'is listening')",
+              "✅ Động từ 'listen' luôn đi kèm giới từ 'to' (listen to music)",
+              "✅ 'in the living room' (trong phòng khách) dùng giới từ 'in'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "listen to music",
+                "vi": "nghe nhạc",
+                "ipa": "ˈlɪsən tʊ ˈmjuːzɪk"
+              },
+              {
+                "word": "living room",
+                "vi": "phòng khách",
+                "ipa": "ˈlɪvɪŋ ruːm"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'is listening music' → thiếu giới từ 'to'",
+              "❌ Sai: 'are listening' → 'my father' là số ít nên phải dùng 'is'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "what subject / you / like / best / school /?//",
+          "cues_segments": [
+            {
+              "text": "what "
+            },
+            {
+              "text": "subject",
+              "tooltip": {
+                "vi": "môn học",
+                "ipa": "ˈsʌbdʒɪkt"
+              }
+            },
+            {
+              "text": " / you / like / best / school /?//"
+            }
+          ],
+          "accepted_answers": [
+            "What subject do you like best at school?",
+            "what subject do you like best at school"
+          ],
+          "explanation": {
+            "correct_sentence": "What subject do you like best at school?",
+            "structure_vi": "What subject + do + S + like best + at school?",
+            "grammar_notes": [
+              "✅ Câu hỏi với từ để hỏi 'What subject', phải mượn trợ động từ 'do' đứng trước chủ ngữ 'you'",
+              "✅ 'at school' (ở trường) dùng giới từ 'at'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "subject",
+                "vi": "môn học",
+                "ipa": "ˈsʌbdʒɪkt"
+              },
+              {
+                "word": "like best",
+                "vi": "thích nhất",
+                "ipa": "laɪk best"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What subject you like' → thiếu trợ động từ 'do'",
+              "❌ Sai: 'in school' → dùng 'at school' sẽ chuẩn và phổ biến hơn"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

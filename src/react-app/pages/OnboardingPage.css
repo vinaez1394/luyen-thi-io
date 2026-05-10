@@ -130,3 +130,130 @@
 .onboarding-nav .btn {
   flex: 1;
 }
+
+/* Progress label "Bước X/5" */
+.onboarding-progress__label {
+  text-align: center;
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-top: -8px;
+  margin-bottom: var(--space-1);
+}
+
+/* ── Grade Picker (Step 3) ── */
+.grade-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.grade-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-subtle);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-bounce);
+  font-family: var(--font-family);
+}
+
+.grade-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  transform: translateX(4px);
+}
+
+.grade-btn--active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.grade-btn__emoji { font-size: 28px; line-height: 1; flex-shrink: 0; }
+.grade-btn__label {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  flex: 1;
+}
+.grade-btn__desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── Pathway Picker (Step 4) ── */
+.pathway-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.pathway-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-subtle);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family);
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-bounce);
+}
+
+.pathway-btn:hover {
+  border-color: var(--pathway-color, var(--color-primary));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.pathway-btn--active {
+  border-color: var(--pathway-color, var(--color-primary));
+  background: color-mix(in srgb, var(--pathway-color, var(--color-primary)) 8%, var(--color-card));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--pathway-color, var(--color-primary)) 20%, transparent);
+}
+
+.pathway-btn__emoji { font-size: 36px; line-height: 1; flex-shrink: 0; }
+.pathway-btn__body  { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+
+.pathway-btn__label {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+.pathway-btn__desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.pathway-btn__check {
+  font-size: 20px;
+  color: var(--pathway-color, var(--color-primary));
+  font-weight: 900;
+  flex-shrink: 0;
+  animation: bounceIn 0.3s ease-out;
+}
+
+/* Mobile tweak */
+@media (max-width: 480px) {
+  .grade-btn { padding: 12px 16px; }
+  .pathway-btn { padding: 14px 16px; }
+}

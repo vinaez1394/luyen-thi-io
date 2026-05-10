@@ -1,0 +1,110 @@
+{
+  "id": "FW1-EASY-003",
+  "title": "Flyers Reading & Writing — Part 1 — Set 3 (Easy)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a coat",
+    "a scarf",
+    "sunglasses",
+    "gloves",
+    "boots",
+    "a sweater",
+    "a raincoat",
+    "shorts",
+    "a hat",
+    "a belt",
+    "trainers",
+    "pajamas",
+    "a watch",
+    "a uniform",
+    "a pocket"
+  ],
+
+  "example": {
+    "prompt": "You wear these on your feet when you want to play sports like football or running.",
+    "answer": "trainers"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "You wear this on your head to keep you warm or to protect you from the sun.",
+      "correct": "a hat",
+      "explanation_vi": "Hat = cái mũ/nón, thứ bạn đội trên đầu để giữ ấm hoặc tránh nắng."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "People wear these on their hands when the weather is very cold.",
+      "correct": "gloves",
+      "explanation_vi": "Gloves = găng tay, thứ người ta đeo vào tay khi thời tiết rất lạnh."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "You wear this over your clothes to keep you dry when you go outside in the rain.",
+      "correct": "a raincoat",
+      "explanation_vi": "Raincoat = áo mưa, thứ bạn mặc ngoài quần áo để không bị ướt khi đi dưới mưa."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "You wear these on your face to protect your eyes when it is very sunny.",
+      "correct": "sunglasses",
+      "explanation_vi": "Sunglasses = kính râm, thứ bạn đeo trên mặt để bảo vệ mắt khi trời nắng gắt."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is a long piece of warm cloth that you wear around your neck in winter.",
+      "correct": "a scarf",
+      "explanation_vi": "Scarf = khăn quàng cổ, một dải vải ấm dài quàng quanh cổ vào mùa đông."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "You wear this over your shirt or T-shirt to keep you warm. It is often made of wool.",
+      "correct": "a sweater",
+      "explanation_vi": "Sweater = áo len, loại áo mặc ngoài áo sơ mi để giữ ấm, thường làm bằng len."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "These are like trousers, but they are short and people wear them when it is hot.",
+      "correct": "shorts",
+      "explanation_vi": "Shorts = quần đùi/quần soóc, giống quần dài nhưng ngắn hơn, thường mặc khi trời nóng."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "These are strong shoes that you wear on your feet when it is snowing or very muddy.",
+      "correct": "boots",
+      "explanation_vi": "Boots = ủng/giày ống, loại giày chắc chắn đi khi trời tuyết hoặc rất lầy lội."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You wear this around the top of your trousers to stop them from falling down.",
+      "correct": "a belt",
+      "explanation_vi": "Belt = thắt lưng/dây nịt, thứ bạn quấn quanh cạp quần để giữ quần không bị tuột."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a small thing on your jacket or trousers where you can put your money or keys.",
+      "correct": "a pocket",
+      "explanation_vi": "Pocket = túi (áo, quần), một chỗ nhỏ trên áo khoác hoặc quần để đựng tiền, chìa khóa."
+    }
+  ]
+}

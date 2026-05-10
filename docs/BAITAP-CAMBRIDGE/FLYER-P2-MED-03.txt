@@ -1,0 +1,41 @@
+CHỦ ĐỀ "THE SCIENCE PROJECT" (DỰ ÁN KHOA HỌC)
+
+**Nội dung:** Emma và William thảo luận về bài tập nhóm về chủ đề Vũ trụ.
+
+**Example:**
+**Emma:** Hi William, have you started your science project yet?
+**William:** **G**
+
+**Questions:**
+
+1. **Emma:** Why did you decide to write about the moon?
+**William:** __________
+2. **Emma:** Where did you find all those beautiful pictures for your poster?
+**William:** __________
+3. **Emma:** How long does our presentation need to be?
+**William:** __________
+4. **Emma:** I’m worried that I might forget what to say in front of the class.
+**William:** __________
+5. **Emma:** Can I see your poster when it's finished?
+**William:** __________
+
+**Options (A-H):**
+
+* **A.** Don't worry, we can practice together later.
+* **B.** About five minutes, so we don't need much text.
+* **C.** I used my new computer to print them.
+* **D.** Because I’ve always been interested in space.
+* **E.** It’s on the teacher’s desk in the classroom.
+* **F.** On a website that my brother told me about.
+* **G.** Not yet, but I’m going to the library now. **(Example)**
+* **H.** Of course, I’ll bring it to school tomorrow.
+
+---
+
+### ĐÁP ÁN VÀ PHÂN TÍCH LOGIC
+
+D	Hỏi lý do (Why) -> Giải thích bằng sở thích (Because...).
+F	Hỏi nguồn gốc (Where find) -> Chỉ ra nguồn thông tin (On a website).
+B	Hỏi về thời lượng (How long) -> Trả lời bằng con số thời gian (Five minutes).
+A	Bày tỏ sự lo lắng (I’m worried) -> Phản hồi bằng lời trấn an và đề nghị.
+H	Câu hỏi xin phép (Can I...) -> Đồng ý và hẹn thời gian cụ thể.

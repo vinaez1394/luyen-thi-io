@@ -1,0 +1,819 @@
+/**
+ * GlobalHeader.css — App-wide top navigation bar
+ * Sticky, 64px height, z-index above content
+ */
+
+/* ===== HEADER SHELL ===== */
+.global-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: var(--z-dropdown);
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.global-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  /* NOTE: Do NOT add overflow:hidden here — dropdown menus are position:absolute
+     and will be clipped/unclickable if parent has overflow:hidden */
+}
+
+/* ===== LOGO ===== */
+.global-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+.global-header__logo:hover {
+  background: var(--color-bg-subtle);
+}
+.global-header__logo-icon {
+  font-size: 26px;
+  line-height: 1;
+}
+.global-header__logo-text {
+  font-size: var(--font-lg);
+  font-weight: var(--font-extrabold);
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  letter-spacing: -0.3px;
+}
+
+/* ===== DESKTOP NAV ===== */
+.global-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: var(--space-2);
+}
+
+.global-header__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-family);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+  white-space: nowrap;
+}
+.global-header__nav-link:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+.global-header__nav-link.active {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+/* ===== SPACER ===== */
+.global-header__spacer {
+  flex: 1;
+}
+
+/* ===== STARS DISPLAY ===== */
+.global-header__stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--color-bg-subtle);
+  padding: 6px 12px;
+  border-radius: var(--radius-xl);
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  cursor: default;
+  flex-shrink: 0;
+}
+.global-header__stars-icon {
+  font-size: 16px;
+}
+
+/* ===== THEME SWITCHER ===== */
+.global-header__theme-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-text-muted);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+  position: relative;
+}
+.global-header__theme-btn:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+/* Theme dropdown */
+.theme-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  z-index: var(--z-modal);
+  min-width: 200px;
+  animation: scaleIn 0.15s ease-out;
+}
+
+.theme-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+.theme-option:hover {
+  background: var(--color-bg-subtle);
+}
+.theme-option.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+.theme-option__swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+.theme-option__label {
+  font-size: 11px;
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ===== AUTH AREA ===== */
+.global-header__auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* User avatar button */
+.global-header__avatar-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 12px 0 6px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-family);
+  position: relative;
+}
+.global-header__avatar-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.global-header__avatar-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.global-header__avatar-emoji {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.global-header__avatar-name {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Grade badge cũ — giữ lại để tránh lỗi nếu còn dùng ở đâu */
+.gh-grade-badge {
+  display: none; /* Đã thay bằng gh-grade-icon */
+}
+
+/* Grade icon standalone — desktop only, click dẫn đến /profile */
+.gh-grade-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1.5px solid color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-card));
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+.gh-grade-icon:hover {
+  background: color-mix(in srgb, var(--color-primary) 18%, var(--color-card));
+  border-color: var(--color-primary);
+}
+.gh-grade-icon__emoji { font-size: 14px; line-height: 1; }
+.gh-grade-icon__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* Ẩn trên mobile — thay bằng user card trong drawer */
+@media (max-width: 768px) {
+  .gh-grade-icon { display: none; }
+}
+
+/* Avatar dropdown */
+.avatar-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: var(--z-modal);
+  min-width: 180px;
+  animation: scaleIn 0.15s ease-out;
+}
+.avatar-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.avatar-dropdown__item:hover {
+  background: var(--color-bg-subtle);
+}
+.avatar-dropdown__item--danger {
+  color: var(--color-danger);
+}
+.avatar-dropdown__divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+/* ===== HAMBURGER (Mobile only) ===== */
+.global-header__hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  flex-shrink: 0;
+}
+.global-header__hamburger:hover {
+  background: var(--color-bg-subtle);
+}
+.hamburger__line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+/* ===== MOBILE DRAWER ===== */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: var(--z-overlay);
+  animation: fadeIn 0.2s ease-out;
+}
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--color-card);
+  z-index: var(--z-overlay);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  gap: var(--space-2);
+  animation: slideInLeft 0.25s ease-out;
+  overflow-y: auto;
+}
+/* Mobile drawer header: logo + close button */
+.mobile-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 4px;
+}
+/* Giữ logo style cũ (nay nằm trong __header) */
+.mobile-drawer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Nút đóng (X) bên phải drawer header */
+.mobile-drawer__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+.mobile-drawer__close-btn:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+
+/* 3 stats pills — thả tự do dưới header, không có khung card */
+.mobile-drawer__stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: var(--space-1) var(--space-1);
+}
+
+/* User stats card trong drawer (grade + stars) */
+.mobile-drawer__user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--space-2) var(--space-2);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg-subtle));
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, var(--color-border));
+  margin-bottom: 2px;
+}
+.mobile-drawer__user-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.mobile-drawer__user-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.mobile-drawer__user-card-name {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mobile-drawer__user-card-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.mobile-drawer__user-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+.mobile-drawer__user-stat--grade {
+  background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  color: var(--color-primary);
+}
+.mobile-drawer__user-stat--stars {
+  background: color-mix(in srgb, #f59e0b 15%, transparent);
+  color: #b45309;
+}
+.mobile-drawer__user-stat--streak {
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+  color: #b91c1c;
+}
+
+.mobile-drawer__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.mobile-drawer__nav-link:hover,
+.mobile-drawer__nav-link.active {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+.mobile-drawer__nav-icon {
+  font-size: 20px;
+  width: 28px;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* Hamburger: visible on mobile, hidden on desktop (default display:none) */
+  .global-header__hamburger {
+    display: flex;
+    order: 1;          /* ← far left */
+    flex-shrink: 0;
+  }
+
+  /* Logo: immediately right of hamburger */
+  .global-header__logo {
+    order: 2;
+  }
+
+  /* Desktop nav: hidden */
+  .global-header__nav {
+    display: none;
+  }
+
+  /* Spacer pushes auth to the right */
+  .global-header__spacer {
+    order: 3;
+  }
+
+  /* Stars: hide — shown in MobileBottomNav */
+  .global-header__stars {
+    display: none;
+    order: 4;
+  }
+
+  /* Theme button: hidden on mobile to save space */
+  .global-header__theme-btn {
+    display: none;
+  }
+
+  /* Auth (avatar / register): stays right */
+  .global-header__auth {
+    order: 5;
+    flex-shrink: 0;
+  }
+
+  /* Reduce logo text size */
+  .global-header__logo-text {
+    font-size: var(--font-md);
+  }
+
+  /* Tighter inner padding */
+  .global-header__inner {
+    padding: 0 var(--space-2);
+    gap: var(--space-1);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+  .global-header__logo-text {
+    display: none; /* Only show icon 🎓 on very small screens */
+  }
+  .global-header__inner {
+    padding: 0 8px;
+  }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+/* ===== NAV DROPDOWN "Môn học" ===== */
+.global-header__nav-dropdown-wrapper {
+  position: relative;
+}
+
+.global-header__nav-link--dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-dropdown-chevron {
+  font-size: 11px;
+  transition: transform var(--transition-fast);
+  margin-left: 2px;
+  color: var(--color-text-muted);
+}
+.nav-dropdown-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.nav-subject-dropdown {
+  position: absolute;
+  top: 100%;           /* sat liền wrapper để không có gap chết */
+  left: 0;
+  padding-top: 8px;    /* visual gap: trong suốt để chuột không bị mất hover */
+  min-width: 260px;
+  z-index: var(--z-modal);
+}
+
+/* Card nội dung bên trong */
+.nav-subject-dropdown__inner-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: scaleIn 0.15s ease-out;
+}
+
+.nav-subject-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: background var(--transition-fast);
+  border-left: 3px solid transparent;
+}
+.nav-subject-dropdown__item:hover {
+  background: var(--color-bg-subtle);
+  border-left-color: var(--subject-color, var(--color-primary));
+}
+
+.nav-subject-dropdown__emoji {
+  font-size: 20px;
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.nav-subject-dropdown__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nav-subject-dropdown__name {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.nav-subject-dropdown__desc {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.nav-subject-dropdown__divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+.nav-subject-dropdown__see-all {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: background var(--transition-fast);
+}
+.nav-subject-dropdown__see-all:hover {
+  background: var(--color-primary-light);
+}
+
+/* Group label phân tầng Cambridge / Lớp 6 */
+.nav-subject-dropdown__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-subject-dropdown__group-label {
+  display: block;
+  padding: 6px 16px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #999);
+}
+
+/* Trạng thái "Sắp có" */
+.nav-subject-dropdown__item--soon {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.nav-subject-dropdown__soon-badge {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: var(--color-surface-elevated, #f0f0f0);
+  color: var(--color-text-muted, #999);
+  margin-left: auto;
+}
+
+/* ===== MOBILE DRAWER — Subject group ===== */
+.mobile-drawer__subject-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.mobile-drawer__subject-label {
+  padding: 10px var(--space-2) 6px;
+  font-size: var(--font-xs);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mobile-drawer__nav-link--subject {
+  padding-left: calc(var(--space-2) + 16px) !important;
+  border-left: 3px solid transparent;
+  font-size: var(--font-sm) !important;
+  height: 44px !important;
+}
+.mobile-drawer__nav-link--subject:hover,
+.mobile-drawer__nav-link--subject.active {
+  border-left-color: var(--subject-color, var(--color-primary));
+}
+
+.mobile-drawer__nav-link--soon {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mobile-drawer__soon-badge {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: var(--color-surface-elevated, #f0f0f0);
+  color: var(--color-text-muted, #999);
+}
+
+/* ===== MOBILE DRAWER — Theme Switcher ===== */
+.mobile-drawer__divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+.mobile-drawer__theme-section {
+  padding: var(--space-1) 0;
+}
+
+.mobile-drawer__theme-label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text-muted);
+  padding: 4px var(--space-2) 10px;
+}
+
+.mobile-drawer__theme-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  padding: 0 var(--space-2);
+}
+
+.mobile-drawer__theme-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.mobile-drawer__theme-btn:hover {
+  background: var(--color-bg-subtle);
+}
+.mobile-drawer__theme-btn.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.mobile-drawer__theme-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.mobile-drawer__theme-emoji {
+  font-size: 14px;
+  line-height: 1;
+}

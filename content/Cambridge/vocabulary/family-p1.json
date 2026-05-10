@@ -1,0 +1,52 @@
+{
+  "passage_id": "family-p1",
+  "topic": "family",
+  "title": "My Family",
+  "level": "starters",
+  "word_count": 82,
+  "segments": [
+    { "type": "text", "content": "I have a big family. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-009",
+      "options": ["father", "cousin", "kid"],
+      "answer": "father",
+      "explanation_vi": "'father' = cha / bố — người đàn ông trong gia đình."
+    },
+    { "type": "text", "content": " works in a hospital. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-003",
+      "options": ["brother", "baby", "friend"],
+      "answer": "brother",
+      "explanation_vi": "'brother' = anh/em trai — người anh hoặc em trai trong gia đình."
+    },
+    { "type": "text", "content": " is ten years old and loves football. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-012",
+      "options": ["grandfather", "girl", "classmate"],
+      "answer": "grandfather",
+      "explanation_vi": "'grandfather' = ông nội/ông ngoại — bố của cha hoặc mẹ."
+    },
+    { "type": "text", "content": " tells us wonderful stories every evening. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-006",
+      "options": ["cousin", "boy", "dad"],
+      "answer": "cousin",
+      "explanation_vi": "'cousin' = anh/chị/em họ — con của cô, chú, bác."
+    },
+    { "type": "text", "content": " visits us every holiday and we always have fun together. I love my " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-008",
+      "options": ["family", "live", "friend"],
+      "answer": "family",
+      "explanation_vi": "'family' = gia đình — tất cả những người thân trong nhà."
+    },
+    { "type": "text", "content": "!" }
+  ],
+  "explanation_vi": "Đoạn văn giới thiệu về gia đình: father (bố), brother (anh/em trai), grandfather (ông), cousin (anh/em họ), family (gia đình). Gia đình rất quan trọng!",
+  "created_at": "2026-05-07"
+}

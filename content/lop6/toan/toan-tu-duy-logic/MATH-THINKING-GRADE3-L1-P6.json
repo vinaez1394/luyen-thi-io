@@ -1,0 +1,527 @@
+{
+  "id": "MATH-L1-P6",
+  "title": "Toán Tư Duy (English) — Level 1 — Bài 6",
+  "subject": "toan-tu-duy",
+  "skill": "math",
+  "level": "level-1",
+  "part": 6,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc kỹ từng câu hỏi và chọn đáp án đúng nhất. Các từ gạch chân có thể click để xem nghĩa tiếng Việt. Mỗi câu chỉ có 1 đáp án đúng.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": [
+        {
+          "text": "Next "
+        },
+        {
+          "text": "number",
+          "tooltip": {
+            "vi": "số",
+            "ipa": "ˈnʌmbər"
+          }
+        },
+        {
+          "text": ": 2, 4, 12, 48, __?"
+        }
+      ],
+      "options": [
+        "120",
+        "144",
+        "192",
+        "240"
+      ],
+      "correct": "240",
+      "explanation_vi": "Hệ số nhân tăng dần: x2, x3, x4, x5. Vậy số tiếp theo là 48 x 5 = 240."
+    },
+    {
+      "id": "q2",
+      "prompt": [
+        {
+          "text": "Father",
+          "tooltip": {
+            "vi": "bố",
+            "ipa": "ˈfɑːðər"
+          }
+        },
+        {
+          "text": " is 32, "
+        },
+        {
+          "text": "mother",
+          "tooltip": {
+            "vi": "mẹ",
+            "ipa": "ˈmʌðər"
+          }
+        },
+        {
+          "text": " is 30. What is the "
+        },
+        {
+          "text": "sum",
+          "tooltip": {
+            "vi": "tổng",
+            "ipa": "sʌm"
+          }
+        },
+        {
+          "text": " of their "
+        },
+        {
+          "text": "ages",
+          "tooltip": {
+            "vi": "tuổi tác",
+            "ipa": "ˈeɪdʒɪz"
+          }
+        },
+        {
+          "text": " in 5 "
+        },
+        {
+          "text": "years",
+          "tooltip": {
+            "vi": "năm",
+            "ipa": "jɪərz"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "67",
+        "72",
+        "70",
+        "62"
+      ],
+      "correct": "72",
+      "explanation_vi": "Tổng hiện tại là 32 + 30 = 62. Trong 5 năm tới, cả hai đều tăng 5 tuổi (tổng tăng 10). 62 + 10 = 72."
+    },
+    {
+      "id": "q3",
+      "prompt": [
+        {
+          "text": "Planting",
+          "tooltip": {
+            "vi": "trồng cây",
+            "ipa": "ˈplæntɪŋ"
+          }
+        },
+        {
+          "text": " 5 "
+        },
+        {
+          "text": "trees",
+          "tooltip": {
+            "vi": "cây cối",
+            "ipa": "triːz"
+          }
+        },
+        {
+          "text": " in a "
+        },
+        {
+          "text": "row",
+          "tooltip": {
+            "vi": "hàng",
+            "ipa": "roʊ"
+          }
+        },
+        {
+          "text": ", 2 meters "
+        },
+        {
+          "text": "apart",
+          "tooltip": {
+            "vi": "cách nhau",
+            "ipa": "əˈpɑːrt"
+          }
+        },
+        {
+          "text": ". What is the "
+        },
+        {
+          "text": "distance",
+          "tooltip": {
+            "vi": "khoảng cách",
+            "ipa": "ˈdɪstəns"
+          }
+        },
+        {
+          "text": " from the 1st to the 5th tree?"
+        }
+      ],
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "correct": "8",
+      "explanation_vi": "Trồng 5 cây trên một đường thẳng thì sẽ có 4 khoảng cách ở giữa. Mỗi khoảng cách dài 2 mét. Tổng khoảng cách = 4 x 2 = 8 mét."
+    },
+    {
+      "id": "q4",
+      "prompt": [
+        {
+          "text": "A "
+        },
+        {
+          "text": "line",
+          "tooltip": {
+            "vi": "hàng, dòng",
+            "ipa": "laɪn"
+          }
+        },
+        {
+          "text": " of 12 "
+        },
+        {
+          "text": "people",
+          "tooltip": {
+            "vi": "người",
+            "ipa": "ˈpiːpəl"
+          }
+        },
+        {
+          "text": ". Lily is in the "
+        },
+        {
+          "text": "exact",
+          "tooltip": {
+            "vi": "chính xác",
+            "ipa": "ɪɡˈzækt"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "middle",
+          "tooltip": {
+            "vi": "ở giữa",
+            "ipa": "ˈmɪdəl"
+          }
+        },
+        {
+          "text": ". What is her "
+        },
+        {
+          "text": "position",
+          "tooltip": {
+            "vi": "vị trí",
+            "ipa": "pəˈzɪʃən"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "6",
+        "7",
+        "No exact middle",
+        "5"
+      ],
+      "correct": "No exact middle",
+      "explanation_vi": "Với một số lượng người chẵn (12 người), sẽ không có ai đứng chính xác ở giữa hàng (vì chia đôi ra 6 và 6)."
+    },
+    {
+      "id": "q5",
+      "prompt": [
+        {
+          "text": "8 "
+        },
+        {
+          "text": "animals",
+          "tooltip": {
+            "vi": "động vật",
+            "ipa": "ˈænɪməlz"
+          }
+        },
+        {
+          "text": ", 22 "
+        },
+        {
+          "text": "legs",
+          "tooltip": {
+            "vi": "chân",
+            "ipa": "leɡz"
+          }
+        },
+        {
+          "text": " ("
+        },
+        {
+          "text": "Dogs",
+          "tooltip": {
+            "vi": "con chó",
+            "ipa": "dɔːɡz"
+          }
+        },
+        {
+          "text": " and "
+        },
+        {
+          "text": "birds",
+          "tooltip": {
+            "vi": "con chim",
+            "ipa": "bɜːrdz"
+          }
+        },
+        {
+          "text": "). How many birds are there?"
+        }
+      ],
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": "5",
+      "explanation_vi": "Giả sử tất cả 8 con đều là chó (4 chân), tổng số chân sẽ là 8 x 4 = 32 chân. Bị thừa ra 32 - 22 = 10 chân. Mỗi con chim (2 chân) ít hơn chó 2 chân. Vậy số con chim = 10 / 2 = 5 con."
+    },
+    {
+      "id": "q6",
+      "prompt": [
+        {
+          "text": "Multiply",
+          "tooltip": {
+            "vi": "nhân",
+            "ipa": "ˈmʌltɪplaɪ"
+          }
+        },
+        {
+          "text": " a number by 2, "
+        },
+        {
+          "text": "add",
+          "tooltip": {
+            "vi": "cộng",
+            "ipa": "æd"
+          }
+        },
+        {
+          "text": " 10, "
+        },
+        {
+          "text": "divide",
+          "tooltip": {
+            "vi": "chia",
+            "ipa": "dɪˈvaɪd"
+          }
+        },
+        {
+          "text": " by 2, you get 10. What is the number?"
+        }
+      ],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": "5",
+      "explanation_vi": "Tính ngược từ kết quả: (10 x 2) = 20. 20 - 10 = 10. 10 / 2 = 5. Số ban đầu là 5."
+    },
+    {
+      "id": "q7",
+      "prompt": [
+        {
+          "text": "How many "
+        },
+        {
+          "text": "digits",
+          "tooltip": {
+            "vi": "chữ số (0-9)",
+            "ipa": "ˈdɪdʒɪts"
+          }
+        },
+        {
+          "text": " are used to number "
+        },
+        {
+          "text": "pages",
+          "tooltip": {
+            "vi": "trang sách",
+            "ipa": "peɪdʒɪz"
+          }
+        },
+        {
+          "text": " 1 to 15?"
+        }
+      ],
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "correct": "21",
+      "explanation_vi": "Từ trang 1 đến 9 cần dùng 9 chữ số. Từ trang 10 đến 15 có 6 trang, mỗi trang dùng 2 chữ số (6 x 2 = 12). Tổng cộng: 9 + 12 = 21 chữ số."
+    },
+    {
+      "id": "q8",
+      "prompt": [
+        {
+          "text": "4 "
+        },
+        {
+          "text": "cups",
+          "tooltip": {
+            "vi": "cốc",
+            "ipa": "kʌps"
+          }
+        },
+        {
+          "text": " = 1 "
+        },
+        {
+          "text": "jug",
+          "tooltip": {
+            "vi": "bình",
+            "ipa": "dʒʌɡ"
+          }
+        },
+        {
+          "text": ". 2 jugs = 1 "
+        },
+        {
+          "text": "bucket",
+          "tooltip": {
+            "vi": "cái xô",
+            "ipa": "ˈbʌkɪt"
+          }
+        },
+        {
+          "text": ". 1 bucket = ? cups."
+        }
+      ],
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "correct": "8",
+      "explanation_vi": "1 cái xô (bucket) bằng 2 cái bình (jugs). Mỗi bình bằng 4 cốc (cups). Vậy 1 xô = 2 x 4 cốc = 8 cốc."
+    },
+    {
+      "id": "q9",
+      "prompt": [
+        {
+          "text": "14 "
+        },
+        {
+          "text": "days",
+          "tooltip": {
+            "vi": "ngày",
+            "ipa": "deɪz"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "ago",
+          "tooltip": {
+            "vi": "trước đây",
+            "ipa": "əˈɡoʊ"
+          }
+        },
+        {
+          "text": " was "
+        },
+        {
+          "text": "Tuesday",
+          "tooltip": {
+            "vi": "Thứ Ba",
+            "ipa": "ˈtuːzdeɪ"
+          }
+        },
+        {
+          "text": ". "
+        },
+        {
+          "text": "Today",
+          "tooltip": {
+            "vi": "hôm nay",
+            "ipa": "təˈdeɪ"
+          }
+        },
+        {
+          "text": " is?"
+        }
+      ],
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      "correct": "Tuesday",
+      "explanation_vi": "14 ngày trước bằng đúng 2 tuần. Ngày trong tuần sẽ không đổi, nên hôm nay vẫn là Thứ Ba (Tuesday)."
+    },
+    {
+      "id": "q10",
+      "prompt": [
+        {
+          "text": "An L-"
+        },
+        {
+          "text": "shape",
+          "tooltip": {
+            "vi": "hình dạng",
+            "ipa": "ʃeɪp"
+          }
+        },
+        {
+          "text": " made of 3 "
+        },
+        {
+          "text": "cubes",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːbz"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "hidden",
+          "tooltip": {
+            "vi": "bị che khuất",
+            "ipa": "ˈhɪdən"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "faces",
+          "tooltip": {
+            "vi": "mặt",
+            "ipa": "feɪsɪz"
+          }
+        },
+        {
+          "text": " are there?"
+        }
+      ],
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "correct": "4",
+      "explanation_vi": "Hình chữ L làm từ 3 khối lập phương sẽ có 2 chỗ tiếp xúc nối với nhau. Mỗi chỗ tiếp xúc làm ẩn đi 2 mặt. Vậy có 2 x 2 = 4 mặt bị ẩn."
+    }
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
+}

@@ -1,0 +1,110 @@
+{
+  "id": "FW1-HARD-001",
+  "title": "Flyers Reading & Writing — Part 1 — Set 1 (Hard)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a mechanic",
+    "an explorer",
+    "a university",
+    "a competition",
+    "the environment",
+    "a passenger",
+    "furniture",
+    "a receptionist",
+    "temperature",
+    "an ambulance",
+    "geography",
+    "a desert",
+    "luggage",
+    "a stadium",
+    "chemistry"
+  ],
+
+  "example": {
+    "prompt": "This is a science subject where students learn about how different gases, solids, and liquids react with each other.",
+    "answer": "chemistry"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This word describes how hot or cold something is, and you might check it when you feel ill or want to know the weather.",
+      "correct": "temperature",
+      "explanation_vi": "Temperature = nhiệt độ, mô tả độ nóng lạnh của sự vật, cơ thể hoặc thời tiết."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "You might enter this if you are very good at a sport or a hobby and hope to win a prize or a gold trophy.",
+      "correct": "a competition",
+      "explanation_vi": "Competition = cuộc thi/sự cạnh tranh, nơi bạn tham gia để giành giải thưởng hoặc cúp."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is a general word for things like tables, chairs, and beds that people keep in their homes to make them comfortable.",
+      "correct": "furniture",
+      "explanation_vi": "Furniture = đồ nội thất, từ gọi chung cho bàn, ghế, giường, tủ trong nhà."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "If your car or van stops working properly, this is the person you should call to look at the engine and fix it.",
+      "correct": "a mechanic",
+      "explanation_vi": "Mechanic = thợ cơ khí/thợ sửa xe, người kiểm tra động cơ và sửa chữa khi xe hỏng."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is a place where people go to study a specific subject at a very high level after they have finished secondary school.",
+      "correct": "a university",
+      "explanation_vi": "University = trường đại học, nơi học tập ở trình độ cao sau khi tốt nghiệp trung học."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This brave person travels to distant or unknown parts of the world to find out new things about our planet.",
+      "correct": "an explorer",
+      "explanation_vi": "Explorer = nhà thám hiểm, người dũng cảm đi đến những vùng đất xa xôi chưa ai biết tới."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This describes the natural world around us, including the air, land, and water, which we must try to keep clean.",
+      "correct": "the environment",
+      "explanation_vi": "The environment = môi trường, thế giới tự nhiên xung quanh chúng ta bao gồm không khí, đất và nước."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "This is someone who is traveling in a vehicle, such as a bus, train, or plane, but is not the person driving it.",
+      "correct": "a passenger",
+      "explanation_vi": "Passenger = hành khách, người đi trên phương tiện giao thông (xe buýt, tàu, máy bay) nhưng không phải là người lái."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You will find this person sitting at a desk near the entrance of a hotel or an office building to help visitors.",
+      "correct": "a receptionist",
+      "explanation_vi": "Receptionist = lễ tân, người ngồi ở quầy gần lối vào khách sạn hoặc văn phòng để giúp đỡ khách."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a very dry part of the world where it rarely rains, and it is difficult for many plants or animals to survive there.",
+      "correct": "a desert",
+      "explanation_vi": "Desert = sa mạc, nơi rất khô hạn, hiếm khi có mưa và động thực vật khó sinh tồn."
+    }
+  ]
+}

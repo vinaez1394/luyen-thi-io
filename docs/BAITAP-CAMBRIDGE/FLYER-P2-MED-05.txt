@@ -1,0 +1,42 @@
+
+CHỦ ĐỀ "THE NEW MUSIC CLUB" (CLB ÂM NHẠC)
+
+**Nội dung:** Hai người bạn nói về việc tham gia một câu lạc bộ ngoại khóa ở trường.
+
+**Example:**
+**George:** How long have you been in the music club, Betty?
+**Betty:** **D**
+
+**Questions:**
+
+1. **George:** Which instrument would you like to learn to play?
+**Betty:** __________
+2. **George:** How often do you have to practice?
+**Betty:** __________
+3. **George:** Is it difficult to read the music?
+**Betty:** __________
+4. **George:** Who is the teacher this year?
+**Betty:** __________
+5. **George:** Can I come and watch your concert next week?
+**Betty:** __________
+
+**Options (A-H):**
+
+* **A.** It’s Mrs. Green, she’s very kind.
+* **B.** I’ve played the piano since I was six.
+* **C.** Every Tuesday and Thursday after school.
+* **D.** I joined it about three years ago. **(Example)**
+* **E.** Only if you don't make any noise!
+* **F.** Actually, I prefer the violin to the guitar.
+* **G.** It's at the end of the long hallway.
+* **H.** It was at first, but it’s easier now.
+
+---
+
+### ĐÁP ÁN VÀ PHÂN TÍCH KỸ THUẬT
+
+F	Lựa chọn giữa các loại nhạc cụ (Which instrument).
+C	Trả lời về tần suất (How often).
+H	Trả lời về độ khó (Is it difficult - Quá khứ vs Hiện tại).
+A	Trả lời về danh tính người (Who).
+E	Lời đồng ý kèm theo một điều kiện (Only if).

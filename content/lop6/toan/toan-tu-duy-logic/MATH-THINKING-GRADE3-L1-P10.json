@@ -1,0 +1,470 @@
+{
+  "id": "MATH-L1-P10",
+  "title": "Toán Tư Duy (English) — Level 1 — Bài 10",
+  "subject": "toan-tu-duy",
+  "skill": "math",
+  "level": "level-1",
+  "part": 10,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc kỹ từng câu hỏi và chọn đáp án đúng nhất. Các từ gạch chân có thể click để xem nghĩa tiếng Việt. Mỗi câu chỉ có 1 đáp án đúng.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": [
+        {
+          "text": "Next "
+        },
+        {
+          "text": "number",
+          "tooltip": {
+            "vi": "số",
+            "ipa": "ˈnʌmbər"
+          }
+        },
+        {
+          "text": ": 1, 8, 15, 22, 29, __?"
+        }
+      ],
+      "options": [
+        "34",
+        "35",
+        "36",
+        "37"
+      ],
+      "correct": "36",
+      "explanation_vi": "Hiệu số tăng đều: +7. Tiếp theo là 29 + 7 = 36."
+    },
+    {
+      "id": "q2",
+      "prompt": [
+        {
+          "text": "Sum",
+          "tooltip": {
+            "vi": "tổng",
+            "ipa": "sʌm"
+          }
+        },
+        {
+          "text": " of "
+        },
+        {
+          "text": "ages",
+          "tooltip": {
+            "vi": "tuổi tác",
+            "ipa": "ˈeɪdʒɪz"
+          }
+        },
+        {
+          "text": " of A and B is 24. A is 4 years "
+        },
+        {
+          "text": "older",
+          "tooltip": {
+            "vi": "lớn tuổi hơn",
+            "ipa": "ˈoʊldər"
+          }
+        },
+        {
+          "text": " than B. What is the age of B?"
+        }
+      ],
+      "options": [
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "correct": "10",
+      "explanation_vi": "A hơn B 4 tuổi. Trừ phần hơn này ra khỏi tổng: 24 - 4 = 20. Chia đôi để tìm B: 20 / 2 = 10 tuổi."
+    },
+    {
+      "id": "q3",
+      "prompt": [
+        {
+          "text": "6 "
+        },
+        {
+          "text": "flags",
+          "tooltip": {
+            "vi": "lá cờ",
+            "ipa": "flæɡz"
+          }
+        },
+        {
+          "text": " in a "
+        },
+        {
+          "text": "row",
+          "tooltip": {
+            "vi": "hàng",
+            "ipa": "roʊ"
+          }
+        },
+        {
+          "text": ", 3m "
+        },
+        {
+          "text": "apart",
+          "tooltip": {
+            "vi": "cách nhau",
+            "ipa": "əˈpɑːrt"
+          }
+        },
+        {
+          "text": ". What is the "
+        },
+        {
+          "text": "distance",
+          "tooltip": {
+            "vi": "khoảng cách",
+            "ipa": "ˈdɪstəns"
+          }
+        },
+        {
+          "text": " from the 1st to the 6th flag?"
+        }
+      ],
+      "options": [
+        "12",
+        "15",
+        "18",
+        "21"
+      ],
+      "correct": "15",
+      "explanation_vi": "6 lá cờ xếp thành hàng sẽ tạo ra 5 khoảng cách ở giữa. Mỗi khoảng cách 3 mét. Tổng khoảng cách: 5 x 3 = 15m."
+    },
+    {
+      "id": "q4",
+      "prompt": [
+        {
+          "text": "1st in "
+        },
+        {
+          "text": "line",
+          "tooltip": {
+            "vi": "hàng, dòng",
+            "ipa": "laɪn"
+          }
+        },
+        {
+          "text": " is #1. Jack is #15. Jill is #25. How many people are "
+        },
+        {
+          "text": "between",
+          "tooltip": {
+            "vi": "ở giữa",
+            "ipa": "bɪˈtwiːn"
+          }
+        },
+        {
+          "text": " them?"
+        }
+      ],
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "correct": "9",
+      "explanation_vi": "Số người ở giữa Jack (#15) và Jill (#25) là: 25 - 15 - 1 = 9 người."
+    },
+    {
+      "id": "q5",
+      "prompt": [
+        {
+          "text": "15 "
+        },
+        {
+          "text": "questions",
+          "tooltip": {
+            "vi": "câu hỏi",
+            "ipa": "ˈkwestʃənz"
+          }
+        },
+        {
+          "text": ". "
+        },
+        {
+          "text": "Correct",
+          "tooltip": {
+            "vi": "đúng",
+            "ipa": "kəˈrekt"
+          }
+        },
+        {
+          "text": " = +3, "
+        },
+        {
+          "text": "Wrong",
+          "tooltip": {
+            "vi": "sai",
+            "ipa": "rɔːŋ"
+          }
+        },
+        {
+          "text": " = -1. "
+        },
+        {
+          "text": "Score",
+          "tooltip": {
+            "vi": "điểm số",
+            "ipa": "skɔːr"
+          }
+        },
+        {
+          "text": " 25. How many correct "
+        },
+        {
+          "text": "answers",
+          "tooltip": {
+            "vi": "câu trả lời",
+            "ipa": "ˈænsərz"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correct": "10",
+      "explanation_vi": "Nếu đúng cả 15 câu thì được 15 x 3 = 45 điểm. Số điểm bị mất: 45 - 25 = 20 điểm. Mỗi câu sai mất 4 điểm (mất 3 điểm cộng và bị trừ 1 điểm). Số câu sai: 20 / 4 = 5 câu. Số câu đúng: 15 - 5 = 10 câu."
+    },
+    {
+      "id": "q6",
+      "prompt": [
+        {
+          "text": "Think",
+          "tooltip": {
+            "vi": "nghĩ",
+            "ipa": "θɪŋk"
+          }
+        },
+        {
+          "text": " of a number. "
+        },
+        {
+          "text": "Double",
+          "tooltip": {
+            "vi": "nhân đôi",
+            "ipa": "ˈdʌbəl"
+          }
+        },
+        {
+          "text": " it, double it again, you get 36. What is the number?"
+        }
+      ],
+      "options": [
+        "8",
+        "9",
+        "10",
+        "12"
+      ],
+      "correct": "9",
+      "explanation_vi": "Tính ngược: 36 chia đôi (lần 1) = 18. 18 chia đôi (lần 2) = 9."
+    },
+    {
+      "id": "q7",
+      "prompt": [
+        {
+          "text": "A "
+        },
+        {
+          "text": "book",
+          "tooltip": {
+            "vi": "sách",
+            "ipa": "bʊk"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "pages",
+          "tooltip": {
+            "vi": "trang",
+            "ipa": "peɪdʒɪz"
+          }
+        },
+        {
+          "text": " 1 to 35. Number of times the "
+        },
+        {
+          "text": "digit",
+          "tooltip": {
+            "vi": "chữ số",
+            "ipa": "ˈdɪdʒɪt"
+          }
+        },
+        {
+          "text": " '3' is "
+        },
+        {
+          "text": "printed",
+          "tooltip": {
+            "vi": "được in",
+            "ipa": "ˈprɪntɪd"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correct": "10",
+      "explanation_vi": "Số lần chữ số 3 xuất hiện ở hàng đơn vị (3, 13, 23, 33) là 4 lần. Hàng chục (30, 31, 32, 33, 34, 35) là 6 lần. Tổng cộng: 4 + 6 = 10 lần."
+    },
+    {
+      "id": "q8",
+      "prompt": [
+        {
+          "text": "5 "
+        },
+        {
+          "text": "pencils",
+          "tooltip": {
+            "vi": "bút chì",
+            "ipa": "ˈpensəlz"
+          }
+        },
+        {
+          "text": " = 1 "
+        },
+        {
+          "text": "pen",
+          "tooltip": {
+            "vi": "bút mực",
+            "ipa": "pen"
+          }
+        },
+        {
+          "text": ". 2 pens = 1 "
+        },
+        {
+          "text": "marker",
+          "tooltip": {
+            "vi": "bút dạ / bút lông",
+            "ipa": "ˈmɑːrkər"
+          }
+        },
+        {
+          "text": ". 20 pencils = ? markers."
+        }
+      ],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": "2",
+      "explanation_vi": "20 bút chì = 20 / 5 = 4 bút mực. Mà 2 bút mực = 1 bút dạ, nên 4 bút mực = 2 bút dạ."
+    },
+    {
+      "id": "q9",
+      "prompt": [
+        {
+          "text": "The 1st of a "
+        },
+        {
+          "text": "month",
+          "tooltip": {
+            "vi": "tháng",
+            "ipa": "mʌnθ"
+          }
+        },
+        {
+          "text": " is "
+        },
+        {
+          "text": "Friday",
+          "tooltip": {
+            "vi": "Thứ Sáu",
+            "ipa": "ˈfraɪdeɪ"
+          }
+        },
+        {
+          "text": ". What day is the 16th?"
+        }
+      ],
+      "options": [
+        "Friday",
+        "Saturday",
+        "Sunday",
+        "Monday"
+      ],
+      "correct": "Saturday",
+      "explanation_vi": "Khoảng cách từ ngày 1 đến ngày 16 là 15 ngày. 15 ngày = 2 tuần và dư 1 ngày. 1 ngày sau Thứ Sáu là Thứ Bảy (Saturday)."
+    },
+    {
+      "id": "q10",
+      "prompt": [
+        {
+          "text": "A T-"
+        },
+        {
+          "text": "shape",
+          "tooltip": {
+            "vi": "hình dạng",
+            "ipa": "ʃeɪp"
+          }
+        },
+        {
+          "text": " made of 4 "
+        },
+        {
+          "text": "cubes",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːbz"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "hidden",
+          "tooltip": {
+            "vi": "bị che khuất",
+            "ipa": "ˈhɪdən"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "faces",
+          "tooltip": {
+            "vi": "mặt",
+            "ipa": "feɪsɪz"
+          }
+        },
+        {
+          "text": " are there?"
+        }
+      ],
+      "options": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "correct": "6",
+      "explanation_vi": "Hình chữ T tạo từ 4 khối sẽ có 3 điểm nối (3 điểm tiếp xúc) giữa các khối. Mỗi điểm tiếp xúc làm ẩn 2 mặt. Số mặt bị ẩn: 3 x 2 = 6 mặt."
+    }
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "5-6"
+}

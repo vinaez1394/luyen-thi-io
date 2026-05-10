@@ -1,0 +1,585 @@
+/* =========================================================
+   VocabularyLesson.css — Styles cho Vocabulary Lesson system
+   Bao gồm: LessonHeader, StepNav, WordCard, LearnSection
+   ========================================================= */
+
+/* ── Container ────────────────────────────────────────────── */
+.vocabulary-lesson {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  max-width: 680px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+/* ── LessonHeader ─────────────────────────────────────────── */
+.lesson-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem 0.75rem;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.lesson-header__back {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.lesson-header__back:hover {
+  background: var(--color-bg-subtle);
+  color: var(--color-primary);
+}
+
+.lesson-header__info {
+  flex: 1;
+  min-width: 0;
+}
+.lesson-header__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+.lesson-header__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.lesson-header__session {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ── StepNav ───────────────────────────────────────────────── */
+.step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0.75rem 1rem;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.step-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  position: relative;
+  flex: 1;
+  max-width: 100px;
+}
+
+.step-nav__connector {
+  position: absolute;
+  right: -50%;
+  top: 14px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+.step-nav__item--done .step-nav__connector {
+  background: var(--color-success);
+}
+
+.step-nav__icon {
+  font-size: 1.2rem;
+  z-index: 1;
+  transition: transform 0.2s;
+}
+.step-nav__item--active .step-nav__icon {
+  transform: scale(1.2);
+}
+
+.step-nav__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+.step-nav__item--active .step-nav__label {
+  color: var(--color-primary);
+}
+.step-nav__item--done .step-nav__label {
+  color: var(--color-success);
+}
+.step-nav__item--locked .step-nav__label {
+  color: var(--color-text-light);
+}
+
+/* ── Lesson Body ───────────────────────────────────────────── */
+.lesson-body {
+  flex: 1;
+  padding: 1.25rem 1rem;
+}
+
+/* ── Loading & Error ───────────────────────────────────────── */
+.lesson-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 1rem;
+  color: var(--color-text-muted);
+}
+.lesson-loading__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: lesson-spin 0.8s linear infinite;
+}
+@keyframes lesson-spin {
+  to { transform: rotate(360deg); }
+}
+
+.lesson-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* ── Placeholder (Phase 04) ────────────────────────────────── */
+.lesson-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: var(--color-card);
+  border-radius: 16px;
+  border: 2px dashed var(--color-border);
+}
+.lesson-placeholder__icon { font-size: 3rem; }
+.lesson-placeholder h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+.lesson-placeholder p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── CompletionScreen ──────────────────────────────────────── */
+.lesson-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.lesson-complete__stars { font-size: 2.5rem; letter-spacing: 4px; }
+.lesson-complete__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0;
+}
+.lesson-complete__score {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0;
+}
+.lesson-complete__msg {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.lesson-complete__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 280px;
+  margin-top: 0.5rem;
+}
+
+/* =========================================================
+   LearnSection styles
+   ========================================================= */
+
+.learn-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+}
+
+/* Dot indicators */
+.learn-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.learn-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.15s;
+}
+.learn-dot:hover { transform: scale(1.3); background: var(--color-primary-light); }
+.learn-dot--active {
+  background: var(--color-primary);
+  transform: scale(1.25);
+}
+.learn-dot--seen { background: var(--color-success-light); }
+
+/* Counter */
+.learn-counter {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.learn-counter__current { font-weight: 700; color: var(--color-primary); }
+.learn-counter__sep     { margin: 0 3px; }
+
+/* WordCard ── 3D flip
+   MOBILE FIX: dùng min-height thay vì position:absolute để nội dung
+   không bị cắt khi back-side có nhiều text (câu ví dụ dài)
+*/
+.learn-card {
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+  perspective: 1200px;
+  border-radius: 20px;
+}
+
+/*
+  FIX: Dùng CSS Grid thay vì position:absolute cho back-face.
+  Grid tự giãn chiều cao theo content dài nhất (front hoặc back).
+  Cả 2 mặt đều chiếm cùng grid-area, visibility toggle bằng rotateY.
+*/
+.learn-card__inner {
+  display: grid;
+  grid-template-areas: "card";
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+  border-radius: 20px;
+}
+.learn-card--flipped .learn-card__inner { transform: rotateY(180deg); }
+
+.learn-card__front,
+.learn-card__back {
+  grid-area: card;            /* Chồng lên nhau trong cùng 1 cell */
+  border-radius: 20px;
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1.25rem 1.75rem;
+  gap: 0.75rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Đảm bảo không thấy mặt sau khi chưa flip */
+  min-height: 0;
+}
+/* Front: bình thường */
+.learn-card__front {
+  width: 100%;
+}
+/* Back: quay ngược, màu gradient */
+.learn-card__back {
+  transform: rotateY(180deg);
+  background: var(--gradient-primary);
+  border-color: transparent;
+}
+
+/* Card Content */
+.learn-card__media {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  background: var(--color-bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.learn-card__emoji {
+  font-size: 4rem;
+  line-height: 1;
+}
+.learn-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.learn-card__word-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+.learn-card__word {
+  font-size: 2.4rem;      /* ↑ Desktop: to hơn cho trẻ em */
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.2;
+}
+.learn-card__back .learn-card__word {
+  color: #fff;
+  font-size: 1.8rem;      /* ↑ Desktop back side */
+}
+.learn-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.learn-card__ipa {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono, monospace);
+}
+
+.learn-card__hint {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin: 0;
+  margin-top: auto;
+}
+
+/* Back side */
+.learn-card__translation {
+  font-size: 1.8rem;      /* ↑ to hơn cho trẻ em */
+  font-weight: 700;
+  color: rgba(255,255,255,.95);
+  margin: 0;
+  text-align: center;
+}
+.learn-card__type {
+  font-size: 0.78rem;
+  background: rgba(255,255,255,.2);
+  color: rgba(255,255,255,.9);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-style: italic;
+}
+.learn-card__example {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.2);
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+  width: 100%;
+}
+.learn-card__example-en {
+  font-size: 0.92rem;     /* ↑ dễ đọc hơn */
+  color: rgba(255,255,255,.95);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.5;
+}
+.learn-card__example-vi {
+  font-size: 0.85rem;     /* ↑ dễ đọc hơn */
+  color: rgba(255,255,255,.82);
+  margin: 0.3rem 0 0;
+  line-height: 1.4;
+}
+
+/* Controls */
+.learn-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.learn-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+}
+.learn-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.learn-btn:hover:not(:disabled) {
+  background: var(--color-border);
+}
+
+.learn-btn--nav {
+  min-width: 90px;
+}
+.learn-btn--next {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  min-width: 100px;
+}
+.learn-btn--next:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: #fff;
+}
+/* FIX: Button "Bắt đầu luyện tập" — màu tối rõ ràng, dễ nhìn */
+.learn-btn--primary {
+  background: #16a34a;     /* solid dark green — đủ contrast */
+  color: #fff;
+  padding: 0.8rem 1.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(22,163,74,.4);
+  border: 2px solid #15803d; /* viền tối hơn để nổi bật */
+}
+.learn-btn--primary:hover:not(:disabled) {
+  background: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(22,163,74,.5);
+}
+.learn-btn--audio {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.learn-btn--audio:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: #fff;
+}
+.learn-btn--speaking {
+  animation: pulse-audio 0.6s ease infinite alternate;
+}
+@keyframes pulse-audio {
+  from { box-shadow: 0 0 0 0 rgba(99,102,241,.4); }
+  to   { box-shadow: 0 0 0 10px rgba(99,102,241,0); }
+}
+
+.learn-btn--pulse {
+  animation: pulse-cta 1.2s ease infinite;
+}
+@keyframes pulse-cta {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); box-shadow: 0 8px 24px rgba(99,102,241,.5); }
+}
+
+.learn-seen-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.75rem;
+  animation: fade-in 0.4s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+/* Mobile nhỏ (≤400px) */
+@media (max-width: 400px) {
+  .learn-card__word        { font-size: 1.75rem; }
+  .learn-card__translation { font-size: 1.35rem; }
+  .learn-card__back .learn-card__word { font-size: 1.35rem; }
+  .learn-card__emoji       { font-size: 3rem; }
+  .learn-card__media       { width: 100px; height: 100px; }
+  .learn-btn--primary      { padding: 0.7rem 1.25rem; font-size: 0.95rem; }
+}
+
+/* Tablet nhỏ (401px–600px) */
+@media (min-width: 401px) and (max-width: 600px) {
+  .learn-card__word        { font-size: 2rem; }
+  .learn-card__translation { font-size: 1.5rem; }
+  .learn-card__back .learn-card__word { font-size: 1.5rem; }
+  .learn-card__example-en  { font-size: 0.85rem; }
+  .learn-card__example-vi  { font-size: 0.78rem; }
+}
+
+/* Desktop / Tablet lớn (≥601px): to hơn cho trẻ em đọc */
+@media (min-width: 601px) {
+  .vocabulary-lesson       { max-width: 760px; }
+  .lesson-body             { padding: 1.5rem 2rem; }
+
+  /* Header to hơn */
+  .lesson-header           { padding: 1.1rem 2rem 0.9rem; }
+  .lesson-header__title    { font-size: 1.6rem; }
+  .lesson-header__back     { font-size: 1rem; padding: 0.4rem 0.75rem; }
+
+  /* StepNav to hơn */
+  .step-nav                { padding: 1rem 2rem; }
+  .step-nav__icon          { font-size: 1.6rem; }
+  .step-nav__label         { font-size: 0.85rem; }
+
+  /* Card to hơn */
+  .learn-card              { max-width: 560px; }
+  .learn-card__media       { width: 160px; height: 160px; }
+  .learn-card__emoji       { font-size: 6rem; }
+
+  /* Word: rất to để trẻ em đọc dễ */
+  .learn-card__word        { font-size: 3.2rem; }
+  .learn-card__back .learn-card__word { font-size: 2.4rem; }
+  .learn-card__ipa         { font-size: 1rem; }
+  .learn-card__hint        { font-size: 0.9rem; }
+
+  /* Mặt sau — translation + example to hơn */
+  .learn-card__translation { font-size: 2.2rem; }
+  .learn-card__example-en  { font-size: 1.05rem; }
+  .learn-card__example-vi  { font-size: 0.95rem; }
+
+  /* Counter to hơn */
+  .learn-counter           { font-size: 1.1rem; }
+
+  /* Dot indicators to hơn */
+  .learn-dot               { width: 13px; height: 13px; }
+
+  /* Nút bấm to hơn */
+  .learn-btn               { font-size: 1.1rem; padding: 0.8rem 1.6rem; border-radius: 14px; }
+  .learn-btn--audio        { width: 52px; height: 52px; font-size: 1.5rem; }
+  .learn-btn--primary      { font-size: 1.2rem; padding: 1rem 2.25rem; }
+}

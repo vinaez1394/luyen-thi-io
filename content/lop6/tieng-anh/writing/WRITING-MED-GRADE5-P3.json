@@ -1,0 +1,392 @@
+{
+  "id": "WRITING-MED-GRADE5-P3",
+  "title": "Writing — Trung bình — Lớp 5-6 — Bài 3",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the words to make correct sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các từ/cụm từ bị xáo trộn để tạo thành câu hoàn chỉnh và có nghĩa.",
+      "example": {
+        "display_cues": "my uncle / a small village / lives / in / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "what / you / when / read / happens / the story /?//",
+          "cues_segments": [
+            {
+              "text": "what / you / when / read / happens / the story /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}?",
+          "word_bank": [
+            "what",
+            "happens",
+            "when",
+            "you",
+            "read",
+            "the story"
+          ],
+          "correct": [
+            "what",
+            "happens",
+            "when",
+            "you",
+            "read",
+            "the story"
+          ],
+          "explanation": {
+            "correct_sentence": "What happens when you read the story?",
+            "structure_vi": "What + happens + when + S + V?",
+            "grammar_notes": [
+              "✅ 'What' là chủ ngữ của từ 'happens' nên động từ thêm 's'.",
+              "✅ 'when' nối hai mệnh đề."
+            ],
+            "vocab_notes": [
+              {
+                "word": "happens",
+                "vi": "xảy ra",
+                "ipa": "ˈhæpənz"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What do happen' → 'What' đóng vai trò chủ ngữ nên không mượn trợ động từ do/does."
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "more / life / in the city / is / in the country / than / exciting /.//",
+          "cues_segments": [
+            {
+              "text": "more / life / in the city / is / in the country / than / "
+            },
+            {
+              "text": "exciting",
+              "tooltip": {
+                "vi": "thú vị",
+                "ipa": "ɪkˈsaɪtɪŋ"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5} {6}.",
+          "word_bank": [
+            "life",
+            "in the city",
+            "is",
+            "more",
+            "exciting",
+            "than",
+            "in the country"
+          ],
+          "correct": [
+            "life",
+            "in the city",
+            "is",
+            "more",
+            "exciting",
+            "than",
+            "in the country"
+          ],
+          "explanation": {
+            "correct_sentence": "Life in the city is more exciting than in the country.",
+            "structure_vi": "N1 + is + more + adj + than + N2",
+            "grammar_notes": [
+              "✅ So sánh hơn của tính từ dài 'exciting' dùng 'more + adj + than'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "exciting",
+                "vi": "thú vị, náo nhiệt",
+                "ipa": "ɪkˈsaɪtɪŋ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Life in the city is exciting more' → 'more' đứng trước tính từ."
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "take / you / a boat trip / will / around the islands /?//",
+          "cues_segments": [
+            {
+              "text": "take / you / a boat trip / will / around the "
+            },
+            {
+              "text": "islands",
+              "tooltip": {
+                "vi": "những hòn đảo",
+                "ipa": "ˈaɪləndz"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "will",
+            "you",
+            "take",
+            "a boat trip",
+            "around the islands"
+          ],
+          "correct": [
+            "will",
+            "you",
+            "take",
+            "a boat trip",
+            "around the islands"
+          ],
+          "explanation": {
+            "correct_sentence": "Will you take a boat trip around the islands?",
+            "structure_vi": "Will + S + V + O?",
+            "grammar_notes": [
+              "✅ Câu hỏi Yes/No ở tương lai, đảo 'will' lên trước chủ ngữ.",
+              "✅ 'take a boat trip': đi dạo bằng thuyền."
+            ],
+            "vocab_notes": [
+              {
+                "word": "islands",
+                "vi": "những hòn đảo",
+                "ipa": "ˈaɪləndz"
+              },
+              {
+                "word": "boat trip",
+                "vi": "chuyến đi thuyền",
+                "ipa": "bəʊt trɪp"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'You will take' → đây là câu hỏi, phải đảo will lên."
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "practise / listening / by / I / watching / English cartoons /.//",
+          "cues_segments": [
+            {
+              "text": "practise / listening / by / I / watching / English "
+            },
+            {
+              "text": "cartoons",
+              "tooltip": {
+                "vi": "phim hoạt hình",
+                "ipa": "kɑːˈtuːnz"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "I",
+            "practise",
+            "listening",
+            "by",
+            "watching",
+            "English cartoons"
+          ],
+          "correct": [
+            "I",
+            "practise",
+            "listening",
+            "by",
+            "watching",
+            "English cartoons"
+          ],
+          "explanation": {
+            "correct_sentence": "I practise listening by watching English cartoons.",
+            "structure_vi": "S + practise(s) + V-ing + by + V-ing",
+            "grammar_notes": [
+              "✅ Sau 'practise' (luyện tập) là V-ing ('listening').",
+              "✅ Giới từ 'by' (bằng cách) cũng cộng với V-ing ('watching')."
+            ],
+            "vocab_notes": [
+              {
+                "word": "practise",
+                "vi": "luyện tập",
+                "ipa": "ˈpræktɪs"
+              },
+              {
+                "word": "cartoons",
+                "vi": "phim hoạt hình",
+                "ipa": "kɑːˈtuːnz"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'practise to listen' → sau practise phải là V-ing."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "we / build / sandcastles / the beach / next week /.//",
+          "cues_segments": [
+            {
+              "text": "we / build / "
+            },
+            {
+              "text": "sandcastles",
+              "tooltip": {
+                "vi": "lâu đài cát",
+                "ipa": "ˈsændˌkɑːslz"
+              }
+            },
+            {
+              "text": " / the beach / next week /.//"
+            }
+          ],
+          "correct_sentence": "We will build sandcastles on the beach next week.",
+          "accepted_answers": [
+            "We will build sandcastles on the beach next week.",
+            "We are going to build sandcastles on the beach next week."
+          ],
+          "explanation": {
+            "correct_sentence": "We will build sandcastles on the beach next week.",
+            "structure_vi": "S + will/be going to + V + on the beach + thời gian tương lai",
+            "grammar_notes": [
+              "✅ Dấu hiệu tương lai 'next week' → dùng 'will' hoặc 'be going to'.",
+              "✅ Trên bãi biển: giới từ 'on' (on the beach)."
+            ],
+            "vocab_notes": [
+              {
+                "word": "sandcastle",
+                "vi": "lâu đài cát",
+                "ipa": "ˈsændˌkɑːsl"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'We build' → thiếu từ chỉ tương lai.",
+              "❌ Sai: 'in the beach' → dùng 'on' mới đúng."
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "what / you / usually / do / spring /?//",
+          "cues_segments": [
+            {
+              "text": "what / you / usually / do / "
+            },
+            {
+              "text": "spring",
+              "tooltip": {
+                "vi": "mùa xuân",
+                "ipa": "sprɪŋ"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "correct_sentence": "What do you usually do in spring?",
+          "accepted_answers": [
+            "What do you usually do in spring?",
+            "What do you usually do in the spring?"
+          ],
+          "explanation": {
+            "correct_sentence": "What do you usually do in spring?",
+            "structure_vi": "What + do/does + S + usually + do + in + mùa?",
+            "grammar_notes": [
+              "✅ Câu hỏi về thói quen: mượn trợ động từ 'do'.",
+              "✅ Các mùa trong năm đi với giới từ 'in' (in spring)."
+            ],
+            "vocab_notes": [
+              {
+                "word": "spring",
+                "vi": "mùa xuân",
+                "ipa": "sprɪŋ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What you usually do' → thiếu trợ động từ 'do'."
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "he / be / short / and / fat /.//",
+          "cues_segments": [
+            {
+              "text": "he / be / short / and / "
+            },
+            {
+              "text": "fat",
+              "tooltip": {
+                "vi": "béo",
+                "ipa": "fæt"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "correct_sentence": "He is short and fat.",
+          "accepted_answers": [
+            "He is short and fat."
+          ],
+          "explanation": {
+            "correct_sentence": "He is short and fat.",
+            "structure_vi": "S + is/am/are + adj + and + adj",
+            "grammar_notes": [
+              "✅ Tả ngoại hình dùng động từ to be.",
+              "✅ 'He' đi với 'is'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "short",
+                "vi": "thấp, lùn",
+                "ipa": "ʃɔːt"
+              },
+              {
+                "word": "fat",
+                "vi": "béo",
+                "ipa": "fæt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'He be short' → phải chia động từ 'be' thành 'is'."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

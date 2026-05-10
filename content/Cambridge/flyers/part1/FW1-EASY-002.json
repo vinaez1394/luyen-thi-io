@@ -1,0 +1,110 @@
+{
+  "id": "FW1-EASY-002",
+  "title": "Flyers Reading & Writing — Part 1 — Set 2 (Easy)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "pasta",
+    "lemonade",
+    "grapes",
+    "a sandwich",
+    "vegetables",
+    "cheese",
+    "a biscuit",
+    "chocolate",
+    "soup",
+    "salt",
+    "sugar",
+    "butter",
+    "strawberries",
+    "tea",
+    "ice cream"
+  ],
+
+  "example": {
+    "prompt": "This is a white liquid that comes from cows. You can drink it or have it with cereal.",
+    "answer": "milk"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "These are long, thin pieces of food that you cook in hot water. They are usually white or yellow.",
+      "correct": "pasta",
+      "explanation_vi": "Pasta = mì/mỳ ống, những sợi thức ăn dài mỏng được nấu trong nước nóng, thường có màu trắng hoặc vàng."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "You make this by putting meat or cheese between two pieces of bread.",
+      "correct": "a sandwich",
+      "explanation_vi": "Sandwich = bánh mì kẹp, được làm bằng cách kẹp thịt hoặc phô mai giữa hai lát bánh mì."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is a yellow or white food made from milk. Many people like putting it on pizza.",
+      "correct": "cheese",
+      "explanation_vi": "Cheese = phô mai, món ăn màu vàng hoặc trắng làm từ sữa, thường được cho lên bánh pizza."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This is a sweet, cold drink that tastes like lemons. It is great on a hot day.",
+      "correct": "lemonade",
+      "explanation_vi": "Lemonade = nước chanh, đồ uống ngọt lạnh có vị chanh, rất tuyệt cho ngày nóng."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "These are small, round fruits that can be green, red, or purple.",
+      "correct": "grapes",
+      "explanation_vi": "Grapes = nho, loại quả nhỏ tròn có thể có màu xanh, đỏ hoặc tím."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "Carrots, beans, and peas are examples of this kind of healthy food.",
+      "correct": "vegetables",
+      "explanation_vi": "Vegetables = rau củ, những thực phẩm tốt cho sức khỏe như cà rốt, đậu tương."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This is a sweet, brown food that many children love to eat, but it's not good for your teeth!",
+      "correct": "chocolate",
+      "explanation_vi": "Chocolate = sô cô la, món ngọt màu nâu mà nhiều trẻ em thích, nhưng không tốt cho răng."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "You eat this hot liquid from a bowl, often using a spoon.",
+      "correct": "soup",
+      "explanation_vi": "Soup = súp/canh, món dạng lỏng và nóng được ăn trong bát bằng thìa."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "This is a small, hard, and sweet thing that you might eat with a cup of tea.",
+      "correct": "a biscuit",
+      "explanation_vi": "Biscuit = bánh quy, món bánh nhỏ, cứng và ngọt thường ăn kèm khi uống trà."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a cold and sweet food. You can have it in a bowl or on a cone.",
+      "correct": "ice cream",
+      "explanation_vi": "Ice cream = kem, món ăn lạnh và ngọt có thể đựng trong cốc hoặc ốc quế."
+    }
+  ]
+}

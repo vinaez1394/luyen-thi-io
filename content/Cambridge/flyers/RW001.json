@@ -1,0 +1,213 @@
+{
+  "id": "RW001",
+  "title": "Reading Part 4 — Matching",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 4,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc các câu hỏi và chọn đáp án đúng nhất. Các từ gạch chân có thể click để xem nghĩa tiếng Việt.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": [
+        {
+          "text": "Tom goes to the "
+        },
+        {
+          "text": "library",
+          "tooltip": {
+            "vi": "thư viện",
+            "ipa": "ˈlaɪbrəri"
+          }
+        },
+        {
+          "text": " every "
+        },
+        {
+          "text": "Saturday",
+          "tooltip": {
+            "vi": "thứ Bảy",
+            "ipa": "ˈsætərdeɪ"
+          }
+        },
+        {
+          "text": " to borrow books. What does Tom like to do?"
+        }
+      ],
+      "options": [
+        "Play football",
+        "Read books",
+        "Cook dinner",
+        "Watch TV"
+      ],
+      "correct": "Read books",
+      "explanation_vi": "Tom đến thư viện mỗi thứ Bảy để mượn sách → Tom thích đọc sách."
+    },
+    {
+      "id": "q2",
+      "prompt": [
+        {
+          "text": "Mary's "
+        },
+        {
+          "text": "favourite",
+          "tooltip": {
+            "vi": "yêu thích nhất",
+            "ipa": "ˈfeɪvərɪt"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "subject",
+          "tooltip": {
+            "vi": "môn học",
+            "ipa": "ˈsʌbdʒɪkt"
+          }
+        },
+        {
+          "text": " at school is "
+        },
+        {
+          "text": "science",
+          "tooltip": {
+            "vi": "khoa học",
+            "ipa": "ˈsaɪəns"
+          }
+        },
+        {
+          "text": ". She wants to be a doctor. What does Mary like?"
+        }
+      ],
+      "options": [
+        "Cooking",
+        "Science",
+        "Sports",
+        "Drawing"
+      ],
+      "correct": "Science",
+      "explanation_vi": "Mary yêu thích môn khoa học và muốn trở thành bác sĩ."
+    },
+    {
+      "id": "q3",
+      "prompt": [
+        {
+          "text": "The "
+        },
+        {
+          "text": "weather",
+          "tooltip": {
+            "vi": "thời tiết",
+            "ipa": "ˈweðər"
+          }
+        },
+        {
+          "text": " is "
+        },
+        {
+          "text": "cloudy",
+          "tooltip": {
+            "vi": "nhiều mây, u ám",
+            "ipa": "ˈklaʊdi"
+          }
+        },
+        {
+          "text": " today. Ben and his friends cannot go to the park. Where do they stay?"
+        }
+      ],
+      "options": [
+        "At the park",
+        "At the beach",
+        "At home",
+        "At school"
+      ],
+      "correct": "At home",
+      "explanation_vi": "Thời tiết nhiều mây, các bạn không thể ra công viên → ở nhà."
+    },
+    {
+      "id": "q4",
+      "prompt": "Anna has a big family. She has two brothers and three sisters. Her mother makes a birthday cake for everyone. How many children are in Anna's family?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": "6",
+      "explanation_vi": "Anna + 2 anh/em trai + 3 chị/em gái = 1 + 2 + 3 = 6 trẻ em."
+    },
+    {
+      "id": "q5",
+      "prompt": [
+        {
+          "text": "Peter is very "
+        },
+        {
+          "text": "hungry",
+          "tooltip": {
+            "vi": "đói bụng",
+            "ipa": "ˈhʌŋɡri"
+          }
+        },
+        {
+          "text": " after football "
+        },
+        {
+          "text": "practice",
+          "tooltip": {
+            "vi": "buổi luyện tập",
+            "ipa": "ˈpræktɪs"
+          }
+        },
+        {
+          "text": ". He eats a big plate of noodles. What did Peter just do?"
+        }
+      ],
+      "options": [
+        "Sleep",
+        "Study",
+        "Play football",
+        "Cook"
+      ],
+      "correct": "Play football",
+      "explanation_vi": "Peter đói sau buổi luyện tập bóng đá → anh vừa chơi bóng đá."
+    },
+    {
+      "id": "q6",
+      "prompt": [
+        {
+          "text": "Dolphins",
+          "tooltip": {
+            "vi": "cá heo",
+            "ipa": "ˈdɒlfɪnz"
+          }
+        },
+        {
+          "text": " are very "
+        },
+        {
+          "text": "intelligent",
+          "tooltip": {
+            "vi": "thông minh",
+            "ipa": "ɪnˈtelɪdʒənt"
+          }
+        },
+        {
+          "text": " animals. They can learn tricks and communicate with sounds. What is special about dolphins?"
+        }
+      ],
+      "options": [
+        "They can fly",
+        "They are very big",
+        "They are intelligent",
+        "They live on land"
+      ],
+      "correct": "They are intelligent",
+      "explanation_vi": "Cá heo rất thông minh, có thể học các trò và giao tiếp bằng âm thanh."
+    }
+  ],
+  "pathway": "cambridge",
+  "group": "flyers"
+}

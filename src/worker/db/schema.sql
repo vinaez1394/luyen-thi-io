@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS student_stats (
   longest_streak    INTEGER DEFAULT 0,
   total_sessions    INTEGER DEFAULT 0,
   last_active       INTEGER,
+  last_quiz_id      TEXT,
   -- Skill levels per part (0–5 scale)
   lvl_listening_p1  INTEGER DEFAULT 0,
   lvl_listening_p2  INTEGER DEFAULT 0,

@@ -1,0 +1,110 @@
+{
+  "id": "FW1-EASY-004",
+  "title": "Flyers Reading & Writing — Part 1 — Set 4 (Easy)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a guitar",
+    "chess",
+    "swimming",
+    "painting",
+    "a bike",
+    "a computer game",
+    "dancing",
+    "reading",
+    "a camera",
+    "football",
+    "a piano",
+    "a puzzle",
+    "a drum",
+    "singing",
+    "fishing"
+  ],
+
+  "example": {
+    "prompt": "You use these to draw pictures on paper or in a book.",
+    "answer": "pencils"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "You use this to take photos of your friends, your family, or beautiful places.",
+      "correct": "a camera",
+      "explanation_vi": "Camera = máy ảnh, thứ bạn dùng để chụp ảnh bạn bè, gia đình hoặc những nơi đẹp đẽ."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "In this game, two people move black and white pieces on a board.",
+      "correct": "chess",
+      "explanation_vi": "Chess = cờ vua, trò chơi hai người di chuyển các quân cờ đen trắng trên bàn cờ."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is a sport where you move through water in a pool or in the sea.",
+      "correct": "swimming",
+      "explanation_vi": "Swimming = bơi lội, môn thể thao bạn di chuyển trong nước ở hồ bơi hoặc trên biển."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "You use your mouth to make music with your voice when you do this.",
+      "correct": "singing",
+      "explanation_vi": "Singing = ca hát, dùng miệng để tạo ra âm nhạc bằng giọng nói của bạn."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is a musical instrument with strings that you can hold and play with your fingers.",
+      "correct": "a guitar",
+      "explanation_vi": "Guitar = đàn ghi-ta, nhạc cụ có dây mà bạn có thể ôm và gảy bằng ngón tay."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "You do this when you look at the words in a book, a comic, or a newspaper.",
+      "correct": "reading",
+      "explanation_vi": "Reading = đọc sách, bạn làm việc này khi nhìn vào các chữ trong sách, truyện tranh hoặc báo."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This is something you play on a screen, like a phone or a laptop, for fun.",
+      "correct": "a computer game",
+      "explanation_vi": "Computer game = trò chơi máy tính/điện tử, thứ bạn chơi trên màn hình điện thoại hoặc laptop để giải trí."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "You move your body to the sound of music when you do this hobby.",
+      "correct": "dancing",
+      "explanation_vi": "Dancing = khiêu vũ/nhảy múa, cử động cơ thể theo âm thanh của âm nhạc."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You use brushes and colors to make a beautiful picture on paper.",
+      "correct": "painting",
+      "explanation_vi": "Painting = vẽ tranh/tô màu, dùng cọ và màu để tạo ra một bức tranh đẹp trên giấy."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a popular sport where two teams kick a ball and try to score a goal.",
+      "correct": "football",
+      "explanation_vi": "Football = bóng đá, môn thể thao phổ biến mà hai đội đá bóng và cố gắng ghi bàn."
+    }
+  ]
+}

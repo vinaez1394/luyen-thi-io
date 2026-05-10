@@ -81,9 +81,8 @@ export function buildSetCookieHeader(token: string): string {
     `Max-Age=${SESSION_TTL_SECONDS}`,
     `Path=/`,
     `HttpOnly`,
+    `Secure`,
     `SameSite=Lax`,
-    // Secure chỉ cần khi production (HTTPS)
-    // Cloudflare tự động HTTPS nên an toàn
   ].join("; ");
 }
 
@@ -93,6 +92,7 @@ export function buildClearCookieHeader(): string {
     `Max-Age=0`,
     `Path=/`,
     `HttpOnly`,
+    `Secure`,
     `SameSite=Lax`,
   ].join("; ");
 }

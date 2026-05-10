@@ -1,0 +1,171 @@
+/* SubjectProgressCard.css — Card môn học trong Dashboard tabs */
+
+/* ── Card ── */
+.spc-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.spc-card--clickable {
+  cursor: pointer;
+}
+
+.spc-card--clickable:hover,
+.spc-card--clickable:focus-visible {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.spc-card:not(.spc-card--clickable):hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ── Header ── */
+.spc-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.spc-card__emoji {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.spc-card__meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.spc-card__label {
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spc-card__avg {
+  font-size: var(--font-xl);
+  font-weight: var(--font-black);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Badges ── */
+.spc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.spc-badge--green {
+  background: color-mix(in srgb, #22c55e 15%, transparent);
+  color: #16a34a;
+  border: 1px solid color-mix(in srgb, #22c55e 35%, transparent);
+}
+
+.spc-badge--yellow {
+  background: color-mix(in srgb, #f59e0b 15%, transparent);
+  color: #d97706;
+  border: 1px solid color-mix(in srgb, #f59e0b 35%, transparent);
+}
+
+.spc-badge--red {
+  background: color-mix(in srgb, #ef4444 15%, transparent);
+  color: #dc2626;
+  border: 1px solid color-mix(in srgb, #ef4444 35%, transparent);
+}
+
+.spc-badge--gray {
+  background: color-mix(in srgb, var(--color-text-muted) 12%, transparent);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+/* ── Progress Bar ── */
+.spc-bar__wrap {
+  height: 10px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.spc-bar__fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer on fill */
+.spc-bar__fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  animation: spc-shimmer 2s infinite;
+}
+
+@keyframes spc-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(200%); }
+}
+
+/* Color variants for bar */
+.spc-bar__fill--green  { background: linear-gradient(90deg, #22c55e, #16a34a); }
+.spc-bar__fill--yellow { background: linear-gradient(90deg, #f59e0b, #d97706); }
+.spc-bar__fill--red    { background: linear-gradient(90deg, #f87171, #ef4444); }
+.spc-bar__fill--gray   { background: var(--color-text-muted); }
+
+/* ── Footer ── */
+.spc-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.spc-card__count {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.spc-card__locked {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  background: var(--color-border);
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+}
+
+/* ── Empty state ── */
+.spc-card__empty {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-1) 0;
+}

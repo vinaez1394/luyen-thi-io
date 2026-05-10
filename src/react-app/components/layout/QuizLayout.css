@@ -1,0 +1,227 @@
+/* QuizLayout.css — Quiz-specific shell: sub-header + progress bubbles */
+
+/* ===== QUIZ LAYOUT CONTAINER ===== */
+.quiz-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 64px); /* 64px = GlobalHeader height */
+  background: var(--color-bg);
+}
+
+.quiz-layout__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== QUIZ SUB-HEADER ===== */
+.quiz-sub-header {
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px var(--space-3);
+  position: sticky;       /* Desktop: sticky within scroll flow */
+  top: 64px;              /* Ngay dưới GlobalHeader (64px sticky) */
+  z-index: calc(var(--z-dropdown) - 1);
+  box-shadow: var(--shadow-xs);
+}
+
+.quiz-sub-header__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ── Left: Breadcrumb + Title ── */
+.quiz-sub-header__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.quiz-sub-header__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+
+.quiz-sub-header__breadcrumb-link {
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+  border-radius: 4px;
+  padding: 1px 4px;
+  transition: background var(--transition-fast);
+}
+.quiz-sub-header__breadcrumb-link:hover {
+  background: var(--color-primary-light);
+}
+
+.quiz-sub-header__breadcrumb-sep {
+  color: var(--color-border);
+}
+
+.quiz-sub-header__breadcrumb-current {
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quiz-sub-header__title {
+  font-size: var(--font-sm);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Center: Progress Bubbles ── */
+/* Ẩn khỏi sub-header trên cả desktop lẫn mobile — bubbles được hiện trong footer */
+.quiz-sub-header__progress {
+  display: none;
+}
+
+.quiz-progress-bubbles {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.quiz-progress-bubble {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-bounce),
+    box-shadow var(--transition-fast);
+  flex-shrink: 0;
+  /* Clickable bubbles */
+  cursor: pointer;
+}
+.quiz-progress-bubble:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Đã trả lời → xanh lá */
+.quiz-progress-bubble--answered {
+  background: var(--color-success);
+}
+
+/* Đang làm → màu primary + to hơn */
+.quiz-progress-bubble--active {
+  background: var(--color-primary);
+  transform: scale(1.4);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Đang làm + đã trả lời → vẫn primary (chưa submit = chưa chắc đúng) */
+.quiz-progress-bubble--active.quiz-progress-bubble--answered {
+  background: var(--color-primary);
+}
+
+.quiz-sub-header__count {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ── Right: Exit Button ── */
+.quiz-sub-header__right {
+  flex-shrink: 0;
+}
+
+.quiz-sub-header__exit-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--font-md);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+.quiz-sub-header__exit-btn:hover {
+  border-color: var(--color-danger);
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  /* Mobile: dùng position:fixed để luôn pin cố định dưới GlobalHeader,
+     không phụ thuộc vào scroll context của parent */
+  .quiz-sub-header {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    padding: 8px var(--space-2);
+    z-index: 90; /* Dưới GlobalHeader (z-index 100) nhưng trên content */
+  }
+
+  /* Bù khoảng cách cho nội dung bên dưới không bị che */
+  .quiz-layout__content {
+    padding-top: 72px; /* chiều cao sub-header trên mobile (~58px) + buffer */
+  }
+
+  .quiz-sub-header__inner {
+    gap: var(--space-1);
+  }
+
+  .quiz-sub-header__left {
+    flex: 1;
+    min-width: 0;
+    max-width: none; /* Let it fill available space */
+  }
+
+  /* Ẩn title h2 trên mobile — breadcrumb đã hiện tên bài, tránh lặp 2 lần */
+  .quiz-sub-header__title {
+    display: none;
+  }
+
+  /* Ẩn progress bubbles khỏi sub-header trên mobile — chúng sẽ nằm ở footer */
+  .quiz-sub-header__progress {
+    display: none;
+  }
+
+  /* NOTE: overflow-x hidden chỉ áp cho layout, không ghi đè padding-top ở trên */
+  .quiz-layout {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 380px) {
+  .quiz-sub-header__breadcrumb {
+    display: none;
+  }
+
+  .quiz-progress-bubbles {
+    max-width: 100px;
+  }
+
+  .quiz-sub-header {
+    padding: 6px 8px;
+  }
+}

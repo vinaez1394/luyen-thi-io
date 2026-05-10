@@ -1,0 +1,93 @@
+/* FlashcardLauncher.css — Nút mở game Flashcard */
+
+.fc-launcher-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(57, 73, 171, 0.15), rgba(26, 35, 126, 0.15));
+  border: 1.5px solid rgba(121, 134, 203, 0.3);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  text-align: left;
+  color: var(--color-text, #e8eaf6);
+}
+
+.fc-launcher-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(57, 73, 171, 0.25);
+  border-color: #7986cb;
+}
+
+.fc-launcher-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fc-launcher-btn__icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.fc-launcher-btn__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.fc-launcher-btn__text strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text, #e8eaf6);
+}
+
+.fc-launcher-btn__text span {
+  font-size: 0.78rem;
+  color: var(--color-text-muted, #9fa8da);
+}
+
+.fc-launcher-btn__stars {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffd54f;
+  white-space: nowrap;
+  background: rgba(255, 213, 79, 0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 213, 79, 0.2);
+}
+
+/* Result screen */
+.fc-launcher-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.fc-launcher-result__score { font-size: 2rem; }
+
+.fc-launcher-result__label {
+  font-weight: 600;
+  color: var(--color-text, #e8eaf6);
+  font-size: 0.9rem;
+}
+
+.fc-launcher-result__unknown {
+  font-size: 0.78rem;
+  color: var(--color-text-muted, #9fa8da);
+}
+
+.fc-launcher-result__guest {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #9fa8da);
+  opacity: 0.7;
+}

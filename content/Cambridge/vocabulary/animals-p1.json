@@ -1,0 +1,52 @@
+{
+  "passage_id": "animals-p1",
+  "topic": "animals",
+  "title": "A Day at the Zoo",
+  "level": "flyers",
+  "word_count": 95,
+  "segments": [
+    { "type": "text", "content": "Last Saturday, our class visited the city zoo. First, we saw a big " },
+    {
+      "type": "blank",
+      "word_id": "st-an-011",
+      "options": ["elephant", "butterfly", "fish"],
+      "answer": "elephant",
+      "explanation_vi": "'elephant' = con voi — động vật lớn nhất trên cạn."
+    },
+    { "type": "text", "content": " using its trunk to eat leaves. Next to it, a tall " },
+    {
+      "type": "blank",
+      "word_id": "st-an-014",
+      "options": ["giraffe", "penguin", "rabbit"],
+      "answer": "giraffe",
+      "explanation_vi": "'giraffe' = hươu cao cổ — có cổ rất dài để ăn lá trên cao."
+    },
+    { "type": "text", "content": " was eating leaves from the top of a tree. In the water area, a " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-008",
+      "options": ["dolphin", "gorilla", "wolf"],
+      "answer": "dolphin",
+      "explanation_vi": "'dolphin' = cá heo — động vật biển thông minh, thân thiện với người."
+    },
+    { "type": "text", "content": " jumped and played in the pool. A colourful " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-015",
+      "options": ["parrot", "snail", "camel"],
+      "answer": "parrot",
+      "explanation_vi": "'parrot' = con vẹt — chim có thể bắt chước tiếng người nói."
+    },
+    { "type": "text", "content": " sat on a branch and said 'Hello!' to everyone. My favourite was the " },
+    {
+      "type": "blank",
+      "word_id": "mv-an-005",
+      "options": ["panda", "fly", "kitten"],
+      "answer": "panda",
+      "explanation_vi": "'panda' = gấu trúc — có màu đen trắng đặc trưng, ăn tre."
+    },
+    { "type": "text", "content": " because it was so cute and fluffy. It was a wonderful day!" }
+  ],
+  "explanation_vi": "Đoạn văn kể về chuyến thăm vườn thú. Bạn thấy voi (elephant), hươu cao cổ (giraffe), cá heo (dolphin), vẹt (parrot), và gấu trúc (panda).",
+  "created_at": "2026-05-07"
+}

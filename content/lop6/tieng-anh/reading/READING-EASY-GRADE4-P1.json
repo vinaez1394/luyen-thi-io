@@ -1,0 +1,122 @@
+{
+  "id": "READING-EASY-GRADE4-P1",
+  "title": "Reading Comprehension — Easy — Grade 4-5 — Weather & City Park",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "easy",
+  "grade_min": 4,
+  "grade_max": 5,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Vietnam has four (0) seasons in the North but only two in the South. Summer is the (1) _____ season of the year. During this time, children do not have to go to (2) _____ and can play outside all day. When it rains, the weather becomes (3) _____ and people feel more comfortable. In winter, it can be very (4) _____ in the northern cities like Hanoi and Sapa.",
+        "text_segments": [
+          { "text": "Vietnam has four " },
+          { "text": "(0) seasons", "highlight": true },
+          { "text": " in the North but only two in the South. Summer is the (1) _____ season of the year. During this time, children do not have to go to (2) _____ and can play outside all day. When it rains, the weather becomes (3) _____ and people feel more " },
+          { "text": "comfortable", "tooltip": { "vi": "thoải mái, dễ chịu", "ipa": "ˈkʌmftəbl" } },
+          { "text": ". In winter, it can be very (4) _____ in the northern cities like " },
+          { "text": "Hanoi", "tooltip": { "vi": "Hà Nội — thủ đô của Việt Nam", "ipa": "hæˈnɔɪ" } },
+          { "text": " and Sapa." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Summer is the (1) _____ season of the year.",
+          "options": ["hottest", "coldest", "shortest"],
+          "correct": "hottest",
+          "explanation_vi": "'Hottest' nghĩa là nóng nhất — mùa hè là mùa nóng nhất trong năm."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Children do not have to go to (2) _____ and can play outside all day.",
+          "options": ["school", "market", "hospital"],
+          "correct": "school",
+          "explanation_vi": "'School' nghĩa là trường học — mùa hè học sinh được nghỉ học."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "When it rains, the weather becomes (3) _____ and people feel more comfortable.",
+          "options": ["cooler", "hotter", "wetter"],
+          "correct": "cooler",
+          "explanation_vi": "'Cooler' nghĩa là mát hơn — khi trời mưa, nhiệt độ giảm và mọi người cảm thấy dễ chịu hơn."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "In winter, it can be very (4) _____ in the northern cities.",
+          "options": ["cold", "hot", "windy"],
+          "correct": "cold",
+          "explanation_vi": "'Cold' nghĩa là lạnh — miền Bắc Việt Nam có mùa đông lạnh, đặc biệt ở Hà Nội và Sapa."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "City parks are very important for people who live in busy towns and cities. They give people a place to rest and enjoy nature without leaving the city. Most parks have green grass, tall trees, and beautiful flowers. Some parks also have playgrounds for children and paths for walking or cycling. Parks help to make the air cleaner because trees absorb harmful gases. On weekends, many families come to the park to have picnics, fly kites, or simply relax on the grass. A park is a place where everyone, young and old, can enjoy fresh air and sunshine.",
+        "text_segments": [
+          { "text": "City parks are very " },
+          { "text": "important", "tooltip": { "vi": "quan trọng", "ipa": "ɪmˈpɔːtnt" } },
+          { "text": " for people who live in busy towns and cities. They give people a place to rest and enjoy nature without leaving the city. Most parks have green grass, tall trees, and beautiful flowers. Some parks also have " },
+          { "text": "playgrounds", "tooltip": { "vi": "sân chơi trẻ em", "ipa": "ˈpleɪɡraʊndz" } },
+          { "text": " for children and paths for walking or " },
+          { "text": "cycling", "tooltip": { "vi": "đạp xe", "ipa": "ˈsaɪklɪŋ" } },
+          { "text": ". Parks help to make the air cleaner because trees " },
+          { "text": "absorb", "tooltip": { "vi": "hấp thụ", "ipa": "əbˈzɔːb" } },
+          { "text": " harmful gases. On weekends, many families come to the park to have picnics, fly kites, or simply relax on the grass. A park is a place where everyone, young and old, can enjoy fresh air and sunshine." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Parks are only useful for children, not for adults.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'everyone, young and old' — nghĩa là cả trẻ em lẫn người lớn đều hưởng lợi từ công viên."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Trees in parks help to improve the air quality in cities.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'Parks help to make the air cleaner because trees absorb harmful gases.'"
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "According to the passage, what do many families do in the park on weekends?",
+          "options": ["play sports", "have picnics", "go shopping"],
+          "correct": "have picnics",
+          "explanation_vi": "Bài viết 'many families come to the park to have picnics, fly kites, or simply relax.'"
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'paths or roads designed for riding bicycles'.",
+          "correct": "cycling",
+          "explanation_vi": "'Cycling' (đạp xe) — paths for cycling là những con đường dành cho xe đạp trong công viên."
+        }
+      ]
+    }
+  ]
+}

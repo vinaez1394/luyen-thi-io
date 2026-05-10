@@ -1,0 +1,233 @@
+{
+  "id": "WRITING-EASY-GRADE3-P3",
+  "title": "Writing — Dễ — Lớp 3-4 — Bài 3",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp cụm từ. Phần II: Viết câu hoàn chỉnh.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "to school / together / walked / they / on foot /.//",
+        "answer": "They walked to school together on foot."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "will visit / next month / the zoo / with her classmates / Lan /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["Lan","will visit","the zoo","with her classmates","next month"],
+          "correct": ["Lan","will visit","the zoo","with her classmates","next month"],
+          "explanation": {
+            "correct_sentence": "Lan will visit the zoo with her classmates next month.",
+            "structure_vi": "S + will + V (nguyên mẫu) + O + with + người đi cùng + thời gian",
+            "grammar_notes": [
+              "✅ 'will + V nguyên mẫu' = tương lai đơn — không thêm -s/-es sau 'will'",
+              "✅ 'the zoo' = sở thú — dùng 'the' vì đây là địa điểm xác định",
+              "✅ Thứ tự: O (the zoo) → người đi cùng (with...) → thời gian (next month)"
+            ],
+            "vocab_notes": [
+              {"word": "will + V","vi": "sẽ làm gì (tương lai)","ipa": "wɪl"},
+              {"word": "zoo","vi": "sở thú, vườn thú","ipa": "zuː"},
+              {"word": "classmate","vi": "bạn cùng lớp","ipa": "ˈklɑːsmeɪt"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Lan will visits the zoo' → sau 'will' dùng V nguyên mẫu: 'visit'",
+              "❌ Sai: 'Lan wills visit the zoo' → 'will' không chia theo chủ ngữ"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "is / the weather / today / hot and sunny / very /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["the weather","today","is","very","hot and sunny"],
+          "correct": ["the weather","today","is","very","hot and sunny"],
+          "explanation": {
+            "correct_sentence": "The weather today is very hot and sunny.",
+            "structure_vi": "S (+ trạng ngữ thời gian) + is + very + adj₁ + and + adj₂",
+            "grammar_notes": [
+              "✅ 'the weather today' — 'today' bổ nghĩa cho 'weather', đứng ngay sau danh từ",
+              "✅ 'is' = tobe số ít hiện tại (the weather = số ít)",
+              "✅ 'very hot and sunny' — 'very' bổ nghĩa cho cả hai tính từ"
+            ],
+            "vocab_notes": [
+              {"word": "weather","vi": "thời tiết","ipa": "ˈweðər"},
+              {"word": "hot and sunny","vi": "nóng và có nắng","ipa": "hɒt ænd ˈsʌni"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'The weather today are very hot' → 'weather' là số ít → 'is'",
+              "❌ Sai: 'The weather today is very hotly' → 'hot' là tính từ sau 'is', không thêm -ly"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "eats / Nam / a lot of vegetables / and fruit / every day /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["Nam","eats","a lot of vegetables","and fruit","every day"],
+          "correct": ["Nam","eats","a lot of vegetables","and fruit","every day"],
+          "explanation": {
+            "correct_sentence": "Nam eats a lot of vegetables and fruit every day.",
+            "structure_vi": "S + V (hiện tại đơn, +s/-es) + O + thời gian",
+            "grammar_notes": [
+              "✅ 'Nam' là ngôi thứ ba số ít → động từ 'eat' phải thêm '-s': 'eats'",
+              "✅ 'a lot of' đi được với cả danh từ đếm được (vegetables) và không đếm được",
+              "✅ 'every day' = mỗi ngày — đứng cuối câu như trạng ngữ thời gian"
+            ],
+            "vocab_notes": [
+              {"word": "vegetables","vi": "rau củ","ipa": "ˈvedʒtəblz"},
+              {"word": "a lot of","vi": "nhiều, rất nhiều","ipa": "ə lɒt əv"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Nam eat' → ngôi thứ ba số ít phải thêm 's': 'eats'",
+              "❌ Sai: 'a lot of the vegetables' → danh từ chung không cần 'the'"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "helped / her / clean the house / Mai / and / cooked lunch /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["Mai","helped","her mother","clean the house","and","cooked lunch"],
+          "correct": ["Mai","helped","her mother","clean the house","and","cooked lunch"],
+          "explanation": {
+            "correct_sentence": "Mai helped her mother clean the house and cooked lunch.",
+            "structure_vi": "S + helped + O + V (nguyên mẫu) + and + V (quá khứ)",
+            "grammar_notes": [
+              "✅ 'help + O + V nguyên mẫu' (không dùng to-V) — 'helped her mother clean'",
+              "✅ Hai động từ song song: 'helped... and cooked' — cùng quá khứ đơn",
+              "⚠️ 'help + O + V' hoặc 'help + O + to-V' đều chấp nhận được"
+            ],
+            "vocab_notes": [
+              {"word": "help + O + V","vi": "giúp ai làm gì","ipa": "help"},
+              {"word": "clean the house","vi": "dọn dẹp nhà cửa","ipa": "kliːn ðə haʊs"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Mai helped her mother to cleaning the house' → sau 'help + O' dùng V nguyên mẫu hoặc to-V, không dùng V-ing",
+              "❌ Sai: 'Mai help her mother clean the house' → quá khứ đơn: 'helped'"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "next summer / we / will / go / to the beach / and / swim / in the sea /.//",
+          "accepted_answers": [
+            "Next summer, we will go to the beach and swim in the sea.",
+            "next summer, we will go to the beach and swim in the sea",
+            "We will go to the beach and swim in the sea next summer.",
+            "Next summer we will go to the beach and swim in the sea."
+          ],
+          "explanation": {
+            "correct_sentence": "Next summer, we will go to the beach and swim in the sea.",
+            "structure_vi": "Thời gian tương lai + S + will + V₁ + and + V₂",
+            "grammar_notes": [
+              "✅ 'next summer' → tương lai đơn: 'will + V nguyên mẫu'",
+              "✅ Hai động từ sau 'will': 'go' và 'swim' — không lặp lại 'will'",
+              "✅ 'to the beach' — dùng 'the' khi nói về bãi biển cụ thể"
+            ],
+            "vocab_notes": [
+              {"word": "next summer","vi": "mùa hè tới","ipa": "nekst ˈsʌmər"},
+              {"word": "swim in the sea","vi": "bơi ở biển","ipa": "swɪm ɪn ðə siː"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'we will go to the beach and will swim' → không lặp lại 'will' khi cùng chủ ngữ",
+              "❌ Sai: 'we will goes to the beach' → sau 'will' dùng V nguyên mẫu: 'go'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "the doctor / tell / Hung / eat / more fruit / drink / more water /.//",
+          "accepted_answers": [
+            "The doctor told Hung to eat more fruit and drink more water.",
+            "the doctor told hung to eat more fruit and drink more water",
+            "The doctor told Hung to eat more fruit and to drink more water.",
+            "The doctor told Hung: eat more fruit and drink more water."
+          ],
+          "explanation": {
+            "correct_sentence": "The doctor told Hung to eat more fruit and drink more water.",
+            "structure_vi": "S + told + O (người) + to-V₁ + O₁ + and + V₂ + O₂",
+            "grammar_notes": [
+              "✅ 'tell + O + to-V' = bảo ai làm gì (câu khẳng định)",
+              "✅ 'told' = quá khứ của 'tell' (bất quy tắc)",
+              "✅ Hai lời khuyên song song: 'to eat... and (to) drink...' — 'to' thứ hai có thể bỏ"
+            ],
+            "vocab_notes": [
+              {"word": "tell (told) + O + to-V","vi": "bảo ai làm gì","ipa": "tel (təʊld)"},
+              {"word": "more fruit","vi": "nhiều hoa quả hơn","ipa": "mɔː fruːt"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'The doctor tell Hung to eat' → quá khứ đơn: 'told'",
+              "❌ Sai: 'told Hung eat more fruit' → sau 'tell + O' phải có 'to': 'to eat'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "the weather / be / very cold / so / children / wear / thick coats /.//",
+          "accepted_answers": [
+            "The weather was very cold, so the children wore thick coats.",
+            "the weather was very cold, so the children wore thick coats",
+            "The weather is very cold, so children wear thick coats.",
+            "The weather was very cold so the children wore thick coats.",
+            "The weather was very cold, so children wore thick coats."
+          ],
+          "explanation": {
+            "correct_sentence": "The weather was very cold, so the children wore thick coats.",
+            "structure_vi": "S + be + very + adj + so + S₂ + V (quá khứ đơn) + O",
+            "grammar_notes": [
+              "✅ 'so' = vì vậy, do đó — nối nguyên nhân và kết quả",
+              "✅ 'wore' = quá khứ của 'wear' (bất quy tắc: wear-wore-worn)",
+              "✅ 'thick coats' = áo khoác dày — không cần mạo từ (nói chung)"
+            ],
+            "vocab_notes": [
+              {"word": "so","vi": "vì vậy, do đó","ipa": "səʊ"},
+              {"word": "wear (wore)","vi": "mặc, đeo (quá khứ: wore)","ipa": "weər (wɔː)"},
+              {"word": "thick coat","vi": "áo khoác dày","ipa": "θɪk kəʊt"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'children weared thick coats' → 'wear' bất quy tắc, quá khứ là 'wore'",
+              "❌ Sai: 'so children wears thick coats' → quá khứ đơn không thêm -s: 'wore'"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

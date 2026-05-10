@@ -1,0 +1,461 @@
+{
+  "id": "WRITING-EASY-GRADE5-P2",
+  "title": "Writing — Dễ — Lớp 5-6 — Bài 2",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "easy",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": true,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý. Click vào các từ gạch chân chấm chấm để xem nghĩa.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp. Chú ý từ viết hoa đứng đầu câu và dấu câu ở cuối.",
+      "example": {
+        "display_cues": "lives / my uncle / in a small village / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "has a headache / my sister / needs to take a rest / and / she /.//",
+          "cues_segments": [
+            {
+              "text": "has a "
+            },
+            {
+              "text": "headache",
+              "tooltip": {
+                "vi": "đau đầu",
+                "ipa": "ˈhedeɪk"
+              }
+            },
+            {
+              "text": " / my sister / needs to take a "
+            },
+            {
+              "text": "rest",
+              "tooltip": {
+                "vi": "nghỉ ngơi",
+                "ipa": "rest"
+              }
+            },
+            {
+              "text": " / and / she /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "my sister",
+            "has a headache",
+            "and",
+            "she",
+            "needs to take a rest"
+          ],
+          "correct": [
+            "my sister",
+            "has a headache",
+            "and",
+            "she",
+            "needs to take a rest"
+          ],
+          "explanation": {
+            "correct_sentence": "My sister has a headache and she needs to take a rest.",
+            "structure_vi": "S + has a bệnh + and + S + needs to + V",
+            "grammar_notes": [
+              "✅ Dùng 'have/has a + tên bệnh' để mô tả triệu chứng bệnh",
+              "✅ 'take a rest' là cụm từ cố định nghĩa là 'nghỉ ngơi'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "headache",
+                "vi": "đau đầu",
+                "ipa": "ˈhedeɪk"
+              },
+              {
+                "word": "take a rest",
+                "vi": "nghỉ ngơi",
+                "ipa": "teɪk ə rest"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'have a headache' → my sister số ít nên dùng 'has'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "with you / what's / Peter / the matter /?//",
+          "cues_segments": [
+            {
+              "text": "with you / what's / Peter / the "
+            },
+            {
+              "text": "matter",
+              "tooltip": {
+                "vi": "vấn đề",
+                "ipa": "ˈmætər"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "template": "{0} {1} {2}, {3}?",
+          "word_bank": [
+            "what's",
+            "the matter",
+            "with you",
+            "Peter"
+          ],
+          "correct": [
+            "what's",
+            "the matter",
+            "with you",
+            "Peter"
+          ],
+          "explanation": {
+            "correct_sentence": "What's the matter with you, Peter?",
+            "structure_vi": "What's the matter + with + người?",
+            "grammar_notes": [
+              "✅ Mẫu câu hỏi thăm sức khỏe phổ biến: 'What's the matter with you?'",
+              "✅ Tên riêng ở cuối câu hô gọi phải được phân tách bằng dấu phẩy"
+            ],
+            "vocab_notes": [
+              {
+                "word": "matter",
+                "vi": "vấn đề, chuyện gì",
+                "ipa": "ˈmætər"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What the matter' → thiếu động từ 's (is)"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "to check his teeth / goes to the dentist / he / twice a year /.//",
+          "cues_segments": [
+            {
+              "text": "to check his teeth / goes to the "
+            },
+            {
+              "text": "dentist",
+              "tooltip": {
+                "vi": "nha sĩ",
+                "ipa": "ˈdentɪst"
+              }
+            },
+            {
+              "text": " / he / "
+            },
+            {
+              "text": "twice",
+              "tooltip": {
+                "vi": "hai lần",
+                "ipa": "twaɪs"
+              }
+            },
+            {
+              "text": " a year /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "he",
+            "goes to the dentist",
+            "twice a year",
+            "to check his teeth"
+          ],
+          "correct": [
+            "he",
+            "goes to the dentist",
+            "twice a year",
+            "to check his teeth"
+          ],
+          "explanation": {
+            "correct_sentence": "He goes to the dentist twice a year to check his teeth.",
+            "structure_vi": "S + goes to + nơi + tần suất + to-V (chỉ mục đích)",
+            "grammar_notes": [
+              "✅ 'twice a year' là cụm từ chỉ tần suất (2 lần một năm)",
+              "✅ Cấu trúc To-V (to check) dùng để chỉ mục đích của hành động đi nha sĩ"
+            ],
+            "vocab_notes": [
+              {
+                "word": "dentist",
+                "vi": "nha sĩ",
+                "ipa": "ˈdentɪst"
+              },
+              {
+                "word": "check",
+                "vi": "kiểm tra",
+                "ipa": "tʃek"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'for check his teeth' → chỉ mục đích phải dùng 'to + V' (to check)"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "didn't / yesterday / they / because they had a fever / go to school /.//",
+          "cues_segments": [
+            {
+              "text": "didn't / yesterday / they / because they had a "
+            },
+            {
+              "text": "fever",
+              "tooltip": {
+                "vi": "cơn sốt",
+                "ipa": "ˈfiːvər"
+              }
+            },
+            {
+              "text": " / go to school /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "they",
+            "didn't",
+            "go to school",
+            "yesterday",
+            "because they had a fever"
+          ],
+          "correct": [
+            "they",
+            "didn't",
+            "go to school",
+            "yesterday",
+            "because they had a fever"
+          ],
+          "explanation": {
+            "correct_sentence": "They didn't go to school yesterday because they had a fever.",
+            "structure_vi": "S + didn't + V + thời gian + because + S + had a bệnh",
+            "grammar_notes": [
+              "✅ 'didn't go' và 'had' đều ở thì quá khứ vì có 'yesterday'",
+              "✅ 'have a fever' (bị sốt) chuyển thành quá khứ là 'had a fever'"
+            ],
+            "vocab_notes": [
+              {
+                "word": "fever",
+                "vi": "sốt",
+                "ipa": "ˈfiːvər"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'didn't went' → sau didn't phải dùng V nguyên thể (go)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "you / should not / eat / too much candy / because / it / bad / your teeth /.//",
+          "cues_segments": [
+            {
+              "text": "you / should not / eat / too much "
+            },
+            {
+              "text": "candy",
+              "tooltip": {
+                "vi": "kẹo",
+                "ipa": "ˈkændi"
+              }
+            },
+            {
+              "text": " / because / it / bad / your "
+            },
+            {
+              "text": "teeth",
+              "tooltip": {
+                "vi": "răng (số nhiều)",
+                "ipa": "tiːθ"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "You should not eat too much candy because it is bad for your teeth.",
+            "You shouldn't eat too much candy because it is bad for your teeth."
+          ],
+          "explanation": {
+            "correct_sentence": "You should not eat too much candy because it is bad for your teeth.",
+            "structure_vi": "S + should not + V + O + because + it is bad for + N",
+            "grammar_notes": [
+              "✅ Lời khuyên KHÔNG NÊN làm gì: should not (shouldn't) + V nguyên mẫu",
+              "✅ 'be bad for' = có hại cho cái gì (ngược với 'be good for')"
+            ],
+            "vocab_notes": [
+              {
+                "word": "too much",
+                "vi": "quá nhiều",
+                "ipa": "tuː mʌtʃ"
+              },
+              {
+                "word": "bad for",
+                "vi": "có hại cho",
+                "ipa": "bæd fɔː"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'bad to your teeth' → cấu trúc đúng là 'bad for'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "you / should / drink / a lot of water / and / eat / fresh fruit /.//",
+          "cues_segments": [
+            {
+              "text": "you / should / drink / a lot of water / and / eat / "
+            },
+            {
+              "text": "fresh",
+              "tooltip": {
+                "vi": "tươi, sạch",
+                "ipa": "freʃ"
+              }
+            },
+            {
+              "text": " "
+            },
+            {
+              "text": "fruit",
+              "tooltip": {
+                "vi": "trái cây",
+                "ipa": "fruːt"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "You should drink a lot of water and eat fresh fruit.",
+            "you should drink a lot of water and eat fresh fruit"
+          ],
+          "explanation": {
+            "correct_sentence": "You should drink a lot of water and eat fresh fruit.",
+            "structure_vi": "S + should + V1 + O1 + and + V2 + O2",
+            "grammar_notes": [
+              "✅ Hai động từ 'drink' và 'eat' cùng chịu sự chi phối của 'should' nên đều giữ nguyên thể",
+              "✅ 'a lot of' dùng được cho cả danh từ đếm được và không đếm được (water)"
+            ],
+            "vocab_notes": [
+              {
+                "word": "fresh fruit",
+                "vi": "trái cây tươi",
+                "ipa": "freʃ fruːt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'drink many water' → water không đếm được, dùng a lot of hoặc much, không dùng many"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "wash / your hands / before meals / be / a good habit /.//",
+          "cues_segments": [
+            {
+              "text": "wash / your hands / "
+            },
+            {
+              "text": "before",
+              "tooltip": {
+                "vi": "trước khi",
+                "ipa": "bɪˈfɔː"
+              }
+            },
+            {
+              "text": " "
+            },
+            {
+              "text": "meals",
+              "tooltip": {
+                "vi": "bữa ăn (số nhiều)",
+                "ipa": "miːlz"
+              }
+            },
+            {
+              "text": " / be / a good "
+            },
+            {
+              "text": "habit",
+              "tooltip": {
+                "vi": "thói quen",
+                "ipa": "ˈhæbɪt"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "Washing your hands before meals is a good habit.",
+            "washing your hands before meals is a good habit",
+            "To wash your hands before meals is a good habit."
+          ],
+          "explanation": {
+            "correct_sentence": "Washing your hands before meals is a good habit.",
+            "structure_vi": "V-ing (làm chủ ngữ) + O + thời gian + is + cụm danh từ",
+            "grammar_notes": [
+              "✅ Khi một hành động đóng vai trò Chủ Ngữ, ta phải dùng V-ing (Washing) hoặc To-V",
+              "✅ V-ing làm chủ ngữ thì động từ to be luôn chia số ít ('is')"
+            ],
+            "vocab_notes": [
+              {
+                "word": "habit",
+                "vi": "thói quen",
+                "ipa": "ˈhæbɪt"
+              },
+              {
+                "word": "meals",
+                "vi": "bữa ăn",
+                "ipa": "miːlz"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Wash your hands is...' → 'Wash' là động từ thường, không thể đứng đầu làm chủ ngữ nếu chưa thêm đuôi -ing"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

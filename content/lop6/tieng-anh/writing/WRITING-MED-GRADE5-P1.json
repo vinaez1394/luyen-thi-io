@@ -1,0 +1,393 @@
+{
+  "id": "WRITING-MED-GRADE5-P1",
+  "title": "Writing — Trung bình — Lớp 5-6 — Bài 1",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 5,
+  "grade_max": 6,
+  "grade_target": "5-6",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the words to make correct sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các từ/cụm từ bị xáo trộn để tạo thành câu hoàn chỉnh và có nghĩa.",
+      "example": {
+        "display_cues": "my uncle / a small village / lives / in / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "going to / write / a letter / to my friend / I am /.//",
+          "cues_segments": [
+            {
+              "text": "going to / write / a letter / to my friend / I am /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "I am",
+            "going to",
+            "write",
+            "a letter",
+            "to",
+            "my friend"
+          ],
+          "correct": [
+            "I am",
+            "going to",
+            "write",
+            "a letter",
+            "to",
+            "my friend"
+          ],
+          "explanation": {
+            "correct_sentence": "I am going to write a letter to my friend.",
+            "structure_vi": "S + be going to + V + a letter to + ai đó",
+            "grammar_notes": [
+              "✅ Dự định tương lai: 'be going to'.",
+              "✅ Cụm từ: 'write a letter to someone' (viết thư cho ai)."
+            ],
+            "vocab_notes": [
+              {
+                "word": "write a letter",
+                "vi": "viết một bức thư",
+                "ipa": "raɪt ə ˈletər"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'write a letter for my friend' → viết cho ai thì dùng giới từ 'to'."
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "the trip / was / more / than / exciting / I thought /.//",
+          "cues_segments": [
+            {
+              "text": "the trip / was / more / than / "
+            },
+            {
+              "text": "exciting",
+              "tooltip": {
+                "vi": "thú vị",
+                "ipa": "ɪkˈsaɪtɪŋ"
+              }
+            },
+            {
+              "text": " / I thought /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5} {6}.",
+          "word_bank": [
+            "the trip",
+            "was",
+            "more",
+            "exciting",
+            "than",
+            "I",
+            "thought"
+          ],
+          "correct": [
+            "the trip",
+            "was",
+            "more",
+            "exciting",
+            "than",
+            "I",
+            "thought"
+          ],
+          "explanation": {
+            "correct_sentence": "The trip was more exciting than I thought.",
+            "structure_vi": "S + be + more + tính từ dài + than + S + thought",
+            "grammar_notes": [
+              "✅ So sánh hơn với tính từ dài 'exciting': dùng 'more exciting than'.",
+              "✅ 'I thought' (tôi đã nghĩ) ở quá khứ tương thích với động từ 'was'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "thought",
+                "vi": "đã nghĩ (quá khứ của think)",
+                "ipa": "θɔːt"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'excitinger' → tính từ dài phải dùng more."
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "you / shouldn't / play / matches / with / because it is dangerous /.//",
+          "cues_segments": [
+            {
+              "text": "you / shouldn't / play / "
+            },
+            {
+              "text": "matches",
+              "tooltip": {
+                "vi": "diêm (số nhiều)",
+                "ipa": "mætʃɪz"
+              }
+            },
+            {
+              "text": " / with / because it is "
+            },
+            {
+              "text": "dangerous",
+              "tooltip": {
+                "vi": "nguy hiểm",
+                "ipa": "ˈdeɪndʒərəs"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "you",
+            "shouldn't",
+            "play with",
+            "matches",
+            "because",
+            "it is dangerous"
+          ],
+          "correct": [
+            "you",
+            "shouldn't",
+            "play with",
+            "matches",
+            "because",
+            "it is dangerous"
+          ],
+          "explanation": {
+            "correct_sentence": "You shouldn't play with matches because it is dangerous.",
+            "structure_vi": "S + shouldn't + V + O + because + S + be + adj",
+            "grammar_notes": [
+              "✅ Đưa ra lời khuyên không nên làm gì: 'shouldn't' + V.",
+              "✅ 'play with matches': chơi với diêm."
+            ],
+            "vocab_notes": [
+              {
+                "word": "matches",
+                "vi": "que diêm",
+                "ipa": "mætʃɪz"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'play matches' → thiếu giới từ 'with'."
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "the characters / the story / in / are / foxes / two /.//",
+          "cues_segments": [
+            {
+              "text": "the "
+            },
+            {
+              "text": "characters",
+              "tooltip": {
+                "vi": "nhân vật",
+                "ipa": "ˈkærəktərz"
+              }
+            },
+            {
+              "text": " / the story / in / are / foxes / two /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "the characters",
+            "in",
+            "the story",
+            "are",
+            "two",
+            "foxes"
+          ],
+          "correct": [
+            "the characters",
+            "in",
+            "the story",
+            "are",
+            "two",
+            "foxes"
+          ],
+          "explanation": {
+            "correct_sentence": "The characters in the story are two foxes.",
+            "structure_vi": "S (the characters in the story) + be + bổ ngữ",
+            "grammar_notes": [
+              "✅ Danh từ số nhiều 'characters' đi với động từ to be 'are'.",
+              "✅ 'two foxes': hai con cáo."
+            ],
+            "vocab_notes": [
+              {
+                "word": "character",
+                "vi": "nhân vật",
+                "ipa": "ˈkærəktər"
+              },
+              {
+                "word": "fox",
+                "vi": "con cáo",
+                "ipa": "fɒks"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'foxs' → đuôi -x thêm số nhiều phải là -es."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "what / you / do / tomorrow / morning /?//",
+          "cues_segments": [
+            {
+              "text": "what / you / do / tomorrow / morning /?//"
+            }
+          ],
+          "correct_sentence": "What will you do tomorrow morning?",
+          "accepted_answers": [
+            "What will you do tomorrow morning?",
+            "What are you going to do tomorrow morning?"
+          ],
+          "explanation": {
+            "correct_sentence": "What will you do tomorrow morning?",
+            "structure_vi": "What + will + S + do + thời gian ở tương lai?",
+            "grammar_notes": [
+              "✅ 'tomorrow morning' (sáng mai) → thì Tương lai đơn (hoặc Tương lai gần).",
+              "✅ Mượn trợ động từ 'will' đảo lên trước chủ ngữ."
+            ],
+            "vocab_notes": [
+              {
+                "word": "tomorrow",
+                "vi": "ngày mai",
+                "ipa": "təˈmɒrəʊ"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What do you do' → thiếu từ chỉ tương lai."
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "I / think / the / older brother / be / greedy /.//",
+          "cues_segments": [
+            {
+              "text": "I / think / the / older brother / be / "
+            },
+            {
+              "text": "greedy",
+              "tooltip": {
+                "vi": "tham lam",
+                "ipa": "ˈɡriːdi"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "correct_sentence": "I think the older brother is greedy.",
+          "accepted_answers": [
+            "I think the older brother is greedy."
+          ],
+          "explanation": {
+            "correct_sentence": "I think the older brother is greedy.",
+            "structure_vi": "I think + S + be + adj",
+            "grammar_notes": [
+              "✅ 'older brother' là ngôi thứ 3 số ít → động từ to be chia là 'is'.",
+              "✅ Cấu trúc nêu cảm nghĩ: 'I think' + một mệnh đề."
+            ],
+            "vocab_notes": [
+              {
+                "word": "greedy",
+                "vi": "tham lam",
+                "ipa": "ˈɡriːdi"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'I think older brother be greedy' → thiếu mạo từ 'the' và không chia 'be'."
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "she / have / a / pain / in / her / stomach /.//",
+          "cues_segments": [
+            {
+              "text": "she / have / a / "
+            },
+            {
+              "text": "pain",
+              "tooltip": {
+                "vi": "cơn đau",
+                "ipa": "peɪn"
+              }
+            },
+            {
+              "text": " / in / her / "
+            },
+            {
+              "text": "stomach",
+              "tooltip": {
+                "vi": "dạ dày",
+                "ipa": "ˈstʌmək"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "correct_sentence": "She has a pain in her stomach.",
+          "accepted_answers": [
+            "She has a pain in her stomach."
+          ],
+          "explanation": {
+            "correct_sentence": "She has a pain in her stomach.",
+            "structure_vi": "S + have/has + a pain + in + bộ phận cơ thể",
+            "grammar_notes": [
+              "✅ 'She' đi với động từ số ít 'has'.",
+              "✅ Mô tả cơn đau ở bộ phận nào đó: a pain IN + bộ phận."
+            ],
+            "vocab_notes": [
+              {
+                "word": "stomach",
+                "vi": "dạ dày, bụng",
+                "ipa": "ˈstʌmək"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'She have a pain' → sai chia động từ."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

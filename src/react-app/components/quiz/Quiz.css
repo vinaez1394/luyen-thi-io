@@ -20,17 +20,34 @@
   position: sticky;
   bottom: 0;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
+  flex-direction: column;      /* Stack: nav row on top, bubbles below */
+  gap: var(--space-1);
   padding: var(--space-2) var(--space-3);
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
   border-top: 1px solid var(--color-border);
 }
 
 [data-theme="night"] .quiz-engine__footer {
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+/* Row 1: Prev / progress count / Next */
+.quiz-engine__footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* Row 2: Progress bubbles — hiện cả desktop lẫn mobile, thay thế x/10 count */
+.quiz-engine__footer-bubbles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 4px 0 2px;
 }
 
 .quiz-engine__progress {
@@ -414,6 +431,25 @@
   color: var(--color-primary);
 }
 
+/* ── Games section (Hangman + Flashcard) ──────────── */
+.quiz-result__games {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.quiz-result__games-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0 0.25rem;
+}
+
 .quiz-result__actions {
   display: flex;
   gap: var(--space-2);
@@ -446,4 +482,413 @@
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* ===== DRAG & DROP — SHARED ===== */
+
+/* Word chip (kéo được) */
+.dnd-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  min-height: 52px;          /* Mobile touch target ≥ 52px */
+  background: var(--color-card);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;        /* Required for dnd-kit touch sensor */
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.dnd-chip:active { cursor: grabbing; }
+
+.dnd-chip--dragging {
+  opacity: 0.6;
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ghost chip overlaid while dragging */
+.dnd-chip--overlay {
+  opacity: 0.95;
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: var(--shadow-lg);
+  cursor: grabbing;
+}
+
+.dnd-chip--disabled {
+  opacity: 0.5;
+  cursor: default;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.dnd-chip--in-zone {
+  min-height: unset;
+  padding: 4px 12px;
+  font-size: var(--font-sm);
+  border-color: var(--color-primary);
+}
+
+/* ===== DRAG-DROP-FILL ===== */
+.dnd-fill { gap: var(--space-3); }
+
+.dnd-fill__sentence {
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
+  line-height: 2.4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.dnd-fill__text {
+  color: var(--color-text);
+}
+
+/* Droppable slot (chỗ trống trong câu) */
+.dnd-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-light);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  transition: border-color var(--transition-fast), background var(--transition-fast),
+              transform 0.15s ease;
+  cursor: default;
+  vertical-align: middle;
+}
+
+.dnd-slot--hover {
+  border-color: var(--color-primary-dark);
+  background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  /* Pulse animation khi hover */
+  animation: slot-pulse 0.6s ease infinite alternate;
+}
+
+@keyframes slot-pulse {
+  from { border-color: var(--color-primary); }
+  to   { border-color: var(--color-primary-dark); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent); }
+}
+
+.dnd-slot--filled {
+  border-style: solid;
+  background: var(--color-card);
+  color: var(--color-text);
+  cursor: pointer;           /* Click để trả về */
+  /* Snap animation khi thả */
+  animation: slot-snap 0.2s ease;
+}
+
+@keyframes slot-snap {
+  0%   { transform: scale(0.88); }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.dnd-slot--correct {
+  border-color: var(--color-success) !important;
+  background: color-mix(in srgb, var(--color-success) 12%, transparent) !important;
+  color: var(--color-success) !important;
+}
+
+.dnd-slot--wrong {
+  border-color: var(--color-danger) !important;
+  background: color-mix(in srgb, var(--color-danger) 12%, transparent) !important;
+  color: var(--color-danger) !important;
+}
+
+.dnd-slot__placeholder {
+  opacity: 0.5;
+  font-weight: var(--font-normal);
+  font-style: italic;
+}
+
+.dnd-fill__correct-hint {
+  font-size: var(--font-sm);
+  color: var(--color-success);
+}
+
+/* Word Bank */
+.dnd-bank {
+  padding: var(--space-2);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.dnd-bank__label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.dnd-bank__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  min-height: 52px;
+  align-items: center;
+}
+
+.dnd-bank__empty {
+  font-size: var(--font-sm);
+  color: var(--color-success);
+  font-style: italic;
+}
+
+/* ===== DRAG-DROP-MATCH ===== */
+.dnd-match { gap: var(--space-3); }
+
+.dnd-match__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .dnd-match__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dnd-match__col-label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+/* Left draggable items */
+.dnd-match__left-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-2);
+  min-height: 52px;
+  background: var(--color-card);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  margin-bottom: var(--space-1);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+              opacity var(--transition-fast);
+}
+
+.dnd-match__left-item:active { cursor: grabbing; }
+
+.dnd-match__left-item--matched {
+  opacity: 0.5;
+  border-style: dashed;
+}
+
+.dnd-match__left-item--correct {
+  border-color: var(--color-success);
+  color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+}
+
+.dnd-match__left-item--wrong {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 10%, transparent);
+}
+
+.dnd-match__grip {
+  font-size: 18px;
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+/* Right drop zones */
+.dnd-match__right-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+.dnd-match__zone {
+  flex: 1;
+  min-height: 52px;
+  padding: var(--space-1) var(--space-2);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.dnd-match__zone--hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  animation: slot-pulse 0.6s ease infinite alternate;
+}
+
+.dnd-match__zone--filled {
+  border-style: solid;
+  border-color: var(--color-primary);
+  background: var(--color-card);
+  animation: slot-snap 0.2s ease;
+}
+
+.dnd-match__zone--correct {
+  border-color: var(--color-success) !important;
+  background: color-mix(in srgb, var(--color-success) 10%, transparent) !important;
+}
+
+.dnd-match__zone--wrong {
+  border-color: var(--color-danger) !important;
+  background: color-mix(in srgb, var(--color-danger) 10%, transparent) !important;
+}
+
+.dnd-match__zone-placeholder {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.dnd-match__right-label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dnd-match__feedback-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.dnd-match__status {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+
+/* ══════════════════════════════════════════
+   REVIEW NOTICE — "Ôn tập lại" notification
+   Hiện khi bé làm bài dưới grade của mình
+══════════════════════════════════════════ */
+.qp-review-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 480px;
+  margin: var(--space-6) auto;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-card);
+  border: 2px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  text-align: center;
+  animation: review-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes review-pop {
+  from { opacity: 0; transform: scale(0.88) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
+.qp-review-notice__icon {
+  font-size: 64px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+}
+
+.qp-review-notice__title {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.qp-review-notice__desc {
+  font-size: var(--font-md);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.qp-review-notice__desc strong {
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+}
+
+.qp-review-notice__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 280px;
+}
+
+/* ===== QUIZ ENGINE FOOTER — MOBILE ===== */
+
+/* Progress bubble dùng làm button → reset browser default */
+.quiz-engine__footer-bubbles > .quiz-progress-bubble {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  background: var(--color-border); /* default state */
+  outline-offset: 3px;
+}
+.quiz-engine__footer-bubbles > .quiz-progress-bubble.quiz-progress-bubble--answered {
+  background: var(--color-success);
+}
+.quiz-engine__footer-bubbles > .quiz-progress-bubble.quiz-progress-bubble--active {
+  background: var(--color-primary);
+}
+
+@media (max-width: 600px) {
+  /* Footer: fixed ở bottom (MobileBottomNav ẩn trên quiz routes → bottom:0 đúng) */
+  .quiz-engine__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 85;
+    padding: 8px var(--space-2);
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  }
+
+  /* Bubble nhỏ hơn trên mobile */
+  .quiz-engine__footer-bubbles > .quiz-progress-bubble {
+    width: 9px;
+    height: 9px;
+  }
+
+  /* Bù khoảng trống cho footer fixed */
+  .quiz-engine__content {
+    padding-bottom: 110px;
+  }
 }

@@ -1,0 +1,630 @@
+/**
+ * FlyersPart1Engine.css
+ * Cambridge Flyers R&W Part 1 — "Look and Read" Word Bank Engine
+ *
+ * Layout:
+ *  - Desktop ≥768px: 2 cột (left panel | right panel)
+ *  - Mobile <768px: Word Bank sticky top, rest cuộn bên dưới
+ */
+
+/* ── Root Container ── */
+.fp1-engine {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-3, 0.75rem);
+}
+
+/* ═══════════════════════════════════════════════════
+   WORD BANK
+   ═══════════════════════════════════════════════════ */
+
+.fp1-word-bank {
+  background: var(--card-bg, #fff);
+  border: 2px solid var(--color-primary, #6c63ff);
+  border-radius: 16px;
+  padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+  position: sticky;
+  top: 64px; /* below GlobalHeader */
+  z-index: 20;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.12);
+  transition: box-shadow 0.2s;
+}
+
+.fp1-word-bank__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: var(--space-2, 0.5rem);
+}
+
+.fp1-word-bank__title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-primary, #6c63ff);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.fp1-word-bank__hint {
+  font-size: 0.78rem;
+  color: var(--text-muted, #888);
+  font-style: italic;
+  transition: color 0.2s;
+}
+
+.fp1-word-bank__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ── Word Chip ── */
+.fp1-chip {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  border: 2px solid var(--color-primary, #6c63ff);
+  background: transparent;
+  color: var(--color-primary, #6c63ff);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.fp1-chip:hover:not(:disabled) {
+  background: var(--color-primary, #6c63ff);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+.fp1-chip:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Clickable state: pulsing border khi có câu đang active */
+.fp1-chip--clickable {
+  border-color: var(--color-success, #10b981);
+  color: var(--color-success, #10b981);
+  animation: fp1-pulse-border 1.4s ease-in-out infinite;
+}
+.fp1-chip--clickable:hover {
+  background: var(--color-success, #10b981);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes fp1-pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50%       { box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
+}
+
+/* Used state: mờ, không click được */
+.fp1-chip--used {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+/* ═══════════════════════════════════════════════════
+   MAIN LAYOUT (2 cột)
+   ═══════════════════════════════════════════════════ */
+
+.fp1-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4, 1rem);
+}
+
+@media (min-width: 768px) {
+  .fp1-layout {
+    grid-template-columns: 300px 1fr;
+    align-items: start;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   LEFT PANEL: Instruction + Example
+   ═══════════════════════════════════════════════════ */
+
+.fp1-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+}
+
+.fp1-instruction {
+  background: #fffbeb;
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #78350f;
+  text-align: center;
+}
+
+.fp1-example {
+  background: var(--card-bg, #fff);
+  border: 1.5px solid var(--border-color, #e2e8f0);
+  border-radius: 12px;
+  padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+}
+
+.fp1-example__label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-muted, #888);
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fp1-example__prompt {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-primary, #1e293b);
+  margin: 0 0 0.5rem;
+}
+
+.fp1-example__answer {
+  margin: 0;
+  font-size: 0.97rem;
+  color: var(--color-primary, #6c63ff);
+}
+
+/* ═══════════════════════════════════════════════════
+   RIGHT PANEL: Questions
+   ═══════════════════════════════════════════════════ */
+
+.fp1-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+}
+
+/* Question List */
+.fp1-questions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ── Single Question Item ── */
+.fp1-question {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  background: var(--card-bg, #fff);
+  border: 2px solid var(--border-color, #e2e8f0);
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.fp1-question:hover:not([tabindex="-1"]) {
+  border-color: var(--color-primary, #6c63ff);
+  box-shadow: 0 2px 10px rgba(108, 99, 255, 0.1);
+}
+
+/* Active: đang chờ từ từ word bank */
+.fp1-question--active {
+  border-color: var(--color-success, #10b981) !important;
+  background: rgba(16, 185, 129, 0.04);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* Correct after submit */
+.fp1-question--correct {
+  border-color: var(--color-success, #10b981) !important;
+  background: rgba(16, 185, 129, 0.05);
+  cursor: default;
+}
+
+/* Wrong after submit */
+.fp1-question--wrong {
+  border-color: var(--color-danger, #ef4444) !important;
+  background: rgba(239, 68, 68, 0.04);
+  cursor: default;
+}
+
+/* Missed (blank) after submit */
+.fp1-question--missed {
+  border-color: var(--color-warning, #f59e0b) !important;
+  background: rgba(245, 158, 11, 0.04);
+  cursor: default;
+}
+
+.fp1-question__number {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-muted, #94a3b8);
+  min-width: 1.4rem;
+  padding-top: 0.15rem;
+}
+
+.fp1-question__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fp1-question__prompt {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-primary, #1e293b);
+}
+
+/* Answer row: blank or placed word + correct hint */
+.fp1-question__answer-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Blank placeholder */
+.fp1-blank {
+  display: inline-block;
+  min-width: 120px;
+  border-bottom: 2.5px solid var(--border-color, #cbd5e1);
+  padding: 0.1rem 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #94a3b8);
+  font-style: italic;
+  transition: border-color 0.18s;
+}
+
+.fp1-blank--active {
+  border-color: var(--color-success, #10b981);
+  color: var(--color-success, #10b981);
+  animation: fp1-blink 1s step-end infinite;
+}
+
+@keyframes fp1-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Placed Word chip */
+.fp1-placed-word {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 2px solid var(--color-primary, #6c63ff);
+  background: var(--color-primary, #6c63ff);
+  color: #fff;
+  font-size: 0.87rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.fp1-placed-word:hover:not(:disabled) {
+  filter: brightness(0.88);
+  transform: scale(0.97);
+}
+
+.fp1-placed-word--correct {
+  border-color: var(--color-success, #10b981);
+  background: var(--color-success, #10b981);
+}
+
+.fp1-placed-word--wrong {
+  border-color: var(--color-danger, #ef4444);
+  background: var(--color-danger, #ef4444);
+}
+
+.fp1-placed-word__remove {
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
+
+/* Correct answer hint after wrong/missed */
+.fp1-correct-hint {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--color-success, #10b981);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.fp1-correct-hint--missed {
+  color: var(--color-warning, #f59e0b);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+/* Explanation */
+.fp1-explanation {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+}
+
+.fp1-explanation--correct {
+  background: rgba(16, 185, 129, 0.07);
+  border-left-color: var(--color-success, #10b981);
+  color: #065f46;
+}
+
+.fp1-explanation--wrong {
+  background: rgba(239, 68, 68, 0.07);
+  border-left-color: var(--color-danger, #ef4444);
+  color: #7f1d1d;
+}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER: Submit + Result
+   ═══════════════════════════════════════════════════ */
+
+.fp1-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3, 0.75rem) 0;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+}
+
+.fp1-footer__count {
+  font-size: 0.88rem;
+  color: var(--text-muted, #94a3b8);
+  font-weight: 500;
+}
+
+.fp1-submit-btn {
+  min-width: 130px;
+}
+
+/* Result panel */
+.fp1-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: var(--space-4, 1rem);
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(16, 185, 129, 0.08));
+  border: 2px solid var(--color-primary, #6c63ff);
+  border-radius: 16px;
+}
+
+.fp1-result__score {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fp1-result__stars {
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+}
+
+.fp1-result__text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary, #1e293b);
+}
+
+.fp1-result__text em {
+  font-style: normal;
+  color: var(--color-primary, #6c63ff);
+}
+
+/* ═══════════════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="dark"] .fp1-word-bank {
+  background: var(--card-bg, #1e293b);
+  border-color: var(--color-primary, #818cf8);
+  box-shadow: 0 4px 20px rgba(129, 140, 248, 0.15);
+}
+
+[data-theme="dark"] .fp1-chip {
+  border-color: var(--color-primary, #818cf8);
+  color: var(--color-primary, #818cf8);
+}
+
+[data-theme="dark"] .fp1-chip:hover:not(:disabled) {
+  background: var(--color-primary, #818cf8);
+  color: #fff;
+}
+
+[data-theme="dark"] .fp1-instruction {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fde68a;
+  border-color: #f59e0b;
+}
+
+[data-theme="dark"] .fp1-example {
+  background: var(--card-bg, #1e293b);
+  border-color: var(--border-color, #334155);
+}
+
+[data-theme="dark"] .fp1-example__label {
+  color: var(--text-muted, #94a3b8);
+}
+
+[data-theme="dark"] .fp1-example__prompt {
+  color: var(--text-primary, #e2e8f0);
+}
+
+[data-theme="dark"] .fp1-question {
+  background: var(--card-bg, #1e293b);
+  border-color: var(--border-color, #334155);
+}
+
+[data-theme="dark"] .fp1-question:hover:not([tabindex="-1"]) {
+  border-color: var(--color-primary, #818cf8);
+  box-shadow: 0 2px 10px rgba(129, 140, 248, 0.15);
+}
+
+[data-theme="dark"] .fp1-question__prompt {
+  color: var(--text-primary, #e2e8f0);
+}
+
+[data-theme="dark"] .fp1-question__number {
+  color: var(--text-muted, #94a3b8);
+}
+
+[data-theme="dark"] .fp1-result {
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.1), rgba(16, 185, 129, 0.1));
+  border-color: var(--color-primary, #818cf8);
+}
+
+[data-theme="dark"] .fp1-result__text {
+  color: var(--text-primary, #e2e8f0);
+}
+
+[data-theme="dark"] .fp1-explanation--correct {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+}
+
+[data-theme="dark"] .fp1-explanation--wrong {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+}
+
+[data-theme="dark"] .fp1-footer {
+  border-top-color: var(--border-color, #334155);
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE OVERRIDES (<768px)
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  .fp1-engine {
+    padding: 0;
+  }
+
+  /* ── Word Bank: FIXED trên mobile — luôn hiển thị ngay dưới 2 header ──
+     GlobalHeader: position:fixed, height: 64px
+     QuizSubHeader: position:fixed, top:64px, height: ~52px
+     → Word Bank: position:fixed, top: 116px
+     fp1-engine cần padding-top để nội dung không bị Word Bank che
+  ── */
+  .fp1-word-bank {
+    position: fixed;
+    top: 116px;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid var(--color-primary, #6c63ff);
+    padding: 0.45rem 0.75rem 0.55rem;
+    box-shadow: 0 4px 16px rgba(108, 99, 255, 0.15);
+    /* không giới hạn chiều cao — hiện đủ tất cả từ */
+  }
+
+  /* Chips wrap nhiều hàng — hiện đủ 15 từ */
+  .fp1-word-bank__chips {
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  /* fp1-engine padding-top được set động bởi ResizeObserver trong FlyersPart1Engine.tsx
+     Không dùng giá trị cứng để tránh lệch khi Word Bank có nhiều hàng */
+  .fp1-engine {
+    padding-top: 0; /* fallback nếu JS chưa chạy */
+  }
+
+  /* Header nhỏ gọn */
+  .fp1-word-bank__header {
+    margin-bottom: 0.35rem;
+  }
+
+  .fp1-word-bank__title {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .fp1-word-bank__hint {
+    display: none;
+  }
+
+  .fp1-chip {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.18rem 0.55rem;
+    border-width: 1.5px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .fp1-chip:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .fp1-instruction {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.75rem;
+    border-radius: 10px;
+  }
+
+  .fp1-example {
+    margin: 0 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .fp1-example__prompt {
+    font-size: 0.85rem;
+  }
+
+  .fp1-question {
+    padding: 0.55rem 0.75rem;
+    margin: 0 0.5rem;
+    border-radius: 10px;
+  }
+
+  .fp1-question__prompt {
+    font-size: 0.87rem;
+    line-height: 1.5;
+  }
+
+  .fp1-questions {
+    gap: 0.45rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .fp1-footer {
+    margin: 0 0.75rem;
+    padding: var(--space-2, 0.5rem) 0;
+  }
+
+  .fp1-result {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    margin: 0 0.75rem;
+  }
+
+  .fp1-result__score {
+    align-items: center;
+  }
+}

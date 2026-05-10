@@ -1,0 +1,282 @@
+{
+  "id": "WRITING-HARD-GRADE4-P3",
+  "title": "Writing — Khó — Lớp 4-5 — Bài 3",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "in / playing chess / my brother / is interested /.//",
+          "cues_segments": [
+            {
+              "text": "in / playing "
+            },
+            {
+              "text": "chess",
+              "tooltip": {
+                "vi": "cờ vua",
+                "ipa": "tʃes"
+              }
+            },
+            {
+              "text": " / my brother / is interested /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "my brother",
+            "is interested",
+            "in",
+            "playing chess"
+          ],
+          "correct": [
+            "my brother",
+            "is interested",
+            "in",
+            "playing chess"
+          ],
+          "explanation": {
+            "correct_sentence": "My brother is interested in playing chess.",
+            "structure_vi": "S + be interested in + V-ing",
+            "grammar_notes": [
+              "✅ 'be interested in' (quan tâm, thích thú việc gì).",
+              "✅ Theo sau giới từ 'in' là V-ing."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "was / the movie / that / so boring / we fell asleep /.//",
+          "cues_segments": [
+            {
+              "text": "was / the movie / that / so "
+            },
+            {
+              "text": "boring",
+              "tooltip": {
+                "vi": "nhàm chán",
+                "ipa": "ˈbɔːrɪŋ"
+              }
+            },
+            {
+              "text": " / we fell asleep /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "the movie",
+            "was",
+            "so boring",
+            "that",
+            "we fell asleep"
+          ],
+          "correct": [
+            "the movie",
+            "was",
+            "so boring",
+            "that",
+            "we fell asleep"
+          ],
+          "explanation": {
+            "correct_sentence": "The movie was so boring that we fell asleep.",
+            "structure_vi": "S + be + so + adj + that + mệnh đề",
+            "grammar_notes": [
+              "✅ Cấu trúc 'so... that...' (quá... đến nỗi mà)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "finished / their science project / they / haven't / yet /.//",
+          "cues_segments": [
+            {
+              "text": "finished / their science project / they / haven't / yet /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "they",
+            "haven't",
+            "finished",
+            "their science project",
+            "yet"
+          ],
+          "correct": [
+            "they",
+            "haven't",
+            "finished",
+            "their science project",
+            "yet"
+          ],
+          "explanation": {
+            "correct_sentence": "They haven't finished their science project yet.",
+            "structure_vi": "S + haven't/hasn't + V3/ed + O + yet",
+            "grammar_notes": [
+              "✅ 'yet' (chưa) thường dùng ở cuối câu phủ định của thì Hiện tại hoàn thành."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "like a bird / fly / I wish / could / I /.//",
+          "cues_segments": [
+            {
+              "text": "like a bird / fly / I wish / could / I /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "I wish",
+            "I",
+            "could",
+            "fly",
+            "like a bird"
+          ],
+          "correct": [
+            "I wish",
+            "I",
+            "could",
+            "fly",
+            "like a bird"
+          ],
+          "explanation": {
+            "correct_sentence": "I wish I could fly like a bird.",
+            "structure_vi": "S + wish(es) + S2 + could + V",
+            "grammar_notes": [
+              "✅ Câu ước muốn điều gì đó ở hiện tại dùng 'could' hoặc V2/ed."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "he / suggest / go / park / for / picnic /.//",
+          "cues_segments": [
+            {
+              "text": "he / suggest / go / park / for / "
+            },
+            {
+              "text": "picnic",
+              "tooltip": {
+                "vi": "chuyến dã ngoại",
+                "ipa": "ˈpɪknɪk"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "He suggested going to the park for a picnic.",
+            "He suggests going to the park for a picnic."
+          ],
+          "explanation": {
+            "correct_sentence": "He suggested going to the park for a picnic.",
+            "structure_vi": "S + suggest(ed) + V-ing + (for a picnic)",
+            "grammar_notes": [
+              "✅ Động từ theo sau 'suggest' phải thêm '-ing'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "book / which / I / borrow / library / be / great /.//",
+          "cues_segments": [
+            {
+              "text": "book / which / I / borrow / library / be / great /.//"
+            }
+          ],
+          "accepted_answers": [
+            "The book which I borrowed from the library is great.",
+            "The book which I borrowed from the library was great."
+          ],
+          "explanation": {
+            "correct_sentence": "The book which I borrowed from the library is great.",
+            "structure_vi": "N + which + S + V2/ed + from + nơi chốn + is + adj",
+            "grammar_notes": [
+              "✅ Dùng mệnh đề quan hệ 'which' cho vật ('The book').",
+              "✅ Mượn từ thư viện: 'borrowed from the library'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "what / you / do / if / you / see / alien /?//",
+          "cues_segments": [
+            {
+              "text": "what / you / do / if / you / see / "
+            },
+            {
+              "text": "alien",
+              "tooltip": {
+                "vi": "người ngoài hành tinh",
+                "ipa": "ˈeɪliən"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "accepted_answers": [
+            "What would you do if you saw an alien?"
+          ],
+          "explanation": {
+            "correct_sentence": "What would you do if you saw an alien?",
+            "structure_vi": "What + would + S + do + if + S + V2/ed + O?",
+            "grammar_notes": [
+              "✅ Câu điều kiện loại 2 giả định tình huống không có thực ở hiện tại: Mệnh đề if dùng quá khứ đơn, mệnh đề chính dùng 'would' + V."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    }
+  ]
+}

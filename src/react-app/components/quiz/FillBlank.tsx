@@ -6,6 +6,7 @@
 
 import { useRef } from "react";
 import type { QuizComponentProps } from "../../types/quiz";
+import type { TextSegment } from "../../types/vocabulary";
 import "./Quiz.css";
 
 export function FillBlank({
@@ -20,8 +21,11 @@ export function FillBlank({
   const correct = Array.isArray(correctAnswer) ? correctAnswer[0] : (correctAnswer ?? "");
   const isCorrect = value.trim().toLowerCase() === correct.trim().toLowerCase();
 
-  // Chia prompt thành trước và sau ___
-  const parts = question.prompt.split("___");
+  // Normalize AnnotatedPrompt → plain string (FillBlank luôn dùng text thuần)
+  const promptText = Array.isArray(question.prompt)
+    ? (question.prompt as TextSegment[]).map((s) => s.text).join("")
+    : (question.prompt as string);
+  const parts = promptText.split("___");
   const before = parts[0] ?? "";
   const after = parts[1] ?? "";
 

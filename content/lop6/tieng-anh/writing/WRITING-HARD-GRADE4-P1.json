@@ -1,0 +1,259 @@
+{
+  "id": "WRITING-HARD-GRADE4-P1",
+  "title": "Writing — Khó — Lớp 4-5 — Bài 1",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "to London / this year / twice / she / has been /.//",
+          "cues_segments": [
+            {
+              "text": "to London / this year / twice / she / has been /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "she",
+            "has been",
+            "to London",
+            "twice",
+            "this year"
+          ],
+          "correct": [
+            "she",
+            "has been",
+            "to London",
+            "twice",
+            "this year"
+          ],
+          "explanation": {
+            "correct_sentence": "She has been to London twice this year.",
+            "structure_vi": "S + has been to + nơi chốn + số lần + thời gian",
+            "grammar_notes": [
+              "✅ 'has been to' dùng trong thì Hiện tại hoàn thành để diễn tả trải nghiệm.",
+              "✅ 'twice' (2 lần)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "the most interesting / this is / story / I have ever read /.//",
+          "cues_segments": [
+            {
+              "text": "the most interesting / this is / story / I have ever read /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "this is",
+            "the most interesting",
+            "story",
+            "I have ever read"
+          ],
+          "correct": [
+            "this is",
+            "the most interesting",
+            "story",
+            "I have ever read"
+          ],
+          "explanation": {
+            "correct_sentence": "This is the most interesting story I have ever read.",
+            "structure_vi": "This is + the most + tính từ dài + N + S + have ever + V3",
+            "grammar_notes": [
+              "✅ So sánh nhất kết hợp với Hiện tại hoàn thành để nói về trải nghiệm đáng nhớ nhất."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "to open / the teacher / our books / told us /.//",
+          "cues_segments": [
+            {
+              "text": "to open / the teacher / our books / told us /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "the teacher",
+            "told us",
+            "to open",
+            "our books"
+          ],
+          "correct": [
+            "the teacher",
+            "told us",
+            "to open",
+            "our books"
+          ],
+          "explanation": {
+            "correct_sentence": "The teacher told us to open our books.",
+            "structure_vi": "S + told + O + to-V",
+            "grammar_notes": [
+              "✅ 'tell sb to do sth' (bảo ai làm gì) - dạng mệnh lệnh gián tiếp."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "if / you will miss / you don't hurry / the bus /.//",
+          "cues_segments": [
+            {
+              "text": "if / you will miss / you don't "
+            },
+            {
+              "text": "hurry",
+              "tooltip": {
+                "vi": "nhanh lên, vội vã",
+                "ipa": "ˈhʌri"
+              }
+            },
+            {
+              "text": " / the bus /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "if",
+            "you don't hurry",
+            "you will miss",
+            "the bus"
+          ],
+          "correct": [
+            "if",
+            "you don't hurry",
+            "you will miss",
+            "the bus"
+          ],
+          "explanation": {
+            "correct_sentence": "If you don't hurry, you will miss the bus.",
+            "structure_vi": "If + S + don't/doesn't + V, S + will + V",
+            "grammar_notes": [
+              "✅ Câu điều kiện loại 1: Mệnh đề If dùng Hiện tại đơn, mệnh đề chính dùng Tương lai đơn."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "swim / river / be / very dangerous /.//",
+          "cues_segments": [
+            {
+              "text": "swim / river / be / very "
+            },
+            {
+              "text": "dangerous",
+              "tooltip": {
+                "vi": "nguy hiểm",
+                "ipa": "ˈdeɪndʒərəs"
+              }
+            },
+            {
+              "text": " /.//"
+            }
+          ],
+          "accepted_answers": [
+            "Swimming in the river is very dangerous."
+          ],
+          "explanation": {
+            "correct_sentence": "Swimming in the river is very dangerous.",
+            "structure_vi": "V-ing + in the river + is + adj",
+            "grammar_notes": [
+              "✅ Danh động từ (V-ing) đóng vai trò làm chủ ngữ trong câu ('Swimming').",
+              "✅ Động từ 'be' chia ở số ít ('is')."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "how long / you / know / your best friend /?//",
+          "cues_segments": [
+            {
+              "text": "how long / you / know / your best friend /?//"
+            }
+          ],
+          "accepted_answers": [
+            "How long have you known your best friend?"
+          ],
+          "explanation": {
+            "correct_sentence": "How long have you known your best friend?",
+            "structure_vi": "How long + have + S + V3/ed + O?",
+            "grammar_notes": [
+              "✅ Hỏi khoảng thời gian dùng Hiện tại hoàn thành với 'How long'.",
+              "✅ V3 của 'know' là 'known'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "boy / who / wear / red cap / be / my cousin /.//",
+          "cues_segments": [
+            {
+              "text": "boy / who / wear / red cap / be / my cousin /.//"
+            }
+          ],
+          "accepted_answers": [
+            "The boy who is wearing a red cap is my cousin.",
+            "The boy who wears a red cap is my cousin."
+          ],
+          "explanation": {
+            "correct_sentence": "The boy who is wearing a red cap is my cousin.",
+            "structure_vi": "N + who + V + ... + is + N",
+            "grammar_notes": [
+              "✅ Mệnh đề quan hệ 'who' thay thế cho 'The boy'.",
+              "✅ Mô tả trang phục đang mặc dùng tiếp diễn ('is wearing')."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    }
+  ]
+}

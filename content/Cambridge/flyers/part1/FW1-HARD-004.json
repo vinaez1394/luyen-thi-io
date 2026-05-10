@@ -1,0 +1,110 @@
+{
+  "id": "FW1-HARD-004",
+  "title": "Flyers Reading & Writing — Part 1 — Set 4 (Hard)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a century",
+    "a politician",
+    "an exhibition",
+    "a tradition",
+    "a souvenir",
+    "a statue",
+    "a population",
+    "a lawyer",
+    "a project",
+    "a result",
+    "a museum",
+    "a concert",
+    "a dictionary",
+    "an environment",
+    "chemistry"
+  ],
+
+  "example": {
+    "prompt": "This is a science subject where students learn about how different gases, solids, and liquids react with each other.",
+    "answer": "chemistry"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This is a very long period of time which lasts for exactly one hundred years.",
+      "correct": "a century",
+      "explanation_vi": "Century = thế kỷ, một khoảng thời gian dài kéo dài đúng 100 năm."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "When you visit a new city or country, you might buy this small object to help you remember your holiday.",
+      "correct": "a souvenir",
+      "explanation_vi": "Souvenir = quà lưu niệm, vật nhỏ bạn mua khi đi du lịch để nhớ về kỳ nghỉ."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is something that people in a family or a country have done for a long time, such as eating special food at Christmas.",
+      "correct": "a tradition",
+      "explanation_vi": "Tradition = truyền thống, phong tục tập quán mà một gia đình hay quốc gia làm từ lâu."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This person has studied the law and their job is to help people when they have legal problems or need to go to court.",
+      "correct": "a lawyer",
+      "explanation_vi": "Lawyer = luật sư, người học luật và giúp đỡ người khác khi có vấn đề pháp lý."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "You can see this at a gallery or a museum; it is a public show of objects, such as paintings or famous old things.",
+      "correct": "an exhibition",
+      "explanation_vi": "Exhibition = triển lãm, cuộc trưng bày công cộng các đồ vật như tranh hoặc đồ cổ."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is a person who works in the government and helps to make the rules and laws for a country.",
+      "correct": "a politician",
+      "explanation_vi": "Politician = chính trị gia, người làm trong chính phủ giúp đưa ra luật lệ."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This is the total number of people who live in a specific city, country, or even the whole world.",
+      "correct": "a population",
+      "explanation_vi": "Population = dân số, tổng số người sống ở một thành phố, quốc gia hoặc toàn thế giới."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "This is a figure of a person or an animal that is often made from stone or metal and can be found in a park or square.",
+      "correct": "a statue",
+      "explanation_vi": "Statue = bức tượng, hình người hoặc động vật làm từ đá hoặc kim loại."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You might work on this for a long time at school, researching a topic and then writing about it or making a presentation.",
+      "correct": "a project",
+      "explanation_vi": "Project = dự án/bài tập lớn, việc nghiên cứu một chủ đề ở trường và thuyết trình."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is what you get at the end of a test or a race, which tells you how well you did or what position you finished in.",
+      "correct": "a result",
+      "explanation_vi": "Result = kết quả, nhận được sau một bài kiểm tra hoặc cuộc đua cho biết bạn làm tốt thế nào."
+    }
+  ]
+}

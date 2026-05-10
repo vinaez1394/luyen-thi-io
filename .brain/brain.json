@@ -1,79 +1,423 @@
 {
   "meta": {
     "schema_version": "1.1.0",
-    "awf_version": "4.0.0"
+    "awf_version": "4.0.2",
+    "last_updated": "2026-05-08T11:16:00+07:00"
   },
   "project": {
-    "name": "Luyện Thi",
-    "domain": "luyenthi.io.vn",
-    "type": "Web Application",
-    "status": "Development (MVP)"
+    "name": "Luyện Thi IO",
+    "type": "EdTech Web App",
+    "status": "Active Development"
   },
   "tech_stack": {
-    "frontend": {
-      "framework": "React 19 + Vite",
-      "router": "React Router DOM",
-      "styling": "CSS Custom Properties (Themes)",
-      "dnd": "dnd-kit"
-    },
-    "backend": {
-      "framework": "Hono",
-      "platform": "Cloudflare Workers",
-      "database": "Cloudflare D1 (SQLite)",
-      "storage": "Cloudflare R2",
-      "cache": "Cloudflare KV"
-    }
+    "frontend": "React 19 + Vite",
+    "backend": "Hono on Cloudflare Workers",
+    "database": "Cloudflare D1 (SQLite) — ID: cc1f5652-8b63-45c2-8fa4-15509f0e6278",
+    "storage": "Cloudflare R2 — bucket: luyen-thi-content",
+    "cache": "Cloudflare KV",
+    "email": "Resend.com",
+    "auth": "Google OAuth via Hono",
+    "font": "Nunito (Google Fonts)",
+    "deploy": "GitHub Actions → Cloudflare Workers"
   },
   "database_schema": {
-    "summary": "Nền tảng luyện thi với hệ thống Freemium, lưu trữ thông tin học sinh, kết quả làm bài và cài đặt nội dung.",
+    "summary": "Lưu user, hồ sơ bé, kết quả học, từ vựng, Dream Box",
     "tables": [
-      "users",
-      "student_profiles",
-      "student_stats",
-      "dream_goals",
-      "quiz_attempts",
-      "daily_activity",
-      "subscriptions",
-      "quiz_configs"
+      "users — phụ huynh đăng ký Google/Email",
+      "student_profiles — hồ sơ bé (grade, pathway, theme, avatar, current_grade)",
+      "student_stats — streak, skill levels, last_quiz_id",
+      "quiz_attempts — kết quả từng bài",
+      "dream_goals — Hộp Quà Ước Mơ",
+      "student_vocabulary — SRS tracking per student per word (mastery_level, interval_days, next_review_at)",
+      "vocabulary_bank — kho từ Cambridge đa cấp (Starters/Movers/Flyers/KET/PET) với cert_order, emoji, image_url, audio_url, is_active"
     ],
-    "relationships_explained": "Mỗi user (phụ huynh) có 1 student_profile (học sinh). Học sinh có thống kê (student_stats), nhiều bài làm (quiz_attempts) và phần thưởng (dream_goals)."
+    "grade_storage": "student_profiles.current_grade (DB) ↔ localStorage('student_grade') (FE) — sync sau khi fetch /api/student/dashboard",
+    "vocabulary_schema": {
+      "summary": "20 migrations đã seeded (remote D1). Tổng 1098 từ. 18 topics HOÀN TẤT (Starters/Movers/Flyers). Tất cả translation_vi chuẩn + emoji đầy đủ.",
+      "cert_order": {
+        "starters": 1,
+        "movers": 2,
+        "flyers": 3,
+        "ket": 4,
+        "pet": 5
+      },
+      "filter_logic": "WHERE cert_order <= N → cumulative (Movers bao gồm cả Starters data)",
+      "srs_fields": "interval_days, next_review_at, mastery_level(0/1/2), correct_count, seen_count",
+      "group_tag_rule": "group_tag PHẢI = certificate. Ví dụ: certificate='starters' → group_tag='starters'",
+      "id_convention": "{cert_prefix}-{topic_prefix}-{001}. Ví dụ: st-fd-001 (starters, food_drink, 1)",
+      "topics_seeded": [
+        {
+          "topic": "animals",
+          "counts": "31 starters / 14 movers / 22 flyers",
+          "migration": "0011-0013"
+        },
+        {
+          "topic": "family",
+          "counts": "25 starters / 9 movers / 4 flyers",
+          "migration": "0014"
+        },
+        {
+          "topic": "body_face",
+          "counts": "14 starters / 13 movers / 4 flyers",
+          "migration": "0015"
+        },
+        {
+          "topic": "clothes",
+          "counts": "18 starters / 5 movers / 14 flyers",
+          "migration": "0015"
+        },
+        {
+          "topic": "colours",
+          "counts": "14 starters / 0 movers / 6 flyers",
+          "migration": "0015"
+        },
+        {
+          "topic": "food_drink",
+          "counts": "46 starters / 20 movers / 23 flyers",
+          "migration": "0016"
+        },
+        {
+          "topic": "health",
+          "counts": "0 starters / 18 movers / 6 flyers",
+          "migration": "0016"
+        },
+        {
+          "topic": "home",
+          "counts": "43 starters / 20 movers / 20 flyers",
+          "migration": "0017"
+        },
+        {
+          "topic": "materials",
+          "counts": "1 starters / 0 movers / 8 flyers",
+          "migration": "0017"
+        },
+        {
+          "topic": "places_directions",
+          "counts": "16 starters / 29 movers / 34 flyers",
+          "migration": "0017"
+        },
+        {
+          "topic": "school",
+          "counts": "62 starters / 6 movers / 27 flyers",
+          "migration": "0017"
+        },
+        {
+          "topic": "sports_leisure",
+          "counts": "56 starters / 37 movers / 48 flyers",
+          "migration": "0018"
+        },
+        {
+          "topic": "time",
+          "counts": "11 starters / 17 movers / 51 flyers",
+          "migration": "0018"
+        },
+        {
+          "topic": "toys",
+          "counts": "23 starters / 1 movers / 0 flyers",
+          "migration": "0018"
+        },
+        {
+          "topic": "transport",
+          "counts": "15 starters / 9 movers / 16 flyers",
+          "migration": "0018"
+        },
+        {
+          "topic": "weather",
+          "counts": "1 starters / 11 movers / 3 flyers",
+          "migration": "0018"
+        },
+        {
+          "topic": "work",
+          "counts": "0 starters / 14 movers / 30 flyers",
+          "migration": "0018"
+        },
+        {
+          "topic": "world",
+          "counts": "8 starters / 24 movers / 21 flyers",
+          "migration": "0018"
+        }
+      ],
+      "topics_pending_seed": [],
+      "seeding_complete": true,
+      "translations_complete": true,
+      "emoji_complete": true,
+      "latest_migration": "0020_add_emoji_0018_topics.sql"
+    }
   },
   "api_endpoints": [
     {
+      "method": "GET",
       "path": "/api/auth/google",
-      "explained": "Chuyển hướng người dùng sang trang đăng nhập Google."
+      "desc": "OAuth redirect"
     },
     {
+      "method": "GET",
       "path": "/api/auth/callback",
-      "explained": "Xử lý đăng nhập Google, tạo session và user trong DB."
+      "desc": "Tạo session"
     },
     {
+      "method": "GET",
       "path": "/api/auth/me",
-      "explained": "Lấy thông tin user hiện tại đang đăng nhập."
+      "desc": "User hiện tại"
     },
     {
-      "path": "/api/auth/logout",
-      "explained": "Đăng xuất và xóa session cookie."
+      "method": "GET",
+      "path": "/api/quiz/:id",
+      "desc": "Lấy bài quiz từ R2"
     },
     {
+      "method": "POST",
+      "path": "/api/quiz/:id/submit",
+      "desc": "Nộp bài, lưu kết quả"
+    },
+    {
+      "method": "POST",
       "path": "/api/student/profile",
-      "explained": "Tạo hồ sơ cho bé lần đầu đăng nhập (chọn tên, avatar, theme)."
+      "desc": "Cập nhật hồ sơ bé"
+    },
+    {
+      "method": "POST",
+      "path": "/api/student/stars",
+      "desc": "Cộng sao (Hangman, Flashcard)"
+    },
+    {
+      "method": "GET",
+      "path": "/api/student/dashboard",
+      "desc": "Lấy data cho DashboardPage (currentGrade, selectedPathway, streak, totalStars, skillLevels, dreamGoal)"
+    },
+    {
+      "method": "GET",
+      "path": "/api/vocabulary/topics",
+      "desc": "Danh sách topics + tiến độ học sinh. Guest: no progress. ?cert=flyers"
+    },
+    {
+      "method": "GET",
+      "path": "/api/vocabulary/lesson",
+      "desc": "8 từ/session ưu tiên SRS. ?topic=animals&cert=flyers&offset=0. Guest-friendly"
+    },
+    {
+      "method": "POST",
+      "path": "/api/vocabulary/progress",
+      "desc": "Lưu kết quả PRACTICE/USE — tính SRS interval. Auth required (401 nếu guest = silent fail)"
     }
   ],
-  "features": [
-    "Hệ thống Theme với 6 màu sắc",
-    "Đăng nhập Google OAuth qua Cloudflare KV",
-    "Mô hình Freemium (Không cần đăng nhập vẫn làm được bài free)",
-    "Onboarding học sinh mới"
-  ],
-  "knowledge_items": {
-    "patterns": [
-      "Sử dụng CSS Custom Properties cho Design Tokens và Themes",
-      "Sử dụng Cloudflare KV làm Session Storage với HTTP-only Cookies"
+  "quiz_types": {
+    "multiple-choice": "QuizEngine — 4 ô chọn 1",
+    "fill-blank": "QuizEngine — gõ vào ô trống",
+    "drag-drop-match": "QuizEngine — kéo nối 2 cột",
+    "reading-passage": "ReadingEngine — 2 sections, 4 loại câu (cloze, true-false, mc-3, write-word)",
+    "writing": "WritingEngine — 2 sections (rearrange DragDropFill + sentence-building SentenceInput)"
+  },
+  "content_inventory": {
+    "lop6_toan": "MATH-L1-P1 ... P10 (10 bài, P1-P5 free, P6-P10 premium)",
+    "cambridge_flyers_reading": "RW001, RW2-001, RW3-001 (3 bài)",
+    "cambridge_flyers_listening": "L001, L002, L003 (3 bài)",
+    "lop6_tieng_anh_reading": "READING-EASY/MED/HARD-GRADE3/4/5-P1 (9 bài Reading Passage)",
+    "lop6_tieng_anh_writing": "WRITING-EASY/MED/HARD-GRADE3/4/5-P1/P2/P3 (21 bài Writing)"
+  },
+  "r2_mapping": {
+    "MATH-L*-P*": "quizzes/lop6/toan/{ID}.json",
+    "RW*": "quizzes/cambridge/flyers/reading/{ID}.json",
+    "L00*": "quizzes/cambridge/flyers/listening/{ID}.json",
+    "READING-*": "quizzes/lop6/tieng-anh/reading/{ID}.json",
+    "WRITING-*": "quizzes/lop6/tieng-anh/writing/{ID}.json"
+  },
+  "deploy_rules": {
+    "trigger": "git push origin dev → GitHub Actions tự chạy ~1.5 phút",
+    "correct_deploy_step": "./node_modules/.bin/wrangler deploy",
+    "do_not_use": "cloudflare/wrangler-action@v3 — hay tự cập nhật gây lỗi",
+    "reporting_rule": "BẮT BUỘC mở browser kiểm tra thực tế trước khi báo 'hoàn thành'",
+    "github_secret": "CLOUDFLARE_API_TOKEN (cần: Workers Scripts Edit + D1 Edit + R2 Edit)",
+    "ci_ts_note": "CI dùng TypeScript strict hơn local. Luôn chạy npx tsc --noEmit trước khi push. Set<union>.has(string) KHÔNG được phép ở CI."
+  },
+  "subjectpage_v4": {
+    "version": "v4",
+    "commit": "606869f",
+    "deployed": "2026-05-05",
+    "components": {
+      "SkillTabBar": "Auto-detect từ lesson.skill, ẩn khi chỉ 1 kỹ năng. CSS: .sp-skill-tabs, .sp-skill-tab",
+      "GradeCard": "Đọc localStorage('student_grade'), contextual badge 🔥/🔄/✓. CSS: .sp-grade-card, .sp-grade-pill",
+      "Hero": "Pathway badge 🏫/🇬🇧 + tiêu đề môn + desc tổng hợp. CSS: .subject-page__hero-pathway-badge",
+      "GlobalHeaderGradeBadge": "Badge 'Lớp X' cạnh tên user. CSS: .gh-grade-badge (ẩn mobile <600px)"
+    },
+    "grade_logic": {
+      "source": "localStorage('student_grade') — số nguyên 3/4/5",
+      "mapping": "3 → '3-4' | 4 → '4-5' | 5 → '5-6'",
+      "fallback": "null hoặc ngoài range → '5-6'",
+      "context": "own/higher/lower dùng GRADE_ORDER constant"
+    },
+    "filter_pipeline": "lesson.skill === activeSkill → grade_target === activeGrade → difficulty === activeDiff → sort recommended↓ easy→hard",
+    "removed": [
+      "StatsBar component",
+      "free/premium filter chips",
+      "Grade tab 'Tất cả'"
+    ]
+  },
+  "features": {
+    "done": [
+      "Auth Google + Email",
+      "6 Themes CSS",
+      "App Shell (Header/Footer/MobileNav/QuizLayout)",
+      "Quiz Engine MCQ + FillBlank + DragDrop",
+      "Word Tooltip + Hangman",
+      "IA Restructure (dual pathway /cambridge + /lop6)",
+      "5-step Onboarding wizard",
+      "Dashboard + TodayMissions",
+      "ReadingEngine (9 bài, 4 loại câu hỏi)",
+      "Vocabulary bank 250 từ Cambridge Flyers",
+      "MobileBottomNav UI Fixes (Reading Submit button, Hamburger Menu)",
+      "Dashboard Progress + Grade Tracking (Grade Badges, 'Ôn tập lại' Notification)",
+      "WritingEngine (21 bài, DragDropFill + SentenceInput)",
+      "SubjectPage v4 (Skill Tabs + Grade Card + Pathway Badge + GlobalHeader Grade Badge)",
+      "Vocabulary Bank HOÀN TẤT: 1098 từ / 18 topics / 3 cấp / 20 migrations",
+      "Vocabulary UI Overhaul: Desktop scaling + Full English (Cambridge) localization + Flashcard flip fix"
     ],
+    "todo": [
+      "Thêm bài Reading/Writing mới (các chủ đề khác)",
+      "Quiz Audio — Listening (Cloudflare Workers AI)",
+      "Weekly Report Email (Resend.com)",
+      "Dream Box + Email confirmation",
+      "PayOS payment"
+    ]
+  },
+  "known_bugs_fixed": [
+    {
+      "bug": "Trang trắng khi vào /lop6/tieng-anh/reading-*",
+      "cause": "useQuiz.ts tính quiz?.questions.length nhưng ReadingQuiz không có .questions",
+      "fix": "Optional chain + fallback sang .sections?.reduce()",
+      "file": "src/react-app/hooks/useQuiz.ts",
+      "date": "2026-05-01"
+    },
+    {
+      "bug": "Nút Submit bài Reading bị che khuất ở màn hình mobile",
+      "cause": "MobileBottomNav đè lên div có position: fixed bottom: 0",
+      "fix": "Thêm bottom: 64px ở .re-footer và tăng padding-bottom cho body (Rule CSS-03)",
+      "file": "src/react-app/components/quiz/ReadingEngine.css",
+      "date": "2026-05-02"
+    },
+    {
+      "bug": "TS2345: Argument of type 'string' not assignable to Set<union>.has()",
+      "cause": "new Set(lessons.map(l => l.skill)) infer ra Set<union_type>, nhưng SKILL_META[].key là string → has() từ chối",
+      "fix": "Explicit new Set<string>(...) + cast l.skill as string",
+      "file": "src/react-app/pages/SubjectPage.tsx",
+      "date": "2026-05-05",
+      "lesson": "CI TypeScript strict hơn local — luôn test Set<string> thay vì để TypeScript infer union Set"
+    },
+    {
+      "bug": "Giao diện bị đóng băng sau khi nộp bài Quiz trên mobile (Lỗi Click Trap)",
+      "cause": "Infinite Rendering Loop trong ReadingEngine. Component cha liên tục pass reference hàm onProgressChange mới làm re-trigger useEffect.",
+      "fix": "Xóa onProgressChange khỏi dependency array. Bấm F5 hoặc Back link thuần HTML mới thoát được.",
+      "file": "src/react-app/components/quiz/ReadingEngine.tsx",
+      "date": "2026-05-06"
+    },
+    {
+      "bug": "Layout Grid thẻ bài học bị lệch sang phải trên Mobile",
+      "cause": "Dùng `1fr` trong CSS Grid khiến cột tự động phình to (min-content) nếu text quá dài và không xuống dòng.",
+      "fix": "Chuyển thành `minmax(0, 1fr)` để ép grid tuân thủ giới hạn cột, không gây overflow ngang.",
+      "file": "src/react-app/pages/SubjectPage.css",
+      "date": "2026-05-06"
+    },
+    {
+      "bug": "Flashcard flip bị clip câu mẫu phía dưới — nội dung mặt sau bị cắt mất",
+      "cause": "position:absolute trên .learn-card__back không tính chiều cao của câu mẫu dài → card có height cố định theo mặt trước ngắn hơn",
+      "fix": "Dùng CSS Grid: .learn-card__inner { display:grid; grid-template-areas:'card'; } — cả front và back cùng chia 1 cell, card tự giãn theo mặt cao nhất",
+      "file": "src/react-app/components/vocabulary/VocabularyLesson.css",
+      "date": "2026-05-08",
+      "lesson": "Dùng CSS Grid overlay thay vì position:absolute khi cần 2 phần tử chồng nhau và cần card tự resize"
+    }
+  ],
+  "exam_luyenthi_skill": {
+    "location": "~/.gemini/antigravity/skills/exam-luyenthi/",
+    "trigger": "/tạo bài học",
+    "schemas": {
+      "mcq": "references/json-schema.md",
+      "reading_passage": "references/reading-passage-schema.md"
+    },
+    "id_formats": {
+      "reading": "READING-{DIFF}-GRADE{N}-P{NUM}",
+      "writing": "WRITING-{DIFF}-GRADE{N}-P{NUM}"
+    },
+    "content_folders": {
+      "reading": "content/lop6/tieng-anh/reading/",
+      "writing": "content/lop6/tieng-anh/writing/"
+    }
+  },
+  "business_rules": {
+    "stars": "Không bao giờ hết hạn. Chỉ trừ khi tra Word Tooltip sau hết 3 lượt free/bài",
+    "hangman_scoring": "5/5 +2⭐ | 4/5 +1⭐ | ≤3/5 = 0⭐",
+    "mastery": "Đúng 2 lần trong 2 session khác → từ 'tốt nghiệp'",
+    "premium": "Bài P6-P10 là premium, P1-P5 free",
+    "slug_policy": "Giữ nguyên /lop6 (SEO + DB consistency). KHÔNG đổi thành /luyenthilop6"
+  },
+  "vocabulary_system": {
+    "status": "LIVE — deployed 2026-05-07",
+    "url": "/cambridge/vocabulary",
+    "routes": {
+      "/cambridge/vocabulary": "VocabularyPage — chọn cert + topic grid",
+      "/cambridge/vocabulary/:topic": "VocabularyLesson — LEARN → PRACTICE → USE flow"
+    },
+    "hooks": {
+      "useVocabularyTopics": "useEffect([fetchTopics]) — cert thay đổi → re-fetch. File: hooks/useVocabularyLesson.ts",
+      "useVocabularyLesson": "useEffect([fetchLesson]) — topic/cert/offset thay đổi → re-fetch. BUG ĐÃ FIX: bỏ hasFetched.current pattern"
+    },
+    "hook_gotcha": "KHÔNG dùng if(!hasFetched.current && !isLoading) trong render body — isLoading=true lúc init khiến fetchLesson không bao giờ chạy. Phải dùng useEffect([fetchLesson]).",
+    "guest_mode": "Guest có thể học bình thường. /api/vocabulary/progress trả 401 → silent fail (không block UX)",
+    "data_seeded": [
+      "18 topics HOÀN TẤT (starters/movers/flyers): animals, family, body_face, clothes, colours, food_drink, health, home, materials, places_directions, school, sports_leisure, time, toys, transport, weather, work, world",
+      "Tổng 1098 từ trong vocabulary_bank. Tất cả translation_vi chuẩn. Tất cả có emoji.",
+      "Latest migration: 0020_add_emoji_0018_topics.sql"
+    ],
+    "ui_localization": "Toàn bộ Vocabulary module (Learn/Practice/Use/Games) bằng tiếng Anh Cambridge. GlobalHeader và main nav giữ nguyên tiếng Việt.",
+    "css_architecture": {
+      "flashcard_fix": "CSS Grid (grid-template-areas: card) thay thế position:absolute cho .learn-card__inner — tự động giãn chiều cao theo nội dung",
+      "desktop_breakpoints": "VocabularyLesson.css: mobile/tablet/desktop (400/600px). Games.css: 600px + 900px cho Practice+Use.",
+      "pmg_grid_desktop": "max-width 580px, option min-height 200px, emoji 5.5rem tại ≥900px"
+    }
+  },
+  "cambridge_page_v2": {
+    "status": "LIVE — deployed 2026-05-07",
+    "url": "/cambridge",
+    "layout": "Header → Vocabulary Hero Banner → Section label → Exam Grid",
+    "vocab_banner": "Full-width gradient tím #4f46e5→#7c3aed→#a855f7, nổi bật, link /cambridge/vocabulary",
+    "exam_grid": "3 cột desktop / 2 cột mobile (max-width: 700px)",
+    "sort_order": "CERT_ORDER: starters=1, movers=2, flyers=3, ket=4, pet=5 — sort trong component",
+    "files": [
+      "src/react-app/pages/CambridgePage.tsx",
+      "src/react-app/pages/CambridgePage.css"
+    ]
+  },
+  "knowledge_items": {
     "gotchas": [
-      "Client ID và Secret lưu trong .dev.vars (không push lên git)",
-      "Bài tập FREE không lưu điểm vào database nếu khách chưa đăng nhập"
+      {
+        "title": "useVocabularyLesson fetch không chạy khi mount",
+        "problem": "isLoading=true ban đầu + guard if(!hasFetched && !isLoading) → condition luôn false → fetchLesson không bao giờ được gọi → loading mãi",
+        "solution": "Dùng useEffect(() => { fetchLesson(); }, [fetchLesson]) với fetchLesson là useCallback([topic,cert,offset])",
+        "date": "2026-05-07"
+      },
+      {
+        "title": "D1 local DB thiếu migrations khi dev mới hoặc reset",
+        "problem": "vocabulary_bank không tồn tại → API 500 → UI loading mãi + infinite API calls (React Strict Mode gọi effect 2 lần)",
+        "solution": "Apply từng migration file: wrangler d1 execute luyen-thi-db --local --file=src/worker/migrations/00XX_xxx.sql theo thứ tự",
+        "sequence": "0005_batch1 → 0006 → 0007 → 0008 → 0009_schema → 0010 → 0011 → 0012 → 0013 → 0014",
+        "date": "2026-05-07"
+      },
+      {
+        "title": "wrangler d1 migrations list lỗi internal error",
+        "problem": "wrangler d1 migrations list --remote báo internal error 7500 — bug của wrangler với migration tracking",
+        "solution": "Dùng wrangler d1 execute --remote --command \"SELECT name FROM d1_migrations ORDER BY applied_at DESC\" để xem trực tiếp",
+        "date": "2026-05-07"
+      }
+    ]
+  },
+  "cambridge_flyers": {
+    "status": "LIVE — deployed 2026-05-08",
+    "url": "/cambridge/flyers",
+    "ui_changes": "Part navigation replaces Vietnamese grade chips. UI fully in English. 'Choose a Part', Part 1-5 with 'Look and Read' descriptions. 'Coming soon' for empty parts.",
+    "dark_mode_fixes": "Part pill text uses var(--color-text), border visible for non-active pills.",
+    "files_modified": [
+      "src/react-app/pages/SubjectPage.tsx",
+      "src/react-app/pages/SubjectPage.css",
+      "src/react-app/data/subjects.ts"
     ]
   }
 }

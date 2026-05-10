@@ -1,0 +1,163 @@
+#!/usr/bin/env node
+const fs = require('fs'), path = require('path');
+
+const D = [
+  // TIME - STARTERS
+  ['st-ti-001','/ˌæf.tɚˈnuːn/','I usually play with my friends in the afternoon.','Tôi thường chơi với bạn bè vào buổi chiều.','buổi chiều'],
+  ['st-ti-002','/ˈbɜːθ.deɪ/','When is your birthday?','Sinh nhật của bạn khi nào?','sinh nhật'],
+  ['st-ti-003','/klɒk/','Look at the clock, it is time for bed.','Nhìn đồng hồ kìa, đến giờ đi ngủ rồi.','đồng hồ (treo tường)'],
+  ['st-ti-004','/deɪ/','There are seven days in a week.','Có bảy ngày trong một tuần.','ngày'],
+  ['st-ti-005','/ˈiːv.nɪŋ/','We have dinner together every evening.','Chúng tôi ăn tối cùng nhau mỗi buổi tối.','buổi tối'],
+  ['st-ti-006','/ɪn/','My birthday is in June.','Sinh nhật của tôi vào tháng Sáu.','vào (tháng/năm)'],
+  ['st-ti-007','/ˈmɔː.nɪŋ/','I wake up early in the morning.','Tôi thức dậy sớm vào buổi sáng.','buổi sáng'],
+  ['st-ti-008','/naɪt/','The stars are very bright at night.','Những vì sao rất sáng vào ban đêm.','ban đêm'],
+  ['st-ti-009','/təˈdeɪ/','Today is a beautiful sunny day.','Hôm nay là một ngày nắng đẹp.','hôm nay'],
+  ['st-ti-010','/wɒtʃ/','My grandfather gave me a new watch.','Ông tôi đã tặng tôi một chiếc đồng hồ đeo tay mới.','đồng hồ đeo tay'],
+  ['st-ti-011','/jɪər/','There are twelve months in a year.','Có mười hai tháng trong một năm.','năm'],
+
+  // TIME - MOVERS
+  ['mv-ti-001','/ˈɑːf.tər/','We will go to the park after school.','Chúng ta sẽ đến công viên sau giờ học.','sau khi'],
+  ['mv-ti-002','/ˈɔːl.weɪz/','He always brushes his teeth before bed.','Anh ấy luôn đánh răng trước khi ngủ.','luôn luôn'],
+  ['mv-ti-003','/bɪˈfɔːr/','Wash your hands before you eat.','Hãy rửa tay trước khi bạn ăn.','trước khi'],
+  ['mv-ti-004','/ˈev.ri/','I drink a glass of milk every day.','Tôi uống một ly sữa mỗi ngày.','mỗi'],
+  ['mv-ti-005','/ˈnev.ər/','I never eat too much candy.','Tôi không bao giờ ăn quá nhiều kẹo.','không bao giờ'],
+  ['mv-ti-006','/əˈklɒk/','Our class starts at eight o’clock.','Lớp học của chúng tôi bắt đầu lúc tám giờ đúng.','giờ đúng'],
+  ['mv-ti-007','/ˈsʌm.taɪmz/','Sometimes we go out for dinner on Fridays.','Thỉnh thoảng chúng tôi ra ngoài ăn tối vào thứ Sáu.','thỉnh thoảng'],
+  ['mv-ti-008','/wiːk/','I am going on holiday next week.','Tôi sẽ đi nghỉ vào tuần tới.','tuần'],
+  ['mv-ti-009','/ˌwiːkˈend/','We often visit our grandparents at the weekend.','Chúng tôi thường đến thăm ông bà vào cuối tuần.','cuối tuần'],
+  ['mv-ti-010','/ˈjes.tə.deɪ/','It rained a lot yesterday.','Trời đã mưa rất nhiều vào hôm qua.','hôm qua'],
+  ['mv-ti-011','/ˈmʌn.deɪ/','Monday is the first day of the school week.','Thứ Hai là ngày đầu tiên của tuần học.','thứ Hai'],
+  ['mv-ti-012','/ˈtjuːz.deɪ/','We have a math test on Tuesday.','Chúng tôi có bài kiểm tra toán vào thứ Ba.','thứ Ba'],
+  ['mv-ti-013','/ˈwenz.deɪ/','Wednesday is the middle of the week.','Thứ Tư là ngày giữa tuần.','thứ Tư'],
+  ['mv-ti-014','/ˈθɜːz.deɪ/','I go to swimming lessons every Thursday.','Tôi đi học bơi mỗi thứ Năm.','thứ Năm'],
+  ['mv-ti-015','/ˈfraɪ.deɪ/','Friday is my favourite day of the week.','Thứ Sáu là ngày tôi yêu thích nhất trong tuần.','thứ Sáu'],
+  ['mv-ti-016','/ˈsæt.ə.deɪ/','We usually go shopping on Saturday.','Chúng tôi thường đi mua sắm vào thứ Bảy.','thứ Bảy'],
+  ['mv-ti-017','/ˈsʌn.deɪ/','Sunday is a day for rest and family.','Chủ nhật là ngày để nghỉ ngơi và dành cho gia đình.','Chủ nhật'],
+
+  // TIME - FLYERS
+  ['fl-ti-001','/ˌeɪˈem/','The train leaves at 9 a.m.','Chuyến tàu khởi hành lúc 9 giờ sáng.','sáng (trước buổi trưa)'],
+  ['fl-ti-002','/ˈɑːf.tər/','We went to the cafe after the movie finished.','Chúng tôi đã đi đến quán cà phê sau khi bộ phim kết thúc.','sau khi'],
+  ['fl-ti-003','/əˈɡəʊ/','We moved to this house two years ago.','Chúng tôi đã chuyển đến ngôi nhà này hai năm trước.','trước đây / cách đây'],
+  ['fl-ti-004','/ˈɔː.təm/','The leaves change colour and fall off the trees in autumn.','Lá cây đổi màu và rụng vào mùa thu.','mùa thu (Anh)'],
+  ['fl-ti-005','/bɪˈfɔːr/','Please complete your work before Friday.','Vui lòng hoàn thành công việc của bạn trước thứ Sáu.','trước / trước khi'],
+  ['fl-ti-006','/ˈkæl.ən.dər/','I marked my friend’s birthday on the calendar.','Tôi đã đánh dấu ngày sinh nhật bạn mình trên lịch.','lịch'],
+  ['fl-ti-007','/ˈsen.tʃər.i/','We are living in the 21st century.','Chúng ta đang sống ở thế kỷ 21.','thế kỷ'],
+  ['fl-ti-008','/deɪt/','What is the date today?','Hôm nay là ngày mấy?','ngày tháng'],
+  ['fl-ti-009','/ˈɜː.li/','He likes to wake up early in the morning.','Anh ấy thích thức dậy sớm vào buổi sáng.','sớm'],
+  ['fl-ti-010','/end/','We watched the movie until the very end.','Chúng tôi đã xem bộ phim cho đến tận phút cuối cùng.','sự kết thúc / cuối'],
+  ['fl-ti-011','/fɔːl/','It is getting cooler because fall is here.','Trời đang lạnh dần vì mùa thu đã đến.','mùa thu (Mỹ)'],
+  ['fl-ti-012','/ˈfjuː.tʃər/','I hope to become a doctor in the future.','Tôi hy vọng sẽ trở thành bác sĩ trong tương lai.','tương lai'],
+  ['fl-ti-013','/aʊər/','The journey takes about one hour by car.','Chuyến đi mất khoảng một giờ bằng ô tô.','giờ'],
+  ['fl-ti-014','/haʊ lɒŋ/','How long does it take to travel to London?','Mất bao lâu để đi đến London?','bao lâu'],
+  ['fl-ti-015','/leɪt/','Hurry up or we will be late for school!','Nhanh lên hoặc chúng ta sẽ bị muộn học!','muộn / trễ'],
+  ['fl-ti-016','/ˈleɪ.tər/','I cannot talk now, I will call you later.','Bây giờ tôi không thể nói chuyện, tôi sẽ gọi cho bạn sau.','sau đó / muộn hơn'],
+  ['fl-ti-017','/ˌmɪdˈdeɪ/','We stopped working at midday to have lunch.','Chúng tôi ngừng làm việc vào buổi trưa để ăn trưa.','giữa trưa'],
+  ['fl-ti-018','/ˈmɪd.naɪt/','The party finished long after midnight.','Bữa tiệc kết thúc rất lâu sau nửa đêm.','nửa đêm'],
+  ['fl-ti-019','/ˈmɪn.ɪt/','Boil the egg for exactly three minutes.','Luộc trứng chính xác trong ba phút.','phút'],
+  ['fl-ti-020','/mʌnθ/','July is my favourite month of the year.','Tháng Bảy là tháng tôi yêu thích nhất trong năm.','tháng'],
+  ['fl-ti-021','/ˌpiːˈem/','Our meeting is at 3 p.m. this afternoon.','Cuộc họp của chúng ta vào lúc 3 giờ chiều nay.','chiều (sau buổi trưa)'],
+  ['fl-ti-022','/pɑːst/','It is half past four.','Bây giờ là bốn giờ rưỡi.','qua (giờ) / quá khứ'],
+  ['fl-ti-023','/ˈkwɔː.tər/','It is a quarter to nine, time to leave.','Bây giờ là chín giờ kém mười lăm, đến lúc rời đi.','mười lăm phút / một phần tư'],
+  ['fl-ti-024','/sprɪŋ/','Lots of beautiful flowers bloom in spring.','Nhiều bông hoa đẹp nở rộ vào mùa xuân.','mùa xuân'],
+  ['fl-ti-025','/ˈsʌm.ər/','We love going to the beach in summer.','Chúng tôi thích đi biển vào mùa hè.','mùa hè'],
+  ['fl-ti-026','/taɪm/','Do you know what time the movie starts?','Bạn có biết mấy giờ bộ phim bắt đầu không?','thời gian / giờ'],
+  ['fl-ti-027','/təˈmɒr.əʊ/','I will see you tomorrow morning at school.','Tôi sẽ gặp bạn sáng mai ở trường.','ngày mai'],
+  ['fl-ti-028','/təˈnaɪt/','We are having a party tonight.','Chúng tôi sẽ tổ chức một bữa tiệc tối nay.','tối nay'],
+  ['fl-ti-029','/ˈwɪn.tər/','It snows a lot in winter in some countries.','Trời có rất nhiều tuyết vào mùa đông ở một số quốc gia.','mùa đông'],
+  ['fl-ti-030','/ˈdʒæn.ju.ə.ri/','January is the first month of the new year.','Tháng Một là tháng đầu tiên của năm mới.','tháng Một'],
+  ['fl-ti-031','/ˈfeb.ru.ər.i/','February is the shortest month.','Tháng Hai là tháng ngắn nhất.','tháng Hai'],
+  ['fl-ti-032','/mɑːtʃ/','The spring flowers start to grow in March.','Hoa mùa xuân bắt đầu mọc vào tháng Ba.','tháng Ba'],
+  ['fl-ti-033','/ˈeɪ.prəl/','April showers bring May flowers.','Những cơn mưa rào tháng Tư mang đến những bông hoa tháng Năm.','tháng Tư'],
+  ['fl-ti-034','/meɪ/','My birthday is in the month of May.','Sinh nhật của tôi vào tháng Năm.','tháng Năm'],
+  ['fl-ti-035','/dʒuːn/','School usually ends in late June.','Trường học thường kết thúc vào cuối tháng Sáu.','tháng Sáu'],
+  ['fl-ti-036','/dʒuˈlaɪ/','July is often very hot and sunny.','Tháng Bảy thường rất nóng và nhiều nắng.','tháng Bảy'],
+  ['fl-ti-037','/ˈɔː.ɡəst/','We are going on holiday in August.','Chúng tôi sẽ đi nghỉ vào tháng Tám.','tháng Tám'],
+  ['fl-ti-038','/sepˈtem.bər/','Students go back to school in September.','Học sinh đi học lại vào tháng Chín.','tháng Chín'],
+  ['fl-ti-039','/ɒkˈtəʊ.bər/','Halloween is at the end of October.','Halloween diễn ra vào cuối tháng Mười.','tháng Mười'],
+  ['fl-ti-040','/nəʊˈvem.bər/','It starts to get very cold in November.','Trời bắt đầu rất lạnh vào tháng Mười Một.','tháng Mười Một'],
+  ['fl-ti-041','/dɪˈsem.bər/','We celebrate Christmas in December.','Chúng tôi mừng Giáng sinh vào tháng Mười Hai.','tháng Mười Hai'],
+
+  // TOYS - STARTERS
+  ['st-to-001','/ˈeɪ.li.ən/','The toy alien has green skin and big eyes.','Món đồ chơi người ngoài hành tinh có da xanh và mắt to.','người ngoài hành tinh'],
+  ['st-to-002','/bɔːl/','He threw the bouncy ball to his friend.','Cậu bé ném quả bóng nảy cho bạn mình.','quả bóng'],
+  ['st-to-003','/bəˈluːn/','They decorated the room with red balloons.','Họ đã trang trí căn phòng bằng những quả bóng bay màu đỏ.','bóng bay'],
+  ['st-to-004','/ˈbeɪs.bɔːl/','We play baseball in the park on weekends.','Chúng tôi chơi bóng chày ở công viên vào cuối tuần.','bóng chày'],
+  ['st-to-005','/ˈbɑː.skɪt.bɔːl/','He got a new basketball for his birthday.','Anh ấy được tặng một quả bóng rổ mới dịp sinh nhật.','bóng rổ'],
+  ['st-to-006','/baɪk/','She learned to ride a bike without training wheels.','Cô bé đã học cách đi xe đạp không có bánh xe phụ.','xe đạp'],
+  ['st-to-007','/ˈbɔːd ˌɡeɪm/','We like to play a board game on rainy days.','Chúng tôi thích chơi trò chơi bàn cờ vào những ngày mưa.','trò chơi bàn cờ (cờ bàn)'],
+  ['st-to-008','/bəʊt/','The boy put his toy boat in the water.','Cậu bé đặt con thuyền đồ chơi của mình xuống nước.','con thuyền'],
+  ['st-to-009','/kɑːr/','He has a big collection of toy cars.','Cậu bé có một bộ sưu tập xe ô tô đồ chơi lớn.','ô tô'],
+  ['st-to-010','/dɒl/','The little girl is dressing up her doll.','Bé gái đang mặc đồ cho búp bê của mình.','búp bê'],
+  ['st-to-011','/ˈfʊt.bɔːl/','They kicked the football across the field.','Họ đá quả bóng đá ngang qua cánh đồng.','quả bóng đá'],
+  ['st-to-012','/ɡeɪm/','This new computer game is very fun.','Trò chơi máy tính mới này rất vui.','trò chơi'],
+  ['st-to-013','/ˈhel.ɪˌkɒp.tər/','The toy helicopter can fly up to the ceiling.','Chiếc trực thăng đồ chơi có thể bay lên tận trần nhà.','trực thăng'],
+  ['st-to-014','/ˈlɒr.i/','He pushes the toy lorry along the floor.','Cậu bé đẩy chiếc xe tải đồ chơi dọc theo sàn nhà.','xe tải'],
+  ['st-to-015','/ˈmɒn.stər/','The toy monster has three eyes and purple fur.','Món đồ chơi quái vật có ba mắt và lông màu tím.','quái vật'],
+  ['st-to-016','/ˈməʊ.tə.baɪk/','My brother has a red toy motorbike.','Em trai tôi có một chiếc xe máy đồ chơi màu đỏ.','xe máy'],
+  ['st-to-017','/pleɪn/','The toy plane zooms across the room.','Chiếc máy bay đồ chơi phóng vèo vèo quanh phòng.','máy bay'],
+  ['st-to-018','/ˈrəʊ.bɒt/','The robot can walk and talk when you press a button.','Người máy có thể đi và nói khi bạn nhấn nút.','người máy'],
+  ['st-to-019','/ˈsɒk.ər/','They play soccer with a soft ball indoors.','Họ chơi bóng đá (Mỹ) với quả bóng mềm trong nhà.','bóng đá (Mỹ)'],
+  ['st-to-020','/ˈted.i/','She sleeps with her favourite teddy bear every night.','Cô bé ngủ với gấu bông yêu thích của mình mỗi đêm.','gấu bông'],
+  ['st-to-021','/tɔɪ/','Please put away every toy when you finish playing.','Vui lòng cất gọn mọi đồ chơi khi bạn chơi xong.','đồ chơi'],
+  ['st-to-022','/treɪn/','The wooden train goes around the track.','Chiếc xe lửa bằng gỗ chạy quanh đường ray.','xe lửa'],
+  ['st-to-023','/trʌk/','The yellow toy truck carries sand in the sandbox.','Chiếc xe tải đồ chơi màu vàng chở cát trong hộp cát.','xe tải (Mỹ)'],
+
+  // TOYS - MOVERS
+  ['mv-to-001','/ˈmɒd.əl/','He built a small model of an airplane.','Cậu bé đã ráp một mô hình nhỏ của một chiếc máy bay.','mô hình'],
+
+  // TRANSPORT - STARTERS
+  ['st-tr-001','/baɪk/','He rides his bike to the park.','Anh ấy đạp xe đến công viên.','xe đạp'],
+  ['st-tr-002','/bəʊt/','We took a small boat across the river.','Chúng tôi đi một chiếc thuyền nhỏ qua sông.','con thuyền'],
+  ['st-tr-003','/bʌs/','I take the bus to school every morning.','Tôi đi xe buýt đến trường mỗi sáng.','xe buýt'],
+  ['st-tr-004','/kɑːr/','My parents drive a blue car.','Bố mẹ tôi lái một chiếc ô tô màu xanh.','ô tô'],
+  ['st-tr-005','/draɪv/','My mother will drive us to the supermarket.','Mẹ sẽ lái xe chở chúng tôi đến siêu thị.','lái xe'],
+  ['st-tr-006','/flaɪ/','Birds can fly high in the sky.','Những chú chim có thể bay cao trên bầu trời.','bay'],
+  ['st-tr-007','/ɡəʊ/','We will go to the zoo by bus tomorrow.','Ngày mai chúng tôi sẽ đi đến sở thú bằng xe buýt.','đi'],
+  ['st-tr-008','/ˈhel.ɪˌkɒp.tər/','The helicopter landed safely on the roof.','Chiếc trực thăng đã hạ cánh an toàn trên mái nhà.','trực thăng'],
+  ['st-tr-009','/ˈlɒr.i/','The lorry is carrying a lot of heavy boxes.','Chiếc xe tải đang chở rất nhiều hộp nặng.','xe tải'],
+  ['st-tr-010','/pleɪn/','We will travel to London by plane.','Chúng tôi sẽ bay đến London bằng máy bay.','máy bay'],
+  ['st-tr-011','/raɪd/','Can you ride a horse?','Bạn có biết cưỡi ngựa không?','cưỡi / đi xe'],
+  ['st-tr-012','/rʌn/','The dog runs very fast.','Con chó chạy rất nhanh.','chạy'],
+  ['st-tr-013','/ʃɪp/','The big ship is sailing across the ocean.','Con tàu lớn đang băng qua đại dương.','tàu thủy'],
+  ['st-tr-014','/swɪm/','Fish swim in the water.','Cá bơi trong nước.','bơi'],
+  ['st-tr-015','/trʌk/','A big truck is driving down the street.','Một chiếc xe tải lớn đang chạy trên đường.','xe tải (Mỹ)'],
+
+  // TRANSPORT - MOVERS
+  ['mv-tr-001','/ˈbʌs ˌsteɪ.ʃən/','We waited for our bus at the main bus station.','Chúng tôi đợi xe buýt của mình ở bến xe buýt trung tâm.','bến xe buýt lớn'],
+  ['mv-tr-002','/ˈbʌs ˌstɒp/','There is a bus stop right outside our house.','Có một trạm xe buýt ngay bên ngoài nhà chúng tôi.','trạm xe buýt'],
+  ['mv-tr-003','/draɪv/','The long drive to the beach took three hours.','Chuyến lái xe dài đến bãi biển mất ba giờ.','chuyến đi (bằng xe)'],
+  ['mv-tr-004','/ˈdraɪ.vər/','The bus driver is very friendly.','Bác tài xế xe buýt rất thân thiện.','tài xế'],
+  ['mv-tr-005','/raɪd/','I enjoyed the roller coaster ride at the funfair.','Tôi rất thích chuyến đi tàu lượn siêu tốc ở hội chợ.','chuyến đi'],
+  ['mv-tr-006','/ˈsteɪ.ʃən/','The train leaves the station at ten o’clock.','Chuyến tàu rời nhà ga lúc mười giờ.','nhà ga'],
+  ['mv-tr-007','/ˈtɪk.ɪt/','You must buy a ticket before getting on the train.','Bạn phải mua vé trước khi lên tàu.','vé'],
+  ['mv-tr-008','/ˈtræk.tər/','The farmer uses a tractor to pull heavy loads.','Người nông dân dùng máy kéo để kéo vật nặng.','máy kéo'],
+  ['mv-tr-009','/trɪp/','Our family went on a trip to the mountains.','Gia đình chúng tôi đã đi một chuyến đến vùng núi.','chuyến đi'],
+
+  // TRANSPORT - FLYERS
+  ['fl-tr-001','/ˈæm.bjə.ləns/','The ambulance took the sick man to the hospital.','Xe cứu thương đã đưa người đàn ông bệnh đến bệnh viện.','xe cứu thương'],
+  ['fl-tr-002','/ˈbaɪ.sɪ.kəl/','He rides his bicycle to work every day.','Anh ấy đạp xe đến chỗ làm mỗi ngày.','xe đạp'],
+  ['fl-tr-003','/ˈfaɪər ˌen.dʒɪn/','The red fire engine rushed to the burning building.','Chiếc xe cứu hỏa màu đỏ vội vã lao đến tòa nhà đang cháy.','xe cứu hỏa'],
+  ['fl-tr-004','/ˈdʒɜː.ni/','The long train journey was very tiring.','Chuyến đi tàu dài rất mệt mỏi.','chuyến hành trình'],
+  ['fl-tr-005','/lɪft/','Let’s take the lift to the fifth floor.','Chúng ta hãy đi thang máy lên tầng năm.','thang máy'],
+  ['fl-tr-006','/ˈməʊ.tə.weɪ/','We drove fast along the motorway to get there sooner.','Chúng tôi lái xe nhanh trên đường cao tốc để đến đó sớm hơn.','đường cao tốc'],
+  ['fl-tr-007','/ˈpæs.ən.dʒər/','There were many passengers on the bus this morning.','Có rất nhiều hành khách trên xe buýt sáng nay.','hành khách'],
+  ['fl-tr-008','/ˈplæt.fɔːm/','The train to London departs from platform three.','Chuyến tàu đến London khởi hành từ sân ga số ba.','sân ga'],
+  ['fl-tr-009','/ˈreɪ.sɪŋ/','Car racing is a very fast and exciting sport.','Đua xe ô tô là một môn thể thao rất nhanh và thú vị.','cuộc đua (xe)'],
+  ['fl-tr-010','/ˈreɪl.weɪ/','We walked along the path near the railway.','Chúng tôi đi dạo dọc theo con đường nhỏ gần đường sắt.','đường sắt'],
+  ['fl-tr-011','/ˈrɒk.ɪt/','The rocket blasted off into space.','Tên lửa đã phóng lên không gian.','tên lửa'],
+  ['fl-tr-012','/ˈspeɪs.ʃɪp/','The astronauts travelled to the moon in a spaceship.','Các phi hành gia đã du hành đến mặt trăng trong một phi thuyền.','phi thuyền'],
+  ['fl-tr-013','/ˈtæk.si/','We took a taxi from the airport to the hotel.','Chúng tôi đã đi taxi từ sân bay về khách sạn.','xe taxi'],
+  ['fl-tr-014','/tʊər/','We went on a guided tour of the famous castle.','Chúng tôi đã tham gia một chuyến tham quan lâu đài nổi tiếng có hướng dẫn.','chuyến tham quan'],
+  ['fl-tr-015','/ˈtræf.ɪk/','There was a lot of traffic on the road this morning.','Sáng nay có rất nhiều xe cộ lưu thông trên đường.','giao thông / xe cộ'],
+  ['fl-tr-016','/wiːl/','The car has four wheels.','Chiếc ô tô có bốn bánh xe.','bánh xe']
+];
+
+let sql = `-- 0022b: Fix ipa+examples+translations — time, toys, transport (133 words)\n-- Generated: ${new Date().toISOString()}\n\n`;
+for(const [id, ipa, en, vi, trans] of D) {
+  sql += `UPDATE vocabulary_bank SET ipa='${ipa.replace(/'/g, "''")}', example_en='${en.replace(/'/g, "''")}', example_vi='${vi.replace(/'/g, "''")}', translation_vi='${trans.replace(/'/g, "''")}' WHERE id='${id}';\n`;
+}
+sql += `\n-- Total: ${D.length} rows\n`;
+
+const out = path.join(__dirname, 'src/worker/migrations/0022b_fix_time_toys_transport.sql');
+fs.writeFileSync(out, sql);
+console.log(`✅ ${out}\n📊 ${D.length} rows`);

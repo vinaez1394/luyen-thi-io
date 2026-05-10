@@ -1,0 +1,122 @@
+{
+  "id": "READING-MED-GRADE5-P1",
+  "title": "Reading Comprehension — Medium — Grade 5-6 — Environment & Recycling",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "medium",
+  "grade_min": 5,
+  "grade_max": 6,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Our planet Earth is facing many serious (0) environmental problems today. One of the biggest challenges is (1) _____, which happens when factories and vehicles release harmful gases into the air. Cutting down forests, known as (2) _____, destroys the homes of millions of animals and reduces the amount of oxygen in the air. People must change their daily (3) _____ to help protect the environment. Small actions like saving water, using less plastic, and planting trees can make a big (4) _____ to the future of our planet.",
+        "text_segments": [
+          { "text": "Our planet Earth is facing many serious " },
+          { "text": "(0) environmental", "highlight": true, "tooltip": { "vi": "liên quan đến môi trường", "ipa": "ɪnˌvaɪrənˈmentl" } },
+          { "text": " problems today. One of the biggest challenges is (1) _____, which happens when factories and vehicles release harmful gases into the air. Cutting down forests, known as (2) _____, destroys the homes of millions of animals and reduces the amount of oxygen in the air. People must change their daily (3) _____ to help " },
+          { "text": "protect", "tooltip": { "vi": "bảo vệ", "ipa": "prəˈtekt" } },
+          { "text": " the environment. Small actions like saving water, using less plastic, and " },
+          { "text": "planting", "tooltip": { "vi": "trồng cây", "ipa": "ˈplɑːntɪŋ" } },
+          { "text": " trees can make a big (4) _____ to the future of our planet." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "One of the biggest challenges is (1) _____, which happens when factories and vehicles release harmful gases into the air.",
+          "options": ["pollution", "education", "decoration"],
+          "correct": "pollution",
+          "explanation_vi": "'Pollution' nghĩa là ô nhiễm — xảy ra khi nhà máy và phương tiện giao thông thải khí độc vào không khí."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Cutting down forests, known as (2) _____, destroys the homes of millions of animals.",
+          "options": ["deforestation", "decoration", "conversation"],
+          "correct": "deforestation",
+          "explanation_vi": "'Deforestation' nghĩa là phá rừng — hành động chặt cây rừng làm mất nơi sống của động vật."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "People must change their daily (3) _____ to help protect the environment.",
+          "options": ["habits", "clothes", "houses"],
+          "correct": "habits",
+          "explanation_vi": "'Habits' nghĩa là thói quen hàng ngày — con người cần thay đổi thói quen để bảo vệ môi trường."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Small actions can make a big (4) _____ to the future of our planet.",
+          "options": ["difference", "mistake", "noise"],
+          "correct": "difference",
+          "explanation_vi": "'Make a difference' là thành ngữ nghĩa là tạo ra sự thay đổi tích cực."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Recycling is one of the most effective ways to reduce waste and protect the environment. When we recycle materials such as paper, glass, metal, and plastic, we reduce the amount of rubbish that goes to landfills. Landfills are large areas of land used for burying waste, and they can cause serious pollution to the soil and groundwater. Recycling also saves energy because it requires less power to make new products from recycled materials than from raw materials. For example, recycling one aluminium can saves enough energy to power a television for three hours. Many countries have introduced special coloured bins to make it easier for people to sort their rubbish before it is collected.",
+        "text_segments": [
+          { "text": "Recycling is one of the most effective ways to reduce " },
+          { "text": "waste", "tooltip": { "vi": "rác thải, chất thải", "ipa": "weɪst" } },
+          { "text": " and protect the environment. When we recycle materials such as paper, glass, metal, and plastic, we reduce the amount of rubbish that goes to " },
+          { "text": "landfills", "tooltip": { "vi": "bãi chôn lấp rác", "ipa": "ˈlændfɪlz" } },
+          { "text": ". Landfills are large areas of land used for burying waste, and they can cause serious " },
+          { "text": "pollution", "tooltip": { "vi": "ô nhiễm", "ipa": "pəˈluːʃn" } },
+          { "text": " to the soil and groundwater. Recycling also saves energy because it requires less power to make new products from " },
+          { "text": "recycled", "tooltip": { "vi": "đã được tái chế", "ipa": "ˌriːˈsaɪkld" } },
+          { "text": " materials than from raw materials. For example, recycling one aluminium can saves enough energy to power a television for three hours." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Landfills help to improve the quality of soil and groundwater.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'they can cause serious pollution to the soil and groundwater' — bãi chôn lấp gây ô nhiễm đất và nước ngầm, không cải thiện chất lượng."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "It takes less energy to produce items from recycled materials than from new raw materials.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'requires less power to make new products from recycled materials than from raw materials.'"
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "How long can one recycled aluminium can power a television?",
+          "options": ["one hour", "two hours", "three hours"],
+          "correct": "three hours",
+          "explanation_vi": "Bài viết 'recycling one aluminium can saves enough energy to power a television for three hours.'"
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage meaning 'large areas where rubbish is buried under the ground'.",
+          "correct": "landfills",
+          "explanation_vi": "'Landfills' là bãi chôn lấp — nơi rác thải được chôn vùi dưới đất."
+        }
+      ]
+    }
+  ]
+}

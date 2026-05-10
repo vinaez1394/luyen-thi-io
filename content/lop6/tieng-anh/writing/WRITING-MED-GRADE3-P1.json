@@ -1,0 +1,378 @@
+{
+  "id": "WRITING-MED-GRADE3-P1",
+  "title": "Writing — Trung bình — Lớp 3-4 — Bài 1",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 3,
+  "grade_max": 4,
+  "grade_target": "3-4",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the words to make correct sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các từ/cụm từ bị xáo trộn để tạo thành câu hoàn chỉnh và có nghĩa.",
+      "example": {
+        "display_cues": "my uncle / a small village / lives / in / near the river /.//",
+        "answer": "My uncle lives in a small village near the river."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "is / the kitchen / cooking / mother / in / my /.//",
+          "cues_segments": [
+            {
+              "text": "is / the kitchen / "
+            },
+            {
+              "text": "cooking",
+              "tooltip": {
+                "vi": "đang nấu ăn",
+                "ipa": "ˈkʊkɪŋ"
+              }
+            },
+            {
+              "text": " / mother / in / my /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": [
+            "my",
+            "mother",
+            "is",
+            "cooking",
+            "in",
+            "the kitchen"
+          ],
+          "correct": [
+            "my",
+            "mother",
+            "is",
+            "cooking",
+            "in",
+            "the kitchen"
+          ],
+          "explanation": {
+            "correct_sentence": "My mother is cooking in the kitchen.",
+            "structure_vi": "S + is/are/am + V-ing + in + nơi chốn",
+            "grammar_notes": [
+              "✅ 'My mother' là chủ ngữ số ít nên dùng 'is'.",
+              "✅ Thì hiện tại tiếp diễn mô tả hành động đang xảy ra: 'is cooking'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "cooking",
+                "vi": "nấu ăn",
+                "ipa": "ˈkʊkɪŋ"
+              },
+              {
+                "word": "kitchen",
+                "vi": "nhà bếp",
+                "ipa": "ˈkɪtʃɪn"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My mother cooking' → thiếu to be 'is'."
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "do / you / what / have / today / subjects /?//",
+          "cues_segments": [
+            {
+              "text": "do / you / what / have / today / "
+            },
+            {
+              "text": "subjects",
+              "tooltip": {
+                "vi": "môn học",
+                "ipa": "ˈsʌbdʒɪkts"
+              }
+            },
+            {
+              "text": " /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5}?",
+          "word_bank": [
+            "what",
+            "subjects",
+            "do",
+            "you",
+            "have",
+            "today"
+          ],
+          "correct": [
+            "what",
+            "subjects",
+            "do",
+            "you",
+            "have",
+            "today"
+          ],
+          "explanation": {
+            "correct_sentence": "What subjects do you have today?",
+            "structure_vi": "What subjects + do/does + S + have + thời gian?",
+            "grammar_notes": [
+              "✅ Câu hỏi về môn học: 'What subjects' đứng đầu câu.",
+              "✅ Mượn trợ động từ 'do' cho chủ ngữ 'you'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "subjects",
+                "vi": "môn học",
+                "ipa": "ˈsʌbdʒɪkts"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'What you have subjects' → từ để hỏi phải đi liền với danh từ 'What subjects'."
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "I / monkeys / they / funny / are / because / like /.//",
+          "cues_segments": [
+            {
+              "text": "I / monkeys / they / "
+            },
+            {
+              "text": "funny",
+              "tooltip": {
+                "vi": "buồn cười",
+                "ipa": "ˈfʌni"
+              }
+            },
+            {
+              "text": " / are / "
+            },
+            {
+              "text": "because",
+              "tooltip": {
+                "vi": "bởi vì",
+                "ipa": "bɪˈkɒz"
+              }
+            },
+            {
+              "text": " / like /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4} {5} {6}.",
+          "word_bank": [
+            "I",
+            "like",
+            "monkeys",
+            "because",
+            "they",
+            "are",
+            "funny"
+          ],
+          "correct": [
+            "I",
+            "like",
+            "monkeys",
+            "because",
+            "they",
+            "are",
+            "funny"
+          ],
+          "explanation": {
+            "correct_sentence": "I like monkeys because they are funny.",
+            "structure_vi": "S + like(s) + N + because + S + be + adj",
+            "grammar_notes": [
+              "✅ 'because' (bởi vì) dùng để giải thích lý do thích một con vật.",
+              "✅ Động từ to be đi với 'they' là 'are'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "monkeys",
+                "vi": "những con khỉ",
+                "ipa": "ˈmʌŋkiz"
+              },
+              {
+                "word": "funny",
+                "vi": "vui nhộn, buồn cười",
+                "ipa": "ˈfʌni"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'because they is funny' → 'they' phải đi với 'are'."
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "would / some / you / like / milk /?//",
+          "cues_segments": [
+            {
+              "text": "would / some / you / like / milk /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "would",
+            "you",
+            "like",
+            "some",
+            "milk"
+          ],
+          "correct": [
+            "would",
+            "you",
+            "like",
+            "some",
+            "milk"
+          ],
+          "explanation": {
+            "correct_sentence": "Would you like some milk?",
+            "structure_vi": "Would you like + some + danh từ?",
+            "grammar_notes": [
+              "✅ Cấu trúc dùng để mời ai đó món đồ ăn/đồ uống một cách lịch sự.",
+              "✅ 'some' được dùng trong câu mời hoặc đề nghị mặc dù đây là câu hỏi."
+            ],
+            "vocab_notes": [
+              {
+                "word": "would like",
+                "vi": "muốn",
+                "ipa": "wʊd laɪk"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Do you like some milk?' → câu mời nên dùng 'Would you like'."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "there / be / a big garden / behind / our house /.//",
+        "answer": "There is a big garden behind our house."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "my sister / be / read / a book / her room / now /.//",
+          "cues_segments": [
+            {
+              "text": "my sister / be / read / a book / her room / now /.//"
+            }
+          ],
+          "correct_sentence": "My sister is reading a book in her room now.",
+          "accepted_answers": [
+            "My sister is reading a book in her room now."
+          ],
+          "explanation": {
+            "correct_sentence": "My sister is reading a book in her room now.",
+            "structure_vi": "S + is/are/am + V-ing + O + in + nơi chốn + now",
+            "grammar_notes": [
+              "✅ Từ 'now' báo hiệu thì Hiện tại tiếp diễn.",
+              "✅ Động từ 'read' chuyển thành 'reading'. Chủ ngữ số ít 'my sister' đi với 'is'."
+            ],
+            "vocab_notes": [
+              {
+                "word": "read a book",
+                "vi": "đọc sách",
+                "ipa": "riːd ə bʊk"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My sister read' → sai thì.",
+              "❌ Sai: 'at her room' → dùng 'in her room'."
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "there / be / a / big yard / in front of / my house /.//",
+          "cues_segments": [
+            {
+              "text": "there / be / a / big "
+            },
+            {
+              "text": "yard",
+              "tooltip": {
+                "vi": "sân",
+                "ipa": "jɑːd"
+              }
+            },
+            {
+              "text": " / in front of / my house /.//"
+            }
+          ],
+          "correct_sentence": "There is a big yard in front of my house.",
+          "accepted_answers": [
+            "There is a big yard in front of my house."
+          ],
+          "explanation": {
+            "correct_sentence": "There is a big yard in front of my house.",
+            "structure_vi": "There is + a/an + N (số ít) + giới từ chỉ vị trí + nơi chốn",
+            "grammar_notes": [
+              "✅ 'a big yard' là danh từ số ít nên dùng 'There is'.",
+              "✅ 'in front of' nghĩa là phía trước."
+            ],
+            "vocab_notes": [
+              {
+                "word": "in front of",
+                "vi": "ở phía trước",
+                "ipa": "ɪn frʌnt ɒv"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'There are a big yard' → danh từ số ít phải dùng 'is'."
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "she / have / maths / Mondays / Wednesdays /.//",
+          "cues_segments": [
+            {
+              "text": "she / have / maths / Mondays / Wednesdays /.//"
+            }
+          ],
+          "correct_sentence": "She has maths on Mondays and Wednesdays.",
+          "accepted_answers": [
+            "She has maths on Mondays and Wednesdays.",
+            "She has maths on Mondays and on Wednesdays."
+          ],
+          "explanation": {
+            "correct_sentence": "She has maths on Mondays and Wednesdays.",
+            "structure_vi": "S + have/has + môn học + on + ngày",
+            "grammar_notes": [
+              "✅ Chủ ngữ 'She' thì động từ 'have' phải đổi thành 'has'.",
+              "✅ Dùng giới từ 'on' trước ngày trong tuần."
+            ],
+            "vocab_notes": [
+              {
+                "word": "maths",
+                "vi": "môn Toán",
+                "ipa": "mæθs"
+              }
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'She have' → She đi với has.",
+              "❌ Sai: 'in Mondays' → ngày dùng 'on'."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

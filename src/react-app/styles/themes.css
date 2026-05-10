@@ -11,35 +11,39 @@
    Dành cho: Học sinh thích màu tím, cảm giác sáng tạo
    =================================================== */
 [data-theme="purple"] {
-  --color-primary:        #6366F1;  /* Indigo chính */
-  --color-primary-light:  #EEF2FF;  /* Nền nhạt primary */
-  --color-primary-dark:   #4F46E5;  /* Hover state */
-  --color-secondary:      #F59E0B;  /* Vàng accent */
+  --color-primary:        #6366F1;
+  --color-primary-light:  #EEF2FF;
+  --color-primary-dark:   #4F46E5;
+  --color-secondary:      #F59E0B;
   --color-secondary-light:#FEF3C7;
-  --color-success:        #10B981;  /* Xanh lá đúng */
+  --color-success:        #10B981;
   --color-success-light:  #D1FAE5;
-  --color-danger:         #F87171;  /* Đỏ sai */
+  --color-danger:         #F87171;
   --color-danger-light:   #FEE2E2;
   --color-warning:        #FBBF24;
   --color-warning-light:  #FEF9C3;
-  --color-accent:         #EC4899;  /* Hồng star/badge */
+  --color-accent:         #EC4899;
   --color-accent-light:   #FCE7F3;
 
-  --color-bg:             #F5F3FF;  /* Nền app */
-  --color-bg-subtle:      #EDE9FE;  /* Nền section phụ */
-  --color-card:           #FFFFFF;  /* Nền card */
+  --color-bg:             #F5F3FF;
+  --color-bg-subtle:      #EDE9FE;
+  --color-card:           #FFFFFF;
   --color-card-hover:     #FAFAFA;
-  --color-text:           #1E1B4B;  /* Chữ chính */
-  --color-text-muted:     #6B7280;  /* Chữ phụ */
-  --color-text-light:     #9CA3AF;  /* Placeholder */
-  --color-border:         #E5E7EB;  /* Viền */
-  --color-border-focus:   #6366F1;  /* Viền khi focus */
+  --color-text:           #1E1B4B;
+  --color-text-muted:     #6B7280;
+  --color-text-light:     #9CA3AF;
+  --color-border:         #E5E7EB;
+  --color-border-focus:   #6366F1;
 
-  /* Star colors */
+  /* Aliases dùng trong components */
+  --color-text-primary:   #1E1B4B;
+  --color-text-secondary: #6B7280;
+  --color-surface:        #FFFFFF;
+  --color-surface-elevated: #F5F3FF;
+
   --color-star-fill:      #F59E0B;
   --color-star-empty:     #E5E7EB;
 
-  /* Gradient */
   --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
   --gradient-bg:      linear-gradient(180deg, #EEF2FF 0%, #F5F3FF 100%);
 }
@@ -72,6 +76,12 @@
   --color-text-light:     #94A3B8;
   --color-border:         #BAE6FD;
   --color-border-focus:   #0EA5E9;
+
+  /* Aliases */
+  --color-text-primary:   #0C4A6E;
+  --color-text-secondary: #4B7280;
+  --color-surface:        #FFFFFF;
+  --color-surface-elevated: #F0F9FF;
 
   --color-star-fill:      #F59E0B;
   --color-star-empty:     #BAE6FD;
@@ -109,6 +119,12 @@
   --color-border:         #FBCFE8;
   --color-border-focus:   #EC4899;
 
+  /* Aliases */
+  --color-text-primary:   #500724;
+  --color-text-secondary: #6B5563;
+  --color-surface:        #FFFFFF;
+  --color-surface-elevated: #FFF0F9;
+
   --color-star-fill:      #F59E0B;
   --color-star-empty:     #FBCFE8;
 
@@ -144,6 +160,12 @@
   --color-text-light:     #86ABAC;
   --color-border:         #BBF7D0;
   --color-border-focus:   #16A34A;
+
+  /* Aliases */
+  --color-text-primary:   #14532D;
+  --color-text-secondary: #3F6B47;
+  --color-surface:        #FFFFFF;
+  --color-surface-elevated: #F0FDF4;
 
   --color-star-fill:      #F59E0B;
   --color-star-empty:     #BBF7D0;
@@ -181,6 +203,12 @@
   --color-border:         #334155;
   --color-border-focus:   #818CF8;
 
+  /* Aliases — đảm bảo tất cả text trên dark bg đợc đọc */
+  --color-text-primary:   #E2E8F0;
+  --color-text-secondary: #94A3B8;
+  --color-surface:        #1E293B;
+  --color-surface-elevated: #273549;
+
   --color-star-fill:      #FCD34D;
   --color-star-empty:     #334155;
 
@@ -216,6 +244,12 @@
   --color-text-light:     #9CA3AF;
   --color-border:         #FED7AA;
   --color-border-focus:   #F97316;
+
+  /* Aliases */
+  --color-text-primary:   #431407;
+  --color-text-secondary: #6B4226;
+  --color-surface:        #FFFFFF;
+  --color-surface-elevated: #FFF7ED;
 
   --color-star-fill:      #EAB308;
   --color-star-empty:     #FED7AA;

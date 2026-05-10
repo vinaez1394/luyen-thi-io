@@ -1,0 +1,495 @@
+{
+  "id": "MATH-L1-P1",
+  "title": "Toán Tư Duy (English) — Level 1 — Bài 1",
+  "skill": "math",
+  "level": "level-1",
+  "part": 1,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc kỹ từng câu hỏi và chọn đáp án đúng nhất. Các từ gạch chân có thể click để xem nghĩa tiếng Việt. Mỗi câu chỉ có 1 đáp án đúng.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": [
+        {
+          "text": "Find the "
+        },
+        {
+          "text": "next",
+          "tooltip": {
+            "vi": "tiếp theo",
+            "ipa": "nekst"
+          }
+        },
+        {
+          "text": " number in the "
+        },
+        {
+          "text": "sequence",
+          "tooltip": {
+            "vi": "dãy số (có quy luật)",
+            "ipa": "ˈsiːkwəns"
+          }
+        },
+        {
+          "text": ": 1, 4, 9, 16, 25, ..."
+        }
+      ],
+      "options": [
+        "30",
+        "34",
+        "36",
+        "40"
+      ],
+      "correct": "36",
+      "explanation_vi": "Đây là dãy số bình phương: 1², 2², 3², 4², 5²... Số tiếp theo là 6² = 36. Hoặc hiểu theo cách cộng dồn: +3, +5, +7, +9, +11 → 25 + 11 = 36."
+    },
+    {
+      "id": "q2",
+      "prompt": [
+        {
+          "text": "Tom is 7 years old and his "
+        },
+        {
+          "text": "sister",
+          "tooltip": {
+            "vi": "chị/em gái",
+            "ipa": "ˈsɪstər"
+          }
+        },
+        {
+          "text": " is 4. In how many years will the "
+        },
+        {
+          "text": "sum",
+          "tooltip": {
+            "vi": "tổng (cộng lại)",
+            "ipa": "sʌm"
+          }
+        },
+        {
+          "text": " of their "
+        },
+        {
+          "text": "ages",
+          "tooltip": {
+            "vi": "tuổi (số nhiều của age)",
+            "ipa": "eɪdʒɪz"
+          }
+        },
+        {
+          "text": " be 17?"
+        }
+      ],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": "3",
+      "explanation_vi": "Tổng tuổi hiện tại là 7 + 4 = 11. Cần tổng = 17, tức cần thêm 6. Vì mỗi năm tổng tăng 2 (mỗi người thêm 1 tuổi), nên cần 6 ÷ 2 = 3 năm."
+    },
+    {
+      "id": "q3",
+      "prompt": [
+        {
+          "text": "A "
+        },
+        {
+          "text": "ribbon",
+          "tooltip": {
+            "vi": "dây ruy băng, dải lụa",
+            "ipa": "ˈrɪbən"
+          }
+        },
+        {
+          "text": " is cut into 8 "
+        },
+        {
+          "text": "pieces",
+          "tooltip": {
+            "vi": "mảnh, miếng",
+            "ipa": "ˈpiːsɪz"
+          }
+        },
+        {
+          "text": ". Each "
+        },
+        {
+          "text": "cut",
+          "tooltip": {
+            "vi": "lần cắt",
+            "ipa": "kʌt"
+          }
+        },
+        {
+          "text": " takes 2 minutes. How many minutes does it take in "
+        },
+        {
+          "text": "total",
+          "tooltip": {
+            "vi": "tất cả, tổng cộng",
+            "ipa": "ˈtoʊtəl"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "16",
+        "14",
+        "12",
+        "10"
+      ],
+      "correct": "14",
+      "explanation_vi": "Để cắt 8 mảnh chỉ cần 7 lần cắt (không phải 8). Mỗi lần cắt mất 2 phút → 7 × 2 = 14 phút."
+    },
+    {
+      "id": "q4",
+      "prompt": [
+        {
+          "text": "In a "
+        },
+        {
+          "text": "line",
+          "tooltip": {
+            "vi": "hàng (người đứng thành hàng)",
+            "ipa": "laɪn"
+          }
+        },
+        {
+          "text": ", Mary is 3rd from the "
+        },
+        {
+          "text": "front",
+          "tooltip": {
+            "vi": "phía trước",
+            "ipa": "frʌnt"
+          }
+        },
+        {
+          "text": " and 8th from the "
+        },
+        {
+          "text": "back",
+          "tooltip": {
+            "vi": "phía sau",
+            "ipa": "bæk"
+          }
+        },
+        {
+          "text": ". How many people are in the line?"
+        }
+      ],
+      "options": [
+        "11",
+        "10",
+        "12",
+        "9"
+      ],
+      "correct": "10",
+      "explanation_vi": "Mary đứng thứ 3 từ phía trước: có 2 người phía trước Mary. Mary đứng thứ 8 từ phía sau: có 7 người phía sau Mary. Tổng = 2 + 1 (Mary) + 7 = 10 người."
+    },
+    {
+      "id": "q5",
+      "prompt": [
+        {
+          "text": "A "
+        },
+        {
+          "text": "farm",
+          "tooltip": {
+            "vi": "trang trại",
+            "ipa": "fɑːrm"
+          }
+        },
+        {
+          "text": " has "
+        },
+        {
+          "text": "cows",
+          "tooltip": {
+            "vi": "bò cái (số nhiều)",
+            "ipa": "kaʊz"
+          }
+        },
+        {
+          "text": " and "
+        },
+        {
+          "text": "ducks",
+          "tooltip": {
+            "vi": "vịt (số nhiều)",
+            "ipa": "dʌks"
+          }
+        },
+        {
+          "text": ". There are 7 animals and 22 "
+        },
+        {
+          "text": "legs",
+          "tooltip": {
+            "vi": "chân (số nhiều)",
+            "ipa": "leɡz"
+          }
+        },
+        {
+          "text": " in total. How many cows are there?"
+        }
+      ],
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": "4",
+      "explanation_vi": "Giả sử tất cả 7 con đều là vịt → 7 × 2 = 14 chân. Thực tế có 22 chân, thừa 8 chân. Mỗi con bò thay thế vịt sẽ thêm 4 - 2 = 2 chân. Vậy có 8 ÷ 2 = 4 con bò."
+    },
+    {
+      "id": "q6",
+      "prompt": [
+        {
+          "text": "Think of a number. "
+        },
+        {
+          "text": "Subtract",
+          "tooltip": {
+            "vi": "trừ đi",
+            "ipa": "səbˈtrækt"
+          }
+        },
+        {
+          "text": " 4, then "
+        },
+        {
+          "text": "multiply",
+          "tooltip": {
+            "vi": "nhân với",
+            "ipa": "ˈmʌltɪplaɪ"
+          }
+        },
+        {
+          "text": " by 3 to get 18. What is the number?"
+        }
+      ],
+      "options": [
+        "10",
+        "8",
+        "12",
+        "14"
+      ],
+      "correct": "10",
+      "explanation_vi": "Tính ngược: 18 ÷ 3 = 6. Rồi 6 + 4 = 10. Kiểm tra: (10 - 4) × 3 = 6 × 3 = 18 ✓"
+    },
+    {
+      "id": "q7",
+      "prompt": [
+        {
+          "text": "How many "
+        },
+        {
+          "text": "digits",
+          "tooltip": {
+            "vi": "chữ số (0-9)",
+            "ipa": "ˈdɪdʒɪts"
+          }
+        },
+        {
+          "text": " are needed to "
+        },
+        {
+          "text": "number",
+          "tooltip": {
+            "vi": "đánh số (ghi số thứ tự)",
+            "ipa": "ˈnʌmbər"
+          }
+        },
+        {
+          "text": " the "
+        },
+        {
+          "text": "pages",
+          "tooltip": {
+            "vi": "các trang (sách)",
+            "ipa": "ˈpeɪdʒɪz"
+          }
+        },
+        {
+          "text": " of a book from page 1 to page 25?"
+        }
+      ],
+      "options": [
+        "25",
+        "32",
+        "41",
+        "45"
+      ],
+      "correct": "41",
+      "explanation_vi": "Trang 1–9: có 9 trang, mỗi trang dùng 1 chữ số → 9 chữ số. Trang 10–25: có 16 trang, mỗi trang dùng 2 chữ số → 32 chữ số. Tổng: 9 + 32 = 41 chữ số."
+    },
+    {
+      "id": "q8",
+      "prompt": [
+        {
+          "text": "1 "
+        },
+        {
+          "text": "papaya",
+          "tooltip": {
+            "vi": "quả đu đủ",
+            "ipa": "pəˈpaɪə"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "weighs",
+          "tooltip": {
+            "vi": "nặng bằng",
+            "ipa": "weɪz"
+          }
+        },
+        {
+          "text": " as much as 2 "
+        },
+        {
+          "text": "mangoes",
+          "tooltip": {
+            "vi": "quả xoài (số nhiều)",
+            "ipa": "ˈmæŋɡoʊz"
+          }
+        },
+        {
+          "text": ". 1 mango weighs as much as 3 "
+        },
+        {
+          "text": "apples",
+          "tooltip": {
+            "vi": "quả táo (số nhiều)",
+            "ipa": "ˈæpəlz"
+          }
+        },
+        {
+          "text": ". How many apples weigh the same as 1 papaya?"
+        }
+      ],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": "6",
+      "explanation_vi": "1 đu đủ = 2 xoài. Vì 1 xoài = 3 táo nên 2 xoài = 6 táo. Vậy 1 đu đủ = 6 táo."
+    },
+    {
+      "id": "q9",
+      "prompt": [
+        {
+          "text": "If today is "
+        },
+        {
+          "text": "Sunday",
+          "tooltip": {
+            "vi": "Chủ Nhật",
+            "ipa": "ˈsʌndeɪ"
+          }
+        },
+        {
+          "text": ", what "
+        },
+        {
+          "text": "day",
+          "tooltip": {
+            "vi": "ngày (trong tuần)",
+            "ipa": "deɪ"
+          }
+        },
+        {
+          "text": " will it be 12 days from now?"
+        }
+      ],
+      "options": [
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Monday"
+      ],
+      "correct": "Friday",
+      "explanation_vi": "12 ÷ 7 = 1 tuần dư 5 ngày. Đếm 5 ngày sau Chủ nhật: Thứ 2 → Thứ 3 → Thứ 4 → Thứ 5 → Thứ 6 (Friday)."
+    },
+    {
+      "id": "q10",
+      "prompt": [
+        {
+          "text": "5 "
+        },
+        {
+          "text": "cubes",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːbz"
+          }
+        },
+        {
+          "text": " are "
+        },
+        {
+          "text": "stacked",
+          "tooltip": {
+            "vi": "xếp chồng lên nhau",
+            "ipa": "stækt"
+          }
+        },
+        {
+          "text": " in a single vertical "
+        },
+        {
+          "text": "column",
+          "tooltip": {
+            "vi": "cột (thẳng đứng)",
+            "ipa": "ˈkɒləm"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "faces",
+          "tooltip": {
+            "vi": "mặt (của khối lập phương)",
+            "ipa": "ˈfeɪsɪz"
+          }
+        },
+        {
+          "text": " of the cubes are not "
+        },
+        {
+          "text": "visible",
+          "tooltip": {
+            "vi": "nhìn thấy được",
+            "ipa": "ˈvɪzɪbəl"
+          }
+        },
+        {
+          "text": " (hidden)?"
+        }
+      ],
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "correct": "8",
+      "explanation_vi": "5 khối lập phương xếp chồng có 4 điểm tiếp xúc (giữa cube 1-2, 2-3, 3-4, 4-5). Mỗi điểm tiếp xúc che đi 2 mặt → 4 × 2 = 8 mặt bị che."
+    }
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "4-5"
+}

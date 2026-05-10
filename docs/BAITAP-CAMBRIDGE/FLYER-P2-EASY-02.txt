@@ -1,0 +1,42 @@
+CHỦ ĐỀ "WEEKEND ACTIVITIES" (HOẠT ĐỘNG CUỐI TUẦN)
+
+**Nội dung bài tập:** Đọc đoạn hội thoại và chọn câu trả lời đúng nhất (A-H). Viết chữ cái tương ứng vào chỗ trống. Có một câu ví dụ.
+
+**Example:**
+**David:** Hi Helen! What did you do on Saturday?
+**Helen:** **E**
+
+**Questions:**
+
+1. **David:** Did you play football there?
+**Helen:** __________
+2. **David:** Who was with you?
+**Helen:** __________
+3. **David:** What did you have for lunch?
+**Helen:** __________
+4. **David:** Was it a sunny day?
+**Helen:** __________
+5. **David:** I want to go to the park too!
+**Helen:** __________
+
+**Options (A-H):**
+
+* **A.** Some cheese sandwiches and grapes.
+* **B.** My older sister and her friend.
+* **C.** No, it was a bit cloudy.
+* **D.** Yes, I’d love to!
+* **E.** I went to the park with my dog. **(Example)**
+* **F.** No, we played with a frisbee instead.
+* **G.** You can come with us next Saturday!
+* **H.** It’s next to the library.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+
+1. **F** (Hỏi về hoạt động bóng đá -> Phủ định và đưa ra hoạt động thay thế)
+2. **B** (Hỏi về người đi cùng -> Sister and friend)
+3. **A** (Hỏi về món ăn trưa -> Sandwiches and grapes)
+4. **C** (Hỏi về thời tiết -> It was cloudy)
+5. **G** (Lời bày tỏ mong muốn -> Lời mời cho lần tới)

@@ -1,0 +1,44 @@
+{
+  "passage_id": "animals-p5",
+  "topic": "animals",
+  "title": "Under the Sea",
+  "level": "flyers",
+  "word_count": 108,
+  "segments": [
+    { "type": "text", "content": "The ocean is full of amazing creatures. A huge grey " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-016",
+      "options": ["shark", "penguin", "bee"],
+      "answer": "shark",
+      "explanation_vi": "'shark' = cá mập — cá lớn có hàm sắc bén, là loài săn mồi đỉnh ở đại dương."
+    },
+    { "type": "text", "content": " swam past the coral reef. An orange " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-014",
+      "options": ["octopus", "lion", "camel"],
+      "answer": "octopus",
+      "explanation_vi": "'octopus' = con bạch tuộc — có tám cánh tay, sống ở đáy biển và có thể thay đổi màu sắc."
+    },
+    { "type": "text", "content": " hid behind a rock using its eight arms. A pink " },
+    {
+      "type": "blank",
+      "word_id": "fl-an-010",
+      "options": ["jellyfish", "wolf", "fox"],
+      "answer": "jellyfish",
+      "explanation_vi": "'jellyfish' = con sứa — sinh vật biển trong suốt, có thể gây bỏng khi chạm vào."
+    },
+    { "type": "text", "content": " floated slowly near the surface. A tiny " },
+    {
+      "type": "blank",
+      "word_id": "st-an-021",
+      "options": ["snail", "zebra", "puppy"],
+      "answer": "snail",
+      "explanation_vi": "'snail' = con ốc sên — di chuyển rất chậm, mang vỏ cứng trên lưng."
+    },
+    { "type": "text", "content": " moved slowly along the seabed. The ocean is a magical world!" }
+  ],
+  "explanation_vi": "Đoạn văn về thế giới đại dương: cá mập (shark), bạch tuộc (octopus), sứa (jellyfish), ốc sên (snail). Đại dương là ngôi nhà của hàng triệu loài sinh vật.",
+  "created_at": "2026-05-07"
+}

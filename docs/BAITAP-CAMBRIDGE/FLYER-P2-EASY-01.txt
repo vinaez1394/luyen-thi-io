@@ -1,0 +1,44 @@
+CHỦ ĐỀ "A VISIT TO THE ZOO" (CHUYẾN ĐI SỞ THÚ)
+
+**Nội dung bài tập:** Đọc đoạn hội thoại và chọn câu trả lời đúng nhất (A-H). Viết chữ cái tương ứng vào chỗ trống. Có một câu ví dụ.
+
+**Example:**
+**Sarah:** Did you have a good time at the zoo yesterday, Bill?
+**Bill:** **C**
+
+**Questions:**
+
+1. **Sarah:** Which animal did you like best?
+**Bill:** __________
+2. **Sarah:** Were the lions scary?
+**Bill:** __________
+3. **Sarah:** How did you get there?
+**Bill:** __________
+4. **Sarah:** Did you take any photos of the monkeys?
+**Bill:** __________
+5. **Sarah:** Let’s go together next time!
+**Bill:** __________
+
+**Options (A-H):**
+
+* **A.** By bus, it was very fast.
+* **B.** No, they were just sleeping.
+* **C.** Yes, it was great! **(Example)**
+* **D.** That’s a good idea!
+* **E.** My brother went with me.
+* **F.** The penguins, they were so funny.
+* **G.** Yes, I used my new camera.
+* **H.** I’m going to buy an ice cream.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+
+
+1. **F** (Hỏi về con vật yêu thích -> Penguins)
+2. **B** (Hỏi cảm xúc về con sư tử -> Trả lời về trạng thái của chúng)
+3. **A** (Hỏi phương tiện đi lại -> By bus)
+4. **G** (Hỏi về việc chụp ảnh -> Trả lời có và dùng camera)
+5. **D** (Lời rủ rê -> Đồng ý)
+

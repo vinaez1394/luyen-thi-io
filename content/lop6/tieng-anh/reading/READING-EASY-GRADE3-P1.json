@@ -1,0 +1,122 @@
+{
+  "id": "READING-EASY-GRADE3-P1",
+  "title": "Reading Comprehension — Easy — Grade 3-4 — Pets & School Garden",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "easy",
+  "grade_min": 3,
+  "grade_max": 4,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Dogs are the most (0) common pets in the world. They are (1) _____ animals that are easy to train. Dogs can (2) _____ loudly when someone knocks on the door. Most families like to (3) _____ their dogs in the park on weekends. Playing with a dog makes people feel (4) _____ and relaxed.",
+        "text_segments": [
+          { "text": "Dogs are the most " },
+          { "text": "(0) common", "highlight": true },
+          { "text": " pets in the world. They are (1) _____ animals that are easy to " },
+          { "text": "train", "tooltip": { "vi": "huấn luyện", "ipa": "treɪn" } },
+          { "text": ". Dogs can (2) _____ loudly when someone knocks on the door. Most families like to (3) _____ their dogs in the park on weekends. Playing with a dog makes people feel (4) _____ and " },
+          { "text": "relaxed", "tooltip": { "vi": "thư giãn", "ipa": "rɪˈlækst" } },
+          { "text": "." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "They are (1) _____ animals that are easy to train.",
+          "options": ["friendly", "angry", "wild"],
+          "correct": "friendly",
+          "explanation_vi": "'Friendly' nghĩa là thân thiện — chó là loài vật thân thiện và dễ huấn luyện."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Dogs can (2) _____ loudly when someone knocks on the door.",
+          "options": ["bark", "meow", "sing"],
+          "correct": "bark",
+          "explanation_vi": "'Bark' nghĩa là sủa — đây là âm thanh đặc trưng của chó khi có người lạ."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Most families like to (3) _____ their dogs in the park on weekends.",
+          "options": ["walk", "cook", "draw"],
+          "correct": "walk",
+          "explanation_vi": "'Walk' (dắt đi bộ) — 'walk the dog' là cụm từ quen dùng khi đưa chó đi dạo."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Playing with a dog makes people feel (4) _____ and relaxed.",
+          "options": ["happy", "tired", "bored"],
+          "correct": "happy",
+          "explanation_vi": "'Happy' (vui vẻ) — chơi với thú cưng khiến con người cảm thấy vui và thư giãn."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Our school has a beautiful garden behind the main building. Students often go there to relax after lunch. The garden has many colourful flowers and tall trees. In spring, the flowers bloom and make the air smell sweet. There is also a small pond with fish in the middle of the garden. Students are not allowed to pick the flowers or throw rubbish on the ground. They must keep the garden clean and tidy for everyone to enjoy.",
+        "text_segments": [
+          { "text": "Our school has a beautiful " },
+          { "text": "garden", "tooltip": { "vi": "vườn", "ipa": "ˈɡɑːdn" } },
+          { "text": " behind the main building. Students often go there to relax after lunch. The garden has many " },
+          { "text": "colourful", "tooltip": { "vi": "nhiều màu sắc", "ipa": "ˈkʌlərfl" } },
+          { "text": " flowers and tall trees. In spring, the flowers " },
+          { "text": "bloom", "tooltip": { "vi": "nở hoa", "ipa": "bluːm" } },
+          { "text": " and make the air smell sweet. There is also a small pond with fish in the middle of the garden. Students are not allowed to pick the flowers or throw " },
+          { "text": "rubbish", "tooltip": { "vi": "rác thải", "ipa": "ˈrʌbɪʃ" } },
+          { "text": " on the ground. They must keep the garden clean and tidy for everyone to enjoy." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "The garden is located in front of the school building.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'behind the main building' — nghĩa là phía sau toà nhà chính, không phải phía trước."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Students can visit the garden after they have their lunch.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'Students often go there to relax after lunch' — đúng, học sinh thường vào vườn sau bữa trưa."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What can be found in the middle of the garden?",
+          "options": ["a tall tree", "a small pond", "a flower bed"],
+          "correct": "a small pond",
+          "explanation_vi": "Bài viết 'There is also a small pond with fish in the middle of the garden.'"
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'waste materials that people throw away'.",
+          "correct": "rubbish",
+          "explanation_vi": "'Rubbish' nghĩa là rác thải — thứ người ta vứt bỏ."
+        }
+      ]
+    }
+  ]
+}

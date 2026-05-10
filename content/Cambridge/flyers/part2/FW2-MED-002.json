@@ -1,0 +1,45 @@
+{
+  "id": "FW2-MED-002",
+  "title": "Set 2: A Camping Trip",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "camping",
+  "conversation": [
+    { "speaker": "Harry", "text": "Are you ready for the camping trip next week, Ben?", "example": true },
+    { "speaker": "Ben", "answerKey": "D", "example": true },
+    { "speaker": "Harry", "text": "Where are we going to put our tents when we arrive?" },
+    { "speaker": "Ben", "questionIndex": 0 },
+    { "speaker": "Harry", "text": "Will it be very cold at night in the forest?" },
+    { "speaker": "Ben", "questionIndex": 1 },
+    { "speaker": "Harry", "text": "Who is bringing the torches for us to see in the dark?" },
+    { "speaker": "Ben", "questionIndex": 2 },
+    { "speaker": "Harry", "text": "I hope we see some interesting wild animals!" },
+    { "speaker": "Ben", "questionIndex": 3 },
+    { "speaker": "Harry", "text": "Shall we go for a swim in the lake on Tuesday?" },
+    { "speaker": "Ben", "questionIndex": 4 }
+  ],
+  "options": [
+    { "letter": "A", "text": "I think William has got two in his rucksack." },
+    { "letter": "B", "text": "So do I, as long as they aren't dangerous!" },
+    { "letter": "C", "text": "I went there with my parents last summer." },
+    { "letter": "D", "text": "Yes, I’ve already packed my rucksack!" },
+    { "letter": "E", "text": "Only if the water isn't too freezing." },
+    { "letter": "F", "text": "Next to the river, where the ground is flat." },
+    { "letter": "G", "text": "I'll take a map so we don't get lost." },
+    { "letter": "H", "text": "Perhaps, so you should bring a warm blanket." }
+  ],
+  "answers": ["F", "H", "A", "B", "E"],
+  "explanations_vi": [
+    "Harry hỏi địa điểm dựng lều (Where), Ben đáp là dựng cạnh bờ sông, nơi có đất bằng phẳng (Next to the river).",
+    "Harry hỏi trời có lạnh không (Will it be very cold), Ben đáp có lẽ thế (Perhaps) và khuyên nên mang chăn ấm.",
+    "Harry hỏi ai sẽ mang đèn pin (Who is bringing the torches), Ben trả lời là William có hai cái trong balo.",
+    "Harry hy vọng thấy được động vật hoang dã (I hope...), Ben đồng ý (So do I) miễn là chúng không nguy hiểm.",
+    "Harry rủ đi bơi (Shall we go for a swim), Ben đồng ý với điều kiện nước không quá lạnh (Only if the water isn't too freezing)."
+  ]
+}

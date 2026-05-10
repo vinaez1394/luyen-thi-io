@@ -1,0 +1,110 @@
+{
+  "id": "FW1-EASY-001",
+  "title": "Flyers Reading & Writing — Part 1 — Set 1 (Easy)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a giraffe",
+    "a library",
+    "a toothbrush",
+    "a waiter",
+    "a kitchen",
+    "honey",
+    "an umbrella",
+    "penguins",
+    "a blanket",
+    "a bridge",
+    "a playground",
+    "chocolate",
+    "a post office",
+    "dinosaurs",
+    "a farmer"
+  ],
+
+  "example": {
+    "prompt": "When you are very ill, you go to this place to see a doctor or a nurse.",
+    "answer": "a hospital"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This is the tallest animal in the world. It has a very long neck.",
+      "correct": "a giraffe",
+      "explanation_vi": "Giraffe = hươu cao cổ, con vật cao nhất thế giới và có cái cổ rất dài."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "You use this with some toothpaste to keep your teeth clean every day.",
+      "correct": "a toothbrush",
+      "explanation_vi": "Toothbrush = bàn chải đánh răng, dùng cùng kem đánh răng để làm sạch răng."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is the room in a house where people cook meals and wash dishes.",
+      "correct": "a kitchen",
+      "explanation_vi": "Kitchen = nhà bếp, căn phòng trong nhà để nấu ăn và rửa bát."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "You carry this over your head to keep you dry when it rains.",
+      "correct": "an umbrella",
+      "explanation_vi": "Umbrella = cái ô/dù, che trên đầu để không bị ướt khi trời mưa."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "These birds are black and white. They cannot fly, but they are great at swimming.",
+      "correct": "penguins",
+      "explanation_vi": "Penguins = chim cánh cụt, loài chim có màu đen trắng, không biết bay nhưng bơi rất giỏi."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This person brings you food and drinks when you go to eat in a restaurant.",
+      "correct": "a waiter",
+      "explanation_vi": "Waiter = bồi bàn, người mang đồ ăn thức uống cho bạn ở nhà hàng."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "Bees make this yellow food which tastes very sweet.",
+      "correct": "honey",
+      "explanation_vi": "Honey = mật ong, thức ăn màu vàng có vị rất ngọt do ong tạo ra."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "You put this on your bed to keep you warm when you sleep at night.",
+      "correct": "a blanket",
+      "explanation_vi": "Blanket = cái chăn/mền, đắp trên giường để giữ ấm khi ngủ."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You go to this quiet place when you want to read or borrow books.",
+      "correct": "a library",
+      "explanation_vi": "Library = thư viện, nơi yên tĩnh để đọc hoặc mượn sách."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is something that goes over a river so cars or people can cross it.",
+      "correct": "a bridge",
+      "explanation_vi": "Bridge = cây cầu, bắc qua sông để xe cộ và con người đi qua."
+    }
+  ]
+}

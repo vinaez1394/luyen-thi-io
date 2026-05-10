@@ -1,0 +1,122 @@
+{
+  "id": "READING-EASY-GRADE5-P2",
+  "title": "Reading Comprehension — Easy — Grade 5-6 — My Neighbourhood",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "easy",
+  "grade_min": 5,
+  "grade_max": 6,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "I live in a quiet (0) neighbourhood near the city centre. There is a (1) _____ where children can play and enjoy fresh air. My street has many tall trees that give (2) _____ on hot days. My neighbours are very (3) _____ and always say hello when we meet. There is also a small (4) _____ at the end of our street where we can buy bread and milk.",
+        "text_segments": [
+          { "text": "I live in a quiet " },
+          { "text": "(0) neighbourhood", "highlight": true },
+          { "text": " near the city " },
+          { "text": "centre", "tooltip": { "vi": "trung tâm", "ipa": "ˈsentər" } },
+          { "text": ". There is a (1) _____ where children can play and enjoy fresh air. My street has many tall trees that give (2) _____ on hot days. My neighbours are very (3) _____ and always say hello when we meet. There is also a small (4) _____ at the end of our street where we can buy bread and milk." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "There is a (1) _____ where children can play and enjoy fresh air.",
+          "options": ["park", "factory", "cinema"],
+          "correct": "park",
+          "explanation_vi": "'Park' nghĩa là công viên — nơi trẻ em có thể vui chơi và hít thở không khí trong lành."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "My street has many tall trees that give (2) _____ on hot days.",
+          "options": ["shade", "rain", "noise"],
+          "correct": "shade",
+          "explanation_vi": "'Shade' nghĩa là bóng mát — cây cao cho bóng mát vào những ngày nắng nóng."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "My neighbours are very (3) _____ and always say hello when we meet.",
+          "options": ["friendly", "noisy", "busy"],
+          "correct": "friendly",
+          "explanation_vi": "'Friendly' nghĩa là thân thiện — hàng xóm luôn chào hỏi khi gặp nhau."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "There is also a small (4) _____ at the end of our street where we can buy bread and milk.",
+          "options": ["shop", "hospital", "school"],
+          "correct": "shop",
+          "explanation_vi": "'Shop' nghĩa là cửa hàng — cửa hàng nhỏ cuối đường bán bánh mì và sữa."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Every Saturday morning, our neighbourhood has an outdoor market in the main square. People come from nearby areas to sell fresh fruit, vegetables, and homemade food. The market is very lively and colourful. Children love looking at the toys and sweets on sale. Elderly people often sit and chat with old friends over a cup of tea. The market usually starts at seven in the morning and closes by noon. It is a great way for the community to meet and support local sellers.",
+        "text_segments": [
+          { "text": "Every Saturday morning, our " },
+          { "text": "neighbourhood", "tooltip": { "vi": "khu phố", "ipa": "ˈneɪbəhʊd" } },
+          { "text": " has an " },
+          { "text": "outdoor", "tooltip": { "vi": "ngoài trời", "ipa": "ˈaʊtdɔːr" } },
+          { "text": " market in the main square. People come from nearby areas to sell fresh fruit, vegetables, and " },
+          { "text": "homemade", "tooltip": { "vi": "tự làm tại nhà", "ipa": "ˈhoʊmmeɪd" } },
+          { "text": " food. The market is very " },
+          { "text": "lively", "tooltip": { "vi": "nhộn nhịp, sôi động", "ipa": "ˈlaɪvli" } },
+          { "text": " and colourful. Children love looking at the toys and sweets on sale. Elderly people often sit and chat with old friends over a cup of tea. The market usually starts at seven in the morning and closes by noon. It is a great way for the " },
+          { "text": "community", "tooltip": { "vi": "cộng đồng", "ipa": "kəˈmjuːnɪti" } },
+          { "text": " to meet and support local sellers." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "The outdoor market takes place every day of the week.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'Every Saturday morning' — chợ chỉ họp vào sáng thứ Bảy, không phải mỗi ngày."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "The market sells fresh fruit and vegetables.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'sell fresh fruit, vegetables, and homemade food' — đúng, chợ có bán hoa quả và rau tươi."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What time does the market usually finish?",
+          "options": ["at seven in the morning", "at noon", "in the evening"],
+          "correct": "at noon",
+          "explanation_vi": "Bài viết 'closes by noon' — chợ đóng cửa vào buổi trưa (12 giờ)."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'full of energy and activity'.",
+          "correct": "lively",
+          "explanation_vi": "'Lively' nghĩa là nhộn nhịp, sôi động — từ mô tả không khí của khu chợ."
+        }
+      ]
+    }
+  ]
+}

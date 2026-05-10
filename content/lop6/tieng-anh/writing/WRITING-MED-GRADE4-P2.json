@@ -1,0 +1,232 @@
+{
+  "id": "WRITING-MED-GRADE4-P2",
+  "title": "Writing — Trung bình — Lớp 4-5 — Bài 2",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp cụm từ. Phần II: Viết câu hoàn chỉnh.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "that she / told us / had won / our teacher / the prize /.//",
+        "answer": "Our teacher told us that she had won the prize."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "are / in this city / more cafes / than / there / in our town /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["there","are","more cafes","in this city","than","in our town"],
+          "correct": ["there","are","more cafes","in this city","than","in our town"],
+          "explanation": {
+            "correct_sentence": "There are more cafes in this city than in our town.",
+            "structure_vi": "There are + more + N + (location) + than + đối tượng so sánh",
+            "grammar_notes": [
+              "✅ Cấu trúc 'There are + N' — diễn tả sự tồn tại của nhiều vật/địa điểm",
+              "✅ 'more cafes than' = so sánh hơn với danh từ đếm được số nhiều",
+              "⚠️ Dùng 'more + N' (không phải 'cafer' — danh từ không thêm đuôi so sánh)"
+            ],
+            "vocab_notes": [
+              {"word": "cafe","vi": "quán cà phê","ipa": "ˈkæfeɪ"},
+              {"word": "more... than","vi": "nhiều hơn","ipa": "mɔː... ðæn"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'There is more cafes' → 'cafes' là số nhiều → 'There are'",
+              "❌ Sai: 'more cafe than' → 'cafe' phải ở dạng số nhiều 'cafes'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "Peter / has / already / finished / his science project /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["Peter","has","already","finished","his science project"],
+          "correct": ["Peter","has","already","finished","his science project"],
+          "explanation": {
+            "correct_sentence": "Peter has already finished his science project.",
+            "structure_vi": "S + has + already + V3 + O (Hiện tại hoàn thành với 'already')",
+            "grammar_notes": [
+              "✅ 'already' đứng giữa 'has' và V3 — nhấn mạnh hành động đã hoàn thành sớm hơn dự kiến",
+              "✅ 'has finished' — 'Peter' là số ít → dùng 'has' (không phải 'have')",
+              "✅ 'finished' = V3 của 'finish' (động từ có quy tắc, thêm -ed)"
+            ],
+            "vocab_notes": [
+              {"word": "already","vi": "đã rồi, rồi (nhấn mạnh hoàn thành)","ipa": "ɔːlˈredi"},
+              {"word": "science project","vi": "dự án khoa học","ipa": "ˈsaɪəns ˈprɒdʒekt"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Peter has finished already his project' → 'already' đứng TRƯỚC V3, không đứng cuối",
+              "❌ Sai: 'Peter have already finished' → chủ ngữ số ít → 'has'"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "she asked me / if / to the cinema / I wanted / with her / to go /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["she asked me","if","I wanted","to go","to the cinema","with her"],
+          "correct": ["she asked me","if","I wanted","to go","to the cinema","with her"],
+          "explanation": {
+            "correct_sentence": "She asked me if I wanted to go to the cinema with her.",
+            "structure_vi": "S + asked + O + if + S₂ + V (quá khứ) + to-V (Câu hỏi gián tiếp)",
+            "grammar_notes": [
+              "✅ Câu hỏi gián tiếp (Indirect Question) với 'if' — hỏi Yes/No",
+              "✅ 'wanted' (quá khứ) — động từ tường thuật 'asked' → lùi thì",
+              "✅ Trật tự: 'if + S + V' (không phải 'if + V + S' như câu hỏi trực tiếp)"
+            ],
+            "vocab_notes": [
+              {"word": "ask if","vi": "hỏi xem có... không","ipa": "ɑːsk ɪf"},
+              {"word": "cinema","vi": "rạp chiếu phim","ipa": "ˈsɪnɪmə"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'She asked me if did I want to go' → câu hỏi gián tiếp không đảo ngữ",
+              "❌ Sai: 'She asked me if I want to go' → sau 'asked' phải lùi thì: 'wanted'"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "less homework / students / would prefer / to have / at weekends /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["students","would prefer","to have","less homework","at weekends"],
+          "correct": ["students","would prefer","to have","less homework","at weekends"],
+          "explanation": {
+            "correct_sentence": "Students would prefer to have less homework at weekends.",
+            "structure_vi": "S + would prefer + to-V + O + trạng ngữ",
+            "grammar_notes": [
+              "✅ 'would prefer + to-V' = muốn/thích làm gì hơn (lịch sự)",
+              "✅ 'less homework' — 'homework' là danh từ không đếm được → dùng 'less' (không phải 'fewer')",
+              "✅ 'at weekends' (British English) = 'on weekends' (American English)"
+            ],
+            "vocab_notes": [
+              {"word": "would prefer","vi": "muốn hơn, thích hơn","ipa": "wʊd prɪˈfɜː"},
+              {"word": "less (+ N không đếm)","vi": "ít hơn","ipa": "les"},
+              {"word": "homework","vi": "bài tập về nhà","ipa": "ˈhəʊmwɜːk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'would prefer having less homework' → 'prefer' + to-V (không dùng V-ing trong cấu trúc này)",
+              "❌ Sai: 'fewer homework' → 'homework' không đếm được → 'less'"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "Hoi An / be / one of / most beautiful / ancient town / Vietnam /.//",
+        "answer": "Hoi An is one of the most beautiful ancient towns in Vietnam."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "there / be / fewer / bus stops / in this area / than / in the city centre /.//",
+          "accepted_answers": [
+            "There are fewer bus stops in this area than in the city centre.",
+            "there are fewer bus stops in this area than in the city centre",
+            "There are fewer bus stops in this area than in the city center.",
+            "There are fewer bus stops here than in the city centre."
+          ],
+          "explanation": {
+            "correct_sentence": "There are fewer bus stops in this area than in the city centre.",
+            "structure_vi": "There are + fewer + N (đếm được số nhiều) + than",
+            "grammar_notes": [
+              "✅ 'fewer' dùng với danh từ đếm được số nhiều: 'bus stops'",
+              "✅ 'less' dùng với danh từ không đếm được (VD: less water, less time)",
+              "✅ 'There are' — 'bus stops' số nhiều → dùng 'are'"
+            ],
+            "vocab_notes": [
+              {"word": "fewer (+ N đếm được)","vi": "ít hơn","ipa": "ˈfjuːər"},
+              {"word": "bus stop","vi": "trạm xe buýt","ipa": "bʌs stɒp"},
+              {"word": "city centre","vi": "trung tâm thành phố","ipa": "ˈsɪti ˈsentər"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'There are less bus stops' → 'bus stops' đếm được → dùng 'fewer'",
+              "❌ Sai: 'There is fewer bus stops' → 'bus stops' số nhiều → 'There are'"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "my brother / ask / me / where / I / put / his textbooks /.//",
+          "accepted_answers": [
+            "My brother asked me where I had put his textbooks.",
+            "my brother asked me where i had put his textbooks",
+            "My brother asked me where I put his textbooks.",
+            "My brother asked me where I kept his textbooks."
+          ],
+          "explanation": {
+            "correct_sentence": "My brother asked me where I had put his textbooks.",
+            "structure_vi": "S + asked + O + where + S₂ + had + V3 (Câu hỏi gián tiếp — Wh-question)",
+            "grammar_notes": [
+              "✅ Câu hỏi gián tiếp Wh-: 'where + S + V' (không đảo ngữ)",
+              "✅ 'asked' (quá khứ) → mệnh đề that lùi thì: 'put' → 'had put' (quá khứ hoàn thành)",
+              "⚠️ Cũng chấp nhận 'where I put' — lùi thì không bắt buộc tuyệt đối trong văn nói"
+            ],
+            "vocab_notes": [
+              {"word": "ask where","vi": "hỏi xem ở đâu","ipa": "ɑːsk weər"},
+              {"word": "textbook","vi": "sách giáo khoa","ipa": "ˈtekstbʊk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'My brother asked me where did I put' → câu hỏi gián tiếp không đảo ngữ",
+              "❌ Sai: 'My brother asked where I puts his textbooks' → lùi thì: 'put' hoặc 'had put'"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "Linh / not / finish / homework / yet / because / she / still / do / the dishes /.//",
+          "accepted_answers": [
+            "Linh has not finished her homework yet because she is still doing the dishes.",
+            "linh has not finished her homework yet because she is still doing the dishes",
+            "Linh hasn't finished her homework yet because she is still doing the dishes.",
+            "Linh has not finished her homework yet because she was still doing the dishes."
+          ],
+          "explanation": {
+            "correct_sentence": "Linh has not finished her homework yet because she is still doing the dishes.",
+            "structure_vi": "S + has not + V3 + yet + because + S₂ + is still + V-ing",
+            "grammar_notes": [
+              "✅ 'has not finished yet' — 'yet' dùng trong câu phủ định/nghi vấn Hiện tại hoàn thành",
+              "✅ 'is still doing' — Hiện tại tiếp diễn: hành động đang xảy ra ngay lúc nói",
+              "✅ 'do the dishes' = rửa bát đĩa (cụm động từ cố định)"
+            ],
+            "vocab_notes": [
+              {"word": "yet","vi": "chưa (trong câu phủ định/hỏi)","ipa": "jet"},
+              {"word": "do the dishes","vi": "rửa bát đĩa","ipa": "duː ðə ˈdɪʃɪz"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'has not finished yet her homework' → 'yet' thường đứng cuối mệnh đề",
+              "❌ Sai: 'she still does the dishes' → đang làm ngay lúc đó → phải dùng Hiện tại tiếp diễn 'is doing'"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

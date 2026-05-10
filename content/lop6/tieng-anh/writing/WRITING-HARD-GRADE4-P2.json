@@ -1,0 +1,251 @@
+{
+  "id": "WRITING-HARD-GRADE4-P2",
+  "title": "Writing — Khó — Lớp 4-5 — Bài 2",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "hard",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp các cụm từ để tạo thành câu hoàn chỉnh và đúng ngữ pháp. Phần II: Viết câu hoàn chỉnh dựa vào các từ gợi ý, không quá 15 từ mỗi câu.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "eaten / have you / Japanese food / ever / before /?//",
+          "cues_segments": [
+            {
+              "text": "eaten / have you / Japanese food / ever / before /?//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}?",
+          "word_bank": [
+            "have you",
+            "ever",
+            "eaten",
+            "Japanese food",
+            "before"
+          ],
+          "correct": [
+            "have you",
+            "ever",
+            "eaten",
+            "Japanese food",
+            "before"
+          ],
+          "explanation": {
+            "correct_sentence": "Have you ever eaten Japanese food before?",
+            "structure_vi": "Have + S + ever + V3/ed + O + before?",
+            "grammar_notes": [
+              "✅ Hỏi trải nghiệm trong quá khứ dùng Hiện tại hoàn thành với 'ever'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "to help me / he / with my homework / promised /.//",
+          "cues_segments": [
+            {
+              "text": "to help me / he / with my homework / promised /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": [
+            "he",
+            "promised",
+            "to help me",
+            "with my homework"
+          ],
+          "correct": [
+            "he",
+            "promised",
+            "to help me",
+            "with my homework"
+          ],
+          "explanation": {
+            "correct_sentence": "He promised to help me with my homework.",
+            "structure_vi": "S + promised + to-V + sb + with sth",
+            "grammar_notes": [
+              "✅ Cấu trúc 'promise to do sth' (hứa làm gì).",
+              "✅ 'help somebody with something' (giúp ai việc gì)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "the highest / mountain / Everest / in the world / is /.//",
+          "cues_segments": [
+            {
+              "text": "the highest / mountain / Everest / in the world / is /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "Everest",
+            "is",
+            "the highest",
+            "mountain",
+            "in the world"
+          ],
+          "correct": [
+            "Everest",
+            "is",
+            "the highest",
+            "mountain",
+            "in the world"
+          ],
+          "explanation": {
+            "correct_sentence": "Everest is the highest mountain in the world.",
+            "structure_vi": "S + is + the + tính từ ngắn-est + N + in the world",
+            "grammar_notes": [
+              "✅ So sánh nhất của tính từ ngắn 'high' là 'the highest'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "play marbles / we / we were small / when / used to /.//",
+          "cues_segments": [
+            {
+              "text": "play "
+            },
+            {
+              "text": "marbles",
+              "tooltip": {
+                "vi": "chơi bi",
+                "ipa": "ˈmɑːblz"
+              }
+            },
+            {
+              "text": " / we / we were small / when / used to /.//"
+            }
+          ],
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": [
+            "we",
+            "used to",
+            "play marbles",
+            "when",
+            "we were small"
+          ],
+          "correct": [
+            "we",
+            "used to",
+            "play marbles",
+            "when",
+            "we were small"
+          ],
+          "explanation": {
+            "correct_sentence": "We used to play marbles when we were small.",
+            "structure_vi": "S + used to + V + when + S + was/were + adj",
+            "grammar_notes": [
+              "✅ 'used to + V' chỉ thói quen trong quá khứ nay không còn nữa."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "she / ask / me / what time / train / leave /.//",
+          "cues_segments": [
+            {
+              "text": "she / ask / me / what time / train / leave /.//"
+            }
+          ],
+          "accepted_answers": [
+            "She asked me what time the train would leave.",
+            "She asked me what time the train left."
+          ],
+          "explanation": {
+            "correct_sentence": "She asked me what time the train would leave.",
+            "structure_vi": "S + asked + O + từ để hỏi + S2 + V(lùi thì)",
+            "grammar_notes": [
+              "✅ Câu tường thuật dạng câu hỏi: lùi thì (sẽ rời đi -> would leave, hoặc left)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "it / take / him / twenty minutes / walk / school /.//",
+          "cues_segments": [
+            {
+              "text": "it / take / him / twenty minutes / walk / school /.//"
+            }
+          ],
+          "accepted_answers": [
+            "It takes him twenty minutes to walk to school.",
+            "It took him twenty minutes to walk to school."
+          ],
+          "explanation": {
+            "correct_sentence": "It takes him twenty minutes to walk to school.",
+            "structure_vi": "It takes (sb) + time + to-V",
+            "grammar_notes": [
+              "✅ Cấu trúc chỉ thời gian tiêu tốn để làm việc gì: 'It takes/took + O + thời gian + to-V'."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "you / should / stop / eat / too much / fast food /.//",
+          "cues_segments": [
+            {
+              "text": "you / should / stop / eat / too much / fast food /.//"
+            }
+          ],
+          "accepted_answers": [
+            "You should stop eating too much fast food."
+          ],
+          "explanation": {
+            "correct_sentence": "You should stop eating too much fast food.",
+            "structure_vi": "You should stop + V-ing",
+            "grammar_notes": [
+              "✅ 'stop + V-ing': Dừng hẳn việc gì đó (dừng việc ăn thức ăn nhanh)."
+            ],
+            "vocab_notes": [],
+            "common_mistakes": []
+          }
+        }
+      ]
+    }
+  ]
+}

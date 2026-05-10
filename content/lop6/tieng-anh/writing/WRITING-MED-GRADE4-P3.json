@@ -1,0 +1,230 @@
+{
+  "id": "WRITING-MED-GRADE4-P3",
+  "title": "Writing — Trung bình — Lớp 4-5 — Bài 3",
+  "type": "writing",
+  "skill": "writing",
+  "difficulty": "medium",
+  "grade_min": 4,
+  "grade_max": 5,
+  "grade_target": "4-5",
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "en",
+  "is_free": false,
+  "total_points": 14,
+  "instructions_vi": "Bài thi Writing gồm 2 phần. Phần I: Sắp xếp cụm từ. Phần II: Viết câu hoàn chỉnh.",
+  "sections": [
+    {
+      "id": "sec-1",
+      "type": "rearrange",
+      "title": "I. Rearrange the groups of words in the correct order to make complete sentences.",
+      "points": 8,
+      "points_per_question": 2,
+      "instruction": "Sắp xếp các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, đúng ngữ pháp.",
+      "example": {
+        "display_cues": "had / she / never / before / flown on a plane /.//",
+        "answer": "She had never flown on a plane before."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "type": "drag-drop-fill",
+          "display_cues": "as well as / cooking / Nam / enjoys / painting / drawing /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["Nam","enjoys","cooking","as well as","painting","drawing"],
+          "correct": ["Nam","enjoys","cooking","as well as","painting","drawing"],
+          "explanation": {
+            "correct_sentence": "Nam enjoys cooking as well as painting and drawing.",
+            "structure_vi": "S + enjoys + V-ing + as well as + V-ing (+ and + V-ing)",
+            "grammar_notes": [
+              "✅ 'enjoy + V-ing' — 'enjoy' luôn đi với V-ing (không dùng to-V)",
+              "✅ 'as well as' = và cũng, cũng như — liên kết hai V-ing song song",
+              "⚠️ Các hoạt động sau 'enjoy' và 'as well as' đều phải ở dạng V-ing"
+            ],
+            "vocab_notes": [
+              {"word": "enjoy + V-ing","vi": "thích làm gì","ipa": "ɪnˈdʒɔɪ"},
+              {"word": "as well as","vi": "cũng như, và cũng","ipa": "æz wel æz"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Nam enjoys to cook as well as to paint' → 'enjoy' + V-ing, không dùng to-V",
+              "❌ Sai: 'Nam enjoys cook as well as paint' → phải dùng V-ing: 'cooking', 'painting'"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "type": "drag-drop-fill",
+          "display_cues": "when / the lights went out / reading a comic book / my sister was /.//",
+          "template": "{0} {1} {2} {3}.",
+          "word_bank": ["when","the lights went out","my sister","was reading a comic book"],
+          "correct": ["when","the lights went out","my sister","was reading a comic book"],
+          "explanation": {
+            "correct_sentence": "When the lights went out, my sister was reading a comic book.",
+            "structure_vi": "When + S + V (quá khứ đơn), S + was/were + V-ing (quá khứ tiếp diễn)",
+            "grammar_notes": [
+              "✅ 'When + quá khứ đơn, quá khứ tiếp diễn': hành động đang xảy ra thì bị gián đoạn",
+              "✅ 'the lights went out' (quá khứ đơn) — sự kiện ngắn xảy ra đột ngột",
+              "✅ 'was reading' (quá khứ tiếp diễn) — hành động đang diễn ra"
+            ],
+            "vocab_notes": [
+              {"word": "lights go out","vi": "đèn tắt","ipa": "laɪts ɡəʊ aʊt"},
+              {"word": "comic book","vi": "truyện tranh","ipa": "ˈkɒmɪk bʊk"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'When the lights went out, my sister read a comic book' → hành động đang diễn ra cần quá khứ tiếp diễn",
+              "❌ Sai: 'When the lights were going out, my sister was reading' → sự kiện ngắn dùng quá khứ đơn"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "type": "drag-drop-fill",
+          "display_cues": "the most / in our class / Phuong is / talented / student /.//",
+          "template": "{0} {1} {2} {3} {4}.",
+          "word_bank": ["Phuong is","the most","talented","student","in our class"],
+          "correct": ["Phuong is","the most","talented","student","in our class"],
+          "explanation": {
+            "correct_sentence": "Phuong is the most talented student in our class.",
+            "structure_vi": "S + is + the most + adj + N + in + nhóm so sánh",
+            "grammar_notes": [
+              "✅ 'the most talented' — tính từ dài (3 âm tiết) dùng 'the most + adj'",
+              "✅ 'in our class' = trong phạm vi so sánh (nhóm)",
+              "⚠️ Sau 'the most + adj' cần có danh từ: 'the most talented student' (không phải 'the most talented of all')"
+            ],
+            "vocab_notes": [
+              {"word": "talented","vi": "tài năng, có năng khiếu","ipa": "ˈtæləntɪd"},
+              {"word": "the most + adj","vi": "nhất (so sánh nhất với adj dài)","ipa": "ðə məʊst"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Phuong is the talentedest student' → tính từ dài dùng 'the most'",
+              "❌ Sai: 'Phuong is most talented student' → cần mạo từ 'the': 'the most talented'"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "type": "drag-drop-fill",
+          "display_cues": "that / the shop assistant / her / was reduced / told / the price /.//",
+          "template": "{0} {1} {2} {3} {4} {5}.",
+          "word_bank": ["the shop assistant","told","her","that","the price","was reduced"],
+          "correct": ["the shop assistant","told","her","that","the price","was reduced"],
+          "explanation": {
+            "correct_sentence": "The shop assistant told her that the price was reduced.",
+            "structure_vi": "S + told + O (người) + that + S₂ + V (tường thuật)",
+            "grammar_notes": [
+              "✅ 'tell + O + that': tường thuật lại thông tin cho ai đó",
+              "✅ 'was reduced' = bị động quá khứ — giá bị giảm (không phải tự nó giảm)",
+              "✅ 'told' (quá khứ) → vế 'that' dùng 'was reduced' (đã lùi thì)"
+            ],
+            "vocab_notes": [
+              {"word": "shop assistant","vi": "nhân viên bán hàng","ipa": "ʃɒp əˈsɪstənt"},
+              {"word": "reduce","vi": "giảm (giá)","ipa": "rɪˈdjuːs"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'told her that the price is reduced' → sau 'told' phải lùi thì: 'was reduced'",
+              "❌ Sai: 'told her that the price reduced' → cần bị động: 'was reduced'"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sec-2",
+      "type": "sentence-building",
+      "title": "II. Write complete sentences with the given cues. You must write NO MORE THAN fifteen words for each sentence.",
+      "points": 6,
+      "points_per_question": 2,
+      "instruction": "Viết câu hoàn chỉnh và đúng ngữ pháp dựa vào các từ gợi ý. Mỗi câu không được vượt quá 15 từ.",
+      "example": {
+        "display_cues": "Hoi An / be / one of / most beautiful / ancient town / Vietnam /.//",
+        "answer": "Hoi An is one of the most beautiful ancient towns in Vietnam."
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "type": "write-sentence",
+          "display_cues": "when / the phone ring / dad / cook / dinner / in the kitchen /.//",
+          "accepted_answers": [
+            "When the phone rang, Dad was cooking dinner in the kitchen.",
+            "when the phone rang, dad was cooking dinner in the kitchen",
+            "Dad was cooking dinner in the kitchen when the phone rang.",
+            "When the phone rang, my dad was cooking dinner in the kitchen."
+          ],
+          "explanation": {
+            "correct_sentence": "When the phone rang, Dad was cooking dinner in the kitchen.",
+            "structure_vi": "When + quá khứ đơn, S + was/were + V-ing (quá khứ tiếp diễn)",
+            "grammar_notes": [
+              "✅ 'rang' = quá khứ của 'ring' (bất quy tắc: ring-rang-rung)",
+              "✅ 'was cooking' = quá khứ tiếp diễn — hành động đang diễn ra bị gián đoạn",
+              "✅ Thứ tự: khi đứng trước: 'When...,' + dấu phẩy"
+            ],
+            "vocab_notes": [
+              {"word": "ring (rang)","vi": "đổ chuông (quá khứ: rang)","ipa": "rɪŋ (ræŋ)"},
+              {"word": "was cooking","vi": "đang nấu ăn","ipa": "wɒz ˈkʊkɪŋ"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'When the phone ringed' → 'ring' bất quy tắc, quá khứ là 'rang'",
+              "❌ Sai: 'When the phone rang, Dad cooked dinner' → hành động đang diễn ra phải dùng quá khứ tiếp diễn"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "type": "write-sentence",
+          "display_cues": "Hoa / be / the most / hardworking / student / in her grade /.//",
+          "accepted_answers": [
+            "Hoa is the most hardworking student in her grade.",
+            "hoa is the most hardworking student in her grade",
+            "Hoa is the most hardworking student in her class.",
+            "Hoa is the hardest-working student in her grade."
+          ],
+          "explanation": {
+            "correct_sentence": "Hoa is the most hardworking student in her grade.",
+            "structure_vi": "S + is + the most + adj + N + in + nhóm so sánh",
+            "grammar_notes": [
+              "✅ 'hardworking' = tính từ ghép 2 âm tiết → dùng 'the most hardworking'",
+              "✅ 'in her grade' = trong khối của cô ấy (phạm vi so sánh)",
+              "✅ Cũng chấp nhận 'hardest-working' dưới dạng tính từ ghép có gạch nối"
+            ],
+            "vocab_notes": [
+              {"word": "hardworking","vi": "chăm chỉ, cần cù","ipa": "ˌhɑːdˈwɜːkɪŋ"},
+              {"word": "grade","vi": "khối lớp","ipa": "ɡreɪd"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'Hoa is the hardworkingest student' → dùng 'the most + adj' cho tính từ dài",
+              "❌ Sai: 'most hardworking student' → phải có mạo từ 'the' trước so sánh nhất"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "type": "write-sentence",
+          "display_cues": "Long / tell / his mother / that / he / want / join / the school football team /.//",
+          "accepted_answers": [
+            "Long told his mother that he wanted to join the school football team.",
+            "long told his mother that he wanted to join the school football team",
+            "Long tells his mother that he wants to join the school football team.",
+            "Long told his mother that he would like to join the school football team."
+          ],
+          "explanation": {
+            "correct_sentence": "Long told his mother that he wanted to join the school football team.",
+            "structure_vi": "S + told + O (người) + that + S₂ + wanted + to-V",
+            "grammar_notes": [
+              "✅ 'told' = quá khứ của 'tell' (bất quy tắc)",
+              "✅ 'wanted to join' = lùi thì: 'wants to join' → 'wanted to join'",
+              "✅ 'want + to-V' luôn đi với to-V trong cả câu trực tiếp và tường thuật"
+            ],
+            "vocab_notes": [
+              {"word": "tell (told)","vi": "nói với, kể cho","ipa": "tel (təʊld)"},
+              {"word": "football team","vi": "đội bóng đá","ipa": "ˈfʊtbɔːl tiːm"}
+            ],
+            "common_mistakes": [
+              "❌ Sai: 'told his mother that he want to join' → phải lùi thì: 'wanted'",
+              "❌ Sai: 'told his mother that he wanted joining' → 'want + to-V', không dùng V-ing"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "passage_id": "family-p4",
+  "topic": "family",
+  "title": "A Birthday Party",
+  "level": "starters",
+  "word_count": 92,
+  "segments": [
+    { "type": "text", "content": "Today is my birthday! My " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-005",
+      "options": ["uncle", "shark", "book"],
+      "answer": "uncle",
+      "explanation_vi": "'uncle' = chú/bác/cậu — anh hoặc em trai của cha hoặc mẹ."
+    },
+    { "type": "text", "content": " brought me a big present. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-018",
+      "options": ["parents", "lion", "cloud"],
+      "answer": "parents",
+      "explanation_vi": "'parents' = cha mẹ — bao gồm cả bố và mẹ."
+    },
+    { "type": "text", "content": " baked a chocolate cake for me. My " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-008",
+      "options": ["daughter", "whale", "table"],
+      "answer": "daughter",
+      "explanation_vi": "'daughter' = con gái — đứa con gái trong gia đình."
+    },
+    { "type": "text", "content": "— I mean my mum called me her little " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-010",
+      "options": ["kid", "camel", "river"],
+      "answer": "kid",
+      "explanation_vi": "'kid' = đứa trẻ (thân mật) — cách gọi thân thiện cho trẻ em."
+    },
+    { "type": "text", "content": "! All my family came to celebrate. It was my best birthday ever!" }
+  ],
+  "explanation_vi": "Đoạn văn kể về bữa tiệc sinh nhật: chú/bác (uncle), cha mẹ (parents), con gái (daughter), đứa trẻ (kid). Sinh nhật là dịp cả gia đình quây quần bên nhau.",
+  "created_at": "2026-05-07"
+}

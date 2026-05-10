@@ -1,0 +1,534 @@
+{
+  "id": "MATH-L1-P9",
+  "title": "Toán Tư Duy (English) — Level 1 — Bài 9",
+  "subject": "toan-tu-duy",
+  "skill": "math",
+  "level": "level-1",
+  "part": 9,
+  "type": "multiple-choice",
+  "is_free": true,
+  "instructions_vi": "Đọc kỹ từng câu hỏi và chọn đáp án đúng nhất. Các từ gạch chân có thể click để xem nghĩa tiếng Việt. Mỗi câu chỉ có 1 đáp án đúng.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": [
+        {
+          "text": "Next "
+        },
+        {
+          "text": "number",
+          "tooltip": {
+            "vi": "số",
+            "ipa": "ˈnʌmbər"
+          }
+        },
+        {
+          "text": ": 2, 3, 5, 8, 12, __?"
+        }
+      ],
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "correct": "17",
+      "explanation_vi": "Hiệu số tăng dần: +1, +2, +3, +4. Tiếp theo là +5. 12 + 5 = 17."
+    },
+    {
+      "id": "q2",
+      "prompt": [
+        {
+          "text": "Mom",
+          "tooltip": {
+            "vi": "mẹ",
+            "ipa": "mɑːm"
+          }
+        },
+        {
+          "text": " is 30. "
+        },
+        {
+          "text": "Twins",
+          "tooltip": {
+            "vi": "anh/chị/em sinh đôi",
+            "ipa": "twɪnz"
+          }
+        },
+        {
+          "text": " are 3 "
+        },
+        {
+          "text": "each",
+          "tooltip": {
+            "vi": "mỗi (người)",
+            "ipa": "iːtʃ"
+          }
+        },
+        {
+          "text": ". What is the "
+        },
+        {
+          "text": "sum",
+          "tooltip": {
+            "vi": "tổng",
+            "ipa": "sʌm"
+          }
+        },
+        {
+          "text": " of their "
+        },
+        {
+          "text": "ages",
+          "tooltip": {
+            "vi": "tuổi tác",
+            "ipa": "ˈeɪdʒɪz"
+          }
+        },
+        {
+          "text": " in 2 "
+        },
+        {
+          "text": "years",
+          "tooltip": {
+            "vi": "năm",
+            "ipa": "jɪərz"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "correct": "42",
+      "explanation_vi": "Tổng số người là 3 (Mẹ và 2 đứa trẻ sinh đôi). Tổng số tuổi hiện tại: 30 + 3 + 3 = 36. Trong 2 năm tới, mỗi người tăng thêm 2 tuổi, tổng cộng tăng: 3 x 2 = 6 tuổi. Tổng số tuổi sau 2 năm: 36 + 6 = 42."
+    },
+    {
+      "id": "q3",
+      "prompt": [
+        {
+          "text": "A "
+        },
+        {
+          "text": "log",
+          "tooltip": {
+            "vi": "khúc gỗ",
+            "ipa": "lɔːɡ"
+          }
+        },
+        {
+          "text": " is "
+        },
+        {
+          "text": "cut",
+          "tooltip": {
+            "vi": "cắt",
+            "ipa": "kʌt"
+          }
+        },
+        {
+          "text": " into 5 "
+        },
+        {
+          "text": "pieces",
+          "tooltip": {
+            "vi": "mảnh, đoạn",
+            "ipa": "ˈpiːsɪz"
+          }
+        },
+        {
+          "text": ". It takes 20 "
+        },
+        {
+          "text": "mins",
+          "tooltip": {
+            "vi": "phút (minutes)",
+            "ipa": "mɪnz"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "total",
+          "tooltip": {
+            "vi": "tổng cộng",
+            "ipa": "ˈtoʊtəl"
+          }
+        },
+        {
+          "text": ". What is the "
+        },
+        {
+          "text": "time",
+          "tooltip": {
+            "vi": "thời gian",
+            "ipa": "taɪm"
+          }
+        },
+        {
+          "text": " per cut?"
+        }
+      ],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": "5",
+      "explanation_vi": "Để cắt thành 5 đoạn thì cần 4 lần cắt. Tổng thời gian 20 phút chia cho 4 lần cắt: 20 / 4 = 5 phút cho mỗi lần cắt."
+    },
+    {
+      "id": "q4",
+      "prompt": [
+        {
+          "text": "Queue",
+          "tooltip": {
+            "vi": "hàng đợi",
+            "ipa": "kjuː"
+          }
+        },
+        {
+          "text": " of 30. 10 "
+        },
+        {
+          "text": "people",
+          "tooltip": {
+            "vi": "người",
+            "ipa": "ˈpiːpəl"
+          }
+        },
+        {
+          "text": " are in "
+        },
+        {
+          "text": "front",
+          "tooltip": {
+            "vi": "phía trước",
+            "ipa": "frʌnt"
+          }
+        },
+        {
+          "text": " of Jane. What is her "
+        },
+        {
+          "text": "position",
+          "tooltip": {
+            "vi": "vị trí",
+            "ipa": "pəˈzɪʃən"
+          }
+        },
+        {
+          "text": " from the "
+        },
+        {
+          "text": "back",
+          "tooltip": {
+            "vi": "phía cuối",
+            "ipa": "bæk"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "19",
+        "20",
+        "21",
+        "22"
+      ],
+      "correct": "20",
+      "explanation_vi": "Có 10 người đứng trước Jane, nghĩa là Jane đứng thứ 11 tính từ trên xuống. Tổng cộng 30 người. Số người đứng sau Jane: 30 - 11 = 19 người. Jane đứng thứ 20 (19 người + chính Jane) tính từ dưới lên."
+    },
+    {
+      "id": "q5",
+      "prompt": [
+        {
+          "text": "7 "
+        },
+        {
+          "text": "tables",
+          "tooltip": {
+            "vi": "cái bàn",
+            "ipa": "ˈteɪbəlz"
+          }
+        },
+        {
+          "text": ". Some are 3-"
+        },
+        {
+          "text": "legged",
+          "tooltip": {
+            "vi": "có chân",
+            "ipa": "ˈleɡɪd"
+          }
+        },
+        {
+          "text": ", some are 4-legged. 25 legs total. How many 4-legged tables?"
+        }
+      ],
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": "4",
+      "explanation_vi": "Giả sử tất cả 7 bàn đều là 3 chân, tổng số chân là: 7 x 3 = 21 chân. Số chân bị thiếu: 25 - 21 = 4 chân. Mỗi bàn 4 chân có nhiều hơn bàn 3 chân là 1 chân. Số bàn 4 chân: 4 / 1 = 4 bàn."
+    },
+    {
+      "id": "q6",
+      "prompt": [
+        {
+          "text": "Add",
+          "tooltip": {
+            "vi": "cộng",
+            "ipa": "æd"
+          }
+        },
+        {
+          "text": " 5, "
+        },
+        {
+          "text": "multiply",
+          "tooltip": {
+            "vi": "nhân",
+            "ipa": "ˈmʌltɪplaɪ"
+          }
+        },
+        {
+          "text": " by 2, "
+        },
+        {
+          "text": "subtract",
+          "tooltip": {
+            "vi": "trừ đi",
+            "ipa": "səbˈtrækt"
+          }
+        },
+        {
+          "text": " 4, you get 16. What is the number?"
+        }
+      ],
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": "5",
+      "explanation_vi": "Tính ngược từ kết quả 16: Trừ đi 4 thì phải cộng 4 (16 + 4 = 20). Nhân 2 thì phải chia 2 (20 / 2 = 10). Cộng 5 thì phải trừ 5 (10 - 5 = 5). Số ban đầu là 5."
+    },
+    {
+      "id": "q7",
+      "prompt": [
+        {
+          "text": "A "
+        },
+        {
+          "text": "book",
+          "tooltip": {
+            "vi": "sách",
+            "ipa": "bʊk"
+          }
+        },
+        {
+          "text": " has 41 "
+        },
+        {
+          "text": "digits",
+          "tooltip": {
+            "vi": "chữ số (0-9)",
+            "ipa": "ˈdɪdʒɪts"
+          }
+        },
+        {
+          "text": ". How many "
+        },
+        {
+          "text": "pages",
+          "tooltip": {
+            "vi": "trang sách",
+            "ipa": "peɪdʒɪz"
+          }
+        },
+        {
+          "text": " does it have?"
+        }
+      ],
+      "options": [
+        "24",
+        "25",
+        "26",
+        "27"
+      ],
+      "correct": "25",
+      "explanation_vi": "Trang 1 đến 9: dùng 9 chữ số. Số chữ số còn lại: 41 - 9 = 32 chữ số. Số trang 2 chữ số: 32 / 2 = 16 trang. Tổng số trang: 9 + 16 = 25 trang."
+    },
+    {
+      "id": "q8",
+      "prompt": [
+        {
+          "text": "1 "
+        },
+        {
+          "text": "ruler",
+          "tooltip": {
+            "vi": "thước kẻ",
+            "ipa": "ˈruːlər"
+          }
+        },
+        {
+          "text": " = 2 "
+        },
+        {
+          "text": "erasers",
+          "tooltip": {
+            "vi": "cục tẩy",
+            "ipa": "ɪˈreɪsərz"
+          }
+        },
+        {
+          "text": ". 3 erasers = 6 "
+        },
+        {
+          "text": "clips",
+          "tooltip": {
+            "vi": "kẹp giấy",
+            "ipa": "klɪps"
+          }
+        },
+        {
+          "text": ". 1 ruler = ? clips."
+        }
+      ],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": "4",
+      "explanation_vi": "Từ '3 tẩy = 6 kẹp giấy', ta tính được 1 cục tẩy = 2 kẹp giấy. 1 thước kẻ = 2 cục tẩy = 2 x 2 = 4 kẹp giấy."
+    },
+    {
+      "id": "q9",
+      "prompt": [
+        {
+          "text": "Tomorrow",
+          "tooltip": {
+            "vi": "ngày mai",
+            "ipa": "təˈmɔːroʊ"
+          }
+        },
+        {
+          "text": " is "
+        },
+        {
+          "text": "Wednesday",
+          "tooltip": {
+            "vi": "Thứ Tư",
+            "ipa": "ˈwenzdeɪ"
+          }
+        },
+        {
+          "text": ". What day was 5 days "
+        },
+        {
+          "text": "ago",
+          "tooltip": {
+            "vi": "trước đây",
+            "ipa": "əˈɡoʊ"
+          }
+        },
+        {
+          "text": "?"
+        }
+      ],
+      "options": [
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "correct": "Thursday",
+      "explanation_vi": "Ngày mai là Thứ Tư, nên hôm nay là Thứ Ba. 5 ngày trước Thứ Ba chính là Thứ Năm tuần trước (Thursday)."
+    },
+    {
+      "id": "q10",
+      "prompt": [
+        {
+          "text": "5 "
+        },
+        {
+          "text": "cubes",
+          "tooltip": {
+            "vi": "khối lập phương",
+            "ipa": "kjuːbz"
+          }
+        },
+        {
+          "text": " form a "
+        },
+        {
+          "text": "cross",
+          "tooltip": {
+            "vi": "dấu thập / chữ thập",
+            "ipa": "krɔːs"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "shape",
+          "tooltip": {
+            "vi": "hình dạng",
+            "ipa": "ʃeɪp"
+          }
+        },
+        {
+          "text": " (+). How many "
+        },
+        {
+          "text": "hidden",
+          "tooltip": {
+            "vi": "bị che khuất",
+            "ipa": "ˈhɪdən"
+          }
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "faces",
+          "tooltip": {
+            "vi": "mặt",
+            "ipa": "feɪsɪz"
+          }
+        },
+        {
+          "text": " are there?"
+        }
+      ],
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "correct": "8",
+      "explanation_vi": "Hình chữ thập (+) gồm 1 khối ở giữa kết nối với 4 khối xung quanh. Mỗi điểm tiếp xúc che mất 2 mặt. Tổng cộng 4 điểm tiếp xúc x 2 mặt = 8 mặt bị ẩn."
+    }
+  ],
+  "pathway": "lop6",
+  "group": "toan",
+  "grade_target": "5-6"
+}

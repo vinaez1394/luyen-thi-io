@@ -1,0 +1,110 @@
+{
+  "id": "FW1-MED-004",
+  "title": "Flyers Reading & Writing — Part 1 — Set 4 (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+
+  "word_bank": [
+    "a keyboard",
+    "a laptop",
+    "an email",
+    "a website",
+    "a mouse",
+    "a screen",
+    "the internet",
+    "a file",
+    "a message",
+    "a printer",
+    "information",
+    "a video",
+    "a battery",
+    "a gamer",
+    "a password"
+  ],
+
+  "example": {
+    "prompt": "This is a secret word that you use to open your computer or phone safely.",
+    "answer": "a password"
+  },
+
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "You use this part of a computer to type letters and numbers on the page.",
+      "correct": "a keyboard",
+      "explanation_vi": "Keyboard = bàn phím, phần của máy tính dùng để gõ các chữ cái và chữ số."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "This is a way of sending letters and pictures to people quickly using a computer.",
+      "correct": "an email",
+      "explanation_vi": "Email = thư điện tử, cách gửi thư và hình ảnh cho mọi người nhanh chóng bằng máy tính."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "You can find lots of interesting things to look at or read on this part of the internet.",
+      "correct": "a website",
+      "explanation_vi": "Website = trang web, nơi trên internet bạn có thể tìm thấy nhiều thứ thú vị để xem hoặc đọc."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This is a small object that you move with your hand to click on things on a computer.",
+      "correct": "a mouse",
+      "explanation_vi": "Mouse = chuột máy tính, vật nhỏ bạn di chuyển bằng tay để nhấp vào các mục trên máy tính."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "You use this machine to put words and pictures from your computer onto a piece of paper.",
+      "correct": "a printer",
+      "explanation_vi": "Printer = máy in, máy dùng để đưa chữ và hình ảnh từ máy tính ra giấy."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is a small computer that you can carry in a bag and use in many different places.",
+      "correct": "a laptop",
+      "explanation_vi": "Laptop = máy tính xách tay, máy tính nhỏ gọn có thể mang trong túi và sử dụng ở nhiều nơi."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This connects computers all over the world so that people can share news and pictures.",
+      "correct": "the internet",
+      "explanation_vi": "The internet = mạng internet, kết nối các máy tính trên toàn thế giới để chia sẻ tin tức và hình ảnh."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "You need this to give power to your phone or tablet when you are not at home.",
+      "correct": "a battery",
+      "explanation_vi": "Battery = pin, thứ cần thiết để cung cấp năng lượng cho điện thoại hoặc máy tính bảng khi bạn không ở nhà."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "This is a short piece of writing that you send to a friend's phone to say \"hello\".",
+      "correct": "a message",
+      "explanation_vi": "Message = tin nhắn, đoạn viết ngắn bạn gửi đến điện thoại của bạn bè để chào hỏi."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "You watch this on a screen to see moving pictures and hear music or people talking.",
+      "correct": "a video",
+      "explanation_vi": "Video = đoạn phim/video, thứ bạn xem trên màn hình với hình ảnh động và âm thanh."
+    }
+  ]
+}

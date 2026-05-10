@@ -1,0 +1,44 @@
+{
+  "passage_id": "family-p3",
+  "topic": "family",
+  "title": "Helping Mum",
+  "level": "starters",
+  "word_count": 88,
+  "segments": [
+    { "type": "text", "content": "Saturday is a busy day at home. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-011",
+      "options": ["mother", "eagle", "desk"],
+      "answer": "mother",
+      "explanation_vi": "'mother' = mẹ — người phụ nữ trong gia đình, sinh ra và nuôi dưỡng con cái."
+    },
+    { "type": "text", "content": " always cooks a delicious lunch for everyone. My " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-016",
+      "options": ["sister", "kitten", "teacher"],
+      "answer": "sister",
+      "explanation_vi": "'sister' = chị/em gái — người chị hoặc em gái trong gia đình."
+    },
+    { "type": "text", "content": " helps wash the vegetables. My " },
+    {
+      "type": "blank",
+      "word_id": "mv-fm-001",
+      "options": ["aunt", "dolphin", "pencil"],
+      "answer": "aunt",
+      "explanation_vi": "'aunt' = cô/dì/mợ — chị hoặc em gái của cha hoặc mẹ."
+    },
+    { "type": "text", "content": " comes over on Saturdays and brings cake. My little " },
+    {
+      "type": "blank",
+      "word_id": "st-fm-023",
+      "options": ["son", "shark", "window"],
+      "answer": "son",
+      "explanation_vi": "'son' = con trai — đứa con trai trong gia đình."
+    },
+    { "type": "text", "content": " plays with his toy cars while the grown-ups cook. Saturdays are wonderful!" }
+  ],
+  "explanation_vi": "Đoạn văn về ngày thứ Bảy bận rộn trong gia đình: mẹ (mother), chị/em gái (sister), cô/dì (aunt), con trai (son). Mọi người cùng nhau làm việc nhà rất vui.",
+  "created_at": "2026-05-07"
+}

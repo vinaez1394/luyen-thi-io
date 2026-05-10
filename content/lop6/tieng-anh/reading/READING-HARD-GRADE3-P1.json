@@ -1,0 +1,126 @@
+{
+  "id": "READING-HARD-GRADE3-P1",
+  "title": "Reading Comprehension — Hard — Grade 3-4 — Wild Animals",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "hard",
+  "grade_min": 3,
+  "grade_max": 4,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Wild animals are a (0) vital part of our planet's ecosystems. Each species has a special (1) _____ to play in nature. For example, bees help plants to (2) _____ by carrying pollen from flower to flower. Large predators like lions help to (3) _____ the populations of other animals from growing too large. When one species disappears, it can (4) _____ many other living things that depend on it for food or shelter.",
+        "text_segments": [
+          { "text": "Wild animals are a " },
+          { "text": "(0) vital", "highlight": true, "tooltip": { "vi": "thiết yếu, cực kỳ quan trọng", "ipa": "ˈvaɪtl" } },
+          { "text": " part of our planet's " },
+          { "text": "ecosystems", "tooltip": { "vi": "hệ sinh thái", "ipa": "ˈiːkəʊsɪstəmz" } },
+          { "text": ". Each " },
+          { "text": "species", "tooltip": { "vi": "loài vật/thực vật", "ipa": "ˈspiːʃiːz" } },
+          { "text": " has a special (1) _____ to play in nature. For example, bees help plants to (2) _____ by carrying " },
+          { "text": "pollen", "tooltip": { "vi": "phấn hoa", "ipa": "ˈpɒlən" } },
+          { "text": " from flower to flower. Large predators like lions help to (3) _____ the populations of other animals from growing too large. When one species disappears, it can (4) _____ many other living things that depend on it for food or shelter." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "Each species has a special (1) _____ to play in nature.",
+          "options": ["role", "game", "colour"],
+          "correct": "role",
+          "explanation_vi": "'Role' nghĩa là vai trò — mỗi loài có một vai trò đặc biệt trong tự nhiên. 'Play a role' là thành ngữ quen dùng."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "Bees help plants to (2) _____ by carrying pollen from flower to flower.",
+          "options": ["reproduce", "disappear", "sleep"],
+          "correct": "reproduce",
+          "explanation_vi": "'Reproduce' nghĩa là sinh sản — ong giúp thực vật sinh sản bằng cách mang phấn hoa từ hoa này sang hoa khác."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "Large predators like lions help to (3) _____ the populations of other animals from growing too large.",
+          "options": ["prevent", "increase", "celebrate"],
+          "correct": "prevent",
+          "explanation_vi": "'Prevent' nghĩa là ngăn chặn — những kẻ săn mồi lớn như sư tử giúp ngăn số lượng các loài khác tăng quá mức."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "When one species disappears, it can (4) _____ many other living things that depend on it.",
+          "options": ["affect", "improve", "ignore"],
+          "correct": "affect",
+          "explanation_vi": "'Affect' nghĩa là ảnh hưởng đến — khi một loài biến mất, nó sẽ tác động đến nhiều loài khác trong chuỗi thức ăn."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "The rainforest is one of the most important habitats on Earth. It covers only about six percent of the Earth's surface but is home to more than half of the world's plant and animal species. The Amazon Rainforest in South America is the largest tropical rainforest in the world, covering over five million square kilometres. Rainforests receive a large amount of rainfall each year, which allows an incredible variety of life to thrive. The trees in the rainforest also play a crucial role in regulating the Earth's climate by absorbing carbon dioxide and releasing oxygen. However, humans are destroying rainforests at an alarming rate to make way for farming, logging, and housing developments.",
+        "text_segments": [
+          { "text": "The rainforest is one of the most important " },
+          { "text": "habitats", "tooltip": { "vi": "môi trường sống, nơi cư trú", "ipa": "ˈhæbɪtæts" } },
+          { "text": " on Earth. It covers only about six percent of the Earth's surface but is home to more than half of the world's plant and animal species. The Amazon Rainforest in South America is the largest " },
+          { "text": "tropical", "tooltip": { "vi": "nhiệt đới", "ipa": "ˈtrɒpɪkl" } },
+          { "text": " rainforest in the world. Rainforests receive a large amount of rainfall each year, which allows an incredible variety of life to " },
+          { "text": "thrive", "tooltip": { "vi": "phát triển mạnh mẽ", "ipa": "θraɪv" } },
+          { "text": ". The trees in the rainforest also play a crucial role in " },
+          { "text": "regulating", "tooltip": { "vi": "điều tiết, kiểm soát", "ipa": "ˈreɡjuleɪtɪŋ" } },
+          { "text": " the Earth's climate by absorbing carbon dioxide and releasing oxygen. However, humans are destroying rainforests at an alarming rate to make way for farming, " },
+          { "text": "logging", "tooltip": { "vi": "khai thác gỗ", "ipa": "ˈlɒɡɪŋ" } },
+          { "text": ", and housing developments." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "Rainforests cover more than half of the Earth's land surface.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'covers only about six percent of the Earth's surface' — rừng nhiệt đới chỉ chiếm khoảng 6% diện tích bề mặt Trái Đất."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "The Amazon Rainforest plays a role in controlling the world's climate.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'trees play a crucial role in regulating the Earth's climate by absorbing carbon dioxide and releasing oxygen.'"
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "Why are humans cutting down rainforests?",
+          "options": ["to create national parks", "for farming, logging and housing", "to plant new types of trees"],
+          "correct": "for farming, logging and housing",
+          "explanation_vi": "Bài viết 'to make way for farming, logging, and housing developments.'"
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage meaning 'the natural environment where an animal or plant normally lives'.",
+          "correct": "habitats",
+          "explanation_vi": "'Habitats' nghĩa là môi trường sống — nơi các loài động thực vật sinh sống trong tự nhiên."
+        }
+      ]
+    }
+  ]
+}

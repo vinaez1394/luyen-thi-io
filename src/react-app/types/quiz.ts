@@ -1,7 +1,11 @@
 /**
  * quiz.ts — TypeScript interfaces cho Quiz Engine
  * Thêm type mới vào QuizType → Engine tự động hỗ trợ
+ *
+ * Phase 4.5: Question.prompt có thể là AnnotatedPrompt (TextSegment[])
  */
+
+import type { AnnotatedPrompt } from "./vocabulary";
 
 // ============================================
 // Tất cả dạng bài hiện có và tương lai
@@ -16,7 +20,8 @@ export type QuizType =
   | "audio-mc"               // Listening P1, P4 — nghe + chọn (Phase 06)
   | "audio-fill"             // Listening P2 — nghe + điền bảng (Phase 06)
   | "audio-matching"         // Listening P3 — nghe + nối (Phase 06)
-  | "audio-true-false";      // Listening P5 — nghe + đúng/sai (Phase 06)
+  | "audio-true-false"       // Listening P5 — nghe + đúng/sai (Phase 06)
+  | "reading-passage";       // Lớp 6 Tiếng Anh — passage + sections (ReadingEngine)
 
 export type SkillType = "reading" | "listening" | "writing" | "math";
 export type LevelType = "flyers" | "movers" | "ket" | "pet" | "level-1" | "level-2";
@@ -26,7 +31,8 @@ export type LevelType = "flyers" | "movers" | "ket" | "pet" | "level-1" | "level
 // ============================================
 export interface Question {
   id: string;
-  prompt: string;
+  /** Phase 4.5: có thể là string thuần (cũ) hoặc TextSegment[] (mới, có tooltip) */
+  prompt: AnnotatedPrompt;
   image_url?: string;          // optional — dùng khi type = multiple-choice-image
   audio_url?: string;          // optional — dùng khi type = audio-*
   options: string[];           // Danh sách đáp án
@@ -45,6 +51,8 @@ export interface Quiz {
   part: number;
   type: QuizType;
   is_free: boolean;
+  grade_min?: number;   // Lớp tối thiểu phù hợp (3, 4, 5) — dùng cho "ôn tập lại" notification
+  grade_max?: number;   // Lớp tối đa phù hợp
   audio_url?: string;          // Audio cho cả bài (Listening)
   instructions_vi: string;     // Hướng dẫn tiếng Việt
   questions: Question[];
@@ -81,4 +89,7 @@ export interface QuizComponentProps {
   onAnswer: (questionId: string, answer: string | string[]) => void;
   isSubmitted: boolean;    // true sau khi nộp bài → show đáp án
   correctAnswer?: string | string[];
+  // Phase 4.5: Word Tooltip (optional — không phải bài nào cũng có)
+  vocabRemainingFree?: number;
+  onVocabLookup?: (word: string, vi: string, ipa?: string) => { allowed: boolean; willCostStar: boolean };
 }

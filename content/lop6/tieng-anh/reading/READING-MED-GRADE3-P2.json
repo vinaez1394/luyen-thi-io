@@ -1,0 +1,126 @@
+{
+  "id": "READING-MED-GRADE3-P2",
+  "title": "Reading Comprehension — Medium — Grade 3-4 — Shopping & Money",
+  "type": "reading-passage",
+  "skill": "reading",
+  "difficulty": "medium",
+  "grade_min": 3,
+  "grade_max": 4,
+  "in_pool": true,
+  "pathway": "lop6",
+  "subject": "tieng-anh",
+  "ui_language": "vi",
+  "instructions_vi": "Read each passage carefully and answer the questions below.",
+  "total_points": 16,
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "cloze",
+      "title": "I. Read the passage and choose the best word to fill in each blank.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Going shopping is a common (0) activity for many families. Before going to the supermarket, it is important to make a (1) _____ of things you need to buy. This helps you save time and (2) _____ money. At the checkout, you pay the (3) _____ and get a receipt. It is a good habit to check your (4) _____ before leaving the store to make sure nothing is forgotten.",
+        "text_segments": [
+          { "text": "Going shopping is a common " },
+          { "text": "(0) activity", "highlight": true },
+          { "text": " for many families. Before going to the " },
+          { "text": "supermarket", "tooltip": { "vi": "siêu thị", "ipa": "ˈsuːpərmɑːrkɪt" } },
+          { "text": ", it is important to make a (1) _____ of things you need to buy. This helps you save time and (2) _____ money. At the " },
+          { "text": "checkout", "tooltip": { "vi": "quầy thanh toán", "ipa": "ˈtʃekaʊt" } },
+          { "text": ", you pay the (3) _____ and get a " },
+          { "text": "receipt", "tooltip": { "vi": "hóa đơn", "ipa": "rɪˈsiːt" } },
+          { "text": ". It is a good habit to check your (4) _____ before leaving the store to make sure nothing is forgotten." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "blank_number": 1,
+          "context": "It is important to make a (1) _____ of things you need to buy.",
+          "options": ["list", "picture", "map"],
+          "correct": "list",
+          "explanation_vi": "'List' nghĩa là danh sách — lập danh sách những thứ cần mua trước khi đi siêu thị."
+        },
+        {
+          "id": "q2",
+          "blank_number": 2,
+          "context": "This helps you save time and (2) _____ money.",
+          "options": ["spend", "waste", "save"],
+          "correct": "save",
+          "explanation_vi": "'Save money' nghĩa là tiết kiệm tiền — danh sách giúp bạn tiết kiệm thời gian và tiền bạc."
+        },
+        {
+          "id": "q3",
+          "blank_number": 3,
+          "context": "At the checkout, you pay the (3) _____ and get a receipt.",
+          "options": ["bill", "letter", "book"],
+          "correct": "bill",
+          "explanation_vi": "'Bill' nghĩa là hóa đơn — bạn trả tiền theo hóa đơn và nhận biên lai."
+        },
+        {
+          "id": "q4",
+          "blank_number": 4,
+          "context": "Check your (4) _____ before leaving the store to make sure nothing is forgotten.",
+          "options": ["bag", "phone", "key"],
+          "correct": "bag",
+          "explanation_vi": "'Bag' nghĩa là túi xách — kiểm tra túi trước khi rời cửa hàng để đảm bảo không bỏ quên gì."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "type": "comprehension",
+      "title": "II. Read the passage and answer the questions.",
+      "points": 8,
+      "points_per_question": 2,
+      "passage": {
+        "raw_text": "Money is something we use every day to buy things we need. In the past, people traded goods by exchanging one item for another, which was called barter. For example, a farmer might give rice in exchange for cloth. Later, coins and paper money were invented to make buying and selling easier. Today, many people also use credit cards or mobile phones to pay for things without using cash. It is important to learn how to manage money wisely by saving a part of what you earn and spending carefully on things you truly need.",
+        "text_segments": [
+          { "text": "Money is something we use every day to buy things we need. In the past, people " },
+          { "text": "traded", "tooltip": { "vi": "trao đổi, buôn bán", "ipa": "treɪdɪd" } },
+          { "text": " goods by exchanging one item for another, which was called " },
+          { "text": "barter", "tooltip": { "vi": "trao đổi hàng hóa (không dùng tiền)", "ipa": "ˈbɑːrtər" } },
+          { "text": ". For example, a farmer might give rice in exchange for " },
+          { "text": "cloth", "tooltip": { "vi": "vải", "ipa": "klɒθ" } },
+          { "text": ". Later, coins and paper money were " },
+          { "text": "invented", "tooltip": { "vi": "được phát minh", "ipa": "ɪnˈventɪd" } },
+          { "text": " to make buying and selling easier. Today, many people also use credit cards or mobile phones to pay for things without using " },
+          { "text": "cash", "tooltip": { "vi": "tiền mặt", "ipa": "kæʃ" } },
+          { "text": ". It is important to learn how to manage money wisely by saving a part of what you earn and spending carefully on things you truly need." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q5",
+          "sub_type": "true-false",
+          "prompt": "In the past, people used coins to buy everything they needed.",
+          "correct": "false",
+          "explanation_vi": "Bài viết 'people traded goods by exchanging one item for another' — ngày xưa người ta dùng hàng đổi hàng, không phải tiền xu."
+        },
+        {
+          "id": "q6",
+          "sub_type": "true-false",
+          "prompt": "Today, people can pay using mobile phones.",
+          "correct": "true",
+          "explanation_vi": "Bài viết 'use credit cards or mobile phones to pay' — đúng, ngày nay có thể trả tiền bằng điện thoại."
+        },
+        {
+          "id": "q7",
+          "sub_type": "mc-3",
+          "prompt": "What did a farmer give in exchange for cloth, according to the passage?",
+          "options": ["coins", "rice", "money"],
+          "correct": "rice",
+          "explanation_vi": "Bài viết 'a farmer might give rice in exchange for cloth' — người nông dân đổi gạo lấy vải."
+        },
+        {
+          "id": "q8",
+          "sub_type": "write-word",
+          "prompt": "Write ONE word from the passage that means 'physical money in the form of notes and coins'.",
+          "correct": "cash",
+          "explanation_vi": "'Cash' nghĩa là tiền mặt — tiền vật lý dưới dạng tiền giấy và xu."
+        }
+      ]
+    }
+  ]
+}

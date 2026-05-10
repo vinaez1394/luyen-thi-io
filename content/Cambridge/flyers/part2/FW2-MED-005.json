@@ -1,0 +1,45 @@
+{
+  "id": "FW2-MED-005",
+  "title": "Set 5: The New Music Club",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "music",
+  "conversation": [
+    { "speaker": "George", "text": "How long have you been in the music club, Betty?", "example": true },
+    { "speaker": "Betty", "answerKey": "D", "example": true },
+    { "speaker": "George", "text": "Which instrument would you like to learn to play?" },
+    { "speaker": "Betty", "questionIndex": 0 },
+    { "speaker": "George", "text": "How often do you have to practice?" },
+    { "speaker": "Betty", "questionIndex": 1 },
+    { "speaker": "George", "text": "Is it difficult to read the music?" },
+    { "speaker": "Betty", "questionIndex": 2 },
+    { "speaker": "George", "text": "Who is the teacher this year?" },
+    { "speaker": "Betty", "questionIndex": 3 },
+    { "speaker": "George", "text": "Can I come and watch your concert next week?" },
+    { "speaker": "Betty", "questionIndex": 4 }
+  ],
+  "options": [
+    { "letter": "A", "text": "It’s Mrs. Green, she’s very kind." },
+    { "letter": "B", "text": "I’ve played the piano since I was six." },
+    { "letter": "C", "text": "Every Tuesday and Thursday after school." },
+    { "letter": "D", "text": "I joined it about three years ago." },
+    { "letter": "E", "text": "Only if you don't make any noise!" },
+    { "letter": "F", "text": "Actually, I prefer the violin to the guitar." },
+    { "letter": "G", "text": "It's at the end of the long hallway." },
+    { "letter": "H", "text": "It was at first, but it’s easier now." }
+  ],
+  "answers": ["F", "C", "H", "A", "E"],
+  "explanations_vi": [
+    "George hỏi Betty muốn học nhạc cụ nào (Which instrument), Betty bảo thích chơi vĩ cầm hơn ghi-ta (prefer the violin...).",
+    "George hỏi Betty phải luyện tập thường xuyên ra sao (How often), Betty đáp là mỗi thứ Ba và thứ Năm sau giờ học.",
+    "George hỏi đọc bản nhạc có khó không (difficult), Betty đáp lúc đầu thì khó nhưng giờ dễ hơn rồi (It was at first...).",
+    "George hỏi giáo viên năm nay là ai (Who), Betty đáp là cô giáo Green rất tốt bụng (It’s Mrs. Green...).",
+    "George hỏi tuần sau tới xem hòa nhạc được không (Can I come), Betty đồng ý với điều kiện không làm ồn (Only if you don't make any noise!)."
+  ]
+}

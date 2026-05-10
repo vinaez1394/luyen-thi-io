@@ -110,6 +110,13 @@ export function LoginPage() {
           <a href="/privacy" target="_blank">Chính sách Bảo mật</a> của chúng tôi.
           Chúng tôi không bao giờ chia sẻ dữ liệu của bạn.
         </p>
+
+        <p style={{ textAlign: "center", fontSize: "var(--font-sm)", color: "var(--color-text-muted)", fontWeight: "var(--font-semibold)" }}>
+          Chưa có tài khoản?{" "}
+          <a href="/register" style={{ color: "var(--color-primary)", textDecoration: "none", fontWeight: "var(--font-bold)" }}>
+            Đăng ký ngay →
+          </a>
+        </p>
       </div>
     </div>
   );
