@@ -265,45 +265,18 @@ Cả 2 section đều có Hướng dẫn + Ví dụ mẫu hiển thị dạng **
 
 ---
 
-## 📦 THÊM BÀI MỚI — QUYTRÌNH CHUẨN
+## 📦 THÊM BÀI MỚI (KIẾN TRÚC MỚI)
 
-> Dùng lệnh `/tạo bài học` → AI tự kích hoạt skill `exam-luyenthi` và làm theo đúng quy trình.
+> **⚠️ LƯU Ý QUAN TRỌNG:** Kể từ 2026-05-10, hệ thống chuyển sang kiến trúc Dynamic Registry. Bạn KHÔNG CẦN sửa code Frontend hay `subjects.ts`.
 
-### Nhánh A: Multiple Choice (Toán / Cambridge)
+Xem tài liệu Hướng dẫn chi tiết 3 bước tại: `docs/QUYTRINH_THEM_BAI_QUIZ.md`
 
-1. Tạo `content/{folder}/{ID}.json` theo schema MCQ
-2. Thêm vào `quiz.ts` → `LOCAL_QUIZ_MAP`
-3. Thêm vào `subjects.ts` → `lessons[]`
-4. Push → GitHub Actions deploy
+Tóm tắt quy trình:
+1. **Upload JSON lên R2**
+2. **Insert thông tin vào D1 `quiz_catalog`**
+3. **Xóa KV Cache qua API `POST /api/subjects/cache/invalidate`**
 
-### Nhánh B: Reading Passage (Tiếng Anh Lớp 6)
-
-1. Tạo `content/lop6/tieng-anh/reading/{ID}.json`
-   - ID format: `READING-{DIFF}-GRADE{N}-P{NUM}`
-   - Ví dụ: `READING-EASY-GRADE3-P2`, `READING-MED-GRADE5-P1`
-2. Thêm vào `quiz.ts` → `LOCAL_QUIZ_MAP`
-3. Thêm vào `subjects.ts` → `lessons[]` (với `difficulty` + `grade_target`)
-4. Thêm vào `deploy.yml` → R2 sync step
-5. Push → kiểm tra browser thực tế
-
-### Nhánh C: Writing (Tiếng Anh Lớp 6)
-
-1. Tạo `content/lop6/tieng-anh/writing/{ID}.json`
-   - ID format: `WRITING-{DIFF}-GRADE{N}-P{NUM}`
-   - Ví dụ: `WRITING-HARD-GRADE5-P1`, `WRITING-MED-GRADE4-P2`
-   - **Nội dung KHÔNG được sao chép đề thật** — chỉ dùng cùng cấu trúc ngữ pháp
-2. Thêm vào `quiz.ts` → `LOCAL_QUIZ_MAP`
-3. Thêm vào `subjects.ts` → `lessons[]` (với `difficulty` + `grade_target` + `skill: "writing"`)
-4. Thêm vào `deploy.yml` → R2 sync step
-5. Push → kiểm tra browser thực tế
-
-**Ma trận 9 bài Writing (giảm dần):**
-
-| File | Grade | Ngữ pháp trọng tâm |
-|------|-------|--------------------|
-| HARD-GRADE5-P1/2/3 | 5-6 | Hiện tại hoàn thành, bị động, mệnh đề quan hệ |
-| MED-GRADE4-P1/2/3 | 4-5 | So sánh, Conditional type 1, Present Perfect |
-| EASY-GRADE3-P1/2/3 | 3-4 | Simple present/past, giới từ, mạo từ |
+*(Các phần JSON schema và ma trận vẫn áp dụng như cũ, chỉ thay đổi luồng đưa bài lên hệ thống)*
 
 ---
 
@@ -703,4 +676,55 @@ subject.lessons[]
 | Grade từ localStorage (không API) | Zero latency, trang load ngay không skeleton |
 | Bỏ filter free/premium | Cognitive load giảm, lock 🔒 trên card đủ rõ |
 | Grade Card có border-left accent | Phân biệt rõ "cá nhân hóa" vs chip filter thông thường |
+
+---
+
+## 📦 QUIZ CATALOG MIGRATION (2026-05-10)
+
+> **Mục tiêu:** Scale hệ thống từ ~40 bài lên 500+ bài mà KHÔNG làm phình to Frontend JS Bundle và Worker JS, đồng thời giảm thời gian cold start.
+> **Kiến trúc mới:** Thêm bài = Upload JSON lên R2 + Insert 1 row vào D1 `quiz_catalog`. Không cần sửa code, không cần deploy.
+
+### 1. Kiến trúc trước và sau
+
+**TRƯỚC (Legacy):**
+- Danh sách bài học hardcode trong `src/react-app/data/subjects.ts` (~45KB raw, bundle vào mọi trang).
+- Route Worker `quiz.ts` chứa 150+ dòng `try/catch import(...)` để serve local.
+
+**SAU (Dynamic Registry):**
+- Danh sách bài được lưu trong D1 `quiz_catalog`.
+- Frontend fetch qua API `GET /api/subjects?pathway=...` với hook `useSubjects`.
+- Worker cache kết quả API bằng KV namespace `CACHE` (TTL 30 phút).
+- Worker `quiz.ts` chỉ đọc từ R2 (production) hoặc báo lỗi nếu thiếu file (local).
+
+### 2. Các thành phần mới
+
+| Thành phần | Vai trò | Ghi chú |
+|------------|---------|---------|
+| Bảng `quiz_catalog` | Nguồn sự thật (Source of Truth) cho metadata bài học | Khác `quiz_configs` (vẫn giữ để check paywall auth) |
+| KV `CACHE` | Cache API `GET /api/subjects` tại edge | Namespace riêng, không đụng vào `SESSION` |
+| `GET /api/subjects` | API trả về danh sách bài học | Hỗ trợ filter theo pathway và subject |
+| Hook `useSubjects` | Adapter pattern cho Frontend | Fetch từ API, fallback về `subjects.ts` nếu lỗi |
+
+### 3. Quy trình thêm bài mới (Sau Migration)
+
+1. Soạn JSON bài tập theo schema chuẩn.
+2. Upload lên R2 Bucket:
+   ```bash
+   npx wrangler r2 object put luyen-thi-content/quizzes/cambridge/flyers/part2/FW2-HARD-001.json --file=content/...
+   ```
+3. Insert metadata vào D1 `quiz_catalog`:
+   ```sql
+   INSERT INTO quiz_catalog (quiz_id, slug, pathway, subject_slug, title, skill, part, difficulty, questions, is_free, is_published)
+   VALUES ('FW2-HARD-001', 'fw2-hard-001', 'cambridge', 'flyers', 'Set 1: Hard', 'reading', 2, 'hard', 5, 0, 1);
+   ```
+4. Invalidate KV Cache để bài xuất hiện ngay:
+   ```bash
+   curl -X POST https://luyenthi.io.vn/api/subjects/cache/invalidate \
+     -H "Content-Type: application/json" -d '{"pathway":"cambridge","subject":"flyers"}'
+   ```
+
+### 4. Backups & Rollbacks
+- Trước khi thực hiện migration, dự án đã tạo snapshot git trên branch `feature/quiz-catalog-migration`.
+- Data D1 được export ra thư mục `backup/d1-backup-20260510-0712.sql`.
+- File `subjects.ts` cũ được lưu tại `backup/subjects.ts.bak`.
 

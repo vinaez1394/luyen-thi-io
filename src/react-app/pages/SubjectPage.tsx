@@ -18,6 +18,7 @@ import { useAuth } from "../hooks/useAuth";
 import { findByPathwayGroup } from "../data/subjects";
 import type { Lesson } from "../data/subjects";
 import { getPathwayFromPathname, getLessonUrl, getPathwayUrl } from "../utils/urlHelpers";
+import { useSubjects } from "../hooks/useSubjects";
 import { Breadcrumb, useBreadcrumbs } from "../components/ui/Breadcrumb";
 import "./SubjectPage.css";
 
@@ -251,7 +252,19 @@ export function SubjectPage() {
   const { isLoggedIn } = useAuth();
 
   const pathway = getPathwayFromPathname(location.pathname);
-  const subject = pathway ? findByPathwayGroup(pathway, subjectSlug) : null;
+  const subjectMeta = pathway ? findByPathwayGroup(pathway, subjectSlug) : null;
+  const { lessons: apiLessons } = useSubjects({ 
+    pathway: pathway || "", 
+    subject: subjectSlug 
+  });
+
+  const subject = useMemo(() => {
+    if (!subjectMeta) return null;
+    return {
+      ...subjectMeta,
+      lessons: apiLessons.length > 0 ? apiLessons : subjectMeta.lessons
+    };
+  }, [subjectMeta, apiLessons]);
 
   // ── Khởi tạo grade từ localStorage ngay lần đầu render ──
   const initialGradeTab = useMemo(() => getUserGradeTab(), []);

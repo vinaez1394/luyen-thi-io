@@ -8,6 +8,7 @@ import { quizRoute } from "./routes/quiz";
 import { vocabularyRoute } from "./routes/vocabulary";
 import { progressRoute } from "./routes/progress";
 import { blogRoutes } from "./routes/blog";
+import { subjectsRoute } from "./routes/subjects";
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -57,6 +58,9 @@ app.route("/api/student", studentRoute);
 
 // Quiz Engine (Phase 04)
 app.route("/api/quiz", quizRoute);
+
+// Quiz Catalog (Phase 05)
+app.route("/api/subjects", subjectsRoute);
 
 // Vocabulary — Hangman word pool từ D1
 app.route("/api/vocabulary", vocabularyRoute);
