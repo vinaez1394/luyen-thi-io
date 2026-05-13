@@ -66,13 +66,6 @@ try {
   LOCAL_QUIZ_MAP["MATH-THINKING-GRADE3-L1-P10"] = d.default;
 } catch { /* Production: dùng R2 */ }
 
-try {
-  const rw001 = await import("../../../content/Cambridge/flyers/RW001.json", {
-    assert: { type: "json" },
-  });
-  LOCAL_QUIZ_MAP["RW001"] = rw001.default;
-} catch { /* Production: dùng R2 */ }
-
 // ⚠️ READING PASSAGE — Lớp 6 Tiếng Anh (Phase Reading)
 try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE3-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE3-P1"] = d.default; } catch { /* R2 */ }
 try { const d = await import("../../../content/lop6/tieng-anh/reading/READING-EASY-GRADE4-P1.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["READING-EASY-GRADE4-P1"] = d.default; } catch { /* R2 */ }
@@ -152,6 +145,18 @@ try { const d = await import("../../../content/Cambridge/flyers/part2/FW2-MED-00
 try { const d = await import("../../../content/Cambridge/flyers/part2/FW2-MED-004.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW2-MED-004"] = d.default; } catch { /* R2 */ }
 try { const d = await import("../../../content/Cambridge/flyers/part2/FW2-MED-005.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW2-MED-005"] = d.default; } catch { /* R2 */ }
 
+// ⚠️ CAMBRIDGE FLYERS Part 3 — Story Fill-in-Blank Engine (FW3-*)
+try { const d = await import("../../../content/Cambridge/flyers/part3/FW3-MED-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW3-MED-001"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part3/FW3-MED-002.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW3-MED-002"] = d.default; } catch { /* R2 */ }
+
+// ⚠️ CAMBRIDGE FLYERS Part 4 — Multiple-Choice Cloze Engine (FW4-*)
+try { const d = await import("../../../content/Cambridge/flyers/part4/FW4-MED-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW4-MED-001"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part4/FW4-MED-002.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW4-MED-002"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part4/FW4-MED-003.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW4-MED-003"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part4/FW4-MED-004.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW4-MED-004"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part4/FW4-MED-005.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW4-MED-005"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/part4/FW4-MED-006.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW4-MED-006"] = d.default; } catch { /* R2 */ }
+
 
 
 type Env = {
@@ -183,10 +188,6 @@ function getR2Key(quizId: string): string {
   if (/^WRITING-(EASY|MED|HARD)-GRADE\d+-P\d+$/.test(quizId)) {
     return `quizzes/lop6/tieng-anh/writing/${quizId}.json`;
   }
-  // Cambridge Flyers — Reading / Writing (RW001, RW2-001, RW3-001...)
-  if (/^RW/.test(quizId)) {
-    return `quizzes/cambridge/flyers/reading/${quizId}.json`;
-  }
   // Cambridge Flyers — Listening (L001, L002, L003...)
   if (/^L\d{3}$/.test(quizId)) {
     return `quizzes/cambridge/flyers/listening/${quizId}.json`;
@@ -198,6 +199,14 @@ function getR2Key(quizId: string): string {
   // Cambridge Flyers — R&W Part 2 Conversation Matching (FW2-*)
   if (/^FW2-/.test(quizId)) {
     return `quizzes/cambridge/flyers/part2/${quizId}.json`;
+  }
+  // Cambridge Flyers — R&W Part 3 Story Fill-in-Blank (FW3-*)
+  if (/^FW3-/.test(quizId)) {
+    return `quizzes/cambridge/flyers/part3/${quizId}.json`;
+  }
+  // Cambridge Flyers — R&W Part 4 Multiple-Choice Cloze (FW4-*)
+  if (/^FW4-/.test(quizId)) {
+    return `quizzes/cambridge/flyers/part4/${quizId}.json`;
   }
   // Fallback — không nên xảy ra
   console.warn(`[quiz] Unknown quizId format: "${quizId}" — using flat path. Add rule to getR2Key().`);
@@ -227,10 +236,6 @@ function detectQuizMeta(quizId: string): { pathway: string | null; subject: stri
   // Lớp 6 — Tiếng Anh Writing
   if (/^WRITING-(EASY|MED|HARD)-GRADE\d+-P\d+$/i.test(quizId)) {
     return { pathway: "lop6", subject: "tieng-anh" };
-  }
-  // Cambridge — Reading/Writing (Flyers)
-  if (/^RW/i.test(quizId)) {
-    return { pathway: "cambridge", subject: "reading" };
   }
   // Cambridge — Listening (Flyers)
   if (/^L\d{3}$/i.test(quizId)) {
@@ -353,13 +358,16 @@ quizRoute.post("/:quizId/submit", async (c) => {
   }>();
 
   // Load quiz để chấm điểm
-  // Quiz có 2 cấu trúc:
-  //   A. { questions: [...] }           — Math / Cambridge Flyers cũ
-  //   B. { sections: [{ questions: [...] }] } — Reading / Writing mới
-  // Ta normalize về mảng questions phẳng trước khi chấm.
+  // Quiz có 4 cấu trúc:
+  //   A. { questions: [...] }                          — MCQ / Flyers Part 1
+  //   B. { sections: [{ questions: [...] }] }          — Reading / Writing
+  //   C. { answers: ["F","A",...], conversation: [...] } — Flyers Part 2
+  //   D. { answers: ["F","A",...] }                   — Flyers Part 2 (general)
   const quizRaw = await loadQuizJson(quizId, c.env) as {
+    type?: string;
     questions?: Array<{ id: string; correct: string | string[] }>;
     sections?: Array<{ questions?: Array<{ id: string; correct: string | string[] }> }>;
+    answers?: string[];  // Flyers Part 2: mảng đáp án đúng theo thứ tự
     skill?: string;
     part?: number;
   } | null;
@@ -368,11 +376,25 @@ quizRoute.post("/:quizId/submit", async (c) => {
     return c.json({ error: "Không tìm thấy bài học" }, 404);
   }
 
-  // Flatten questions từ cả 2 cấu trúc
-  const questions: Array<{ id: string; correct: string | string[] }> = [
+  // Normalize: flatten questions từ mọi cấu trúc
+  let questions: Array<{ id: string; correct: string | string[] }> = [
     ...(quizRaw.questions ?? []),
     ...(quizRaw.sections ?? []).flatMap(s => s.questions ?? []),
   ];
+
+  // Flyers Part 2: answers là array string ["F","A",...]
+  // → normalize thành questions format: { id: "q1", correct: "F" }
+  if (
+    questions.length === 0 &&
+    Array.isArray(quizRaw.answers) &&
+    quizRaw.answers.length > 0 &&
+    typeof quizRaw.answers[0] === "string"
+  ) {
+    questions = quizRaw.answers.map((ans, i) => ({
+      id: `q${i + 1}`,
+      correct: ans,
+    }));
+  }
 
   if (questions.length === 0) {
     return c.json({ error: "Bài học không có câu hỏi" }, 422);

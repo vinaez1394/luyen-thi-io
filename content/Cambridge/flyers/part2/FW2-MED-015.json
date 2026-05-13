@@ -1,0 +1,45 @@
+{
+  "id": "FW2-MED-015",
+  "title": "Set 15: Helping at a Café ☕",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "work",
+  "conversation": [
+    { "speaker": "Manager", "text": "Thanks for helping me in the café today, Richard.", "example": true },
+    { "speaker": "Richard", "answerKey": "C", "example": true },
+    { "speaker": "Manager", "text": "Could you please clean the tables in the garden?" },
+    { "speaker": "Richard", "questionIndex": 0 },
+    { "speaker": "Manager", "text": "What would that customer at table four like to eat?" },
+    { "speaker": "Richard", "questionIndex": 1 },
+    { "speaker": "Manager", "text": "How much does a large bottle of lemonade cost?" },
+    { "speaker": "Richard", "questionIndex": 2 },
+    { "speaker": "Manager", "text": "Would you mind bringing these spoons to the kitchen?" },
+    { "speaker": "Richard", "questionIndex": 3 },
+    { "speaker": "Manager", "text": "You’ve worked very hard. Would you like a piece of cake?" },
+    { "speaker": "Richard", "questionIndex": 4 }
+  ],
+  "options": [
+    { "letter": "A", "text": "It’s three pounds and fifty pence." },
+    { "letter": "B", "text": "I’d love one, thank you very much!" },
+    { "letter": "C", "text": "You’re welcome. I’m happy to be here." },
+    { "letter": "D", "text": "Just a sandwich and a small salad." },
+    { "letter": "E", "text": "I'm going to have a cup of tea." },
+    { "letter": "F", "text": "Not at all. I’ll take them right now." },
+    { "letter": "G", "text": "Certainly. I’ll get a cloth and some water." },
+    { "letter": "H", "text": "No, I haven't seen them today." }
+  ],
+  "answers": ["G", "D", "A", "F", "B"],
+  "explanations_vi": [
+    "Quản lý nhờ lau bàn ngoài vườn (clean the tables), Richard đáp Chắc chắn rồi. Cháu sẽ đi lấy giẻ và nước (Certainly. I'll get a cloth and some water).",
+    "Quản lý hỏi khách ở bàn số 4 muốn ăn gì (like to eat), Richard trả lời Chỉ một chiếc bánh mì kẹp và một đĩa salad nhỏ (Just a sandwich and a small salad).",
+    "Quản lý hỏi chai nước chanh lớn giá bao nhiêu (How much does... cost), Richard đáp Giá của nó là 3 bảng 50 xu (It's three pounds and fifty pence).",
+    "Quản lý nhờ mang thìa vào bếp (Would you mind bringing...), Richard bảo Không phiền đâu. Cháu sẽ mang vào ngay (Not at all. I'll take them right now).",
+    "Quản lý khen Richard làm việc chăm chỉ và mời ăn bánh (Would you like a piece of cake), Richard vui vẻ đáp Cháu rất muốn, cảm ơn chú rất nhiều! (I'd love one, thank you very much!)."
+  ]
+}

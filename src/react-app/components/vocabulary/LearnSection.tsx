@@ -51,17 +51,23 @@ export function LearnSection({ words, onComplete }: LearnSectionProps) {
   // ── Audio ─────────────────────────────────────────────────────────────────
   const handleSpeak = useCallback(async () => {
     if (!current) return;
+    setSpeaking(true);
 
     if (current.audio_url) {
       // Nếu có file MP3, phát file đó
       const audio = new Audio(current.audio_url);
-      setSpeaking(true);
       audio.onended = () => setSpeaking(false);
-      audio.onerror = () => setSpeaking(false);
-      await audio.play().catch(() => setSpeaking(false));
+      audio.onerror = () => {
+        setSpeaking(false);
+        // Fallback sang TTS nếu MP3 lỗi
+        speakWord(current.word);
+      };
+      await audio.play().catch(() => {
+        setSpeaking(false);
+        speakWord(current.word);
+      });
     } else {
       // Fallback: Web Speech API
-      setSpeaking(true);
       speakWord(current.word);
       // Estimate duration dựa vào độ dài từ
       const duration = Math.max(600, current.word.length * 100);
@@ -185,7 +191,7 @@ export function LearnSection({ words, onComplete }: LearnSectionProps) {
         <button
           className={`learn-btn learn-btn--audio${speaking ? " learn-btn--speaking" : ""}`}
           onClick={e => { e.stopPropagation(); handleSpeak(); }}
-          disabled={speaking || !isSpeechSupported()}
+          disabled={speaking || (!current.audio_url && !isSpeechSupported())}
           aria-label={`Pronounce ${current.word}`}
           title="Listen to pronunciation"
         >

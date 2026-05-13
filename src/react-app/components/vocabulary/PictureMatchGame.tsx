@@ -6,7 +6,7 @@
  * Pass:   ≥ 5/8 → unlock WordBankFillGame
  * Audio:  phát âm từ khi user chọn đúng
  */
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import type { LessonWord } from "../../types/vocabulary";
 import { speakWord } from "../../utils/speakWord";
 import "./Games.css";
@@ -82,7 +82,7 @@ export function PictureMatchGame({ words, onComplete }: PictureMatchGameProps) {
     if (isCorrect) {
       setOptionStates(prev => prev.map((_, i) => i === selectedIdx ? "correct" : "idle"));
       setScore(s => s + 1);
-      speakWord(current.target.word);
+      speakWord(current.target.word, false, current.target.audio_url ?? undefined);
 
       setTimeout(() => {
         if (roundIdx + 1 >= total) {
@@ -119,6 +119,20 @@ export function PictureMatchGame({ words, onComplete }: PictureMatchGameProps) {
     }
   }, [locked, current, roundIdx, total, score, onComplete]);
 
+  // ── Auto-play âm thanh khi sang câu hỏi mới ──────────────────────────────────
+  // Dùng ref để tham chiếu tới current mà không bỏ lỡ roundIdx trigger
+  const currentRef = useRef(current);
+  useEffect(() => { currentRef.current = current; });
+
+  useEffect(() => {
+    // Delay nhỏ để UI render xong trước khi phát
+    const timer = setTimeout(() => {
+      const c = currentRef.current;
+      speakWord(c.target.word, false, c.target.audio_url ?? undefined);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [roundIdx]); // chỉ chạy khi roundIdx thay đổi, dùng ref để tránh stale closure
+
   return (
     <div className="pmg">
       {/* Score bar */}
@@ -127,10 +141,20 @@ export function PictureMatchGame({ words, onComplete }: PictureMatchGameProps) {
         <span className="game-score-bar__value">✅ {score}</span>
       </div>
 
-      {/* Question: hiển thị từ */}
+      {/* Question: hiển thị từ + nút phát âm */}
       <div className="pmg__question">
         <p className="pmg__question-label">Find the picture for:</p>
-        <h2 className="pmg__word">{current.target.word}</h2>
+        <div className="pmg__word-row">
+          <h2 className="pmg__word">{current.target.word}</h2>
+          <button
+            className="pmg__speak-btn"
+            onClick={() => speakWord(current.target.word, false, current.target.audio_url ?? undefined)}
+            aria-label={`Hear pronunciation of ${current.target.word}`}
+            title="Play pronunciation"
+          >
+            🔊
+          </button>
+        </div>
         {current.target.ipa && (
           <p className="pmg__ipa">/{current.target.ipa}/</p>
         )}

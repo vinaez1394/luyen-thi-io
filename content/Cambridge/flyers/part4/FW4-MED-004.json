@@ -1,0 +1,192 @@
+{
+  "id": "FW4-MED-004",
+  "title": "Set 4: The Story of Money 💰",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 4,
+  "type": "flyers-part4",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "history",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-04-the-story-of-money.jpeg",
+  "instructions_en": "READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.",
+  "passage_title": "THE STORY OF MONEY",
+  "example": {
+    "options": [
+      "did",
+      "was",
+      "had"
+    ],
+    "answer": "did"
+  },
+  "options_table": [
+    {
+      "q": 1,
+      "choices": [
+        "where",
+        "how",
+        "why"
+      ],
+      "answer": "how"
+    },
+    {
+      "q": 2,
+      "choices": [
+        "some",
+        "any",
+        "many"
+      ],
+      "answer": "any"
+    },
+    {
+      "q": 3,
+      "choices": [
+        "someone",
+        "anyone",
+        "everyone"
+      ],
+      "answer": "someone"
+    },
+    {
+      "q": 4,
+      "choices": [
+        "another",
+        "other",
+        "others"
+      ],
+      "answer": "another"
+    },
+    {
+      "q": 5,
+      "choices": [
+        "object",
+        "objects",
+        "object's"
+      ],
+      "answer": "objects"
+    },
+    {
+      "q": 6,
+      "choices": [
+        "metals",
+        "metal",
+        "metallic"
+      ],
+      "answer": "metals"
+    },
+    {
+      "q": 7,
+      "choices": [
+        "was",
+        "is",
+        "were"
+      ],
+      "answer": "was"
+    },
+    {
+      "q": 8,
+      "choices": [
+        "at",
+        "to",
+        "in"
+      ],
+      "answer": "to"
+    },
+    {
+      "q": 9,
+      "choices": [
+        "easy",
+        "easier",
+        "more easy"
+      ],
+      "answer": "easy"
+    },
+    {
+      "q": 10,
+      "choices": [
+        "is",
+        "isn't",
+        "are not"
+      ],
+      "answer": "isn't"
+    }
+  ],
+  "story_segments": [
+    "Today, we use money every day. But ",
+    " you ever think how it started? ",
+    " did it begin? Long ago, people didn't have ",
+    " money. Instead, they traded things. For example, ",
+    " who had chickens might give them to ",
+    " person in exchange for vegetables. Later, people used valuable ",
+    " like shells, salt, or even ",
+    " as money.\n\nFinally, the first coins were made. Paper money ",
+    " invented later in China. It is easy ",
+    " carry, and it is also ",
+    " to store. Money helps us trade easily. Money is important, but happiness is more so, ",
+    " it?"
+  ],
+  "answers": [
+    "how",
+    "any",
+    "someone",
+    "another",
+    "objects",
+    "metals",
+    "was",
+    "to",
+    "easy",
+    "isn't"
+  ],
+  "explanations_vi": [
+    "Dùng từ để hỏi 'how' (thế nào) để hỏi về quá trình bắt đầu (How did it begin?).",
+    "Từ định lượng 'any' (bất kỳ) được dùng trong câu phủ định (didn't have any money).",
+    "Đại từ bất định chỉ người 'someone' (ai đó), làm chủ ngữ cho mệnh đề quan hệ 'who had chickens'.",
+    "Dùng 'another' trước danh từ số ít đếm được 'person' (một người khác).",
+    "Dùng danh từ số nhiều 'objects' (các vật phẩm) vì trước đó có nói 'traded things' và sau đó liệt kê nhiều thứ (shells, salt).",
+    "Dùng danh từ số nhiều 'metals' (các kim loại) để tương đương với danh sách số nhiều trước đó.",
+    "Thì quá khứ đơn, chủ ngữ số ít 'Paper money', thể bị động: 'was invented' (đã được phát minh).",
+    "Cấu trúc 'easy to + V' (dễ dàng làm gì đó): 'easy to carry'.",
+    "Tính từ 'easy' (dễ dàng) mô tả trạng thái 'dễ lưu trữ' (easy to store). Không dùng so sánh hơn ở đây.",
+    "Câu hỏi đuôi (Tag question) cho vế 'happiness is...'. Vì 'is' là khẳng định, đuôi dùng phủ định 'isn't it?'."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "trade",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trao đổi, buôn bán",
+      "ipa": "/treɪd/",
+      "audio_url": null
+    },
+    {
+      "word": "exchange",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trao đổi",
+      "ipa": "/ɪksˈtʃeɪndʒ/",
+      "audio_url": null
+    },
+    {
+      "word": "valuable",
+      "vocabulary_bank_id": null,
+      "translation_vi": "có giá trị",
+      "ipa": "/ˈvæl.jə.bəl/",
+      "audio_url": null
+    },
+    {
+      "word": "invent",
+      "vocabulary_bank_id": null,
+      "translation_vi": "phát minh",
+      "ipa": "/ɪnˈvent/",
+      "audio_url": null
+    },
+    {
+      "word": "store",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lưu trữ",
+      "ipa": "/stɔːr/",
+      "audio_url": null
+    }
+  ]
+}

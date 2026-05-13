@@ -1,0 +1,39 @@
+### BỘ ĐỀ 24: CHỦ ĐỀ "HELPING AT A CAFÉ" (GIÚP VIỆC TẠI QUÁN CÀ PHÊ)
+
+**Example:**
+**Manager:** Thanks for helping me in the café today, Richard.
+**Richard:** **C**
+
+**Questions:**
+
+1. **Manager:** Could you please clean the tables in the garden?
+**Richard:** __________
+2. **Manager:** What would that customer at table four like to eat?
+**Richard:** __________
+3. **Manager:** How much does a large bottle of lemonade cost?
+**Richard:** __________
+4. **Manager:** Would you mind bringing these spoons to the kitchen?
+**Richard:** __________
+5. **Manager:** You’ve worked very hard. Would you like a piece of cake?
+**Richard:** __________
+
+**Options (A-H):**
+
+* **A.** It’s three pounds and fifty pence.
+* **B.** I’d love one, thank you very much!
+* **C.** You’re welcome. I’m happy to be here. **(Example)**
+* **D.** Just a sandwich and a small salad.
+* **E.** I'm going to have a cup of tea.
+* **F.** Not at all. I’ll take them right now.
+* **G.** Certainly. I’ll get a cloth and some water.
+* **H.** No, I haven't seen them today.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+| Bộ đề | Câu 1 | Câu 2 | Câu 3 | Câu 4 | Câu 5 |
+| --- | --- | --- | --- | --- | --- |
+
+| **BĐ 24** | **G** | **D** | **A** | **F** | **B** |
+

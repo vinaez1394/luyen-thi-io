@@ -16,7 +16,7 @@
  *   3. Footer shortcut (giữ nguyên)
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useDashboard } from "../hooks/useDashboard";
@@ -36,18 +36,32 @@ function hasCambridgeAccess(selectedPathway: string | null): boolean {
   return selectedPathway === "cambridge";
 }
 
+const CERT_LABEL: Record<string, { emoji: string; name: string }> = {
+  starters: { emoji: "🌟", name: "Starters" },
+  movers:   { emoji: "🐿️", name: "Movers" },
+  flyers:   { emoji: "✈️", name: "Flyers" },
+};
+
 // ============================================
 // DashboardPage
 // ============================================
 export function DashboardPage() {
-  const navigate = useNavigate();
-  const { user } = useAuth();
+  const navigate   = useNavigate();
+  const { user }   = useAuth();
   const { data, isLoading } = useDashboard();
 
-  // Tab state: "lop6" mặc định (luôn ưu tiên)
+  // ── TẤT CẢ HOOKS PHẢI Ở ĐÂY — TRƯỚC MỌI EARLY RETURN ──
   const [activeTab, setActiveTab] = useState<"lop6" | "cambridge">("lop6");
 
-  // ── Loading ──
+  // Sync tab theo selectedPathway từ API (chạy khi data load xong)
+  useEffect(() => {
+    if (!data) return;
+    if (data.selectedPathway === "cambridge" && hasCambridgeAccess(data.selectedPathway)) {
+      setActiveTab("cambridge");
+    }
+  }, [data?.selectedPathway]); // chỉ re-run khi pathway thay đổi
+
+  // ── Early returns (SAU tất cả hooks) ──
   if (isLoading || !data) {
     return (
       <div className="db-loading" role="status" aria-label="Đang tải...">
@@ -59,10 +73,38 @@ export function DashboardPage() {
 
   if (!user) return null;
 
+  // ── Derived values (sau early returns) ──
   const ps             = data.progressSummary;
   const cambridgeOK    = hasCambridgeAccess(data.selectedPathway);
   const lowScoreAlert  = ps?.lowScoreAlert ?? null;
   const recentAttempts = ps?.recentAttempts ?? [];
+  const cambridgeLevel = data.cambridgeLevel ?? "flyers";
+  const certInfo       = CERT_LABEL[cambridgeLevel] ?? CERT_LABEL["flyers"];
+
+  // ── 5 thẻ kỹ năng Cambridge — khớp với cấu trúc bài thi ──
+  const empty = { doneFree: 0, totalFree: 0, lockedPremium: 0, avgScore: null, badge: "pending" as const, lastActivity: null };
+  const cambridgeMergedSkills = ps ? [
+    {
+      key: "reading",
+      data: { ...(ps.cambridge["reading"] ?? empty), emoji: "📖", label: "Reading & Writing" },
+    },
+    {
+      key: "vocabulary",
+      data: { ...(ps.cambridge["vocabulary"] ?? empty), emoji: "📚", label: "Vocabulary" },
+    },
+    {
+      key: "grammar",
+      data: { ...(ps.cambridge["grammar"] ?? empty), emoji: "📝", label: "Grammar" },
+    },
+    {
+      key: "listening",
+      data: { ...(ps.cambridge["listening"] ?? empty), emoji: "🎧", label: "Listening" },
+    },
+    {
+      key: "speaking",
+      data: { ...(ps.cambridge["speaking"] ?? empty), emoji: "🗣️", label: "Speaking" },
+    },
+  ] : [];
 
   return (
     <div className="dashboard-page">
@@ -226,16 +268,21 @@ export function DashboardPage() {
           </div>
         ) : (
           <>
-            {/* Subject Progress Grid — Cambridge */}
+            {/* Subject Progress Grid — Cambridge: 5 kỹ năng theo chứng chỉ */}
             {ps ? (
               <section className="db-section db-section--progress">
-                <h2 className="db-section__title">📊 Tiến độ các kỹ năng</h2>
+                <h2 className="db-section__title">
+                  📊 Tiến độ các kỹ năng
+                  <span className="db-section__grade-tag">
+                    {certInfo.emoji} {certInfo.name}
+                  </span>
+                </h2>
                 <div className="db-subject-grid">
-                  {Object.entries(ps.cambridge).map(([subject, subjectData]) => (
+                  {cambridgeMergedSkills.map(({ key, data: skillData }) => (
                     <SubjectProgressCard
-                      key={subject}
-                      subject={subject}
-                      data={subjectData}
+                      key={key}
+                      subject={key}
+                      data={skillData}
                       pathway="cambridge"
                       onNavigate={(path) => navigate(path)}
                     />

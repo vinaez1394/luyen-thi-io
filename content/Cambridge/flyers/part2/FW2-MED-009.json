@@ -1,0 +1,45 @@
+{
+  "id": "FW2-MED-009",
+  "title": "Set 9: A New Pet 🐶",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "animals",
+  "conversation": [
+    { "speaker": "Tom", "text": "Did you finally get that dog you wanted for your birthday?", "example": true },
+    { "speaker": "Mary", "answerKey": "F", "example": true },
+    { "speaker": "Tom", "text": "He looks very energetic! What is he like?" },
+    { "speaker": "Mary", "questionIndex": 0 },
+    { "speaker": "Tom", "text": "Who usually looks after him during the day?" },
+    { "speaker": "Mary", "questionIndex": 1 },
+    { "speaker": "Tom", "text": "Where does he sleep at night?" },
+    { "speaker": "Mary", "questionIndex": 2 },
+    { "speaker": "Tom", "text": "Have you taught him any clever tricks yet?" },
+    { "speaker": "Mary", "questionIndex": 3 },
+    { "speaker": "Tom", "text": "I’d love to take him for a walk in the park with you." },
+    { "speaker": "Mary", "questionIndex": 4 }
+  ],
+  "options": [
+    { "letter": "A", "text": "In a soft basket in the corner of the kitchen." },
+    { "letter": "B", "text": "Usually my older brother, but I help too." },
+    { "letter": "C", "text": "He’s been eating a lot of biscuits lately." },
+    { "letter": "D", "text": "That sounds fun! Shall we go this afternoon?" },
+    { "letter": "E", "text": "No, he’s much bigger than a cat." },
+    { "letter": "F", "text": "Yes! My parents surprised me with him yesterday." },
+    { "letter": "G", "text": "Yes, he can already sit and stay when I ask." },
+    { "letter": "H", "text": "He’s quite small, but he’s very friendly." }
+  ],
+  "answers": ["H", "B", "A", "G", "D"],
+  "explanations_vi": [
+    "Tom hỏi chú chó trông năng động thế, tính cách nó thế nào (What is he like), Mary đáp Nó khá nhỏ, nhưng rất thân thiện (He's quite small, but he's very friendly).",
+    "Tom hỏi ai thường chăm sóc chú chó ban ngày (looks after him during the day), Mary trả lời Thường là anh trai tớ, nhưng tớ cũng giúp đỡ (Usually my older brother, but I help too).",
+    "Tom hỏi chú chó ngủ ở đâu vào ban đêm (Where does he sleep), Mary nói Trong một chiếc rổ mềm ở góc bếp (In a soft basket in the corner of the kitchen).",
+    "Tom hỏi đã dạy chú chó trò ảo thuật/thông minh nào chưa (taught him any clever tricks), Mary bảo Có, nó đã biết ngồi và ở yên khi tớ bảo (Yes, he can already sit and stay when I ask).",
+    "Tom bảo muốn đi dạo ở công viên cùng chú chó, Mary hào hứng bảo Nghe vui đấy! Chiều nay chúng ta đi nhé? (That sounds fun! Shall we go this afternoon?)."
+  ]
+}

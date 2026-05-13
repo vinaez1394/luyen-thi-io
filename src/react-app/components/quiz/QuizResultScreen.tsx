@@ -138,10 +138,10 @@ export function QuizResultScreen({
       {/* Actions */}
       <div className="quiz-result__actions">
         <button className="btn btn-outline" id="btn-result-review" onClick={onReview}>
-          Xem đáp án
+          Làm lại
         </button>
         <button className="btn btn-primary" id="btn-result-home" onClick={onHome}>
-          Về trang chủ
+          Làm bài khác
         </button>
       </div>
     </div>

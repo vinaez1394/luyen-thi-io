@@ -1,0 +1,44 @@
+CHỦ ĐỀ "THE SCHOOL ROBOT COMPETITION" (CUỘC THI ROBOT)
+
+**Nội dung:** Cuộc trò chuyện giữa hai bạn về việc lắp ráp robot dự thi.
+
+**Example:**
+**Harry:** Have you finished building your robot for the competition yet?
+**Sarah:** **F**
+
+**Questions:**
+
+1. **Harry:** I’ve never seen a machine with so many silver wires before!
+**Sarah:** __________
+2. **Harry:** Which part of it was the most difficult to put together?
+**Sarah:** __________
+3. **Harry:** What happened when you tried to turn it on this morning?
+**Sarah:** __________
+4. **Harry:** We might win the first prize if it works well tomorrow.
+**Sarah:** __________
+5. **Harry:** Shall we ask the science teacher to help us check the wheels?
+**Sarah:** __________
+
+**Options (A-H):**
+
+* **A.** The one that moves the arms, I think.
+* **B.** I hope so, but the other teams are very good too.
+* **C.** Actually, most of them are just for decoration.
+* **D.** Yes, he was in the laboratory an hour ago.
+* **E.** Nothing, because I’d forgotten to put the batteries in!
+* **F.** Not quite, I’m still trying to fix the heavy metal head. **(Example)**
+* **G.** That’s a great idea. Let’s go and find him.
+* **H.** It’s made of plastic and some recycled wood.
+
+---
+Dưới đây là bảng phân tích tại sao những câu hỏi này lại được xếp vào mức độ **Hard**:
+
+| Bộ đề | Câu | Điểm khó về Ngữ pháp / Logic |
+| --- | --- | --- |
+| **10** | **1** | Sử dụng **Actually** để đính chính lại suy nghĩ của người nói (Wires không phải để dẫn điện mà để trang trí). |
+|  | **3** | Sử dụng **Quá khứ hoàn thành** (*I'd forgotten*) để giải thích một sự việc trong quá khứ. |
+|  | **4** | Câu điều kiện **Loại 1** kết hợp với sự khiêm tốn (*I hope so, but...*) thay vì chỉ đồng ý đơn thuần. |
+
+### ĐÁP ÁN (ANSWER KEY)
+
+* **Bộ đề 10:** 1-C, 2-A, 3-E, 4-B, 5-G.

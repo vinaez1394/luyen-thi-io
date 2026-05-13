@@ -1,0 +1,117 @@
+{
+  "id": "FW3-MED-001",
+  "title": "Set 1: A Camping Adventure 🏕️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "camping",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-01-a-camping-adventure.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "forest",
+    "tomorrow",
+    "wood",
+    "scary",
+    "environment",
+    "torch",
+    "bridge",
+    "interesting",
+    "carefully"
+  ],
+  "example": {
+    "word": "tent",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last weekend, my family and I went camping in the mountains. We arrived in the afternoon and put up our ",
+    " near a small river. After that, we decided to explore the ",
+    " nearby. My dad wanted to find some ",
+    " to make a fire for cooking our dinner.\n\nAs the sun went down, it became very dark. I used my ",
+    " to see the path, but suddenly I heard a strange noise behind a tree. It was a bit ",
+    ", but it was just a small rabbit! We walked over a wooden ",
+    " and finally got back to our camp. We cooked sausages and talked about the stars. It was a wonderful night!"
+  ],
+  "answers": [
+    "forest",
+    "wood",
+    "torch",
+    "scary",
+    "bridge"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A boring day at home"
+      },
+      {
+        "letter": "B",
+        "text": "An exciting night in the mountains"
+      },
+      {
+        "letter": "C",
+        "text": "A trip to the cinema"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Sau khi dựng lều, họ đi khám phá khu rừng (forest) gần đó.",
+    "Bố muốn tìm củi (wood) để nhóm lửa nấu ăn.",
+    "Tối tối tối, tôi dùng đèn pin (torch) để nhìn đường.",
+    "Nghe tiếng động lạ sau cây — hơi đáng sợ (scary) nhưng chỉ là con thỏ!",
+    "Họ đi qua cây cầu gỗ (bridge) để quay về trại.",
+    "Tiêu đề B tóm tắt đúng nhất: một đêm thú vị ở núi."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "camping",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cắm trại",
+      "ipa": "/ˈkæm.pɪŋ/",
+      "audio_url": null
+    },
+    {
+      "word": "explore",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khám phá",
+      "ipa": "/ɪkˈsplɔːr/",
+      "audio_url": null
+    },
+    {
+      "word": "forest",
+      "vocabulary_bank_id": null,
+      "translation_vi": "rừng",
+      "ipa": "/ˈfɒr.ɪst/",
+      "audio_url": null
+    },
+    {
+      "word": "torch",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đèn pin",
+      "ipa": "/tɔːtʃ/",
+      "audio_url": null
+    },
+    {
+      "word": "scary",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đáng sợ",
+      "ipa": "/ˈskeər.i/",
+      "audio_url": null
+    },
+    {
+      "word": "bridge",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cây cầu",
+      "ipa": "/brɪdʒ/",
+      "audio_url": null
+    }
+  ]
+}

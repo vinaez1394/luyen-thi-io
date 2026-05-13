@@ -1,11 +1,31 @@
 /**
- * speakWord.ts — Web Speech API utility
+ * speakWord.ts — Audio playback utility
  *
- * - Prefer 'en-GB' voice → fallback 'en-US'
+ * Priority:
+ *   1. audio_url (MP3 from CDN) — nếu được truyền vào
+ *   2. Web Speech API (en-GB → en-US fallback)
+ *
  * - Rate 0.85 (chậm hơn bình thường để học sinh nghe rõ)
  * - Cancel previous utterance trước khi speak mới
  * - Silent fail nếu browser không support
  */
+
+// ─── Singleton Audio element để tránh overlap ─────────────────────────────────
+let currentAudio: HTMLAudioElement | null = null;
+
+/**
+ * Phát file âm thanh từ URL (MP3 / OGG / …)
+ * Dừng âm thanh đang phát trước khi phát mới.
+ */
+export function playAudio(url: string): void {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  const audio = new Audio(url);
+  currentAudio = audio;
+  audio.play().catch(() => { /* silent fail */ });
+}
 
 let voicesLoaded = false;
 let gbVoice: SpeechSynthesisVoice | null = null;
@@ -44,7 +64,14 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
  * @param word  Từ cần phát âm
  * @param slow  true = rate 0.7 (siêu chậm cho học sinh nhỏ), mặc định 0.85
  */
-export function speakWord(word: string, slow = false): void {
+export function speakWord(word: string, slow = false, audioUrl?: string | null): void {
+  // ── Ưu tiên 1: phát file MP3 từ CDN ──────────────────────────────────────────
+  if (audioUrl) {
+    playAudio(audioUrl);
+    return;
+  }
+
+  // ── Ưu tiên 2: Web Speech API ─────────────────────────────────────────────────
   if (!("speechSynthesis" in window)) return;
 
   // Trigger preload nếu chưa có

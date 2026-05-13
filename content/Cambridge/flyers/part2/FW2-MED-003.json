@@ -1,6 +1,6 @@
 {
   "id": "FW2-MED-003",
-  "title": "Set 3: The Science Project",
+  "title": "Set 3: The Science Project 🔬",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
@@ -11,30 +11,98 @@
   "difficulty": "medium",
   "topic": "science",
   "conversation": [
-    { "speaker": "Emma", "text": "Hi William, have you started your science project yet?", "example": true },
-    { "speaker": "William", "answerKey": "G", "example": true },
-    { "speaker": "Emma", "text": "Why did you decide to write about the moon?" },
-    { "speaker": "William", "questionIndex": 0 },
-    { "speaker": "Emma", "text": "Where did you find all those beautiful pictures for your poster?" },
-    { "speaker": "William", "questionIndex": 1 },
-    { "speaker": "Emma", "text": "How long does our presentation need to be?" },
-    { "speaker": "William", "questionIndex": 2 },
-    { "speaker": "Emma", "text": "I’m worried that I might forget what to say in front of the class." },
-    { "speaker": "William", "questionIndex": 3 },
-    { "speaker": "Emma", "text": "Can I see your poster when it's finished?" },
-    { "speaker": "William", "questionIndex": 4 }
+    {
+      "speaker": "Emma",
+      "text": "Hi William, have you started your science project yet?",
+      "example": true
+    },
+    {
+      "speaker": "William",
+      "answerKey": "G",
+      "example": true
+    },
+    {
+      "speaker": "Emma",
+      "text": "Why did you decide to write about the moon?"
+    },
+    {
+      "speaker": "William",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Emma",
+      "text": "Where did you find all those beautiful pictures for your poster?"
+    },
+    {
+      "speaker": "William",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Emma",
+      "text": "How long does our presentation need to be?"
+    },
+    {
+      "speaker": "William",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Emma",
+      "text": "I’m worried that I might forget what to say in front of the class."
+    },
+    {
+      "speaker": "William",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Emma",
+      "text": "Can I see your poster when it's finished?"
+    },
+    {
+      "speaker": "William",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Don't worry, we can practice together later." },
-    { "letter": "B", "text": "About five minutes, so we don't need much text." },
-    { "letter": "C", "text": "I used my new computer to print them." },
-    { "letter": "D", "text": "Because I’ve always been interested in space." },
-    { "letter": "E", "text": "It’s on the teacher’s desk in the classroom." },
-    { "letter": "F", "text": "On a website that my brother told me about." },
-    { "letter": "G", "text": "Not yet, but I’m going to the library now." },
-    { "letter": "H", "text": "Of course, I’ll bring it to school tomorrow." }
+    {
+      "letter": "A",
+      "text": "Don't worry, we can practice together later."
+    },
+    {
+      "letter": "B",
+      "text": "About five minutes, so we don't need much text."
+    },
+    {
+      "letter": "C",
+      "text": "I used my new computer to print them."
+    },
+    {
+      "letter": "D",
+      "text": "Because I’ve always been interested in space."
+    },
+    {
+      "letter": "E",
+      "text": "It’s on the teacher’s desk in the classroom."
+    },
+    {
+      "letter": "F",
+      "text": "On a website that my brother told me about."
+    },
+    {
+      "letter": "G",
+      "text": "Not yet, but I’m going to the library now."
+    },
+    {
+      "letter": "H",
+      "text": "Of course, I’ll bring it to school tomorrow."
+    }
   ],
-  "answers": ["D", "F", "B", "A", "H"],
+  "answers": [
+    "D",
+    "F",
+    "B",
+    "A",
+    "H"
+  ],
   "explanations_vi": [
     "Emma hỏi tại sao chọn chủ đề mặt trăng (Why), William đáp vì luôn có hứng thú với không gian vũ trụ (Because I’ve always been interested in space).",
     "Emma hỏi tìm các bức ảnh ở đâu (Where), William đáp là trên một trang web mà anh trai giới thiệu (On a website...).",

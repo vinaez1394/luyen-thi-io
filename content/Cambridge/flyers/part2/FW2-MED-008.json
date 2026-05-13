@@ -1,0 +1,113 @@
+{
+  "id": "FW2-MED-008",
+  "title": "Set 8: A Holiday in the Mountains ⛰️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "holiday",
+  "conversation": [
+    {
+      "speaker": "Jack",
+      "text": "How was your holiday in the mountains, Lily?",
+      "example": true
+    },
+    {
+      "speaker": "Lily",
+      "answerKey": "E",
+      "example": true
+    },
+    {
+      "speaker": "Jack",
+      "text": "Was the weather good enough for hiking?"
+    },
+    {
+      "speaker": "Lily",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Jack",
+      "text": "What was the hotel like?"
+    },
+    {
+      "speaker": "Lily",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Jack",
+      "text": "Did you see any interesting wildlife while you were there?"
+    },
+    {
+      "speaker": "Lily",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Jack",
+      "text": "Which activity did you enjoy the most?"
+    },
+    {
+      "speaker": "Lily",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Jack",
+      "text": "You should show me your photos sometime!"
+    },
+    {
+      "speaker": "Lily",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "Only some eagles and a few mountain goats."
+    },
+    {
+      "letter": "B",
+      "text": "I prefer going to the beach in summer."
+    },
+    {
+      "letter": "C",
+      "text": "It was very modern and had a great view."
+    },
+    {
+      "letter": "D",
+      "text": "I’ll bring my tablet to school tomorrow then."
+    },
+    {
+      "letter": "E",
+      "text": "It was brilliant! We had so much fun."
+    },
+    {
+      "letter": "F",
+      "text": "Definitely visiting the frozen lake."
+    },
+    {
+      "letter": "G",
+      "text": "It’s about two hours away by train."
+    },
+    {
+      "letter": "H",
+      "text": "Most of the time, but it rained on Tuesday."
+    }
+  ],
+  "answers": [
+    "H",
+    "C",
+    "A",
+    "F",
+    "D"
+  ],
+  "explanations_vi": [
+    "Jack hỏi thời tiết có tốt đủ để đi bộ không (good enough for hiking), Lily trả lời Hầu hết thời gian thì có, nhưng thứ Ba thì mưa (Most of the time, but it rained on Tuesday).",
+    "Jack hỏi khách sạn thế nào (What was the hotel like), Lily khen Nó rất hiện đại và có view đẹp (very modern and had a great view).",
+    "Jack hỏi có thấy động vật hoang dã thú vị nào không (interesting wildlife), Lily nói Chỉ thấy vài con đại bàng và dê núi (Only some eagles and a few mountain goats).",
+    "Jack hỏi Lily thích hoạt động nào nhất (enjoy the most), Lily đáp Chắc chắn là việc tham quan hồ đóng băng (visiting the frozen lake).",
+    "Jack muốn xem ảnh chụp lúc nào đó, Lily đồng ý sẽ mang máy tính bảng đến trường vào ngày mai (bring my tablet to school tomorrow)."
+  ]
+}

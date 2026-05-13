@@ -1,6 +1,6 @@
 {
   "id": "FW2-MED-004",
-  "title": "Set 4: The Lost Suitcase",
+  "title": "Set 4: The Lost Suitcase 🧳",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
@@ -11,30 +11,98 @@
   "difficulty": "medium",
   "topic": "travel",
   "conversation": [
-    { "speaker": "Officer", "text": "Can I see your ticket and your passport, please?", "example": true },
-    { "speaker": "Sarah", "answerKey": "D", "example": true },
-    { "speaker": "Officer", "text": "What does your suitcase look like, Sarah?" },
-    { "speaker": "Sarah", "questionIndex": 0 },
-    { "speaker": "Officer", "text": "And what was inside it?" },
-    { "speaker": "Sarah", "questionIndex": 1 },
-    { "speaker": "Officer", "text": "Where did you last see it?" },
-    { "speaker": "Sarah", "questionIndex": 2 },
-    { "speaker": "Officer", "text": "Don't worry. I'll call you as soon as we find it." },
-    { "speaker": "Sarah", "questionIndex": 3 },
-    { "speaker": "Officer", "text": "Would you like me to help you carry your other bags to the taxi?" },
-    { "speaker": "Sarah", "questionIndex": 4 }
+    {
+      "speaker": "Officer",
+      "text": "Can I see your ticket and your passport, please?",
+      "example": true
+    },
+    {
+      "speaker": "Sarah",
+      "answerKey": "D",
+      "example": true
+    },
+    {
+      "speaker": "Officer",
+      "text": "What does your suitcase look like, Sarah?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Officer",
+      "text": "And what was inside it?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Officer",
+      "text": "Where did you last see it?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Officer",
+      "text": "Don't worry. I'll call you as soon as we find it."
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Officer",
+      "text": "Would you like me to help you carry your other bags to the taxi?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Everything I need for my skiing holiday." },
-    { "letter": "B", "text": "I hope you can find it before the bus leaves!" },
-    { "letter": "C", "text": "It’s blue with some silver stars on it." },
-    { "letter": "D", "text": "Yes, I’ve got them right here in my pocket." },
-    { "letter": "E", "text": "No, thank you. They aren't very heavy." },
-    { "letter": "F", "text": "On the plane, under the seat in front of me." },
-    { "letter": "G", "text": "I think my dad has already paid for them." },
-    { "letter": "H", "text": "Perhaps it’s near the information desk." }
+    {
+      "letter": "A",
+      "text": "Everything I need for my skiing holiday."
+    },
+    {
+      "letter": "B",
+      "text": "I hope you can find it before the bus leaves!"
+    },
+    {
+      "letter": "C",
+      "text": "It’s blue with some silver stars on it."
+    },
+    {
+      "letter": "D",
+      "text": "Yes, I’ve got them right here in my pocket."
+    },
+    {
+      "letter": "E",
+      "text": "No, thank you. They aren't very heavy."
+    },
+    {
+      "letter": "F",
+      "text": "On the plane, under the seat in front of me."
+    },
+    {
+      "letter": "G",
+      "text": "I think my dad has already paid for them."
+    },
+    {
+      "letter": "H",
+      "text": "Perhaps it’s near the information desk."
+    }
   ],
-  "answers": ["C", "A", "F", "B", "E"],
+  "answers": [
+    "C",
+    "A",
+    "F",
+    "B",
+    "E"
+  ],
   "explanations_vi": [
     "Nhân viên hỏi hình dáng chiếc vali (look like), Sarah mô tả vali màu xanh với vài ngôi sao bạc (blue with some silver stars).",
     "Nhân viên hỏi bên trong có gì (what was inside), Sarah bảo có tất cả mọi thứ cần cho kỳ nghỉ trượt tuyết (Everything I need...).",

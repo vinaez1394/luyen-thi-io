@@ -1,0 +1,192 @@
+{
+  "id": "FW4-MED-003",
+  "title": "Set 3: The World of Volcanoes 🌋",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 4,
+  "type": "flyers-part4",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "science",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-03-the-world-of-volcanoes.jpeg",
+  "instructions_en": "READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.",
+  "passage_title": "THE WORLD OF VOLCANOES",
+  "example": {
+    "options": [
+      "are",
+      "were",
+      "is"
+    ],
+    "answer": "are"
+  },
+  "options_table": [
+    {
+      "q": 1,
+      "choices": [
+        "in",
+        "off",
+        "up"
+      ],
+      "answer": "up"
+    },
+    {
+      "q": 2,
+      "choices": [
+        "they",
+        "it",
+        "them"
+      ],
+      "answer": "they"
+    },
+    {
+      "q": 3,
+      "choices": [
+        "a",
+        "an",
+        "the"
+      ],
+      "answer": "a"
+    },
+    {
+      "q": 4,
+      "choices": [
+        "the",
+        "a",
+        "an"
+      ],
+      "answer": "the"
+    },
+    {
+      "q": 5,
+      "choices": [
+        "care",
+        "careful",
+        "carefully"
+      ],
+      "answer": "careful"
+    },
+    {
+      "q": 6,
+      "choices": [
+        "however",
+        "while",
+        "although"
+      ],
+      "answer": "although"
+    },
+    {
+      "q": 7,
+      "choices": [
+        "very",
+        "too",
+        "much"
+      ],
+      "answer": "very"
+    },
+    {
+      "q": 8,
+      "choices": [
+        "like",
+        "liking",
+        "liked"
+      ],
+      "answer": "like"
+    },
+    {
+      "q": 9,
+      "choices": [
+        "them",
+        "their",
+        "they"
+      ],
+      "answer": "them"
+    },
+    {
+      "q": 10,
+      "choices": [
+        "safe",
+        "safely",
+        "safety"
+      ],
+      "answer": "safe"
+    }
+  ],
+  "story_segments": [
+    "Volcanoes ",
+    " special kinds of mountains with holes. They are found deep ",
+    " inside the Earth, where it is very, very hot. These hot rocks are often so hot ",
+    " flow like a liquid.\n\nSometimes they come out. When a volcano erupts, it is ",
+    " very large explosion. Ash and smoke can go high into ",
+    " sky. People who live near volcanoes must be very ",
+    ". ",
+    " it can be dangerous, many people still live there. This is because the soil is ",
+    " good for plants. Many tourists also ",
+    " to visit volcanoes. Scientists, called volcanologists, study ",
+    " closely, so they can keep everyone ",
+    "."
+  ],
+  "answers": [
+    "up",
+    "they",
+    "a",
+    "the",
+    "careful",
+    "although",
+    "very",
+    "like",
+    "them",
+    "safe"
+  ],
+  "explanations_vi": [
+    "Dùng giới từ 'up' đi với 'inside' (up inside - sâu bên trong lòng đất).",
+    "Cấu trúc 'so hot (that) they flow' (nóng đến mức chúng chảy ra). 'They' đóng vai trò chủ ngữ thay cho 'hot rocks'.",
+    "Mạo từ không xác định 'a' đứng trước danh từ đếm được số ít 'large explosion' (một vụ nổ lớn).",
+    "Mạo từ xác định 'the' dùng trước 'sky' (bầu trời - danh từ duy nhất).",
+    "Sau động từ 'be' (must be) cần một tính từ chỉ trạng thái: 'careful' (cẩn thận).",
+    "Liên từ chỉ sự tương phản: 'Although' (mặc dù) nó có thể nguy hiểm, nhiều người vẫn sống ở đó.",
+    "Trạng từ chỉ mức độ 'very' bổ nghĩa cho tính từ 'good' (rất tốt).",
+    "Thì hiện tại đơn, chủ ngữ số nhiều 'tourists' nên động từ 'like' giữ nguyên.",
+    "Đại từ 'them' làm tân ngữ cho động từ 'study' (nghiên cứu chúng - thay cho volcanoes).",
+    "Cấu trúc 'keep someone/something + adj': keep everyone safe (giữ cho mọi người được an toàn)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "volcano",
+      "vocabulary_bank_id": null,
+      "translation_vi": "núi lửa",
+      "ipa": "/vɒlˈkeɪ.nəʊ/",
+      "audio_url": null
+    },
+    {
+      "word": "erupt",
+      "vocabulary_bank_id": null,
+      "translation_vi": "phun trào",
+      "ipa": "/ɪˈrʌpt/",
+      "audio_url": null
+    },
+    {
+      "word": "explosion",
+      "vocabulary_bank_id": null,
+      "translation_vi": "vụ nổ",
+      "ipa": "/ɪkˈspləʊ.ʒən/",
+      "audio_url": null
+    },
+    {
+      "word": "liquid",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chất lỏng",
+      "ipa": "/ˈlɪk.wɪd/",
+      "audio_url": null
+    },
+    {
+      "word": "tourist",
+      "vocabulary_bank_id": null,
+      "translation_vi": "du khách",
+      "ipa": "/ˈtʊə.rɪst/",
+      "audio_url": null
+    }
+  ]
+}

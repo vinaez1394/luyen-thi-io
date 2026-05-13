@@ -1,0 +1,49 @@
+
+CHỦ ĐỀ "A MYSTERIOUS VISIT TO THE MUSEUM" (CHUYẾN THĂM BẢO TÀNG)
+
+**Nội dung:** Hai người bạn thảo luận về một triển lãm đồ cổ đầy bí ẩn.
+
+**Example:**
+**William:** I thought the museum was going to be boring, but I was wrong!
+**Betty:** **C**
+
+**Questions:**
+
+1. **William:** Why aren't we allowed to take any photos of the gold statues?
+**Betty:** __________
+2. **William:** Look! That ancient map shows a secret path under the castle.
+**Betty:** __________
+3. **William:** If we had enough time, I’d love to see the dinosaur bones again.
+**Betty:** __________
+4. **William:** You didn't leave your umbrella in the gift shop, did you?
+**Betty:** __________
+5. **William:** Someone told me that this building used to be a king's palace.
+**Betty:** __________
+
+**Options (A-H):**
+
+* **A.** So it does! I wonder where it leads to.
+* **B.** I'm not sure, but the light from the camera might damage them.
+* **C.** Me too! It’s the most interesting place I’ve ever been to. **(Example)**
+* **D.** Oh no! I think I must have left it by the door.
+* **E.** No, it’s much older than that, actually.
+* **F.** That’s right. It was built over five hundred years ago.
+* **G.** Unfortunately, it’s closing in ten minutes, so we can’t.
+* **H.** Yes, I’ll take one when the guard isn’t looking.
+
+---
+
+### PHÂN TÍCH ĐIỂM KHÓ (DÀNH CHO PHỤ HUYNH/GIÁO VIÊN)
+
+Dưới đây là bảng phân tích tại sao những câu hỏi này lại được xếp vào mức độ **Hard**:
+
+| Bộ đề | Câu | Điểm khó về Ngữ pháp / Logic |
+| --- | --- | --- |
+| **11** | **1** | Câu trả lời không trực tiếp "Because...". Nó bắt đầu bằng sự phân vân (*I'm not sure*) rồi mới đưa ra giả thuyết. |
+|  | **3** | Sử dụng **Câu điều kiện Loại 2** (*If we had... I'd love...*) và câu trả lời đưa ra một sự thật ngăn cản hành động đó (*It's closing*). |
+|  | **4** | **Câu hỏi đuôi** (*..., did you?*). Đây là cấu trúc khiến nhiều học sinh Flyers bối rối giữa việc trả lời Yes hay No. |
+
+### ĐÁP ÁN (ANSWER KEY)
+
+* **Bộ đề 11:** 1-B, 2-A, 3-G, 4-D, 5-F.
+

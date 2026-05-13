@@ -1,0 +1,97 @@
+{
+  "id": "FW4-MED-006",
+  "title": "Set 6: High in the Sky ✈️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 4,
+  "type": "flyers-part4",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "history",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-06-high-in-the-sky.jpeg",
+  "instructions_en": "READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.",
+  "passage_title": "HIGH IN THE SKY",
+  "example": {
+    "options": ["dream", "dreamed", "dreaming"],
+    "answer": "dreamed"
+  },
+  "options_table": [
+    { "q": 1, "choices": ["In", "On", "At"], "answer": "In" },
+    { "q": 2, "choices": ["made", "make", "making"], "answer": "made" },
+    { "q": 3, "choices": ["was", "is", "were"], "answer": "was" },
+    { "q": 4, "choices": ["so", "but", "because"], "answer": "but" },
+    { "q": 5, "choices": ["have", "has", "are"], "answer": "have" },
+    { "q": 6, "choices": ["big", "bigger", "biggest"], "answer": "bigger" },
+    { "q": 7, "choices": ["passengers", "passenger", "passengers'"], "answer": "passengers" },
+    { "q": 8, "choices": ["many", "much", "any"], "answer": "many" },
+    { "q": 9, "choices": ["it", "they", "there"], "answer": "it" },
+    { "q": 10, "choices": ["an", "a", "the"], "answer": "an" }
+  ],
+  "story_segments": [
+    "For hundreds of years, people ",
+    " of flying like birds. ",
+    " the past, some people tried to make wings ",
+    " of wood and feathers, but they were not successful.\n\nThe first real airplane ",
+    " flown by the Wright brothers in 1903. It only stayed in the air for 12 seconds, ",
+    " it was the beginning of a new world. Since then, planes ",
+    " changed a lot.\n\nModern planes are much ",
+    " and faster than the first ones. Some planes can carry hundreds of ",
+    " across the ocean in just a few hours. Pilots must study for ",
+    " years to learn how to fly these huge machines.\n\nToday, ",
+    " is very easy to travel to different countries. We can see the world from above the clouds. It's ",
+    " amazing way to travel, isn't it?"
+  ],
+  "answers": ["In", "made", "was", "but", "have", "bigger", "passengers", "many", "it", "an"],
+  "explanations_vi": [
+    "'In': Cụm từ 'In the past' (Trong quá khứ).",
+    "'Made': Cấu trúc 'made of' (làm bằng vật liệu gì - đôi cánh làm bằng gỗ và lông chim).",
+    "'Was': Câu bị động ở quá khứ đơn (chiếc máy bay đầu tiên *được* lái bởi...).",
+    "'But': Liên từ chỉ sự đối lập (chỉ bay 12 giây *nhưng* nó là sự khởi đầu...).",
+    "'Have': Thì hiện tại hoàn thành (vì có 'since then' - kể từ đó máy bay đã thay đổi nhiều).",
+    "'Bigger': So sánh hơn (vì có từ 'than' phía sau - lớn hơn và nhanh hơn).",
+    "'Passengers': Danh từ số nhiều đếm được chỉ người (hàng trăm hành khách).",
+    "'Many': Đi với danh từ đếm được số nhiều ('many years' - nhiều năm).",
+    "'It': Chủ ngữ giả ('It is easy to travel' - thật dễ dàng để đi du lịch).",
+    "'An': Mạo từ đứng trước danh từ bắt đầu bằng nguyên âm ('an amazing way')."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "airplane",
+      "vocabulary_bank_id": null,
+      "translation_vi": "máy bay",
+      "ipa": "/ˈeə.pleɪn/",
+      "audio_url": null
+    },
+    {
+      "word": "successful",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thành công",
+      "ipa": "/səkˈses.fəl/",
+      "audio_url": null
+    },
+    {
+      "word": "feather",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lông vũ, lông chim",
+      "ipa": "/ˈfeð.ər/",
+      "audio_url": null
+    },
+    {
+      "word": "passenger",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hành khách",
+      "ipa": "/ˈpæs.ən.dʒər/",
+      "audio_url": null
+    },
+    {
+      "word": "modern",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hiện đại",
+      "ipa": "/ˈmɒd.ən/",
+      "audio_url": null
+    }
+  ]
+}

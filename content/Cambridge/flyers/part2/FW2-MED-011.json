@@ -1,0 +1,45 @@
+{
+  "id": "FW2-MED-011",
+  "title": "Set 11: At the Library 📚",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "school",
+  "conversation": [
+    { "speaker": "Librarian", "text": "Hello there. Can I help you find a particular book?", "example": true },
+    { "speaker": "Student", "answerKey": "E", "example": true },
+    { "speaker": "Librarian", "text": "What kind of stories do you prefer reading?" },
+    { "speaker": "Student", "questionIndex": 0 },
+    { "speaker": "Student", "text": "How many books am I allowed to take home at once?" },
+    { "speaker": "Librarian", "questionIndex": 1 },
+    { "speaker": "Student", "text": "When do I have to bring them back to the library?" },
+    { "speaker": "Librarian", "questionIndex": 2 },
+    { "speaker": "Student", "text": "Is there a quiet place where I can study for my exams?" },
+    { "speaker": "Librarian", "questionIndex": 3 },
+    { "speaker": "Librarian", "text": "Would you like me to show you where the computers are?" },
+    { "speaker": "Student", "questionIndex": 4 }
+  ],
+  "options": [
+    { "letter": "A", "text": "I’ve already read that one twice." },
+    { "letter": "B", "text": "Yes, there are some desks on the second floor." },
+    { "letter": "C", "text": "Up to four at a time with your student card." },
+    { "letter": "D", "text": "That would be very useful, thank you." },
+    { "letter": "E", "text": "Yes, please. I’m looking for something about space." },
+    { "letter": "F", "text": "I’m mostly interested in science and history." },
+    { "letter": "G", "text": "You need to return them within two weeks." },
+    { "letter": "H", "text": "It’s open from nine until five every day." }
+  ],
+  "answers": ["F", "C", "G", "B", "D"],
+  "explanations_vi": [
+    "Librarian hỏi học sinh thích đọc loại truyện gì (prefer reading), học sinh đáp Em chủ yếu quan tâm đến khoa học và lịch sử (mostly interested in science and history).",
+    "Học sinh hỏi được mượn bao nhiêu cuốn sách về nhà một lúc, Librarian trả lời Tối đa 4 cuốn mỗi lần bằng thẻ học sinh của em (Up to four at a time with your student card).",
+    "Học sinh hỏi khi nào phải mang sách trả lại thư viện (bring them back), Librarian đáp Em cần trả chúng trong vòng 2 tuần (within two weeks).",
+    "Học sinh hỏi có nơi nào yên tĩnh để ôn thi không (quiet place where I can study), Librarian trả lời Có, có vài chiếc bàn trên tầng hai (some desks on the second floor).",
+    "Librarian hỏi có muốn được chỉ chỗ đặt máy tính không, học sinh đáp Điều đó sẽ rất hữu ích, em cảm ơn (That would be very useful, thank you)."
+  ]
+}

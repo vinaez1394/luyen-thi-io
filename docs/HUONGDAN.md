@@ -280,31 +280,44 @@ Tóm tắt quy trình:
 
 ---
 
-## 🚀 DEPLOY — QUY TẮC BẮT BUỘC (2026-05-01)
+## 🚀 DEPLOY CI/CD: STAGING & PRODUCTION
 
-### Cách deploy
+Kể từ bản cập nhật ngày 10/05/2026, dự án áp dụng mô hình phân tách môi trường Staging (Thử nghiệm) và Production (Thực tế).
+
+### Luồng làm việc (Workflow)
 
 ```bash
-git add -A
-git commit -m "mô tả ngắn"
-git push origin dev
-# GitHub Actions tự chạy ~1.5 phút
-# Xem tại: github.com/vinaez1394/luyen-thi-io/actions
+# BƯỚC 1: LÀM VIỆC VÀ TEST TRÊN STAGING
+git checkout dev              # Làm việc ở nhánh dev
+git commit -m "Tính năng A"
+git push origin dev           # Tự động deploy lên Staging
+
+# => Mở dev.luyenthi.io.vn để kiểm tra
+
+# BƯỚC 2: RELEASE LÊN PRODUCTION
+# Khi mọi thứ trên Staging đã ổn định, gộp dev vào main:
+git checkout main
+git merge dev
+git push origin main          # Tự động deploy lên Production
+
+# => Cập nhật chính thức tại luyenthi.io.vn
 ```
 
-### Cấu hình deploy.yml — ĐÚNG
+### ⚠️ Lưu ý kỹ thuật: Lỗi của Vite Plugin & Cách xử lý
 
+Dự án sử dụng `@cloudflare/vite-plugin` để build frontend React và Cloudflare Workers cùng lúc.
+Tuy nhiên, plugin này có một **hạn chế**: nó sẽ ghi đè thiết lập trong `wrangler.json` và **bỏ qua cờ `--env staging`** khi chạy lệnh `wrangler deploy`. Nếu không cẩn thận, việc deploy Staging sẽ vô tình ghi đè lên Worker Production (`luyen-thi-io`).
+
+**Giải pháp (Đã được áp dụng trong `.github/workflows/deploy.yml`):**
+Trong Job Deploy Staging, chúng ta phải dùng lệnh `sed` để sửa trực tiếp tên Worker trong `wrangler.json` ngay trước khi deploy:
 ```yaml
-# ✅ ĐÚNG: dùng wrangler từ node_modules (stable)
-- name: Deploy to Cloudflare Workers
-  env:
-    CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-    CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
-  run: ./node_modules/.bin/wrangler deploy
-
-# ❌ SAI: cloudflare/wrangler-action@v3 hay tự cập nhật gây lỗi
-# uses: cloudflare/wrangler-action@v3  ← KHÔNG DÙNG
+# Sửa trực tiếp tên worker thành luyen-thi-io-staging vì Vite Plugin bỏ qua cờ --env
+- run: |
+    sed -i 's/"name": "luyen-thi-io"/"name": "luyen-thi-io-staging"/' wrangler.json
+    ./node_modules/.bin/wrangler deploy
 ```
+
+> **LƯU Ý:** Không chạy lệnh `wrangler deploy --env staging` trên máy local nếu chưa hiểu rõ cách Vite Plugin sinh ra cấu hình build, tránh việc vô tình ghi đè Production. Để an toàn nhất, cứ push lên nhánh `dev` để GitHub Actions xử lý.
 
 ### Quy tắc báo cáo "hoàn thành"
 

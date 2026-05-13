@@ -1,0 +1,113 @@
+{
+  "id": "FW2-HARD-005",
+  "title": "Set 5: The New Art Gallery 🖼️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "art",
+  "conversation": [
+    {
+      "speaker": "Frank",
+      "text": "What did you think of the paintings in the main hall?",
+      "example": true
+    },
+    {
+      "speaker": "Sophia",
+      "answerKey": "E",
+      "example": true
+    },
+    {
+      "speaker": "Frank",
+      "text": "I couldn't really understand what the artist was trying to show."
+    },
+    {
+      "speaker": "Sophia",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Frank",
+      "text": "Which of the statues did you find the most impressive?"
+    },
+    {
+      "speaker": "Sophia",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Frank",
+      "text": "Someone told me that the most expensive painting was stolen last night!"
+    },
+    {
+      "speaker": "Sophia",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Frank",
+      "text": "If you were a famous artist, what kind of things would you paint?"
+    },
+    {
+      "speaker": "Sophia",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Frank",
+      "text": "Would you mind waiting for me while I buy a postcard in the shop?"
+    },
+    {
+      "speaker": "Sophia",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "To be honest, neither could I. It was very strange."
+    },
+    {
+      "letter": "B",
+      "text": "That can’t be true! There are guards everywhere."
+    },
+    {
+      "letter": "C",
+      "text": "I’d like to, but I’ve already spent all my pocket money."
+    },
+    {
+      "letter": "D",
+      "text": "I'd choose colorful landscapes or perhaps the ocean."
+    },
+    {
+      "letter": "E",
+      "text": "To be honest, some of them were a bit unusual for me."
+    },
+    {
+      "letter": "F",
+      "text": "The one made of blue glass, it looked like a frozen wave."
+    },
+    {
+      "letter": "G",
+      "text": "Not at all. Take as long as you need."
+    },
+    {
+      "letter": "H",
+      "text": "It’s open every day except for Mondays."
+    }
+  ],
+  "answers": [
+    "A",
+    "F",
+    "B",
+    "D",
+    "G"
+  ],
+  "explanations_vi": [
+    "Frank thú nhận không thể hiểu ý nghĩa nghệ sĩ muốn thể hiện, Sophia đồng tình (neither could I) và cũng thấy nó rất lạ (very strange).",
+    "Frank hỏi bức tượng (statues) nào ấn tượng nhất, Sophia chỉ bức làm từ kính xanh (blue glass) trông như ngọn sóng đóng băng (frozen wave).",
+    "Frank kể bức tranh đắt nhất bị đánh cắp đêm qua, Sophia không tin (That can't be true!) vì có bảo vệ (guards) ở khắp nơi.",
+    "Frank hỏi nếu là họa sĩ nổi tiếng thì sẽ vẽ gì, Sophia trả lời là vẽ phong cảnh đầy màu sắc (colorful landscapes) hoặc đại dương (ocean).",
+    "Frank hỏi liệu Sophia có phiền đứng đợi cậu mua bưu thiếp không, Sophia bảo Không hề phiền (Not at all. Take as long as you need)."
+  ]
+}

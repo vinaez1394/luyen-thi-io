@@ -1,0 +1,117 @@
+{
+  "id": "FW3-MED-002",
+  "title": "Set 2: A Busy Day at the Farm 🚜",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "farm",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-02-busy-day-at-the-farm.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "early",
+    "tractor",
+    "heavy",
+    "forgot",
+    "storm",
+    "vegetables",
+    "feed",
+    "clouds",
+    "donkey"
+  ],
+  "example": {
+    "word": "field",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "My uncle Harry lives on a farm. Last summer, I stayed there for a week. Every morning, we woke up ",
+    " at 5 o'clock. My first job was to ",
+    " the chickens and the cows. They were always very hungry!\n\nIn the afternoon, Uncle Harry let me sit on his big green ",
+    ". We went to the large ",
+    " to pick some ",
+    " like carrots and potatoes for our lunch. Everything was very fresh. Suddenly, the sky turned grey and there were many dark ",
+    ". We ran inside just before the rain started. I learned that life on a farm is hard work but very fun!"
+  ],
+  "answers": [
+    "early",
+    "feed",
+    "tractor",
+    "vegetables",
+    "clouds"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Helping on the farm"
+      },
+      {
+        "letter": "B",
+        "text": "A visit to the city museum"
+      },
+      {
+        "letter": "C",
+        "text": "How to grow flowers"
+      }
+    ],
+    "answer": "A"
+  },
+  "explanations_vi": [
+    "Mỗi sáng họ thức dậy sớm (early) lúc 5 giờ.",
+    "Công việc đầu tiên là cho (feed) gà và bò ăn.",
+    "Chú Harry cho tôi ngồi trên xe máy cày (tractor) xanh to.",
+    "Họ đến khu vườn rộng để hái rau củ (vegetables) như cà rốt, khoai tây.",
+    "Bầu trời xám và xuất hiện nhiều đám mây (clouds) đen trước khi mưa.",
+    "Tiêu đề A đúng nhất: câu chuyện kể về việc giúp đỡ ở nông trại."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "farm",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nông trại",
+      "ipa": "/fɑːm/",
+      "audio_url": null
+    },
+    {
+      "word": "feed",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cho ăn",
+      "ipa": "/fiːd/",
+      "audio_url": null
+    },
+    {
+      "word": "tractor",
+      "vocabulary_bank_id": null,
+      "translation_vi": "xe máy cày",
+      "ipa": "/ˈtræk.tər/",
+      "audio_url": null
+    },
+    {
+      "word": "vegetables",
+      "vocabulary_bank_id": null,
+      "translation_vi": "rau củ",
+      "ipa": "/ˈvedʒ.tə.bəlz/",
+      "audio_url": null
+    },
+    {
+      "word": "clouds",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đám mây",
+      "ipa": "/klaʊdz/",
+      "audio_url": null
+    },
+    {
+      "word": "harvest",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thu hoạch",
+      "ipa": "/ˈhɑː.vɪst/",
+      "audio_url": null
+    }
+  ]
+}

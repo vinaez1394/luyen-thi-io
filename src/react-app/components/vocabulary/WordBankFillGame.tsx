@@ -85,7 +85,7 @@ export function WordBankFillGame({ words, onComplete }: WordBankFillGameProps) {
 
     if (isCorrect) {
       setScore(s => s + 1);
-      speakWord(current.target.word);
+      speakWord(current.target.word, false, current.target.audio_url ?? undefined);
     } else {
       // Sau 400ms cũng highlight đáp án đúng
       setTimeout(() => {

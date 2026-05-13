@@ -14,7 +14,7 @@
  *  - Mobile (<768px): Conversation trên, Options sticky bottom
  */
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import "./FlyersPart2Engine.css";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -60,11 +60,15 @@ interface FlyersPart2Result {
   maxScore: number;
   percentage: number;
   starsEarned: number;
+  answersForApi: Record<string, string>; // { "q1": "F", "q2": "A", ... } — gửi API
+  startTime: number;                     // timestamp — để tính timeSpent
 }
 
 interface FlyersPart2EngineProps {
   quiz: FlyersPart2Quiz;
   onSubmitResult?: (result: FlyersPart2Result) => void;
+  onFinish?: () => void;   // Click “Finish” → QuizResultScreen
+  onBack?: () => void;     // Click “Back” → về danh sách bài
 }
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
@@ -85,7 +89,7 @@ function countQuestions(conversation: FlyersPart2Turn[]): number {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export function FlyersPart2Engine({ quiz, onSubmitResult }: FlyersPart2EngineProps) {
+export function FlyersPart2Engine({ quiz, onSubmitResult, onFinish, onBack }: FlyersPart2EngineProps) {
   const totalQ = countQuestions(quiz.conversation);
 
   // placed[i] = letter đã chọn cho questionIndex i (0-based)
@@ -94,6 +98,8 @@ export function FlyersPart2Engine({ quiz, onSubmitResult }: FlyersPart2EnginePro
   const [activeBlank, setActiveBlank] = useState<number>(-1);
   const [submitted, setSubmitted]     = useState(false);
   const [result, setResult]           = useState<FlyersPart2Result | null>(null);
+  // Track start time để tính timeSpent
+  const startTimeRef = useRef<number>(Date.now());
 
   // Tập hợp các letter đã được dùng
   const usedLetters = new Set(Object.values(placed));
@@ -151,7 +157,21 @@ export function FlyersPart2Engine({ quiz, onSubmitResult }: FlyersPart2EnginePro
     }
     const percentage   = Math.round((score / totalQ) * 100);
     const starsEarned  = calcStars(percentage);
-    const res: FlyersPart2Result = { score, maxScore: totalQ, percentage, starsEarned };
+
+    // Format answers cho API: { "q1": "F", "q2": "A", ... }
+    const answersForApi: Record<string, string> = {};
+    for (let i = 0; i < totalQ; i++) {
+      answersForApi[`q${i + 1}`] = placed[i] ?? "";
+    }
+
+    const res: FlyersPart2Result = {
+      score,
+      maxScore: totalQ,
+      percentage,
+      starsEarned,
+      answersForApi,
+      startTime: startTimeRef.current,
+    };
     setResult(res);
     setSubmitted(true);
     onSubmitResult?.(res);
@@ -334,6 +354,7 @@ export function FlyersPart2Engine({ quiz, onSubmitResult }: FlyersPart2EnginePro
         </div>
       ) : (
         <div className="fp2-result">
+          {/* Score summary */}
           <div className="fp2-result__score">
             <span className="fp2-result__stars">
               {"⭐".repeat(result?.starsEarned ?? 0)}
@@ -343,13 +364,34 @@ export function FlyersPart2Engine({ quiz, onSubmitResult }: FlyersPart2EnginePro
               <em> ({result?.percentage}%)</em>
             </span>
           </div>
-          <button
-            className="btn btn-outline"
-            onClick={handleReset}
-            id="btn-fp2-retry"
-          >
-            🔄 Try Again
-          </button>
+
+          {/* Action buttons */}
+          <div className="fp2-result__actions">
+            {onFinish && (
+              <button
+                className="btn btn-success"
+                onClick={onFinish}
+                id="btn-fp2-finish"
+              >
+                ✅ Finish &amp; Save
+              </button>
+            )}
+            {onBack && (
+              <button
+                className="btn btn-outline"
+                onClick={onBack}
+                id="btn-fp2-back"
+              >
+                ← Về danh sách
+              </button>
+            )}
+            {/* Fallback nếu không có callback */}
+            {!onFinish && !onBack && (
+              <button className="btn btn-outline" onClick={handleReset} id="btn-fp2-retry">
+                🔄 Try Again
+              </button>
+            )}
+          </div>
         </div>
       )}
 

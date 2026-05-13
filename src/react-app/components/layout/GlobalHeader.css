@@ -817,3 +817,75 @@
   font-size: 14px;
   line-height: 1;
 }
+
+/* ===== MOBILE DRAWER — Theme Icon (in header, next to logo) ===== */
+.mobile-drawer__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.mobile-drawer__theme-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+.mobile-drawer__theme-icon-btn:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+/* Popover hiện ra khi click icon — mở sang trái vì icon ở góc phải */
+.mobile-drawer__theme-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  z-index: var(--z-modal);
+  min-width: 140px;
+  animation: scaleIn 0.15s ease-out;
+}
+
+.mobile-drawer__theme-popover-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 13px;
+}
+.mobile-drawer__theme-popover-btn:hover {
+  background: var(--color-bg-subtle);
+}
+.mobile-drawer__theme-popover-btn.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+.mobile-drawer__theme-popover-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.18);
+}

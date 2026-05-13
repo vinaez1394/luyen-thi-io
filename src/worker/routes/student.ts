@@ -34,6 +34,7 @@ studentRoute.post("/profile", async (c) => {
     theme:            string;
     currentGrade?:    number | null;    // Phase 04: lớp bé đang học (3,4,5)
     selectedPathway?: string | null;    // Phase 04: "cambridge" | "lop6"
+    cambridgeLevel?:  string | null;    // "flyers" | "movers" | "starters"
   }>();
 
   const displayName = body.displayName?.trim();
@@ -59,6 +60,12 @@ studentRoute.post("/profile", async (c) => {
     ? body.selectedPathway
     : null;
 
+  // Validate cambridgeLevel
+  const validLevels = ["flyers", "movers", "starters"];
+  const cambridgeLevel: string | null = body.cambridgeLevel && validLevels.includes(body.cambridgeLevel)
+    ? body.cambridgeLevel
+    : "flyers"; // default flyers
+
   // Check nếu đã có profile rồi
   const existing = await c.env.DB.prepare(
     "SELECT id FROM student_profiles WHERE user_id = ? LIMIT 1"
@@ -72,9 +79,9 @@ studentRoute.post("/profile", async (c) => {
   const profileId = crypto.randomUUID();
 
   await c.env.DB.prepare(
-    `INSERT INTO student_profiles (id, user_id, display_name, avatar_id, theme, current_grade, selected_pathway)
-     VALUES (?, ?, ?, ?, ?, ?, ?)`
-  ).bind(profileId, userId, displayName, avatarId, theme, currentGrade, selectedPathway).run();
+    `INSERT INTO student_profiles (id, user_id, display_name, avatar_id, theme, current_grade, selected_pathway, cambridge_level)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+  ).bind(profileId, userId, displayName, avatarId, theme, currentGrade, selectedPathway, cambridgeLevel).run();
 
   // Tạo student_stats trống
   await c.env.DB.prepare(
@@ -101,6 +108,7 @@ studentRoute.patch("/profile", async (c) => {
     avatarId?:        string;
     currentGrade?:    number | null;
     selectedPathway?: string | null;
+    cambridgeLevel?:  string | null;    // "flyers" | "movers" | "starters"
   }>();
 
   const profile = await c.env.DB.prepare(
@@ -128,6 +136,10 @@ studentRoute.patch("/profile", async (c) => {
   if (body.selectedPathway !== undefined) {
     const p = ["cambridge","lop6"].includes(body.selectedPathway as string) ? body.selectedPathway : null;
     updates.push("selected_pathway = ?"); bindings.push(p);
+  }
+  if (body.cambridgeLevel !== undefined) {
+    const lvl = ["flyers","movers","starters"].includes(body.cambridgeLevel as string) ? body.cambridgeLevel : "flyers";
+    updates.push("cambridge_level = ?"); bindings.push(lvl);
   }
 
   if (updates.length === 0) return c.json({ error: "Không có gì để cập nhật" }, 400);
@@ -161,6 +173,7 @@ studentRoute.get("/dashboard", async (c) => {
     theme:            string;
     currentGrade:     number | null;
     selectedPathway:  string | null;
+    cambridgeLevel:   string | null;
     totalStars:       number;
     streak:           number;
     lvl_listening_p1: number;
@@ -181,6 +194,7 @@ studentRoute.get("/dashboard", async (c) => {
         sp.theme,
         sp.current_grade AS currentGrade,
         sp.selected_pathway AS selectedPathway,
+        sp.cambridge_level  AS cambridgeLevel,
         ss.total_stars   AS totalStars,
         ss.current_streak AS streak,
         ss.lvl_listening_p1, ss.lvl_listening_p2,
@@ -198,6 +212,7 @@ studentRoute.get("/dashboard", async (c) => {
       theme:            string;
       currentGrade:     number | null;
       selectedPathway:  string | null;
+      cambridgeLevel:   string | null;
       totalStars:       number;
       streak:           number;
       lvl_listening_p1: number;
@@ -219,6 +234,7 @@ studentRoute.get("/dashboard", async (c) => {
           sp.theme,
           sp.current_grade     AS currentGrade,
           sp.selected_pathway  AS selectedPathway,
+          sp.cambridge_level   AS cambridgeLevel,
           ss.total_stars       AS totalStars,
           ss.current_streak    AS streak,
           ss.lvl_listening_p1, ss.lvl_listening_p2,
@@ -235,6 +251,7 @@ studentRoute.get("/dashboard", async (c) => {
         theme:            string;
         currentGrade:     number | null;
         selectedPathway:  string | null;
+        cambridgeLevel:   string | null;
         totalStars:       number;
         streak:           number;
         lvl_listening_p1: number;
@@ -293,6 +310,7 @@ studentRoute.get("/dashboard", async (c) => {
   return c.json({
     currentGrade:    row.currentGrade ?? null,
     selectedPathway: row.selectedPathway ?? null,
+    cambridgeLevel:  row.cambridgeLevel ?? "flyers",
     streak:          row.streak ?? 0,
     totalStars:      row.totalStars ?? 0,
     skillLevels,
@@ -387,4 +405,90 @@ studentRoute.post("/stars", async (c) => {
   ).bind(streak, streak, studentId).run();
 
   return c.json({ ok: true, starsAdded: stars });
+});
+
+// =============================================
+// POST /api/student/vocab/seen
+// Ghi từ đã tra nghĩa vào student_vocabulary (UPSERT)
+// Body: { word_id: string, word: string }
+// — word_id: khóa trong vocabulary_bank
+// — word: từ tiếng Anh (VD: "panda") — để hiển thị danh sách ôn tập sau
+// — mastery_level=0: cần ôn luyện
+// =============================================
+studentRoute.post("/vocab/seen", async (c) => {
+  const cookieHeader = c.req.header("Cookie") ?? null;
+  const token = getSessionTokenFromCookie(cookieHeader);
+  if (!token) return c.json({ error: "Chưa đăng nhập" }, 401);
+
+  const userId = await getSession(c.env.SESSION, token);
+  if (!userId) return c.json({ error: "Session hết hạn" }, 401);
+
+  const student = await c.env.DB.prepare(
+    `SELECT id FROM student_profiles WHERE user_id = ? LIMIT 1`
+  ).bind(userId).first<{ id: string }>();
+  if (!student) return c.json({ error: "Chưa có hồ sơ học sinh" }, 404);
+
+  const body = await c.req.json<{ word_id?: string; word?: string }>().catch(() => ({}));
+  const wordId = (body as { word_id?: string }).word_id?.trim();
+  const wordText = (body as { word?: string }).word?.trim() ?? null;
+  if (!wordId) return c.json({ error: "Thiếu word_id" }, 400);
+
+  const now = Date.now();
+  const nextReviewAt = now + 86400000; // +1 ngày
+
+  await c.env.DB.prepare(`
+    INSERT INTO student_vocabulary
+      (student_id, word_id, word, mastery_level, seen_count, correct_count, interval_days, next_review_at, last_seen_at, first_seen_at)
+    VALUES (?, ?, ?, 0, 1, 0, 1, ?, ?, ?)
+    ON CONFLICT(student_id, word_id) DO UPDATE SET
+      seen_count     = seen_count + 1,
+      last_seen_at   = excluded.last_seen_at,
+      word           = COALESCE(excluded.word, word),
+      next_review_at = CASE
+        WHEN mastery_level = 0 THEN excluded.next_review_at
+        ELSE next_review_at
+      END
+  `).bind(student.id, wordId, wordText, nextReviewAt, now, now).run();
+
+  return c.json({ ok: true, word_id: wordId, word: wordText });
+});
+
+// =============================================
+// POST /api/student/stars/deduct
+// Trừ sao khi hết lượt tra nghĩa miễn phí trong VocabPanel
+// Body: { amount: number, reason: string, quiz_id: string }
+// — Tách biệt với /api/student/stars (chỉ cộng sao từ Hangman/Flashcard)
+// =============================================
+studentRoute.post("/stars/deduct", async (c) => {
+  const cookieHeader = c.req.header("Cookie") ?? null;
+  const token = getSessionTokenFromCookie(cookieHeader);
+  if (!token) return c.json({ error: "Chưa đăng nhập" }, 401);
+
+  const userId = await getSession(c.env.SESSION, token);
+  if (!userId) return c.json({ error: "Session hết hạn" }, 401);
+
+  const body = await c.req.json<{ amount?: number; reason?: string; quiz_id?: string }>().catch(() => ({}));
+  const amount = Math.abs(Math.floor((body as { amount?: number }).amount ?? 1));
+  if (amount < 1 || amount > 5) return c.json({ error: "Số sao không hợp lệ" }, 400);
+
+  const profile = await c.env.DB.prepare(
+    "SELECT id, total_stars FROM student_stats INNER JOIN student_profiles ON student_profiles.id = student_stats.student_id WHERE student_profiles.user_id = ? LIMIT 1"
+  ).bind(userId).first<{ id: string; total_stars: number }>();
+  if (!profile) return c.json({ error: "Chưa có hồ sơ" }, 404);
+
+  // Không để sao âm — nếu không đủ sao thì deduct về 0
+  const currentStars = profile.total_stars ?? 0;
+  const actualDeduct = Math.min(amount, currentStars);
+
+  if (actualDeduct > 0) {
+    await c.env.DB.prepare(
+      `UPDATE student_stats SET total_stars = total_stars - ? WHERE student_id = ?`
+    ).bind(actualDeduct, profile.id).run();
+  }
+
+  return c.json({
+    ok: true,
+    deducted: actualDeduct,
+    remaining: currentStars - actualDeduct,
+  });
 });

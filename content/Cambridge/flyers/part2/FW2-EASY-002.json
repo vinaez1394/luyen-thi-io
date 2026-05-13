@@ -1,6 +1,6 @@
 {
   "id": "FW2-EASY-002",
-  "title": "Set 2: Weekend Activities",
+  "title": "Set 2: Weekend Activities 🚴",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
@@ -11,30 +11,98 @@
   "difficulty": "easy",
   "topic": "weekend",
   "conversation": [
-    { "speaker": "David", "text": "Hi Helen! What did you do on Saturday?", "example": true },
-    { "speaker": "Helen", "answerKey": "E", "example": true },
-    { "speaker": "David", "text": "Did you play football there?" },
-    { "speaker": "Helen", "questionIndex": 0 },
-    { "speaker": "David", "text": "Who was with you?" },
-    { "speaker": "Helen", "questionIndex": 1 },
-    { "speaker": "David", "text": "What did you have for lunch?" },
-    { "speaker": "Helen", "questionIndex": 2 },
-    { "speaker": "David", "text": "Was it a sunny day?" },
-    { "speaker": "Helen", "questionIndex": 3 },
-    { "speaker": "David", "text": "I want to go to the park too!" },
-    { "speaker": "Helen", "questionIndex": 4 }
+    {
+      "speaker": "David",
+      "text": "Hi Helen! What did you do on Saturday?",
+      "example": true
+    },
+    {
+      "speaker": "Helen",
+      "answerKey": "E",
+      "example": true
+    },
+    {
+      "speaker": "David",
+      "text": "Did you play football there?"
+    },
+    {
+      "speaker": "Helen",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "David",
+      "text": "Who was with you?"
+    },
+    {
+      "speaker": "Helen",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "David",
+      "text": "What did you have for lunch?"
+    },
+    {
+      "speaker": "Helen",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "David",
+      "text": "Was it a sunny day?"
+    },
+    {
+      "speaker": "Helen",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "David",
+      "text": "I want to go to the park too!"
+    },
+    {
+      "speaker": "Helen",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Some cheese sandwiches and grapes." },
-    { "letter": "B", "text": "My older sister and her friend." },
-    { "letter": "C", "text": "No, it was a bit cloudy." },
-    { "letter": "D", "text": "Yes, I’d love to!" },
-    { "letter": "E", "text": "I went to the park with my dog." },
-    { "letter": "F", "text": "No, we played with a frisbee instead." },
-    { "letter": "G", "text": "You can come with us next Saturday!" },
-    { "letter": "H", "text": "It’s next to the library." }
+    {
+      "letter": "A",
+      "text": "Some cheese sandwiches and grapes."
+    },
+    {
+      "letter": "B",
+      "text": "My older sister and her friend."
+    },
+    {
+      "letter": "C",
+      "text": "No, it was a bit cloudy."
+    },
+    {
+      "letter": "D",
+      "text": "Yes, I’d love to!"
+    },
+    {
+      "letter": "E",
+      "text": "I went to the park with my dog."
+    },
+    {
+      "letter": "F",
+      "text": "No, we played with a frisbee instead."
+    },
+    {
+      "letter": "G",
+      "text": "You can come with us next Saturday!"
+    },
+    {
+      "letter": "H",
+      "text": "It’s next to the library."
+    }
   ],
-  "answers": ["F", "B", "A", "C", "G"],
+  "answers": [
+    "F",
+    "B",
+    "A",
+    "C",
+    "G"
+  ],
   "explanations_vi": [
     "Hỏi có chơi bóng đá không, Helen trả lời không, thay vào đó chơi ném đĩa (frisbee).",
     "Hỏi đi cùng ai (Who), Helen trả lời đi cùng chị gái và bạn của chị ấy.",

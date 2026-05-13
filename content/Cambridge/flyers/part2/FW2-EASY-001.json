@@ -1,6 +1,6 @@
 {
   "id": "FW2-EASY-001",
-  "title": "Set 1: A Visit to the Zoo",
+  "title": "Set 1: A Visit to the Zoo 🦁",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
@@ -11,30 +11,98 @@
   "difficulty": "easy",
   "topic": "zoo",
   "conversation": [
-    { "speaker": "Sarah", "text": "Did you have a good time at the zoo yesterday, Bill?", "example": true },
-    { "speaker": "Bill", "answerKey": "C", "example": true },
-    { "speaker": "Sarah", "text": "Which animal did you like best?" },
-    { "speaker": "Bill", "questionIndex": 0 },
-    { "speaker": "Sarah", "text": "Were the lions scary?" },
-    { "speaker": "Bill", "questionIndex": 1 },
-    { "speaker": "Sarah", "text": "How did you get there?" },
-    { "speaker": "Bill", "questionIndex": 2 },
-    { "speaker": "Sarah", "text": "Did you take any photos of the monkeys?" },
-    { "speaker": "Bill", "questionIndex": 3 },
-    { "speaker": "Sarah", "text": "Let's go together next time!" },
-    { "speaker": "Bill", "questionIndex": 4 }
+    {
+      "speaker": "Sarah",
+      "text": "Did you have a good time at the zoo yesterday, Bill?",
+      "example": true
+    },
+    {
+      "speaker": "Bill",
+      "answerKey": "C",
+      "example": true
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Which animal did you like best?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Were the lions scary?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Sarah",
+      "text": "How did you get there?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Did you take any photos of the monkeys?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Let's go together next time!"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "By bus, it was very fast." },
-    { "letter": "B", "text": "No, they were just sleeping." },
-    { "letter": "C", "text": "Yes, it was great!" },
-    { "letter": "D", "text": "That's a good idea!" },
-    { "letter": "E", "text": "My brother went with me." },
-    { "letter": "F", "text": "The penguins, they were so funny." },
-    { "letter": "G", "text": "Yes, I used my new camera." },
-    { "letter": "H", "text": "I'm going to buy an ice cream." }
+    {
+      "letter": "A",
+      "text": "By bus, it was very fast."
+    },
+    {
+      "letter": "B",
+      "text": "No, they were just sleeping."
+    },
+    {
+      "letter": "C",
+      "text": "Yes, it was great!"
+    },
+    {
+      "letter": "D",
+      "text": "That's a good idea!"
+    },
+    {
+      "letter": "E",
+      "text": "My brother went with me."
+    },
+    {
+      "letter": "F",
+      "text": "The penguins, they were so funny."
+    },
+    {
+      "letter": "G",
+      "text": "Yes, I used my new camera."
+    },
+    {
+      "letter": "H",
+      "text": "I'm going to buy an ice cream."
+    }
   ],
-  "answers": ["F", "B", "A", "G", "D"],
+  "answers": [
+    "F",
+    "B",
+    "A",
+    "G",
+    "D"
+  ],
   "explanations_vi": [
     "Hỏi về con vật yêu thích (Which animal), Bill trả lời là chim cánh cụt (The penguins).",
     "Hỏi những con sư tử có đáng sợ không, Bill trả lời không, chúng chỉ đang ngủ (No, they were just sleeping).",

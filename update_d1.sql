@@ -1,0 +1,18 @@
+UPDATE quiz_catalog SET title = 'Set 1: A Visit to the Zoo 🦁' WHERE quiz_id = 'FW2-EASY-001';
+UPDATE quiz_catalog SET title = 'Set 2: Weekend Activities 🚴' WHERE quiz_id = 'FW2-EASY-002';
+UPDATE quiz_catalog SET title = 'Set 3: A Cold Day ❄️' WHERE quiz_id = 'FW2-EASY-003';
+UPDATE quiz_catalog SET title = 'Set 4: Helping Dad in the Kitchen 👨‍🍳' WHERE quiz_id = 'FW2-EASY-004';
+UPDATE quiz_catalog SET title = 'Set 5: A New Hobby 🎨' WHERE quiz_id = 'FW2-EASY-005';
+UPDATE quiz_catalog SET title = 'Set 1: The School Robot Competition 🤖' WHERE quiz_id = 'FW2-HARD-001';
+UPDATE quiz_catalog SET title = 'Set 2: A Mysterious Visit to the Museum 🏺' WHERE quiz_id = 'FW2-HARD-002';
+UPDATE quiz_catalog SET title = 'Set 3: A Day at the TV Studio 📺' WHERE quiz_id = 'FW2-HARD-003';
+UPDATE quiz_catalog SET title = 'Set 4: The Volcano Project 🌋' WHERE quiz_id = 'FW2-HARD-004';
+UPDATE quiz_catalog SET title = 'Set 5: The New Art Gallery 🖼️' WHERE quiz_id = 'FW2-HARD-005';
+UPDATE quiz_catalog SET title = 'Set 1: A Trip to the Museum 🏛️' WHERE quiz_id = 'FW2-MED-001';
+UPDATE quiz_catalog SET title = 'Set 2: A Camping Trip ⛺' WHERE quiz_id = 'FW2-MED-002';
+UPDATE quiz_catalog SET title = 'Set 3: The Science Project 🔬' WHERE quiz_id = 'FW2-MED-003';
+UPDATE quiz_catalog SET title = 'Set 4: The Lost Suitcase 🧳' WHERE quiz_id = 'FW2-MED-004';
+UPDATE quiz_catalog SET title = 'Set 5: The New Music Club 🎵' WHERE quiz_id = 'FW2-MED-005';
+UPDATE quiz_catalog SET title = 'Set 6: Preparing for a Party 🎈' WHERE quiz_id = 'FW2-MED-006';
+UPDATE quiz_catalog SET title = 'Set 7: Shopping for New Clothes 👗' WHERE quiz_id = 'FW2-MED-007';
+UPDATE quiz_catalog SET title = 'Set 8: A Holiday in the Mountains ⛰️' WHERE quiz_id = 'FW2-MED-008';

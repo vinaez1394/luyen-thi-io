@@ -1,6 +1,6 @@
 {
   "id": "FW2-EASY-005",
-  "title": "Set 5: A New Hobby",
+  "title": "Set 5: A New Hobby 🎨",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
@@ -11,30 +11,98 @@
   "difficulty": "easy",
   "topic": "hobbies",
   "conversation": [
-    { "speaker": "Jane", "text": "Look at this new board game I bought!", "example": true },
-    { "speaker": "Jack", "answerKey": "E", "example": true },
-    { "speaker": "Jane", "text": "Is it a computer game?" },
-    { "speaker": "Jack", "questionIndex": 0 },
-    { "speaker": "Jane", "text": "How many people can play it?" },
-    { "speaker": "Jack", "questionIndex": 1 },
-    { "speaker": "Jane", "text": "Is it difficult to learn?" },
-    { "speaker": "Jack", "questionIndex": 2 },
-    { "speaker": "Jane", "text": "Where shall we play it?" },
-    { "speaker": "Jack", "questionIndex": 3 },
-    { "speaker": "Jane", "text": "Do you want to start now?" },
-    { "speaker": "Jack", "questionIndex": 4 }
+    {
+      "speaker": "Jane",
+      "text": "Look at this new board game I bought!",
+      "example": true
+    },
+    {
+      "speaker": "Jack",
+      "answerKey": "E",
+      "example": true
+    },
+    {
+      "speaker": "Jane",
+      "text": "Is it a computer game?"
+    },
+    {
+      "speaker": "Jack",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Jane",
+      "text": "How many people can play it?"
+    },
+    {
+      "speaker": "Jack",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Jane",
+      "text": "Is it difficult to learn?"
+    },
+    {
+      "speaker": "Jack",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Jane",
+      "text": "Where shall we play it?"
+    },
+    {
+      "speaker": "Jack",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Jane",
+      "text": "Do you want to start now?"
+    },
+    {
+      "speaker": "Jack",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Between two and four players." },
-    { "letter": "B", "text": "In the garden, at the wooden table." },
-    { "letter": "C", "text": "I bought it at the shop near here." },
-    { "letter": "D", "text": "No, it's quite simple, actually." },
-    { "letter": "E", "text": "Wow! It looks really interesting." },
-    { "letter": "F", "text": "Yes, let’s go!" },
-    { "letter": "G", "text": "No, it’s a card game about space." },
-    { "letter": "H", "text": "I played football yesterday." }
+    {
+      "letter": "A",
+      "text": "Between two and four players."
+    },
+    {
+      "letter": "B",
+      "text": "In the garden, at the wooden table."
+    },
+    {
+      "letter": "C",
+      "text": "I bought it at the shop near here."
+    },
+    {
+      "letter": "D",
+      "text": "No, it's quite simple, actually."
+    },
+    {
+      "letter": "E",
+      "text": "Wow! It looks really interesting."
+    },
+    {
+      "letter": "F",
+      "text": "Yes, let’s go!"
+    },
+    {
+      "letter": "G",
+      "text": "No, it’s a card game about space."
+    },
+    {
+      "letter": "H",
+      "text": "I played football yesterday."
+    }
   ],
-  "answers": ["G", "A", "D", "B", "F"],
+  "answers": [
+    "G",
+    "A",
+    "D",
+    "B",
+    "F"
+  ],
   "explanations_vi": [
     "Hỏi đây có phải trò chơi máy tính không (computer game), Jack đáp không, đây là game thẻ bài (card game).",
     "Hỏi có bao nhiêu người chơi được (How many people), Jack đáp từ hai đến bốn người (two and four players).",

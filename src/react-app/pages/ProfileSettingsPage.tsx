@@ -37,6 +37,12 @@ const PATHWAYS = [
   { id: "cambridge", label: "Chứng chỉ Cambridge", emoji: "🇬🇧", desc: "Luyện tiếng Anh quốc tế" },
 ];
 
+const CAMBRIDGE_LEVELS = [
+  { id: "starters", label: "Starters", emoji: "🌟", desc: "Cơ bản, Ages 5–8" },
+  { id: "movers",   label: "Movers",   emoji: "💫", desc: "Trung cấp, Ages 7–10" },
+  { id: "flyers",   label: "Flyers",   emoji: "✈️", desc: "Nâng cao, Ages 9–12" },
+];
+
 // ── Component ────────────────────────────────────────────────────────────────
 export function ProfileSettingsPage() {
   const navigate = useNavigate();
@@ -47,6 +53,7 @@ export function ProfileSettingsPage() {
   const [avatarId,        setAvatarId]        = useState("cat");
   const [currentGrade,    setCurrentGrade]    = useState<number | null>(null);
   const [selectedPathway, setSelectedPathway] = useState<string | null>(null);
+  const [cambridgeLevel,  setCambridgeLevel]  = useState<string>("flyers");
 
   // ── UI state ──
   const [isSaving,   setIsSaving]   = useState(false);
@@ -64,6 +71,8 @@ export function ProfileSettingsPage() {
     if ([3, 4, 5].includes(grade)) setCurrentGrade(grade);
     const pathway = localStorage.getItem("student_pathway");
     if (pathway) setSelectedPathway(pathway);
+    const cambLevel = localStorage.getItem("student_cambridge_level");
+    if (cambLevel && ["starters","movers","flyers"].includes(cambLevel)) setCambridgeLevel(cambLevel);
   }, [user]);
 
   const handleSave = async () => {
@@ -85,6 +94,7 @@ export function ProfileSettingsPage() {
           avatarId,
           currentGrade,
           selectedPathway,
+          cambridgeLevel:  selectedPathway === "cambridge" ? cambridgeLevel : undefined,
         }),
       });
 
@@ -97,6 +107,7 @@ export function ProfileSettingsPage() {
       // Cập nhật localStorage ngay lập tức → dashboard badge hiển thị đúng
       if (currentGrade) localStorage.setItem("student_grade", String(currentGrade));
       if (selectedPathway) localStorage.setItem("student_pathway", selectedPathway);
+      if (selectedPathway === "cambridge") localStorage.setItem("student_cambridge_level", cambridgeLevel);
 
       // Refetch auth để cập nhật displayName trong header
       await refetch();
@@ -216,6 +227,33 @@ export function ProfileSettingsPage() {
             ))}
           </div>
         </section>
+
+        {/* ── Section: Chứng chỉ Cambridge (hiện khi chọn cambridge) ── */}
+        {selectedPathway === "cambridge" && (
+          <section className="ps-section">
+            <h2 className="ps-section__title">🏅 Chọn chứng chỉ mục tiêu</h2>
+            <div className="ps-pathway-grid">
+              {CAMBRIDGE_LEVELS.map((lvl) => (
+                <button
+                  key={lvl.id}
+                  id={`btn-settings-cambridge-${lvl.id}`}
+                  className={`ps-pathway-btn ${cambridgeLevel === lvl.id ? "ps-pathway-btn--active" : ""}`}
+                  onClick={() => setCambridgeLevel(lvl.id)}
+                  aria-pressed={cambridgeLevel === lvl.id}
+                >
+                  <span className="ps-pathway-btn__emoji">{lvl.emoji}</span>
+                  <div className="ps-pathway-btn__body">
+                    <span className="ps-pathway-btn__label">{lvl.label}</span>
+                    <span className="ps-pathway-btn__desc">{lvl.desc}</span>
+                  </div>
+                  {cambridgeLevel === lvl.id && (
+                    <span className="ps-pathway-btn__check">✓</span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* ── Error / Success ── */}
         {error && (

@@ -1,6 +1,6 @@
 {
   "id": "FW2-MED-001",
-  "title": "Set 1: A Trip to the Museum",
+  "title": "Set 1: A Trip to the Museum 🏛️",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
@@ -11,30 +11,98 @@
   "difficulty": "medium",
   "topic": "museum",
   "conversation": [
-    { "speaker": "Lily", "text": "Have you ever been to the history museum?", "example": true },
-    { "speaker": "Tom", "answerKey": "C", "example": true },
-    { "speaker": "Lily", "text": "What did you see there?" },
-    { "speaker": "Tom", "questionIndex": 0 },
-    { "speaker": "Lily", "text": "Was it crowded?" },
-    { "speaker": "Tom", "questionIndex": 1 },
-    { "speaker": "Lily", "text": "Did you buy anything from the gift shop?" },
-    { "speaker": "Tom", "questionIndex": 2 },
-    { "speaker": "Lily", "text": "How long did you stay?" },
-    { "speaker": "Tom", "questionIndex": 3 },
-    { "speaker": "Lily", "text": "We are going there tomorrow!" },
-    { "speaker": "Tom", "questionIndex": 4 }
+    {
+      "speaker": "Lily",
+      "text": "Have you ever been to the history museum?",
+      "example": true
+    },
+    {
+      "speaker": "Tom",
+      "answerKey": "C",
+      "example": true
+    },
+    {
+      "speaker": "Lily",
+      "text": "What did you see there?"
+    },
+    {
+      "speaker": "Tom",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Lily",
+      "text": "Was it crowded?"
+    },
+    {
+      "speaker": "Tom",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Lily",
+      "text": "Did you buy anything from the gift shop?"
+    },
+    {
+      "speaker": "Tom",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Lily",
+      "text": "How long did you stay?"
+    },
+    {
+      "speaker": "Tom",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Lily",
+      "text": "We are going there tomorrow!"
+    },
+    {
+      "speaker": "Tom",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Yes, there were a lot of students." },
-    { "letter": "B", "text": "I bought a small toy dinosaur." },
-    { "letter": "C", "text": "Yes, I went there last year." },
-    { "letter": "D", "text": "Have a great time!" },
-    { "letter": "E", "text": "My parents drove me there." },
-    { "letter": "F", "text": "I saw some old dinosaur bones." },
-    { "letter": "G", "text": "About three hours, I think." },
-    { "letter": "H", "text": "I don't like history very much." }
+    {
+      "letter": "A",
+      "text": "Yes, there were a lot of students."
+    },
+    {
+      "letter": "B",
+      "text": "I bought a small toy dinosaur."
+    },
+    {
+      "letter": "C",
+      "text": "Yes, I went there last year."
+    },
+    {
+      "letter": "D",
+      "text": "Have a great time!"
+    },
+    {
+      "letter": "E",
+      "text": "My parents drove me there."
+    },
+    {
+      "letter": "F",
+      "text": "I saw some old dinosaur bones."
+    },
+    {
+      "letter": "G",
+      "text": "About three hours, I think."
+    },
+    {
+      "letter": "H",
+      "text": "I don't like history very much."
+    }
   ],
-  "answers": ["F", "A", "B", "G", "D"],
+  "answers": [
+    "F",
+    "A",
+    "B",
+    "G",
+    "D"
+  ],
   "explanations_vi": [
     "Lily hỏi Tom đã thấy gì ở bảo tàng (What did you see), Tom đáp là thấy những bộ xương khủng long (dinosaur bones).",
     "Lily hỏi ở đó có đông không (Was it crowded), Tom xác nhận có, rất nhiều học sinh (a lot of students).",

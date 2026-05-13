@@ -58,11 +58,15 @@ interface FlyersPart1Result {
   starsEarned: number;
   saved: boolean;
   correctAnswers: Record<string, string>;
+  answersForApi: Record<string, string>; // placed answers — để QuizPage gọi API submit
+  startTime: number;                     // timestamp — để tính timeSpent
 }
 
 interface FlyersPart1EngineProps {
   quiz: FlyersPart1Quiz;
   onSubmitResult?: (result: FlyersPart1Result) => void;
+  onFinish?: () => void;   // Click “Finish” → QuizResultScreen
+  onBack?: () => void;     // Click “Back” → về danh sách bài
 }
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
@@ -76,7 +80,7 @@ function calcStars(pct: number): number {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export function FlyersPart1Engine({ quiz, onSubmitResult }: FlyersPart1EngineProps) {
+export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: FlyersPart1EngineProps) {
   // Câu đang được focus (sẽ nhận từ khi click Word Bank)
   const [activeQ, setActiveQ] = useState<string | null>(null);
   // Từ đã điền: { q1: "a dictionary", q3: "a pilot", ... }
@@ -84,6 +88,8 @@ export function FlyersPart1Engine({ quiz, onSubmitResult }: FlyersPart1EnginePro
   // Đã nộp bài?
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<FlyersPart1Result | null>(null);
+  // Track start time để tính timeSpent
+  const startTimeRef = useRef<number>(Date.now());
 
   // Set từ nào đang ở trong câu nào (để biết chip nào đã dùng)
   const usedWords = new Set(Object.values(placed));
@@ -150,6 +156,8 @@ export function FlyersPart1Engine({ quiz, onSubmitResult }: FlyersPart1EnginePro
       starsEarned,
       saved: false,
       correctAnswers,
+      answersForApi: { ...placed },     // snapshot của placed answers
+      startTime: startTimeRef.current,  // để QuizPage tính timeSpent
     };
 
     setResult(res);
@@ -354,6 +362,7 @@ export function FlyersPart1Engine({ quiz, onSubmitResult }: FlyersPart1EnginePro
             </div>
           ) : (
             <div className="fp1-result">
+              {/* Score summary */}
               <div className="fp1-result__score">
                 <span className="fp1-result__stars">
                   {"⭐".repeat(result?.starsEarned ?? 0)}
@@ -363,13 +372,34 @@ export function FlyersPart1Engine({ quiz, onSubmitResult }: FlyersPart1EnginePro
                   <em> ({result?.percentage}%)</em>
                 </span>
               </div>
-              <button
-                className="btn btn-outline"
-                onClick={handleReset}
-                id="btn-fp1-retry"
-              >
-                🔄 Try Again
-              </button>
+
+              {/* Action buttons */}
+              <div className="fp1-result__actions">
+                {onFinish && (
+                  <button
+                    className="btn btn-success"
+                    onClick={onFinish}
+                    id="btn-fp1-finish"
+                  >
+                    ✅ Finish &amp; Save
+                  </button>
+                )}
+                {onBack && (
+                  <button
+                    className="btn btn-outline"
+                    onClick={onBack}
+                    id="btn-fp1-back"
+                  >
+                    ← Về danh sách
+                  </button>
+                )}
+                {/* Fallback nếu không có callback */}
+                {!onFinish && !onBack && (
+                  <button className="btn btn-outline" onClick={handleReset} id="btn-fp1-retry">
+                    🔄 Try Again
+                  </button>
+                )}
+              </div>
             </div>
           )}
         </div>

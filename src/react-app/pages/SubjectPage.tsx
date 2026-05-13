@@ -24,6 +24,7 @@ import "./SubjectPage.css";
 
 // ─── Quiz score cache key helper ─────────────────────────────────────────────
 const SKILL_PREF_KEY = (slug: string) => `sp_skill_${slug}`;
+const PART_PREF_KEY  = (slug: string, skill: string) => `sp_part_${slug}_${skill}`;
 
 
 // ─── Constants ───────────────────────────────────────────────────────────────
@@ -308,7 +309,7 @@ export function SubjectPage() {
     return () => window.removeEventListener("grade:updated", onGradeUpdated);
   }, [gradeManuallySet]);
 
-  // ── Cambridge: auto-select first Part có bài khi đổi skill ──
+  // ── Cambridge: auto-select Part khi đổi skill — khôi phục từ sessionStorage nếu có ──
   useEffect(() => {
     if (!isCambridge || !subject || !activeSkill) return;
     const parts = [...new Set(
@@ -317,9 +318,20 @@ export function SubjectPage() {
         .map(l => l.part)
         .filter((p): p is number => p != null)
     )].sort((a, b) => a - b);
-    setActivePart(parts[0] ?? null);
+
+    // Ưu tiên khôi phục part đã chọn từ sessionStorage
+    const savedPart = sessionStorage.getItem(PART_PREF_KEY(subjectSlug, activeSkill));
+    const savedPartNum = savedPart ? parseInt(savedPart, 10) : null;
+    const restoredPart = savedPartNum && parts.includes(savedPartNum) ? savedPartNum : (parts[0] ?? null);
+    setActivePart(restoredPart);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCambridge, activeSkill]);
+
+  // ── Lưu activePart vào sessionStorage khi user chọn ──
+  useEffect(() => {
+    if (!isCambridge || !activeSkill || activePart === null) return;
+    sessionStorage.setItem(PART_PREF_KEY(subjectSlug, activeSkill), String(activePart));
+  }, [isCambridge, subjectSlug, activeSkill, activePart]);
 
   // ── Available skills (chỉ những skill có bài) ──
   const availableSkills = useMemo(() => {

@@ -385,6 +385,19 @@
   margin-left: 0.25rem;
 }
 
+/* Result actions: Finish + Back buttons */
+.fp2-result__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.fp2-result__actions .btn {
+  min-width: 130px;
+  font-size: 0.9rem;
+}
+
 /* ══════════════════════════════════════════════════════
    MOBILE ≤767px
    ══════════════════════════════════════════════════════ */
