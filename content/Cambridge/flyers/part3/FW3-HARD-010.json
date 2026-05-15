@@ -1,0 +1,136 @@
+{
+  "id": "FW3-HARD-010",
+  "title": "Set 10: The Science Project 🔬",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "science",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-10-the-science-project.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "environment",
+    "whispered",
+    "experiment",
+    "discovery",
+    "dangerous",
+    "binoculars",
+    "information",
+    "difficult",
+    "instruments"
+  ],
+  "example": {
+    "word": "project",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Our class is working on a very interesting science ",
+    " this month using our science textbooks. We are learning about how animals survive in different parts of the ",
+    ". Yesterday, our teacher took us to a large forest to look for rare insects.\n\nWe had to be very quiet, so we ",
+    " to each other. My friend used his ",
+    " to look at a tall tree. He found a small, green beetle that was hiding under a leaf. It was a very exciting ",
+    " for our team!\n\nWe also used some special ",
+    " to measure the temperature of the soil. It was quite difficult to find enough insects, but we wrote down all the information we found. I hope our team wins the prize for the best science presentation next week!"
+  ],
+  "answers": [
+    "environment",
+    "whispered",
+    "binoculars",
+    "discovery",
+    "instruments"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "A boring day at school" },
+      { "letter": "B", "text": "Exploring nature with science" },
+      { "letter": "C", "text": "Playing games in the forest" }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Tìm hiểu về cách động vật sinh tồn trong môi trường (environment).",
+    "Phải giữ im lặng nên chúng tôi thì thầm (whispered) với nhau.",
+    "Dùng ống nhòm (binoculars) để quan sát một cái cây cao.",
+    "Đó là một khám phá/phát hiện (discovery) rất thú vị.",
+    "Sử dụng một số dụng cụ (instruments) đo lường đặc biệt.",
+    "Tiêu đề B (Khám phá thiên nhiên bằng khoa học) là đúng nhất vì kể về một dự án khoa học thực tế ngoài trời."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "project",
+      "vocabulary_bank_id": "fl-sc-017",
+      "translation_vi": "dự án/đề tài",
+      "ipa": "/ˈprɒdʒ.ekt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/project.mp3"
+    },
+    {
+      "word": "environment",
+      "vocabulary_bank_id": "fl-wa-008",
+      "translation_vi": "môi trường",
+      "ipa": "/ɪnˈvaɪ.rən.mənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/environment.mp3"
+    },
+    {
+      "word": "dangerous",
+      "vocabulary_bank_id": "fl-aj-004",
+      "translation_vi": "nguy hiểm",
+      "ipa": "/ˈdeɪndʒərəs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dangerous.mp3"
+    },
+    {
+      "word": "whispered",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thì thầm",
+      "ipa": "/ˈwɪs.pərd/",
+      "audio_url": null
+    },
+    {
+      "word": "experiment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thí nghiệm",
+      "ipa": "/ɪkˈsper.ɪ.mənt/",
+      "audio_url": null
+    },
+    {
+      "word": "discovery",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khám phá",
+      "ipa": "/dɪˈskʌv.ər.i/",
+      "audio_url": null
+    },
+    {
+      "word": "binoculars",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ống nhòm",
+      "ipa": "/bɪˈnɒk.jə.lərz/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "difficult",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khó khăn",
+      "ipa": "/ˈdɪf.ɪ.kəlt/",
+      "audio_url": null
+    },
+    {
+      "word": "instruments",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dụng cụ/thiết bị",
+      "ipa": "/ˈɪn.strə.mənts/",
+      "audio_url": null
+    }
+  ]
+}

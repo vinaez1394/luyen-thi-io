@@ -1,0 +1,145 @@
+{
+  "id": "FW3-HARD-005",
+  "title": "Set 5: The Mysterious Signal 📡",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "science",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-05-the-mysterious-signal.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "astronomer",
+    "signal",
+    "through",
+    "believe",
+    "planets",
+    "equipment",
+    "distance",
+    "mysterious",
+    "screen"
+  ],
+  "example": {
+    "word": "telescope",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "David has always been fascinated by space. Every night, he sits on his balcony and looks at the stars through his ",
+    ". He dreams of becoming a professional ",
+    " one day to discover new worlds.\n\nLast Friday, while David was watching the sky, he noticed something ",
+    ". A bright light was flashing in a pattern he had never seen before. He ran to his computer and connected his ",
+    " to record the data. Suddenly, a strange ",
+    " appeared on his monitor. It looked like a map of a solar system with three unknown believe.\n\nDavid couldn't ",
+    " his eyes! Was someone from a great distance trying to talk to Earth? He decided to send his findings to the national space center. He is still waiting for their call, but he knows that the universe is full of secrets waiting to be found."
+  ],
+  "answers": [
+    "astronomer",
+    "mysterious",
+    "equipment",
+    "signal",
+    "planets"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A broken computer screen"
+      },
+      {
+        "letter": "B",
+        "text": "A message from the stars"
+      },
+      {
+        "letter": "C",
+        "text": "Learning to use a telescope"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Cậu ấy mơ ước một ngày trở thành một nhà thiên văn học (astronomer) chuyên nghiệp.",
+    "Cậu nhận thấy có điều gì đó bí ẩn (mysterious) trên bầu trời.",
+    "Cậu kết nối thiết bị (equipment) của mình với máy tính để ghi lại dữ liệu.",
+    "Đột nhiên, một tín hiệu (signal) lạ xuất hiện trên màn hình.",
+    "Bản đồ một hệ mặt trời với ba hành tinh (planets) chưa được biết đến.",
+    "Tiêu đề B (Một thông điệp từ những vì sao) là đúng nhất vì kể về việc nhận được tín hiệu lạ từ không gian."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "telescope",
+      "vocabulary_bank_id": null,
+      "translation_vi": "kính viễn vọng",
+      "ipa": "/ˈtel.ɪ.skəʊp/",
+      "audio_url": null
+    },
+    {
+      "word": "screen",
+      "vocabulary_bank_id": "fl-sc-021",
+      "translation_vi": "màn hình",
+      "ipa": "/skriːn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/screen.mp3"
+    },
+    {
+      "word": "astronomer",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhà thiên văn học",
+      "ipa": "/əˈstrɒn.ə.mər/",
+      "audio_url": null
+    },
+    {
+      "word": "signal",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tín hiệu",
+      "ipa": "/ˈsɪɡ.nəl/",
+      "audio_url": null
+    },
+    {
+      "word": "through",
+      "vocabulary_bank_id": null,
+      "translation_vi": "xuyên qua",
+      "ipa": "/θruː/",
+      "audio_url": null
+    },
+    {
+      "word": "believe",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tin tưởng",
+      "ipa": "/bɪˈliːv/",
+      "audio_url": null
+    },
+    {
+      "word": "planets",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hành tinh",
+      "ipa": "/ˈplæn.ɪts/",
+      "audio_url": null
+    },
+    {
+      "word": "equipment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thiết bị",
+      "ipa": "/ɪˈkwɪp.mənt/",
+      "audio_url": null
+    },
+    {
+      "word": "distance",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khoảng cách",
+      "ipa": "/ˈdɪs.təns/",
+      "audio_url": null
+    },
+    {
+      "word": "mysterious",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bí ẩn",
+      "ipa": "/mɪˈstɪə.ri.əs/",
+      "audio_url": null
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "id": "FW6-MED-005",
+  "title": "Set 5: Emma's Birthday Party 🎂",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 6,
+  "type": "flyers-part6",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "celebrations",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-05-emmas-birthday-party.jpg",
+  "instructions_en": "READ THE DIARY AND WRITE IN THE MISSING WORDS. WRITE ONE WORD ON EACH LINE.",
+  "diary_date": "Saturday 3rd August",
+  "segments": [
+    {
+      "type": "text",
+      "content": "Today was my best friend Emma's birthday party! Her mum "
+    },
+    {
+      "type": "blank",
+      "number": 1,
+      "accepted_answers": [
+        "gave"
+      ],
+      "explanation_vi": "'her mum gave us each a piece of cake' — 'gave' là quá khứ bất quy tắc của 'give'. Cấu trúc: give + person + thing = cho ai đó cái gì. give → gave → given.",
+      "grammar_tag": "past_simple_irregular"
+    },
+    {
+      "type": "text",
+      "content": " us each a piece of the most delicious chocolate cake. We played lots of fun games and I "
+    },
+    {
+      "type": "blank",
+      "number": 2,
+      "accepted_answers": [
+        "won"
+      ],
+      "explanation_vi": "'I won first place in musical chairs' — 'won' là quá khứ bất quy tắc của 'win'. Phân biệt: WIN (thắng cuộc) vs BEAT (đánh bại đối thủ). We won the game. / We beat the other team. win → won → won.",
+      "grammar_tag": "past_simple_irregular"
+    },
+    {
+      "type": "text",
+      "content": " first place in the musical chairs game! All the birthday presents were arranged "
+    },
+    {
+      "type": "blank",
+      "number": 3,
+      "accepted_answers": [
+        "on"
+      ],
+      "explanation_vi": "'presents were arranged on a big table' — 'on' chỉ vị trí trên một bề mặt phẳng. Dùng 'on' với bàn, sàn, giá sách: on the table, on the shelf, on the floor, on the wall.",
+      "grammar_tag": "preposition"
+    },
+    {
+      "type": "text",
+      "content": " a big table in the garden, and Emma was so excited when she opened them! At the end, we all "
+    },
+    {
+      "type": "blank",
+      "number": 4,
+      "accepted_answers": [
+        "took"
+      ],
+      "explanation_vi": "'we all took a big group photo' — 'take a photo' là collocation bắt buộc phải nhớ (KHÔNG nói 'make a photo' hay 'do a photo'). 'Group photo' = ảnh tập thể. take → took → taken.",
+      "grammar_tag": "collocation_take"
+    },
+    {
+      "type": "text",
+      "content": " a big group photo together. Everyone was very tired "
+    },
+    {
+      "type": "blank",
+      "number": 5,
+      "accepted_answers": [
+        "but"
+      ],
+      "explanation_vi": "'very tired but nobody wanted to go home' — 'but' là liên từ tương phản, nối hai ý đối lập nhau. Câu trước: mệt mỏi. Câu sau: không muốn về. → Hai ý ngược nhau → dùng 'but'.",
+      "grammar_tag": "conjunction_contrast"
+    },
+    {
+      "type": "text",
+      "content": " nobody wanted to go home! It was the most brilliant day of the whole summer."
+    }
+  ],
+  "grammar_tips": [
+    {
+      "tag": "past_simple_irregular",
+      "title": "Quá khứ bất quy tắc: give & win",
+      "tip_vi": "Hai động từ quan trọng trong bài:\n• give → gave → given (cho)\n  Cấu trúc: give + ai + cái gì: gave us a piece of cake\n• win → won → won (thắng)\n  Phân biệt: WIN the game ✅ / BEAT the team ✅ / WIN the team ❌\nNhớ: Cả hai đều là quá khứ bất quy tắc — KHÔNG thêm -ed!"
+    },
+    {
+      "tag": "collocation_take",
+      "title": "Collocation: TAKE a photo",
+      "tip_vi": "'Take a photo / take photos' — collocation quan trọng nhất trong Cambridge:\n• take a photo 📸 ✅ (KHÔNG nói 'make a photo' ❌)\n• take a group photo = chụp ảnh tập thể\n• take a selfie = chụp ảnh tự sướng\nCác collocation TAKE quan trọng khác:\n• take notes | take a rest | take turns | take part in"
+    },
+    {
+      "tag": "conjunction_contrast",
+      "title": "Liên từ tương phản: BUT",
+      "tip_vi": "'But' nối hai ý TRÁI NGƯỢC nhau:\n• tired BUT nobody wanted to go home\n• small BUT very comfortable\n• expensive BUT worth it\nSo sánh với các liên từ khác:\n• and = và (cùng chiều) | so = vì vậy (kết quả)\n• because = bởi vì (nguyên nhân) | although = mặc dù (nhường bộ)"
+    },
+    {
+      "tag": "preposition",
+      "title": "Giới từ ON — trên bề mặt phẳng",
+      "tip_vi": "'On' dùng khi vật nằm trên một bề mặt:\n• on the table 🪑 | on the shelf | on the floor\n• on the wall | on the sofa | on the grass\nKhác biệt với 'in':\n• in the garden (TRONG khu vườn)\n• on the grass (TRÊN mặt cỏ)\nMẹo: 'on' = có thể nhìn thấy bề mặt tiếp xúc"
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "delicious",
+      "vocabulary_bank_id": "fl-fd-005",
+      "translation_vi": "thơm ngon",
+      "ipa": "/dɪˈlɪʃ.əs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/delicious.mp3"
+    },
+    {
+      "word": "musical chairs",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trò ghế nhạc",
+      "ipa": "/ˈmjuː.zɪ.kəl tʃeəz/",
+      "audio_url": null
+    },
+    {
+      "word": "arranged",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đã được sắp xếp, bày biện",
+      "ipa": "/əˈreɪndʒd/",
+      "audio_url": null
+    },
+    {
+      "word": "excited",
+      "vocabulary_bank_id": "fl-fe-006",
+      "translation_vi": "hào hứng, phấn khích",
+      "ipa": "/ɪkˈsaɪ.tɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/excited.mp3"
+    },
+    {
+      "word": "brilliant",
+      "vocabulary_bank_id": null,
+      "translation_vi": "xuất sắc, tuyệt vời (tiếng Anh Anh)",
+      "ipa": "/ˈbrɪl.i.ənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/brilliant.mp3"
+    },
+    {
+      "word": "whole",
+      "vocabulary_bank_id": null,
+      "translation_vi": "toàn bộ, cả",
+      "ipa": "/həʊl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/whole.mp3"
+    }
+  ]
+}

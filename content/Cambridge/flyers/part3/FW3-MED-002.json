@@ -73,10 +73,10 @@
   "vocab_highlight": [
     {
       "word": "farm",
-      "vocabulary_bank_id": null,
+      "vocabulary_bank_id": "mv-pd-013",
       "translation_vi": "nông trại",
       "ipa": "/fɑːm/",
-      "audio_url": null
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/farm.mp3"
     },
     {
       "word": "feed",
@@ -87,10 +87,10 @@
     },
     {
       "word": "tractor",
-      "vocabulary_bank_id": null,
+      "vocabulary_bank_id": "mv-tr-008",
       "translation_vi": "xe máy cày",
       "ipa": "/ˈtræk.tər/",
-      "audio_url": null
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/tractor.mp3"
     },
     {
       "word": "vegetables",

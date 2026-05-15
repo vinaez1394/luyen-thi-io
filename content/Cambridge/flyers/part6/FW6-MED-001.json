@@ -1,0 +1,150 @@
+{
+  "id": "FW6-MED-001",
+  "title": "Set 1: A Trip to the Mountains ⛰️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 6,
+  "type": "flyers-part6",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "holidays",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-01-a-trip-to-the-mountains.jpg",
+  "instructions_en": "READ THE DIARY AND WRITE IN THE MISSING WORDS. WRITE ONE WORD ON EACH LINE.",
+  "diary_date": "Saturday 14th August",
+  "segments": [
+    {
+      "type": "text",
+      "content": "Today was the most exciting day of our summer holiday! We went on a trip "
+    },
+    {
+      "type": "blank",
+      "number": 1,
+      "accepted_answers": [
+        "to"
+      ],
+      "explanation_vi": "'went on a trip to the mountains' — 'to' là giới từ chỉ điểm đến, dùng sau 'a trip to...'",
+      "grammar_tag": "preposition"
+    },
+    {
+      "type": "text",
+      "content": " the mountains with our neighbours, the Kim family. We left home very early "
+    },
+    {
+      "type": "blank",
+      "number": 2,
+      "accepted_answers": [
+        "in",
+        "in the"
+      ],
+      "explanation_vi": "'early in the morning' — cụm trạng ngữ thời gian cố định: 'in the morning/afternoon/evening'.",
+      "grammar_tag": "preposition"
+    },
+    {
+      "type": "text",
+      "content": " the morning because the drive takes three hours. My dad made sandwiches for everyone and put "
+    },
+    {
+      "type": "blank",
+      "number": 3,
+      "accepted_answers": [
+        "them"
+      ],
+      "explanation_vi": "'put them in a big bag' — 'them' là đại từ tân ngữ, thay thế cho 'sandwiches' đã nhắc trước đó.",
+      "grammar_tag": "pronoun"
+    },
+    {
+      "type": "text",
+      "content": " in a big bag with drinks and fruit. When we arrived, we could see snow "
+    },
+    {
+      "type": "blank",
+      "number": 4,
+      "accepted_answers": [
+        "on"
+      ],
+      "explanation_vi": "'snow on the tops of the mountains' — 'on' chỉ vị trí vật ở trên bề mặt: 'on the top/on the table...'",
+      "grammar_tag": "preposition"
+    },
+    {
+      "type": "text",
+      "content": " the tops of the mountains. It was beautiful! We walked along a long path and my little sister was worried "
+    },
+    {
+      "type": "blank",
+      "number": 5,
+      "accepted_answers": [
+        "about"
+      ],
+      "explanation_vi": "'worried about the steep rocks' — cụm tính từ cố định: 'be worried about something/someone'.",
+      "grammar_tag": "adjective_phrase"
+    },
+    {
+      "type": "text",
+      "content": " the steep rocks, but she was very brave. I hope we can come back again next year!"
+    }
+  ],
+  "grammar_tips": [
+    {
+      "tag": "preposition",
+      "title": "Giới từ chỉ nơi chốn & hướng",
+      "tip_vi": "• to = hướng đến nơi nào đó (go to school, trip to the mountains)\n• on = ở trên bề mặt (on the table, on the top)\n• in = ở bên trong hoặc dùng với buổi trong ngày (in a bag, in the morning)"
+    },
+    {
+      "tag": "pronoun",
+      "title": "Đại từ tân ngữ (Object Pronoun)",
+      "tip_vi": "Khi một danh từ đã được nhắc đến rồi, ta dùng đại từ thay thế để tránh lặp:\n• sandwiches → them | my dad → him | my sister → her"
+    },
+    {
+      "tag": "adjective_phrase",
+      "title": "Cụm tính từ cố định: be + adj + preposition",
+      "tip_vi": "Nhiều tính từ đi kèm giới từ cố định:\n• worried about | good at | afraid of | interested in | excited about"
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "exciting",
+      "vocabulary_bank_id": "fl-fe-005",
+      "translation_vi": "thú vị, hấp dẫn",
+      "ipa": "/ɪkˈsaɪ.tɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/exciting.mp3"
+    },
+    {
+      "word": "neighbours",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hàng xóm",
+      "ipa": "/ˈneɪ.bərz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/neighbour.mp3"
+    },
+    {
+      "word": "sandwiches",
+      "vocabulary_bank_id": "fl-fd-023",
+      "translation_vi": "bánh mì kẹp",
+      "ipa": "/ˈsænd.wɪ.tʃɪz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sandwich.mp3"
+    },
+    {
+      "word": "steep",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dốc đứng, dốc cao",
+      "ipa": "/stiːp/",
+      "audio_url": null
+    },
+    {
+      "word": "brave",
+      "vocabulary_bank_id": "fl-ch-002",
+      "translation_vi": "dũng cảm, can đảm",
+      "ipa": "/breɪv/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/brave.mp3"
+    },
+    {
+      "word": "path",
+      "vocabulary_bank_id": null,
+      "translation_vi": "con đường mòn",
+      "ipa": "/pɑːθ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/path.mp3"
+    }
+  ]
+}

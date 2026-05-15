@@ -1,0 +1,159 @@
+{
+  "id": "FW6-MED-003",
+  "title": "Set 3: A Letter from the Farm 🌾",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 6,
+  "type": "flyers-part6",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "animals",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-03-a-letter-from-the-farm.jpg",
+  "instructions_en": "READ THE LETTER AND WRITE IN THE MISSING WORDS. WRITE ONE WORD ON EACH LINE.",
+  "diary_date": "Sunday 4th May",
+  "segments": [
+    {
+      "type": "text",
+      "content": "Dear Ben, I am writing to tell you about the farm we visited yesterday. We travelled there "
+    },
+    {
+      "type": "blank",
+      "number": 1,
+      "accepted_answers": [
+        "by"
+      ],
+      "explanation_vi": "'travelled by bus' — 'by' là giới từ chỉ phương tiện giao thông. Quy tắc: by + phương tiện (KHÔNG dùng mạo từ): by bus, by train, by car, by plane. Ngoại lệ: on foot (đi bộ).",
+      "grammar_tag": "preposition_transport"
+    },
+    {
+      "type": "text",
+      "content": " bus and it took about forty minutes. When we arrived, a friendly farmer "
+    },
+    {
+      "type": "blank",
+      "number": 2,
+      "accepted_answers": [
+        "showed"
+      ],
+      "explanation_vi": "'a farmer showed us around' — 'showed' là quá khứ bất quy tắc của 'show'. Phrasal verb quan trọng: show someone around = dẫn ai tham quan một nơi. show → showed → shown.",
+      "grammar_tag": "past_simple_irregular"
+    },
+    {
+      "type": "text",
+      "content": " us around. I "
+    },
+    {
+      "type": "blank",
+      "number": 3,
+      "accepted_answers": [
+        "took"
+      ],
+      "explanation_vi": "'I took lots of notes' — 'took notes' là collocation quan trọng = ghi chú. Tương tự: take a photo, take a rest, take part in. take → took → taken.",
+      "grammar_tag": "collocation_verb"
+    },
+    {
+      "type": "text",
+      "content": " lots of notes about the different animals. The pigs were much dirtier "
+    },
+    {
+      "type": "blank",
+      "number": 4,
+      "accepted_answers": [
+        "than"
+      ],
+      "explanation_vi": "'dirtier than the sheep' — 'than' luôn đứng sau so sánh hơn. Cấu trúc: [tính từ so sánh hơn] + than + [đối tượng so sánh].",
+      "grammar_tag": "comparative"
+    },
+    {
+      "type": "text",
+      "content": " the sheep, but they were very funny! At the end, all the children "
+    },
+    {
+      "type": "blank",
+      "number": 5,
+      "accepted_answers": [
+        "had"
+      ],
+      "explanation_vi": "'all the children had a great time' — 'have a great/good time' là collocation cực kỳ phổ biến trong Cambridge Flyers. Không nói 'spend a great time' hay 'do a great time'.",
+      "grammar_tag": "collocation_have"
+    },
+    {
+      "type": "text",
+      "content": " a great time and nobody wanted to go home! I hope you can visit a farm one day. Your cousin, Jack"
+    }
+  ],
+  "grammar_tips": [
+    {
+      "tag": "preposition_transport",
+      "title": "Phương tiện giao thông: BY + V.transport",
+      "tip_vi": "Dùng 'by' + phương tiện (KHÔNG có mạo từ a/an/the):\n• by bus ✅ — NOT 'by a bus' ❌\n• by train | by car | by plane | by bike | by boat\nNgoại lệ duy nhất: on foot (đi bộ) — KHÔNG nói 'by foot'"
+    },
+    {
+      "tag": "past_simple_irregular",
+      "title": "Quá khứ bất quy tắc: show, take, have",
+      "tip_vi": "Các động từ quá khứ bất quy tắc trong bài này:\n• show → showed (show around = dẫn tham quan)\n• take → took (take notes, take photos)\n• have → had (have a great time)\nMẹo nhớ: Học theo nhóm collocation, không học riêng lẻ!"
+    },
+    {
+      "tag": "collocation_verb",
+      "title": "Collocation: TAKE + danh từ",
+      "tip_vi": "'Take' kết hợp với nhiều danh từ:\n• take notes ✅ = ghi chú (KHÔNG nói 'write notes' trong nhiều ngữ cảnh)\n• take photos | take a rest | take a trip\n• take part in = tham gia\n• take turns = thay phiên nhau"
+    },
+    {
+      "tag": "comparative",
+      "title": "So sánh hơn + THAN",
+      "tip_vi": "'Than' luôn đi với cấu trúc so sánh hơn:\n• dirtier than | bigger than | faster than\n• more interesting than | more beautiful than\nLưu ý chính tả: dirty → dirtier (y → ier), big → bigger (nhân đôi phụ âm cuối)"
+    },
+    {
+      "tag": "collocation_have",
+      "title": "Collocation: HAVE + a great/good time",
+      "tip_vi": "'Have a good/great time' = có một khoảng thời gian vui vẻ — collocation cố định:\n• We had a great time! ✅\n• I had a good time at the party. ✅\nCác collocation 'have' khác cần nhớ:\n• have lunch/dinner | have a shower | have a rest\n• have fun | have a party | have a dream"
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "farm",
+      "vocabulary_bank_id": "fl-an-015",
+      "translation_vi": "trang trại",
+      "ipa": "/fɑːrm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/farm.mp3"
+    },
+    {
+      "word": "farmer",
+      "vocabulary_bank_id": "fl-pe-022",
+      "translation_vi": "nông dân, chủ trang trại",
+      "ipa": "/ˈfɑːr.mər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/farmer.mp3"
+    },
+    {
+      "word": "pigs",
+      "vocabulary_bank_id": "fl-an-012",
+      "translation_vi": "những con lợn",
+      "ipa": "/pɪɡz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/pig.mp3"
+    },
+    {
+      "word": "sheep",
+      "vocabulary_bank_id": "fl-an-011",
+      "translation_vi": "cừu (số ít/nhiều đều là sheep)",
+      "ipa": "/ʃiːp/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sheep.mp3"
+    },
+    {
+      "word": "dirty",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bẩn, dơ",
+      "ipa": "/ˈdɜːr.ti/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dirty.mp3"
+    },
+    {
+      "word": "visited",
+      "vocabulary_bank_id": "fl-li-012",
+      "translation_vi": "đã thăm quan",
+      "ipa": "/ˈvɪz.ɪ.tɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/visit.mp3"
+    }
+  ]
+}

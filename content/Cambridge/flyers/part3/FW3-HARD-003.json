@@ -1,0 +1,136 @@
+{
+  "id": "FW3-HARD-003",
+  "title": "Set 3: The New Software 💻",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "technology",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-03-the-new-software.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "useful",
+    "keyboard",
+    "carefully",
+    "programmer",
+    "believe",
+    "problem",
+    "screen",
+    "quickly",
+    "information"
+  ],
+  "example": {
+    "word": "app",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "My father works as an IT specialist in a large office. Last week, he brought home a new ",
+    " that he helped to design. He said it was for people who want to learn how to build their own websites. I was very excited to try it on my laptop.\n\nWhen I opened the program, a friendly robot appeared on the ",
+    " to explain what to do. I had to type my name using the ",
+    " and then choose a color for my site. At first, I had a ",
+    " because the colors didn't look right, but I read the instructions again very ",
+    ".\n\nAfter an hour, I finished my first page! It had a lot of ",
+    " about my favorite hobbies. My dad couldn't believe how fast I learned. He said that maybe one day I will become a famous programmer just like him."
+  ],
+  "answers": [
+    "screen",
+    "keyboard",
+    "problem",
+    "carefully",
+    "information"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "Buying a new laptop" },
+      { "letter": "B", "text": "Learning to code at home" },
+      { "letter": "C", "text": "Playing games with a robot" }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Một robot thân thiện xuất hiện trên màn hình (screen) để giải thích cách làm.",
+    "Tôi phải gõ tên mình bằng bàn phím (keyboard).",
+    "Lúc đầu, tôi gặp một vấn đề/lỗi (problem) vì màu sắc trông không đúng.",
+    "Tôi đã đọc lại hướng dẫn một cách cẩn thận (carefully).",
+    "Trang web có rất nhiều thông tin (information) về sở thích của tôi.",
+    "Tiêu đề B (Học lập trình ở nhà) là đúng nhất vì kể về việc tác giả dùng phần mềm mới để tự tạo trang web."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "app",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ứng dụng",
+      "ipa": "/æp/",
+      "audio_url": null
+    },
+    {
+      "word": "screen",
+      "vocabulary_bank_id": "fl-sc-021",
+      "translation_vi": "màn hình",
+      "ipa": "/skriːn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/screen.mp3"
+    },
+    {
+      "word": "keyboard",
+      "vocabulary_bank_id": "st-sc-024",
+      "translation_vi": "bàn phím",
+      "ipa": "/ˈkiː.bɔːd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/keyboard.mp3"
+    },
+    {
+      "word": "useful",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hữu ích",
+      "ipa": "/ˈjuːs.fəl/",
+      "audio_url": null
+    },
+    {
+      "word": "carefully",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cẩn thận",
+      "ipa": "/ˈkeə.fəl.i/",
+      "audio_url": null
+    },
+    {
+      "word": "programmer",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lập trình viên",
+      "ipa": "/ˈprəʊ.ɡræm.ər/",
+      "audio_url": null
+    },
+    {
+      "word": "believe",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tin tưởng",
+      "ipa": "/bɪˈliːv/",
+      "audio_url": null
+    },
+    {
+      "word": "problem",
+      "vocabulary_bank_id": null,
+      "translation_vi": "vấn đề/lỗi",
+      "ipa": "/ˈprɒb.ləm/",
+      "audio_url": null
+    },
+    {
+      "word": "quickly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhanh chóng",
+      "ipa": "/ˈkwɪk.li/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    }
+  ]
+}

@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-03-a-day-at-the-tv-studio.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Michael bảo muốn làm người quay phim (camera operator) khi lớn lên, Holly nói công việc đó cần rất khỏe để mang thiết bị nặng cả ngày (heavy equipment all day).",
     "Michael hỏi liệu họ có được phép xem phòng trang điểm (makeup room) lát nữa không, Holly bảo không chắc và đề nghị đi hỏi hướng dẫn viên (ask the guide).",
     "Michael kể bố mình từng quen biết đạo diễn (director) của chương trình, Holly ngạc nhiên thốt lên Trái đất tròn quá (What a small world!) và đoán họ có thể vẫn còn nói chuyện với nhau."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "presenter",
+      "vocabulary_bank_id": null,
+      "translation_vi": "người dẫn chương trình",
+      "ipa": "/prɪˈzen.tər/",
+      "audio_url": null
+    },
+    {
+      "word": "studio",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trường quay",
+      "ipa": "/ˈstjuː.di.əʊ/",
+      "audio_url": null
+    },
+    {
+      "word": "equipment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thiết bị",
+      "ipa": "/ɪˈkwɪp.mənt/",
+      "audio_url": null
+    },
+    {
+      "word": "director",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đạo diễn",
+      "ipa": "/daɪˈrek.tər/",
+      "audio_url": null
+    },
+    {
+      "word": "behind the scenes",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hậu trường",
+      "ipa": "/bɪˈhaɪnd ðə siːnz/",
+      "audio_url": null
+    }
   ]
 }

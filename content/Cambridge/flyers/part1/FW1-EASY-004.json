@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-04-hobbies-and-leisure.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "easy",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a guitar",
     "chess",
@@ -29,12 +29,10 @@
     "singing",
     "fishing"
   ],
-
   "example": {
     "prompt": "You use these to draw pictures on paper or in a book.",
     "answer": "pencils"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,57 @@
       "prompt": "This is a popular sport where two teams kick a ball and try to score a goal.",
       "correct": "football",
       "explanation_vi": "Football = bóng đá, môn thể thao phổ biến mà hai đội đá bóng và cố gắng ghi bàn."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "guitar",
+      "vocabulary_bank_id": "st-sl-023",
+      "translation_vi": "đàn ghi-ta",
+      "ipa": "/ɡɪˈtɑː/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/guitar.mp3"
+    },
+    {
+      "word": "chess",
+      "vocabulary_bank_id": "fl-sl-004",
+      "translation_vi": "cờ vua",
+      "ipa": "/tʃes/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/chess.mp3"
+    },
+    {
+      "word": "camera",
+      "vocabulary_bank_id": "st-sl-011",
+      "translation_vi": "máy ảnh",
+      "ipa": "/ˈkæmərə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/camera.mp3"
+    },
+    {
+      "word": "puzzle",
+      "vocabulary_bank_id": "fl-sl-024",
+      "translation_vi": "bộ xếp hình/câu đố",
+      "ipa": "/ˈpʌzəl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/puzzle.mp3"
+    },
+    {
+      "word": "painting",
+      "vocabulary_bank_id": "st-sc-036",
+      "translation_vi": "vẽ tranh",
+      "ipa": "/ˈpeɪntɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/painting.mp3"
+    },
+    {
+      "word": "fishing",
+      "vocabulary_bank_id": "st-sl-019",
+      "translation_vi": "câu cá",
+      "ipa": "/ˈfɪʃɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/fishing.mp3"
+    },
+    {
+      "word": "dancing",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhảy múa",
+      "ipa": "/ˈdɑːnsɪŋ/",
+      "audio_url": null
     }
   ]
 }

@@ -1,0 +1,159 @@
+{
+  "id": "FW5-EASY-002",
+  "title": "Set 2: A Visit to the Zoo 🦁",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 5,
+  "type": "flyers-part5",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "topic": "animals",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-02-a-visit-to-the-zoo.jpg",
+  "instructions_en": "LOOK AT THE PICTURE AND READ THE STORY. WRITE SOME WORDS TO COMPLETE THE SENTENCES ABOUT THE STORY. YOU CAN USE 1, 2, OR 3 WORDS.",
+  "passage": "Last Sunday, Tom's family visited the city zoo for the first time. The weather was warm and sunny, so Tom and his sister were very excited.\nWhen they arrived, they went straight to the elephant area. Tom thought the elephants were enormous. A friendly zookeeper let Tom feed an elephant some bananas. Tom was a little scared at first, but the elephant was very gentle and took the bananas carefully.\nNext, they walked to the penguin pool. The penguins were swimming and jumping into the cold water, and everyone laughed at how funny they looked. Tom's sister took many photographs of them with her camera.\nAfter that, they visited the parrot house. There were many colourful birds inside the big glass building. One yellow parrot suddenly said \"Good morning!\" and Tom jumped in surprise. His mother explained that parrots can copy the words that people say.\nAt the end of the day, they went to the gift shop near the exit. Tom chose a small toy elephant because it was his favourite animal. On the drive home, Tom fell asleep in the back of the car with the toy elephant in his hands.",
+  "examples": [
+    {
+      "number": 1,
+      "sentence": "Tom's family visited the city _____ last Sunday.",
+      "answer": "zoo"
+    },
+    {
+      "number": 2,
+      "sentence": "Tom and his sister were very _____ that day.",
+      "answer": "excited"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "sentence": "The weather was warm and _____ when Tom's family visited the zoo.",
+      "accepted_answers": [
+        "sunny"
+      ],
+      "passage_highlight": "The weather was warm and sunny",
+      "explanation_vi": "Đoạn văn nói 'The weather was warm and sunny' — thời tiết hôm đó ấm áp và có nắng (sunny)."
+    },
+    {
+      "number": 2,
+      "sentence": "A zookeeper let Tom feed an elephant some _____.",
+      "accepted_answers": [
+        "bananas",
+        "banana"
+      ],
+      "passage_highlight": "let Tom feed an elephant some bananas",
+      "explanation_vi": "Người trông coi vườn thú cho phép Tom cho voi ăn mấy quả chuối (some bananas)."
+    },
+    {
+      "number": 3,
+      "sentence": "Tom was a little _____ when he fed the elephant.",
+      "accepted_answers": [
+        "scared",
+        "frightened",
+        "afraid"
+      ],
+      "passage_highlight": "Tom was a little scared at first",
+      "explanation_vi": "Đoạn văn nói 'Tom was a little scared at first' — lúc đầu Tom hơi sợ (scared), nhưng con voi rất hiền."
+    },
+    {
+      "number": 4,
+      "sentence": "Tom's sister took many _____ of the penguins.",
+      "accepted_answers": [
+        "photographs",
+        "photos",
+        "pictures"
+      ],
+      "passage_highlight": "Tom's sister took many photographs of them with her camera",
+      "explanation_vi": "Chị của Tom chụp nhiều ảnh (photographs) của những chú chim cánh cụt bằng máy ảnh."
+    },
+    {
+      "number": 5,
+      "sentence": "One _____ parrot said \"Good morning!\" to Tom.",
+      "accepted_answers": [
+        "yellow"
+      ],
+      "passage_highlight": "One yellow parrot suddenly said",
+      "explanation_vi": "Đoạn văn nói 'One yellow parrot suddenly said \"Good morning!\"' — đó là con vẹt màu vàng (yellow)."
+    },
+    {
+      "number": 6,
+      "sentence": "Tom bought a small _____ from the gift shop.",
+      "accepted_answers": [
+        "toy elephant",
+        "elephant"
+      ],
+      "passage_highlight": "Tom chose a small toy elephant because it was his favourite animal",
+      "explanation_vi": "Tom chọn mua một chú voi đồ chơi nhỏ (toy elephant) vì đó là con vật yêu thích của em."
+    },
+    {
+      "number": 7,
+      "sentence": "On the drive home, Tom fell _____ in the back of the car.",
+      "accepted_answers": [
+        "asleep",
+        "to sleep"
+      ],
+      "passage_highlight": "Tom fell asleep in the back of the car",
+      "explanation_vi": "Trên đường về nhà, Tom ngủ thiếp đi (fell asleep) ở băng ghế sau xe với chú voi đồ chơi trong tay."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "enormous",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khổng lồ, rất to",
+      "ipa": "/ɪˈnɔː.məs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/enormous.mp3"
+    },
+    {
+      "word": "zookeeper",
+      "vocabulary_bank_id": null,
+      "translation_vi": "người trông coi vườn thú",
+      "ipa": "/ˈzuːˌkiː.pər/",
+      "audio_url": null
+    },
+    {
+      "word": "gentle",
+      "vocabulary_bank_id": "fl-ch-008",
+      "translation_vi": "hiền lành, nhẹ nhàng",
+      "ipa": "/ˈdʒen.tl̩/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/gentle.mp3"
+    },
+    {
+      "word": "penguin",
+      "vocabulary_bank_id": "fl-an-022",
+      "translation_vi": "chim cánh cụt",
+      "ipa": "/ˈpeŋ.ɡwɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/penguin.mp3"
+    },
+    {
+      "word": "parrot",
+      "vocabulary_bank_id": "fl-an-021",
+      "translation_vi": "con vẹt",
+      "ipa": "/ˈpær.ət/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/parrot.mp3"
+    },
+    {
+      "word": "colourful",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhiều màu sắc, sặc sỡ",
+      "ipa": "/ˈkʌl.ə.fəl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/colourful.mp3"
+    },
+    {
+      "word": "copy",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bắt chước, sao chép",
+      "ipa": "/ˈkɒp.i/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/copy.mp3"
+    },
+    {
+      "word": "gift shop",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cửa hàng quà lưu niệm",
+      "ipa": "/ˈɡɪft ʃɒp/",
+      "audio_url": null
+    }
+  ]
+}

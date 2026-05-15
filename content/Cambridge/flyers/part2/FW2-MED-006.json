@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-06-preparing-for-a-party.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Sarah hỏi có cần nhờ bố đến đón Paul không (pick you up), Paul trả lời Thế thì tốt quá, cảm ơn cậu (That would be very helpful, thank you).",
     "Sarah hỏi nên để đồ ăn thức uống ở đâu (Where), Paul đề nghị Để trên chiếc bàn lớn trong vườn (On the large table in the garden).",
     "Sarah rất hào hứng về cuộc thi nhảy (dancing competition), Paul nói Tớ hát giỏi hơn nhảy nhiều (I'm much better at singing than dancing)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "decorate",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trang trí",
+      "ipa": "/ˈdek.ə.reɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "invitation",
+      "vocabulary_bank_id": "fl-sl-014",
+      "translation_vi": "lời mời",
+      "ipa": "/ˌɪn.vɪˈteɪ.ʃən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/invitation.mp3"
+    },
+    {
+      "word": "celebration",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lễ kỷ niệm",
+      "ipa": "/ˌsel.ɪˈbreɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "balloon",
+      "vocabulary_bank_id": "st-to-003",
+      "translation_vi": "bóng bay",
+      "ipa": "/bəˈluːn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/balloon.mp3"
+    },
+    {
+      "word": "costume",
+      "vocabulary_bank_id": "fl-cl-003",
+      "translation_vi": "trang phục",
+      "ipa": "/ˈkɒs.tjuːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/costume.mp3"
+    }
   ]
 }

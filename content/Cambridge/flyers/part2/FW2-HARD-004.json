@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-04-the-volcano-project.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "David hỏi chuyện gì xảy ra nếu núi lửa phun trào (erupted) khi đang có khách tham quan, Emma trả lời Phụ thuộc vào việc họ ở cách đỉnh núi bao xa (how close they were to the top).",
     "David xin lỗi vì quên mang keo dán (glue) cho mô hình, Emma bảo đừng lo vì cô có mang trong balo (rucksack).",
     "David rủ đến nhà cậu làm nốt phần còn lại của dự án, Emma từ chối khéo vì thích ở lại thư viện cho yên tĩnh (prefer to stay at the library where it's quieter)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "volcano",
+      "vocabulary_bank_id": null,
+      "translation_vi": "núi lửa",
+      "ipa": "/vɒlˈkeɪ.nəʊ/",
+      "audio_url": null
+    },
+    {
+      "word": "lava",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dung nham",
+      "ipa": "/ˈlɑː.və/",
+      "audio_url": null
+    },
+    {
+      "word": "erupt",
+      "vocabulary_bank_id": null,
+      "translation_vi": "phun trào",
+      "ipa": "/ɪˈrʌpt/",
+      "audio_url": null
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ",
+      "ipa": "/ˈtem.prɪ.tʃər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "rucksack",
+      "vocabulary_bank_id": "fl-sl-029",
+      "translation_vi": "ba lô",
+      "ipa": "/ˈrʌk.sæk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/rucksack.mp3"
+    }
   ]
 }

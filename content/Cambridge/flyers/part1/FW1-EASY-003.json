@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-03-clothes-and-weather.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "easy",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a coat",
     "a scarf",
@@ -29,12 +29,10 @@
     "a uniform",
     "a pocket"
   ],
-
   "example": {
     "prompt": "You wear these on your feet when you want to play sports like football or running.",
     "answer": "trainers"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "This is a small thing on your jacket or trousers where you can put your money or keys.",
       "correct": "a pocket",
       "explanation_vi": "Pocket = túi (áo, quần), một chỗ nhỏ trên áo khoác hoặc quần để đựng tiền, chìa khóa."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "scarf",
+      "vocabulary_bank_id": "mv-cl-003",
+      "translation_vi": "khăn quàng cổ",
+      "ipa": "/skɑːf/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/scarf.mp3"
+    },
+    {
+      "word": "raincoat",
+      "vocabulary_bank_id": null,
+      "translation_vi": "áo mưa",
+      "ipa": "/ˈreɪnkəʊt/",
+      "audio_url": null
+    },
+    {
+      "word": "sunglasses",
+      "vocabulary_bank_id": "fl-cl-011",
+      "translation_vi": "kính râm",
+      "ipa": "/ˈsʌnɡlɑːsɪz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sunglasses.mp3"
+    },
+    {
+      "word": "sweater",
+      "vocabulary_bank_id": "mv-cl-004",
+      "translation_vi": "áo len",
+      "ipa": "/ˈswetə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sweater.mp3"
+    },
+    {
+      "word": "uniform",
+      "vocabulary_bank_id": "fl-cl-014",
+      "translation_vi": "đồng phục",
+      "ipa": "/ˈjuːnɪfɔːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/uniform.mp3"
+    },
+    {
+      "word": "pajamas",
+      "vocabulary_bank_id": "fl-cl-007",
+      "translation_vi": "bộ đồ ngủ",
+      "ipa": "/pəˈdʒɑːməz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/pajamas.mp3"
+    },
+    {
+      "word": "trainers",
+      "vocabulary_bank_id": "fl-cl-012",
+      "translation_vi": "giày thể thao",
+      "ipa": "/ˈtreɪnəz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/trainers.mp3"
+    },
+    {
+      "word": "pocket",
+      "vocabulary_bank_id": "fl-cl-009",
+      "translation_vi": "túi (áo/quần)",
+      "ipa": "/ˈpɒkɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/pocket.mp3"
     }
   ]
 }

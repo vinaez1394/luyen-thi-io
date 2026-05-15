@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-04-helping-dad-in-the-kitchen.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Bố nhờ Mary rửa cà chua (wash them), Mary đồng ý sẽ làm ngay (I'll do it now).",
     "Bố hỏi Mary có thích ô-liu trên pizza không, Mary đáp không, cô bé ghét chúng (hate them!).",
     "Bố hỏi lò nướng đã nóng chưa, Mary đáp rồi, đang ở 200 độ (200 degrees)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "ingredient",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nguyên liệu",
+      "ipa": "/ɪnˈɡriː.di.ənt/",
+      "audio_url": null
+    },
+    {
+      "word": "recipe",
+      "vocabulary_bank_id": null,
+      "translation_vi": "công thức nấu ăn",
+      "ipa": "/ˈres.ɪ.pi/",
+      "audio_url": null
+    },
+    {
+      "word": "delicious",
+      "vocabulary_bank_id": "fl-aj-005",
+      "translation_vi": "ngon",
+      "ipa": "/dɪˈlɪʃ.əs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/delicious.mp3"
+    },
+    {
+      "word": "mixture",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hỗn hợp",
+      "ipa": "/ˈmɪks.tʃər/",
+      "audio_url": null
+    },
+    {
+      "word": "oven",
+      "vocabulary_bank_id": "fl-ho-012",
+      "translation_vi": "lò nướng",
+      "ipa": "/ˈʌv.ən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/oven.mp3"
+    }
   ]
 }

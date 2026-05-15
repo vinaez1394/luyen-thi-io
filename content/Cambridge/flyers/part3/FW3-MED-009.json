@@ -1,0 +1,149 @@
+{
+  "id": "FW3-MED-009",
+  "title": "Set 9: The New Invention 🤖",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "science",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-09-the-new-invention.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "scientist",
+    "carefully",
+    "metal",
+    "batteries",
+    "whispered",
+    "machine",
+    "expensive",
+    "together",
+    "tomorrow"
+  ],
+  "example": {
+    "word": "project",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last month, my older brother had to finish a special **project** for his school. He wanted to build a small robot that could tidy up his room. He spent many days working in the garage. First, he made the body out of light ",
+    " so it wasn't too heavy to move.\n\nHe asked me to help him put the ",
+    " inside so the robot would have power. We followed the instructions very ",
+    " because we didn't want to make a mistake. When we finished, the ",
+    " looked like a small silver dog.\n\nMy brother ",
+    ", \"Let's turn it on!\" The robot started to move and began picking up all the socks on the floor. It was amazing! My brother got an 'A' for his work, and now his room is always clean."
+  ],
+  "answers": [
+    "metal",
+    "batteries",
+    "carefully",
+    "machine",
+    "whispered"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "A robot that loves to cook" },
+      { "letter": "B", "text": "The clever school invention" },
+      { "letter": "C", "text": "Buying a new toy dog" }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Thân robot làm bằng kim loại nhẹ (metal) để không quá nặng khi di chuyển.",
+    "Lắp pin (batteries) vào bên trong để robot có năng lượng hoạt động.",
+    "Làm theo hướng dẫn một cách cẩn thận (carefully) vì không muốn mắc lỗi.",
+    "Khi làm xong, cỗ máy (machine) này trông giống như một chú chó bạc nhỏ.",
+    "Người anh thì thầm (whispered) một cách phấn khích: 'Hãy bật nó lên!'.",
+    "Tiêu đề B (Phát minh thông minh ở trường học) là đúng nhất: câu chuyện kể về một dự án sáng tạo (invention) của học sinh."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "project",
+      "vocabulary_bank_id": "fl-sc-017",
+      "translation_vi": "dự án/đề tài",
+      "ipa": "/ˈprɒdʒ.ekt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/project.mp3"
+    },
+    {
+      "word": "metal",
+      "vocabulary_bank_id": "fl-ma-004",
+      "translation_vi": "kim loại",
+      "ipa": "/ˈmet.əl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/metal.mp3"
+    },
+    {
+      "word": "scientist",
+      "vocabulary_bank_id": "fl-oc-014",
+      "translation_vi": "nhà khoa học",
+      "ipa": "/ˈsaɪ.ən.tɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/scientist.mp3"
+    },
+    {
+      "word": "silver",
+      "vocabulary_bank_id": "fl-ma-006",
+      "translation_vi": "bạc (kim loại)",
+      "ipa": "/ˈsɪl.və/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/silver.mp3"
+    },
+    {
+      "word": "robot",
+      "vocabulary_bank_id": "st-to-018",
+      "translation_vi": "người máy",
+      "ipa": "/ˈrəʊ.bɒt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/robot.mp3"
+    },
+    {
+      "word": "tomorrow",
+      "vocabulary_bank_id": "fl-ti-027",
+      "translation_vi": "ngày mai",
+      "ipa": "/təˈmɒr.əʊ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/tomorrow.mp3"
+    },
+    {
+      "word": "batteries",
+      "vocabulary_bank_id": null,
+      "translation_vi": "pin",
+      "ipa": "/ˈbæt.ər.iz/",
+      "audio_url": null
+    },
+    {
+      "word": "carefully",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cẩn thận",
+      "ipa": "/ˈkeə.fəl.i/",
+      "audio_url": null
+    },
+    {
+      "word": "machine",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cỗ máy",
+      "ipa": "/məˈʃiːn/",
+      "audio_url": null
+    },
+    {
+      "word": "whispered",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thì thầm",
+      "ipa": "/ˈwɪs.pərd/",
+      "audio_url": null
+    },
+    {
+      "word": "expensive",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đắt tiền",
+      "ipa": "/ɪkˈspen.sɪv/",
+      "audio_url": null
+    },
+    {
+      "word": "together",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cùng nhau",
+      "ipa": "/təˈɡeð.ər/",
+      "audio_url": null
+    }
+  ]
+}

@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-01-a-trip-to-the-museum.jpg",
   "type": "flyers-part2",
   "is_free": true,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Lily hỏi có mua gì từ cửa hàng lưu niệm không, Tom đáp là có mua một chú khủng long đồ chơi (toy dinosaur).",
     "Lily hỏi Tom đã ở lại đó bao lâu (How long), Tom nói khoảng 3 tiếng (About three hours).",
     "Lily hào hứng khoe ngày mai sẽ đi đến đó, Tom chúc Lily đi chơi vui vẻ (Have a great time!)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "exhibition",
+      "vocabulary_bank_id": null,
+      "translation_vi": "triển lãm",
+      "ipa": "/ˌek.sɪˈbɪʃ.ən/",
+      "audio_url": null
+    },
+    {
+      "word": "ancient",
+      "vocabulary_bank_id": "fl-aj-001",
+      "translation_vi": "cổ đại",
+      "ipa": "/ˈeɪn.ʃənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/ancient.mp3"
+    },
+    {
+      "word": "artefact",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đồ vật cổ",
+      "ipa": "/ˈɑː.tɪ.fækt/",
+      "audio_url": null
+    },
+    {
+      "word": "guide",
+      "vocabulary_bank_id": "fl-oc-007",
+      "translation_vi": "người hướng dẫn",
+      "ipa": "/ɡaɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/guide.mp3"
+    },
+    {
+      "word": "fascinating",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thú vị",
+      "ipa": "/ˈfæs.ɪ.neɪ.tɪŋ/",
+      "audio_url": null
+    }
   ]
 }

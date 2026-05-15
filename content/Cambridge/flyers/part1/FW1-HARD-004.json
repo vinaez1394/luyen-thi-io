@@ -1,9 +1,10 @@
 {
   "id": "FW1-HARD-004",
-  "title": "Flyers Reading & Writing — Part 1 — Set 4 (Hard)",
+  "title": "Flyers Part 1 — Set 4: 🏛️ History & Society (Hard)",
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-04-history-and-society.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "hard",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a century",
     "a politician",
@@ -29,12 +29,10 @@
     "an environment",
     "chemistry"
   ],
-
   "example": {
     "prompt": "This is a science subject where students learn about how different gases, solids, and liquids react with each other.",
     "answer": "chemistry"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "This is what you get at the end of a test or a race, which tells you how well you did or what position you finished in.",
       "correct": "a result",
       "explanation_vi": "Result = kết quả, nhận được sau một bài kiểm tra hoặc cuộc đua cho biết bạn làm tốt thế nào."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "century",
+      "vocabulary_bank_id": "fl-ti-007",
+      "translation_vi": "thế kỷ",
+      "ipa": "/ˈsentʃərɪ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/century.mp3"
+    },
+    {
+      "word": "politician",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chính trị gia",
+      "ipa": "/ˌpɒlɪˈtɪʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "exhibition",
+      "vocabulary_bank_id": null,
+      "translation_vi": "triển lãm",
+      "ipa": "/ˌeksɪˈbɪʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "tradition",
+      "vocabulary_bank_id": null,
+      "translation_vi": "truyền thống",
+      "ipa": "/trəˈdɪʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "population",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dân số",
+      "ipa": "/ˌpɒpjʊˈleɪʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "lawyer",
+      "vocabulary_bank_id": null,
+      "translation_vi": "luật sư",
+      "ipa": "/ˈlɔːjə/",
+      "audio_url": null
+    },
+    {
+      "word": "souvenir",
+      "vocabulary_bank_id": null,
+      "translation_vi": "quà lưu niệm",
+      "ipa": "/ˌsuːvəˈnɪə/",
+      "audio_url": null
+    },
+    {
+      "word": "statue",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bức tượng",
+      "ipa": "/ˈstætʃuː/",
+      "audio_url": null
     }
   ]
 }

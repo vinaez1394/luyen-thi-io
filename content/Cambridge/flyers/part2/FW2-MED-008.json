@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-08-a-holiday-in-the-mountains.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Jack hỏi có thấy động vật hoang dã thú vị nào không (interesting wildlife), Lily nói Chỉ thấy vài con đại bàng và dê núi (Only some eagles and a few mountain goats).",
     "Jack hỏi Lily thích hoạt động nào nhất (enjoy the most), Lily đáp Chắc chắn là việc tham quan hồ đóng băng (visiting the frozen lake).",
     "Jack muốn xem ảnh chụp lúc nào đó, Lily đồng ý sẽ mang máy tính bảng đến trường vào ngày mai (bring my tablet to school tomorrow)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "hiking",
+      "vocabulary_bank_id": "fl-sp-007",
+      "translation_vi": "đi bộ đường dài",
+      "ipa": "/ˈhaɪ.kɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/hiking.mp3"
+    },
+    {
+      "word": "wildlife",
+      "vocabulary_bank_id": null,
+      "translation_vi": "động vật hoang dã",
+      "ipa": "/ˈwaɪld.laɪf/",
+      "audio_url": null
+    },
+    {
+      "word": "eagle",
+      "vocabulary_bank_id": "fl-an-009",
+      "translation_vi": "đại bàng",
+      "ipa": "/ˈiː.ɡəl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/eagle.mp3"
+    },
+    {
+      "word": "frozen",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đóng băng",
+      "ipa": "/ˈfrəʊ.zən/",
+      "audio_url": null
+    },
+    {
+      "word": "tablet",
+      "vocabulary_bank_id": null,
+      "translation_vi": "máy tính bảng",
+      "ipa": "/ˈtæb.lɪt/",
+      "audio_url": null
+    }
   ]
 }

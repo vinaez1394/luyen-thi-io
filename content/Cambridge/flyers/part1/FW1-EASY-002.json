@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-02-food-and-drink.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "easy",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "pasta",
     "lemonade",
@@ -29,12 +29,10 @@
     "tea",
     "ice cream"
   ],
-
   "example": {
     "prompt": "This is a white liquid that comes from cows. You can drink it or have it with cereal.",
     "answer": "milk"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,57 @@
       "prompt": "This is a cold and sweet food. You can have it in a bowl or on a cone.",
       "correct": "ice cream",
       "explanation_vi": "Ice cream = kem, món ăn lạnh và ngọt có thể đựng trong cốc hoặc ốc quế."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "pasta",
+      "vocabulary_bank_id": "mv-fd-011",
+      "translation_vi": "mì ống",
+      "ipa": "/ˈpæstə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/pasta.mp3"
+    },
+    {
+      "word": "lemonade",
+      "vocabulary_bank_id": "st-fd-027",
+      "translation_vi": "nước chanh",
+      "ipa": "/ˌlemənˈeɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/lemonade.mp3"
+    },
+    {
+      "word": "grapes",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nho",
+      "ipa": "/ɡreɪps/",
+      "audio_url": null
+    },
+    {
+      "word": "vegetables",
+      "vocabulary_bank_id": null,
+      "translation_vi": "rau củ",
+      "ipa": "/ˈvedʒtəbəlz/",
+      "audio_url": null
+    },
+    {
+      "word": "biscuit",
+      "vocabulary_bank_id": "fl-fd-001",
+      "translation_vi": "bánh quy",
+      "ipa": "/ˈbɪskɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/biscuit.mp3"
+    },
+    {
+      "word": "strawberries",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dâu tây",
+      "ipa": "/ˈstrɔːbərɪz/",
+      "audio_url": null
+    },
+    {
+      "word": "sandwich",
+      "vocabulary_bank_id": "mv-fd-015",
+      "translation_vi": "bánh mì kẹp",
+      "ipa": "/ˈsænwɪdʒ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sandwich.mp3"
     }
   ]
 }

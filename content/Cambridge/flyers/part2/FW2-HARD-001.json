@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-01-the-school-robot-competition.jpg",
   "type": "flyers-part2",
   "is_free": true,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Harry hỏi điều gì xảy ra khi bật nó lên sáng nay (turn it on), Sarah trả lời Không có gì (Nothing) vì cô ấy quên lắp pin (put the batteries in).",
     "Harry hy vọng sẽ giành giải nhất (win the first prize) nếu nó hoạt động tốt, Sarah khiêm tốn đồng ý (I hope so) nhưng cũng khen các đội khác rất giỏi.",
     "Harry rủ hỏi giáo viên khoa học kiểm tra giùm bánh xe (check the wheels), Sarah đồng ý và rủ đi tìm thầy (That's a great idea. Let's go and find him)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "competition",
+      "vocabulary_bank_id": "fl-sp-012",
+      "translation_vi": "cuộc thi",
+      "ipa": "/ˌkɒm.pɪˈtɪʃ.ən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/competition.mp3"
+    },
+    {
+      "word": "circuit",
+      "vocabulary_bank_id": null,
+      "translation_vi": "mạch điện",
+      "ipa": "/ˈsɜː.kɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "programme",
+      "vocabulary_bank_id": "fl-sl-023",
+      "translation_vi": "lập trình",
+      "ipa": "/ˈproʊ.ɡræm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/programme.mp3"
+    },
+    {
+      "word": "sensor",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cảm biến",
+      "ipa": "/ˈsen.sər/",
+      "audio_url": null
+    },
+    {
+      "word": "engineer",
+      "vocabulary_bank_id": "fl-wk-010",
+      "translation_vi": "kỹ sư",
+      "ipa": "/ˌen.dʒɪˈnɪər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/engineer.mp3"
+    }
   ]
 }

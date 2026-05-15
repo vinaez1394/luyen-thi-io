@@ -24,39 +24,31 @@ import "./SubjectPage.css";
 
 // ─── Quiz score cache key helper ─────────────────────────────────────────────
 const SKILL_PREF_KEY = (slug: string) => `sp_skill_${slug}`;
-const PART_PREF_KEY  = (slug: string, skill: string) => `sp_part_${slug}_${skill}`;
+const PART_PREF_KEY = (slug: string, skill: string) => `sp_part_${slug}_${skill}`;
 
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 /** Kỹ năng meta — thứ tự quyết định thứ tự tab */
 const SKILL_META: { key: string; label: string; emoji: string }[] = [
-  { key: "reading",    label: "Reading",    emoji: "📖" },
-  { key: "writing",   label: "Writing",    emoji: "✏️" },
-  { key: "listening", label: "Listening",  emoji: "🎧" },
-  { key: "vocabulary",label: "Vocabulary", emoji: "📝" },
-  { key: "grammar",   label: "Grammar",    emoji: "📐" },
-  { key: "math",      label: "Toán",       emoji: "🔢" },
-  { key: "mixed",     label: "Tổng hợp",   emoji: "🎯" },
+  { key: "reading", label: "Reading", emoji: "📖" },
+  { key: "writing", label: "Writing", emoji: "✏️" },
+  { key: "listening", label: "Listening", emoji: "🎧" },
+  { key: "vocabulary", label: "Vocabulary", emoji: "📝" },
+  { key: "grammar", label: "Grammar", emoji: "📐" },
+  { key: "math", label: "Toán", emoji: "🔢" },
+  { key: "mixed", label: "Tổng hợp", emoji: "🎯" },
 ];
 
-const SKILL_COLORS: Record<string, string> = {
-  reading:    "badge-primary",
-  listening:  "badge-accent",
-  writing:    "badge-success",
-  math:       "badge-warning",
-  mixed:      "badge-primary",
-  vocabulary: "badge-accent",
-  grammar:    "badge-warning",
-};
+// SKILL_COLORS removed — header badges (level/skill) were removed from LessonCard
 
 const DIFFICULTY_CONFIG: Record<string, { label: string; shortLabel: string; className: string; emoji: string }> = {
-  easy:   { label: "Easy",   shortLabel: "Easy", className: "badge-difficulty-easy",   emoji: "🟢" },
-  medium: { label: "Medium", shortLabel: "Med",  className: "badge-difficulty-medium", emoji: "🟡" },
-  hard:   { label: "Hard",   shortLabel: "Hard", className: "badge-difficulty-hard",   emoji: "🔴" },
+  easy: { label: "Easy", shortLabel: "Easy", className: "badge-difficulty-easy", emoji: "🟢" },
+  medium: { label: "Medium", shortLabel: "Med", className: "badge-difficulty-medium", emoji: "🟡" },
+  hard: { label: "Hard", shortLabel: "Hard", className: "badge-difficulty-hard", emoji: "🔴" },
 };
 
-type GradeTab   = "all" | "3-4" | "4-5" | "5-6";
+type GradeTab = "all" | "3-4" | "4-5" | "5-6";
 type DiffFilter = "all" | "easy" | "medium" | "hard";
 
 /** Thứ tự grade để so sánh higher/lower */
@@ -69,10 +61,10 @@ const GRADE_TABS_DISPLAY: { key: GradeTab; label: string }[] = [
 ];
 
 const DIFF_CHIPS: { key: DiffFilter; label: string; emoji: string }[] = [
-  { key: "all",    label: "All Levels", emoji: "⚡" },
-  { key: "easy",   label: "Easy",       emoji: "🟢" },
-  { key: "medium", label: "Medium",     emoji: "🟡" },
-  { key: "hard",   label: "Hard",       emoji: "🔴" },
+  { key: "all", label: "All Levels", emoji: "⚡" },
+  { key: "easy", label: "Easy", emoji: "🟢" },
+  { key: "medium", label: "Medium", emoji: "🟡" },
+  { key: "hard", label: "Hard", emoji: "🔴" },
 ];
 
 // ─── Cambridge Part Metadata ────────────────────────────────────────────────
@@ -84,6 +76,8 @@ const CAMBRIDGE_PARTS: Record<string, Record<number, { desc: string }>> = {
     3: { desc: "Best Answer" },
     4: { desc: "Gap Fill" },
     5: { desc: "Write a Word" },
+    6: { desc: "Read & Write" },
+    7: { desc: "Write a Story" },
   },
   listening: {
     1: { desc: "Draw Lines" },
@@ -96,16 +90,14 @@ const CAMBRIDGE_PARTS: Record<string, Record<number, { desc: string }>> = {
 
 /** Cambridge: Reading tab → "Reading & Writing" */
 function getCambridgeSkillMeta(skillKey: string): { label: string; emoji: string } {
-  if (skillKey === "reading")   return { label: "Reading & Writing", emoji: "📖" };
-  if (skillKey === "listening") return { label: "Listening",         emoji: "🎧" };
+  if (skillKey === "reading") return { label: "Reading & Writing", emoji: "📖" };
+  if (skillKey === "listening") return { label: "Listening", emoji: "🎧" };
   return SKILL_META.find(s => s.key === skillKey) ?? { label: skillKey, emoji: "📚" };
 }
 
-const GRADE_BADGE: Record<string, { className: string; label: string }> = {
-  "3-4": { className: "badge-grade-34", label: "Lớp 3–4" },
-  "4-5": { className: "badge-grade-45", label: "Lớp 4–5" },
-  "5-6": { className: "badge-grade-56", label: "Lớp 5–6" },
-};
+// GRADE_BADGE removed (unused after header badge refactor)
+// "3-4": badge-grade-34 / "4-5": badge-grade-45 / "5-6": badge-grade-56
+
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -136,7 +128,7 @@ function getUserGradeTab(): GradeTab {
 function getGradeContext(tab: GradeTab, userTab: GradeTab): "own" | "higher" | "lower" {
   const diff = GRADE_ORDER[tab] - GRADE_ORDER[userTab];
   if (diff === 0) return "own";
-  if (diff > 0)  return "higher";
+  if (diff > 0) return "higher";
   return "lower";
 }
 
@@ -152,111 +144,115 @@ interface LessonCardProps {
   onClick: () => void;
 }
 
-function LessonCard({ lesson, isLoggedIn, subjectColor, isCambridge, score, onClick }: LessonCardProps) {
+function LessonCard({ lesson, isLoggedIn, subjectColor, score, onClick }: LessonCardProps) {
   const isPremium = !lesson.is_free;
   const locked    = isPremium && !isLoggedIn;
   const diff      = lesson.difficulty ? DIFFICULTY_CONFIG[lesson.difficulty] : null;
-  const grade     = lesson.grade_target ? GRADE_BADGE[lesson.grade_target] : null;
+  // grade badge removed from header — not displayed
 
-  // Color-code % badge theo mức độ
   const scoreBadgeClass =
-    score === undefined  ? "" :
-    score >= 80  ? "sp-score-badge--done" :   // xanh lá
-    score >= 50  ? "sp-score-badge--partial" : // vàng
-    "sp-score-badge--low";                     // đỏ
+    score === undefined ? "" :
+    score >= 80  ? "sp-score-badge--done" :
+    score >= 50  ? "sp-score-badge--partial" :
+    "sp-score-badge--low";
 
-  // Chỉ lấy phần đầu trước " — " để tiêu đề gọn hơn
   const displayTitle = lesson.title.split(" — ")[0];
+  const hasThumbnail = !!lesson.image_url;
 
   return (
     <div
-      className={[
-        "sp-lesson-card",
-        locked ? "sp-lesson-card--premium" : "",
-        lesson.recommended ? "sp-lesson-card--recommended" : "",
-        score !== undefined ? "sp-lesson-card--attempted" : "",
-      ].filter(Boolean).join(" ")}
+      className="sp-lesson-card-wrapper"
       style={{ "--subject-color": subjectColor } as React.CSSProperties}
-      onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onClick(); }}
-      id={`btn-lesson-${lesson.slug}`}
-      aria-label={`${displayTitle}${locked ? " — yêu cầu đăng nhập" : ""}`}
     >
-      {/* % Hoàn thành badge — top-right absolute */}
+      {/* Score % badge — gắn vào wrapper để thoát overflow:hidden của card */}
       {score !== undefined && (
         <span className={`sp-score-badge ${scoreBadgeClass}`}>
           {score}%
         </span>
       )}
-      {/* Header: grade badge (left) + skill badge (right) */}
-      <div className="sp-lesson-card__header">
-        {grade ? (
-          <span className={`badge sp-grade-badge ${grade.className}`}>{grade.label}</span>
-        ) : lesson.level ? (
-          <span className="badge badge-primary sp-grade-badge">{lesson.level}</span>
+
+      {/* Card: 16:9, ảnh fill full */}
+      <div
+        className={[
+          "sp-lesson-card",
+          locked ? "sp-lesson-card--premium" : "",
+          lesson.recommended ? "sp-lesson-card--recommended" : "",
+          score !== undefined ? "sp-lesson-card--attempted" : "",
+        ].filter(Boolean).join(" ")}
+        onClick={onClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onClick(); }}
+        id={`btn-lesson-${lesson.slug}`}
+        aria-label={`${displayTitle}${locked ? " — yêu cầu đăng nhập" : ""}`}
+      >
+        {/* Ảnh fill toàn bộ card */}
+        {hasThumbnail ? (
+          <img
+            src={lesson.image_url!}
+            alt={displayTitle}
+            className="sp-lesson-card__bg-img"
+            loading="lazy"
+            draggable={false}
+          />
         ) : (
-          <span />
+          <div className="sp-lesson-card__bg-fallback">
+            <span className="sp-lesson-card__thumb-emoji">{lesson.emoji}</span>
+          </div>
         )}
-        <span className={`badge sp-grade-badge ${SKILL_COLORS[lesson.skill] ?? "badge-primary"}`}>
-          {SKILL_META.find(s => s.key === lesson.skill)?.label ?? lesson.skill}
-        </span>
+
+        {/* Gradient overlay để badges dễ đọc */}
+        <div className="sp-lesson-card__overlay" />
+
+        {/* Footer badges: Premium (trái) + Difficulty (phải) — overlay trên ảnh */}
+        <div className="sp-lesson-card__footer">
+          {isPremium ? (
+            <span className="badge sp-badge-premium">
+              🔒{" "}
+              <span className="sp-badge-text--full">Premium</span>
+              <span className="sp-badge-text--short">Pre</span>
+            </span>
+          ) : (
+            <span />
+          )}
+          {diff && (
+            <span className={`badge sp-grade-badge ${diff.className}`}>
+              {diff.emoji}{" "}
+              <span className="sp-badge-text--full">{diff.label}</span>
+              <span className="sp-badge-text--short">{diff.shortLabel}</span>
+            </span>
+          )}
+        </div>
+
+        {/* Lock overlay */}
+        {locked && (
+          <div className="sp-lesson-card__lock-icon" aria-hidden>🔒</div>
+        )}
       </div>
 
-      {/* Title */}
-      <h3 className="sp-lesson-card__title">
+      {/* Title — nằm ngoài thẻ, bên dưới */}
+      <p className="sp-lesson-card__title">
         {lesson.recommended && <span className="sp-lesson-card__star">⭐</span>}
         {displayTitle}
-      </h3>
-
-      {/* Meta */}
-      <div className="sp-lesson-card__meta">
-        <span>{lesson.questions} {isCambridge ? "questions" : "câu hỏi"}</span>
-        {lesson.est_minutes && <span>· ~{lesson.est_minutes} {isCambridge ? "min" : "phút"}</span>}
-      </div>
-
-      {/* Footer: lock/premium (left) + difficulty (right) */}
-      <div className="sp-lesson-card__footer">
-        {isPremium ? (
-          <span className="badge sp-badge-premium">
-            🔒{" "}
-            <span className="sp-badge-text--full">Premium</span>
-            <span className="sp-badge-text--short">Pre</span>
-          </span>
-        ) : (
-          <span />
-        )}
-        {diff && (
-          <span className={`badge sp-grade-badge ${diff.className}`}>
-            {diff.emoji}{" "}
-            <span className="sp-badge-text--full">{diff.label}</span>
-            <span className="sp-badge-text--short">{diff.shortLabel}</span>
-          </span>
-        )}
-      </div>
-
-      {/* Lock overlay khi chưa đăng nhập */}
-      {locked && (
-        <div className="sp-lesson-card__lock-icon" aria-hidden>🔒</div>
-      )}
+      </p>
     </div>
   );
 }
+
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export function SubjectPage() {
   const { subjectSlug = "" } = useParams<{ subjectSlug: string }>();
-  const location  = useLocation();
-  const navigate  = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
 
   const pathway = getPathwayFromPathname(location.pathname);
   const subjectMeta = pathway ? findByPathwayGroup(pathway, subjectSlug) : null;
-  const { lessons: apiLessons } = useSubjects({ 
-    pathway: pathway || "", 
-    subject: subjectSlug 
+  const { lessons: apiLessons } = useSubjects({
+    pathway: pathway || "",
+    subject: subjectSlug
   });
 
   const subject = useMemo(() => {
@@ -274,10 +270,10 @@ export function SubjectPage() {
   // ── Filter state ──
   const isCambridge = pathway === "cambridge";
 
-  const [activeSkill,      setActiveSkill]      = useState<string>("");
-  const [activeGrade,      setActiveGrade]      = useState<GradeTab>(initialGradeTab);
-  const [activeDiff,       setActiveDiff]       = useState<DiffFilter>("all");
-  const [activePart,       setActivePart]       = useState<number | null>(null);
+  const [activeSkill, setActiveSkill] = useState<string>("");
+  const [activeGrade, setActiveGrade] = useState<GradeTab>(initialGradeTab);
+  const [activeDiff, setActiveDiff] = useState<DiffFilter>("all");
+  const [activePart, setActivePart] = useState<number | null>(null);
   // Track xem user đã chủ động đổi grade chưa (nếu đã đổi thì không auto-reset khi API về)
   const [gradeManuallySet, setGradeManuallySet] = useState(false);
 
@@ -324,7 +320,7 @@ export function SubjectPage() {
     const savedPartNum = savedPart ? parseInt(savedPart, 10) : null;
     const restoredPart = savedPartNum && parts.includes(savedPartNum) ? savedPartNum : (parts[0] ?? null);
     setActivePart(restoredPart);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCambridge, activeSkill]);
 
   // ── Lưu activePart vào sessionStorage khi user chọn ──
@@ -403,13 +399,13 @@ export function SubjectPage() {
   // ── Stats ──
   const stats = useMemo(() => {
     if (!subject) return { total: 0, free: 0, recommended: 0, avgMinutes: 0 };
-    const all  = subject.lessons;
+    const all = subject.lessons;
     const mins = all.filter(l => l.est_minutes).map(l => l.est_minutes as number);
     return {
-      total:       all.length,
-      free:        all.filter(l => l.is_free).length,
+      total: all.length,
+      free: all.filter(l => l.is_free).length,
       recommended: all.filter(l => l.recommended).length,
-      avgMinutes:  mins.length > 0 ? Math.round(mins.reduce((a, b) => a + b, 0) / mins.length) : 0,
+      avgMinutes: mins.length > 0 ? Math.round(mins.reduce((a, b) => a + b, 0) / mins.length) : 0,
     };
   }, [subject]);
 
@@ -555,15 +551,15 @@ export function SubjectPage() {
                     id={`btn-grade-${tab.key.replace("-", "")}`}
                     title={
                       ctx === "higher" ? "Thử thách lớp cao hơn 🔥"
-                      : ctx === "lower"  ? "Ôn lại kiến thức 🔄"
-                      : "Lớp của bạn"
+                        : ctx === "lower" ? "Ôn lại kiến thức 🔄"
+                          : "Lớp của bạn"
                     }
                   >
                     <span className="sp-grade-pill__label">{tab.label}</span>
                     <span className={`sp-grade-pill__ctx ${ctx === "own" ? "sp-grade-pill__ctx--own" : ""}`}>
                       {ctx === "higher" && "🔥"}
-                      {ctx === "lower"  && "🔄"}
-                      {ctx === "own"    && (
+                      {ctx === "lower" && "🔄"}
+                      {ctx === "own" && (
                         <>
                           <span className="sp-grade-pill__ctx-symbol">✓</span>
                           <span className="sp-grade-pill__ctx-label"> Của bạn</span>
@@ -599,15 +595,15 @@ export function SubjectPage() {
                 const count = subject.lessons.filter(
                   l => l.skill === activeSkill && l.part === partNum
                 ).length;
-                const isActive  = activePart === partNum;
-                const isEmpty   = count === 0;
+                const isActive = activePart === partNum;
+                const isEmpty = count === 0;
                 return (
                   <button
                     key={partNum}
                     className={[
                       "sp-part-pill",
-                      isActive ? "sp-part-pill--active"  : "",
-                      isEmpty  ? "sp-part-pill--empty"   : "",
+                      isActive ? "sp-part-pill--active" : "",
+                      isEmpty ? "sp-part-pill--empty" : "",
                     ].filter(Boolean).join(" ")}
                     onClick={() => !isEmpty && setActivePart(isActive ? null : partNum)}
                     id={`btn-part-${partNum}`}
@@ -700,3 +696,4 @@ export function SubjectPage() {
     </div>
   );
 }
+

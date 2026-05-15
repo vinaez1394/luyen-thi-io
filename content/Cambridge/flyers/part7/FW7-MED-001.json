@@ -1,0 +1,161 @@
+{
+  "id": "FW7-MED-001",
+  "title": "The Lost Dog",
+  "skill": "writing",
+  "level": "flyers",
+  "part": 7,
+  "type": "flyers-part7",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "animals",
+  "characters": [
+    "Tom",
+    "Lucy"
+  ],
+  "min_words": 20,
+  "pictures": [
+    {
+      "number": 1,
+      "url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/part7/FLYER-RW-P7-MED-01-the-lost-dog-pic1.jpg",
+      "alt_en": "Tom is walking in the park and sees a small dog sitting alone under a tree, looking sad. There is no owner nearby."
+    },
+    {
+      "number": 2,
+      "url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/part7/FLYER-RW-P7-MED-01-the-lost-dog-pic2.jpg",
+      "alt_en": "Tom and Lucy are making a poster that says 'Lost Dog' and putting it up on a wall or lamppost in the town."
+    },
+    {
+      "number": 3,
+      "url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/part7/FLYER-RW-P7-MED-01-the-lost-dog-pic3.jpg",
+      "alt_en": "A happy woman is reunited with her dog. She is smiling and thanking Tom and Lucy warmly."
+    }
+  ],
+  "scoring_keywords": [
+    "dog",
+    "dogs",
+    "puppy",
+    "animal",
+    "park",
+    "garden",
+    "tree",
+    "outside",
+    "sad",
+    "lost",
+    "alone",
+    "lonely",
+    "tom",
+    "lucy",
+    "boy",
+    "girl",
+    "children",
+    "they",
+    "poster",
+    "sign",
+    "notice",
+    "paper",
+    "wall",
+    "put",
+    "found",
+    "find",
+    "look",
+    "search",
+    "walked",
+    "happy",
+    "glad",
+    "smiled",
+    "excited",
+    "thank",
+    "thanked",
+    "owner",
+    "woman",
+    "lady",
+    "went",
+    "saw",
+    "said",
+    "helped",
+    "gave",
+    "took"
+  ],
+  "stars_thresholds": {
+    "one_star": {
+      "min_words": 20,
+      "min_keywords": 0
+    },
+    "two_stars": {
+      "min_words": 20,
+      "min_keywords": 3
+    },
+    "three_stars": {
+      "min_words": 20,
+      "min_keywords": 6
+    }
+  },
+  "checklist": [
+    {
+      "id": "word_count",
+      "label_vi": "✅ Đủ ít nhất 20 từ",
+      "label_fail_vi": "⚠️ Cần viết thêm — chưa đủ 20 từ (mức tối thiểu của Cambridge Flyers)",
+      "rule_type": "word_count",
+      "threshold": 20
+    },
+    {
+      "id": "has_character",
+      "label_vi": "✅ Có nhắc đến tên nhân vật (Tom hoặc Lucy)",
+      "label_fail_vi": "💡 Gợi ý: Hãy đề cập đến tên Tom và Lucy trong câu chuyện",
+      "rule_type": "contains_any",
+      "values": [
+        "Tom",
+        "Lucy",
+        "tom",
+        "lucy"
+      ]
+    },
+    {
+      "id": "has_connector",
+      "label_vi": "✅ Có dùng liên từ (and / but / so / because / when / then...)",
+      "label_fail_vi": "💡 Gợi ý: Thêm liên từ để câu chuyện mạch lạc hơn (and, but, so, because, when, then, suddenly)",
+      "rule_type": "contains_any",
+      "values": [
+        "and",
+        "but",
+        "so",
+        "because",
+        "when",
+        "then",
+        "after",
+        "before",
+        "suddenly",
+        "next",
+        "finally"
+      ]
+    },
+    {
+      "id": "has_keyword",
+      "label_vi": "✅ Có mô tả hình ảnh trong tranh",
+      "label_fail_vi": "💡 Gợi ý: Hãy mô tả những gì em nhìn thấy trong các bức tranh (con chó, công viên, tờ thông báo, người phụ nữ...)",
+      "rule_type": "keyword_count",
+      "threshold": 2
+    }
+  ],
+  "writing_tips_vi": [
+    "📝 Dùng thì quá khứ: was, were, went, saw, said, found, felt, helped",
+    "🔗 Dùng liên từ: and, but, so, because, when, then, suddenly, after that, finally",
+    "💬 Mô tả cảm xúc: happy, sad, excited, surprised, worried, relieved, glad",
+    "🖼️ Kể theo thứ tự tranh: One day... / Then... / In the end...",
+    "✨ Câu gợi ý: One day, Tom was walking in the park when he saw..."
+  ],
+  "ai_prompt_template": "You are an experienced Cambridge Flyers examiner. Please grade the following student story using the official Cambridge Flyers Part 7 marking scheme.\n\n## TASK CONTEXT\nThe student was shown 3 pictures telling a story:\n- Picture 1: {pic1}\n- Picture 2: {pic2}\n- Picture 3: {pic3}\nCharacters: {characters}\n\n## STUDENT'S STORY\n\"{essay}\"\n\n## MARKING SCHEME (0-5 marks)\n- 5 marks: All 3 pictures addressed, story is comprehensible, zero or few grammatical errors, good use of linking words/cohesive language, 20+ words\n- 4 marks: All 3 pictures addressed, story is comprehensible, zero or few grammatical errors, 20+ words\n- 3 marks: Only 1 or 2 pictures addressed, grammatical errors present but do not cause significant difficulty, 15+ words\n- 2 marks: Only 1 or 2 pictures addressed, grammatical errors cause problems for the reader, 15+ words\n- 1 mark: Incomprehensible, irrelevant, or 14 words or fewer\n- 0 marks: No response\n\n## PLEASE RESPOND IN VIETNAMESE with this format:\n**Điểm số:** X/5\n\n**Nhận xét tổng quan:** (2-3 câu)\n\n**Điểm mạnh:**\n- (liệt kê)\n\n**Điểm cần cải thiện:**\n- (liệt kê cụ thể)\n\n**Gợi ý cụ thể:** (Viết lại 1-2 câu mẫu để học sinh tham khảo)",
+  "zone2_instructions_vi": {
+    "title": "🤖 Muốn biết điểm chính xác? Nhờ AI chấm!",
+    "intro": "AI sẽ chấm điểm theo đúng tiêu chuẩn Cambridge Flyers và cho nhận xét chi tiết bằng tiếng Việt — miễn phí và chỉ mất 30 giây!",
+    "steps": [
+      "Bước 1: Nhấn nút \"Copy prompt\" bên dưới — đề bài + bài viết sẽ được copy tự động",
+      "Bước 2: Mở Gemini (dùng Gmail), ChatGPT, Claude hoặc AI bất kỳ",
+      "Bước 3: Dán (Ctrl+V / Cmd+V) vào ô chat và nhấn Gửi",
+      "Bước 4: Nhận điểm số 0–5 và nhận xét chi tiết theo chuẩn Cambridge!"
+    ],
+    "note": "💡 Gemini không cần tài khoản riêng — dùng Gmail là được!"
+  }
+}

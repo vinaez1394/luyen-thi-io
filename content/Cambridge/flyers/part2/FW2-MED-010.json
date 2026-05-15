@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-10-THE-COOKING-CLUB.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,35 +12,140 @@
   "difficulty": "medium",
   "topic": "food",
   "conversation": [
-    { "speaker": "Helen", "text": "Are you going to the cooking club after school today?", "example": true },
-    { "speaker": "Robert", "answerKey": "C", "example": true },
-    { "speaker": "Helen", "text": "What are you going to make in the class today?" },
-    { "speaker": "Robert", "questionIndex": 0 },
-    { "speaker": "Helen", "text": "Have you brought all the ingredients with you?" },
-    { "speaker": "Robert", "questionIndex": 1 },
-    { "speaker": "Helen", "text": "Is the teacher going to help you with the oven?" },
-    { "speaker": "Robert", "questionIndex": 2 },
-    { "speaker": "Helen", "text": "How long does the cooking class usually last?" },
-    { "speaker": "Robert", "questionIndex": 3 },
-    { "speaker": "Helen", "text": "I’d really like to taste your cake when it’s finished!" },
-    { "speaker": "Robert", "questionIndex": 4 }
+    {
+      "speaker": "Helen",
+      "text": "Are you going to the cooking club after school today?",
+      "example": true
+    },
+    {
+      "speaker": "Robert",
+      "answerKey": "C",
+      "example": true
+    },
+    {
+      "speaker": "Helen",
+      "text": "What are you going to make in the class today?"
+    },
+    {
+      "speaker": "Robert",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Helen",
+      "text": "Have you brought all the ingredients with you?"
+    },
+    {
+      "speaker": "Robert",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Helen",
+      "text": "Is the teacher going to help you with the oven?"
+    },
+    {
+      "speaker": "Robert",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Helen",
+      "text": "How long does the cooking class usually last?"
+    },
+    {
+      "speaker": "Robert",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Helen",
+      "text": "I’d really like to taste your cake when it’s finished!"
+    },
+    {
+      "speaker": "Robert",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Don't worry, I'll save a big piece for you!" },
-    { "letter": "B", "text": "Yes, I’ve got them all in this blue bag." },
-    { "letter": "C", "text": "I am. It’s my favorite day of the week!" },
-    { "letter": "D", "text": "It was delicious, but a bit too sweet." },
-    { "letter": "E", "text": "Only if we have a problem or a question." },
-    { "letter": "F", "text": "I prefer making pizza to making pasta." },
-    { "letter": "G", "text": "A strawberry cake for my mum’s birthday." },
-    { "letter": "H", "text": "About an hour and a half, I think." }
+    {
+      "letter": "A",
+      "text": "Don't worry, I'll save a big piece for you!"
+    },
+    {
+      "letter": "B",
+      "text": "Yes, I’ve got them all in this blue bag."
+    },
+    {
+      "letter": "C",
+      "text": "I am. It’s my favorite day of the week!"
+    },
+    {
+      "letter": "D",
+      "text": "It was delicious, but a bit too sweet."
+    },
+    {
+      "letter": "E",
+      "text": "Only if we have a problem or a question."
+    },
+    {
+      "letter": "F",
+      "text": "I prefer making pizza to making pasta."
+    },
+    {
+      "letter": "G",
+      "text": "A strawberry cake for my mum’s birthday."
+    },
+    {
+      "letter": "H",
+      "text": "About an hour and a half, I think."
+    }
   ],
-  "answers": ["G", "B", "E", "H", "A"],
+  "answers": [
+    "G",
+    "B",
+    "E",
+    "H",
+    "A"
+  ],
   "explanations_vi": [
     "Helen hỏi hôm nay cậu định làm món gì (What are you going to make), Robert trả lời Một chiếc bánh dâu tây cho sinh nhật mẹ tớ (A strawberry cake for my mum's birthday).",
     "Helen hỏi cậu đã mang đủ nguyên liệu chưa (brought all the ingredients), Robert bảo Có, tớ để tất cả trong chiếc túi màu xanh này (Yes, I've got them all in this blue bag).",
     "Helen hỏi cô giáo có giúp sử dụng lò nướng không (help you with the oven), Robert bảo Chỉ khi bọn tớ có vấn đề hoặc thắc mắc (Only if we have a problem or a question).",
     "Helen hỏi lớp học nấu ăn thường kéo dài bao lâu (How long does the cooking class usually last), Robert trả lời Tớ nghĩ khoảng 1 tiếng rưỡi (About an hour and a half, I think).",
     "Helen muốn nếm thử bánh khi nấu xong, Robert đồng ý bảo Đừng lo, tớ sẽ phần cậu một miếng to! (Don't worry, I'll save a big piece for you!)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "ingredient",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nguyên liệu",
+      "ipa": "/ɪnˈɡriː.di.ənt/",
+      "audio_url": null
+    },
+    {
+      "word": "recipe",
+      "vocabulary_bank_id": null,
+      "translation_vi": "công thức nấu ăn",
+      "ipa": "/ˈres.ɪ.pi/",
+      "audio_url": null
+    },
+    {
+      "word": "delicious",
+      "vocabulary_bank_id": "fl-aj-005",
+      "translation_vi": "ngon",
+      "ipa": "/dɪˈlɪʃ.əs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/delicious.mp3"
+    },
+    {
+      "word": "mixture",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hỗn hợp",
+      "ipa": "/ˈmɪks.tʃər/",
+      "audio_url": null
+    },
+    {
+      "word": "oven",
+      "vocabulary_bank_id": "fl-ho-012",
+      "translation_vi": "lò nướng",
+      "ipa": "/ˈʌv.ən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/oven.mp3"
+    }
   ]
 }

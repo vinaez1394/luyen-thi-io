@@ -1,5 +1,5 @@
 /**
- * FlyersPart1Engine.tsx
+ * FlyersPart1Engine.tsx — v2 (Retrofitted)
  * Cambridge Flyers Reading & Writing — Part 1: "Look and Read"
  *
  * Cơ chế:
@@ -8,15 +8,30 @@
  *  - User click từ đang nằm trong câu → từ bay về Word Bank
  *  - Sau submit: hiển thị đúng/sai + explanation_vi
  *
- * Layout:
- *  - Desktop (≥768px): 2 cột — Word Bank + Example (trái) | 10 câu (phải)
- *  - Mobile (<768px): Word Bank sticky top, Example + 10 câu cuộn bên dưới
+ * Layout v2:
+ *  - Desktop (≥768px): 2 cột — Word Bank + Example + VocabPanel (trái) | 🖼 Image + 10 câu (phải)
+ *  - Mobile (<768px): Word Bank (fixed) → 🖼 Image → Example → 10 câu → VocabPanel
+ *
+ * Standard Modules (v2):
+ *  - VocabPanel (từ vựng + IPA + tra nghĩa)
+ *  - Star mechanic (3 lượt miễn phí → lượt 4+ tốn 1⭐)
+ *  - Auth nudge (chưa login → popup nhắc đăng nhập)
+ *  - DB tracking (ghi từ đã tra vào student_vocabulary)
+ *  - Image display (image_url → hiển thị trên cột phải, click mở lightbox)
  */
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import "./FlyersPart1Engine.css";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface VocabHighlightItem {
+  word: string;
+  vocabulary_bank_id: string | null;
+  translation_vi: string;
+  ipa: string;
+  audio_url: string | null;
+}
 
 export interface FlyersPart1Question {
   id: string;
@@ -44,6 +59,8 @@ export interface FlyersPart1Quiz {
   difficulty?: string;
   ui_language?: string;
   instructions_en?: string;
+  image_url?: string | null;
+  vocab_highlight?: VocabHighlightItem[];
   word_bank: string[];
   example: FlyersPart1Example;
   questions: FlyersPart1Question[];
@@ -58,15 +75,17 @@ interface FlyersPart1Result {
   starsEarned: number;
   saved: boolean;
   correctAnswers: Record<string, string>;
-  answersForApi: Record<string, string>; // placed answers — để QuizPage gọi API submit
-  startTime: number;                     // timestamp — để tính timeSpent
+  answersForApi: Record<string, string>;
+  startTime: number;
 }
 
 interface FlyersPart1EngineProps {
   quiz: FlyersPart1Quiz;
   onSubmitResult?: (result: FlyersPart1Result) => void;
-  onFinish?: () => void;   // Click “Finish” → QuizResultScreen
-  onBack?: () => void;     // Click “Back” → về danh sách bài
+  onFinish?: () => void;
+  onBack?: () => void;
+  isLoggedIn?: boolean;
+  studentId?: string | null;
 }
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
@@ -78,44 +97,207 @@ function calcStars(pct: number): number {
   return 1;
 }
 
+// ─── VocabPanel ──────────────────────────────────────────────────────────────
+
+const FREE_LOOKUPS = 3;
+const LOOKUP_WARNING =
+  `🎁 Bạn có ${FREE_LOOKUPS} lượt xem nghĩa của từ miễn phí trong bài này!\n` +
+  `Lượt thứ 4 trở đi sẽ đổi 1 ⭐ mỗi lượt nhé 😊\n` +
+  `(Ngôi sao không bao giờ mất — chỉ dùng để tra từ thôi!)`;
+
+interface VocabPanelProps {
+  vocab: VocabHighlightItem[];
+  isLoggedIn: boolean;
+  quizId: string;
+}
+
+function VocabPanel({ vocab, isLoggedIn, quizId }: VocabPanelProps) {
+  const [revealed, setRevealed] = useState<Set<string>>(new Set());
+  const [lookupCount, setLookupCount] = useState(0);
+  const [showAuthNudge, setShowAuthNudge] = useState(false);
+  const [showStarWarn, setShowStarWarn] = useState(false);
+
+  const handleAudio = useCallback((item: VocabHighlightItem) => {
+    if (item.audio_url) {
+      const audio = new Audio(item.audio_url);
+      audio.play().catch(() => {
+        const utt = new SpeechSynthesisUtterance(item.word);
+        utt.lang = "en-US";
+        speechSynthesis.speak(utt);
+      });
+    } else {
+      const utt = new SpeechSynthesisUtterance(item.word);
+      utt.lang = "en-US";
+      speechSynthesis.speak(utt);
+    }
+  }, []);
+
+  const handleTranslate = useCallback(async (item: VocabHighlightItem) => {
+    if (!isLoggedIn) {
+      setShowAuthNudge(true);
+      return;
+    }
+    if (revealed.has(item.word)) return;
+
+    const newCount = lookupCount + 1;
+
+    if (newCount > FREE_LOOKUPS) {
+      setShowStarWarn(true);
+      try {
+        await fetch("/api/student/stars/deduct", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: 1, reason: "vocab_lookup", quiz_id: quizId }),
+          credentials: "include",
+        });
+      } catch { /* silent */ }
+    }
+
+    setLookupCount(newCount);
+    setRevealed(prev => new Set([...prev, item.word]));
+
+    // DB tracking — backend lấy student_id từ session cookie
+    if (item.vocabulary_bank_id) {
+      fetch("/api/student/vocab/seen", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ word_id: item.vocabulary_bank_id, word: item.word }),
+        credentials: "include",
+      }).catch(() => {/* silent */ });
+    }
+  }, [isLoggedIn, revealed, lookupCount, quizId]);
+
+  const remaining = Math.max(0, FREE_LOOKUPS - lookupCount);
+
+  return (
+    <div className="fp4-vocab-panel">
+      <div className="fp4-vocab-panel__header">
+        <span className="fp4-vocab-panel__title">📚 Vocabulary</span>
+        <span className={`fp4-vocab-panel__counter ${remaining === 0 ? "fp4-vocab-panel__counter--zero" : ""}`}>
+          {remaining > 0 ? `${remaining} free look-ups` : "No free look-ups — 1⭐ each"}
+        </span>
+      </div>
+      <p className="fp4-vocab-panel__rule">{LOOKUP_WARNING}</p>
+
+      <ul className="fp4-vocab-list" role="list">
+        {vocab.map((item) => {
+          const isRevealed = revealed.has(item.word);
+          return (
+            <li key={item.word} className="fp4-vocab-item">
+              <div className="fp4-vocab-item__top">
+                <span className="fp4-vocab-item__word">{item.word}</span>
+                {item.ipa && <span className="fp4-vocab-item__ipa">{item.ipa}</span>}
+                <div className="fp4-vocab-item__actions">
+                  <button
+                    className="fp4-vocab-btn fp4-vocab-btn--audio"
+                    onClick={() => handleAudio(item)}
+                    title="Listen to pronunciation"
+                    aria-label={`Pronounce ${item.word}`}
+                  >
+                    🔊
+                  </button>
+                  <button
+                    className={`fp4-vocab-btn fp4-vocab-btn--translate ${isRevealed ? "fp4-vocab-btn--revealed" : ""}`}
+                    onClick={() => handleTranslate(item)}
+                    title={isRevealed ? item.translation_vi : "Xem nghĩa tiếng Việt"}
+                    aria-label={`Xem nghĩa của ${item.word}`}
+                    disabled={isRevealed}
+                  >
+                    {isRevealed ? "✓ VN" : "VN"}
+                  </button>
+                </div>
+              </div>
+              {isRevealed && (
+                <div className="fp4-vocab-item__translation" role="status" aria-live="polite">
+                  🇻🇳 <strong>{item.translation_vi}</strong>
+                </div>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* Auth nudge popup */}
+      {showAuthNudge && (
+        <div className="fp4-nudge-overlay" role="dialog" aria-modal="true">
+          <div className="fp4-nudge-popup">
+            <p>🔐 <strong>Log in to look up words &amp; save your progress!</strong></p>
+            <p className="fp4-nudge-popup__sub">Your vocabulary progress will be saved for review later.</p>
+            <div className="fp4-nudge-popup__actions">
+              <a href="/api/auth/google" className="btn btn-success">Sign in with Google</a>
+              <button className="btn btn-outline" onClick={() => setShowAuthNudge(false)}>Maybe later</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Star warning */}
+      {showStarWarn && (
+        <div className="fp4-star-toast" role="alert" aria-live="assertive">
+          ⭐ You used 1 star to look up a word!
+          <button className="fp4-star-toast__close" onClick={() => setShowStarWarn(false)} aria-label="Close">✕</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Image Lightbox ───────────────────────────────────────────────────────────
+
+function ImageLightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  return (
+    <div className="fp4-lightbox" role="dialog" aria-modal="true" aria-label="Phóng to hình ảnh" onClick={onClose}>
+      <button className="fp4-lightbox__close" onClick={onClose} aria-label="Đóng">✕</button>
+      <img
+        src={src}
+        alt={alt}
+        className="fp4-lightbox__img"
+        onClick={e => e.stopPropagation()}
+      />
+      <p className="fp4-lightbox__hint">Click bất kỳ đâu hoặc nhấn ESC để đóng</p>
+    </div>
+  );
+}
+
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: FlyersPart1EngineProps) {
-  // Câu đang được focus (sẽ nhận từ khi click Word Bank)
+export function FlyersPart1Engine({
+  quiz,
+  onSubmitResult,
+  onFinish,
+  onBack,
+  isLoggedIn = false,
+}: FlyersPart1EngineProps) {
   const [activeQ, setActiveQ] = useState<string | null>(null);
-  // Từ đã điền: { q1: "a dictionary", q3: "a pilot", ... }
   const [placed, setPlaced] = useState<FlyersPart1Answers>({});
-  // Đã nộp bài?
   const [submitted, setSubmitted] = useState(false);
   const [result, setResult] = useState<FlyersPart1Result | null>(null);
-  // Track start time để tính timeSpent
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const startTimeRef = useRef<number>(Date.now());
 
-  // Set từ nào đang ở trong câu nào (để biết chip nào đã dùng)
   const usedWords = new Set(Object.values(placed));
 
   // ── Handlers ──────────────────────────────────────────────────────────────
 
-  /** Click từ trong Word Bank */
   const handleWordBankClick = useCallback((word: string) => {
     if (submitted) return;
-
-    // Nếu từ đã được dùng ở câu nào đó → không làm gì (phải click từ câu để xóa)
     if (usedWords.has(word)) return;
-
-    // Nếu có câu đang active → điền từ vào
     if (activeQ) {
       setPlaced(prev => {
         const next = { ...prev };
-        // Nếu câu đó đã có từ → trả từ cũ về Word Bank (chỉ xóa key là đủ)
         next[activeQ] = word;
         return next;
       });
-      setActiveQ(null); // bỏ focus sau khi điền
+      setActiveQ(null);
     }
   }, [submitted, usedWords, activeQ]);
 
-  /** Click từ đang nằm trong câu → trả về Word Bank */
   const handlePlacedWordClick = useCallback((questionId: string) => {
     if (submitted) return;
     setPlaced(prev => {
@@ -123,16 +305,14 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
       delete next[questionId];
       return next;
     });
-    setActiveQ(questionId); // focus lại câu đó
+    setActiveQ(questionId);
   }, [submitted]);
 
-  /** Click vào câu để chọn làm active */
   const handleQuestionClick = useCallback((questionId: string) => {
     if (submitted) return;
     setActiveQ(prev => prev === questionId ? null : questionId);
   }, [submitted]);
 
-  /** Nộp bài */
   const handleSubmit = useCallback(() => {
     const correctAnswers: Record<string, string> = {};
     let score = 0;
@@ -156,8 +336,8 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
       starsEarned,
       saved: false,
       correctAnswers,
-      answersForApi: { ...placed },     // snapshot của placed answers
-      startTime: startTimeRef.current,  // để QuizPage tính timeSpent
+      answersForApi: { ...placed },
+      startTime: startTimeRef.current,
     };
 
     setResult(res);
@@ -165,7 +345,6 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
     onSubmitResult?.(res);
   }, [quiz.questions, placed, onSubmitResult]);
 
-  /** Làm lại */
   const handleReset = useCallback(() => {
     setPlaced({});
     setActiveQ(null);
@@ -186,29 +365,26 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
 
     const applyPadding = () => {
       if (window.innerWidth >= 768) {
-        // Desktop: CSS xử lý, không cần override
         engine.style.paddingTop = "";
         return;
       }
-      // Mobile: Word Bank là position:fixed, top:116px
-      // Content cần bắt đầu dưới đáy Word Bank
-      // fp1-engine bắt đầu tại y=72px (quiz-layout__content padding-top)
-      // → padding-top = (116 + wb.height) - 72 = wb.height + 44
       const wbHeight = wb.getBoundingClientRect().height;
       engine.style.paddingTop = `${wbHeight + 44}px`;
     };
 
     const ro = new ResizeObserver(applyPadding);
     ro.observe(wb);
-    applyPadding(); // Tính ngay lần đầu
+    applyPadding();
 
-    // Cũng lắng nghe resize màn hình (xoay ngang/dọc)
     window.addEventListener("resize", applyPadding);
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", applyPadding);
     };
   }, []);
+
+  const hasVocab = quiz.vocab_highlight && quiz.vocab_highlight.length > 0;
+  const hasImage = !!quiz.image_url;
 
   // ── Render ────────────────────────────────────────────────────────────────
 
@@ -248,7 +424,7 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
       {/* ── Main Layout ── */}
       <div className="fp1-layout">
 
-        {/* ── Left panel: Instruction + Example ── */}
+        {/* ── Left panel: Instruction + Example + VocabPanel ── */}
         <div className="fp1-left">
           <div className="fp1-instruction">
             <strong>LOOK AND READ.</strong> CHOOSE THE CORRECT WORDS AND WRITE THEM ON THE LINES. THERE IS ONE EXAMPLE.
@@ -261,10 +437,46 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
               <strong>{quiz.example.answer}</strong>
             </p>
           </div>
+
+          {/* VocabPanel — Desktop only in left col */}
+          {hasVocab && (
+            <div className="fp1-vocab-desktop">
+              <VocabPanel
+                vocab={quiz.vocab_highlight!}
+                isLoggedIn={isLoggedIn}
+                quizId={quiz.id}
+              />
+            </div>
+          )}
         </div>
 
-        {/* ── Right panel: Questions ── */}
+        {/* ── Right panel: Image + Questions ── */}
         <div className="fp1-right">
+
+          {/* Image — shown above questions on right col (desktop) */}
+          {hasImage && (
+            <div className="fp1-image-wrap" onClick={() => setLightboxOpen(true)}>
+              <img
+                src={quiz.image_url!}
+                alt={quiz.title}
+                className="fp1-image"
+              />
+              <span className="fp1-image__zoom-hint">🔍 Click để phóng to</span>
+            </div>
+          )}
+
+          {/* Image — mobile only (between Word Bank and Example) */}
+          {hasImage && (
+            <div className="fp1-image-wrap fp1-image-mobile" onClick={() => setLightboxOpen(true)}>
+              <img
+                src={quiz.image_url!}
+                alt={quiz.title}
+                className="fp1-image"
+              />
+              <span className="fp1-image__zoom-hint">🔍 Click để phóng to</span>
+            </div>
+          )}
+
           <ol className="fp1-questions">
             {quiz.questions.map(q => {
               const placedWord = placed[q.id];
@@ -294,7 +506,6 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
                   <div className="fp1-question__body">
                     <p className="fp1-question__prompt">{q.prompt}</p>
 
-                    {/* Blank / Placed word */}
                     <div className="fp1-question__answer-row">
                       {placedWord ? (
                         <button
@@ -319,7 +530,6 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
                         </span>
                       )}
 
-                      {/* Correct answer hint after submit */}
                       {isWrong && (
                         <span className="fp1-correct-hint">
                           ✓ {q.correct}
@@ -332,7 +542,6 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
                       )}
                     </div>
 
-                    {/* Explanation */}
                     {submitted && q.explanation_vi && (
                       <p className={`fp1-explanation ${isCorrect ? "fp1-explanation--correct" : "fp1-explanation--wrong"}`}>
                         {isCorrect ? "🎉" : "💡"} {q.explanation_vi}
@@ -362,7 +571,6 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
             </div>
           ) : (
             <div className="fp1-result">
-              {/* Score summary */}
               <div className="fp1-result__score">
                 <span className="fp1-result__stars">
                   {"⭐".repeat(result?.starsEarned ?? 0)}
@@ -373,7 +581,6 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
                 </span>
               </div>
 
-              {/* Action buttons */}
               <div className="fp1-result__actions">
                 {onFinish && (
                   <button
@@ -393,7 +600,6 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
                     ← Về danh sách
                   </button>
                 )}
-                {/* Fallback nếu không có callback */}
                 {!onFinish && !onBack && (
                   <button className="btn btn-outline" onClick={handleReset} id="btn-fp1-retry">
                     🔄 Try Again
@@ -402,8 +608,28 @@ export function FlyersPart1Engine({ quiz, onSubmitResult, onFinish, onBack }: Fl
               </div>
             </div>
           )}
+
+          {/* VocabPanel — Mobile only (below questions) */}
+          {hasVocab && (
+            <div className="fp1-vocab-mobile">
+              <VocabPanel
+                vocab={quiz.vocab_highlight!}
+                isLoggedIn={isLoggedIn}
+                quizId={quiz.id}
+              />
+            </div>
+          )}
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightboxOpen && quiz.image_url && (
+        <ImageLightbox
+          src={quiz.image_url}
+          alt={quiz.title}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </div>
   );
 }

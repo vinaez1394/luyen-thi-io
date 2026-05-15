@@ -517,166 +517,245 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LESSON CARD
+   LESSON CARD — v2: 16:9 full-image, badges overlay, title outside
 ═══════════════════════════════════════════════════════════════════════════ */
 
-.sp-lesson-card {
-  position: relative;
+/* Wrapper: bao gồm card (16:9) + title text bên dưới */
+.sp-lesson-card-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: var(--space-2);
-  background: var(--color-card);
-  border: 1.5px solid var(--color-border);
+  gap: 8px;
+  min-width: 0;
+  /* relative để score badge có thể nhô ra ngoài mà không bị clip */
+  position: relative;
+}
+
+/* Score % badge — absolute so với wrapper, không bị overflow:hidden cắt */
+.sp-lesson-card-wrapper > .sp-score-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -30%);
+  z-index: 20;
+}
+
+/* ── CARD: 16:9, ảnh fill full ── */
+.sp-lesson-card {
+  position: relative;
+  /* Tỉ lệ 16:9 — toàn bộ card */
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg, 12px);
   cursor: pointer;
-  /* ✅ min-width: 0 prevents flex/grid children from overflowing the cell */
   min-width: 0;
-  /* ❗ overflow: visible — cho phép badge % nhô ra ngoài góc card */
-  overflow: visible;
+  overflow: hidden; /* clip ảnh vào bo góc */
   box-sizing: border-box;
   transition:
-    border-color var(--transition-fast),
     box-shadow var(--transition-fast),
     transform var(--transition-bounce);
+  /* Không có padding hay background — ảnh fill toàn bộ */
+  background: color-mix(in srgb, var(--subject-color, var(--color-primary)) 10%, var(--color-bg));
 }
 
 .sp-lesson-card:hover {
-  border-color: var(--subject-color, var(--color-primary));
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--subject-color, var(--color-primary)) 20%, transparent);
-  transform: translateY(-3px);
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--subject-color, var(--color-primary)) 30%, transparent);
+  transform: translateY(-4px);
 }
 
 .sp-lesson-card:focus-visible {
-  outline: 2px solid var(--subject-color, var(--color-primary));
-  outline-offset: 2px;
+  outline: 3px solid var(--subject-color, var(--color-primary));
+  outline-offset: 3px;
 }
 
-/* Premium card: mờ hơn để phân biệt với free */
-.sp-lesson-card--premium {
-  opacity: 0.65;
-}
-
-.sp-lesson-card--premium:hover {
-  opacity: 0.88;
-  transition: opacity 0.2s ease;
-}
-
-/* Recommended card: border highlight matching subject color */
-.sp-lesson-card--recommended {
-  border-color: var(--subject-color, var(--color-primary));
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--subject-color, var(--color-primary)) 30%, transparent);
-}
-
-.sp-lesson-card--recommended:hover {
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--subject-color, var(--color-primary)) 50%, transparent),
-    0 6px 20px color-mix(in srgb, var(--subject-color, var(--color-primary)) 25%, transparent);
-}
-
-/* Recommended ribbon */
-.sp-lesson-card__recommended {
+/* ── Background image: fill toàn bộ card ── */
+.sp-lesson-card__bg-img {
   position: absolute;
-  top: -1px;
-  right: -1px;
-  background: #f59e0b;
-  color: #fff;
-  font-size: 10px;
-  font-weight: var(--font-bold);
-  padding: 2px 8px;
-  border-radius: 0 var(--radius-lg, 12px) 0 8px;
-  white-space: nowrap;
-  line-height: 1.6;
-  /* ⚠️ visible bên ngoài card — cần parent KHÔNG overflow:hidden */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.35s ease;
 }
 
-/* Emoji (legacy - kept for backward compat) */
-.sp-lesson-card__emoji {
-  display: none;
-  /* Không còn dùng trong layout mới */
+.sp-lesson-card:hover .sp-lesson-card__bg-img {
+  transform: scale(1.05);
 }
 
-/* Number */
-.sp-lesson-card__num {
-  font-size: 11px;
-  font-weight: var(--font-black);
-  color: var(--color-border);
-  font-variant-numeric: tabular-nums;
+/* ── Fallback: gradient + emoji khi không có ảnh ── */
+.sp-lesson-card__bg-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--subject-color, var(--color-primary)) 22%, var(--color-bg)) 0%,
+    color-mix(in srgb, var(--subject-color, var(--color-primary)) 8%, var(--color-bg)) 100%
+  );
+}
+
+.sp-lesson-card__thumb-emoji {
+  font-size: 3rem;
   line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
 }
 
-.sp-lesson-card:hover .sp-lesson-card__num {
-  color: var(--subject-color, var(--color-primary));
+.sp-lesson-card:hover .sp-lesson-card__thumb-emoji {
+  transform: scale(1.15);
 }
 
-/* Title */
+/* ── Gradient overlay: đảm bảo badges đọc được trên ảnh ── */
+.sp-lesson-card__overlay {
+  position: absolute;
+  inset: 0;
+  /* gradient trên-dưới: tối để badge dễ đọc, mờ ở giữa */
+  background:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.42) 0%,
+      transparent 35%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.50) 100%
+    );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Header badges: Flyers + Reading — overlay trên cùng ── */
+.sp-lesson-card__header {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+/* ── Footer badges: Premium + Difficulty — overlay dưới cùng ── */
+.sp-lesson-card__footer {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+/* Badges trên ảnh: có backdrop-blur nhẹ để nổi bật */
+.sp-lesson-card__header .badge,
+.sp-lesson-card__header .sp-grade-badge,
+.sp-lesson-card__footer .badge,
+.sp-lesson-card__footer .sp-grade-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  line-height: 1.3;
+  white-space: nowrap;
+  /* Viền trắng mờ để nổi trên ảnh */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Title: nằm ngoài card, trong wrapper ── */
 .sp-lesson-card__title {
   font-size: var(--font-sm);
   font-weight: var(--font-bold);
   color: var(--color-text);
   margin: 0;
-  line-height: 1.35;
-  /* Clamp to 3 lines */
+  line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Chips */
-.sp-lesson-card__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 2px;
+/* Star prefix for recommended */
+.sp-lesson-card__star {
+  margin-right: 3px;
+  font-size: 0.85em;
 }
 
-/* Meta */
-.sp-lesson-card__meta {
-  display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-  font-size: var(--font-xs);
-  color: var(--color-text-muted);
-  margin-top: auto;
-  padding-top: 4px;
-}
-
-/* Lock icon overlay */
+/* Lock overlay */
 .sp-lesson-card__lock-icon {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
-  background: color-mix(in srgb, var(--color-bg) 40%, transparent);
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.35);
   border-radius: inherit;
   pointer-events: none;
+  z-index: 3;
 }
 
-/* Mobile tweaks */
+/* Premium: mờ hơn */
+.sp-lesson-card--premium {
+  opacity: 0.72;
+}
+
+.sp-lesson-card--premium:hover {
+  opacity: 0.9;
+}
+
+/* Recommended: border highlight */
+.sp-lesson-card--recommended {
+  box-shadow: 0 0 0 2.5px var(--subject-color, var(--color-primary));
+}
+
+.sp-lesson-card--recommended:hover {
+  box-shadow:
+    0 0 0 2.5px var(--subject-color, var(--color-primary)),
+    0 8px 24px color-mix(in srgb, var(--subject-color, var(--color-primary)) 30%, transparent);
+}
+
+/* Attempted: ring tinted */
+.sp-lesson-card--attempted {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--subject-color, var(--color-primary)) 50%, transparent);
+}
+
+/* Mobile */
 @media (max-width: 600px) {
-  .sp-lesson-card {
-    padding: var(--space-1) 0.625rem;
+  .sp-lesson-card__header {
+    top: 5px;
+    left: 5px;
+    right: 5px;
   }
 
-  .sp-lesson-card__emoji {
-    font-size: 1.5rem;
+  .sp-lesson-card__footer {
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+  }
+
+  .sp-lesson-card__header .badge,
+  .sp-lesson-card__footer .badge,
+  .sp-lesson-card__header .sp-grade-badge,
+  .sp-lesson-card__footer .sp-grade-badge {
+    font-size: 9px;
+    padding: 2px 6px;
   }
 
   .sp-lesson-card__title {
     font-size: var(--font-xs);
+    -webkit-line-clamp: 3;
   }
 
-  /* Header badges: căt ngắn nếu quá dài */
-  .sp-lesson-card__header .badge {
-    max-width: 80px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .sp-lesson-card__thumb-emoji {
+    font-size: 2.25rem;
   }
 }
+
+
 
 /* ═══════════════════════════════════════════════════════════════════════════
    DIFFICULTY BADGES (global, shared with old code)
@@ -733,43 +812,7 @@
 /* ⚠️ Không dùng prefers-color-scheme — App dùng data-theme attribute (6 themes).
    Dark mode sẽ được handle bởi [data-theme="night"] không phải OS system preference. */
 
-/* Card header row: grade badge left, skill badge right */
-.sp-lesson-card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px;
-  margin-bottom: 6px;
-}
 
-/* Both grade + skill (header) AND difficulty (footer) badges: identical size */
-.sp-lesson-card__header .badge,
-.sp-lesson-card__header .sp-grade-badge,
-.sp-lesson-card__footer .badge,
-.sp-lesson-card__footer .sp-grade-badge {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 20px;
-  line-height: 1.3;
-  white-space: nowrap;
-}
-
-/* Star prefix for recommended titles */
-.sp-lesson-card__star {
-  margin-right: 3px;
-  font-size: 0.85em;
-}
-
-/* Card footer: premium badge (left) + difficulty badge (right) */
-.sp-lesson-card__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px;
-  margin-top: auto;
-  padding-top: 2px;
-}
 
 /* Premium badge */
 .sp-badge-premium {
@@ -784,12 +827,22 @@
 }
 
 /* Two-span text: desktop = full, mobile = short */
-.sp-badge-text--short { display: none; }
-.sp-badge-text--full  { display: inline; }
+.sp-badge-text--short {
+  display: none;
+}
+
+.sp-badge-text--full {
+  display: inline;
+}
 
 @media (max-width: 600px) {
-  .sp-badge-text--full  { display: none; }
-  .sp-badge-text--short { display: inline; }
+  .sp-badge-text--full {
+    display: none;
+  }
+
+  .sp-badge-text--short {
+    display: inline;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -921,6 +974,7 @@
     padding: 0.65rem 0.75rem;
     font-size: 0.875rem;
   }
+
   .sp-skill-tabs--cambridge .sp-skill-tab__label {
     font-size: 0.875rem;
   }
@@ -1043,9 +1097,11 @@
     min-width: 70px;
     padding: 0.5rem 0.65rem;
   }
+
   .sp-part-pill__num {
     font-size: 0.8rem;
   }
+
   .sp-part-pill__desc {
     font-size: 0.6rem;
   }

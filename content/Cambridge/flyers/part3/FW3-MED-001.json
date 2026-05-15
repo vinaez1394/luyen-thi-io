@@ -73,10 +73,10 @@
   "vocab_highlight": [
     {
       "word": "camping",
-      "vocabulary_bank_id": null,
+      "vocabulary_bank_id": "fl-sp-002",
       "translation_vi": "cắm trại",
       "ipa": "/ˈkæm.pɪŋ/",
-      "audio_url": null
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/camping.mp3"
     },
     {
       "word": "explore",
@@ -87,17 +87,17 @@
     },
     {
       "word": "forest",
-      "vocabulary_bank_id": null,
+      "vocabulary_bank_id": "mv-wa-006",
       "translation_vi": "rừng",
       "ipa": "/ˈfɒr.ɪst/",
-      "audio_url": null
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/forest.mp3"
     },
     {
       "word": "torch",
-      "vocabulary_bank_id": null,
+      "vocabulary_bank_id": "fl-sl-042",
       "translation_vi": "đèn pin",
       "ipa": "/tɔːtʃ/",
-      "audio_url": null
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/torch.mp3"
     },
     {
       "word": "scary",
@@ -108,10 +108,10 @@
     },
     {
       "word": "bridge",
-      "vocabulary_bank_id": null,
+      "vocabulary_bank_id": "fl-wa-002",
       "translation_vi": "cây cầu",
       "ipa": "/brɪdʒ/",
-      "audio_url": null
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/bridge.mp3"
     }
   ]
 }

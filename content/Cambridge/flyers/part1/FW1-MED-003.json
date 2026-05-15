@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-03-travel-and-transportation.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "medium",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a station",
     "a passenger",
@@ -29,12 +29,10 @@
     "a postcard",
     "a museum"
   ],
-
   "example": {
     "prompt": "When you want to cut meat or vegetables into small pieces for cooking, you can use this.",
     "answer": "a knife"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,57 @@
       "prompt": "This is the time when you travel from one place to another, especially if it is a long way.",
       "correct": "a journey",
       "explanation_vi": "Journey = hành trình, thời gian di chuyển từ nơi này đến nơi khác, đặc biệt là đoạn đường dài."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "passenger",
+      "vocabulary_bank_id": "fl-oc-011",
+      "translation_vi": "hành khách",
+      "ipa": "/ˈpæsɪndʒə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/passenger.mp3"
+    },
+    {
+      "word": "journey",
+      "vocabulary_bank_id": "fl-tr-004",
+      "translation_vi": "hành trình",
+      "ipa": "/ˈdʒɜːnɪ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/journey.mp3"
+    },
+    {
+      "word": "traffic jam",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tắc đường",
+      "ipa": "/ˈtræfɪk dʒæm/",
+      "audio_url": null
+    },
+    {
+      "word": "souvenir",
+      "vocabulary_bank_id": null,
+      "translation_vi": "quà lưu niệm",
+      "ipa": "/ˌsuːvəˈnɪə/",
+      "audio_url": null
+    },
+    {
+      "word": "passport",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hộ chiếu",
+      "ipa": "/ˈpɑːspɔːt/",
+      "audio_url": null
+    },
+    {
+      "word": "rucksack",
+      "vocabulary_bank_id": "fl-sl-029",
+      "translation_vi": "ba lô",
+      "ipa": "/ˈrʌksæk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/rucksack.mp3"
+    },
+    {
+      "word": "postcard",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bưu thiếp",
+      "ipa": "/ˈpəʊstkɑːd/",
+      "audio_url": null
     }
   ]
 }

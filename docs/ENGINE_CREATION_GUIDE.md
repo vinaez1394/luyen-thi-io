@@ -446,9 +446,10 @@ echo "SESSION_SECRET_VALUE" | npx wrangler secret put SESSION_SECRET --name luye
 
 ---
 
-## 🚨 CHECKLIST ĐẦY ĐỦ KHI THÊM BÀI MỚI (5 Bước Bắt Buộc)
+## 🚨 CHECKLIST ĐẦY ĐỦ KHI THÊM BÀI MỚI (6 Bước Bắt Buộc)
 
-> **Thiếu bất kỳ bước nào → bài sẽ không hiện hoặc không load được!**
+> **Thiếu bất kỳ bước nào → bài sẽ không hiện hoặc không load được!**  
+> Xem đầy đủ với ví dụ thực tế tại: `docs/QUYTRINH_THEM_BAI_QUIZ.md`
 
 ### Bước 1 — Tạo file JSON content
 ```
@@ -492,7 +493,15 @@ curl -X POST "https://dev.luyenthi.io.vn/api/subjects/cache/invalidate" \
 
 ### Bước 5 — Upload JSON lên Cloudflare R2
 
-Worker production đọc quiz content từ R2, không phải từ bundle:
+Worker production đọc quiz content từ R2, không phải từ bundle. **Dùng script thay vì lệnh wrangler raw** để upload đúng path và tự động detect file mới:
+```bash
+# Upload toàn bộ content (script tự detect file mới/đã thay đổi)
+node scripts/upload-content-r2.mjs --remote
+```
+
+> ✅ Output mong đợi: `✅ FW3-MED-007.json` v.v.
+
+**Lệnh wrangler thủ công (dùng khi chỉ upload 1 file):**
 ```bash
 npx wrangler r2 object put "luyen-thi-content/quizzes/cambridge/flyers/part3/FW3-MED-001.json" \
   --file="content/Cambridge/flyers/part3/FW3-MED-001.json" \
@@ -519,11 +528,17 @@ Nếu API fail, SubjectPage fallback về `subjects.ts`. Thêm lesson vào đún
 }
 ```
 
-### Bước 7 — Deploy + Verify
+### Bước 6 — Deploy Staging (Tự Động Invalidate KV Cache)
 ```bash
-npm run build
-npm run deploy:staging
-# Verify:
+# Bao gồm: build → patch wrangler.json → deploy → check secrets → invalidate KV cache
+node scripts/deploy-staging.mjs
+```
+
+> ✅ Script này **tự động invalidate KV cache** sau khi deploy.  
+> Sau deploy, hard refresh browser: `Ctrl+Shift+R` (Mac: `Cmd+Shift+R`).
+
+```bash
+# Verify sau deploy:
 curl "https://dev.luyenthi.io.vn/api/subjects?pathway=cambridge&subject=flyers" | grep FW3
 ```
 
@@ -584,3 +599,16 @@ Khi tích hợp các module vào engine mới, hãy lưu ý tránh các bug sau 
   - `segs[1]`: text đứng **sau** Example và **trước** Q1 (tuyệt đối không chứa đáp án của Example. Nếu Example và Q1 sát nhau thì để chuỗi rỗng `""`).
   - `segs[2]`: text đứng sau Q1, trước Q2.
   - Luôn ghi nhớ và kiểm tra: `story_segments.length === answers.length + 2`.
+
+### 6. Bug: Bài tập mới không hiển thị (hoặc mất Thumbnail), Vocab không có âm thanh
+- **Nguyên nhân 1 (Seed xóa image_url):** Seed script dùng `REPLACE INTO` (xóa row cũ, insert row mới). Script cũ đọc `lesson.image_url` từ `subjects.ts`, nhưng `subjects.ts` không có trường này → `image_url = NULL` cho TẤT CẢ bài sau mỗi lần seed.
+- **Nguyên nhân 2 (KV Cache stale):** Sau seed/deploy, KV cache vẫn giữ data cũ (30 phút TTL). User thấy bài cũ, thiếu bài mới, thumbnail biến mất.
+- **Nguyên nhân 3 (R2 Upload bị bỏ qua):** Worker production đọc bài từ R2. Nếu chỉ update local/D1 mà quên upload R2 → click vào bài bị lỗi.
+- **Nguyên nhân 4 (Vocab audio_url null):** Khai báo `vocabulary_bank_id` có giá trị nhưng quên điền `audio_url` → VocabPanel không có nút phát âm.
+- **Fix vĩnh viễn đã áp dụng (2026-05-14):**
+  - `generate-quiz-catalog-seed.ts` giờ **tự scan** thư mục `content/` để build `imageUrlMap` từ các file JSON → seed không bao giờ set `image_url = NULL` nữa.
+  - `deploy-staging.mjs` giờ **tự gọi** `/api/subjects/cache/invalidate` sau mỗi deploy → KV cache luôn được làm mới.
+- **Cách tránh trong tương lai:**
+  - **R2:** Sau khi tạo/sửa bất kỳ file JSON nào → luôn chạy `node scripts/upload-content-r2.mjs --remote`.
+  - **Vocab:** Nếu `vocabulary_bank_id` có giá trị → `audio_url` bắt buộc phải có. Không có trong DB → gán cả 2 là `null`.
+  - **Browser cache:** Sau deploy, `Ctrl+Shift+R` để bỏ cache trình duyệt (5 phút).

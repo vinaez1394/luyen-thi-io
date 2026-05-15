@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-05-nature-and-animals.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -102,6 +103,64 @@
       "prompt": "This is a very small animal that usually has six legs and sometimes has wings to fly.",
       "correct": "an insect",
       "explanation_vi": "Insect = côn trùng, loài động vật rất nhỏ thường có sáu chân và đôi khi có cánh để bay."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "eagle",
+      "vocabulary_bank_id": "fl-an-009",
+      "translation_vi": "đại bàng",
+      "ipa": "/ˈiːɡəl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/eagle.mp3"
+    },
+    {
+      "word": "island",
+      "vocabulary_bank_id": "mv-wa-009",
+      "translation_vi": "hòn đảo",
+      "ipa": "/ˈaɪlənd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/island.mp3"
+    },
+    {
+      "word": "dolphin",
+      "vocabulary_bank_id": "fl-an-008",
+      "translation_vi": "cá heo",
+      "ipa": "/ˈdɒlfɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dolphin.mp3"
+    },
+    {
+      "word": "volcano",
+      "vocabulary_bank_id": null,
+      "translation_vi": "núi lửa",
+      "ipa": "/vɒlˈkeɪnəʊ/",
+      "audio_url": null
+    },
+    {
+      "word": "camel",
+      "vocabulary_bank_id": "fl-an-003",
+      "translation_vi": "lạc đà",
+      "ipa": "/ˈkæməl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/camel.mp3"
+    },
+    {
+      "word": "insect",
+      "vocabulary_bank_id": "fl-an-026",
+      "translation_vi": "côn trùng",
+      "ipa": "/ˈɪnsekt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/insect.mp3"
+    },
+    {
+      "word": "jungle",
+      "vocabulary_bank_id": "fl-nt-010",
+      "translation_vi": "rừng rậm nhiệt đới",
+      "ipa": "/ˈdʒʌŋɡəl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/jungle.mp3"
+    },
+    {
+      "word": "desert",
+      "vocabulary_bank_id": "fl-wa-005",
+      "translation_vi": "sa mạc",
+      "ipa": "/ˈdezət/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/desert.mp3"
     }
   ]
 }

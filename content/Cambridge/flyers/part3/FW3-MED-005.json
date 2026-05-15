@@ -1,0 +1,136 @@
+{
+  "id": "FW3-MED-005",
+  "title": "Set 5: A Visit to the Hospital 🏥",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "health",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-05-a-visit-to-the-hospital.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "medicine",
+    "carefully",
+    "temperature",
+    "nurse",
+    "whispered",
+    "broken",
+    "excited",
+    "felt",
+    "stomach"
+  ],
+  "example": {
+    "word": "hospital",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last week, my friend Sarah didn't come to school. I was worried, so my mum took me to see her at the ",
+    ". When we arrived, Sarah was lying in bed. She ",
+    " very tired and her face was quite red.\n\nA kind ",
+    " came in to check on her. She used a small machine to take Sarah's ",
+    ". It was very high, so Sarah had to stay in bed and rest. The woman gave her some ",
+    " to drink. It tasted like strawberries, so Sarah didn't mind taking it.\n\nThe room was very quiet, so we ",
+    " when we talked. Sarah told me she hopes to be better by Saturday because she wants to go to the park. I brought her a funny book to read while she waits to go home."
+  ],
+  "answers": [
+    "felt",
+    "nurse",
+    "temperature",
+    "medicine",
+    "whispered"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "A noisy day at school" },
+      { "letter": "B", "text": "Visiting a sick friend" },
+      { "letter": "C", "text": "A trip to the toy shop" }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Sarah nằm trên giường và cảm thấy (felt) rất mệt mỏi.",
+    "Một y tá (nurse) tốt bụng bước vào để kiểm tra cho bạn ấy.",
+    "Y tá dùng máy nhỏ để đo nhiệt độ (temperature) của Sarah.",
+    "Người phụ nữ cho Sarah uống một ít thuốc (medicine) vị dâu tây.",
+    "Phòng bệnh rất yên tĩnh nên chúng tôi đã thì thầm (whispered) khi nói chuyện.",
+    "Tiêu đề B (Thăm một người bạn bị ốm) là đúng nhất vì toàn bộ câu chuyện kể về việc tác giả đến bệnh viện thăm người bạn tên Sarah."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "hospital",
+      "vocabulary_bank_id": "mv-hl-010",
+      "translation_vi": "bệnh viện",
+      "ipa": "/ˈhɑː.spɪ.t̬əl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/hospital.mp3"
+    },
+    {
+      "word": "nurse",
+      "vocabulary_bank_id": "fl-oc-010",
+      "translation_vi": "y tá",
+      "ipa": "/nɜːs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/nurse.mp3"
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ, sốt",
+      "ipa": "/ˈtem.pɚ.ə.tʃɚ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "stomach",
+      "vocabulary_bank_id": "mv-bf-010",
+      "translation_vi": "bụng, dạ dày",
+      "ipa": "/ˈstʌm.ək/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/stomach.mp3"
+    },
+    {
+      "word": "medicine",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thuốc",
+      "ipa": "/ˈmed.ɪ.sən/",
+      "audio_url": null
+    },
+    {
+      "word": "felt",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cảm thấy",
+      "ipa": "/felt/",
+      "audio_url": null
+    },
+    {
+      "word": "carefully",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cẩn thận",
+      "ipa": "/ˈkeə.fəl.i/",
+      "audio_url": null
+    },
+    {
+      "word": "whispered",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thì thầm",
+      "ipa": "/ˈwɪs.pərd/",
+      "audio_url": null
+    },
+    {
+      "word": "broken",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bị gãy/vỡ",
+      "ipa": "/ˈbrəʊ.kən/",
+      "audio_url": null
+    },
+    {
+      "word": "excited",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hào hứng",
+      "ipa": "/ɪkˈsaɪ.tɪd/",
+      "audio_url": null
+    }
+  ]
+}

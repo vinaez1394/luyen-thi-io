@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-03-a-cold-day.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Sarah hỏi thuốc đang ở đâu (Where), Peter đáp nó đang ở trong bếp (in the kitchen).",
     "Sarah hỏi khi nào có thể đi học lại (When), Peter đáp chắc là vào thứ Hai (On Monday).",
     "Sarah đề nghị mang bài tập về nhà tới cho Peter, Peter cảm ơn vì sự tốt bụng của Sarah (That's very kind of you)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "headache",
+      "vocabulary_bank_id": "mv-hl-009",
+      "translation_vi": "đau đầu",
+      "ipa": "/ˈhed.eɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/headache.mp3"
+    },
+    {
+      "word": "medicine",
+      "vocabulary_bank_id": "fl-hl-005",
+      "translation_vi": "thuốc",
+      "ipa": "/ˈmed.ɪ.sɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/medicine.mp3"
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ / sốt",
+      "ipa": "/ˈtem.prɪ.tʃər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "prescription",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đơn thuốc",
+      "ipa": "/prɪˈskrɪp.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "recover",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hồi phục",
+      "ipa": "/rɪˈkʌv.ər/",
+      "audio_url": null
+    }
   ]
 }

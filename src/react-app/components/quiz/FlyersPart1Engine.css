@@ -131,13 +131,61 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   LEFT PANEL: Instruction + Example
+   LEFT PANEL: Instruction + Example + VocabPanel
    ═══════════════════════════════════════════════════ */
 
 .fp1-left {
   display: flex;
   flex-direction: column;
   gap: var(--space-3, 0.75rem);
+}
+
+/* VocabPanel: desktop = left col, mobile = hidden (shown via fp1-vocab-mobile) */
+.fp1-vocab-desktop {
+  display: block;
+}
+.fp1-vocab-mobile {
+  display: none;
+}
+
+/* Image — desktop: top of right col */
+.fp1-image-wrap {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: #f0f0f0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  aspect-ratio: 16/9;
+}
+
+.fp1-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.fp1-image-wrap:hover .fp1-image {
+  transform: scale(1.02);
+}
+
+.fp1-image__zoom-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+/* Image mobile variant — hidden on desktop */
+.fp1-image-mobile {
+  display: none;
 }
 
 .fp1-instruction {
@@ -529,6 +577,25 @@
    ═══════════════════════════════════════════════════ */
 
 @media (max-width: 767px) {
+  /* Image: desktop version hidden, mobile version shown */
+  .fp1-image-wrap:not(.fp1-image-mobile) {
+    display: none;
+  }
+  .fp1-image-mobile {
+    display: block;
+    margin: 0 0.75rem;
+    border-radius: 12px;
+    aspect-ratio: 16/9;
+  }
+
+  /* VocabPanel: hide desktop version, show mobile version */
+  .fp1-vocab-desktop {
+    display: none;
+  }
+  .fp1-vocab-mobile {
+    display: block;
+    margin: 0 0.75rem 1rem;
+  }
   .fp1-engine {
     padding: 0;
   }

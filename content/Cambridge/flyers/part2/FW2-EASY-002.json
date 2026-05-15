@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-02-weekend-activities.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Hỏi ăn gì cho bữa trưa (What ... for lunch), Helen trả lời ăn bánh mì kẹp phô mai và nho.",
     "Hỏi trời có nắng không, Helen trả lời không, trời hơi nhiều mây (cloudy).",
     "David bày tỏ muốn đi công viên, Helen mời David đi cùng vào thứ Bảy tới."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "picnic",
+      "vocabulary_bank_id": "mv-fd-012",
+      "translation_vi": "dã ngoại",
+      "ipa": "/ˈpɪk.nɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/picnic.mp3"
+    },
+    {
+      "word": "cycling",
+      "vocabulary_bank_id": "fl-sp-005",
+      "translation_vi": "đạp xe",
+      "ipa": "/ˈsaɪ.klɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/cycling.mp3"
+    },
+    {
+      "word": "exhausted",
+      "vocabulary_bank_id": null,
+      "translation_vi": "kiệt sức",
+      "ipa": "/ɪɡˈzɔːs.tɪd/",
+      "audio_url": null
+    },
+    {
+      "word": "adventure",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cuộc phiêu lưu",
+      "ipa": "/ədˈven.tʃər/",
+      "audio_url": null
+    },
+    {
+      "word": "equipment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thiết bị",
+      "ipa": "/ɪˈkwɪp.mənt/",
+      "audio_url": null
+    }
   ]
 }

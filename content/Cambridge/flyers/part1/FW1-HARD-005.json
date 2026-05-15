@@ -1,9 +1,10 @@
 {
   "id": "FW1-HARD-005",
-  "title": "Flyers Reading & Writing — Part 1 — Set 5 (Hard)",
+  "title": "Flyers Part 1 — Set 5: 🌍 Technology & Modern World (Hard)",
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-05-technology-and-modern-world.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "hard",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a climate",
     "a satellite",
@@ -29,12 +29,10 @@
     "an engine",
     "a factory"
   ],
-
   "example": {
     "prompt": "This is a short period of time when you visit a person or a place to learn about it, often with a guide.",
     "answer": "a tour"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "This is a large building where many people work with machines to make things like cars, clothes, or toys.",
       "correct": "a factory",
       "explanation_vi": "Factory = nhà máy, tòa nhà lớn nơi mọi người làm việc với máy móc để sản xuất đồ vật."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "climate",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khí hậu",
+      "ipa": "/ˈklaɪmɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "satellite",
+      "vocabulary_bank_id": null,
+      "translation_vi": "vệ tinh",
+      "ipa": "/ˈsætəlaɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "experiment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thí nghiệm",
+      "ipa": "/ɪkˈsperɪmənt/",
+      "audio_url": null
+    },
+    {
+      "word": "audience",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khán giả",
+      "ipa": "/ˈɔːdiəns/",
+      "audio_url": null
+    },
+    {
+      "word": "colleague",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đồng nghiệp",
+      "ipa": "/ˈkɒliːɡ/",
+      "audio_url": null
+    },
+    {
+      "word": "specialist",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chuyên gia",
+      "ipa": "/ˈspeʃəlɪst/",
+      "audio_url": null
+    },
+    {
+      "word": "factory",
+      "vocabulary_bank_id": "fl-wk-011",
+      "translation_vi": "nhà máy/xưởng",
+      "ipa": "/ˈfæktərɪ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/factory.mp3"
+    },
+    {
+      "word": "palace",
+      "vocabulary_bank_id": "fl-pl-012",
+      "translation_vi": "cung điện",
+      "ipa": "/ˈpælɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/palace.mp3"
     }
   ]
 }

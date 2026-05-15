@@ -1,0 +1,13 @@
+const fs = require('fs');
+const path = 'content/Cambridge/flyers/part3/FW3-HARD-002.json';
+let data = JSON.parse(fs.readFileSync(path, 'utf8'));
+const word = 'information';
+const index = data.answers.indexOf(word);
+data.answers.splice(index, 1);
+data.explanations_vi.splice(index, 1);
+const seg1 = data.story_segments[index];
+const seg2 = data.story_segments[index + 1];
+data.story_segments[index] = seg1 + word + seg2;
+data.story_segments.splice(index + 1, 1);
+fs.writeFileSync(path, JSON.stringify(data, null, 2) + '\n');
+console.log('Fixed FW3-HARD-002.json');

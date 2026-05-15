@@ -1,0 +1,159 @@
+{
+  "id": "FW6-MED-002",
+  "title": "Set 2: School Sports Day ⚡",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 6,
+  "type": "flyers-part6",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "sport",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-02-school-sports-day.jpg",
+  "instructions_en": "READ THE EMAIL AND WRITE IN THE MISSING WORDS. WRITE ONE WORD ON EACH LINE.",
+  "diary_date": "Friday 2nd June",
+  "segments": [
+    {
+      "type": "text",
+      "content": "Hi Tom, I am writing to tell you about our school Sports Day last Friday! I "
+    },
+    {
+      "type": "blank",
+      "number": 1,
+      "accepted_answers": [
+        "ran"
+      ],
+      "explanation_vi": "'I ran in three races' — 'ran' là quá khứ bất quy tắc của 'run'. Đây là thì quá khứ đơn kể về sự kiện đã xảy ra. run → ran → run.",
+      "grammar_tag": "past_simple_irregular"
+    },
+    {
+      "type": "text",
+      "content": " in three races and won two gold medals! After the races, we had lunch "
+    },
+    {
+      "type": "blank",
+      "number": 2,
+      "accepted_answers": [
+        "on"
+      ],
+      "explanation_vi": "'had lunch on the school field' — 'on' chỉ vị trí trên một bề mặt rộng: on the field, on the grass, on the ground.",
+      "grammar_tag": "preposition"
+    },
+    {
+      "type": "text",
+      "content": " the school field. During lunch, my friends and I "
+    },
+    {
+      "type": "blank",
+      "number": 3,
+      "accepted_answers": [
+        "took"
+      ],
+      "explanation_vi": "'took lots of photos' — 'took' là quá khứ bất quy tắc của 'take'. Collocation quan trọng: TAKE photos (KHÔNG nói 'make photos' hay 'do photos'). take → took → taken.",
+      "grammar_tag": "collocation_verb"
+    },
+    {
+      "type": "text",
+      "content": " lots of photos with our medals. The weather was really sunny, "
+    },
+    {
+      "type": "blank",
+      "number": 4,
+      "accepted_answers": [
+        "so"
+      ],
+      "explanation_vi": "'sunny, so we all got a bit hot' — 'so' là liên từ kết quả, nối nguyên nhân và hậu quả trong một câu. Cấu trúc: [nguyên nhân], so [kết quả].",
+      "grammar_tag": "conjunction"
+    },
+    {
+      "type": "text",
+      "content": " we all got a bit hot! Our teacher said we all worked much harder "
+    },
+    {
+      "type": "blank",
+      "number": 5,
+      "accepted_answers": [
+        "than"
+      ],
+      "explanation_vi": "'worked harder than usual' — 'than' dùng sau tính từ/trạng từ so sánh hơn: harder than, faster than, better than, more interesting than.",
+      "grammar_tag": "comparative"
+    },
+    {
+      "type": "text",
+      "content": " usual because everyone wanted to win! I hope you can come and watch next year. Your friend, Anna"
+    }
+  ],
+  "grammar_tips": [
+    {
+      "tag": "past_simple_irregular",
+      "title": "Quá khứ bất quy tắc thường gặp ở Flyers",
+      "tip_vi": "Đây là các động từ quá khứ bất quy tắc cần nhớ:\n• run → ran | win → won | take → took\n• go → went | see → saw | eat → ate\n• have → had | make → made | give → gave\n• write → wrote | buy → bought | come → came"
+    },
+    {
+      "tag": "collocation_verb",
+      "title": "Collocation: TAKE + danh từ",
+      "tip_vi": "Động từ 'take' kết hợp với nhiều danh từ tạo thành collocation:\n• take a photo / take photos ✅ (KHÔNG nói 'make a photo')\n• take notes | take a bus | take a shower\n• take part in | take turns | take care of\nKhi gặp 'photo' hay 'photos' trong bài → câu trả lời thường là 'took'!"
+    },
+    {
+      "tag": "conjunction",
+      "title": "Liên từ kết quả: SO",
+      "tip_vi": "'So' nối 2 mệnh đề — mệnh đề trước là nguyên nhân, sau là kết quả:\n• It was raining, so we stayed inside.\n• The weather was hot, so we drank a lot of water.\nSo sánh:\n• 'because' = vì (nguyên nhân đứng SAU): We stayed inside because it was raining.\n• 'so' = vì vậy (kết quả đứng SAU): It was raining, so we stayed inside."
+    },
+    {
+      "tag": "comparative",
+      "title": "So sánh hơn: tính từ/trạng từ + THAN",
+      "tip_vi": "Sau so sánh hơn luôn dùng 'than':\n• harder than | faster than | better than\n• more interesting than | more beautiful than\nCấu trúc: S + V + adj/adv + ER (hoặc MORE + adj) + THAN + đối tượng so sánh"
+    },
+    {
+      "tag": "preposition",
+      "title": "Giới từ chỉ vị trí: ON",
+      "tip_vi": "'On' dùng khi vật/người ở trên một bề mặt:\n• on the field | on the grass | on the floor | on the ground\n• on the table | on the wall | on the sofa\nKhác với 'in' (bên trong): in the garden, in the park"
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "Sports Day",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ngày hội thể thao trường",
+      "ipa": "/ˈspɔːts deɪ/",
+      "audio_url": null
+    },
+    {
+      "word": "medals",
+      "vocabulary_bank_id": null,
+      "translation_vi": "huy chương",
+      "ipa": "/ˈmed.əlz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/medal.mp3"
+    },
+    {
+      "word": "races",
+      "vocabulary_bank_id": "fl-sp-014",
+      "translation_vi": "các cuộc đua",
+      "ipa": "/ˈreɪ.sɪz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/race.mp3"
+    },
+    {
+      "word": "field",
+      "vocabulary_bank_id": "fl-ou-008",
+      "translation_vi": "sân, bãi cỏ rộng",
+      "ipa": "/fiːld/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/field.mp3"
+    },
+    {
+      "word": "won",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đã thắng (quá khứ của win)",
+      "ipa": "/wʌn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/win.mp3"
+    },
+    {
+      "word": "usual",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông thường, bình thường",
+      "ipa": "/ˈjuː.ʒu.əl/",
+      "audio_url": null
+    }
+  ]
+}

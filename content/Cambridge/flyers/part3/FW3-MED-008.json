@@ -1,0 +1,125 @@
+{
+  "id": "FW3-MED-008",
+  "title": "Set 8: A Trip to the Desert 🐪",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "travel",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-08-a-trip-to-the-desert.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–6. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "pyramid",
+    "quickly",
+    "dry",
+    "sand",
+    "journey",
+    "storm",
+    "pockets",
+    "scary",
+    "expensive"
+  ],
+  "example": {
+    "word": "camel",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last winter, my family went to Egypt. The weather was very hot and ",
+    ". I had my first ride on a ",
+    " named Leo. It felt very ",
+    " at first because I was so high up, but Leo was very kind.\n\nWe traveled across the deep yellow ",
+    " for two hours. Suddenly, the wind started to blow very hard. Our guide said a sand ",
+    " was coming, so we had to move ",
+    " to find a safe place. We hid behind a large rock until the wind stopped.\n\nIt was a long ",
+    ", but finally, we saw a giant pyramid in the distance. It was amazing to think that people built it thousands of years ago. I took many photos to show my friends at school."
+  ],
+  "answers": [
+    "dry",
+    "scary",
+    "sand",
+    "storm",
+    "quickly",
+    "journey"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "An adventure in the sun" },
+      { "letter": "B", "text": "Learning to swim in Egypt" },
+      { "letter": "C", "text": "A cold day in the mountains" }
+    ],
+    "answer": "A"
+  },
+  "explanations_vi": [
+    "Thời tiết nóng và khô (dry).",
+    "Cảm thấy hơi sợ (scary) vì ngồi trên lưng lạc đà rất cao.",
+    "Đi băng qua bãi cát (sand) vàng suốt hai tiếng.",
+    "Hướng dẫn viên nói cơn bão (storm) cát đang đến.",
+    "Phải di chuyển thật nhanh (quickly) để tìm chỗ trú ẩn.",
+    "Đó là một chuyến hành trình (journey) dài nhưng cuối cùng thấy kim tự tháp.",
+    "Tiêu đề A (Một cuộc phiêu lưu dưới ánh mặt trời) phù hợp nhất: chuyến đi ở Ai Cập nóng bức với nhiều sự kiện thú vị."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "camel",
+      "vocabulary_bank_id": "fl-an-003",
+      "translation_vi": "con lạc đà",
+      "ipa": "/ˈkæməl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/camel.mp3"
+    },
+    {
+      "word": "dry",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khô hanh",
+      "ipa": "/draɪ/",
+      "audio_url": null
+    },
+    {
+      "word": "scary",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đáng sợ",
+      "ipa": "/ˈskeər.i/",
+      "audio_url": null
+    },
+    {
+      "word": "sand",
+      "vocabulary_bank_id": "fl-nt-016",
+      "translation_vi": "cát",
+      "ipa": "/sænd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sand.mp3"
+    },
+    {
+      "word": "storm",
+      "vocabulary_bank_id": "fl-we-003",
+      "translation_vi": "cơn bão",
+      "ipa": "/stɔːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/storm.mp3"
+    },
+    {
+      "word": "quickly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "một cách nhanh chóng",
+      "ipa": "/ˈkwɪk.li/",
+      "audio_url": null
+    },
+    {
+      "word": "journey",
+      "vocabulary_bank_id": "fl-tr-004",
+      "translation_vi": "chuyến hành trình",
+      "ipa": "/ˈdʒɜː.ni/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/journey.mp3"
+    },
+    {
+      "word": "pyramid",
+      "vocabulary_bank_id": "fl-pl-013",
+      "translation_vi": "kim tự tháp",
+      "ipa": "/ˈpɪrəmɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/pyramid.mp3"
+    }
+  ]
+}

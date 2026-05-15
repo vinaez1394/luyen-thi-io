@@ -9,9 +9,13 @@
   "database_schema": { 
     "summary": "App lưu danh mục bài tập (quiz_catalog), từ vựng (vocabulary_bank), người dùng (users, student_profiles, student_vocabulary), điểm số (student_stats).",
     "tables": ["quiz_catalog", "vocabulary_bank", "users", "student_profiles", "student_stats", "student_vocabulary"], 
-    "relationships_explained": "Người dùng có 1 student_profile, student_stats và student_vocabulary. student_vocabulary dùng để tracking các từ vựng học sinh đã tra nghĩa (vocab panel) hoặc làm bài tập từ vựng, có cột 'word', 'mastery_level', và 'next_review_at'." 
+    "relationships_explained": "Người dùng có 1 student_profile, student_stats và student_vocabulary. vocabulary_bank có cột audio_url chứa URL MP3 trên CDN (https://cdn.luyenthi.io.vn/vocabulary-mp3/{word}.mp3). student_vocabulary dùng để tracking các từ vựng học sinh đã tra nghĩa, có cột 'word', 'mastery_level', 'next_review_at'." 
   },
   "api_endpoints": [
+    {
+      "path": "/api/quiz/:id",
+      "explained": "Lấy dữ liệu bài tập JSON — ưu tiên từ R2 bucket (CONTENT binding), fallback về LOCAL_QUIZ_MAP (static import lúc build). Tất cả file Flyers Part1-4 đều được serve từ R2."
+    },
     {
       "path": "/api/subjects",
       "explained": "Lấy danh sách bài tập từ D1, có sử dụng KV Cache để tăng tốc"
@@ -46,13 +50,17 @@
     "Code ở nhánh `dev` deploy lên `dev.luyenthi.io.vn` (Staging)",
     "Code ở nhánh `main` deploy lên `luyenthi.io.vn` (Production)",
     "Phát âm từ vựng ưu tiên sử dụng MP3 từ Cloudflare R2 (audio_url), nếu rỗng hoặc lỗi sẽ fallback về trình duyệt Text-to-Speech (Web Speech API)",
-    "Cambridge có 3 level (Starters, Movers, Flyers). Người dùng chọn level nào thì Dashboard sẽ hiển thị badge tương ứng và chia làm 5 thẻ kỹ năng riêng biệt.",
-    "Tra nghĩa từ vựng trong lúc làm bài reading có 3 lượt miễn phí, lượt 4+ sẽ trừ 1 sao. Những từ tra nghĩa sẽ tự động đưa vào danh sách 'student_vocabulary' của bé."
+    "Cambridge có 3 level (Starters, Movers, Flyers). Dashboard chia làm 5 thẻ kỹ năng riêng biệt cho mỗi level.",
+    "Tra nghĩa từ vựng trong lúc làm bài reading có 3 lượt miễn phí, lượt 4+ sẽ trừ 1 sao.",
+    "Audio pipeline cho vocab_highlight: (1) node scripts/patch-vocab-audio.mjs → patch JSON local từ DB, (2) node scripts/upload-content-r2.mjs → upload lên R2 REMOTE. LUÔN dùng --remote flag.",
+    "vocab_highlight trong JSON bài tập có 2 cách điền audio_url: (1) Tự động qua patch-vocab-audio.mjs, (2) Thủ công điền vocabulary_bank_id + audio_url trực tiếp trong JSON."
   ],
   "features": [
     "Dynamic Quiz Catalog (D1 + R2 + KV)",
     "Vocabulary System with MP3/TTS Audio (PictureMatch, WordBankFill, Learn)",
     "Vocabulary Dictionary Engine (Tra nghĩa & Phát âm in-place + Fallback TTS + DB Tracking + Trừ sao)",
+    "Flyers R&W Part 1-4 Engine (vocab_highlight panel với audio từ CDN)",
+    "Flyers R&W Part 6 Engine (Grammar/Cloze) with responsive VocabPanel & Grade Result logic",
     "Staging & Production CI/CD separation",
     "Cambridge Multi-level Dashboard (Starters, Movers, Flyers) & Lớp 6 Dashboard",
     "Admin Dashboard (Planned)"
@@ -61,17 +69,23 @@
     "patterns": [
       "Staging deploy requires sed to rename worker because Vite Plugin ignores --env flag",
       "Syncing DB with R2 assets can be done programmatically using HTTP HEAD requests against the CDN URL",
-      "Lookup Map Pattern on Frontend: Parse and format dynamic content (like Quiz Titles) using a generated Map from a local source of truth (e.g., subjects.ts) to avoid heavy SQL JOINs.",
-      "Frontend Auth Verification: Do not rely on client-side props (like studentId) for tracking calls. Derive the identity from session cookies in the worker context for security."
+      "Lookup Map Pattern on Frontend: Parse and format dynamic content using a generated Map from subjects.ts to avoid heavy SQL JOINs.",
+      "Frontend Auth Verification: Derive identity from session cookies in the worker context for security.",
+      "Audio URL patch pipeline: (1) wrangler d1 execute --remote --json để export word map, (2) node scripts/patch-vocab-audio.mjs để patch JSON local, (3) node scripts/upload-content-r2.mjs để upload R2 remote.",
+      "Quiz JSON serving: Worker ưu tiên R2 (env.CONTENT binding) → fallback LOCAL_QUIZ_MAP (static import). Cập nhật nội dung chỉ cần upload R2, không cần redeploy Worker."
     ], 
     "gotchas": [
       "Cloudflare Vite plugin overrides wrangler.json name during build",
       "React useEffect stale closures can trap old target state during auto-play; use `useRef`.",
-      "Rules of Hooks: NEVER place `useState` or `useEffect` after early returns. It will cause React to crash with 'Rendered more hooks than during the previous render' when state changes.",
-      "D1 silent failures on UPSERT when using incorrect column names. Always verify schema against SQL statements."
+      "Rules of Hooks: NEVER place useState or useEffect after early returns.",
+      "D1 silent failures on UPSERT when using incorrect column names. Always verify schema against SQL statements.",
+      "CRITICAL: Wrangler r2/d1 commands mặc định dùng LOCAL emulator. PHẢI thêm --remote flag để thao tác với Cloudflare thật. `wrangler r2 object put ... --remote`, `wrangler d1 execute ... --remote`. Không có --remote = chỉ thao tác local, KHÔNG lên cloud!",
+      "wrangler r2 object get --pipe đọc từ local emulator, không phải R2 remote thật. Dùng --remote --file để download và verify đúng nội dung từ cloud."
     ], 
     "conventions": [
-      "Feature branches for new features -> merge to dev for testing -> deploy to staging -> verify -> deploy to production"
+      "Feature branches -> merge to dev -> deploy staging -> verify -> deploy production",
+      "Scripts trong /scripts: patch-vocab-audio.mjs, upload-content-r2.mjs (--remote), find-missing-audio.mjs",
+      "Danh sách ~104 từ chưa có audio tại docs/missing_audio_words.md — cần upload MP3 lên CDN và seed vào vocabulary_bank, sau đó chạy lại patch + upload."
     ] 
   }
 }

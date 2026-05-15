@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-03-the-science-project.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Emma hỏi bài thuyết trình kéo dài bao lâu (How long), William đáp khoảng 5 phút (About five minutes).",
     "Emma bày tỏ lo lắng sẽ quên bài thuyết trình, William an ủi (Don't worry) và hẹn cùng thực hành sau.",
     "Emma xin xem tấm áp phích khi làm xong (Can I see), William đồng ý (Of course) và hứa ngày mai sẽ mang đến trường."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "presentation",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bài thuyết trình",
+      "ipa": "/ˌprez.ənˈteɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "poster",
+      "vocabulary_bank_id": "st-sc-043",
+      "translation_vi": "tấm áp phích/poster",
+      "ipa": "/ˈpəʊ.stər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/poster.mp3"
+    },
+    {
+      "word": "website",
+      "vocabulary_bank_id": "mv-sc-006",
+      "translation_vi": "trang web",
+      "ipa": "/ˈweb.saɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/website.mp3"
+    },
+    {
+      "word": "interested",
+      "vocabulary_bank_id": null,
+      "translation_vi": "có hứng thú",
+      "ipa": "/ˈɪn.trɪ.stɪd/",
+      "audio_url": null
+    },
+    {
+      "word": "practise",
+      "vocabulary_bank_id": "mv-sl-023",
+      "translation_vi": "luyện tập",
+      "ipa": "/ˈpræk.tɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/practise.mp3"
+    }
   ]
 }

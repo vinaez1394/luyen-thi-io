@@ -1,0 +1,155 @@
+{
+  "id": "FW5-EASY-003",
+  "title": "Set 3: Baking Cookies at Home 🍪",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 5,
+  "type": "flyers-part5",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "topic": "food",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-03-baking-cookies-at-home.jpg",
+  "instructions_en": "LOOK AT THE PICTURE AND READ THE STORY. WRITE SOME WORDS TO COMPLETE THE SENTENCES ABOUT THE STORY. YOU CAN USE 1, 2, OR 3 WORDS.",
+  "passage": "One rainy afternoon, Lucy stayed at home and felt very bored. She went to find her mother in the kitchen and asked if they could bake some cookies together. Her mother smiled and agreed.\nFirst, they washed their hands and put on their aprons. Lucy's mother measured the flour, sugar and butter and put them into a large bowl. Then she added two eggs. Lucy's favourite part was mixing everything together with a big wooden spoon. The mixture smelled wonderful.\nWhen the dough was ready, Lucy used a cookie cutter to make different shapes. She made stars, hearts and circles. Her mother carefully placed all the shapes on a baking tray and put it in the oven. They had to wait twenty minutes.\nWhile the cookies were baking, Lucy's little brother Ben walked into the kitchen. He had smelled the cookies from his bedroom upstairs and wanted to see them. Lucy's mother told him he had to be patient and wait.\nWhen the cookies were ready, they looked golden and delicious. Lucy took them out of the oven with her mother's help and left them on the table to cool for ten minutes. Ben said it was the best cookie he had ever tasted, and Lucy felt very proud of herself.",
+  "examples": [
+    {
+      "number": 1,
+      "sentence": "Lucy stayed at home because it was _____ outside.",
+      "answer": "raining"
+    },
+    {
+      "number": 2,
+      "sentence": "Lucy and her mother decided to bake some _____ together.",
+      "answer": "cookies"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "sentence": "Lucy went to find her mother because she felt very _____.",
+      "accepted_answers": [
+        "bored"
+      ],
+      "passage_highlight": "Lucy stayed at home and felt very bored",
+      "explanation_vi": "Đoạn văn nói 'Lucy stayed at home and felt very bored' — Lucy cảm thấy rất chán (bored) nên đi tìm mẹ."
+    },
+    {
+      "number": 2,
+      "sentence": "Lucy's favourite part was mixing the dough with a big wooden _____.",
+      "accepted_answers": [
+        "spoon"
+      ],
+      "passage_highlight": "mixing everything together with a big wooden spoon",
+      "explanation_vi": "Phần yêu thích của Lucy là trộn tất cả mọi thứ bằng một chiếc thìa gỗ to (a big wooden spoon)."
+    },
+    {
+      "number": 3,
+      "sentence": "Lucy used a cookie cutter to make stars, hearts and _____.",
+      "accepted_answers": [
+        "circles"
+      ],
+      "passage_highlight": "She made stars, hearts and circles",
+      "explanation_vi": "Lucy dùng khuôn cắt bánh để tạo ra các hình: ngôi sao, trái tim và hình tròn (circles)."
+    },
+    {
+      "number": 4,
+      "sentence": "The cookies were in the oven for _____ minutes.",
+      "accepted_answers": [
+        "twenty",
+        "20"
+      ],
+      "passage_highlight": "put it in the oven. They had to wait twenty minutes",
+      "explanation_vi": "Hai mẹ con phải chờ hai mươi (twenty) phút để bánh nướng chín."
+    },
+    {
+      "number": 5,
+      "sentence": "Ben came to the kitchen because he had _____ the cookies from his bedroom.",
+      "accepted_answers": [
+        "smelled",
+        "smelt"
+      ],
+      "passage_highlight": "He had smelled the cookies from his bedroom upstairs",
+      "explanation_vi": "Ben đi xuống bếp vì em ngửi thấy mùi bánh (had smelled the cookies) từ phòng ngủ trên lầu."
+    },
+    {
+      "number": 6,
+      "sentence": "The cookies looked _____ and delicious when they came out of the oven.",
+      "accepted_answers": [
+        "golden"
+      ],
+      "passage_highlight": "they looked golden and delicious",
+      "explanation_vi": "Khi bánh chín, chúng trông có màu vàng óng (golden) và ngon tuyệt."
+    },
+    {
+      "number": 7,
+      "sentence": "Lucy felt very _____ when Ben said the cookie was the best he had ever tasted.",
+      "accepted_answers": [
+        "proud",
+        "very proud"
+      ],
+      "passage_highlight": "Lucy felt very proud of herself",
+      "explanation_vi": "Lucy cảm thấy rất tự hào (very proud) về bản thân khi mọi người khen bánh ngon."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "bored",
+      "vocabulary_bank_id": "fl-fe-003",
+      "translation_vi": "chán nản",
+      "ipa": "/bɔːrd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/bored.mp3"
+    },
+    {
+      "word": "apron",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tạp dề",
+      "ipa": "/ˈeɪ.prən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/apron.mp3"
+    },
+    {
+      "word": "flour",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bột mì",
+      "ipa": "/flaʊər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/flour.mp3"
+    },
+    {
+      "word": "mixture",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hỗn hợp, bột trộn",
+      "ipa": "/ˈmɪks.tʃər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/mixture.mp3"
+    },
+    {
+      "word": "dough",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bột nhào (làm bánh)",
+      "ipa": "/dəʊ/",
+      "audio_url": null
+    },
+    {
+      "word": "oven",
+      "vocabulary_bank_id": "fl-ho-021",
+      "translation_vi": "lò nướng",
+      "ipa": "/ˈʌv.ən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/oven.mp3"
+    },
+    {
+      "word": "patient",
+      "vocabulary_bank_id": "fl-ch-011",
+      "translation_vi": "kiên nhẫn",
+      "ipa": "/ˈpeɪ.ʃənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/patient.mp3"
+    },
+    {
+      "word": "proud",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tự hào",
+      "ipa": "/praʊd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/proud.mp3"
+    }
+  ]
+}

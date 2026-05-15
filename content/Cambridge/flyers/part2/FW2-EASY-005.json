@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-05-a-new-hobby.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Hỏi trò này có khó học không (difficult), Jack đáp không, nó khá đơn giản (simple).",
     "Hỏi chúng ta nên chơi ở đâu (Where), Jack đáp chơi ở khu vườn, trên bàn gỗ (In the garden).",
     "Hỏi có muốn bắt đầu ngay không, Jack đồng ý ngay (Yes, let's go!)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "board game",
+      "vocabulary_bank_id": "st-to-007",
+      "translation_vi": "trò chơi cờ bàn",
+      "ipa": "/ˈbɔːd ɡeɪm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/board%20game.mp3"
+    },
+    {
+      "word": "simple",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đơn giản",
+      "ipa": "/ˈsɪm.pəl/",
+      "audio_url": null
+    },
+    {
+      "word": "interesting",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thú vị",
+      "ipa": "/ˈɪn.trɪ.stɪŋ/",
+      "audio_url": null
+    },
+    {
+      "word": "wooden",
+      "vocabulary_bank_id": null,
+      "translation_vi": "làm bằng gỗ",
+      "ipa": "/ˈwʊd.ən/",
+      "audio_url": null
+    },
+    {
+      "word": "space",
+      "vocabulary_bank_id": "fl-wa-017",
+      "translation_vi": "không gian (vũ trụ)",
+      "ipa": "/speɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/space.mp3"
+    }
   ]
 }

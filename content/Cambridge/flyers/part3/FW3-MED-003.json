@@ -1,0 +1,110 @@
+{
+  "id": "FW3-MED-003",
+  "title": "Set 3: A Day at the Sea 🌊",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "sea",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-03-a-day-at-the-sea.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "expensive",
+    "carefully",
+    "island",
+    "dolphins",
+    "whispered",
+    "shells",
+    "waves",
+    "forgot",
+    "dangerous"
+  ],
+  "example": {
+    "word": "beach",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last Tuesday, it was very hot, so my aunt took me to the ",
+    " for the day. We carried our bags across the sand and found a good place to sit. The water was beautiful and blue. While I was swimming, I saw two ",
+    " jumping in the water. They were very friendly!\n\nAfter my swim, I walked along the shore to look for some ",
+    ". I found five very large ones to take home. Then, we decided to take a small boat to a little ",
+    " that wasn't far away. The ",
+    " were a bit high, so the boat moved up and down a lot. It was very exciting!\n\nI wanted to take a photo, but I ",
+    " my camera in the car! Aunt Mary said, \"Don't worry, we can come back tomorrow.\" It was the best day of my summer holiday."
+  ],
+  "answers": [
+    "dolphins",
+    "shells",
+    "island",
+    "waves",
+    "forgot"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A long walk in the park"
+      },
+      {
+        "letter": "B",
+        "text": "A fun day by the water"
+      },
+      {
+        "letter": "C",
+        "text": "A new camera for my birthday"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Nhìn thấy cá heo (dolphins) nhảy dưới nước.",
+    "Tìm vỏ sò (shells) dọc bờ biển.",
+    "Đi thuyền ra một hòn đảo nhỏ (island).",
+    "Sóng (waves) hơi cao làm thuyền dập dìu.",
+    "Quên (forgot) máy ảnh trong xe.",
+    "Tiêu đề B (Một ngày vui vẻ bên mặt nước) tóm tắt đúng nhất về câu chuyện."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "dolphin",
+      "vocabulary_bank_id": "fl-an-008",
+      "translation_vi": "cá heo",
+      "ipa": "/ˈdɒl.fɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dolphin.mp3"
+    },
+    {
+      "word": "shell",
+      "vocabulary_bank_id": "st-wa-004",
+      "translation_vi": "vỏ sò",
+      "ipa": "/ʃel/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/shell.mp3"
+    },
+    {
+      "word": "island",
+      "vocabulary_bank_id": "mv-wa-009",
+      "translation_vi": "hòn đảo",
+      "ipa": "/ˈaɪ.lənd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/island.mp3"
+    },
+    {
+      "word": "wave",
+      "vocabulary_bank_id": "mv-wa-023",
+      "translation_vi": "con sóng",
+      "ipa": "/weɪv/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/wave.mp3"
+    },
+    {
+      "word": "dangerous",
+      "vocabulary_bank_id": "fl-aj-004",
+      "translation_vi": "nguy hiểm",
+      "ipa": "/ˈdeɪn.dʒər.əs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dangerous.mp3"
+    }
+  ]
+}

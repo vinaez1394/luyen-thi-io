@@ -1,0 +1,159 @@
+{
+  "id": "FW6-MED-004",
+  "title": "Set 4: A Camping Trip 🏕️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 6,
+  "type": "flyers-part6",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "holidays",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-04-a-camping-trip.jpg",
+  "instructions_en": "READ THE EMAIL AND WRITE IN THE MISSING WORDS. WRITE ONE WORD ON EACH LINE.",
+  "diary_date": "Tuesday 20th July",
+  "segments": [
+    {
+      "type": "text",
+      "content": "Hi Lily, I had a wonderful holiday last week! My family and I "
+    },
+    {
+      "type": "blank",
+      "number": 1,
+      "accepted_answers": [
+        "went"
+      ],
+      "explanation_vi": "'went camping' — 'went' là quá khứ bất quy tắc của 'go'. Collocation quan trọng: GO + V-ing = đi làm hoạt động gì. go camping / go swimming / go shopping / go hiking. go → went → gone.",
+      "grammar_tag": "collocation_go_verb"
+    },
+    {
+      "type": "text",
+      "content": " camping near a lake in the countryside. We woke up "
+    },
+    {
+      "type": "blank",
+      "number": 2,
+      "accepted_answers": [
+        "at"
+      ],
+      "explanation_vi": "'woke up at seven o'clock' — 'at' là giới từ chỉ thời gian cụ thể (giờ, phút). Quy tắc: AT + giờ cụ thể: at 7 o'clock, at noon, at midnight. Khác với: in the morning (IN), on Monday (ON).",
+      "grammar_tag": "preposition_time"
+    },
+    {
+      "type": "text",
+      "content": " seven o'clock every morning and went swimming in the lake before breakfast. On the first day, I "
+    },
+    {
+      "type": "blank",
+      "number": 3,
+      "accepted_answers": [
+        "made"
+      ],
+      "explanation_vi": "'made friends with two children' — 'make friends' là collocation cố định. Luôn dùng 'make' (KHÔNG nói 'do friends' hay 'have friends' khi muốn nói KẾT BẠN). make → made → made.",
+      "grammar_tag": "collocation_make"
+    },
+    {
+      "type": "text",
+      "content": " friends with two children from another family. The lake was much colder "
+    },
+    {
+      "type": "blank",
+      "number": 4,
+      "accepted_answers": [
+        "than"
+      ],
+      "explanation_vi": "'much colder than I expected' — 'than' luôn đứng ngay sau so sánh hơn. 'Much' + so sánh hơn = nhấn mạnh sự khác biệt: much colder, much bigger, much better.",
+      "grammar_tag": "comparative"
+    },
+    {
+      "type": "text",
+      "content": " I expected, but we swam every day anyway! In the evenings, we sat outside because we "
+    },
+    {
+      "type": "blank",
+      "number": 5,
+      "accepted_answers": [
+        "had"
+      ],
+      "explanation_vi": "'we had a campfire' — 'have a campfire' là collocation: dùng 'have' với các sự kiện/hoạt động nhóm. Tương tự: have a party, have a barbecue, have a picnic. have → had → had.",
+      "grammar_tag": "collocation_have"
+    },
+    {
+      "type": "text",
+      "content": " a campfire and told funny stories. It was the best holiday I have ever been on! Love, Sam"
+    }
+  ],
+  "grammar_tips": [
+    {
+      "tag": "collocation_go_verb",
+      "title": "Collocation: GO + V-ing (đi làm hoạt động)",
+      "tip_vi": "'Go + V-ing' diễn tả hoạt động giải trí, thường dùng với thể thao và du lịch:\n• go camping ⛺ | go swimming 🏊 | go hiking 🥾\n• go shopping 🛍️ | go skiing ⛷️ | go cycling 🚴\n• go fishing 🎣 | go dancing 💃 | go sightseeing 📸\nQuá khứ: went camping, went swimming, went hiking..."
+    },
+    {
+      "tag": "preposition_time",
+      "title": "Giới từ chỉ thời gian: AT / IN / ON",
+      "tip_vi": "Ba giới từ thời gian quan trọng:\n• AT + giờ cụ thể: at 7 o'clock, at noon, at midnight\n• IN + buổi trong ngày/tháng/năm: in the morning, in July, in 2024\n• ON + ngày/thứ: on Monday, on 20th July, on my birthday\nMẹo nhớ: 'A-I-O' = AT (giờ) | IN (dài hơn) | ON (ngày cụ thể)"
+    },
+    {
+      "tag": "collocation_make",
+      "title": "Collocation: MAKE + danh từ",
+      "tip_vi": "'Make friends' = kết bạn — KHÔNG nói 'do friends' ❌\nCác collocation MAKE quan trọng khác:\n• make a cake 🎂 | make a mistake | make a sandwich\n• make a noise | make a phone call | make a decision\nPhân biệt DO vs MAKE:\n→ DO = hoạt động/công việc: do homework, do sport, do the dishes\n→ MAKE = tạo ra/sản xuất: make a cake, make friends, make a plan"
+    },
+    {
+      "tag": "comparative",
+      "title": "So sánh hơn: MUCH + comparative + THAN",
+      "tip_vi": "Thêm 'much' trước so sánh hơn để nhấn mạnh:\n• much colder than | much bigger than | much better than\n• much more interesting than | much more expensive than\nCác từ nhấn mạnh tương tự: a lot colder, far bigger, even better\nCấu trúc đầy đủ: S + V + much + adj-ER + THAN + object"
+    },
+    {
+      "tag": "collocation_have",
+      "title": "Collocation: HAVE + sự kiện/hoạt động nhóm",
+      "tip_vi": "'Have' dùng với các sự kiện hoặc hoạt động tập thể:\n• have a campfire 🔥 | have a barbecue | have a picnic\n• have a party 🎉 | have a meeting | have a conversation\n• have a great time | have fun | have a rest\nLưu ý: Ở quá khứ → had: We had a great campfire last night."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "camping",
+      "vocabulary_bank_id": "fl-ho-014",
+      "translation_vi": "cắm trại",
+      "ipa": "/ˈkæm.pɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/camping.mp3"
+    },
+    {
+      "word": "countryside",
+      "vocabulary_bank_id": "fl-pl-006",
+      "translation_vi": "vùng nông thôn",
+      "ipa": "/ˈkʌn.tri.saɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/countryside.mp3"
+    },
+    {
+      "word": "campfire",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lửa trại",
+      "ipa": "/ˈkæmp.faɪər/",
+      "audio_url": null
+    },
+    {
+      "word": "expected",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đã mong đợi, dự tính",
+      "ipa": "/ɪkˈspek.tɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/expect.mp3"
+    },
+    {
+      "word": "anyway",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dù sao, dù vậy",
+      "ipa": "/ˈen.i.weɪ/",
+      "audio_url": null
+    },
+    {
+      "word": "wonderful",
+      "vocabulary_bank_id": "fl-fe-003",
+      "translation_vi": "tuyệt vời",
+      "ipa": "/ˈwʌn.də.fəl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/wonderful.mp3"
+    }
+  ]
+}

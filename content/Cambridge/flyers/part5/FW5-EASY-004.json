@@ -1,0 +1,157 @@
+{
+  "id": "FW5-EASY-004",
+  "title": "Set 4: A Birthday Surprise 🎂",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 5,
+  "type": "flyers-part5",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "topic": "celebrations",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-04-a-birthday-surprise.jpg",
+  "instructions_en": "LOOK AT THE PICTURE AND READ THE STORY. WRITE SOME WORDS TO COMPLETE THE SENTENCES ABOUT THE STORY. YOU CAN USE 1, 2, OR 3 WORDS.",
+  "passage": "Last Saturday was Mia's ninth birthday. When she woke up in the morning, she felt a little sad because nobody in her family had said \"Happy Birthday!\" to her. Her parents were both very busy, and her brother Ben kept going in and out of the living room and closing the door.\nAfter breakfast, her father drove her to the park for a walk. Mia thought this was strange because it was quite cold outside. When they got back home, the front door was closed and all the curtains were shut.\n\"Can you open the door for me?\" her father asked. When Mia pushed open the door and walked in, all the lights came on at once.\n\"SURPRISE!\" shouted all her friends and family from inside the living room. Mia was so shocked that she could not speak for a moment. There were colourful balloons and pretty decorations everywhere.\nMia's aunt had made a big strawberry cake with nine candles on top. After Mia blew out all the candles, everyone sang \"Happy Birthday\". Then Mia's parents brought out a large box with a red ribbon on it. Inside was a shiny new bicycle. Mia was the happiest girl in the world.",
+  "examples": [
+    {
+      "number": 1,
+      "sentence": "Last Saturday was Mia's _____ birthday.",
+      "answer": "ninth"
+    },
+    {
+      "number": 2,
+      "sentence": "Ben kept going in and out of the _____ room.",
+      "answer": "living"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "sentence": "Mia felt sad because nobody had said _____ to her.",
+      "accepted_answers": [
+        "Happy Birthday",
+        "Happy Birthday!",
+        "happy birthday"
+      ],
+      "passage_highlight": "nobody in her family had said \"Happy Birthday!\" to her",
+      "explanation_vi": "Đoạn văn nói 'nobody in her family had said Happy Birthday!' — không ai chúc mừng sinh nhật Mia, nên cô bé cảm thấy buồn."
+    },
+    {
+      "number": 2,
+      "sentence": "After breakfast, Mia's father took her to the _____ for a walk.",
+      "accepted_answers": [
+        "park"
+      ],
+      "passage_highlight": "her father drove her to the park for a walk",
+      "explanation_vi": "Bố Mia lái xe đưa cô bé đến công viên (the park) để đi dạo sau bữa sáng."
+    },
+    {
+      "number": 3,
+      "sentence": "When Mia walked into the house, all the _____ came on at once.",
+      "accepted_answers": [
+        "lights"
+      ],
+      "passage_highlight": "all the lights came on at once",
+      "explanation_vi": "Khi Mia bước vào nhà, tất cả đèn (the lights) bật sáng cùng một lúc — đó là tín hiệu bắt đầu buổi tiệc bí mật."
+    },
+    {
+      "number": 4,
+      "sentence": "There were colourful _____ and pretty decorations in the living room.",
+      "accepted_answers": [
+        "balloons",
+        "balloon"
+      ],
+      "passage_highlight": "There were colourful balloons and pretty decorations everywhere",
+      "explanation_vi": "Trong phòng khách có những quả bóng bay sặc sỡ (colourful balloons) và đồ trang trí đẹp ở khắp nơi."
+    },
+    {
+      "number": 5,
+      "sentence": "Mia's aunt made a big _____ cake with nine candles.",
+      "accepted_answers": [
+        "strawberry"
+      ],
+      "passage_highlight": "Mia's aunt had made a big strawberry cake with nine candles",
+      "explanation_vi": "Dì của Mia đã làm một chiếc bánh dâu tây to (a big strawberry cake) với chín cây nến trên đó."
+    },
+    {
+      "number": 6,
+      "sentence": "Mia _____ all the candles and everyone sang \"Happy Birthday\".",
+      "accepted_answers": [
+        "blew out",
+        "blew"
+      ],
+      "passage_highlight": "After Mia blew out all the candles, everyone sang",
+      "explanation_vi": "Sau khi Mia thổi tắt (blew out) tất cả nến, mọi người cùng hát mừng sinh nhật."
+    },
+    {
+      "number": 7,
+      "sentence": "Mia's birthday present was a shiny new _____.",
+      "accepted_answers": [
+        "bicycle",
+        "bike"
+      ],
+      "passage_highlight": "Inside was a shiny new bicycle",
+      "explanation_vi": "Bên trong chiếc hộp lớn là một chiếc xe đạp mới sáng bóng (a shiny new bicycle) — đó là món quà sinh nhật của Mia."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "ninth",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thứ chín (số thứ tự 9)",
+      "ipa": "/naɪnθ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/ninth.mp3"
+    },
+    {
+      "word": "curtains",
+      "vocabulary_bank_id": "fl-ho-008",
+      "translation_vi": "rèm cửa",
+      "ipa": "/ˈkɜː.tənz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/curtains.mp3"
+    },
+    {
+      "word": "shocked",
+      "vocabulary_bank_id": "fl-fe-012",
+      "translation_vi": "bị sốc, ngạc nhiên dữ dội",
+      "ipa": "/ʃɒkt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/shocked.mp3"
+    },
+    {
+      "word": "balloons",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bóng bay",
+      "ipa": "/bəˈluːnz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/balloon.mp3"
+    },
+    {
+      "word": "decorations",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đồ trang trí",
+      "ipa": "/ˌdek.əˈreɪ.ʃənz/",
+      "audio_url": null
+    },
+    {
+      "word": "candles",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cây nến",
+      "ipa": "/ˈkæn.dəlz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/candle.mp3"
+    },
+    {
+      "word": "ribbon",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dải ruy băng",
+      "ipa": "/ˈrɪb.ən/",
+      "audio_url": null
+    },
+    {
+      "word": "bicycle",
+      "vocabulary_bank_id": "fl-tr-003",
+      "translation_vi": "xe đạp",
+      "ipa": "/ˈbaɪ.sɪ.kl̩/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/bicycle.mp3"
+    }
+  ]
+}

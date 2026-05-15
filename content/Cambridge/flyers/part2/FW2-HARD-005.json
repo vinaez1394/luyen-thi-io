@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-05-the-new-art-gallery.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -77,7 +78,7 @@
     },
     {
       "letter": "D",
-      "text": "I'd choose colorful landscapes or perhaps the ocean."
+      "text": "I'd choose colourful landscapes or perhaps the ocean."
     },
     {
       "letter": "E",
@@ -109,5 +110,42 @@
     "Frank kể bức tranh đắt nhất bị đánh cắp đêm qua, Sophia không tin (That can't be true!) vì có bảo vệ (guards) ở khắp nơi.",
     "Frank hỏi nếu là họa sĩ nổi tiếng thì sẽ vẽ gì, Sophia trả lời là vẽ phong cảnh đầy màu sắc (colorful landscapes) hoặc đại dương (ocean).",
     "Frank hỏi liệu Sophia có phiền đứng đợi cậu mua bưu thiếp không, Sophia bảo Không hề phiền (Not at all. Take as long as you need)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "painting",
+      "vocabulary_bank_id": "st-sc-036",
+      "translation_vi": "bức tranh",
+      "ipa": "/ˈpeɪn.tɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/painting.mp3"
+    },
+    {
+      "word": "statue",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bức tượng",
+      "ipa": "/ˈstætʃ.uː/",
+      "audio_url": null
+    },
+    {
+      "word": "impressive",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ấn tượng",
+      "ipa": "/ɪmˈpres.ɪv/",
+      "audio_url": null
+    },
+    {
+      "word": "stolen",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bị đánh cắp",
+      "ipa": "/ˈstəʊ.lən/",
+      "audio_url": null
+    },
+    {
+      "word": "postcard",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bưu thiếp",
+      "ipa": "/ˈpəʊst.kɑːd/",
+      "audio_url": null
+    }
   ]
 }

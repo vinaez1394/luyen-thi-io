@@ -71,3 +71,27 @@ try {
 } catch {
   console.warn(`   ⚠️  Could not verify secrets (non-fatal). Check manually if login fails.`);
 }
+
+// ── 5. Invalidate KV Cache (QUAN TRỌNG) ──────────────────────────────────────
+// Sau deploy, KV cache vẫn giữ data cũ (30 phút TTL).
+// Phải invalidate ngay để user thấy bài mới và thumbnail đúng.
+console.log(`\n🧹 Invalidating KV cache on staging...`);
+try {
+  const { execFileSync } = await import("child_process");
+  // Chờ 3 giây để worker khởi động xong trước khi gọi API
+  await new Promise((r) => setTimeout(r, 3000));
+  const res = execSync(
+    `curl -s -X POST "https://dev.luyenthi.io.vn/api/subjects/cache/invalidate" -H "Content-Type: application/json" -d '{}'`,
+    { encoding: "utf8" }
+  );
+  const parsed = JSON.parse(res || "{}");
+  if (parsed.ok) {
+    console.log(`   ✅ KV cache invalidated. Deleted ${parsed.deleted} key(s).`);
+  } else {
+    console.warn(`   ⚠️  Cache invalidation returned unexpected response:`, res);
+  }
+} catch (e) {
+  console.warn(`   ⚠️  Could not invalidate KV cache (non-fatal). Run manually if needed:`);
+  console.warn(`   curl -X POST "https://dev.luyenthi.io.vn/api/subjects/cache/invalidate" -H "Content-Type: application/json" -d '{}'`);
+}
+

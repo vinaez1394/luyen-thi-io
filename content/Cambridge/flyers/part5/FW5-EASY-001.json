@@ -1,0 +1,158 @@
+{
+  "id": "FW5-EASY-001",
+  "title": "Set 1: Sports Day at School 🏅",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 5,
+  "type": "flyers-part5",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "topic": "school",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-01-sports-day-at-school.jpg",
+  "instructions_en": "LOOK AT THE PICTURE AND READ THE STORY. WRITE SOME WORDS TO COMPLETE THE SENTENCES ABOUT THE STORY. YOU CAN USE 1, 2, OR 3 WORDS.",
+  "passage": "It was sports day at Emma's school yesterday. She woke up early and put on her uniform before going into the kitchen to eat her breakfast. She asked her mother, \"Will you come to the sports day at my school today?\"\n\"Of course, I will. And your brother Oliver will come too,\" said her mother.\n\"That's great! I want you and him there to see me playing sports,\" Emma said before she went to school.\nOne hour later, Emma's mother and Oliver were leaving the house when Oliver remembered his new robot. He wanted to bring it with him so he started crying, meaning everyone had to go back home to pick it up. When Emma's mother found the robot under the sofa, she gave it to Oliver and he smiled happily. They then left their house and walked to Emma's school quickly.\nWhen they walked past the bridge, Oliver's hat fell off his head and dropped into the river. He cried again. Luckily, a man on a boat came and helped them pick the hat out of the water. Although it was wet, Oliver was delighted to get his hat back.\nWhen they arrived at Emma's school, she was unhappy. She told her mum, \"Why are you so late? You've missed the race.\" When Emma's mother saw the gold medal on her neck and the prize in her hand, she realised that Emma had won the race. She said sorry to Emma and promised that she would make a big chocolate cake for her. Emma shared her prize with Oliver and everyone was happy in the end.",
+  "examples": [
+    {
+      "number": 1,
+      "sentence": "Yesterday was _____ at Emma's school.",
+      "answer": "sports day"
+    },
+    {
+      "number": 2,
+      "sentence": "Emma wore her _____ to her school.",
+      "answer": "uniform"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "sentence": "Emma wanted her mother and her brother to come and see her _____.",
+      "accepted_answers": [
+        "playing sports",
+        "play sports"
+      ],
+      "passage_highlight": "I want you and him there to see me playing sports",
+      "explanation_vi": "Emma nói: 'I want you and him there to see me playing sports' — cô bé muốn mẹ và anh đến xem cô bé chơi thể thao (playing sports)."
+    },
+    {
+      "number": 2,
+      "sentence": "Oliver cried because he wanted to take his new _____ with him.",
+      "accepted_answers": [
+        "robot"
+      ],
+      "passage_highlight": "Oliver remembered his new robot. He wanted to bring it with him so he started crying",
+      "explanation_vi": "Oliver nhớ ra con robot mới của mình và khóc vì muốn mang nó theo (his new robot)."
+    },
+    {
+      "number": 3,
+      "sentence": "Oliver's robot was found _____.",
+      "accepted_answers": [
+        "under the sofa",
+        "under sofa"
+      ],
+      "passage_highlight": "Emma's mother found the robot under the sofa",
+      "explanation_vi": "Mẹ Emma tìm thấy con robot ở dưới ghế sofa (under the sofa)."
+    },
+    {
+      "number": 4,
+      "sentence": "Oliver's hat _____ after falling into the river.",
+      "accepted_answers": [
+        "was wet",
+        "got wet"
+      ],
+      "passage_highlight": "Although it was wet, Oliver was delighted to get his hat back",
+      "explanation_vi": "Chiếc mũ bị rơi xuống sông nên bị ướt (was wet), dù vậy Oliver vẫn vui khi lấy lại được."
+    },
+    {
+      "number": 5,
+      "sentence": "Emma was not happy when she saw her mother and her brother because they missed _____.",
+      "accepted_answers": [
+        "the race",
+        "her race"
+      ],
+      "passage_highlight": "Why are you so late? You've missed the race",
+      "explanation_vi": "Emma nói 'You've missed the race' — họ đến muộn và bỏ lỡ cuộc đua (the race)."
+    },
+    {
+      "number": 6,
+      "sentence": "Emma wore a _____ on her neck and held a prize in her hand.",
+      "accepted_answers": [
+        "gold medal",
+        "medal"
+      ],
+      "passage_highlight": "Emma's mother saw the gold medal on her neck and the prize in her hand",
+      "explanation_vi": "Mẹ Emma nhìn thấy chiếc huy chương vàng (gold medal) trên cổ Emma và giải thưởng trên tay."
+    },
+    {
+      "number": 7,
+      "sentence": "Emma's mother promised to make her a big _____.",
+      "accepted_answers": [
+        "chocolate cake",
+        "cake"
+      ],
+      "passage_highlight": "promised that she would make a big chocolate cake for her",
+      "explanation_vi": "Mẹ hứa sẽ làm một chiếc bánh sô-cô-la to (chocolate cake) cho Emma để xin lỗi."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "uniform",
+      "vocabulary_bank_id": "fl-cl-014",
+      "translation_vi": "đồng phục",
+      "ipa": "/ˈjuː.nə.fɔːrm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/uniform.mp3"
+    },
+    {
+      "word": "robot",
+      "vocabulary_bank_id": "st-to-018",
+      "translation_vi": "người máy",
+      "ipa": "/ˈrəʊ.bɒt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/robot.mp3"
+    },
+    {
+      "word": "sofa",
+      "vocabulary_bank_id": "st-ho-035",
+      "translation_vi": "ghế sofa",
+      "ipa": "/ˈsəʊ.fə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sofa.mp3"
+    },
+    {
+      "word": "bridge",
+      "vocabulary_bank_id": "fl-nt-001",
+      "translation_vi": "cây cầu",
+      "ipa": "/brɪdʒ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/bridge.mp3"
+    },
+    {
+      "word": "race",
+      "vocabulary_bank_id": "fl-sl-027",
+      "translation_vi": "cuộc đua",
+      "ipa": "/reɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/race.mp3"
+    },
+    {
+      "word": "medal",
+      "vocabulary_bank_id": null,
+      "translation_vi": "huy chương",
+      "ipa": "/ˈmed.əl/",
+      "audio_url": null
+    },
+    {
+      "word": "prize",
+      "vocabulary_bank_id": "fl-sl-022",
+      "translation_vi": "giải thưởng",
+      "ipa": "/praɪz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/prize.mp3"
+    },
+    {
+      "word": "chocolate",
+      "vocabulary_bank_id": "st-fd-012",
+      "translation_vi": "sô-cô-la",
+      "ipa": "/ˈtʃɒk.lət/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/chocolate.mp3"
+    }
+  ]
+}

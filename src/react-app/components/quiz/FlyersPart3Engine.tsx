@@ -105,7 +105,7 @@ interface VocabPanelProps {
   quizId: string;
 }
 
-function VocabPanel({ vocab, isLoggedIn, quizId }: VocabPanelProps) {
+export function VocabPanel({ vocab, isLoggedIn, quizId }: VocabPanelProps) {
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
   const [lookupCount, setLookupCount] = useState(0);
   const [showAuthNudge, setShowAuthNudge] = useState(false);

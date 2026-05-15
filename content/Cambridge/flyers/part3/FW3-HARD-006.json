@@ -1,0 +1,145 @@
+{
+  "id": "FW3-HARD-006",
+  "title": "Set 6: The Deep Sea Adventure 🌊",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "nature",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-06-the-deep-sea-adventure.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "creature",
+    "environment",
+    "professional",
+    "dangerous",
+    "oxygen",
+    "through",
+    "ocean",
+    "light",
+    "deep"
+  ],
+  "example": {
+    "word": "submarine",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last month, a team of ",
+    " divers went on a journey to the bottom of the Atlantic ",
+    ". They wanted to explore a part of the ",
+    " that is so ",
+    " that no sunlight can reach it. They traveled inside a special metal ship that could protect them from the cold water.\n\nAs they moved ",
+    " the dark water, they turned on a powerful creature. Suddenly, a strange ",
+    " swam past their window. It had glowing skin and very large eyes. One of the divers said, \"The environment down here is very different from the world we know. We must be very careful because we only have enough oxygen for four hours.\"\n\nThey took many videos of the plants and animals before returning to the surface. Their discovery will help us understand more about how life survives in the darkest places on our planet."
+  ],
+  "answers": [
+    "professional",
+    "ocean",
+    "deep",
+    "through",
+    "light"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A fast boat race"
+      },
+      {
+        "letter": "B",
+        "text": "Secrets of the dark water"
+      },
+      {
+        "letter": "C",
+        "text": "How to catch a big fish"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Một đội gồm các thợ lặn chuyên nghiệp (professional).",
+    "Họ muốn khám phá một phần của đại dương (ocean).",
+    "Nơi sâu (deep) đến mức ánh sáng không thể chiếu tới.",
+    "Khi họ di chuyển xuyên qua (through) làn nước tối.",
+    "Họ bật một ngọn đèn (light) có công suất lớn.",
+    "Tiêu đề B (Những bí mật của vùng nước tối) là đúng nhất vì kể về chuyến thám hiểm đáy đại dương."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "submarine",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tàu ngầm",
+      "ipa": "/ˌsʌb.məˈriːn/",
+      "audio_url": null
+    },
+    {
+      "word": "ocean",
+      "vocabulary_bank_id": "fl-wa-014",
+      "translation_vi": "đại dương",
+      "ipa": "/ˈəʊ.ʃən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/ocean.mp3"
+    },
+    {
+      "word": "creature",
+      "vocabulary_bank_id": "fl-an-022",
+      "translation_vi": "sinh vật",
+      "ipa": "/ˈkriːtʃə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/creature.mp3"
+    },
+    {
+      "word": "environment",
+      "vocabulary_bank_id": "fl-wa-008",
+      "translation_vi": "môi trường",
+      "ipa": "/ɪnˈvaɪ.rən.mənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/environment.mp3"
+    },
+    {
+      "word": "dangerous",
+      "vocabulary_bank_id": "fl-aj-004",
+      "translation_vi": "nguy hiểm",
+      "ipa": "/ˈdeɪndʒərəs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dangerous.mp3"
+    },
+    {
+      "word": "light",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ngọn đèn/ánh sáng",
+      "ipa": "/laɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "professional",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chuyên nghiệp",
+      "ipa": "/prəˈfeʃ.ən.əl/",
+      "audio_url": null
+    },
+    {
+      "word": "oxygen",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ô-xy",
+      "ipa": "/ˈɒk.sɪ.dʒən/",
+      "audio_url": null
+    },
+    {
+      "word": "through",
+      "vocabulary_bank_id": null,
+      "translation_vi": "xuyên qua",
+      "ipa": "/θruː/",
+      "audio_url": null
+    },
+    {
+      "word": "deep",
+      "vocabulary_bank_id": null,
+      "translation_vi": "sâu",
+      "ipa": "/diːp/",
+      "audio_url": null
+    }
+  ]
+}

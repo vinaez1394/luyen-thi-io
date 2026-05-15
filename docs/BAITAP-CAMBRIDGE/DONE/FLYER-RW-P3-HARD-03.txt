@@ -1,0 +1,39 @@
+
+
+### BỘ ĐỀ 13: CHỦ ĐỀ "THE NEW SOFTWARE"
+
+**READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.**
+
+|  |  |  |
+| --- | --- | --- |
+| **app** (*example*) | **useful** | **keyboard** |
+| **carefully** | **programmer** | **believe** |
+| **problem** | **screen** | **quickly** |
+| **information** |  |  |
+
+My father works as an IT specialist in a large office. Last week, he brought home a new (example) **app** that he helped to design. He said it was for people who want to learn how to build their own websites. I was very excited to try it on my laptop.
+
+When I opened the program, a friendly robot appeared on the (1) ______________ to explain what to do. I had to type my name using the (2) ______________ and then choose a color for my site. At first, I had a (3) ______________ because the colors didn't look right, but I read the instructions again very (4) ______________.
+
+After an hour, I finished my first page! It had a lot of (5) ______________ about my favorite hobbies. My dad couldn't (6) ______________ how fast I learned. He said that maybe one day I will become a famous (7) ______________ just like him.
+
+**(6) Now choose the best name for the story. Write a letter:**
+
+* **A.** Buying a new laptop
+* **B.** Learning to code at home
+* **C.** Playing games with a robot
+
+---
+### ĐÁP ÁN (ANSWER KEY)
+
+**BỘ ĐỀ 13:**
+
+1. **screen** (Robot xuất hiện trên màn hình)
+2. **keyboard** (Dùng bàn phím để gõ tên)
+3. **problem** (Gặp một vấn đề/lỗi về màu sắc)
+4. **carefully** (Đọc lại hướng dẫn thật cẩn thận)
+5. **information** (Trang web có nhiều thông tin về sở thích)
+6. **B. Learning to code at home** (Tiêu đề bao quát việc học lập trình)
+
+
+Image_url: https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-03-the-new-software.jpg

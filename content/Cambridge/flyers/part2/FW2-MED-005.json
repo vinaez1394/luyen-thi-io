@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-05-the-new-music-club.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "George hỏi đọc bản nhạc có khó không (difficult), Betty đáp lúc đầu thì khó nhưng giờ dễ hơn rồi (It was at first...).",
     "George hỏi giáo viên năm nay là ai (Who), Betty đáp là cô giáo Green rất tốt bụng (It’s Mrs. Green...).",
     "George hỏi tuần sau tới xem hòa nhạc được không (Can I come), Betty đồng ý với điều kiện không làm ồn (Only if you don't make any noise!)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "instrument",
+      "vocabulary_bank_id": "fl-sl-013",
+      "translation_vi": "nhạc cụ",
+      "ipa": "/ˈɪn.strʊ.mənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/instrument.mp3"
+    },
+    {
+      "word": "violin",
+      "vocabulary_bank_id": "fl-sl-046",
+      "translation_vi": "đàn vĩ cầm",
+      "ipa": "/ˌvaɪ.əˈlɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/violin.mp3"
+    },
+    {
+      "word": "concert",
+      "vocabulary_bank_id": "fl-sl-006",
+      "translation_vi": "buổi hòa nhạc",
+      "ipa": "/ˈkɒn.sət/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/concert.mp3"
+    },
+    {
+      "word": "practise",
+      "vocabulary_bank_id": "mv-sl-023",
+      "translation_vi": "luyện tập",
+      "ipa": "/ˈpræk.tɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/practise.mp3"
+    },
+    {
+      "word": "prefer",
+      "vocabulary_bank_id": "fl-vb-011",
+      "translation_vi": "thích hơn",
+      "ipa": "/prɪˈfɜːr/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/prefer.mp3"
+    }
   ]
 }

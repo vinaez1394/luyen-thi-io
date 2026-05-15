@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-04-computing-and-technology.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "medium",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a keyboard",
     "a laptop",
@@ -29,12 +29,10 @@
     "a gamer",
     "a password"
   ],
-
   "example": {
     "prompt": "This is a secret word that you use to open your computer or phone safely.",
     "answer": "a password"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,57 @@
       "prompt": "You watch this on a screen to see moving pictures and hear music or people talking.",
       "correct": "a video",
       "explanation_vi": "Video = đoạn phim/video, thứ bạn xem trên màn hình với hình ảnh động và âm thanh."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "keyboard",
+      "vocabulary_bank_id": "st-sc-024",
+      "translation_vi": "bàn phím",
+      "ipa": "/ˈkiːbɔːd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/keyboard.mp3"
+    },
+    {
+      "word": "website",
+      "vocabulary_bank_id": "mv-sc-006",
+      "translation_vi": "trang web",
+      "ipa": "/ˈwebsaɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/website.mp3"
+    },
+    {
+      "word": "printer",
+      "vocabulary_bank_id": null,
+      "translation_vi": "máy in",
+      "ipa": "/ˈprɪntə/",
+      "audio_url": null
+    },
+    {
+      "word": "battery",
+      "vocabulary_bank_id": null,
+      "translation_vi": "pin/ắc-quy",
+      "ipa": "/ˈbætərɪ/",
+      "audio_url": null
+    },
+    {
+      "word": "password",
+      "vocabulary_bank_id": null,
+      "translation_vi": "mật khẩu",
+      "ipa": "/ˈpɑːswɜːd/",
+      "audio_url": null
+    },
+    {
+      "word": "laptop",
+      "vocabulary_bank_id": null,
+      "translation_vi": "máy tính xách tay",
+      "ipa": "/ˈlæptɒp/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪnfəˈmeɪʃən/",
+      "audio_url": null
     }
   ]
 }

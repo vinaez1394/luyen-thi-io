@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-02-a-camping-trip.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Harry hỏi ai sẽ mang đèn pin (Who is bringing the torches), Ben trả lời là William có hai cái trong balo.",
     "Harry hy vọng thấy được động vật hoang dã (I hope...), Ben đồng ý (So do I) miễn là chúng không nguy hiểm.",
     "Harry rủ đi bơi (Shall we go for a swim), Ben đồng ý với điều kiện nước không quá lạnh (Only if the water isn't too freezing)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "rucksack",
+      "vocabulary_bank_id": "fl-sl-029",
+      "translation_vi": "ba lô",
+      "ipa": "/ˈrʌk.sæk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/rucksack.mp3"
+    },
+    {
+      "word": "torch",
+      "vocabulary_bank_id": "fl-sl-042",
+      "translation_vi": "đèn pin",
+      "ipa": "/tɔːtʃ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/torch.mp3"
+    },
+    {
+      "word": "blanket",
+      "vocabulary_bank_id": "mv-ho-004",
+      "translation_vi": "cái chăn",
+      "ipa": "/ˈblæŋ.kɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/blanket.mp3"
+    },
+    {
+      "word": "freezing",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lạnh buốt",
+      "ipa": "/ˈfriː.zɪŋ/",
+      "audio_url": null
+    },
+    {
+      "word": "wildlife",
+      "vocabulary_bank_id": null,
+      "translation_vi": "động vật hoang dã",
+      "ipa": "/ˈwaɪld.laɪf/",
+      "audio_url": null
+    }
   ]
 }

@@ -1,0 +1,145 @@
+{
+  "id": "FW3-HARD-002",
+  "title": "Set 2: Saving the Green Valley 🌳",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "nature",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-02-saving-the-green-valley.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "endangered",
+    "binoculars",
+    "carefully",
+    "spotted",
+    "wildlife",
+    "difficult",
+    "information",
+    "polluted",
+    "scientists"
+  ],
+  "example": {
+    "word": "environment",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Our school has a club for students who care about the ",
+    ". This month, we went to the Green Valley to study the local ",
+    ". Our teacher told us that some birds in this area are now ",
+    " because the river has become too ",
+    " for them to live near.\n\nWe sat quietly in the tall grass and used our ",
+    " to look for the birds. Suddenly, my friend ",
+    " a nest high up in an old oak tree. We wrote down a lot of information about what we saw to help the local scientists with their research.\n\nIt was a difficult day of work because it was very hot, but we felt happy. We are going to start a project to clean the river next week so the birds can return safely."
+  ],
+  "answers": [
+    "wildlife",
+    "endangered",
+    "polluted",
+    "binoculars",
+    "spotted"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A lesson about rare birds"
+      },
+      {
+        "letter": "B",
+        "text": "Swimming in the dirty river"
+      },
+      {
+        "letter": "C",
+        "text": "Growing vegetables at school"
+      }
+    ],
+    "answer": "A"
+  },
+  "explanations_vi": [
+    "Đến Thung lũng Xanh để nghiên cứu động vật hoang dã (wildlife) ở địa phương.",
+    "Một số loài chim ở khu vực này đang bị đe dọa (endangered).",
+    "Vì dòng sông đã trở nên quá ô nhiễm (polluted) để chúng có thể sống gần đó.",
+    "Dùng ống nhòm (binoculars) để tìm kiếm những con chim.",
+    "Đột nhiên, bạn tôi phát hiện ra (spotted) một cái tổ tít trên cao.",
+    "Tiêu đề A (Một bài học về các loài chim quý hiếm) là đúng nhất vì kể về chuyến đi nghiên cứu chim và bảo vệ môi trường."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "environment",
+      "vocabulary_bank_id": "fl-wa-008",
+      "translation_vi": "môi trường",
+      "ipa": "/ɪnˈvaɪ.rən.mənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/environment.mp3"
+    },
+    {
+      "word": "endangered",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đang bị đe dọa/nguy cấp",
+      "ipa": "/ɪnˈdeɪn.dʒərd/",
+      "audio_url": null
+    },
+    {
+      "word": "binoculars",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ống nhòm",
+      "ipa": "/bɪˈnɒk.jə.lərz/",
+      "audio_url": null
+    },
+    {
+      "word": "carefully",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cẩn thận",
+      "ipa": "/ˈkeə.fəl.i/",
+      "audio_url": null
+    },
+    {
+      "word": "spotted",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhìn thấy/phát hiện ra",
+      "ipa": "/ˈspɒt.ɪd/",
+      "audio_url": null
+    },
+    {
+      "word": "wildlife",
+      "vocabulary_bank_id": null,
+      "translation_vi": "động vật hoang dã",
+      "ipa": "/ˈwaɪld.laɪf/",
+      "audio_url": null
+    },
+    {
+      "word": "difficult",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khó khăn",
+      "ipa": "/ˈdɪf.ɪ.kəlt/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "polluted",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bị ô nhiễm",
+      "ipa": "/pəˈluː.tɪd/",
+      "audio_url": null
+    },
+    {
+      "word": "scientists",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhà khoa học",
+      "ipa": "/ˈsaɪ.ən.tɪsts/",
+      "audio_url": null
+    }
+  ]
+}

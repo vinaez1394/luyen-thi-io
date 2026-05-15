@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-04-the-lost-suitcase.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -109,5 +110,42 @@
     "Nhân viên hỏi thấy vali lần cuối ở đâu (Where), Sarah đáp là ở trên máy bay, dưới gầm ghế phía trước (On the plane...).",
     "Nhân viên an ủi sẽ gọi điện báo ngay khi tìm thấy, Sarah hy vọng sẽ tìm được trước khi xe buýt khởi hành (I hope...).",
     "Nhân viên đề nghị giúp mang túi xách ra taxi, Sarah lịch sự từ chối (No, thank you) vì túi không nặng lắm."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "suitcase",
+      "vocabulary_bank_id": "fl-sl-038",
+      "translation_vi": "vali",
+      "ipa": "/ˈsuːt.keɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/suitcase.mp3"
+    },
+    {
+      "word": "passport",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hộ chiếu",
+      "ipa": "/ˈpɑːs.pɔːt/",
+      "audio_url": null
+    },
+    {
+      "word": "skiing",
+      "vocabulary_bank_id": "fl-sp-008",
+      "translation_vi": "trượt tuyết",
+      "ipa": "/ˈskiː.ɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/skiing.mp3"
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "pocket",
+      "vocabulary_bank_id": "fl-cl-009",
+      "translation_vi": "túi (áo/quần)",
+      "ipa": "/ˈpɒk.ɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/pocket.mp3"
+    }
   ]
 }

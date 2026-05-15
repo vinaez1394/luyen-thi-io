@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-14-THE-NEW-COMPUTER.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,35 +12,140 @@
   "difficulty": "medium",
   "topic": "technology",
   "conversation": [
-    { "speaker": "Dad", "text": "Look! I’ve finally bought the new computer for the family.", "example": true },
-    { "speaker": "Oliver", "answerKey": "E", "example": true },
-    { "speaker": "Dad", "text": "Where do you think we should put it?" },
-    { "speaker": "Oliver", "questionIndex": 0 },
-    { "speaker": "Dad", "text": "Is it more powerful than the old one we had?" },
-    { "speaker": "Oliver", "questionIndex": 1 },
-    { "speaker": "Dad", "text": "Can you show me how to use this new software?" },
-    { "speaker": "Oliver", "questionIndex": 2 },
-    { "speaker": "Dad", "text": "How often are you going to use it for your homework?" },
-    { "speaker": "Oliver", "questionIndex": 3 },
-    { "speaker": "Dad", "text": "Remember to turn it off when you’ve finished, okay?" },
-    { "speaker": "Oliver", "questionIndex": 4 }
+    {
+      "speaker": "Dad",
+      "text": "Look! I’ve finally bought the new computer for the family.",
+      "example": true
+    },
+    {
+      "speaker": "Oliver",
+      "answerKey": "E",
+      "example": true
+    },
+    {
+      "speaker": "Dad",
+      "text": "Where do you think we should put it?"
+    },
+    {
+      "speaker": "Oliver",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Dad",
+      "text": "Is it more powerful than the old one we had?"
+    },
+    {
+      "speaker": "Oliver",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Dad",
+      "text": "Can you show me how to use this new software?"
+    },
+    {
+      "speaker": "Oliver",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Dad",
+      "text": "How often are you going to use it for your homework?"
+    },
+    {
+      "speaker": "Oliver",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Dad",
+      "text": "Remember to turn it off when you’ve finished, okay?"
+    },
+    {
+      "speaker": "Oliver",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Don't worry, I won't forget." },
-    { "letter": "B", "text": "Of course, it’s very easy to learn." },
-    { "letter": "C", "text": "I used the old one yesterday morning." },
-    { "letter": "D", "text": "Yes, it’s much faster and has more space." },
-    { "letter": "E", "text": "Wow! It looks much better than the old one." },
-    { "letter": "F", "text": "Maybe twice or three times a week." },
-    { "letter": "G", "text": "On the desk in the corner of the living room." },
-    { "letter": "H", "text": "I’m going to buy a new mouse for it." }
+    {
+      "letter": "A",
+      "text": "Don't worry, I won't forget."
+    },
+    {
+      "letter": "B",
+      "text": "Of course, it’s very easy to learn."
+    },
+    {
+      "letter": "C",
+      "text": "I used the old one yesterday morning."
+    },
+    {
+      "letter": "D",
+      "text": "Yes, it’s much faster and has more space."
+    },
+    {
+      "letter": "E",
+      "text": "Wow! It looks much better than the old one."
+    },
+    {
+      "letter": "F",
+      "text": "Maybe twice or three times a week."
+    },
+    {
+      "letter": "G",
+      "text": "On the desk in the corner of the living room."
+    },
+    {
+      "letter": "H",
+      "text": "I’m going to buy a new mouse for it."
+    }
   ],
-  "answers": ["G", "D", "B", "F", "A"],
+  "answers": [
+    "G",
+    "D",
+    "B",
+    "F",
+    "A"
+  ],
   "explanations_vi": [
     "Bố hỏi nên đặt máy tính ở đâu (Where), Oliver gợi ý Trên bàn ở góc phòng khách (On the desk in the corner of the living room).",
     "Bố hỏi máy mới có mạnh hơn máy cũ không (more powerful), Oliver đáp Có, nó nhanh hơn nhiều và có nhiều dung lượng hơn (Yes, it's much faster and has more space).",
     "Bố nhờ Oliver chỉ cách dùng phần mềm mới, Oliver đồng ý Tất nhiên rồi, nó rất dễ học (Of course, it's very easy to learn).",
     "Bố hỏi Oliver sẽ dùng máy làm bài tập bao lâu một lần (How often), Oliver đáp Chắc khoảng hai hoặc ba lần một tuần (Maybe twice or three times a week).",
     "Bố dặn nhớ tắt máy khi dùng xong, Oliver bảo Bố đừng lo, con sẽ không quên đâu (Don't worry, I won't forget)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "software",
+      "vocabulary_bank_id": null,
+      "translation_vi": "phần mềm",
+      "ipa": "/ˈsɒft.weər/",
+      "audio_url": null
+    },
+    {
+      "word": "powerful",
+      "vocabulary_bank_id": null,
+      "translation_vi": "mạnh mẽ",
+      "ipa": "/ˈpaʊ.ə.fəl/",
+      "audio_url": null
+    },
+    {
+      "word": "space",
+      "vocabulary_bank_id": "fl-wa-017",
+      "translation_vi": "dung lượng lưu trữ",
+      "ipa": "/speɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/space.mp3"
+    },
+    {
+      "word": "living room",
+      "vocabulary_bank_id": "st-ho-026",
+      "translation_vi": "phòng khách",
+      "ipa": "/ˈlɪv.ɪŋ ruːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/living%20room.mp3"
+    },
+    {
+      "word": "forget",
+      "vocabulary_bank_id": null,
+      "translation_vi": "quên",
+      "ipa": "/fəˈɡet/",
+      "audio_url": null
+    }
   ]
 }
