@@ -1,0 +1,49 @@
+
+---
+
+### BỘ ĐỀ 2: CHỦ ĐỀ THIÊN NHIÊN (NATURE)
+
+**READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.**
+
+#### **THE AMAZING GIANT PANDA**
+
+Giant pandas are perhaps (Example) **the** most famous animals in the world. They live in the high mountains of China, (1) __________ it is cool and wet.
+
+Pandas are very good (2) __________ climbing trees. They spend most of (3) __________ day eating bamboo. A panda can eat for 12 hours (4) __________ day! Although they look like bears, they (5) __________ eat much meat.
+
+In the past, there were (6) __________ many pandas in the wild, but now the number is growing (7) __________ people are protecting the forests. When a baby panda is born, it is very small. It is even (8) __________ than a stick of butter!
+
+Scientists (9) __________ studied pandas for many years to understand how to help them. Everyone loves these black and white animals (10) __________ they are so cute and friendly.
+
+| No. | Option A | Option B | Option C |
+| --- | --- | --- | --- |
+| **Ex.** | a | an | **the** |
+| **1** | which | where | who |
+| **2** | at | in | on |
+| **3** | their | they | them |
+| **4** | every | all | some |
+| **5** | don't | doesn't | didn't |
+| **6** | no | not | any |
+| **7** | because | so | but |
+| **8** | small | smaller | smallest |
+| **9** | has | have | having |
+| **10** | although | during | since |
+
+---
+
+Câu,Đáp án,Loại kiến thức,Giải thích
+1,where,Đại từ quan hệ,"Dùng ""where"" để thay thế cho nơi chốn (mountains of China)."
+2,at,Giới từ,"Cấu trúc ""Good at + V-ing/N"" (giỏi việc gì)."
+3,their,Tính từ sở hữu,"""Their day"" (ngày của chúng - số nhiều)."
+4,every,Từ định lượng,"""Every day"" (mỗi ngày) – cụm từ chỉ tần suất."
+5,don't,Phủ định hiện tại đơn,"Chủ ngữ ""they"" đi với trợ động từ ""don't""."
+6,not,Từ định lượng,"""Not many"" (không nhiều). ""No"" không đi kèm ""many""."
+7,because,Liên từ,Chỉ nguyên nhân: ...vì (because) mọi người đang bảo vệ rừng.
+8,smaller,So sánh hơn,"Có từ ""than"" nên phải dùng tính từ ngắn thêm đuôi -er."
+9,have,Thì hiện tại hoàn thành,"""Scientists"" là số nhiều + ""have"" + V3 (studied)."
+10,since,Liên từ,"Trong ngữ cảnh này ""since"" đồng nghĩa với ""because"" (vì/bởi vì)."
+
+### Phân tích kỹ thuật cho giáo viên:
+
+* **Bộ đề 2:** Kiểm tra đại từ quan hệ (*where*), giới từ đi kèm tính từ (*good at*), tính từ sở hữu (*their*), câu phủ định, so sánh hơn và hiện tại hoàn thành (*have studied*).
+

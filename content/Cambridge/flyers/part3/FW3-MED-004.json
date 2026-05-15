@@ -1,0 +1,110 @@
+{
+  "id": "FW3-MED-004",
+  "title": "Set 4: The Space Museum 🚀",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "science",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-04-the-space-museum.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "future",
+    "heavy",
+    "planets",
+    "rocket",
+    "across",
+    "sudden",
+    "science",
+    "astronaut",
+    "expensive"
+  ],
+  "example": {
+    "word": "museum",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Yesterday, my class went on a trip to the ",
+    " in the city centre. We went there to learn about space for our ",
+    " project. When we arrived, we saw a huge silver ",
+    ". It was so tall that it nearly touched the ceiling!\n\nA man who was a real ",
+    " talked to us about his job. He showed us a suit that people wear in space. He said it is very ",
+    " and difficult to walk in. We also went into a dark room to see a show about the ",
+    " like Mars and Jupiter.\n\nI bought a small toy robot in the shop before we went home. I want to be a pilot when I grow up so I can fly to the moon!"
+  ],
+  "answers": [
+    "science",
+    "rocket",
+    "astronaut",
+    "heavy",
+    "planets"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Learning about the stars"
+      },
+      {
+        "letter": "B",
+        "text": "A visit to the toy shop"
+      },
+      {
+        "letter": "C",
+        "text": "My favorite teacher"
+      }
+    ],
+    "answer": "A"
+  },
+  "explanations_vi": [
+    "Học về không gian cho dự án môn khoa học (science).",
+    "Nhìn thấy một tên lửa (rocket) bạc khổng lồ.",
+    "Một phi hành gia (astronaut) thật kể về công việc của ông ấy.",
+    "Bộ đồ phi hành gia rất nặng (heavy) và khó đi lại.",
+    "Xem chương trình về các hành tinh (planets) như Sao Hỏa và Sao Mộc.",
+    "Tiêu đề A (Học về các vì sao) là tiêu đề phù hợp nhất."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "museum",
+      "vocabulary_bank_id": "fl-pd-019",
+      "translation_vi": "bảo tàng",
+      "ipa": "/mjuːˈziː.əm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/museum.mp3"
+    },
+    {
+      "word": "science",
+      "vocabulary_bank_id": "fl-sc-019",
+      "translation_vi": "khoa học",
+      "ipa": "/ˈsaɪ.əns/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/science.mp3"
+    },
+    {
+      "word": "rocket",
+      "vocabulary_bank_id": "fl-wk-027",
+      "translation_vi": "tên lửa",
+      "ipa": "/ˈrɒk.ɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/rocket.mp3"
+    },
+    {
+      "word": "astronaut",
+      "vocabulary_bank_id": "fl-wk-005",
+      "translation_vi": "phi hành gia",
+      "ipa": "/ˈæs.trə.nɔːt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/astronaut.mp3"
+    },
+    {
+      "word": "planet",
+      "vocabulary_bank_id": "fl-wa-015",
+      "translation_vi": "hành tinh",
+      "ipa": "/ˈplæn.ɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/planet.mp3"
+    }
+  ]
+}

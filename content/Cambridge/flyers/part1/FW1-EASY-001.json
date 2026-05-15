@@ -1,9 +1,10 @@
 {
   "id": "FW1-EASY-001",
-  "title": "Flyers Reading & Writing — Part 1 — Set 1 (Easy)",
+  "title": "Flyers Part 1 — Set 1: 🦒 Animals & Everyday Places (Easy)",
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-01-things-around-us.jpg",
   "type": "flyers-part1",
   "is_free": true,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "easy",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a giraffe",
     "a library",
@@ -29,12 +29,10 @@
     "dinosaurs",
     "a farmer"
   ],
-
   "example": {
     "prompt": "When you are very ill, you go to this place to see a doctor or a nurse.",
     "answer": "a hospital"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "This is something that goes over a river so cars or people can cross it.",
       "correct": "a bridge",
       "explanation_vi": "Bridge = cây cầu, bắc qua sông để xe cộ và con người đi qua."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "giraffe",
+      "vocabulary_bank_id": "st-an-014",
+      "translation_vi": "hươu cao cổ",
+      "ipa": "/dʒɪˈræf/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/giraffe.mp3"
+    },
+    {
+      "word": "toothbrush",
+      "vocabulary_bank_id": "mv-ho-016",
+      "translation_vi": "bàn chải đánh răng",
+      "ipa": "/ˈtuːθbrʌʃ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/toothbrush.mp3"
+    },
+    {
+      "word": "umbrella",
+      "vocabulary_bank_id": "fl-sl-045",
+      "translation_vi": "ô/dù che mưa",
+      "ipa": "/ʌmˈbrɛlə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/umbrella.mp3"
+    },
+    {
+      "word": "penguins",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chim cánh cụt",
+      "ipa": "/ˈpeŋɡwɪnz/",
+      "audio_url": null
+    },
+    {
+      "word": "blanket",
+      "vocabulary_bank_id": "mv-ho-004",
+      "translation_vi": "cái chăn",
+      "ipa": "/ˈblæŋkɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/blanket.mp3"
+    },
+    {
+      "word": "playground",
+      "vocabulary_bank_id": "st-sc-042",
+      "translation_vi": "sân chơi",
+      "ipa": "/ˈpleɪɡraʊnd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/playground.mp3"
+    },
+    {
+      "word": "post office",
+      "vocabulary_bank_id": "fl-pd-024",
+      "translation_vi": "bưu điện",
+      "ipa": "/ˈpəʊst ˌɒfɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/post%20office.mp3"
+    },
+    {
+      "word": "dinosaurs",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khủng long",
+      "ipa": "/ˈdaɪnəsɔːrz/",
+      "audio_url": null
     }
   ]
 }

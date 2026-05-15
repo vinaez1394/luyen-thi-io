@@ -1,0 +1,145 @@
+{
+  "id": "FW3-HARD-007",
+  "title": "Set 7: The Endangered Forest 🌲",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "nature",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-07-the-endangered-forest.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "scientist",
+    "temperature",
+    "binoculars",
+    "disappeared",
+    "dangerous",
+    "scenery",
+    "discovered",
+    "slowly",
+    "information"
+  ],
+  "example": {
+    "word": "forest",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last summer, my aunt, who is a famous ",
+    ", took me to a remote part of the jungle. She is a ",
+    " who studies rare birds. She told me that many species have ",
+    " because the ",
+    " of the Earth is getting warmer.\n\nWe had to walk very ",
+    " through the thick trees so we wouldn't frighten the animals. I used my information to look at the top of the trees. Suddenly, I saw a bird with bright blue and silver feathers. It was beautiful! My aunt was very excited and wrote down a lot of ",
+    " in her notebook. It was a long day, but I learned how important it is to protect our nature."
+  ],
+  "answers": [
+    "scientist",
+    "disappeared",
+    "temperature",
+    "slowly",
+    "binoculars"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A dangerous walk in the city"
+      },
+      {
+        "letter": "B",
+        "text": "Searching for rare birds"
+      },
+      {
+        "letter": "C",
+        "text": "How to climb a tall tree"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Dì tôi là một nhà khoa học (scientist) chuyên nghiên cứu các loài chim quý hiếm.",
+    "Nhiều loài đã biến mất (disappeared).",
+    "Vì nhiệt độ (temperature) của Trái đất đang ngày càng nóng lên.",
+    "Chúng tôi phải đi thật chậm (slowly) qua những tán cây dày.",
+    "Tôi đã dùng ống nhòm (binoculars) để nhìn lên ngọn cây.",
+    "Tiêu đề B (Tìm kiếm các loài chim hiếm) là đúng nhất vì kể về chuyến đi rừng để tìm chim."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "forest",
+      "vocabulary_bank_id": "mv-wa-006",
+      "translation_vi": "khu rừng",
+      "ipa": "/ˈfɒr.ɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/forest.mp3"
+    },
+    {
+      "word": "scientist",
+      "vocabulary_bank_id": "fl-oc-014",
+      "translation_vi": "nhà khoa học",
+      "ipa": "/ˈsaɪəntɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/scientist.mp3"
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ",
+      "ipa": "/ˈtem.pɚ.ə.tʃɚ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "dangerous",
+      "vocabulary_bank_id": "fl-aj-004",
+      "translation_vi": "nguy hiểm",
+      "ipa": "/ˈdeɪndʒərəs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dangerous.mp3"
+    },
+    {
+      "word": "binoculars",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ống nhòm",
+      "ipa": "/bɪˈnɒk.jə.lərz/",
+      "audio_url": null
+    },
+    {
+      "word": "disappeared",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đã biến mất",
+      "ipa": "/ˌdɪs.əˈpɪərd/",
+      "audio_url": null
+    },
+    {
+      "word": "scenery",
+      "vocabulary_bank_id": null,
+      "translation_vi": "phong cảnh",
+      "ipa": "/ˈsiː.nər.i/",
+      "audio_url": null
+    },
+    {
+      "word": "discovered",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khám phá ra",
+      "ipa": "/dɪˈskʌv.ərd/",
+      "audio_url": null
+    },
+    {
+      "word": "slowly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "một cách chậm rãi",
+      "ipa": "/ˈsləʊ.li/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "id": "FW2-HARD-001",
+  "title": "Set 1: The School Robot Competition 🤖",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-01-the-school-robot-competition.jpg",
+  "type": "flyers-part2",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "robot",
+  "conversation": [
+    {
+      "speaker": "Harry",
+      "text": "Have you finished building your robot for the competition yet?",
+      "example": true
+    },
+    {
+      "speaker": "Sarah",
+      "answerKey": "F",
+      "example": true
+    },
+    {
+      "speaker": "Harry",
+      "text": "I’ve never seen a machine with so many silver wires before!"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Harry",
+      "text": "Which part of it was the most difficult to put together?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Harry",
+      "text": "What happened when you tried to turn it on this morning?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Harry",
+      "text": "We might win the first prize if it works well tomorrow."
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Harry",
+      "text": "Shall we ask the science teacher to help us check the wheels?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "The one that moves the arms, I think."
+    },
+    {
+      "letter": "B",
+      "text": "I hope so, but the other teams are very good too."
+    },
+    {
+      "letter": "C",
+      "text": "Actually, most of them are just for decoration."
+    },
+    {
+      "letter": "D",
+      "text": "Yes, he was in the laboratory an hour ago."
+    },
+    {
+      "letter": "E",
+      "text": "Nothing, because I’d forgotten to put the batteries in!"
+    },
+    {
+      "letter": "F",
+      "text": "Not quite, I’m still trying to fix the heavy metal head."
+    },
+    {
+      "letter": "G",
+      "text": "That’s a great idea. Let’s go and find him."
+    },
+    {
+      "letter": "H",
+      "text": "It’s made of plastic and some recycled wood."
+    }
+  ],
+  "answers": [
+    "C",
+    "A",
+    "E",
+    "B",
+    "G"
+  ],
+  "explanations_vi": [
+    "Harry ngạc nhiên vì có quá nhiều dây bạc (silver wires), Sarah đính chính lại (Actually) rằng hầu hết chúng chỉ để trang trí (decoration).",
+    "Harry hỏi phần nào khó lắp ráp nhất (most difficult), Sarah trả lời là phần cử động cánh tay (The one that moves the arms).",
+    "Harry hỏi điều gì xảy ra khi bật nó lên sáng nay (turn it on), Sarah trả lời Không có gì (Nothing) vì cô ấy quên lắp pin (put the batteries in).",
+    "Harry hy vọng sẽ giành giải nhất (win the first prize) nếu nó hoạt động tốt, Sarah khiêm tốn đồng ý (I hope so) nhưng cũng khen các đội khác rất giỏi.",
+    "Harry rủ hỏi giáo viên khoa học kiểm tra giùm bánh xe (check the wheels), Sarah đồng ý và rủ đi tìm thầy (That's a great idea. Let's go and find him)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "competition",
+      "vocabulary_bank_id": "fl-sp-012",
+      "translation_vi": "cuộc thi",
+      "ipa": "/ˌkɒm.pɪˈtɪʃ.ən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/competition.mp3"
+    },
+    {
+      "word": "circuit",
+      "vocabulary_bank_id": null,
+      "translation_vi": "mạch điện",
+      "ipa": "/ˈsɜː.kɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "programme",
+      "vocabulary_bank_id": "fl-sl-023",
+      "translation_vi": "lập trình",
+      "ipa": "/ˈproʊ.ɡræm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/programme.mp3"
+    },
+    {
+      "word": "sensor",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cảm biến",
+      "ipa": "/ˈsen.sər/",
+      "audio_url": null
+    },
+    {
+      "word": "engineer",
+      "vocabulary_bank_id": "fl-wk-010",
+      "translation_vi": "kỹ sư",
+      "ipa": "/ˌen.dʒɪˈnɪər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/engineer.mp3"
+    }
+  ]
+}

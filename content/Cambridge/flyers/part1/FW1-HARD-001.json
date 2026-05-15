@@ -1,9 +1,10 @@
 {
   "id": "FW1-HARD-001",
-  "title": "Flyers Reading & Writing — Part 1 — Set 1 (Hard)",
+  "title": "Flyers Part 1 — Set 1: 🎓 Education & Professions (Hard)",
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-01-education-and-professions.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "hard",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a mechanic",
     "an explorer",
@@ -29,12 +29,10 @@
     "a stadium",
     "chemistry"
   ],
-
   "example": {
     "prompt": "This is a science subject where students learn about how different gases, solids, and liquids react with each other.",
     "answer": "chemistry"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "This is a very dry part of the world where it rarely rains, and it is difficult for many plants or animals to survive there.",
       "correct": "a desert",
       "explanation_vi": "Desert = sa mạc, nơi rất khô hạn, hiếm khi có mưa và động thực vật khó sinh tồn."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "mechanic",
+      "vocabulary_bank_id": "fl-wk-017",
+      "translation_vi": "thợ sửa xe/cơ khí",
+      "ipa": "/mɪˈkænɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/mechanic.mp3"
+    },
+    {
+      "word": "explorer",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhà thám hiểm",
+      "ipa": "/ɪkˈsplɔːrə/",
+      "audio_url": null
+    },
+    {
+      "word": "university",
+      "vocabulary_bank_id": "fl-sc-027",
+      "translation_vi": "trường đại học",
+      "ipa": "/ˌjuːnɪˈvɜːsɪtɪ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/university.mp3"
+    },
+    {
+      "word": "receptionist",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lễ tân",
+      "ipa": "/rɪˈsepʃənɪst/",
+      "audio_url": null
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ",
+      "ipa": "/ˈtemprɪtʃə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "geography",
+      "vocabulary_bank_id": "fl-sc-009",
+      "translation_vi": "địa lý",
+      "ipa": "/dʒɪˈɒɡrəfɪ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/geography.mp3"
+    },
+    {
+      "word": "furniture",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đồ nội thất",
+      "ipa": "/ˈfɜːnɪtʃə/",
+      "audio_url": null
+    },
+    {
+      "word": "luggage",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hành lý",
+      "ipa": "/ˈlʌɡɪdʒ/",
+      "audio_url": null
     }
   ]
 }

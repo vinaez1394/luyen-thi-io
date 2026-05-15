@@ -1,423 +1,91 @@
 {
-  "meta": {
-    "schema_version": "1.1.0",
-    "awf_version": "4.0.2",
-    "last_updated": "2026-05-08T11:16:00+07:00"
+  "meta": { "schema_version": "1.1.0", "awf_version": "3.3.0" },
+  "project": { "name": "luyen-thi-io", "type": "Fullstack Cloudflare App", "status": "Active" },
+  "tech_stack": { 
+    "frontend": {"framework": "React", "build": "Vite"}, 
+    "backend": {"framework": "Cloudflare Workers", "routing": "Hono"}, 
+    "database": {"primary": "Cloudflare D1", "storage": "Cloudflare R2", "cache": "Cloudflare KV"} 
   },
-  "project": {
-    "name": "Luyện Thi IO",
-    "type": "EdTech Web App",
-    "status": "Active Development"
-  },
-  "tech_stack": {
-    "frontend": "React 19 + Vite",
-    "backend": "Hono on Cloudflare Workers",
-    "database": "Cloudflare D1 (SQLite) — ID: cc1f5652-8b63-45c2-8fa4-15509f0e6278",
-    "storage": "Cloudflare R2 — bucket: luyen-thi-content",
-    "cache": "Cloudflare KV",
-    "email": "Resend.com",
-    "auth": "Google OAuth via Hono",
-    "font": "Nunito (Google Fonts)",
-    "deploy": "GitHub Actions → Cloudflare Workers"
-  },
-  "database_schema": {
-    "summary": "Lưu user, hồ sơ bé, kết quả học, từ vựng, Dream Box",
-    "tables": [
-      "users — phụ huynh đăng ký Google/Email",
-      "student_profiles — hồ sơ bé (grade, pathway, theme, avatar, current_grade)",
-      "student_stats — streak, skill levels, last_quiz_id",
-      "quiz_attempts — kết quả từng bài",
-      "dream_goals — Hộp Quà Ước Mơ",
-      "student_vocabulary — SRS tracking per student per word (mastery_level, interval_days, next_review_at)",
-      "vocabulary_bank — kho từ Cambridge đa cấp (Starters/Movers/Flyers/KET/PET) với cert_order, emoji, image_url, audio_url, is_active"
-    ],
-    "grade_storage": "student_profiles.current_grade (DB) ↔ localStorage('student_grade') (FE) — sync sau khi fetch /api/student/dashboard",
-    "vocabulary_schema": {
-      "summary": "20 migrations đã seeded (remote D1). Tổng 1098 từ. 18 topics HOÀN TẤT (Starters/Movers/Flyers). Tất cả translation_vi chuẩn + emoji đầy đủ.",
-      "cert_order": {
-        "starters": 1,
-        "movers": 2,
-        "flyers": 3,
-        "ket": 4,
-        "pet": 5
-      },
-      "filter_logic": "WHERE cert_order <= N → cumulative (Movers bao gồm cả Starters data)",
-      "srs_fields": "interval_days, next_review_at, mastery_level(0/1/2), correct_count, seen_count",
-      "group_tag_rule": "group_tag PHẢI = certificate. Ví dụ: certificate='starters' → group_tag='starters'",
-      "id_convention": "{cert_prefix}-{topic_prefix}-{001}. Ví dụ: st-fd-001 (starters, food_drink, 1)",
-      "topics_seeded": [
-        {
-          "topic": "animals",
-          "counts": "31 starters / 14 movers / 22 flyers",
-          "migration": "0011-0013"
-        },
-        {
-          "topic": "family",
-          "counts": "25 starters / 9 movers / 4 flyers",
-          "migration": "0014"
-        },
-        {
-          "topic": "body_face",
-          "counts": "14 starters / 13 movers / 4 flyers",
-          "migration": "0015"
-        },
-        {
-          "topic": "clothes",
-          "counts": "18 starters / 5 movers / 14 flyers",
-          "migration": "0015"
-        },
-        {
-          "topic": "colours",
-          "counts": "14 starters / 0 movers / 6 flyers",
-          "migration": "0015"
-        },
-        {
-          "topic": "food_drink",
-          "counts": "46 starters / 20 movers / 23 flyers",
-          "migration": "0016"
-        },
-        {
-          "topic": "health",
-          "counts": "0 starters / 18 movers / 6 flyers",
-          "migration": "0016"
-        },
-        {
-          "topic": "home",
-          "counts": "43 starters / 20 movers / 20 flyers",
-          "migration": "0017"
-        },
-        {
-          "topic": "materials",
-          "counts": "1 starters / 0 movers / 8 flyers",
-          "migration": "0017"
-        },
-        {
-          "topic": "places_directions",
-          "counts": "16 starters / 29 movers / 34 flyers",
-          "migration": "0017"
-        },
-        {
-          "topic": "school",
-          "counts": "62 starters / 6 movers / 27 flyers",
-          "migration": "0017"
-        },
-        {
-          "topic": "sports_leisure",
-          "counts": "56 starters / 37 movers / 48 flyers",
-          "migration": "0018"
-        },
-        {
-          "topic": "time",
-          "counts": "11 starters / 17 movers / 51 flyers",
-          "migration": "0018"
-        },
-        {
-          "topic": "toys",
-          "counts": "23 starters / 1 movers / 0 flyers",
-          "migration": "0018"
-        },
-        {
-          "topic": "transport",
-          "counts": "15 starters / 9 movers / 16 flyers",
-          "migration": "0018"
-        },
-        {
-          "topic": "weather",
-          "counts": "1 starters / 11 movers / 3 flyers",
-          "migration": "0018"
-        },
-        {
-          "topic": "work",
-          "counts": "0 starters / 14 movers / 30 flyers",
-          "migration": "0018"
-        },
-        {
-          "topic": "world",
-          "counts": "8 starters / 24 movers / 21 flyers",
-          "migration": "0018"
-        }
-      ],
-      "topics_pending_seed": [],
-      "seeding_complete": true,
-      "translations_complete": true,
-      "emoji_complete": true,
-      "latest_migration": "0020_add_emoji_0018_topics.sql"
-    }
+  "database_schema": { 
+    "summary": "App lưu danh mục bài tập (quiz_catalog), từ vựng (vocabulary_bank), người dùng (users, student_profiles, student_vocabulary), điểm số (student_stats).",
+    "tables": ["quiz_catalog", "vocabulary_bank", "users", "student_profiles", "student_stats", "student_vocabulary"], 
+    "relationships_explained": "Người dùng có 1 student_profile, student_stats và student_vocabulary. vocabulary_bank có cột audio_url chứa URL MP3 trên CDN (https://cdn.luyenthi.io.vn/vocabulary-mp3/{word}.mp3). student_vocabulary dùng để tracking các từ vựng học sinh đã tra nghĩa, có cột 'word', 'mastery_level', 'next_review_at'." 
   },
   "api_endpoints": [
     {
-      "method": "GET",
-      "path": "/api/auth/google",
-      "desc": "OAuth redirect"
-    },
-    {
-      "method": "GET",
-      "path": "/api/auth/callback",
-      "desc": "Tạo session"
-    },
-    {
-      "method": "GET",
-      "path": "/api/auth/me",
-      "desc": "User hiện tại"
-    },
-    {
-      "method": "GET",
       "path": "/api/quiz/:id",
-      "desc": "Lấy bài quiz từ R2"
+      "explained": "Lấy dữ liệu bài tập JSON — ưu tiên từ R2 bucket (CONTENT binding), fallback về LOCAL_QUIZ_MAP (static import lúc build). Tất cả file Flyers Part1-4 đều được serve từ R2."
     },
     {
-      "method": "POST",
-      "path": "/api/quiz/:id/submit",
-      "desc": "Nộp bài, lưu kết quả"
+      "path": "/api/subjects",
+      "explained": "Lấy danh sách bài tập từ D1, có sử dụng KV Cache để tăng tốc"
     },
     {
-      "method": "POST",
+      "path": "/api/subjects/cache/invalidate",
+      "explained": "Xoá cache KV mỗi khi có bài tập mới được thêm vào DB"
+    },
+    {
+      "path": "/api/vocabulary/lesson/:grade/:topic",
+      "explained": "Lấy danh sách từ vựng kèm audio_url cho các bài tập từ vựng"
+    },
+    {
       "path": "/api/student/profile",
-      "desc": "Cập nhật hồ sơ bé"
+      "explained": "GET, POST, PATCH thông tin cá nhân của bé (avatar, displayName, grade, pathway, cambridgeLevel)"
     },
     {
-      "method": "POST",
-      "path": "/api/student/stars",
-      "desc": "Cộng sao (Hangman, Flashcard)"
-    },
-    {
-      "method": "GET",
       "path": "/api/student/dashboard",
-      "desc": "Lấy data cho DashboardPage (currentGrade, selectedPathway, streak, totalStars, skillLevels, dreamGoal)"
+      "explained": "Lấy dữ liệu tóm tắt cho dashboard bao gồm tiến độ các skill (progress-summary) và streak"
     },
     {
-      "method": "GET",
-      "path": "/api/vocabulary/topics",
-      "desc": "Danh sách topics + tiến độ học sinh. Guest: no progress. ?cert=flyers"
+      "path": "/api/student/vocab/seen",
+      "explained": "Ghi nhận từ vựng đã tra (word_id, word) vào DB để phục vụ tính năng ôn tập sau này"
     },
     {
-      "method": "GET",
-      "path": "/api/vocabulary/lesson",
-      "desc": "8 từ/session ưu tiên SRS. ?topic=animals&cert=flyers&offset=0. Guest-friendly"
-    },
-    {
-      "method": "POST",
-      "path": "/api/vocabulary/progress",
-      "desc": "Lưu kết quả PRACTICE/USE — tính SRS interval. Auth required (401 nếu guest = silent fail)"
+      "path": "/api/student/stars/deduct",
+      "explained": "Trừ sao khi user tra nghĩa từ vựng quá số lần miễn phí (thường là 3 lượt miễn phí đầu)"
     }
   ],
-  "quiz_types": {
-    "multiple-choice": "QuizEngine — 4 ô chọn 1",
-    "fill-blank": "QuizEngine — gõ vào ô trống",
-    "drag-drop-match": "QuizEngine — kéo nối 2 cột",
-    "reading-passage": "ReadingEngine — 2 sections, 4 loại câu (cloze, true-false, mc-3, write-word)",
-    "writing": "WritingEngine — 2 sections (rearrange DragDropFill + sentence-building SentenceInput)"
-  },
-  "content_inventory": {
-    "lop6_toan": "MATH-L1-P1 ... P10 (10 bài, P1-P5 free, P6-P10 premium)",
-    "cambridge_flyers_reading": "RW001, RW2-001, RW3-001 (3 bài)",
-    "cambridge_flyers_listening": "L001, L002, L003 (3 bài)",
-    "lop6_tieng_anh_reading": "READING-EASY/MED/HARD-GRADE3/4/5-P1 (9 bài Reading Passage)",
-    "lop6_tieng_anh_writing": "WRITING-EASY/MED/HARD-GRADE3/4/5-P1/P2/P3 (21 bài Writing)"
-  },
-  "r2_mapping": {
-    "MATH-L*-P*": "quizzes/lop6/toan/{ID}.json",
-    "RW*": "quizzes/cambridge/flyers/reading/{ID}.json",
-    "L00*": "quizzes/cambridge/flyers/listening/{ID}.json",
-    "READING-*": "quizzes/lop6/tieng-anh/reading/{ID}.json",
-    "WRITING-*": "quizzes/lop6/tieng-anh/writing/{ID}.json"
-  },
-  "deploy_rules": {
-    "trigger": "git push origin dev → GitHub Actions tự chạy ~1.5 phút",
-    "correct_deploy_step": "./node_modules/.bin/wrangler deploy",
-    "do_not_use": "cloudflare/wrangler-action@v3 — hay tự cập nhật gây lỗi",
-    "reporting_rule": "BẮT BUỘC mở browser kiểm tra thực tế trước khi báo 'hoàn thành'",
-    "github_secret": "CLOUDFLARE_API_TOKEN (cần: Workers Scripts Edit + D1 Edit + R2 Edit)",
-    "ci_ts_note": "CI dùng TypeScript strict hơn local. Luôn chạy npx tsc --noEmit trước khi push. Set<union>.has(string) KHÔNG được phép ở CI."
-  },
-  "subjectpage_v4": {
-    "version": "v4",
-    "commit": "606869f",
-    "deployed": "2026-05-05",
-    "components": {
-      "SkillTabBar": "Auto-detect từ lesson.skill, ẩn khi chỉ 1 kỹ năng. CSS: .sp-skill-tabs, .sp-skill-tab",
-      "GradeCard": "Đọc localStorage('student_grade'), contextual badge 🔥/🔄/✓. CSS: .sp-grade-card, .sp-grade-pill",
-      "Hero": "Pathway badge 🏫/🇬🇧 + tiêu đề môn + desc tổng hợp. CSS: .subject-page__hero-pathway-badge",
-      "GlobalHeaderGradeBadge": "Badge 'Lớp X' cạnh tên user. CSS: .gh-grade-badge (ẩn mobile <600px)"
-    },
-    "grade_logic": {
-      "source": "localStorage('student_grade') — số nguyên 3/4/5",
-      "mapping": "3 → '3-4' | 4 → '4-5' | 5 → '5-6'",
-      "fallback": "null hoặc ngoài range → '5-6'",
-      "context": "own/higher/lower dùng GRADE_ORDER constant"
-    },
-    "filter_pipeline": "lesson.skill === activeSkill → grade_target === activeGrade → difficulty === activeDiff → sort recommended↓ easy→hard",
-    "removed": [
-      "StatsBar component",
-      "free/premium filter chips",
-      "Grade tab 'Tất cả'"
-    ]
-  },
-  "features": {
-    "done": [
-      "Auth Google + Email",
-      "6 Themes CSS",
-      "App Shell (Header/Footer/MobileNav/QuizLayout)",
-      "Quiz Engine MCQ + FillBlank + DragDrop",
-      "Word Tooltip + Hangman",
-      "IA Restructure (dual pathway /cambridge + /lop6)",
-      "5-step Onboarding wizard",
-      "Dashboard + TodayMissions",
-      "ReadingEngine (9 bài, 4 loại câu hỏi)",
-      "Vocabulary bank 250 từ Cambridge Flyers",
-      "MobileBottomNav UI Fixes (Reading Submit button, Hamburger Menu)",
-      "Dashboard Progress + Grade Tracking (Grade Badges, 'Ôn tập lại' Notification)",
-      "WritingEngine (21 bài, DragDropFill + SentenceInput)",
-      "SubjectPage v4 (Skill Tabs + Grade Card + Pathway Badge + GlobalHeader Grade Badge)",
-      "Vocabulary Bank HOÀN TẤT: 1098 từ / 18 topics / 3 cấp / 20 migrations",
-      "Vocabulary UI Overhaul: Desktop scaling + Full English (Cambridge) localization + Flashcard flip fix"
-    ],
-    "todo": [
-      "Thêm bài Reading/Writing mới (các chủ đề khác)",
-      "Quiz Audio — Listening (Cloudflare Workers AI)",
-      "Weekly Report Email (Resend.com)",
-      "Dream Box + Email confirmation",
-      "PayOS payment"
-    ]
-  },
-  "known_bugs_fixed": [
-    {
-      "bug": "Trang trắng khi vào /lop6/tieng-anh/reading-*",
-      "cause": "useQuiz.ts tính quiz?.questions.length nhưng ReadingQuiz không có .questions",
-      "fix": "Optional chain + fallback sang .sections?.reduce()",
-      "file": "src/react-app/hooks/useQuiz.ts",
-      "date": "2026-05-01"
-    },
-    {
-      "bug": "Nút Submit bài Reading bị che khuất ở màn hình mobile",
-      "cause": "MobileBottomNav đè lên div có position: fixed bottom: 0",
-      "fix": "Thêm bottom: 64px ở .re-footer và tăng padding-bottom cho body (Rule CSS-03)",
-      "file": "src/react-app/components/quiz/ReadingEngine.css",
-      "date": "2026-05-02"
-    },
-    {
-      "bug": "TS2345: Argument of type 'string' not assignable to Set<union>.has()",
-      "cause": "new Set(lessons.map(l => l.skill)) infer ra Set<union_type>, nhưng SKILL_META[].key là string → has() từ chối",
-      "fix": "Explicit new Set<string>(...) + cast l.skill as string",
-      "file": "src/react-app/pages/SubjectPage.tsx",
-      "date": "2026-05-05",
-      "lesson": "CI TypeScript strict hơn local — luôn test Set<string> thay vì để TypeScript infer union Set"
-    },
-    {
-      "bug": "Giao diện bị đóng băng sau khi nộp bài Quiz trên mobile (Lỗi Click Trap)",
-      "cause": "Infinite Rendering Loop trong ReadingEngine. Component cha liên tục pass reference hàm onProgressChange mới làm re-trigger useEffect.",
-      "fix": "Xóa onProgressChange khỏi dependency array. Bấm F5 hoặc Back link thuần HTML mới thoát được.",
-      "file": "src/react-app/components/quiz/ReadingEngine.tsx",
-      "date": "2026-05-06"
-    },
-    {
-      "bug": "Layout Grid thẻ bài học bị lệch sang phải trên Mobile",
-      "cause": "Dùng `1fr` trong CSS Grid khiến cột tự động phình to (min-content) nếu text quá dài và không xuống dòng.",
-      "fix": "Chuyển thành `minmax(0, 1fr)` để ép grid tuân thủ giới hạn cột, không gây overflow ngang.",
-      "file": "src/react-app/pages/SubjectPage.css",
-      "date": "2026-05-06"
-    },
-    {
-      "bug": "Flashcard flip bị clip câu mẫu phía dưới — nội dung mặt sau bị cắt mất",
-      "cause": "position:absolute trên .learn-card__back không tính chiều cao của câu mẫu dài → card có height cố định theo mặt trước ngắn hơn",
-      "fix": "Dùng CSS Grid: .learn-card__inner { display:grid; grid-template-areas:'card'; } — cả front và back cùng chia 1 cell, card tự giãn theo mặt cao nhất",
-      "file": "src/react-app/components/vocabulary/VocabularyLesson.css",
-      "date": "2026-05-08",
-      "lesson": "Dùng CSS Grid overlay thay vì position:absolute khi cần 2 phần tử chồng nhau và cần card tự resize"
-    }
+  "business_rules": [
+    "Bài tập mới được upload JSON lên R2, sau đó thêm dòng vào D1, rồi gọi API xoá cache",
+    "Code ở nhánh `dev` deploy lên `dev.luyenthi.io.vn` (Staging)",
+    "Code ở nhánh `main` deploy lên `luyenthi.io.vn` (Production)",
+    "Phát âm từ vựng ưu tiên sử dụng MP3 từ Cloudflare R2 (audio_url), nếu rỗng hoặc lỗi sẽ fallback về trình duyệt Text-to-Speech (Web Speech API)",
+    "Cambridge có 3 level (Starters, Movers, Flyers). Dashboard chia làm 5 thẻ kỹ năng riêng biệt cho mỗi level.",
+    "Tra nghĩa từ vựng trong lúc làm bài reading có 3 lượt miễn phí, lượt 4+ sẽ trừ 1 sao.",
+    "Audio pipeline cho vocab_highlight: (1) node scripts/patch-vocab-audio.mjs → patch JSON local từ DB, (2) node scripts/upload-content-r2.mjs → upload lên R2 REMOTE. LUÔN dùng --remote flag.",
+    "vocab_highlight trong JSON bài tập có 2 cách điền audio_url: (1) Tự động qua patch-vocab-audio.mjs, (2) Thủ công điền vocabulary_bank_id + audio_url trực tiếp trong JSON."
   ],
-  "exam_luyenthi_skill": {
-    "location": "~/.gemini/antigravity/skills/exam-luyenthi/",
-    "trigger": "/tạo bài học",
-    "schemas": {
-      "mcq": "references/json-schema.md",
-      "reading_passage": "references/reading-passage-schema.md"
-    },
-    "id_formats": {
-      "reading": "READING-{DIFF}-GRADE{N}-P{NUM}",
-      "writing": "WRITING-{DIFF}-GRADE{N}-P{NUM}"
-    },
-    "content_folders": {
-      "reading": "content/lop6/tieng-anh/reading/",
-      "writing": "content/lop6/tieng-anh/writing/"
-    }
-  },
-  "business_rules": {
-    "stars": "Không bao giờ hết hạn. Chỉ trừ khi tra Word Tooltip sau hết 3 lượt free/bài",
-    "hangman_scoring": "5/5 +2⭐ | 4/5 +1⭐ | ≤3/5 = 0⭐",
-    "mastery": "Đúng 2 lần trong 2 session khác → từ 'tốt nghiệp'",
-    "premium": "Bài P6-P10 là premium, P1-P5 free",
-    "slug_policy": "Giữ nguyên /lop6 (SEO + DB consistency). KHÔNG đổi thành /luyenthilop6"
-  },
-  "vocabulary_system": {
-    "status": "LIVE — deployed 2026-05-07",
-    "url": "/cambridge/vocabulary",
-    "routes": {
-      "/cambridge/vocabulary": "VocabularyPage — chọn cert + topic grid",
-      "/cambridge/vocabulary/:topic": "VocabularyLesson — LEARN → PRACTICE → USE flow"
-    },
-    "hooks": {
-      "useVocabularyTopics": "useEffect([fetchTopics]) — cert thay đổi → re-fetch. File: hooks/useVocabularyLesson.ts",
-      "useVocabularyLesson": "useEffect([fetchLesson]) — topic/cert/offset thay đổi → re-fetch. BUG ĐÃ FIX: bỏ hasFetched.current pattern"
-    },
-    "hook_gotcha": "KHÔNG dùng if(!hasFetched.current && !isLoading) trong render body — isLoading=true lúc init khiến fetchLesson không bao giờ chạy. Phải dùng useEffect([fetchLesson]).",
-    "guest_mode": "Guest có thể học bình thường. /api/vocabulary/progress trả 401 → silent fail (không block UX)",
-    "data_seeded": [
-      "18 topics HOÀN TẤT (starters/movers/flyers): animals, family, body_face, clothes, colours, food_drink, health, home, materials, places_directions, school, sports_leisure, time, toys, transport, weather, work, world",
-      "Tổng 1098 từ trong vocabulary_bank. Tất cả translation_vi chuẩn. Tất cả có emoji.",
-      "Latest migration: 0020_add_emoji_0018_topics.sql"
-    ],
-    "ui_localization": "Toàn bộ Vocabulary module (Learn/Practice/Use/Games) bằng tiếng Anh Cambridge. GlobalHeader và main nav giữ nguyên tiếng Việt.",
-    "css_architecture": {
-      "flashcard_fix": "CSS Grid (grid-template-areas: card) thay thế position:absolute cho .learn-card__inner — tự động giãn chiều cao theo nội dung",
-      "desktop_breakpoints": "VocabularyLesson.css: mobile/tablet/desktop (400/600px). Games.css: 600px + 900px cho Practice+Use.",
-      "pmg_grid_desktop": "max-width 580px, option min-height 200px, emoji 5.5rem tại ≥900px"
-    }
-  },
-  "cambridge_page_v2": {
-    "status": "LIVE — deployed 2026-05-07",
-    "url": "/cambridge",
-    "layout": "Header → Vocabulary Hero Banner → Section label → Exam Grid",
-    "vocab_banner": "Full-width gradient tím #4f46e5→#7c3aed→#a855f7, nổi bật, link /cambridge/vocabulary",
-    "exam_grid": "3 cột desktop / 2 cột mobile (max-width: 700px)",
-    "sort_order": "CERT_ORDER: starters=1, movers=2, flyers=3, ket=4, pet=5 — sort trong component",
-    "files": [
-      "src/react-app/pages/CambridgePage.tsx",
-      "src/react-app/pages/CambridgePage.css"
-    ]
-  },
-  "knowledge_items": {
+  "features": [
+    "Dynamic Quiz Catalog (D1 + R2 + KV)",
+    "Vocabulary System with MP3/TTS Audio (PictureMatch, WordBankFill, Learn)",
+    "Vocabulary Dictionary Engine (Tra nghĩa & Phát âm in-place + Fallback TTS + DB Tracking + Trừ sao)",
+    "Flyers R&W Part 1-4 Engine (vocab_highlight panel với audio từ CDN)",
+    "Flyers R&W Part 6 Engine (Grammar/Cloze) with responsive VocabPanel & Grade Result logic",
+    "Staging & Production CI/CD separation",
+    "Cambridge Multi-level Dashboard (Starters, Movers, Flyers) & Lớp 6 Dashboard",
+    "Admin Dashboard (Planned)"
+  ],
+  "knowledge_items": { 
+    "patterns": [
+      "Staging deploy requires sed to rename worker because Vite Plugin ignores --env flag",
+      "Syncing DB with R2 assets can be done programmatically using HTTP HEAD requests against the CDN URL",
+      "Lookup Map Pattern on Frontend: Parse and format dynamic content using a generated Map from subjects.ts to avoid heavy SQL JOINs.",
+      "Frontend Auth Verification: Derive identity from session cookies in the worker context for security.",
+      "Audio URL patch pipeline: (1) wrangler d1 execute --remote --json để export word map, (2) node scripts/patch-vocab-audio.mjs để patch JSON local, (3) node scripts/upload-content-r2.mjs để upload R2 remote.",
+      "Quiz JSON serving: Worker ưu tiên R2 (env.CONTENT binding) → fallback LOCAL_QUIZ_MAP (static import). Cập nhật nội dung chỉ cần upload R2, không cần redeploy Worker."
+    ], 
     "gotchas": [
-      {
-        "title": "useVocabularyLesson fetch không chạy khi mount",
-        "problem": "isLoading=true ban đầu + guard if(!hasFetched && !isLoading) → condition luôn false → fetchLesson không bao giờ được gọi → loading mãi",
-        "solution": "Dùng useEffect(() => { fetchLesson(); }, [fetchLesson]) với fetchLesson là useCallback([topic,cert,offset])",
-        "date": "2026-05-07"
-      },
-      {
-        "title": "D1 local DB thiếu migrations khi dev mới hoặc reset",
-        "problem": "vocabulary_bank không tồn tại → API 500 → UI loading mãi + infinite API calls (React Strict Mode gọi effect 2 lần)",
-        "solution": "Apply từng migration file: wrangler d1 execute luyen-thi-db --local --file=src/worker/migrations/00XX_xxx.sql theo thứ tự",
-        "sequence": "0005_batch1 → 0006 → 0007 → 0008 → 0009_schema → 0010 → 0011 → 0012 → 0013 → 0014",
-        "date": "2026-05-07"
-      },
-      {
-        "title": "wrangler d1 migrations list lỗi internal error",
-        "problem": "wrangler d1 migrations list --remote báo internal error 7500 — bug của wrangler với migration tracking",
-        "solution": "Dùng wrangler d1 execute --remote --command \"SELECT name FROM d1_migrations ORDER BY applied_at DESC\" để xem trực tiếp",
-        "date": "2026-05-07"
-      }
-    ]
-  },
-  "cambridge_flyers": {
-    "status": "LIVE — deployed 2026-05-08",
-    "url": "/cambridge/flyers",
-    "ui_changes": "Part navigation replaces Vietnamese grade chips. UI fully in English. 'Choose a Part', Part 1-5 with 'Look and Read' descriptions. 'Coming soon' for empty parts.",
-    "dark_mode_fixes": "Part pill text uses var(--color-text), border visible for non-active pills.",
-    "files_modified": [
-      "src/react-app/pages/SubjectPage.tsx",
-      "src/react-app/pages/SubjectPage.css",
-      "src/react-app/data/subjects.ts"
-    ]
+      "Cloudflare Vite plugin overrides wrangler.json name during build",
+      "React useEffect stale closures can trap old target state during auto-play; use `useRef`.",
+      "Rules of Hooks: NEVER place useState or useEffect after early returns.",
+      "D1 silent failures on UPSERT when using incorrect column names. Always verify schema against SQL statements.",
+      "CRITICAL: Wrangler r2/d1 commands mặc định dùng LOCAL emulator. PHẢI thêm --remote flag để thao tác với Cloudflare thật. `wrangler r2 object put ... --remote`, `wrangler d1 execute ... --remote`. Không có --remote = chỉ thao tác local, KHÔNG lên cloud!",
+      "wrangler r2 object get --pipe đọc từ local emulator, không phải R2 remote thật. Dùng --remote --file để download và verify đúng nội dung từ cloud."
+    ], 
+    "conventions": [
+      "Feature branches -> merge to dev -> deploy staging -> verify -> deploy production",
+      "Scripts trong /scripts: patch-vocab-audio.mjs, upload-content-r2.mjs (--remote), find-missing-audio.mjs",
+      "Danh sách ~104 từ chưa có audio tại docs/missing_audio_words.md — cần upload MP3 lên CDN và seed vào vocabulary_bank, sau đó chạy lại patch + upload."
+    ] 
   }
 }

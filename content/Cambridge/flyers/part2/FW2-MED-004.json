@@ -1,9 +1,10 @@
 {
   "id": "FW2-MED-004",
-  "title": "Set 4: The Lost Suitcase",
+  "title": "Set 4: The Lost Suitcase 🧳",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-04-the-lost-suitcase.jpg",
   "type": "flyers-part2",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,35 +12,140 @@
   "difficulty": "medium",
   "topic": "travel",
   "conversation": [
-    { "speaker": "Officer", "text": "Can I see your ticket and your passport, please?", "example": true },
-    { "speaker": "Sarah", "answerKey": "D", "example": true },
-    { "speaker": "Officer", "text": "What does your suitcase look like, Sarah?" },
-    { "speaker": "Sarah", "questionIndex": 0 },
-    { "speaker": "Officer", "text": "And what was inside it?" },
-    { "speaker": "Sarah", "questionIndex": 1 },
-    { "speaker": "Officer", "text": "Where did you last see it?" },
-    { "speaker": "Sarah", "questionIndex": 2 },
-    { "speaker": "Officer", "text": "Don't worry. I'll call you as soon as we find it." },
-    { "speaker": "Sarah", "questionIndex": 3 },
-    { "speaker": "Officer", "text": "Would you like me to help you carry your other bags to the taxi?" },
-    { "speaker": "Sarah", "questionIndex": 4 }
+    {
+      "speaker": "Officer",
+      "text": "Can I see your ticket and your passport, please?",
+      "example": true
+    },
+    {
+      "speaker": "Sarah",
+      "answerKey": "D",
+      "example": true
+    },
+    {
+      "speaker": "Officer",
+      "text": "What does your suitcase look like, Sarah?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Officer",
+      "text": "And what was inside it?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Officer",
+      "text": "Where did you last see it?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Officer",
+      "text": "Don't worry. I'll call you as soon as we find it."
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Officer",
+      "text": "Would you like me to help you carry your other bags to the taxi?"
+    },
+    {
+      "speaker": "Sarah",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "Everything I need for my skiing holiday." },
-    { "letter": "B", "text": "I hope you can find it before the bus leaves!" },
-    { "letter": "C", "text": "It’s blue with some silver stars on it." },
-    { "letter": "D", "text": "Yes, I’ve got them right here in my pocket." },
-    { "letter": "E", "text": "No, thank you. They aren't very heavy." },
-    { "letter": "F", "text": "On the plane, under the seat in front of me." },
-    { "letter": "G", "text": "I think my dad has already paid for them." },
-    { "letter": "H", "text": "Perhaps it’s near the information desk." }
+    {
+      "letter": "A",
+      "text": "Everything I need for my skiing holiday."
+    },
+    {
+      "letter": "B",
+      "text": "I hope you can find it before the bus leaves!"
+    },
+    {
+      "letter": "C",
+      "text": "It’s blue with some silver stars on it."
+    },
+    {
+      "letter": "D",
+      "text": "Yes, I’ve got them right here in my pocket."
+    },
+    {
+      "letter": "E",
+      "text": "No, thank you. They aren't very heavy."
+    },
+    {
+      "letter": "F",
+      "text": "On the plane, under the seat in front of me."
+    },
+    {
+      "letter": "G",
+      "text": "I think my dad has already paid for them."
+    },
+    {
+      "letter": "H",
+      "text": "Perhaps it’s near the information desk."
+    }
   ],
-  "answers": ["C", "A", "F", "B", "E"],
+  "answers": [
+    "C",
+    "A",
+    "F",
+    "B",
+    "E"
+  ],
   "explanations_vi": [
     "Nhân viên hỏi hình dáng chiếc vali (look like), Sarah mô tả vali màu xanh với vài ngôi sao bạc (blue with some silver stars).",
     "Nhân viên hỏi bên trong có gì (what was inside), Sarah bảo có tất cả mọi thứ cần cho kỳ nghỉ trượt tuyết (Everything I need...).",
     "Nhân viên hỏi thấy vali lần cuối ở đâu (Where), Sarah đáp là ở trên máy bay, dưới gầm ghế phía trước (On the plane...).",
     "Nhân viên an ủi sẽ gọi điện báo ngay khi tìm thấy, Sarah hy vọng sẽ tìm được trước khi xe buýt khởi hành (I hope...).",
     "Nhân viên đề nghị giúp mang túi xách ra taxi, Sarah lịch sự từ chối (No, thank you) vì túi không nặng lắm."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "suitcase",
+      "vocabulary_bank_id": "fl-sl-038",
+      "translation_vi": "vali",
+      "ipa": "/ˈsuːt.keɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/suitcase.mp3"
+    },
+    {
+      "word": "passport",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hộ chiếu",
+      "ipa": "/ˈpɑːs.pɔːt/",
+      "audio_url": null
+    },
+    {
+      "word": "skiing",
+      "vocabulary_bank_id": "fl-sp-008",
+      "translation_vi": "trượt tuyết",
+      "ipa": "/ˈskiː.ɪŋ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/skiing.mp3"
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "pocket",
+      "vocabulary_bank_id": "fl-cl-009",
+      "translation_vi": "túi (áo/quần)",
+      "ipa": "/ˈpɒk.ɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/pocket.mp3"
+    }
   ]
 }

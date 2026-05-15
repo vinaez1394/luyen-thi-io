@@ -1,0 +1,40 @@
+
+CHỦ ĐỀ "SHOPPING FOR NEW CLOTHES" (MUA SẮM QUẦN ÁO)
+
+**Nội dung:** Cuộc hội thoại giữa khách hàng và nhân viên bán hàng trong cửa hàng quần áo.
+
+**Example:**
+**Assistant:** Can I help you find something today?
+**Customer:** **F**
+
+**Questions:**
+
+1. **Assistant:** What size do you usually wear?
+**Customer:** __________
+2. **Assistant:** Would you like to try on this green jacket?
+**Customer:** __________
+3. **Assistant:** The changing rooms are over there, next to the mirrors.
+**Customer:** __________
+4. **Assistant:** Does it fit you well, or is it too big?
+**Customer:** __________
+5. **Assistant:** How would you like to pay for it?
+**Customer:** __________
+
+**Options (A-H):**
+
+* **A.** By credit card, if that’s okay.
+* **B.** It’s a bit too tight around the shoulders.
+* **C.** I’ll go and check in the back for you.
+* **D.** Medium is usually best for me.
+* **E.** No, I think it’s too expensive.
+* **F.** Yes, please. I’m looking for a warm coat. **(Example)**
+* **G.** Great, I'll be back in a minute.
+* **H.** Yes, I’d love to. It looks very nice.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+| Bộ đề | Câu 1 | Câu 2 | Câu 3 | Câu 4 | Câu 5 |
+| --- | --- | --- | --- | --- | --- |
+| **BĐ 16** | **D** | **H** | **G** | **B** | **A** |

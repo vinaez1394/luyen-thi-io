@@ -1,0 +1,145 @@
+{
+  "id": "FW3-HARD-004",
+  "title": "Set 4: The Weather Station 🌤️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "science",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-04-the-weather-station.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "instruments",
+    "sky",
+    "sudden",
+    "temperature",
+    "environment",
+    "heavy",
+    "carefully",
+    "storm",
+    "information"
+  ],
+  "example": {
+    "word": "station",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Yesterday, our science class climbed to the top of a high hill to visit the weather ",
+    ". We wanted to learn how people know if it will be sunny or rainy. A woman named Mary showed us many different ",
+    " that measure the wind and the rain.\n\nShe explained that they check the ",
+    " every hour to see how hot or cold it is. We watched her write down all the ",
+    " on a large map. \"The ",
+    " is very important to everyone,\" she said. \"Farmers need to know about the rain, and pilots need to know about the wind.\"\n\nWhile we were there, the ",
+    " turned grey and we saw many dark clouds. Mary told us that a storm was coming, so we had to leave carefully before the rain started. It was a fascinating trip, and I learned that science is everywhere!"
+  ],
+  "answers": [
+    "instruments",
+    "temperature",
+    "information",
+    "environment",
+    "sky"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A walk in the dark forest"
+      },
+      {
+        "letter": "B",
+        "text": "Understanding the weather"
+      },
+      {
+        "letter": "C",
+        "text": "How to build a high hill"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Cô Mary chỉ cho chúng tôi nhiều thiết bị/dụng cụ (instruments) khác nhau để đo gió và mưa.",
+    "Họ kiểm tra nhiệt độ (temperature) mỗi giờ để xem nóng hay lạnh.",
+    "Chúng tôi thấy cô ấy ghi lại tất cả thông tin (information) lên một bản đồ lớn.",
+    "Môi trường (environment) rất quan trọng đối với mọi người.",
+    "Bầu trời (sky) chuyển sang màu xám và có nhiều mây đen.",
+    "Tiêu đề B (Tìm hiểu về thời tiết) là đúng nhất vì kể về chuyến đi học hỏi tại trạm thời tiết."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "station",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trạm",
+      "ipa": "/ˈsteɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "sky",
+      "vocabulary_bank_id": "mv-we-006",
+      "translation_vi": "bầu trời",
+      "ipa": "/skaɪ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sky.mp3"
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ",
+      "ipa": "/ˈtem.pɚ.ə.tʃɚ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "environment",
+      "vocabulary_bank_id": "fl-wa-008",
+      "translation_vi": "môi trường",
+      "ipa": "/ɪnˈvaɪ.rən.mənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/environment.mp3"
+    },
+    {
+      "word": "storm",
+      "vocabulary_bank_id": "fl-we-003",
+      "translation_vi": "cơn bão",
+      "ipa": "/stɔːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/storm.mp3"
+    },
+    {
+      "word": "instruments",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thiết bị/dụng cụ",
+      "ipa": "/ˈɪn.strə.mənts/",
+      "audio_url": null
+    },
+    {
+      "word": "sudden",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đột ngột",
+      "ipa": "/ˈsʌd.ən/",
+      "audio_url": null
+    },
+    {
+      "word": "heavy",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nặng hạt",
+      "ipa": "/ˈhev.i/",
+      "audio_url": null
+    },
+    {
+      "word": "carefully",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cẩn thận",
+      "ipa": "/ˈkeə.fəl.i/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    }
+  ]
+}

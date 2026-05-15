@@ -88,11 +88,39 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+.pmg__word-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 .pmg__word {
   font-size: 2rem;
   font-weight: 800;
   color: var(--color-text);
   margin: 0;
+}
+/* Nút phát âm 🔊 */
+.pmg__speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-light, #ede9fe);
+  border: 2px solid var(--color-primary, #6366f1);
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  flex-shrink: 0;
+}
+.pmg__speak-btn:hover {
+  background: var(--color-primary, #6366f1);
+  transform: scale(1.1);
+}
+.pmg__speak-btn:active {
+  transform: scale(0.95);
 }
 .pmg__ipa {
   font-size: 0.9rem;

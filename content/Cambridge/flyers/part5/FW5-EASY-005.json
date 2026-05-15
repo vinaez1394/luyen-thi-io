@@ -1,0 +1,157 @@
+{
+  "id": "FW5-EASY-005",
+  "title": "Set 5: A Day at the Beach 🏖️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 5,
+  "type": "flyers-part5",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "topic": "holidays",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-05-a-day-at-the-beach.jpg",
+  "instructions_en": "LOOK AT THE PICTURE AND READ THE STORY. WRITE SOME WORDS TO COMPLETE THE SENTENCES ABOUT THE STORY. YOU CAN USE 1, 2, OR 3 WORDS.",
+  "passage": "Jack's family went to the seaside for the weekend. On Saturday morning, the sun was shining brightly and the sea looked calm and beautiful.\nJack and his sister Amy ran straight to the beach and took off their shoes. They spent over an hour building a large sandcastle near the water. Jack wanted to make his castle the biggest one on the whole beach, so he worked very hard.\nWhile Amy was looking in a rock pool, she found a small crab hiding under a stone. She carefully picked it up and showed it to Jack. They both thought it was wonderful, and they put it back in the water gently when they had finished looking at it.\nJust before lunch, their mother could not find her sunglasses. She was worried because they were her favourite pair. Luckily, a kind lifeguard had found them on the sand near their towels and brought them back.\nFor lunch, the family sat on the promenade and ate fish and chips together. The food was hot and delicious. Although Jack's shoulders were a little red from the sun, he said it was the best day of his holiday.",
+  "examples": [
+    {
+      "number": 1,
+      "sentence": "The sea looked calm and _____ on Saturday morning.",
+      "answer": "beautiful"
+    },
+    {
+      "number": 2,
+      "sentence": "Jack and Amy _____ to the beach and took off their shoes.",
+      "answer": "ran"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "sentence": "Jack and his sister spent over an hour building a large _____ near the water.",
+      "accepted_answers": [
+        "sandcastle",
+        "sand castle"
+      ],
+      "passage_highlight": "building a large sandcastle near the water",
+      "explanation_vi": "Hai anh em Jack mất hơn một tiếng đồng hồ để xây một lâu đài cát to (a large sandcastle) gần mép nước."
+    },
+    {
+      "number": 2,
+      "sentence": "Jack wanted to build the _____ sandcastle on the whole beach.",
+      "accepted_answers": [
+        "biggest"
+      ],
+      "passage_highlight": "Jack wanted to make his castle the biggest one on the whole beach",
+      "explanation_vi": "Jack muốn lâu đài của mình là cái lớn nhất (the biggest one) trên toàn bãi biển, nên em ấy đã làm việc rất chăm chỉ."
+    },
+    {
+      "number": 3,
+      "sentence": "Amy found a small _____ hiding under a stone in the rock pool.",
+      "accepted_answers": [
+        "crab"
+      ],
+      "passage_highlight": "she found a small crab hiding under a stone",
+      "explanation_vi": "Amy tìm thấy một con cua nhỏ (a small crab) đang trốn dưới một hòn đá trong vũng nước."
+    },
+    {
+      "number": 4,
+      "sentence": "After looking at the crab, they put it back in the _____ gently.",
+      "accepted_answers": [
+        "water",
+        "sea",
+        "rock pool"
+      ],
+      "passage_highlight": "they put it back in the water gently",
+      "explanation_vi": "Sau khi ngắm xong, hai anh em nhẹ nhàng thả con cua trở lại xuống nước (the water)."
+    },
+    {
+      "number": 5,
+      "sentence": "A _____ had found their mother's sunglasses on the sand.",
+      "accepted_answers": [
+        "lifeguard",
+        "kind lifeguard"
+      ],
+      "passage_highlight": "a kind lifeguard had found them on the sand near their towels",
+      "explanation_vi": "Một nhân viên cứu hộ tốt bụng (a kind lifeguard) đã tìm thấy kính mắt của mẹ trên bãi cát gần khăn tắm của họ."
+    },
+    {
+      "number": 6,
+      "sentence": "For lunch, the family ate _____ on the promenade.",
+      "accepted_answers": [
+        "fish and chips"
+      ],
+      "passage_highlight": "ate fish and chips together",
+      "explanation_vi": "Vào bữa trưa, cả gia đình ngồi trên vỉa hè ven biển và ăn cá với khoai tây chiên (fish and chips)."
+    },
+    {
+      "number": 7,
+      "sentence": "Jack's _____ were a little red from the sun.",
+      "accepted_answers": [
+        "shoulders",
+        "shoulder"
+      ],
+      "passage_highlight": "Jack's shoulders were a little red from the sun",
+      "explanation_vi": "Vai của Jack (Jack's shoulders) bị đỏ một chút do nắng, nhưng em vẫn nói đây là ngày đẹp nhất của kỳ nghỉ."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "seaside",
+      "vocabulary_bank_id": "fl-hl-009",
+      "translation_vi": "bãi biển, vùng biển",
+      "ipa": "/ˈsiːˌsaɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/seaside.mp3"
+    },
+    {
+      "word": "sandcastle",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lâu đài cát",
+      "ipa": "/ˈsænd.kɑː.sl̩/",
+      "audio_url": null
+    },
+    {
+      "word": "rock pool",
+      "vocabulary_bank_id": null,
+      "translation_vi": "vũng nước đá (ở bãi biển)",
+      "ipa": "/ˈrɒk puːl/",
+      "audio_url": null
+    },
+    {
+      "word": "crab",
+      "vocabulary_bank_id": "fl-an-007",
+      "translation_vi": "con cua",
+      "ipa": "/kræb/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/crab.mp3"
+    },
+    {
+      "word": "sunglasses",
+      "vocabulary_bank_id": "fl-cl-018",
+      "translation_vi": "kính râm",
+      "ipa": "/ˈsʌnˌɡlɑː.sɪz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/sunglasses.mp3"
+    },
+    {
+      "word": "lifeguard",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhân viên cứu hộ",
+      "ipa": "/ˈlaɪfˌɡɑːrd/",
+      "audio_url": null
+    },
+    {
+      "word": "promenade",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đường đi dạo ven biển",
+      "ipa": "/ˌprɒm.əˈnɑːd/",
+      "audio_url": null
+    },
+    {
+      "word": "shoulders",
+      "vocabulary_bank_id": "fl-bd-011",
+      "translation_vi": "vai (phần cơ thể)",
+      "ipa": "/ˈʃəʊl.dərz/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/shoulder.mp3"
+    }
+  ]
+}

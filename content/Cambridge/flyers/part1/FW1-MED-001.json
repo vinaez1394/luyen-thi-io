@@ -1,9 +1,10 @@
 {
   "id": "FW1-MED-001",
-  "title": "Flyers Reading & Writing — Part 1 — Set 1 (Medium)",
+  "title": "Flyers Part 1 — Set 1: ✈️ Jobs, Travel & Places (Medium)",
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-01-jobs-travel-and-places.jpg",
   "type": "flyers-part1",
   "is_free": true,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "medium",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a uniform",
     "a dictionary",
@@ -29,12 +29,10 @@
     "soap",
     "a flashlight"
   ],
-
   "example": {
     "prompt": "When you want to cut meat or vegetables into small pieces for cooking, you can use this.",
     "answer": "a knife"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "You can go to this place to see a play, a musical, or sometimes a famous singer.",
       "correct": "a theatre",
       "explanation_vi": "Theatre = nhà hát, nơi xem kịch, nhạc kịch hoặc ca sĩ biểu diễn."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "uniform",
+      "vocabulary_bank_id": "fl-cl-014",
+      "translation_vi": "đồng phục",
+      "ipa": "/ˈjuːnɪfɔːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/uniform.mp3"
+    },
+    {
+      "word": "dictionary",
+      "vocabulary_bank_id": "fl-sc-007",
+      "translation_vi": "từ điển",
+      "ipa": "/ˈdɪkʃənərɪ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dictionary.mp3"
+    },
+    {
+      "word": "stadium",
+      "vocabulary_bank_id": "fl-pd-029",
+      "translation_vi": "sân vận động",
+      "ipa": "/ˈsteɪdiəm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/stadium.mp3"
+    },
+    {
+      "word": "journalist",
+      "vocabulary_bank_id": "fl-wk-015",
+      "translation_vi": "nhà báo",
+      "ipa": "/ˈdʒɜːnəlɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/journalist.mp3"
+    },
+    {
+      "word": "suitcase",
+      "vocabulary_bank_id": "fl-sl-038",
+      "translation_vi": "vali",
+      "ipa": "/ˈsuːtkeɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/suitcase.mp3"
+    },
+    {
+      "word": "ambulance",
+      "vocabulary_bank_id": "fl-wk-003",
+      "translation_vi": "xe cứu thương",
+      "ipa": "/ˈæmbjʊləns/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/ambulance.mp3"
+    },
+    {
+      "word": "passport",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hộ chiếu",
+      "ipa": "/ˈpɑːspɔːt/",
+      "audio_url": null
+    },
+    {
+      "word": "environment",
+      "vocabulary_bank_id": "fl-wa-008",
+      "translation_vi": "môi trường",
+      "ipa": "/ɪnˈvaɪərənmənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/environment.mp3"
     }
   ]
 }

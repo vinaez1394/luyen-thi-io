@@ -1,0 +1,151 @@
+{
+  "id": "FW2-MED-012",
+  "title": "Set 12: A Visit to the Doctor 🩺",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-12-A-VISIT-TO-THE-DOCTOR.jpg",
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "health",
+  "conversation": [
+    {
+      "speaker": "Doctor",
+      "text": "Good morning, Daisy. How are you feeling today?",
+      "example": true
+    },
+    {
+      "speaker": "Daisy",
+      "answerKey": "D",
+      "example": true
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Oh dear. When did your stomach start to hurt?"
+    },
+    {
+      "speaker": "Daisy",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Did you eat anything unusual yesterday evening?"
+    },
+    {
+      "speaker": "Daisy",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Doctor",
+      "text": "You should stay in bed and drink lots of water."
+    },
+    {
+      "speaker": "Daisy",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Do you need some medicine to help you feel better?"
+    },
+    {
+      "speaker": "Daisy",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Shall I call your mum to come and collect you?"
+    },
+    {
+      "speaker": "Daisy",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "I'll try to do that, thank you."
+    },
+    {
+      "letter": "B",
+      "text": "Just after I finished my dinner."
+    },
+    {
+      "letter": "C",
+      "text": "I’m going to the chemist's now."
+    },
+    {
+      "letter": "D",
+      "text": "Not very well. I have a stomach ache."
+    },
+    {
+      "letter": "E",
+      "text": "Yes, please. She’s waiting in the car."
+    },
+    {
+      "letter": "F",
+      "text": "Only some fish and a bowl of rice."
+    },
+    {
+      "letter": "G",
+      "text": "No, I don’t like going to the hospital."
+    },
+    {
+      "letter": "H",
+      "text": "Yes, if you think it will help."
+    }
+  ],
+  "answers": [
+    "B",
+    "F",
+    "A",
+    "H",
+    "E"
+  ],
+  "explanations_vi": [
+    "Bác sĩ hỏi bụng bắt đầu đau từ khi nào (When), Daisy đáp Ngay sau khi em ăn xong bữa tối (Just after I finished my dinner).",
+    "Bác sĩ hỏi tối qua có ăn gì lạ không (eat anything unusual), Daisy nói Chỉ ăn một ít cá và một bát cơm (Only some fish and a bowl of rice).",
+    "Bác sĩ khuyên nên ở trên giường và uống nhiều nước, Daisy nói Em sẽ cố gắng làm vậy, cảm ơn bác sĩ (I'll try to do that, thank you).",
+    "Bác sĩ hỏi có cần uống thuốc cho khỏe hơn không (need some medicine), Daisy bảo Có, nếu bác sĩ nghĩ nó sẽ giúp ích (Yes, if you think it will help).",
+    "Bác sĩ hỏi có nên gọi mẹ đến đón không (call your mum to come and collect you), Daisy đáp Có ạ. Mẹ đang đợi trong xe (Yes, please. She's waiting in the car)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "headache",
+      "vocabulary_bank_id": "mv-hl-009",
+      "translation_vi": "đau đầu",
+      "ipa": "/ˈhed.eɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/headache.mp3"
+    },
+    {
+      "word": "medicine",
+      "vocabulary_bank_id": "fl-hl-005",
+      "translation_vi": "thuốc",
+      "ipa": "/ˈmed.ɪ.sɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/medicine.mp3"
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ / sốt",
+      "ipa": "/ˈtem.prɪ.tʃər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "prescription",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đơn thuốc",
+      "ipa": "/prɪˈskrɪp.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "recover",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hồi phục",
+      "ipa": "/rɪˈkʌv.ər/",
+      "audio_url": null
+    }
+  ]
+}

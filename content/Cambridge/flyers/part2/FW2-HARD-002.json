@@ -1,0 +1,151 @@
+{
+  "id": "FW2-HARD-002",
+  "title": "Set 2: A Mysterious Visit to the Museum 🏺",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-02-mysterious-visit-to-the-museum.jpg",
+  "type": "flyers-part2",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "museum",
+  "conversation": [
+    {
+      "speaker": "William",
+      "text": "I thought the museum was going to be boring, but I was wrong!",
+      "example": true
+    },
+    {
+      "speaker": "Betty",
+      "answerKey": "C",
+      "example": true
+    },
+    {
+      "speaker": "William",
+      "text": "Why aren't we allowed to take any photos of the gold statues?"
+    },
+    {
+      "speaker": "Betty",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "William",
+      "text": "Look! That ancient map shows a secret path under the castle."
+    },
+    {
+      "speaker": "Betty",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "William",
+      "text": "If we had enough time, I’d love to see the dinosaur bones again."
+    },
+    {
+      "speaker": "Betty",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "William",
+      "text": "You didn't leave your umbrella in the gift shop, did you?"
+    },
+    {
+      "speaker": "Betty",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "William",
+      "text": "Someone told me that this building used to be a king's palace."
+    },
+    {
+      "speaker": "Betty",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "So it does! I wonder where it leads to."
+    },
+    {
+      "letter": "B",
+      "text": "I'm not sure, but the light from the camera might damage them."
+    },
+    {
+      "letter": "C",
+      "text": "Me too! It’s the most interesting place I’ve ever been to."
+    },
+    {
+      "letter": "D",
+      "text": "Oh no! I think I must have left it by the door."
+    },
+    {
+      "letter": "E",
+      "text": "No, it’s much older than that, actually."
+    },
+    {
+      "letter": "F",
+      "text": "That’s right. It was built over five hundred years ago."
+    },
+    {
+      "letter": "G",
+      "text": "Unfortunately, it’s closing in ten minutes, so we can’t."
+    },
+    {
+      "letter": "H",
+      "text": "Yes, I’ll take one when the guard isn’t looking."
+    }
+  ],
+  "answers": [
+    "B",
+    "A",
+    "G",
+    "D",
+    "F"
+  ],
+  "explanations_vi": [
+    "William hỏi tại sao không được chụp ảnh các bức tượng vàng (gold statues), Betty đáp không chắc lắm nhưng có thể do ánh sáng từ máy ảnh (light from the camera) sẽ làm hỏng chúng.",
+    "William chỉ vào bản đồ cổ (ancient map) chỉ ra lối đi bí mật, Betty đồng ý (So it does!) và tự hỏi nó dẫn đến đâu.",
+    "William nói nếu có đủ thời gian sẽ muốn xem xương khủng long lần nữa, Betty bảo không được vì bảo tàng sẽ đóng cửa trong 10 phút nữa (closing in ten minutes).",
+    "William hỏi Betty có để quên ô (umbrella) trong cửa hàng lưu niệm không, Betty giật mình (Oh no!) và nghĩ rằng mình để quên ở cửa.",
+    "William nghe nói tòa nhà này từng là cung điện của vua (king's palace), Betty xác nhận đúng vậy (That's right) và nói nó được xây hơn 500 năm trước."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "exhibition",
+      "vocabulary_bank_id": null,
+      "translation_vi": "triển lãm",
+      "ipa": "/ˌek.sɪˈbɪʃ.ən/",
+      "audio_url": null
+    },
+    {
+      "word": "ancient",
+      "vocabulary_bank_id": "fl-aj-001",
+      "translation_vi": "cổ đại",
+      "ipa": "/ˈeɪn.ʃənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/ancient.mp3"
+    },
+    {
+      "word": "artefact",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đồ vật cổ",
+      "ipa": "/ˈɑː.tɪ.fækt/",
+      "audio_url": null
+    },
+    {
+      "word": "guide",
+      "vocabulary_bank_id": "fl-oc-007",
+      "translation_vi": "người hướng dẫn",
+      "ipa": "/ɡaɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/guide.mp3"
+    },
+    {
+      "word": "fascinating",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thú vị",
+      "ipa": "/ˈfæs.ɪ.neɪ.tɪŋ/",
+      "audio_url": null
+    }
+  ]
+}

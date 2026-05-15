@@ -1,9 +1,10 @@
 {
   "id": "FW1-HARD-003",
-  "title": "Flyers Reading & Writing — Part 1 — Set 3 (Hard)",
+  "title": "Flyers Part 1 — Set 3: 🎭 Society & Culture (Hard)",
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-03-society-and-culture.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "hard",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a journalist",
     "a fossil",
@@ -29,12 +29,10 @@
     "a platform",
     "a guest"
   ],
-
   "example": {
     "prompt": "This is a short period of time when you visit a person or a place to learn about it, often with a guide.",
     "answer": "a tour"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,57 @@
       "prompt": "This is a person who has been invited to stay in someone’s home or is staying at a hotel.",
       "correct": "a guest",
       "explanation_vi": "Guest = khách, người được mời đến ở nhà ai đó hoặc đang ở khách sạn."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "journalist",
+      "vocabulary_bank_id": "fl-wk-015",
+      "translation_vi": "nhà báo",
+      "ipa": "/ˈdʒɜːnəlɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/journalist.mp3"
+    },
+    {
+      "word": "fossil",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hóa thạch",
+      "ipa": "/ˈfɒsəl/",
+      "audio_url": null
+    },
+    {
+      "word": "reptile",
+      "vocabulary_bank_id": null,
+      "translation_vi": "loài bò sát",
+      "ipa": "/ˈreptaɪl/",
+      "audio_url": null
+    },
+    {
+      "word": "appointment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cuộc hẹn",
+      "ipa": "/əˈpɔɪntmənt/",
+      "audio_url": null
+    },
+    {
+      "word": "schedule",
+      "vocabulary_bank_id": "fl-tm-007",
+      "translation_vi": "lịch trình/thời khóa biểu",
+      "ipa": "/ˈʃedjuːl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/schedule.mp3"
+    },
+    {
+      "word": "platform",
+      "vocabulary_bank_id": "fl-tr-008",
+      "translation_vi": "sân ga/bục",
+      "ipa": "/ˈplætfɔːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/platform.mp3"
+    },
+    {
+      "word": "manager",
+      "vocabulary_bank_id": "fl-wk-016",
+      "translation_vi": "người quản lý",
+      "ipa": "/ˈmænɪdʒə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/manager.mp3"
     }
   ]
 }

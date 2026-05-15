@@ -51,7 +51,9 @@ export function useSubjects({ pathway, subject }: UseSubjectsOptions) {
             in_pool: Boolean(row.in_pool),
             recommended: Boolean(row.recommended),
             est_minutes: row.est_minutes,
+            image_url: row.image_url ?? null,
           }))
+
         );
         setError(null);
       })

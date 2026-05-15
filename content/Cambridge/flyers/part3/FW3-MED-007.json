@@ -1,0 +1,115 @@
+{
+  "id": "FW3-MED-007",
+  "title": "Set 7: The Cooking Competition 👨‍🍳",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "cooking",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-07-the-cooking-competition.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "together",
+    "dangerously",
+    "wait",
+    "smelt",
+    "flour",
+    "silver",
+    "strange",
+    "hungry",
+    "tomorrow"
+  ],
+  "example": {
+    "word": "kitchen",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last Saturday, my sister and I decided to enter a cooking competition. We spent all morning in the ",
+    " preparing a special chocolate cake. First, we mixed the sugar, eggs, and ",
+    " in a large bowl. It was messy, but we had a lot of fun working ",
+    ".\n\nWhen we put the cake in the oven, the house soon ",
+    " delicious. I was very ",
+    " and wanted to eat it immediately, but my sister said we had to ",
+    " for it to cool down.\n\nWhen the judges tasted our cake, they smiled and gave us a small silver cup. We were so proud! We decided to bake another cake for our grandmother's birthday next week."
+  ],
+  "answers": [
+    "flour",
+    "together",
+    "smelt",
+    "hungry",
+    "wait"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "A day at the restaurant" },
+      { "letter": "B", "text": "Baking a winning cake" },
+      { "letter": "C", "text": "Buying eggs at the shop" }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Trộn đường, trứng và bột mì (flour) trong một cái bát lớn.",
+    "Làm việc cùng nhau (together) rất vui.",
+    "Khi bánh vào lò, căn nhà có mùi thơm (smelt - quá khứ của smell).",
+    "Cảm thấy đói (hungry) và muốn ăn ngay lập tức.",
+    "Chị nói phải chờ (wait) cho bánh nguội.",
+    "Tiêu đề B (Nướng chiếc bánh chiến thắng) tóm tắt đúng nhất: hai chị em nướng bánh và giành được chiếc cúp bạc nhỏ."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "kitchen",
+      "vocabulary_bank_id": "st-ho-024",
+      "translation_vi": "nhà bếp",
+      "ipa": "/ˈkɪtʃ.ɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/kitchen.mp3"
+    },
+    {
+      "word": "flour",
+      "vocabulary_bank_id": "fl-fd-006",
+      "translation_vi": "bột mì",
+      "ipa": "/flaʊr/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/flour.mp3"
+    },
+    {
+      "word": "together",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cùng nhau",
+      "ipa": "/təˈɡeð.ər/",
+      "audio_url": null
+    },
+    {
+      "word": "smelt",
+      "vocabulary_bank_id": null,
+      "translation_vi": "có mùi (quá khứ của smell)",
+      "ipa": "/smelt/",
+      "audio_url": null
+    },
+    {
+      "word": "hungry",
+      "vocabulary_bank_id": "mv-fd-007",
+      "translation_vi": "đói bụng",
+      "ipa": "/ˈhʌŋ.ɡri/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/hungry.mp3"
+    },
+    {
+      "word": "wait",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chờ đợi",
+      "ipa": "/weɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "silver",
+      "vocabulary_bank_id": "fl-ma-006",
+      "translation_vi": "bạc (kim loại)",
+      "ipa": "/ˈsɪl.və/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/silver.mp3"
+    }
+  ]
+}

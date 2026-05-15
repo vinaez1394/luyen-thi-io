@@ -1,0 +1,151 @@
+{
+  "id": "FW2-MED-013",
+  "title": "Set 13: Cleaning the Beach 🏖️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-13-CLEANING-THE-BEACH.jpg",
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "environment",
+  "conversation": [
+    {
+      "speaker": "Ben",
+      "text": "Are you ready for the beach clean-up today, Vicky?",
+      "example": true
+    },
+    {
+      "speaker": "Vicky",
+      "answerKey": "F",
+      "example": true
+    },
+    {
+      "speaker": "Ben",
+      "text": "Where is everyone meeting this morning?"
+    },
+    {
+      "speaker": "Vicky",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Ben",
+      "text": "What kind of rubbish do you think we will find?"
+    },
+    {
+      "speaker": "Vicky",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Ben",
+      "text": "Who is going to bring the large plastic bags?"
+    },
+    {
+      "speaker": "Vicky",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Ben",
+      "text": "Shall we go for a pizza after we finish the work?"
+    },
+    {
+      "speaker": "Vicky",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Ben",
+      "text": "I hope the beach looks much better this evening!"
+    },
+    {
+      "speaker": "Vicky",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "I’m sure it will if we work hard."
+    },
+    {
+      "letter": "B",
+      "text": "Probably lots of old bottles and bags."
+    },
+    {
+      "letter": "C",
+      "text": "No, the water is too cold for swimming."
+    },
+    {
+      "letter": "D",
+      "text": "Our teacher said he had some in his car."
+    },
+    {
+      "letter": "E",
+      "text": "That’s a great idea. I’m already hungry!"
+    },
+    {
+      "letter": "F",
+      "text": "Yes, I’ve got my gloves and my hat."
+    },
+    {
+      "letter": "G",
+      "text": "Just near the old wooden lighthouse."
+    },
+    {
+      "letter": "H",
+      "text": "I’ve been there many times before."
+    }
+  ],
+  "answers": [
+    "G",
+    "B",
+    "D",
+    "E",
+    "A"
+  ],
+  "explanations_vi": [
+    "Ben hỏi sáng nay mọi người gặp nhau ở đâu (Where), Vicky trả lời Ở ngay gần ngọn hải đăng bằng gỗ cũ (Just near the old wooden lighthouse).",
+    "Ben hỏi sẽ tìm thấy loại rác nào (What kind of rubbish), Vicky đoán Chắc là nhiều chai lọ và túi ni lông cũ (Probably lots of old bottles and bags).",
+    "Ben hỏi ai sẽ mang túi ni lông to đến (Who), Vicky đáp Thầy giáo bảo thầy có một ít trong ô tô (Our teacher said he had some in his car).",
+    "Ben rủ đi ăn pizza sau khi làm xong (go for a pizza after), Vicky hào hứng khen Ý hay đấy. Tớ đã thấy đói rồi! (That's a great idea. I'm already hungry!).",
+    "Ben hy vọng bãi biển sẽ trông đẹp hơn vào tối nay, Vicky đồng tình Tớ chắc chắn nó sẽ đẹp hơn nếu chúng ta làm việc chăm chỉ (I'm sure it will if we work hard)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "rubbish",
+      "vocabulary_bank_id": null,
+      "translation_vi": "rác thải",
+      "ipa": "/ˈrʌb.ɪʃ/",
+      "audio_url": null
+    },
+    {
+      "word": "lighthouse",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ngọn hải đăng",
+      "ipa": "/ˈlaɪt.haʊs/",
+      "audio_url": null
+    },
+    {
+      "word": "gloves",
+      "vocabulary_bank_id": null,
+      "translation_vi": "găng tay",
+      "ipa": "/ɡlʌvz/",
+      "audio_url": null
+    },
+    {
+      "word": "plastic",
+      "vocabulary_bank_id": "fl-ma-005",
+      "translation_vi": "nhựa",
+      "ipa": "/ˈplæs.tɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/plastic.mp3"
+    },
+    {
+      "word": "environment",
+      "vocabulary_bank_id": "fl-wa-008",
+      "translation_vi": "môi trường",
+      "ipa": "/ɪnˈvaɪ.rən.mənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/environment.mp3"
+    }
+  ]
+}

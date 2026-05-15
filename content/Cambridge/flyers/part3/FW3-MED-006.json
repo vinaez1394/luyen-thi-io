@@ -1,0 +1,136 @@
+{
+  "id": "FW3-MED-006",
+  "title": "Set 6: The Big Football Match ⚽",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "sports",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-06-the-big-football-match.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "gold",
+    "scored",
+    "cup",
+    "quickly",
+    "players",
+    "silver",
+    "expensive",
+    "match",
+    "believe"
+  ],
+  "example": {
+    "word": "stadium",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Yesterday was a very special day for our school team. We went to the city ",
+    " to play in the final football competition. There were hundreds of people there watching us.\n\nThe ",
+    " on the other team were very tall and strong, but we weren't afraid. We played the ",
+    " for over an hour. It was very difficult. Then, in the last five minutes, my friend Harry ran ",
+    " with the ball and ",
+    " a great goal!\n\nWe were so happy when the whistle blew. The teacher gave us a beautiful ",
+    " to take back to our school. We all felt like famous stars! My parents took the whole team out for pizza to celebrate our victory."
+  ],
+  "answers": [
+    "players",
+    "match",
+    "quickly",
+    "scored",
+    "cup"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "Winning the competition" },
+      { "letter": "B", "text": "Buying new football boots" },
+      { "letter": "C", "text": "A rainy day in the city" }
+    ],
+    "answer": "A"
+  },
+  "explanations_vi": [
+    "Các cầu thủ (players) đội bạn rất cao và khỏe.",
+    "Chúng tôi đã chơi trận đấu (match) trong hơn một giờ.",
+    "Bạn tôi Harry đã chạy rất nhanh (quickly) với quả bóng.",
+    "Và đã ghi (scored) một bàn thắng tuyệt vời.",
+    "Giáo viên đã trao cho chúng tôi một chiếc cúp (cup) đẹp mang về trường.",
+    "Tiêu đề A (Chiến thắng trong cuộc thi) là đúng nhất vì kể về việc đội bóng đã giành cúp vô địch."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "stadium",
+      "vocabulary_bank_id": "fl-pd-029",
+      "translation_vi": "sân vận động",
+      "ipa": "/ˈsteɪ.di.əm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/stadium.mp3"
+    },
+    {
+      "word": "gold",
+      "vocabulary_bank_id": "fl-ma-003",
+      "translation_vi": "vàng (kim loại)",
+      "ipa": "/ɡəʊld/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/gold.mp3"
+    },
+    {
+      "word": "silver",
+      "vocabulary_bank_id": "fl-ma-006",
+      "translation_vi": "bạc (kim loại)",
+      "ipa": "/ˈsɪl.və/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/silver.mp3"
+    },
+    {
+      "word": "cup",
+      "vocabulary_bank_id": "mv-fd-005",
+      "translation_vi": "cái cốc/cúp",
+      "ipa": "/kʌp/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/cup.mp3"
+    },
+    {
+      "word": "match",
+      "vocabulary_bank_id": "fl-sl-017",
+      "translation_vi": "trận đấu",
+      "ipa": "/mætʃ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/match.mp3"
+    },
+    {
+      "word": "scored",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ghi bàn",
+      "ipa": "/skɔːrd/",
+      "audio_url": null
+    },
+    {
+      "word": "quickly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhanh chóng",
+      "ipa": "/ˈkwɪk.li/",
+      "audio_url": null
+    },
+    {
+      "word": "players",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cầu thủ",
+      "ipa": "/ˈpleɪ.ərz/",
+      "audio_url": null
+    },
+    {
+      "word": "expensive",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đắt tiền",
+      "ipa": "/ɪkˈspen.sɪv/",
+      "audio_url": null
+    },
+    {
+      "word": "believe",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tin tưởng",
+      "ipa": "/bɪˈliːv/",
+      "audio_url": null
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "id": "FW2-HARD-004",
+  "title": "Set 4: The Volcano Project 🌋",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-04-the-volcano-project.jpg",
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "science",
+  "conversation": [
+    {
+      "speaker": "David",
+      "text": "Have you found enough information about the volcano in Iceland?",
+      "example": true
+    },
+    {
+      "speaker": "Emma",
+      "answerKey": "F",
+      "example": true
+    },
+    {
+      "speaker": "David",
+      "text": "Is it true that the lava can reach temperatures of over 1,000 degrees?"
+    },
+    {
+      "speaker": "Emma",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "David",
+      "text": "We should probably add some videos to our presentation to make it better."
+    },
+    {
+      "speaker": "Emma",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "David",
+      "text": "What would happen if the volcano erupted while people were visiting it?"
+    },
+    {
+      "speaker": "Emma",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "David",
+      "text": "I’ve forgotten to bring the glue for our model, I’m so sorry!"
+    },
+    {
+      "speaker": "Emma",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "David",
+      "text": "Shall we finish the rest of the project at my house after school?"
+    },
+    {
+      "speaker": "Emma",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "That’s a brilliant idea, it would be much more interesting."
+    },
+    {
+      "letter": "B",
+      "text": "Don't worry, I think I've got some in my rucksack."
+    },
+    {
+      "letter": "C",
+      "text": "It’s much larger than the one we saw last year."
+    },
+    {
+      "letter": "D",
+      "text": "It depends on how close they were to the top."
+    },
+    {
+      "letter": "E",
+      "text": "My mother's driving us there at 4 o'clock."
+    },
+    {
+      "letter": "F",
+      "text": "Not yet, I’ve been busy studying for the maths test all morning."
+    },
+    {
+      "letter": "G",
+      "text": "I’ll check the textbook, but I believe that’s correct."
+    },
+    {
+      "letter": "H",
+      "text": "I’d prefer to stay at the library where it’s quieter."
+    }
+  ],
+  "answers": [
+    "G",
+    "A",
+    "D",
+    "B",
+    "H"
+  ],
+  "explanations_vi": [
+    "David hỏi có đúng là dung nham (lava) đạt nhiệt độ hơn 1,000 độ không, Emma bảo sẽ kiểm tra sách giáo khoa nhưng tin là đúng (I believe that's correct).",
+    "David đề nghị thêm video vào bài thuyết trình (presentation), Emma khen đó là ý tưởng tuyệt vời (brilliant idea) giúp bài thú vị hơn.",
+    "David hỏi chuyện gì xảy ra nếu núi lửa phun trào (erupted) khi đang có khách tham quan, Emma trả lời Phụ thuộc vào việc họ ở cách đỉnh núi bao xa (how close they were to the top).",
+    "David xin lỗi vì quên mang keo dán (glue) cho mô hình, Emma bảo đừng lo vì cô có mang trong balo (rucksack).",
+    "David rủ đến nhà cậu làm nốt phần còn lại của dự án, Emma từ chối khéo vì thích ở lại thư viện cho yên tĩnh (prefer to stay at the library where it's quieter)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "volcano",
+      "vocabulary_bank_id": null,
+      "translation_vi": "núi lửa",
+      "ipa": "/vɒlˈkeɪ.nəʊ/",
+      "audio_url": null
+    },
+    {
+      "word": "lava",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dung nham",
+      "ipa": "/ˈlɑː.və/",
+      "audio_url": null
+    },
+    {
+      "word": "erupt",
+      "vocabulary_bank_id": null,
+      "translation_vi": "phun trào",
+      "ipa": "/ɪˈrʌpt/",
+      "audio_url": null
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ",
+      "ipa": "/ˈtem.prɪ.tʃər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "rucksack",
+      "vocabulary_bank_id": "fl-sl-029",
+      "translation_vi": "ba lô",
+      "ipa": "/ˈrʌk.sæk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/rucksack.mp3"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+
+---
+
+### BỘ ĐỀ 21: CHỦ ĐỀ "A VISIT TO THE DOCTOR" (ĐI KHÁM BỆNH)
+
+**Example:**
+**Doctor:** Good morning, Daisy. How are you feeling today?
+**Daisy:** **D**
+
+**Questions:**
+
+1. **Doctor:** Oh dear. When did your stomach start to hurt?
+**Daisy:** __________
+2. **Doctor:** Did you eat anything unusual yesterday evening?
+**Daisy:** __________
+3. **Doctor:** You should stay in bed and drink lots of water.
+**Daisy:** __________
+4. **Doctor:** Do you need some medicine to help you feel better?
+**Daisy:** __________
+5. **Doctor:** Shall I call your mum to come and collect you?
+**Daisy:** __________
+
+**Options (A-H):**
+
+* **A.** I'll try to do that, thank you.
+* **B.** Just after I finished my dinner.
+* **C.** I’m going to the chemist's now.
+* **D.** Not very well. I have a stomach ache. **(Example)**
+* **E.** Yes, please. She’s waiting in the car.
+* **F.** Only some fish and a bowl of rice.
+* **G.** No, I don’t like going to the hospital.
+* **H.** Yes, if you think it will help.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+| Bộ đề | Câu 1 | Câu 2 | Câu 3 | Câu 4 | Câu 5 |
+| --- | --- | --- | --- | --- | --- |
+| **BĐ 21** | **B** | **F** | **A** | **H** | **E** |

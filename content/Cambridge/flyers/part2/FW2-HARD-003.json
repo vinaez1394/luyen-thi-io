@@ -1,0 +1,151 @@
+{
+  "id": "FW2-HARD-003",
+  "title": "Set 3: A Day at the TV Studio 📺",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-HARD-03-a-day-at-the-tv-studio.jpg",
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "media",
+  "conversation": [
+    {
+      "speaker": "Michael",
+      "text": "It was so exciting to see how they film the news, wasn't it?",
+      "example": true
+    },
+    {
+      "speaker": "Holly",
+      "answerKey": "D",
+      "example": true
+    },
+    {
+      "speaker": "Michael",
+      "text": "How many people were working in the studio while they were filming?"
+    },
+    {
+      "speaker": "Holly",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Michael",
+      "text": "That famous presenter looked much taller on TV than in real life!"
+    },
+    {
+      "speaker": "Holly",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Michael",
+      "text": "I'd love to work as a camera operator when I'm older."
+    },
+    {
+      "speaker": "Holly",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Michael",
+      "text": "Do you think we’ll be allowed to see the makeup room later?"
+    },
+    {
+      "speaker": "Holly",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Michael",
+      "text": "My dad said that he used to know the director of this show."
+    },
+    {
+      "speaker": "Holly",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "I’m not sure, let’s go and ask the guide."
+    },
+    {
+      "letter": "B",
+      "text": "I agree, I was quite surprised when he walked past us!"
+    },
+    {
+      "letter": "C",
+      "text": "What a small world! Maybe they still talk to each other."
+    },
+    {
+      "letter": "D",
+      "text": "Absolutely! I've always wondered what happens behind the scenes."
+    },
+    {
+      "letter": "E",
+      "text": "You'd need to be very strong to carry that heavy equipment all day."
+    },
+    {
+      "letter": "F",
+      "text": "I couldn't count them all because it was so crowded."
+    },
+    {
+      "letter": "G",
+      "text": "He’s been working there for over twenty years."
+    },
+    {
+      "letter": "H",
+      "text": "No, I’ve never watched that channel before."
+    }
+  ],
+  "answers": [
+    "F",
+    "B",
+    "E",
+    "A",
+    "C"
+  ],
+  "explanations_vi": [
+    "Michael hỏi có bao nhiêu người làm việc trong studio (How many people), Holly bảo không thể đếm nổi vì quá đông (I couldn't count them all).",
+    "Michael nhận xét người dẫn chương trình trên TV trông cao hơn ngoài đời thực, Holly đồng tình (I agree) và nói cô cũng ngạc nhiên khi ông ấy đi ngang qua.",
+    "Michael bảo muốn làm người quay phim (camera operator) khi lớn lên, Holly nói công việc đó cần rất khỏe để mang thiết bị nặng cả ngày (heavy equipment all day).",
+    "Michael hỏi liệu họ có được phép xem phòng trang điểm (makeup room) lát nữa không, Holly bảo không chắc và đề nghị đi hỏi hướng dẫn viên (ask the guide).",
+    "Michael kể bố mình từng quen biết đạo diễn (director) của chương trình, Holly ngạc nhiên thốt lên Trái đất tròn quá (What a small world!) và đoán họ có thể vẫn còn nói chuyện với nhau."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "presenter",
+      "vocabulary_bank_id": null,
+      "translation_vi": "người dẫn chương trình",
+      "ipa": "/prɪˈzen.tər/",
+      "audio_url": null
+    },
+    {
+      "word": "studio",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trường quay",
+      "ipa": "/ˈstjuː.di.əʊ/",
+      "audio_url": null
+    },
+    {
+      "word": "equipment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thiết bị",
+      "ipa": "/ɪˈkwɪp.mənt/",
+      "audio_url": null
+    },
+    {
+      "word": "director",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đạo diễn",
+      "ipa": "/daɪˈrek.tər/",
+      "audio_url": null
+    },
+    {
+      "word": "behind the scenes",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hậu trường",
+      "ipa": "/bɪˈhaɪnd ðə siːnz/",
+      "audio_url": null
+    }
+  ]
+}

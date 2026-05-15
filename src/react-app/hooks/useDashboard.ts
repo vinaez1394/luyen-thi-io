@@ -66,6 +66,7 @@ export interface DashboardData {
   } | null;
   // Phase 04
   selectedPathway: string | null;
+  cambridgeLevel:  string | null;  // "flyers" | "movers" | "starters"
   currentGrade:    number | null;
   todayLessons:    TodayLesson[];
   // Phase Dashboard (progress-summary)
@@ -91,6 +92,7 @@ const FALLBACK_DATA: DashboardData = {
   ],
   dreamGoal:       null,
   selectedPathway: null,
+  cambridgeLevel:  "flyers",
   currentGrade:    null,
   todayLessons:    [],
   progressSummary: null,
@@ -126,12 +128,15 @@ export function useDashboard() {
           : null;
 
         if (!cancelled) {
-          // Persist currentGrade & selectedPathway → localStorage cho QuizPage + SettingsPage
+          // Persist currentGrade, selectedPathway, cambridgeLevel → localStorage
           if (dashData.currentGrade) {
             localStorage.setItem("student_grade", String(dashData.currentGrade));
           }
           if (dashData.selectedPathway) {
             localStorage.setItem("student_pathway", dashData.selectedPathway);
+          }
+          if (dashData.cambridgeLevel) {
+            localStorage.setItem("student_cambridge_level", dashData.cambridgeLevel);
           }
           setState({
             data: { ...dashData, progressSummary },

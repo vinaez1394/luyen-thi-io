@@ -1,0 +1,145 @@
+{
+  "id": "FW3-HARD-008",
+  "title": "Set 8: The Robot Competition 🤖",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "technology",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-08-the-robot-competition.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "clever",
+    "metal",
+    "quickly",
+    "difficult",
+    "screen",
+    "information",
+    "believe",
+    "suddenly",
+    "programmed"
+  ],
+  "example": {
+    "word": "competition",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "My school held a big ",
+    " for young inventors last month. My friend Bobby and I decided to build a robot that could help carry heavy books. We made the body of the robot out of light ",
+    " so it could move easily.\n\nBobby is very ",
+    " with computers, so he ",
+    " the robot to follow us when we called its name. It wasn't easy; in fact, it was quite ",
+    " to get the legs to move at the same time. We spent many hours looking at the computer ",
+    " to fix the problems.\n\nOn the day of the contest, our robot ran quickly across the room and picked up a large box of books. The judges were very impressed! We won first prize, and I still can't believe that we built something so amazing ourselves."
+  ],
+  "answers": [
+    "metal",
+    "clever",
+    "programmed",
+    "difficult",
+    "screen"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A new computer for the classroom"
+      },
+      {
+        "letter": "B",
+        "text": "Our winning invention"
+      },
+      {
+        "letter": "C",
+        "text": "Learning to fix a broken car"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Làm thân robot bằng kim loại (metal) nhẹ để dễ di chuyển.",
+    "Bobby rất thông minh/giỏi (clever) về máy tính.",
+    "Cậu ấy đã lập trình (programmed) cho robot đi theo khi gọi tên.",
+    "Rất khó khăn (difficult) để làm cho các chân di chuyển cùng lúc.",
+    "Dành nhiều giờ nhìn vào màn hình (screen) máy tính để sửa lỗi.",
+    "Tiêu đề B (Phát minh chiến thắng của chúng tôi) là đúng nhất vì câu chuyện nói về việc tạo ra robot và giành giải nhất."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "competition",
+      "vocabulary_bank_id": "fl-sc-006",
+      "translation_vi": "cuộc thi",
+      "ipa": "/ˌkɒm.pɪˈtɪʃ.ən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/competition.mp3"
+    },
+    {
+      "word": "metal",
+      "vocabulary_bank_id": "fl-ma-004",
+      "translation_vi": "kim loại",
+      "ipa": "/ˈmet.əl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/metal.mp3"
+    },
+    {
+      "word": "screen",
+      "vocabulary_bank_id": "fl-sc-021",
+      "translation_vi": "màn hình",
+      "ipa": "/skriːn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/screen.mp3"
+    },
+    {
+      "word": "clever",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông minh/khéo léo",
+      "ipa": "/ˈklev.ər/",
+      "audio_url": null
+    },
+    {
+      "word": "programmed",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đã lập trình",
+      "ipa": "/ˈprəʊ.ɡræmd/",
+      "audio_url": null
+    },
+    {
+      "word": "difficult",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khó khăn",
+      "ipa": "/ˈdɪf.ɪ.kəlt/",
+      "audio_url": null
+    },
+    {
+      "word": "quickly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhanh chóng",
+      "ipa": "/ˈkwɪk.li/",
+      "audio_url": null
+    },
+    {
+      "word": "believe",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tin tưởng",
+      "ipa": "/bɪˈliːv/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "suddenly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đột nhiên",
+      "ipa": "/ˈsʌd.ən.li/",
+      "audio_url": null
+    }
+  ]
+}

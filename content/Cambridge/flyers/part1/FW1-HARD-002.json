@@ -1,9 +1,10 @@
 {
   "id": "FW1-HARD-002",
-  "title": "Flyers Reading & Writing — Part 1 — Set 2 (Hard)",
+  "title": "Flyers Part 1 — Set 2: 🔭 Science & Discovery (Hard)",
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-02-science-and-discovery.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "hard",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "an astronaut",
     "a continent",
@@ -29,12 +29,10 @@
     "electricity",
     "a scientist"
   ],
-
   "example": {
     "prompt": "This is the power that travels through wires and makes lights, computers, and televisions work.",
     "answer": "electricity"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "This is the part of a machine or a vehicle that uses fuel or electricity to make it move.",
       "correct": "an engine",
       "explanation_vi": "Engine = động cơ, bộ phận sử dụng nhiên liệu hoặc điện để giúp máy móc, xe cộ di chuyển."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "astronaut",
+      "vocabulary_bank_id": "fl-wk-005",
+      "translation_vi": "phi hành gia",
+      "ipa": "/ˈæstrənɔːt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/astronaut.mp3"
+    },
+    {
+      "word": "continent",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lục địa/châu lục",
+      "ipa": "/ˈkɒntɪnənt/",
+      "audio_url": null
+    },
+    {
+      "word": "telescope",
+      "vocabulary_bank_id": null,
+      "translation_vi": "kính viễn vọng",
+      "ipa": "/ˈtelɪskəʊp/",
+      "audio_url": null
+    },
+    {
+      "word": "fossil",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hóa thạch",
+      "ipa": "/ˈfɒsəl/",
+      "audio_url": null
+    },
+    {
+      "word": "electricity",
+      "vocabulary_bank_id": null,
+      "translation_vi": "điện",
+      "ipa": "/ɪˌlekˈtrɪsɪtɪ/",
+      "audio_url": null
+    },
+    {
+      "word": "biography",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tiểu sử",
+      "ipa": "/baɪˈɒɡrəfɪ/",
+      "audio_url": null
+    },
+    {
+      "word": "mystery",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bí ẩn",
+      "ipa": "/ˈmɪstərɪ/",
+      "audio_url": null
+    },
+    {
+      "word": "adventure",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cuộc phiêu lưu",
+      "ipa": "/ədˈventʃə/",
+      "audio_url": null
     }
   ]
 }

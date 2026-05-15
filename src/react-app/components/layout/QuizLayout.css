@@ -183,7 +183,7 @@
 
   /* Bù khoảng cách cho nội dung bên dưới không bị che */
   .quiz-layout__content {
-    padding-top: 72px; /* chiều cao sub-header trên mobile (~58px) + buffer */
+    padding-top: 90px; /* sub-header ~58px + GlobalHeader ~64px - overlap + buffer */
   }
 
   .quiz-sub-header__inner {

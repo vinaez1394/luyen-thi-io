@@ -46,6 +46,8 @@
 		"cf-typegen": "wrangler types",
 		"check": "tsc && vite build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
+		"deploy:staging": "node scripts/deploy-staging.mjs",
+		"deploy:prod": "npm run build && wrangler deploy",
 		"dev": "vite",
 		"dev:full": "wrangler dev --port 8788",
 		"dev:remote": "wrangler dev --remote --port 8788",

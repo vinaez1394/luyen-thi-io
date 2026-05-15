@@ -1,0 +1,151 @@
+{
+  "id": "FW2-MED-006",
+  "title": "Set 6: Preparing for a Party 🎈",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-06-preparing-for-a-party.jpg",
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "party",
+  "conversation": [
+    {
+      "speaker": "Sarah",
+      "text": "Are you coming to my birthday party on Saturday?",
+      "example": true
+    },
+    {
+      "speaker": "Paul",
+      "answerKey": "D",
+      "example": true
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Have you already bought a present for me?"
+    },
+    {
+      "speaker": "Paul",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Sarah",
+      "text": "What time do you think you’ll arrive?"
+    },
+    {
+      "speaker": "Paul",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Shall I ask my dad to pick you up from your house?"
+    },
+    {
+      "speaker": "Paul",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Where shall we put all the food and drinks?"
+    },
+    {
+      "speaker": "Paul",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Sarah",
+      "text": "I’m so excited about the dancing competition!"
+    },
+    {
+      "speaker": "Paul",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "On the large table in the garden."
+    },
+    {
+      "letter": "B",
+      "text": "I usually have a party in May."
+    },
+    {
+      "letter": "C",
+      "text": "That would be very helpful, thank you."
+    },
+    {
+      "letter": "D",
+      "text": "Of course! I wouldn't miss it."
+    },
+    {
+      "letter": "E",
+      "text": "At about half past four, I think."
+    },
+    {
+      "letter": "F",
+      "text": "It’s a secret, so I can’t tell you!"
+    },
+    {
+      "letter": "G",
+      "text": "I’m much better at singing than dancing."
+    },
+    {
+      "letter": "H",
+      "text": "No, I don't like chocolate cake."
+    }
+  ],
+  "answers": [
+    "F",
+    "E",
+    "C",
+    "A",
+    "G"
+  ],
+  "explanations_vi": [
+    "Sarah hỏi Paul đã mua quà (present) chưa, Paul đáp Đó là bí mật, nên tớ không thể nói cho cậu biết (It's a secret, so I can't tell you!).",
+    "Sarah hỏi mấy giờ Paul sẽ đến (What time do you think you'll arrive), Paul trả lời khoảng 4 giờ rưỡi (At about half past four).",
+    "Sarah hỏi có cần nhờ bố đến đón Paul không (pick you up), Paul trả lời Thế thì tốt quá, cảm ơn cậu (That would be very helpful, thank you).",
+    "Sarah hỏi nên để đồ ăn thức uống ở đâu (Where), Paul đề nghị Để trên chiếc bàn lớn trong vườn (On the large table in the garden).",
+    "Sarah rất hào hứng về cuộc thi nhảy (dancing competition), Paul nói Tớ hát giỏi hơn nhảy nhiều (I'm much better at singing than dancing)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "decorate",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trang trí",
+      "ipa": "/ˈdek.ə.reɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "invitation",
+      "vocabulary_bank_id": "fl-sl-014",
+      "translation_vi": "lời mời",
+      "ipa": "/ˌɪn.vɪˈteɪ.ʃən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/invitation.mp3"
+    },
+    {
+      "word": "celebration",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lễ kỷ niệm",
+      "ipa": "/ˌsel.ɪˈbreɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "balloon",
+      "vocabulary_bank_id": "st-to-003",
+      "translation_vi": "bóng bay",
+      "ipa": "/bəˈluːn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/balloon.mp3"
+    },
+    {
+      "word": "costume",
+      "vocabulary_bank_id": "fl-cl-003",
+      "translation_vi": "trang phục",
+      "ipa": "/ˈkɒs.tjuːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/costume.mp3"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "id": "FW2-EASY-001",
-  "title": "Set 1: A Visit to the Zoo",
+  "title": "Set 1: A Visit to the Zoo 🦁",
   "skill": "reading",
   "level": "flyers",
   "part": 2,
@@ -11,35 +11,141 @@
   "difficulty": "easy",
   "topic": "zoo",
   "conversation": [
-    { "speaker": "Sarah", "text": "Did you have a good time at the zoo yesterday, Bill?", "example": true },
-    { "speaker": "Bill", "answerKey": "C", "example": true },
-    { "speaker": "Sarah", "text": "Which animal did you like best?" },
-    { "speaker": "Bill", "questionIndex": 0 },
-    { "speaker": "Sarah", "text": "Were the lions scary?" },
-    { "speaker": "Bill", "questionIndex": 1 },
-    { "speaker": "Sarah", "text": "How did you get there?" },
-    { "speaker": "Bill", "questionIndex": 2 },
-    { "speaker": "Sarah", "text": "Did you take any photos of the monkeys?" },
-    { "speaker": "Bill", "questionIndex": 3 },
-    { "speaker": "Sarah", "text": "Let's go together next time!" },
-    { "speaker": "Bill", "questionIndex": 4 }
+    {
+      "speaker": "Sarah",
+      "text": "Did you have a good time at the zoo yesterday, Bill?",
+      "example": true
+    },
+    {
+      "speaker": "Bill",
+      "answerKey": "C",
+      "example": true
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Which animal did you like best?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Were the lions scary?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Sarah",
+      "text": "How did you get there?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Did you take any photos of the monkeys?"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Sarah",
+      "text": "Let's go together next time!"
+    },
+    {
+      "speaker": "Bill",
+      "questionIndex": 4
+    }
   ],
   "options": [
-    { "letter": "A", "text": "By bus, it was very fast." },
-    { "letter": "B", "text": "No, they were just sleeping." },
-    { "letter": "C", "text": "Yes, it was great!" },
-    { "letter": "D", "text": "That's a good idea!" },
-    { "letter": "E", "text": "My brother went with me." },
-    { "letter": "F", "text": "The penguins, they were so funny." },
-    { "letter": "G", "text": "Yes, I used my new camera." },
-    { "letter": "H", "text": "I'm going to buy an ice cream." }
+    {
+      "letter": "A",
+      "text": "By bus, it was very fast."
+    },
+    {
+      "letter": "B",
+      "text": "No, they were just sleeping."
+    },
+    {
+      "letter": "C",
+      "text": "Yes, it was great!"
+    },
+    {
+      "letter": "D",
+      "text": "That's a good idea!"
+    },
+    {
+      "letter": "E",
+      "text": "My brother went with me."
+    },
+    {
+      "letter": "F",
+      "text": "The penguins, they were so funny."
+    },
+    {
+      "letter": "G",
+      "text": "Yes, I used my new camera."
+    },
+    {
+      "letter": "H",
+      "text": "I'm going to buy an ice cream."
+    }
   ],
-  "answers": ["F", "B", "A", "G", "D"],
+  "answers": [
+    "F",
+    "B",
+    "A",
+    "G",
+    "D"
+  ],
   "explanations_vi": [
     "Hỏi về con vật yêu thích (Which animal), Bill trả lời là chim cánh cụt (The penguins).",
     "Hỏi những con sư tử có đáng sợ không, Bill trả lời không, chúng chỉ đang ngủ (No, they were just sleeping).",
     "Hỏi đi bằng phương tiện gì (How), Bill trả lời đi bằng xe buýt (By bus).",
     "Hỏi có chụp ảnh không (take any photos), Bill trả lời có và dùng máy ảnh mới (used my new camera).",
     "Sarah rủ rê đi cùng lần tới (Let's go together), Bill đồng ý (That's a good idea!)."
-  ]
+  ],
+  "vocab_highlight": [
+    {
+      "word": "giraffe",
+      "vocabulary_bank_id": "st-an-014",
+      "translation_vi": "hươu cao cổ",
+      "ipa": "/dʒɪˈræf/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/giraffe.mp3"
+    },
+    {
+      "word": "elephant",
+      "vocabulary_bank_id": "st-an-011",
+      "translation_vi": "con voi",
+      "ipa": "/ˈel.ɪ.fənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/elephant.mp3"
+    },
+    {
+      "word": "enclosure",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khu vực nuôi nhốt",
+      "ipa": "/ɪnˈkloʊ.ʒər/",
+      "audio_url": null
+    },
+    {
+      "word": "creature",
+      "vocabulary_bank_id": "fl-an-022",
+      "translation_vi": "sinh vật",
+      "ipa": "/ˈkriː.tʃər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/creature.mp3"
+    },
+    {
+      "word": "keeper",
+      "vocabulary_bank_id": null,
+      "translation_vi": "người trông coi",
+      "ipa": "/ˈkiː.pər/",
+      "audio_url": null
+    }
+  ],
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-01-a-visit-to-the-zoo.jpg"
 }

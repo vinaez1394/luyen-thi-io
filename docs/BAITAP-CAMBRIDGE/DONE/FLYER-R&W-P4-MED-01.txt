@@ -1,0 +1,48 @@
+
+---
+
+### BỘ ĐỀ 1: CHỦ ĐỀ KHOA HỌC & ĐỜI SỐNG (SCIENCE & LIFE)
+
+**READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.**
+
+#### **LIVING IN SPACE**
+
+Astronauts are people (Example) **who** travel into space to learn more about the stars and planets. Living in a space station is very different from living (1) __________ Earth.
+
+There is no gravity, (2) __________ everything floats. This means that astronauts (3) __________ to tie their beds to the wall so they don't float away while they are sleeping! They also have to be careful when they are (4) __________ because crumbs could get into the machines.
+
+Astronauts (5) __________ a lot of time doing experiments. They want to find (6) __________ if plants can grow in space or if humans could live on the Moon one day. It is (7) __________ difficult job in the world, but it is also very exciting.
+
+If you want to (8) __________ an astronaut, you need to study science and maths very (9) __________. You also have to be very healthy and strong. It’s a dream for many children, (10) __________ it?
+
+| No. | Option A | Option B | Option C |
+| --- | --- | --- | --- |
+| **Ex.** | **who** | **which** | **where** |
+| **1** | at | on | in |
+| **2** | so | because | but |
+| **3** | must | have | should |
+| **4** | eat | eating | eaten |
+| **5** | spend | spent | spending |
+| **6** | out | up | off |
+| **7** | more | most | the most |
+| **8** | become | became | becoming |
+| **9** | careful | carefully | care |
+| **10** | doesn't | isn't | hasn't |
+
+---
+
+Câu,Đáp án,Loại kiến thức,Giải thích
+1,on,Giới từ,"Ta luôn dùng ""on Earth"" (trên Trái Đất)."
+2,so,Liên từ,Chỉ kết quả: Vì không có trọng lực nên (so) mọi thứ lơ lửng.
+3,have,Động từ khuyết thiếu,"Cấu trúc ""have to + V"" (phải làm gì đó)."
+4,eating,Thì hiện tại tiếp diễn,"Sau ""when they are..."" cần động từ đuôi -ing để chỉ hành động đang diễn ra."
+5,spend,Thì hiện tại đơn,Diễn tả một sự thật/thói quen của phi hành gia (chủ ngữ số nhiều).
+6,out,Cụm động từ,"""Find out"" có nghĩa là tìm ra/phát hiện ra."
+7,the most,So sánh nhất,"Cấu trúc ""the most + adj dài"" (the most difficult job)."
+8,become,Động từ nguyên mẫu,"Sau ""want to"" là động từ nguyên mẫu không ""to""."
+9,carefully,Trạng từ,"Dùng trạng từ để bổ nghĩa cho động từ ""study""."
+10,isn't,Câu hỏi đuôi,"Vế trước là ""It is..."", vế sau dùng ""isn't it?"" để hỏi lại."
+
+### Phân tích kỹ thuật cho giáo viên:
+
+* **Bộ đề 1:** Tập trung vào các cấu trúc *have to*, giới từ chỉ nơi chốn, hiện tại phân từ (*-ing* sau giới từ/khi đang làm gì), cụm động từ (*find out*), so sánh nhất và câu hỏi đuôi (*isn't it*).

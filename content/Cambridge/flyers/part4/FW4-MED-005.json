@@ -1,0 +1,97 @@
+{
+  "id": "FW4-MED-005",
+  "title": "Set 5: The Ship of the Desert 🐪",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 4,
+  "type": "flyers-part4",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "animals",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-05-the-ship-of-the-desert.jpeg",
+  "instructions_en": "READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.",
+  "passage_title": "THE SHIP OF THE DESERT",
+  "example": {
+    "options": ["in", "on", "at"],
+    "answer": "in"
+  },
+  "options_table": [
+    { "q": 1, "choices": ["so", "because", "but"], "answer": "because" },
+    { "q": 2, "choices": ["who", "which", "where"], "answer": "which" },
+    { "q": 3, "choices": ["many", "enough", "few"], "answer": "enough" },
+    { "q": 4, "choices": ["isn't", "hasn't", "doesn't"], "answer": "isn't" },
+    { "q": 5, "choices": ["have", "has", "having"], "answer": "have" },
+    { "q": 6, "choices": ["doesn't", "don't", "didn't"], "answer": "doesn't" },
+    { "q": 7, "choices": ["length", "long", "longer"], "answer": "long" },
+    { "q": 8, "choices": ["for", "since", "during"], "answer": "for" },
+    { "q": 9, "choices": ["want", "wants", "wanting"], "answer": "want" },
+    { "q": 10, "choices": ["isn't", "hasn't", "doesn't"], "answer": "isn't" }
+  ],
+  "story_segments": [
+    "Camels are very unusual animals that live ",
+    " the hottest deserts of the world. They are often called \"the ships of the desert\" ",
+    " they can travel long distances across the sand.\n\nCamels have humps on their backs, ",
+    " are used to store fat. This fat gives them energy when there isn't ",
+    " food to eat. Many people think humps are full of water, but that ",
+    " true.\n\nThese animals ",
+    " evolved to survive in difficult places. They can close their noses so the sand ",
+    " get inside during a storm. Their eyelashes are very ",
+    " to protect their eyes from the bright sun.\n\nCamels are very strong and can carry heavy things ",
+    " many miles. If you ",
+    " to ride a camel, you must hold on tight! It is a very bumpy ride, ",
+    " it?"
+  ],
+  "answers": ["because", "which", "enough", "isn't", "have", "doesn't", "long", "for", "want", "isn't"],
+  "explanations_vi": [
+    "'Because': Chỉ nguyên nhân (Vì chúng có thể di chuyển quãng đường dài).",
+    "'Which': Đại từ quan hệ thay thế cho vật (humps - cái bướu trên lưng).",
+    "'Enough': Cấu trúc 'enough + danh từ' (đủ thức ăn).",
+    "'Isn't': Câu phủ định với tính từ 'true' (không đúng).",
+    "'Have': Thì hiện tại hoàn thành, chủ ngữ số nhiều 'animals' (những con vật này đã tiến hóa).",
+    "'Doesn't': Thì hiện tại đơn, chủ ngữ số ít là 'the sand' (cát không lọt vào trong).",
+    "'Long': Tính từ miêu tả đặc điểm sau động từ 'are' (lông mi rất dài).",
+    "'For': Chỉ khoảng thời gian hoặc khoảng cách (for many miles - trong vòng nhiều dặm).",
+    "'Want': Câu điều kiện loại 1 (If + hiện tại đơn), chủ ngữ 'you' đi với động từ nguyên mẫu.",
+    "'Isn't': Câu hỏi đuôi cho vế 'It is...'. Vì 'is' là khẳng định, đuôi dùng phủ định 'isn't it?'."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "camel",
+      "vocabulary_bank_id": null,
+      "translation_vi": "lạc đà",
+      "ipa": "/ˈkæm.əl/",
+      "audio_url": null
+    },
+    {
+      "word": "unusual",
+      "vocabulary_bank_id": null,
+      "translation_vi": "kỳ lạ, khác thường",
+      "ipa": "/ʌnˈjuː.ʒu.əl/",
+      "audio_url": null
+    },
+    {
+      "word": "desert",
+      "vocabulary_bank_id": null,
+      "translation_vi": "sa mạc",
+      "ipa": "/ˈdez.ət/",
+      "audio_url": null
+    },
+    {
+      "word": "distance",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khoảng cách",
+      "ipa": "/ˈdɪs.təns/",
+      "audio_url": null
+    },
+    {
+      "word": "survive",
+      "vocabulary_bank_id": null,
+      "translation_vi": "sống sót",
+      "ipa": "/səˈvaɪv/",
+      "audio_url": null
+    }
+  ]
+}

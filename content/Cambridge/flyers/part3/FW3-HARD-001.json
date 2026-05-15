@@ -1,0 +1,137 @@
+{
+  "id": "FW3-HARD-001",
+  "title": "Set 1: The Secret of the Ancient Cave 🕳️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "nature",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-01-the-secret-of-the-ancient-cave.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "ancient",
+    "frightened",
+    "carefully",
+    "whispering",
+    "discovered",
+    "disappointed",
+    "flashlight",
+    "creatures",
+    "strange"
+  ],
+  "example": {
+    "word": "explorer",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "My uncle Richard is a famous ",
+    " who travels to the most remote places on Earth. Last summer, he invited me to join him on a trip to a mountain range. One afternoon, while we were hiking, we ",
+    " a small opening behind some thick bushes.\n\nIt was a cave! We turned on our ",
+    " and stepped inside. The air was cold, and I felt a bit ",
+    ", but Uncle Richard told me to be brave. On the walls, we saw ",
+    " paintings of animals that lived thousands of years ago. We moved ",
+    " so we wouldn't damage anything.\n\nWe didn't find any gold or jewels, but we weren't ",
+    ". Finding a piece of history was the best prize ever!"
+  ],
+  "answers": [
+    "discovered",
+    "flashlight",
+    "frightened",
+    "ancient",
+    "carefully"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "A scary night in the forest" },
+      { "letter": "B", "text": "A historical discovery" },
+      { "letter": "C", "text": "My uncle's new flashlight" }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Khám phá ra (discovered) một lối vào nhỏ phía sau những bụi cây rậm rạp.",
+    "Bật đèn pin (flashlight) lên và bước vào bên trong.",
+    "Không khí lạnh lẽo và tôi cảm thấy hơi sợ hãi (frightened).",
+    "Trên tường, chúng tôi thấy những bức tranh cổ đại (ancient) về các loài động vật.",
+    "Chúng tôi di chuyển cẩn thận (carefully) để không làm hỏng thứ gì.",
+    "Tiêu đề B (Một khám phá lịch sử) là đúng nhất vì kể về việc tìm thấy một hang động có những bức tranh cổ đại."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "explorer",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhà thám hiểm",
+      "ipa": "/ɪkˈsplɔː.rər/",
+      "audio_url": null
+    },
+    {
+      "word": "ancient",
+      "vocabulary_bank_id": "fl-aj-001",
+      "translation_vi": "cổ đại / xưa",
+      "ipa": "/ˈeɪnʃənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/ancient.mp3"
+    },
+    {
+      "word": "frightened",
+      "vocabulary_bank_id": "fl-pf-010",
+      "translation_vi": "hoảng sợ",
+      "ipa": "/ˈfraɪtənd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/frightened.mp3"
+    },
+    {
+      "word": "carefully",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cẩn thận",
+      "ipa": "/ˈkeə.fəl.i/",
+      "audio_url": null
+    },
+    {
+      "word": "whispering",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thì thầm",
+      "ipa": "/ˈwɪs.pər.ɪŋ/",
+      "audio_url": null
+    },
+    {
+      "word": "discovered",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khám phá ra",
+      "ipa": "/dɪˈskʌv.ərd/",
+      "audio_url": null
+    },
+    {
+      "word": "disappointed",
+      "vocabulary_bank_id": "fl-pf-007",
+      "translation_vi": "thất vọng",
+      "ipa": "/ˌdɪsəˈpɔɪntɪd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/disappointed.mp3"
+    },
+    {
+      "word": "flashlight",
+      "vocabulary_bank_id": "fl-sl-010",
+      "translation_vi": "đèn pin",
+      "ipa": "/ˈflæʃ.laɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/flashlight.mp3"
+    },
+    {
+      "word": "creatures",
+      "vocabulary_bank_id": null,
+      "translation_vi": "sinh vật",
+      "ipa": "/ˈkriː.tʃərz/",
+      "audio_url": null
+    },
+    {
+      "word": "strange",
+      "vocabulary_bank_id": null,
+      "translation_vi": "kỳ lạ",
+      "ipa": "/streɪndʒ/",
+      "audio_url": null
+    }
+  ]
+}

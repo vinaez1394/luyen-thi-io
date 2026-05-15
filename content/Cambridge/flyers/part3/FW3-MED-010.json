@@ -1,0 +1,156 @@
+{
+  "id": "FW3-MED-010",
+  "title": "Set 10: A Rainy Day at the Zoo 🌧️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "animals",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-10-a-rainy-day-at-the-zoo.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "wild",
+    "suddenly",
+    "cages",
+    "photographer",
+    "umbrellas",
+    "penguins",
+    "heavy",
+    "quickly",
+    "tomorrow"
+  ],
+  "example": {
+    "word": "entrance",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "Last Saturday, my family went to the zoo. When we arrived at the **entrance**, the sun was shining brightly. I was excited to see the ",
+    " animals, especially the lions and tigers. We walked past the large monkey ",
+    " and watched them eating bananas.\n\nHowever, after an hour, the weather changed. ",
+    ", the sky turned dark and it started to rain. The rain was very ",
+    ", so we all had to open our ",
+    " to stay dry.\n\nWe ran to the indoor area where the penguins live. We watched them swimming and playing in the cold water until the storm finished. Even though we got a bit wet, it was still a very interesting day!"
+  ],
+  "answers": [
+    "wild",
+    "cages",
+    "suddenly",
+    "heavy",
+    "umbrellas"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      { "letter": "A", "text": "A sunny walk in the park" },
+      { "letter": "B", "text": "An adventure in the rain" },
+      { "letter": "C", "text": "Feeding the farm animals" }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Đến sở thú thì thường muốn thấy các động vật hoang dã (wild) như sư tử và hổ.",
+    "Đi ngang qua những chiếc chuồng (cages) khỉ lớn và xem chúng ăn chuối.",
+    "Đột nhiên (suddenly) trời chuyển tối và bắt đầu mưa.",
+    "Cơn mưa rất nặng hạt (heavy).",
+    "Vì mưa nặng hạt nên phải mở ô/dù (umbrellas) ra để giữ cho người khô ráo.",
+    "Tiêu đề B (Một cuộc phiêu lưu dưới mưa) là đúng nhất: câu chuyện kể về một ngày ở sở thú bỗng nhiên có cơn mưa lớn."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "entrance",
+      "vocabulary_bank_id": "fl-ho-006",
+      "translation_vi": "lối vào",
+      "ipa": "/ˈen.trəns/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/entrance.mp3"
+    },
+    {
+      "word": "wild",
+      "vocabulary_bank_id": "fl-an-029",
+      "translation_vi": "hoang dã",
+      "ipa": "/waɪld/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/wild.mp3"
+    },
+    {
+      "word": "monkey",
+      "vocabulary_bank_id": "st-an-019",
+      "translation_vi": "con khỉ",
+      "ipa": "/ˈmʌŋ.ki/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/monkey.mp3"
+    },
+    {
+      "word": "photographer",
+      "vocabulary_bank_id": "fl-oc-012",
+      "translation_vi": "nhiếp ảnh gia",
+      "ipa": "/fəˈtɒɡ.rə.fər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/photographer.mp3"
+    },
+    {
+      "word": "weather",
+      "vocabulary_bank_id": "mv-we-009",
+      "translation_vi": "thời tiết",
+      "ipa": "/ˈweð.ər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/weather.mp3"
+    },
+    {
+      "word": "storm",
+      "vocabulary_bank_id": "fl-we-003",
+      "translation_vi": "cơn bão",
+      "ipa": "/stɔːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/storm.mp3"
+    },
+    {
+      "word": "tomorrow",
+      "vocabulary_bank_id": "fl-ti-027",
+      "translation_vi": "ngày mai",
+      "ipa": "/təˈmɒr.əʊ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/tomorrow.mp3"
+    },
+    {
+      "word": "cages",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chuồng",
+      "ipa": "/keɪdʒɪz/",
+      "audio_url": null
+    },
+    {
+      "word": "suddenly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đột nhiên",
+      "ipa": "/ˈsʌd.ən.li/",
+      "audio_url": null
+    },
+    {
+      "word": "umbrellas",
+      "vocabulary_bank_id": null,
+      "translation_vi": "ô/dù",
+      "ipa": "/ʌmˈbrel.əz/",
+      "audio_url": null
+    },
+    {
+      "word": "penguins",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chim cánh cụt",
+      "ipa": "/ˈpeŋ.ɡwɪnz/",
+      "audio_url": null
+    },
+    {
+      "word": "heavy",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nặng hạt",
+      "ipa": "/ˈhev.i/",
+      "audio_url": null
+    },
+    {
+      "word": "quickly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhanh chóng",
+      "ipa": "/ˈkwɪk.li/",
+      "audio_url": null
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "id": "FW4-MED-001",
+  "title": "Set 1: Living in Space 🚀",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 4,
+  "type": "flyers-part4",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "science",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-01-LIVING%20IN%20SPACE.jpeg",
+  "instructions_en": "READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.",
+  "passage_title": "LIVING IN SPACE",
+  "example": {
+    "options": [
+      "who",
+      "which",
+      "where"
+    ],
+    "answer": "who"
+  },
+  "options_table": [
+    {
+      "q": 1,
+      "choices": [
+        "at",
+        "on",
+        "in"
+      ],
+      "answer": "on"
+    },
+    {
+      "q": 2,
+      "choices": [
+        "so",
+        "because",
+        "but"
+      ],
+      "answer": "so"
+    },
+    {
+      "q": 3,
+      "choices": [
+        "must",
+        "have",
+        "should"
+      ],
+      "answer": "have"
+    },
+    {
+      "q": 4,
+      "choices": [
+        "eat",
+        "eating",
+        "eaten"
+      ],
+      "answer": "eating"
+    },
+    {
+      "q": 5,
+      "choices": [
+        "spend",
+        "spent",
+        "spending"
+      ],
+      "answer": "spend"
+    },
+    {
+      "q": 6,
+      "choices": [
+        "out",
+        "up",
+        "off"
+      ],
+      "answer": "out"
+    },
+    {
+      "q": 7,
+      "choices": [
+        "more",
+        "most",
+        "the most"
+      ],
+      "answer": "the most"
+    },
+    {
+      "q": 8,
+      "choices": [
+        "become",
+        "became",
+        "becoming"
+      ],
+      "answer": "become"
+    },
+    {
+      "q": 9,
+      "choices": [
+        "careful",
+        "carefully",
+        "care"
+      ],
+      "answer": "carefully"
+    },
+    {
+      "q": 10,
+      "choices": [
+        "doesn't",
+        "isn't",
+        "hasn't"
+      ],
+      "answer": "isn't"
+    }
+  ],
+  "story_segments": [
+    "Astronauts are people ",
+    " travel into space to learn more about the stars and planets. Living in a space station is very different from living ",
+    " Earth.\n\nThere is no gravity, ",
+    " everything floats. This means that astronauts ",
+    " to tie their beds to the wall so they don't float away while they are sleeping! They also have to be careful when they are ",
+    " because crumbs could get into the machines.\n\nAstronauts ",
+    " a lot of time doing experiments. They want to find ",
+    " if plants can grow in space or if humans could live on the Moon one day. It is ",
+    " difficult job in the world, but it is also very exciting.\n\nIf you want to ",
+    " an astronaut, you need to study science and maths very ",
+    ". You also have to be very healthy and strong. It's a dream for many children, ",
+    " it?"
+  ],
+  "answers": [
+    "on",
+    "so",
+    "have",
+    "eating",
+    "spend",
+    "out",
+    "the most",
+    "become",
+    "carefully",
+    "isn't"
+  ],
+  "vocab_highlight": [
+    {
+      "word": "astronaut",
+      "vocabulary_bank_id": "fl-wk-005",
+      "translation_vi": "phi hành gia",
+      "ipa": "/ˈæs.trə.nɔːt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/astronaut.mp3"
+    },
+    {
+      "word": "space station",
+      "vocabulary_bank_id": "fl-wa-017",
+      "translation_vi": "trạm vũ trụ",
+      "ipa": "/ˈspeɪs ˈsteɪ.ʃən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/space.mp3"
+    },
+    {
+      "word": "gravity",
+      "vocabulary_bank_id": null,
+      "translation_vi": "trọng lực",
+      "ipa": "/ˈɡræv.ɪ.ti/",
+      "audio_url": null
+    },
+    {
+      "word": "experiment",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thí nghiệm",
+      "ipa": "/ɪkˈsper.ɪ.mənt/",
+      "audio_url": null
+    },
+    {
+      "word": "planet",
+      "vocabulary_bank_id": "fl-wa-015",
+      "translation_vi": "hành tinh",
+      "ipa": "/ˈplæn.ɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/planet.mp3"
+    },
+    {
+      "word": "crumb",
+      "vocabulary_bank_id": null,
+      "translation_vi": "mẩu vụn (bánh mì)",
+      "ipa": "/krʌm/",
+      "audio_url": null
+    },
+    {
+      "word": "scientist",
+      "vocabulary_bank_id": "fl-oc-014",
+      "translation_vi": "nhà khoa học",
+      "ipa": "/ˈsaɪəntɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/scientist.mp3"
+    }
+  ],
+  "explanations_vi": [
+    "Dùng \"on Earth\" (trên Trái Đất) — đây là cụm cố định.",
+    "\"So\" chỉ kết quả: Không có trọng lực, vì vậy (so) mọi thứ lơ lửng.",
+    "Cấu trúc \"have to + V\" = phải làm gì đó (bắt buộc).",
+    "Sau \"when they are...\" cần V-ing để chỉ hành động đang diễn ra: eating.",
+    "Chủ ngữ số nhiều \"Astronauts\" + hiện tại đơn: spend (không thêm -s).",
+    "\"Find out\" = tìm ra, phát hiện ra (cụm động từ cố định).",
+    "\"The most difficult\" = khó nhất (so sánh nhất với tính từ dài).",
+    "Sau \"want to\" dùng động từ nguyên mẫu: want to become.",
+    "Trạng từ \"carefully\" bổ nghĩa cho động từ \"study\".",
+    "Vế trước \"It's a dream\" → câu hỏi đuôi dùng \"isn't it?\""
+  ]
+}

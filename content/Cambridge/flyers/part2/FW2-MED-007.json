@@ -1,0 +1,151 @@
+{
+  "id": "FW2-MED-007",
+  "title": "Set 7: Shopping for New Clothes 👗",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 2,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-07-shopping-for-new-clothes.jpg",
+  "type": "flyers-part2",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "shopping",
+  "conversation": [
+    {
+      "speaker": "Assistant",
+      "text": "Can I help you find something today?",
+      "example": true
+    },
+    {
+      "speaker": "Customer",
+      "answerKey": "F",
+      "example": true
+    },
+    {
+      "speaker": "Assistant",
+      "text": "What size do you usually wear?"
+    },
+    {
+      "speaker": "Customer",
+      "questionIndex": 0
+    },
+    {
+      "speaker": "Assistant",
+      "text": "Would you like to try on this green jacket?"
+    },
+    {
+      "speaker": "Customer",
+      "questionIndex": 1
+    },
+    {
+      "speaker": "Assistant",
+      "text": "The changing rooms are over there, next to the mirrors."
+    },
+    {
+      "speaker": "Customer",
+      "questionIndex": 2
+    },
+    {
+      "speaker": "Assistant",
+      "text": "Does it fit you well, or is it too big?"
+    },
+    {
+      "speaker": "Customer",
+      "questionIndex": 3
+    },
+    {
+      "speaker": "Assistant",
+      "text": "How would you like to pay for it?"
+    },
+    {
+      "speaker": "Customer",
+      "questionIndex": 4
+    }
+  ],
+  "options": [
+    {
+      "letter": "A",
+      "text": "By credit card, if that’s okay."
+    },
+    {
+      "letter": "B",
+      "text": "It’s a bit too tight around the shoulders."
+    },
+    {
+      "letter": "C",
+      "text": "I’ll go and check in the back for you."
+    },
+    {
+      "letter": "D",
+      "text": "Medium is usually best for me."
+    },
+    {
+      "letter": "E",
+      "text": "No, I think it’s too expensive."
+    },
+    {
+      "letter": "F",
+      "text": "Yes, please. I’m looking for a warm coat."
+    },
+    {
+      "letter": "G",
+      "text": "Great, I'll be back in a minute."
+    },
+    {
+      "letter": "H",
+      "text": "Yes, I’d love to. It looks very nice."
+    }
+  ],
+  "answers": [
+    "D",
+    "H",
+    "G",
+    "B",
+    "A"
+  ],
+  "explanations_vi": [
+    "Nhân viên hỏi khách thường mặc size gì (What size), khách đáp Size M (Medium) thường là vừa nhất với tôi.",
+    "Nhân viên hỏi khách có muốn thử chiếc áo khoác xanh lá này không (try on this green jacket), khách đồng ý (Yes, I'd love to) và khen nó đẹp.",
+    "Nhân viên chỉ phòng thay đồ ở đằng kia, khách nói Tuyệt, tôi sẽ quay lại trong một phút (I'll be back in a minute).",
+    "Nhân viên hỏi áo có vừa hay quá rộng (too big), khách đáp Nó hơi chật quanh vai (too tight around the shoulders).",
+    "Nhân viên hỏi khách muốn thanh toán thế nào (How would you like to pay), khách trả lời Bằng thẻ tín dụng, nếu được (By credit card)."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "size",
+      "vocabulary_bank_id": null,
+      "translation_vi": "kích cỡ",
+      "ipa": "/saɪz/",
+      "audio_url": null
+    },
+    {
+      "word": "jacket",
+      "vocabulary_bank_id": "st-cl-009",
+      "translation_vi": "áo khoác",
+      "ipa": "/ˈdʒæk.ɪt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/jacket.mp3"
+    },
+    {
+      "word": "tight",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chật, bó sát",
+      "ipa": "/taɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "shoulders",
+      "vocabulary_bank_id": null,
+      "translation_vi": "vai (cơ thể)",
+      "ipa": "/ˈʃəʊl.dəz/",
+      "audio_url": null
+    },
+    {
+      "word": "credit card",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thẻ tín dụng",
+      "ipa": "/ˈkred.ɪt kɑːd/",
+      "audio_url": null
+    }
+  ]
+}

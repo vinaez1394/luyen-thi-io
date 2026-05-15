@@ -1,0 +1,41 @@
+### BỘ ĐỀ 20: CHỦ ĐỀ "AT THE LIBRARY" (TẠI THƯ VIỆN)
+
+**Nội dung:** Cuộc hội thoại giữa thủ thư và một học sinh đang tìm sách.
+
+**Example:**
+**Librarian:** Hello there. Can I help you find a particular book?
+**Student:** **E**
+
+**Questions:**
+
+1. **Librarian:** What kind of stories do you prefer reading?
+**Student:** __________
+2. **Librarian:** How many books are you allowed to take home at once?
+**Student:** __________
+3. **Librarian:** When do I have to bring them back to the library?
+**Student:** __________
+4. **Librarian:** Is there a quiet place where I can study for my exams?
+**Student:** __________
+5. **Librarian:** Would you like me to show you where the computers are?
+**Student:** __________
+
+**Options (A-H):**
+
+* **A.** I’ve already read that one twice.
+* **B.** Yes, there are some desks on the second floor.
+* **C.** Up to four at a time with your student card.
+* **D.** That would be very useful, thank you.
+* **E.** Yes, please. I’m looking for something about space. **(Example)**
+* **F.** I’m mostly interested in science and history.
+* **G.** You need to return them within two weeks.
+* **H.** It’s open from nine until five every day.
+
+---
+
+### ĐÁP ÁN (ANSWER KEY)
+
+| Bộ đề | Câu 1 | Câu 2 | Câu 3 | Câu 4 | Câu 5 |
+| --- | --- | --- | --- | --- | --- |
+
+| **BĐ 20** | **F** | **C** | **G** | **B** | **D** |
+

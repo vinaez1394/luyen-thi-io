@@ -1,0 +1,206 @@
+{
+  "id": "FW4-MED-002",
+  "title": "Set 2: The Amazing Giant Panda 🐼",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 4,
+  "type": "flyers-part4",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "topic": "nature",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-02-THE%20AMAZING%20GIANT%20PANDA.jpeg",
+  "instructions_en": "READ THE TEXT. CHOOSE THE RIGHT WORDS AND WRITE THEM ON THE LINES.",
+  "passage_title": "THE AMAZING GIANT PANDA",
+  "example": {
+    "options": [
+      "a",
+      "an",
+      "the"
+    ],
+    "answer": "the"
+  },
+  "options_table": [
+    {
+      "q": 1,
+      "choices": [
+        "which",
+        "where",
+        "who"
+      ],
+      "answer": "where"
+    },
+    {
+      "q": 2,
+      "choices": [
+        "at",
+        "in",
+        "on"
+      ],
+      "answer": "at"
+    },
+    {
+      "q": 3,
+      "choices": [
+        "their",
+        "they",
+        "them"
+      ],
+      "answer": "their"
+    },
+    {
+      "q": 4,
+      "choices": [
+        "every",
+        "all",
+        "some"
+      ],
+      "answer": "every"
+    },
+    {
+      "q": 5,
+      "choices": [
+        "don't",
+        "doesn't",
+        "didn't"
+      ],
+      "answer": "don't"
+    },
+    {
+      "q": 6,
+      "choices": [
+        "no",
+        "not",
+        "any"
+      ],
+      "answer": "not"
+    },
+    {
+      "q": 7,
+      "choices": [
+        "because",
+        "so",
+        "but"
+      ],
+      "answer": "because"
+    },
+    {
+      "q": 8,
+      "choices": [
+        "small",
+        "smaller",
+        "smallest"
+      ],
+      "answer": "smaller"
+    },
+    {
+      "q": 9,
+      "choices": [
+        "has",
+        "have",
+        "having"
+      ],
+      "answer": "have"
+    },
+    {
+      "q": 10,
+      "choices": [
+        "although",
+        "during",
+        "since"
+      ],
+      "answer": "since"
+    }
+  ],
+  "story_segments": [
+    "Giant pandas are perhaps ",
+    " most famous animals in the world. They live in the high mountains of China, ",
+    " it is cool and wet.\n\nPandas are very good ",
+    " climbing trees. They spend most of ",
+    " day eating bamboo. A panda can eat for 12 hours ",
+    " day! Although they look like bears, they ",
+    " eat much meat.\n\nIn the past, there were ",
+    " many pandas in the wild, but now the number is growing ",
+    " people are protecting the forests. When a baby panda is born, it is very small. It is even ",
+    " than a stick of butter!\n\nScientists ",
+    " studied pandas for many years to understand how to help them. Everyone loves these black and white animals ",
+    " they are so cute and friendly."
+  ],
+  "answers": [
+    "where",
+    "at",
+    "their",
+    "every",
+    "don't",
+    "not",
+    "because",
+    "smaller",
+    "have",
+    "since"
+  ],
+  "vocab_highlight": [
+    {
+      "word": "panda",
+      "vocabulary_bank_id": "mv-an-005",
+      "translation_vi": "con gấu trúc",
+      "ipa": "/ˈpændə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/panda.mp3"
+    },
+    {
+      "word": "bamboo",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cây tre",
+      "ipa": "/bæmˈbuː/",
+      "audio_url": null
+    },
+    {
+      "word": "mountain",
+      "vocabulary_bank_id": "mv-wa-013",
+      "translation_vi": "ngọn núi",
+      "ipa": "/ˈmaʊn.tɪn/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/mountain.mp3"
+    },
+    {
+      "word": "forest",
+      "vocabulary_bank_id": "fl-nt-008",
+      "translation_vi": "rừng",
+      "ipa": "/ˈfɒr.ɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/forest.mp3"
+    },
+    {
+      "word": "bear",
+      "vocabulary_bank_id": "st-an-002",
+      "translation_vi": "con gấu",
+      "ipa": "/beə/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/bear.mp3"
+    },
+    {
+      "word": "protect",
+      "vocabulary_bank_id": null,
+      "translation_vi": "bảo vệ",
+      "ipa": "/prəˈtekt/",
+      "audio_url": null
+    },
+    {
+      "word": "scientist",
+      "vocabulary_bank_id": "fl-oc-014",
+      "translation_vi": "nhà khoa học",
+      "ipa": "/ˈsaɪəntɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/scientist.mp3"
+    }
+  ],
+  "explanations_vi": [
+    "Dùng \"where\" thay cho nơi chốn (mountains of China).",
+    "\"Good at + V-ing/N\" = giỏi về việc gì — giới từ cố định.",
+    "\"Their day\" = ngày của chúng — tính từ sở hữu số nhiều.",
+    "\"Every day\" = mỗi ngày — cụm chỉ tần suất cố định.",
+    "Chủ ngữ \"they\" (số nhiều) → phủ định: \"don't\".",
+    "\"Not many\" = không nhiều. \"No\" không đứng trước \"many\".",
+    "Chỉ nguyên nhân: số lượng đang tăng vì (because) mọi người bảo vệ rừng.",
+    "Có \"than\" sau blank → phải dùng so sánh hơn: \"smaller\".",
+    "\"Scientists\" số nhiều + hiện tại hoàn thành: have + V3 (studied).",
+    "\"Since\" ở đây đồng nghĩa \"because\" — diễn đạt lý do."
+  ]
+}

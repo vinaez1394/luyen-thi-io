@@ -21,6 +21,11 @@ import { ReadingEngine } from "../components/quiz/ReadingEngine";
 import { WritingEngine } from "../components/quiz/WritingEngine";
 import { FlyersPart1Engine } from "../components/quiz/FlyersPart1Engine";
 import { FlyersPart2Engine } from "../components/quiz/FlyersPart2Engine";
+import { FlyersPart3Engine } from "../components/quiz/FlyersPart3Engine";
+import { FlyersPart4Engine } from "../components/quiz/FlyersPart4Engine";
+import { FlyersPart5Engine } from "../components/quiz/FlyersPart5Engine";
+import { FlyersPart6Engine } from "../components/quiz/FlyersPart6Engine";
+import { FlyersPart7Engine } from "../components/quiz/FlyersPart7Engine";
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
@@ -30,6 +35,11 @@ import type { ReadingQuiz } from "../types/reading";
 import type { WritingQuiz } from "../types/writing";
 import type { FlyersPart1Quiz } from "../components/quiz/FlyersPart1Engine";
 import type { FlyersPart2Quiz } from "../components/quiz/FlyersPart2Engine";
+import type { FlyersPart3Quiz } from "../components/quiz/FlyersPart3Engine";
+import type { FlyersPart4Quiz } from "../components/quiz/FlyersPart4Engine";
+import type { FlyersPart5Quiz } from "../components/quiz/FlyersPart5Engine";
+import type { FlyersPart6Quiz } from "../components/quiz/FlyersPart6Engine";
+import type { FlyersPart7Quiz } from "../components/quiz/FlyersPart7Engine";
 
 export function QuizPage() {
   const location = useLocation();
@@ -69,6 +79,18 @@ export function QuizPage() {
   const [writingProgress, setWritingProgress] = useState({ answered: 0, total: 0 });
   const [writingSubmitTrigger, setWritingSubmitTrigger] = useState(0);
   const [writingSubmitted, setWritingSubmitted] = useState(false);
+  // Flyers Engines: result state (sau khi submit + save lên API)
+  const [flyersResult, setFlyersResult] = useState<import("../types/quiz").QuizResult | null>(null);
+  const [flyersShowResult, setFlyersShowResult] = useState(false);
+  // Pending result: lưu tạm sau khi engine submit (trước khi user bấm Finish)
+  const [flyersPendingResult, setFlyersPendingResult] = useState<{
+    answersForApi: Record<string, string>;
+    startTime: number;
+    score: number;
+    maxScore: number;
+    percentage: number;
+    starsEarned: number;
+  } | null>(null);
 
   const {
     quiz, state, error, isPremium,
@@ -85,6 +107,72 @@ export function QuizPage() {
   useEffect(() => {
     loadQuiz();
   }, [loadQuiz]);
+
+  /**
+   * saveFlyersScore — gọi API /api/quiz/:id/submit với answers từ Flyers Engine,
+   * lưu điểm, cộng sao/streak vào DB, rồi hiển QuizResultScreen.
+   * @param placedAnswers  - answers từ engine (key = questionId, value = answer string)
+   * @param startTime      - Date.now() lúc bắt đầu làm bài
+   * @param localResult    - điểm tính cục bộ từ engine (fallback nếu API lỗi)
+   */
+  const saveFlyersScore = async (
+    placedAnswers: Record<string, string>,
+    startTime: number,
+    localResult?: { score: number; maxScore: number; percentage: number; starsEarned: number }
+  ) => {
+    const timeSpent = Math.round((Date.now() - startTime) / 1000);
+    try {
+      const res = await fetch(`/api/quiz/${quizId}/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ answers: placedAnswers, timeSpent }),
+      });
+      if (res.ok) {
+        const data = await res.json() as import("../types/quiz").QuizResult;
+        localStorage.setItem("last_quiz_id", quizId);
+        setFlyersResult(data);
+        setFlyersShowResult(true);
+        window.dispatchEvent(new Event("stars:updated"));
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const errText = await res.text().catch(() => "unknown");
+        console.error(`[saveFlyersScore] API error ${res.status}:`, errText);
+        // Fallback: dùng kết quả cục bộ từ engine
+        if (localResult) {
+          setFlyersResult({
+            ok: true,
+            saved: false,
+            quizId,
+            score: localResult.score,
+            maxScore: localResult.maxScore,
+            percentage: localResult.percentage,
+            starsEarned: localResult.starsEarned,
+            correctAnswers: {},
+          } as import("../types/quiz").QuizResult);
+          setFlyersShowResult(true);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    } catch (err) {
+      console.error("[saveFlyersScore] Network error:", err);
+      // Fallback: dùng kết quả cục bộ từ engine
+      if (localResult) {
+        setFlyersResult({
+          ok: true,
+          saved: false,
+          quizId,
+          score: localResult.score,
+          maxScore: localResult.maxScore,
+          percentage: localResult.percentage,
+          starsEarned: localResult.starsEarned,
+          correctAnswers: {},
+        } as import("../types/quiz").QuizResult);
+        setFlyersShowResult(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+  };
 
   const handleSubmit = async () => {
     await submitQuiz();
@@ -404,6 +492,28 @@ export function QuizPage() {
     );
   }
 
+  // ===== Flyers: Kết quả screen (dùng chung cho Part 1 và Part 2) =====
+  if (flyersShowResult && flyersResult) {
+    return (
+      <QuizResultScreen
+        result={flyersResult}
+        isLoggedIn={isLoggedIn}
+        onLogin={loginWithGoogle}
+        onReview={() => setFlyersShowResult(false)}
+        onHome={() => navigate(backUrl)}
+        quizPathway={quizPathway}
+        vocabPendingWords={vocab.getPendingWords()}
+        onVocabMarkCorrect={vocab.markWordCorrect}
+        onHangmanStarsEarned={(stars) => {
+          if (stars > 0) fetch("/api/student/stars", { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify({ stars, source: "hangman", quiz_id: quizId }) }).then(r => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); }).catch(() => {});
+        }}
+        onFlashcardStarsEarned={(stars) => {
+          if (stars > 0) fetch("/api/student/stars", { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify({ stars, source: "flashcard", quiz_id: quizId }) }).then(r => { if (r.ok) window.dispatchEvent(new Event("stars:updated")); }).catch(() => {});
+        }}
+      />
+    );
+  }
+
   // ===== Flyers Part 1 — Word Bank Click Engine =====
   if ((quiz as unknown as FlyersPart1Quiz).type === "flyers-part1") {
     const fp1Quiz = quiz as unknown as FlyersPart1Quiz;
@@ -424,7 +534,7 @@ export function QuizPage() {
                 </span>
                 <span className="quiz-sub-header__breadcrumb-sep">›</span>
                 <span className="quiz-sub-header__breadcrumb-current">
-                  📖 Flyers Reading & Writing
+                  📖 Flyers Reading &amp; Writing
                 </span>
               </div>
               <h2 className="quiz-sub-header__title">{fp1Quiz.title}</h2>
@@ -446,9 +556,29 @@ export function QuizPage() {
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
           <FlyersPart1Engine
             quiz={fp1Quiz}
-            onSubmitResult={(_res) => {
-              localStorage.setItem("last_quiz_id", quizId);
+            isLoggedIn={isLoggedIn}
+            onSubmitResult={(res) => {
+              // Ghi nhớ kết quả, đợi user bấm "Finish"
+              setFlyersPendingResult({
+                answersForApi: res.answersForApi,
+                startTime: res.startTime,
+                score: res.score,
+                maxScore: res.maxScore,
+                percentage: res.percentage,
+                starsEarned: res.starsEarned,
+              });
             }}
+            onFinish={() => {
+              // User bấm Finish → save lên API → hiện QuizResultScreen
+              if (flyersPendingResult) {
+                saveFlyersScore(
+                  flyersPendingResult.answersForApi,
+                  flyersPendingResult.startTime,
+                  flyersPendingResult
+                );
+              }
+            }}
+            onBack={() => navigate(backUrl)}
           />
         </div>
       </div>
@@ -475,7 +605,7 @@ export function QuizPage() {
                 </span>
                 <span className="quiz-sub-header__breadcrumb-sep">›</span>
                 <span className="quiz-sub-header__breadcrumb-current">
-                  📖 Flyers Reading & Writing
+                  📖 Flyers Reading &amp; Writing
                 </span>
               </div>
               <h2 className="quiz-sub-header__title">{fp2Quiz.title}</h2>
@@ -497,9 +627,344 @@ export function QuizPage() {
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
           <FlyersPart2Engine
             quiz={fp2Quiz}
-            onSubmitResult={(_res) => {
-              localStorage.setItem("last_quiz_id", quizId);
+            isLoggedIn={isLoggedIn}
+            onSubmitResult={(res) => {
+              // Ghi nhớ kết quả, đợi user bấm "Finish"
+              setFlyersPendingResult({
+                answersForApi: res.answersForApi,
+                startTime: res.startTime,
+                score: res.score,
+                maxScore: res.maxScore,
+                percentage: res.percentage,
+                starsEarned: res.starsEarned,
+              });
             }}
+            onFinish={() => {
+              // User bấm Finish → save lên API → hiện QuizResultScreen
+              if (flyersPendingResult) {
+                saveFlyersScore(
+                  flyersPendingResult.answersForApi,
+                  flyersPendingResult.startTime,
+                  flyersPendingResult
+                );
+              }
+            }}
+            onBack={() => navigate(backUrl)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Flyers Part 3 — Story Fill-in-Blank + Title MCQ =====
+  if ((quiz as unknown as FlyersPart3Quiz).type === "flyers-part3") {
+    const fp3Quiz = quiz as unknown as FlyersPart3Quiz;
+    return (
+      <div className="quiz-layout">
+        {/* Sub-header */}
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Part 3">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  📖 Flyers Reading &amp; Writing
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{fp3Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Engine */}
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <FlyersPart3Engine
+            quiz={fp3Quiz}
+            isLoggedIn={isLoggedIn}
+            onSubmitResult={(res) => {
+              setFlyersPendingResult({
+                answersForApi: res.answersForApi,
+                startTime: res.startTime,
+                score: res.score,
+                maxScore: res.maxScore,
+                percentage: res.percentage,
+                starsEarned: res.starsEarned,
+              });
+            }}
+            onFinish={() => {
+              if (flyersPendingResult) {
+                saveFlyersScore(
+                  flyersPendingResult.answersForApi,
+                  flyersPendingResult.startTime,
+                  flyersPendingResult
+                );
+              }
+            }}
+            onBack={() => navigate(backUrl)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Flyers Part 4 — Multiple-Choice Cloze (Grammar) =====
+  if ((quiz as unknown as FlyersPart4Quiz).type === "flyers-part4") {
+    const fp4Quiz = quiz as unknown as FlyersPart4Quiz;
+    return (
+      <div className="quiz-layout">
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Part 4">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  📖 Flyers Reading &amp; Writing
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{fp4Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <FlyersPart4Engine
+            quiz={fp4Quiz}
+            isLoggedIn={isLoggedIn}
+            onSubmitResult={(res) => {
+              setFlyersPendingResult({
+                answersForApi: res.answersForApi,
+                startTime: res.startTime,
+                score: res.score,
+                maxScore: res.maxScore,
+                percentage: res.percentage,
+                starsEarned: res.starsEarned,
+              });
+            }}
+            onFinish={() => {
+              if (flyersPendingResult) {
+                saveFlyersScore(
+                  flyersPendingResult.answersForApi,
+                  flyersPendingResult.startTime,
+                  flyersPendingResult
+                );
+              }
+            }}
+            onBack={() => navigate(backUrl)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Flyers Part 5 — Story Read + Free-Text Fill =====
+  if ((quiz as unknown as FlyersPart5Quiz).type === "flyers-part5") {
+    const fp5Quiz = quiz as unknown as FlyersPart5Quiz;
+    return (
+      <div className="quiz-layout">
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Part 5">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  📖 Flyers Reading &amp; Writing
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{fp5Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <FlyersPart5Engine
+            quiz={fp5Quiz}
+            isLoggedIn={isLoggedIn}
+            onSubmitResult={(res) => {
+              setFlyersPendingResult({
+                answersForApi: res.answersForApi,
+                startTime: res.startTime,
+                score: res.score,
+                maxScore: res.maxScore,
+                percentage: res.percentage,
+                starsEarned: res.starsEarned,
+              });
+            }}
+            onFinish={() => {
+              if (flyersPendingResult) {
+                saveFlyersScore(
+                  flyersPendingResult.answersForApi,
+                  flyersPendingResult.startTime,
+                  flyersPendingResult
+                );
+              }
+            }}
+            onBack={() => navigate(backUrl)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Flyers Part 7 — Write a Story (3 Pictures) =====
+  if ((quiz as unknown as FlyersPart7Quiz).type === "flyers-part7") {
+    const fp7Quiz = quiz as unknown as FlyersPart7Quiz;
+    return (
+      <div className="quiz-layout">
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Part 7">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  ✏️ Flyers Writing
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{fp7Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <FlyersPart7Engine
+            quiz={fp7Quiz}
+            isLoggedIn={isLoggedIn}
+            onFinish={() => navigate(backUrl)}
+            onBack={() => navigate(backUrl)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ===== Flyers Part 6 — Diary Read + Inline ONE-Word Fill =====
+  if ((quiz as unknown as FlyersPart6Quiz).type === "flyers-part6") {
+    const fp6Quiz = quiz as unknown as FlyersPart6Quiz;
+    return (
+      <div className="quiz-layout">
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Part 6">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  📖 Flyers Reading &amp; Writing
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{fp6Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <FlyersPart6Engine
+            quiz={fp6Quiz}
+            isLoggedIn={isLoggedIn}
+            onSubmitResult={(res) => {
+              setFlyersPendingResult({
+                answersForApi: res.answersForApi,
+                startTime: res.startTime,
+                score: res.score,
+                maxScore: res.maxScore,
+                percentage: res.percentage,
+                starsEarned: res.starsEarned,
+              });
+            }}
+            onFinish={() => {
+              if (flyersPendingResult) {
+                saveFlyersScore(
+                  flyersPendingResult.answersForApi,
+                  flyersPendingResult.startTime,
+                  flyersPendingResult
+                );
+              }
+            }}
+            onBack={() => navigate(backUrl)}
           />
         </div>
       </div>

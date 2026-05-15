@@ -4,6 +4,7 @@
   "skill": "reading",
   "level": "flyers",
   "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-02-sports-and-health.jpg",
   "type": "flyers-part1",
   "is_free": false,
   "pathway": "cambridge",
@@ -11,7 +12,6 @@
   "difficulty": "medium",
   "ui_language": "en",
   "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
-
   "word_bank": [
     "a whistle",
     "a stadium",
@@ -29,12 +29,10 @@
     "a chemist's",
     "an ambulance"
   ],
-
   "example": {
     "prompt": "When you are very ill, you go to this place to see a doctor or a nurse.",
     "answer": "a hospital"
   },
-
   "questions": [
     {
       "id": "q1",
@@ -105,6 +103,64 @@
       "prompt": "Something you win, like a cup or a medal, for being the best in a competition.",
       "correct": "a prize",
       "explanation_vi": "Prize = giải thưởng (cúp, huy chương), thứ bạn giành được khi là người giỏi nhất trong cuộc thi."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "whistle",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cái còi",
+      "ipa": "/ˈwɪsəl/",
+      "audio_url": null
+    },
+    {
+      "word": "stadium",
+      "vocabulary_bank_id": "fl-pd-029",
+      "translation_vi": "sân vận động",
+      "ipa": "/ˈsteɪdiəm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/stadium.mp3"
+    },
+    {
+      "word": "snowboard",
+      "vocabulary_bank_id": "fl-sl-034",
+      "translation_vi": "ván trượt tuyết",
+      "ipa": "/ˈsnəʊbɔːd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/snowboard.mp3"
+    },
+    {
+      "word": "bandage",
+      "vocabulary_bank_id": "fl-hl-001",
+      "translation_vi": "băng cứu thương",
+      "ipa": "/ˈbændɪdʒ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/bandage.mp3"
+    },
+    {
+      "word": "toothache",
+      "vocabulary_bank_id": "mv-hl-018",
+      "translation_vi": "đau răng",
+      "ipa": "/ˈtuːθeɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/toothache.mp3"
+    },
+    {
+      "word": "ambulance",
+      "vocabulary_bank_id": "fl-wk-003",
+      "translation_vi": "xe cứu thương",
+      "ipa": "/ˈæmbjʊləns/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/ambulance.mp3"
+    },
+    {
+      "word": "chemist's",
+      "vocabulary_bank_id": null,
+      "translation_vi": "hiệu thuốc",
+      "ipa": "/ˈkemɪsts/",
+      "audio_url": null
+    },
+    {
+      "word": "coach",
+      "vocabulary_bank_id": null,
+      "translation_vi": "huấn luyện viên",
+      "ipa": "/kəʊtʃ/",
+      "audio_url": null
     }
   ]
 }

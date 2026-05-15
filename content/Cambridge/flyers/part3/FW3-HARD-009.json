@@ -1,0 +1,145 @@
+{
+  "id": "FW3-HARD-009",
+  "title": "Set 9: The Digital Discovery 🖥️",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 3,
+  "type": "flyers-part3",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "hard",
+  "topic": "technology",
+  "ui_language": "en",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-09-the-digital-discovery.jpg",
+  "instructions_en": "READ THE STORY. CHOOSE A WORD FROM THE BOX. WRITE THE CORRECT WORD NEXT TO NUMBERS 1–5. THERE IS ONE EXAMPLE.",
+  "word_bank": [
+    "information",
+    "suddenly",
+    "keyboard",
+    "believe",
+    "program",
+    "carefully",
+    "environment",
+    "discovery",
+    "expensive"
+  ],
+  "example": {
+    "word": "specialist",
+    "blank_index": 0
+  },
+  "story_segments": [
+    "My father is a computer hardware ",
+    " who builds very powerful machines. Last week, he invited me to his office to show me a new ",
+    " that he had just finished. It was designed to help children learn about web logic and AI.\n\nI sat down and began to type my name on the ",
+    ". At first, nothing happened, but my father told me to wait ",
+    ". ",
+    ", the screen filled with bright lights and a friendly robot appeared! The robot asked me to solve a difficult math problem.\n\nWhen I finished, the robot gave me some ",
+    " about the history of computers. It was a wonderful discovery for me. I didn't want to go home because I felt like a real IT expert for the day!"
+  ],
+  "answers": [
+    "program",
+    "keyboard",
+    "carefully",
+    "suddenly",
+    "information"
+  ],
+  "title_question": {
+    "prompt": "Now choose the best name for the story. Write a letter:",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Buying a new toy robot"
+      },
+      {
+        "letter": "B",
+        "text": "A day at the technology office"
+      },
+      {
+        "letter": "C",
+        "text": "How to fix a broken laptop"
+      }
+    ],
+    "answer": "B"
+  },
+  "explanations_vi": [
+    "Bố tôi cho xem một chương trình (program) mới mà ông vừa hoàn thành.",
+    "Tôi bắt đầu gõ tên mình trên bàn phím (keyboard).",
+    "Bố bảo tôi hãy chờ đợi một cách cẩn thận/kiên nhẫn (carefully).",
+    "Đột nhiên (suddenly), màn hình tràn ngập ánh sáng và một robot xuất hiện.",
+    "Robot cung cấp cho tôi một số thông tin (information) về lịch sử máy tính.",
+    "Tiêu đề B (Một ngày ở văn phòng công nghệ) là đúng nhất vì toàn bộ câu chuyện diễn ra ở văn phòng của bố."
+  ],
+  "vocab_highlight": [
+    {
+      "word": "specialist",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chuyên gia",
+      "ipa": "/ˈspeʃ.əl.ɪst/",
+      "audio_url": null
+    },
+    {
+      "word": "keyboard",
+      "vocabulary_bank_id": "st-sc-024",
+      "translation_vi": "bàn phím",
+      "ipa": "/ˈkiː.bɔːd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/keyboard.mp3"
+    },
+    {
+      "word": "expensive",
+      "vocabulary_bank_id": "fl-aj-008",
+      "translation_vi": "đắt tiền",
+      "ipa": "/ɪkˈspensɪv/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/expensive.mp3"
+    },
+    {
+      "word": "environment",
+      "vocabulary_bank_id": "fl-wa-008",
+      "translation_vi": "môi trường",
+      "ipa": "/ɪnˈvaɪ.rən.mənt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/environment.mp3"
+    },
+    {
+      "word": "program",
+      "vocabulary_bank_id": null,
+      "translation_vi": "chương trình",
+      "ipa": "/ˈprəʊ.ɡræm/",
+      "audio_url": null
+    },
+    {
+      "word": "carefully",
+      "vocabulary_bank_id": null,
+      "translation_vi": "cẩn thận",
+      "ipa": "/ˈkeə.fəl.i/",
+      "audio_url": null
+    },
+    {
+      "word": "suddenly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "đột nhiên",
+      "ipa": "/ˈsʌd.ən.li/",
+      "audio_url": null
+    },
+    {
+      "word": "information",
+      "vocabulary_bank_id": null,
+      "translation_vi": "thông tin",
+      "ipa": "/ˌɪn.fəˈmeɪ.ʃən/",
+      "audio_url": null
+    },
+    {
+      "word": "discovery",
+      "vocabulary_bank_id": null,
+      "translation_vi": "khám phá",
+      "ipa": "/dɪˈskʌv.ər.i/",
+      "audio_url": null
+    },
+    {
+      "word": "believe",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tin tưởng",
+      "ipa": "/bɪˈliːv/",
+      "audio_url": null
+    }
+  ]
+}
