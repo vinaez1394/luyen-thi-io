@@ -95,8 +95,6 @@ const FLYERS_PREVIEW = [
   },
 ];
 
-// Thứ tự hiển thị các cấp độ Cambridge (chỉ hiện cái available=true)
-const CAMBRIDGE_ORDER = ["starters", "movers", "flyers", "ket", "pet"];
 // Thứ tự hiển thị các nhóm môn Lớp 6: hàng 1 = Toán + Tiếng Anh, hàng 2 = Tiếng Việt + Khoa học
 const LOP6_ROW1 = ["toan", "tieng-anh"];
 const LOP6_ROW2 = ["tieng-viet", "khoa-hoc"];
