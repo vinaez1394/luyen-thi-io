@@ -1,0 +1,145 @@
+{
+  "id": "FW1-MED-007",
+  "title": "Flyers Part 1 — Set 7: 🏫 School, Materials & Objects (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-07-school-and-objects.jpg",
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+  "word_bank": [
+    "a dictionary",
+    "geography",
+    "history",
+    "science",
+    "a project",
+    "gold",
+    "glass",
+    "plastic",
+    "an envelope",
+    "a diary",
+    "silver",
+    "a calendar",
+    "maths",
+    "scissors",
+    "a backpack"
+  ],
+  "example": {
+    "prompt": "You buy this small square picture and put it on an envelope before you send a letter.",
+    "answer": "a stamp"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "You look in this book to find out what a word means or how to spell it.",
+      "correct": "a dictionary",
+      "explanation_vi": "Dictionary = từ điển, cuốn sách dùng để tra nghĩa hoặc cách viết của một từ."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "In this school subject, you learn about different countries, mountains, and rivers.",
+      "correct": "geography",
+      "explanation_vi": "Geography = địa lý, môn học về các quốc gia, núi non và sông ngòi."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is a subject where you study things that happened a very long time ago.",
+      "correct": "history",
+      "explanation_vi": "History = lịch sử, môn học nghiên cứu về những sự kiện đã xảy ra từ rất lâu."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "In this subject, you might learn about plants, animals, or how things work.",
+      "correct": "science",
+      "explanation_vi": "Science = khoa học, môn học về thực vật, động vật hoặc cách mọi thứ hoạt động."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "Students sometimes work together for a long time to do this special piece of work at school.",
+      "correct": "a project",
+      "explanation_vi": "Project = dự án/bài tập lớn, công việc đặc biệt mà học sinh có thể cùng nhau thực hiện."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is a very expensive, yellow metal that people use to make beautiful rings and necklaces.",
+      "correct": "gold",
+      "explanation_vi": "Gold = vàng, kim loại quý màu vàng dùng để làm nhẫn và dây chuyền."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "Windows and bottles are usually made of this material, and you can see through it.",
+      "correct": "glass",
+      "explanation_vi": "Glass = thủy tinh/kính, vật liệu trong suốt thường dùng làm cửa sổ hoặc vỏ chai."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "Many cheap toys and water bottles are made from this light material.",
+      "correct": "plastic",
+      "explanation_vi": "Plastic = nhựa, vật liệu nhẹ thường dùng làm đồ chơi hoặc chai nước."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You put a letter inside this paper cover before you send it to someone.",
+      "correct": "an envelope",
+      "explanation_vi": "Envelope = phong bì, chiếc vỏ giấy để đựng lá thư bên trong trước khi gửi đi."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a small book where you write down your secrets or things you do every day.",
+      "correct": "a diary",
+      "explanation_vi": "Diary = nhật ký, cuốn sổ nhỏ để viết những bí mật hoặc công việc hàng ngày."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "geography",
+      "vocabulary_bank_id": "fl-sc-009",
+      "translation_vi": "địa lý",
+      "ipa": "/dʒiˈɒɡ.rə.fi/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/geography.mp3"
+    },
+    {
+      "word": "history",
+      "vocabulary_bank_id": "fl-sc-013",
+      "translation_vi": "lịch sử",
+      "ipa": "/ˈhɪs.tər.i/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/history.mp3"
+    },
+    {
+      "word": "science",
+      "vocabulary_bank_id": "fl-sc-019",
+      "translation_vi": "khoa học",
+      "ipa": "/ˈsaɪ.əns/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/science.mp3"
+    },
+    {
+      "word": "envelope",
+      "vocabulary_bank_id": "fl-ho-007",
+      "translation_vi": "phong bì",
+      "ipa": "/ˈen.və.ləʊp/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/envelope.mp3"
+    },
+    {
+      "word": "diary",
+      "vocabulary_bank_id": "fl-ho-005",
+      "translation_vi": "nhật ký",
+      "ipa": "/ˈdaɪə.ri/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/diary.mp3"
+    }
+  ]
+}

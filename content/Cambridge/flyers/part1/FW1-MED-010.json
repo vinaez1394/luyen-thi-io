@@ -1,0 +1,145 @@
+{
+  "id": "FW1-MED-010",
+  "title": "Flyers Part 1 — Set 10: ⛺ Holidays, Sports & Leisure (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-10-holidays-sports.jpg",
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+  "word_bank": [
+    "luggage",
+    "a passport",
+    "a tent",
+    "a hotel",
+    "a journey",
+    "a competition",
+    "a stadium",
+    "a prize",
+    "a goal",
+    "a winner",
+    "a passenger",
+    "a ticket",
+    "a team",
+    "snowboarding",
+    "a concert"
+  ],
+  "example": {
+    "prompt": "This is someone who travels on a bus or train but does not drive it.",
+    "answer": "a passenger"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "You put your clothes in these bags and suitcases when you go on holiday.",
+      "correct": "luggage",
+      "explanation_vi": "Luggage = hành lý, các túi và vali dùng để đựng quần áo khi đi du lịch."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "You must show this small book with your photo when you travel to another country.",
+      "correct": "a passport",
+      "explanation_vi": "Passport = hộ chiếu, cuốn sổ nhỏ có ảnh mà bạn phải xuất trình khi ra nước ngoài."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "You sleep inside this when you go camping in the forest or mountains.",
+      "correct": "a tent",
+      "explanation_vi": "Tent = cái lều, thứ bạn ngủ bên trong khi đi cắm trại trong rừng hoặc trên núi."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This is a building where you can pay to sleep and eat when you are on holiday.",
+      "correct": "a hotel",
+      "explanation_vi": "Hotel = khách sạn, tòa nhà nơi bạn trả tiền để ngủ và ăn khi đi nghỉ."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is the time when you are traveling from one place to another place.",
+      "correct": "a journey",
+      "explanation_vi": "Journey = hành trình, khoảng thời gian bạn đi từ nơi này sang nơi khác."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is a special event where people try to be the best and win something.",
+      "correct": "a competition",
+      "explanation_vi": "Competition = cuộc thi, sự kiện đặc biệt nơi mọi người cố gắng hết sức để giành chiến thắng."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This is a very large sports field with seats around it where thousands of people can sit.",
+      "correct": "a stadium",
+      "explanation_vi": "Stadium = sân vận động, sân thể thao rất lớn có ghế bao quanh để hàng nghìn người ngồi xem."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "If you are the fastest or the best in a race, they will give you this.",
+      "correct": "a prize",
+      "explanation_vi": "Prize = phần thưởng, giải thưởng bạn nhận được nếu chạy nhanh nhất hoặc giỏi nhất."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "In football, you want to kick the ball into this to get a point for your team.",
+      "correct": "a goal",
+      "explanation_vi": "Goal = khung thành / bàn thắng. Trong bóng đá, bạn sút bóng vào lưới để ghi điểm cho đội mình."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is the person who comes first in a race or gets the best score in a game.",
+      "correct": "a winner",
+      "explanation_vi": "Winner = người chiến thắng, người về nhất trong cuộc đua hoặc đạt điểm cao nhất trong trò chơi."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "hotel",
+      "vocabulary_bank_id": "fl-pd-014",
+      "translation_vi": "khách sạn",
+      "ipa": "/həʊˈtel/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/hotel.mp3"
+    },
+    {
+      "word": "journey",
+      "vocabulary_bank_id": "fl-tr-004",
+      "translation_vi": "chuyến hành trình",
+      "ipa": "/ˈdʒɜː.ni/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/journey.mp3"
+    },
+    {
+      "word": "competition",
+      "vocabulary_bank_id": "fl-sc-006",
+      "translation_vi": "cuộc thi",
+      "ipa": "/ˌkɒm.pɪˈtɪʃ.ən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/competition.mp3"
+    },
+    {
+      "word": "stadium",
+      "vocabulary_bank_id": "fl-pd-029",
+      "translation_vi": "sân vận động",
+      "ipa": "/ˈsteɪ.di.əm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/stadium.mp3"
+    },
+    {
+      "word": "goal",
+      "vocabulary_bank_id": "mv-sl-011",
+      "translation_vi": "bàn thắng / khung thành",
+      "ipa": "/ɡəʊl/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/goal.mp3"
+    }
+  ]
+}

@@ -8,6 +8,11 @@
   background: var(--color-bg);
 }
 
+/* Offset khi sticky banner đang hiện */
+.home-page--has-banner {
+  padding-top: 48px;
+}
+
 /* ===== SECTION 1: HERO ===== */
 .home-hero {
   position: relative;
@@ -25,39 +30,38 @@
 }
 
 .home-hero__blob--1 {
-  width: 500px; height: 500px;
+  width: 500px;
+  height: 500px;
   background: var(--color-primary);
-  top: -200px; right: -150px;
+  top: -200px;
+  right: -150px;
 }
 
 .home-hero__blob--2 {
-  width: 400px; height: 400px;
+  width: 400px;
+  height: 400px;
   background: var(--color-secondary);
-  bottom: -150px; left: -100px;
+  bottom: -150px;
+  left: -100px;
 }
 
 .home-hero__content {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-.home-hero__title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: var(--font-black);
-  line-height: 1.1;
-  color: var(--color-text);
+/* ── Brand headline ── */
+.home-hero__brand {
   margin-bottom: var(--space-2);
-  letter-spacing: -0.02em;
 }
 
-.home-hero__title-emphasis {
-  color: var(--color-text);
-  font-style: italic;
-}
-
-.home-hero__title-highlight {
+.home-hero__brand-text {
+  font-size: clamp(3.2rem, 10vw, 6rem);
+  font-weight: var(--font-black);
+  letter-spacing: -0.03em;
+  line-height: 1;
   color: var(--color-primary);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -65,42 +69,98 @@
   background-clip: text;
 }
 
-.home-hero__desc {
-  font-size: var(--font-md);
+/* ── 2 lộ trình ── */
+.home-hero__pathways {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--space-2);
+}
+
+.home-hero__pathway {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  /* không xuống dòng */
+  white-space: nowrap;
+}
+
+.home-hero__pathway-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.home-hero__pathway-text {
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.home-hero__pathway-text em {
+  font-style: normal;
   color: var(--color-text-muted);
-  line-height: var(--line-height-loose);
+  font-weight: var(--font-normal);
+  font-size: 12px;
+}
+
+/* Mobile: scale down to fit 1 line */
+@media (max-width: 420px) {
+  .home-hero__pathway-text {
+    font-size: 12px;
+  }
+
+  .home-hero__pathway-text em {
+    font-size: 11px;
+  }
+
+  .home-hero__pathway-icon {
+    font-size: 1rem;
+  }
+
+  .home-hero__tagline {
+    font-size: 11px;
+  }
+}
+
+/* ── Tagline phụ ── */
+.home-hero__tagline {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
   margin-bottom: var(--space-3);
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
+  letter-spacing: 0.01em;
 }
 
 .home-hero__ctas {
   display: flex;
-  gap: var(--space-1);
+  gap: var(--space-2);
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Stats row */
+/* Stats: grid 2x2 (đều nhau) */
 .home-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-2);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: var(--space-5);
+  max-width: 440px;
+  width: 100%;
+  margin: var(--space-5) auto 0;
   position: relative;
   z-index: 1;
+  padding: 0 var(--space-3);
 }
 
 .home-stat {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-2);
   text-align: center;
   box-shadow: var(--shadow-sm);
-  min-width: 100px;
 }
 
 .home-stat__value {
@@ -156,7 +216,8 @@
   background: var(--color-card);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: var(--space-3) var(--space-3) var(--space-2);
+  /* padding-right = 50%+ để nhường chỗ cho ảnh bên phải */
+  padding: var(--space-3) 52% var(--space-2) var(--space-3);
   cursor: pointer;
   transition:
     transform var(--transition-bounce),
@@ -166,6 +227,9 @@
   flex-direction: column;
   gap: var(--space-2);
   user-select: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
 }
 
 .pathway-card:hover {
@@ -215,6 +279,13 @@
   gap: 6px;
 }
 
+/* Ép xuống dòng giữa 2 nhóm badge */
+.pathway-levels__break {
+  flex-basis: 100%;
+  height: 0;
+  margin: 0;
+}
+
 .pathway-level-badge {
   font-size: var(--font-xs);
   font-weight: var(--font-bold);
@@ -257,6 +328,36 @@
 .pathway-card__age {
   font-size: var(--font-xs);
   color: var(--color-text-muted);
+}
+
+/* Ảnh minh họa — chiếm nửa bên phải thẻ */
+.pathway-card__illus {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  opacity: 0.75;
+  /* ← ĐỘ RÕ ẢNH: tăng số này để rõ hơn (tối đa 1.0), giảm để mờ đi */
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.08));
+}
+
+.pathway-card:hover .pathway-card__illus {
+  opacity: 0.9;
+  transform: scale(1.04);
+}
+
+/* Mobile: chỉ reset padding-right để chữ không bị cắt
+   Ảnh giữ nguyên vị trí và kích thước như desktop */
+@media (max-width: 480px) {
+  .pathway-card {
+    padding-right: 52%; /* vẫn giữ cột trái cho chữ */
+  }
 }
 
 /* ===== SECTION 3: SOCIAL PROOF ===== */
@@ -334,11 +435,15 @@
 }
 
 @media (min-width: 600px) {
-  .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+  .lesson-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 900px) {
-  .lesson-grid { grid-template-columns: repeat(3, 1fr); }
+  .lesson-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Card: vertical stack (compact cho 2-col) */
@@ -355,8 +460,15 @@
 }
 
 /* Mobile: cần text title và emoji cô đồng, chứ không bị lặn */
-.lesson-card__emoji { font-size: 28px; line-height: 1; margin-bottom: 4px; }
-.lesson-card__content { flex: 1; }
+.lesson-card__emoji {
+  font-size: 28px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.lesson-card__content {
+  flex: 1;
+}
 
 .lesson-card__tags {
   display: flex;
@@ -415,6 +527,97 @@
   transform: translateX(4px);
 }
 
+/* ===== FLYERS PREVIEW CARD (thumbnail 16:9 + content, hình chữ nhật) ===== */
+.flyers-preview-card {
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  /* hình chữ nhật — KHÔNG dùng --radius-xl (=999px=tròn) */
+  gap: 0;
+}
+
+.flyers-preview-card__thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-bg-subtle);
+  flex-shrink: 0;
+  border-radius: 0;
+  /* thumb không cần bo riêng, card đã bo */
+}
+
+.flyers-preview-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.flyers-preview-card:hover .flyers-preview-card__img {
+  transform: scale(1.05);
+}
+
+/* Badge "Part N" — góc trên trái */
+.flyers-preview-card__part-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(99, 102, 241, 0.92);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(4px);
+}
+
+/* Badge "Miễn phí" — góc trên phải */
+.flyers-preview-card__free-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(16, 185, 129, 0.92);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+/* Content area */
+.flyers-preview-card .lesson-card__content {
+  padding: 10px 12px 12px;
+}
+
+.flyers-preview-card .lesson-card__title {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin-bottom: 3px;
+  -webkit-line-clamp: unset;
+  display: block;
+  overflow: visible;
+}
+
+@media (min-width: 600px) {
+  .flyers-preview-card .lesson-card__title {
+    font-size: var(--font-md);
+  }
+}
+
+.flyers-preview-card__desc {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+
 /* ===== SECTION 5: GAMES ===== */
 .home-games {
   padding: var(--space-6) var(--space-3);
@@ -440,18 +643,96 @@
   font-size: var(--font-md);
 }
 
-/* 2 games grid — stacked on mobile, side-by-side on tablet+ */
+/* Games layout:
+   Mobile:   1 cột stack
+   Tablet:   vocab banner full + 2 games dưới (2 cột)
+   Desktop:  vocab banner full + 2 games dưới (2 cột)
+*/
 .home-games__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3);
 }
 
+/* Tablet+: vocab (item 1) span 2 cột, games bên dưới 2 cột */
 @media (min-width: 640px) {
   .home-games__grid {
     grid-template-columns: 1fr 1fr;
-    align-items: stretch;   /* ← equal height */
   }
+
+  /* Vocabulary card (first child) → trải full width */
+  .home-games__vocab-card {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .home-games__vocab-card .home-games__vocab-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+  }
+
+  .home-games__vocab-card .home-games__vocab-desc {
+    flex: 1;
+  }
+
+  .home-games__vocab-card .home-games__vocab-cta {
+    margin-top: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: var(--font-sm);
+  }
+}
+
+/* Vocabulary card base styles */
+.home-games__vocab-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  /* Banner gradient nổi bật */
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  border: none !important;
+}
+
+.home-games__vocab-icon {
+  font-size: 2.4rem;
+}
+
+.home-games__vocab-title {
+  font-size: var(--font-lg);
+  font-weight: var(--font-extrabold);
+  color: #fff;
+}
+
+.home-games__vocab-desc {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+/* CTA mobile */
+.home-games__vocab-cta {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* hover */
+.home-games__vocab-card:hover {
+  filter: brightness(1.06);
 }
 
 /* ===== SECTION 6: CTA BANNER ===== */
@@ -461,11 +742,13 @@
   border-radius: var(--radius-lg);
   padding: var(--space-3) var(--space-4);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-2);
   flex-wrap: wrap;
   color: #fff;
+  text-align: center;
 }
 
 .home-cta-banner__text {
@@ -491,11 +774,135 @@
 }
 
 .home-cta-banner .btn:hover {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Trust signals */
+.home-cta-banner__trust {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: var(--font-xs);
+  opacity: 0.85;
+}
+
+/* ===== UI SLIDES SECTION ===== */
+.home-ui-slides {
+  padding: var(--space-6) var(--space-3);
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-ui-slides__header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.home-ui-slides__title {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-black);
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.home-ui-slides__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-md);
+}
+
+.ui-slides-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+}
+
+.ui-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 20px;
+}
+
+.ui-slide--active {
+  opacity: 1;
+}
+
+.ui-slide__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ui-slide__label {
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+}
+
+.ui-slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ui-slide__hint {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+.ui-slides-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+.ui-slide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ui-slide-dot--active {
+  background: var(--color-primary);
+  transform: scale(1.3);
+}
+
+/* Muted badge cho level chưa available (thay vì "sắp có") */
+.pathway-level-badge--muted {
+  opacity: 0.4;
+  font-style: italic;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
-  .home-hero { padding: var(--space-6) var(--space-2) var(--space-4); }
-  .home-cta-banner { margin: var(--space-2); flex-direction: column; text-align: center; }
+  .home-hero {
+    padding: var(--space-6) var(--space-2) var(--space-4);
+  }
+
+  .home-cta-banner {
+    margin: var(--space-2);
+  }
+
+  .home-hero__brand-text {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
 }

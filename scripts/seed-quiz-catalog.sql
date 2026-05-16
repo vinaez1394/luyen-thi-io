@@ -840,11 +840,76 @@ REPLACE INTO quiz_catalog (
       grade_target, grade_min, grade_max, in_pool, recommended,
       unlocks_game, sort_order, image_url
     ) VALUES (
+      'FW1-MED-006', 'fw1-med-006', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 6: Health & Body', '🏥', 'reading', 1, 'medium', 10, 8,
+      0, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 9, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-06-health-and-body.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW1-MED-007', 'fw1-med-007', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 7: School & Objects', '🏫', 'reading', 1, 'medium', 10, 8,
+      0, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 10, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-07-school-and-objects.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW1-MED-008', 'fw1-med-008', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 8: Environment & Weather', '🌍', 'reading', 1, 'medium', 10, 8,
+      0, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 11, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-08-environment-weather.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW1-MED-009', 'fw1-med-009', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 9: Clothes & Jobs', '👕', 'reading', 1, 'medium', 10, 8,
+      0, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 12, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-09-clothes-jobs.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW1-MED-010', 'fw1-med-010', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 10: Holidays & Sports', '⛺', 'reading', 1, 'medium', 10, 8,
+      0, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 13, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-10-holidays-sports.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
       'FW1-HARD-001', 'fw1-hard-001', 'cambridge', 'flyers', 'Flyers', 'flyers',
       'Set 1: Education & Professions', '🔥', 'reading', 1, 'hard', 10, 10,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 9, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-01-education-and-professions.jpg'
+      NULL, 14, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-01-education-and-professions.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -857,7 +922,7 @@ REPLACE INTO quiz_catalog (
       'Set 2: Science & Discovery', '🔥', 'reading', 1, 'hard', 10, 10,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 10, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-02-science-and-discovery.jpg'
+      NULL, 15, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-02-science-and-discovery.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -870,7 +935,7 @@ REPLACE INTO quiz_catalog (
       'Set 3: Society & Culture', '🔥', 'reading', 1, 'hard', 10, 10,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 11, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-03-society-and-culture.jpg'
+      NULL, 16, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-03-society-and-culture.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -883,7 +948,7 @@ REPLACE INTO quiz_catalog (
       'Set 4: History & Society', '🔥', 'reading', 1, 'hard', 10, 10,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 12, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-04-history-and-society.jpg'
+      NULL, 17, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-04-history-and-society.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -896,7 +961,7 @@ REPLACE INTO quiz_catalog (
       'Set 5: Technology & Modern World', '🔥', 'reading', 1, 'hard', 10, 10,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 13, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-05-technology-and-modern-world.jpg'
+      NULL, 18, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-05-technology-and-modern-world.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -909,7 +974,7 @@ REPLACE INTO quiz_catalog (
       'Set 1: A Visit to the Zoo', '🐵', 'reading', 2, 'easy', 5, 5,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 14, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-01-a-visit-to-the-zoo.jpg'
+      NULL, 19, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-01-a-visit-to-the-zoo.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -922,7 +987,7 @@ REPLACE INTO quiz_catalog (
       'Set 2: Weekend Activities', '🚴', 'reading', 2, 'easy', 5, 5,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 15, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-02-weekend-activities.jpg'
+      NULL, 20, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-02-weekend-activities.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -935,7 +1000,7 @@ REPLACE INTO quiz_catalog (
       'Set 3: A Cold Day', '🤒', 'reading', 2, 'easy', 5, 5,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 16, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-03-a-cold-day.jpg'
+      NULL, 21, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-03-a-cold-day.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -948,7 +1013,7 @@ REPLACE INTO quiz_catalog (
       'Set 4: Helping Dad in the Kitchen', '🍳', 'reading', 2, 'easy', 5, 5,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 17, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-04-helping-dad-in-the-kitchen.jpg'
+      NULL, 22, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-04-helping-dad-in-the-kitchen.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -961,7 +1026,7 @@ REPLACE INTO quiz_catalog (
       'Set 5: A New Hobby', '🎲', 'reading', 2, 'easy', 5, 5,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 18, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-05-a-new-hobby.jpg'
+      NULL, 23, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-05-a-new-hobby.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -974,7 +1039,7 @@ REPLACE INTO quiz_catalog (
       'Set 1: A Trip to the Museum', '🏛️', 'reading', 2, 'medium', 5, 5,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 19, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-01-a-trip-to-the-museum.jpg'
+      NULL, 24, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-01-a-trip-to-the-museum.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -987,7 +1052,7 @@ REPLACE INTO quiz_catalog (
       'Set 2: A Camping Trip', '⛺', 'reading', 2, 'medium', 5, 5,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 20, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-02-a-camping-trip.jpg'
+      NULL, 25, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-02-a-camping-trip.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1000,7 +1065,7 @@ REPLACE INTO quiz_catalog (
       'Set 3: The Science Project', '🔭', 'reading', 2, 'medium', 5, 5,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 21, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-03-the-science-project.jpg'
+      NULL, 26, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-03-the-science-project.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1013,7 +1078,7 @@ REPLACE INTO quiz_catalog (
       'Set 4: The Lost Suitcase', '🧳', 'reading', 2, 'medium', 5, 5,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 22, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-04-the-lost-suitcase.jpg'
+      NULL, 27, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-04-the-lost-suitcase.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1026,7 +1091,7 @@ REPLACE INTO quiz_catalog (
       'Set 5: The New Music Club', '🎵', 'reading', 2, 'medium', 5, 5,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 23, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-05-the-new-music-club.jpg'
+      NULL, 28, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-05-the-new-music-club.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1039,7 +1104,7 @@ REPLACE INTO quiz_catalog (
       'Set 1: A Camping Adventure 🏕️', '🏕️', 'reading', 3, 'medium', 6, 8,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 24, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-01-a-camping-adventure.jpg'
+      NULL, 29, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-01-a-camping-adventure.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1052,7 +1117,7 @@ REPLACE INTO quiz_catalog (
       'Set 2: A Busy Day at the Farm 🚜', '🚜', 'reading', 3, 'medium', 6, 8,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 25, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-02-busy-day-at-the-farm.jpg'
+      NULL, 30, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-02-busy-day-at-the-farm.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1065,7 +1130,7 @@ REPLACE INTO quiz_catalog (
       'Set 3: A Day at the Sea 🌊', '🌊', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 26, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-03-a-day-at-the-sea.jpg'
+      NULL, 31, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-03-a-day-at-the-sea.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1078,7 +1143,7 @@ REPLACE INTO quiz_catalog (
       'Set 4: The Space Museum 🚀', '🚀', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 27, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-04-the-space-museum.jpg'
+      NULL, 32, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-04-the-space-museum.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1091,7 +1156,7 @@ REPLACE INTO quiz_catalog (
       'Set 5: A Visit to the Hospital 🏥', '🏥', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 28, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-05-a-visit-to-the-hospital.jpg'
+      NULL, 33, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-05-a-visit-to-the-hospital.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1104,7 +1169,7 @@ REPLACE INTO quiz_catalog (
       'Set 6: The Big Football Match ⚽', '⚽', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 29, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-06-the-big-football-match.jpg'
+      NULL, 34, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-06-the-big-football-match.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1117,7 +1182,7 @@ REPLACE INTO quiz_catalog (
       'Set 7: The Cooking Competition 👨‍🍳', '👨‍🍳', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 30, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-07-the-cooking-competition.jpg'
+      NULL, 35, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-07-the-cooking-competition.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1130,7 +1195,7 @@ REPLACE INTO quiz_catalog (
       'Set 8: A Trip to the Desert 🐪', '🐪', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 31, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-08-a-trip-to-the-desert.jpg'
+      NULL, 36, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-08-a-trip-to-the-desert.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1143,7 +1208,7 @@ REPLACE INTO quiz_catalog (
       'Set 9: The New Invention 🤖', '🤖', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 32, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-09-the-new-invention.jpg'
+      NULL, 37, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-09-the-new-invention.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1156,7 +1221,7 @@ REPLACE INTO quiz_catalog (
       'Set 10: A Rainy Day at the Zoo 🌧️', '🌧️', 'reading', 3, 'medium', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 33, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-10-a-rainy-day-at-the-zoo.jpg'
+      NULL, 38, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-10-a-rainy-day-at-the-zoo.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1169,7 +1234,7 @@ REPLACE INTO quiz_catalog (
       'Set 1: The Secret of the Ancient Cave 🕳️', '🕳️', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 34, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-01-the-secret-of-the-ancient-cave.jpg'
+      NULL, 39, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-01-the-secret-of-the-ancient-cave.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1182,7 +1247,7 @@ REPLACE INTO quiz_catalog (
       'Set 2: Saving the Green Valley 🌳', '🌳', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 35, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-02-saving-the-green-valley.jpg'
+      NULL, 40, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-02-saving-the-green-valley.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1195,7 +1260,7 @@ REPLACE INTO quiz_catalog (
       'Set 3: The New Software 💻', '💻', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 36, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-03-the-new-software.jpg'
+      NULL, 41, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-03-the-new-software.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1208,7 +1273,7 @@ REPLACE INTO quiz_catalog (
       'Set 4: The Weather Station 🌤️', '🌤️', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 37, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-04-the-weather-station.jpg'
+      NULL, 42, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-04-the-weather-station.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1221,7 +1286,7 @@ REPLACE INTO quiz_catalog (
       'Set 5: The Mysterious Signal 📡', '📡', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 38, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-05-the-mysterious-signal.jpg'
+      NULL, 43, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-05-the-mysterious-signal.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1234,7 +1299,7 @@ REPLACE INTO quiz_catalog (
       'Set 6: The Deep Sea Adventure 🌊', '🌊', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 39, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-06-the-deep-sea-adventure.jpg'
+      NULL, 44, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-06-the-deep-sea-adventure.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1247,7 +1312,7 @@ REPLACE INTO quiz_catalog (
       'Set 7: The Endangered Forest 🌲', '🌲', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 40, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-07-the-endangered-forest.jpg'
+      NULL, 45, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-07-the-endangered-forest.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1260,7 +1325,7 @@ REPLACE INTO quiz_catalog (
       'Set 8: The Robot Competition 🤖', '🤖', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 41, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-08-the-robot-competition.jpg'
+      NULL, 46, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-08-the-robot-competition.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1273,7 +1338,7 @@ REPLACE INTO quiz_catalog (
       'Set 9: The Digital Discovery 🖥️', '🖥️', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 42, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-09-the-digital-discovery.jpg'
+      NULL, 47, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-09-the-digital-discovery.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1286,7 +1351,7 @@ REPLACE INTO quiz_catalog (
       'Set 10: The Science Project 🔬', '🔬', 'reading', 3, 'hard', 6, 8,
       0, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 43, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-10-the-science-project.jpg'
+      NULL, 48, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-10-the-science-project.jpg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1299,7 +1364,7 @@ REPLACE INTO quiz_catalog (
       'Set 1: Living in Space 🚀', '🚀', 'reading', 4, 'medium', 10, 10,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 44, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-01-LIVING%20IN%20SPACE.jpeg'
+      NULL, 49, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-01-LIVING%20IN%20SPACE.jpeg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1312,7 +1377,7 @@ REPLACE INTO quiz_catalog (
       'Set 2: The Amazing Giant Panda 🐼', '🐼', 'reading', 4, 'medium', 10, 10,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 45, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-02-THE%20AMAZING%20GIANT%20PANDA.jpeg'
+      NULL, 50, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-02-THE%20AMAZING%20GIANT%20PANDA.jpeg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1325,7 +1390,7 @@ REPLACE INTO quiz_catalog (
       'Set 3: The World of Volcanoes 🌋', '🌋', 'reading', 4, 'medium', 10, 10,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 46, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-03-the-world-of-volcanoes.jpeg'
+      NULL, 51, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-03-the-world-of-volcanoes.jpeg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1338,7 +1403,7 @@ REPLACE INTO quiz_catalog (
       'Set 4: The Story of Money 💰', '💰', 'reading', 4, 'medium', 10, 10,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 47, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-04-the-story-of-money.jpeg'
+      NULL, 52, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-04-the-story-of-money.jpeg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1351,7 +1416,7 @@ REPLACE INTO quiz_catalog (
       'Set 5: The Ship of the Desert 🐪', '🐪', 'reading', 4, 'medium', 10, 10,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 48, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-05-the-ship-of-the-desert.jpeg'
+      NULL, 53, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-05-the-ship-of-the-desert.jpeg'
     );
 REPLACE INTO quiz_catalog (
       quiz_id, slug, pathway, subject_slug, level, group_tag,
@@ -1364,5 +1429,148 @@ REPLACE INTO quiz_catalog (
       'Set 6: High in the Sky ✈️', '✈️', 'reading', 4, 'medium', 10, 10,
       1, 1, 0,
       NULL, NULL, NULL, 0, 0,
-      NULL, 49, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-06-high-in-the-sky.jpeg'
+      NULL, 54, 'https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-06-high-in-the-sky.jpeg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW5-EASY-001', 'fw5-easy-001', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 1: Sports Day at School 🏅', '🏅', 'reading', 5, 'easy', 7, 10,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 55, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-01-sports-day-at-school.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW5-EASY-002', 'fw5-easy-002', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 2: A Visit to the Zoo 🦁', '🦁', 'reading', 5, 'easy', 7, 10,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 56, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-02-a-visit-to-the-zoo.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW5-EASY-003', 'fw5-easy-003', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 3: Baking Cookies at Home 🍪', '🍪', 'reading', 5, 'easy', 7, 10,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 57, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-03-baking-cookies-at-home.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW5-EASY-004', 'fw5-easy-004', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 4: A Birthday Surprise 🎂', '🎂', 'reading', 5, 'easy', 7, 10,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 58, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-04-a-birthday-surprise.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW5-EASY-005', 'fw5-easy-005', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 5: A Day at the Beach 🏖️', '🏖️', 'reading', 5, 'easy', 7, 10,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 59, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-05-a-day-at-the-beach.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW6-MED-001', 'fw6-med-001', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 1: A Trip to the Mountains ⛰️', '⛰️', 'reading', 6, 'medium', 5, 8,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 1,
+      NULL, 60, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-01-a-trip-to-the-mountains.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW6-MED-002', 'fw6-med-002', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 2: A New Pet 🐱', '🐱', 'reading', 6, 'medium', 5, 8,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 61, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-02-school-sports-day.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW6-MED-003', 'fw6-med-003', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 3: A School Trip to the Museum 🏛️', '🏛️', 'reading', 6, 'medium', 5, 8,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 62, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-03-a-letter-from-the-farm.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW6-MED-004', 'fw6-med-004', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 4: A Camping Trip 🏕️', '🏕️', 'reading', 6, 'medium', 5, 8,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 63, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-04-a-camping-trip.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW6-MED-005', 'fw6-med-005', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 5: Emma''s Birthday Party 🎂', '🎂', 'reading', 6, 'medium', 5, 8,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 0,
+      NULL, 64, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P6-MED-05-emmas-birthday-party.jpg'
+    );
+REPLACE INTO quiz_catalog (
+      quiz_id, slug, pathway, subject_slug, level, group_tag,
+      title, emoji, skill, part, difficulty, questions, est_minutes,
+      is_free, is_published, show_on_home,
+      grade_target, grade_min, grade_max, in_pool, recommended,
+      unlocks_game, sort_order, image_url
+    ) VALUES (
+      'FW7-MED-001', 'fw7-med-001', 'cambridge', 'flyers', 'Flyers', 'flyers',
+      'Set 1: The Lost Dog 🐕', '🐕', 'reading', 7, 'medium', 1, 10,
+      1, 1, 0,
+      NULL, NULL, NULL, 0, 1,
+      NULL, 65, 'https://cdn.luyenthi.io.vn/Cambridge/FLYERS/part7/FLYER-RW-P7-MED-01-the-lost-dog-pic1.jpg'
     );

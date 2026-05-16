@@ -30,8 +30,9 @@
   border-left: 4px solid #0ea5e9;
   border-radius: var(--fp5-radius);
   padding: 0.75rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: #0c4a6e;
@@ -174,8 +175,9 @@
   align-items: baseline;
   gap: 0.35rem;
   margin-bottom: 0.35rem;
-  font-size: 0.93rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.7;
 }
 
 .fp5-example-num {
@@ -227,7 +229,8 @@
   align-items: baseline;
   gap: 0.3rem;
   flex-wrap: wrap;
-  font-size: 1.05rem;     /* ← bigger for kids */
+  font-size: 1.1rem;
+  font-family: inherit;
   line-height: 1.8;
 }
 
@@ -257,7 +260,7 @@
   border: 2px solid #cbd5e1;
   border-radius: 6px;
   padding: 2px 8px;
-  font-size: 0.93rem;
+  font-size: 1rem;
   font-family: inherit;
   outline: none;
   transition: border-color 0.15s, background 0.15s;

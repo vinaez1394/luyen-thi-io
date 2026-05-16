@@ -23,7 +23,7 @@ export function GlobalFooter() {
           <button
             className="global-footer__link"
             id="btn-footer-about"
-            onClick={() => navigate("/about")}
+          onClick={() => navigate("/ve-chung-toi")}
           >
             Về chúng tôi
           </button>
@@ -31,7 +31,7 @@ export function GlobalFooter() {
           <button
             className="global-footer__link"
             id="btn-footer-contact"
-            onClick={() => navigate("/contact")}
+          onClick={() => navigate("/lien-he")}
           >
             Liên hệ
           </button>
@@ -39,7 +39,7 @@ export function GlobalFooter() {
           <button
             className="global-footer__link"
             id="btn-footer-privacy"
-            onClick={() => navigate("/privacy")}
+          onClick={() => navigate("/chinh-sach-bao-mat")}
           >
             Chính sách bảo mật
           </button>

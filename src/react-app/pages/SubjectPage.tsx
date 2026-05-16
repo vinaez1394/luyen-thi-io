@@ -384,17 +384,23 @@ export function SubjectPage() {
       )
       .filter(l => activeDiff === "all" || l.difficulty === activeDiff)
       .sort((a, b) => {
-        if ((b.recommended ? 1 : 0) !== (a.recommended ? 1 : 0))
-          return (b.recommended ? 1 : 0) - (a.recommended ? 1 : 0);
+        // Guest mode: bài free lên trước
+        if (!isLoggedIn) {
+          const fa = a.is_free ? 0 : 1;
+          const fb = b.is_free ? 0 : 1;
+          if (fa !== fb) return fa - fb;
+        }
         // Cambridge: sort theo Part number trước
         const pa = a.part ?? 99, pb = b.part ?? 99;
         if (pa !== pb) return pa - pb;
+        // Rồi theo difficulty: easy → medium → hard
         const da = a.difficulty ? (DIFF_ORDER[a.difficulty] ?? 99) : 99;
         const db = b.difficulty ? (DIFF_ORDER[b.difficulty] ?? 99) : 99;
         if (da !== db) return da - db;
         return a.id.localeCompare(b.id);
       });
-  }, [subject, activeSkill, activeGrade, activeDiff, isCambridge, activePart]);
+  }, [subject, activeSkill, activeGrade, activeDiff, isCambridge, activePart, isLoggedIn]);
+
 
   // ── Stats ──
   const stats = useMemo(() => {

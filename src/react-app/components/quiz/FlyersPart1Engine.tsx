@@ -424,7 +424,7 @@ export function FlyersPart1Engine({
       {/* ── Main Layout ── */}
       <div className="fp1-layout">
 
-        {/* ── Left panel: Instruction + Example + VocabPanel ── */}
+        {/* ── Left panel: Instruction + Example + Image (desktop) + VocabPanel ── */}
         <div className="fp1-left">
           <div className="fp1-instruction">
             <strong>LOOK AND READ.</strong> CHOOSE THE CORRECT WORDS AND WRITE THEM ON THE LINES. THERE IS ONE EXAMPLE.
@@ -438,6 +438,18 @@ export function FlyersPart1Engine({
             </p>
           </div>
 
+          {/* Image — Desktop only in left col (below example) */}
+          {hasImage && (
+            <div className="fp1-image-wrap fp1-image-desktop" onClick={() => setLightboxOpen(true)}>
+              <img
+                src={quiz.image_url!}
+                alt={quiz.title}
+                className="fp1-image"
+              />
+              <span className="fp1-image__zoom-hint">🔍 Click để phóng to</span>
+            </div>
+          )}
+
           {/* VocabPanel — Desktop only in left col */}
           {hasVocab && (
             <div className="fp1-vocab-desktop">
@@ -450,22 +462,10 @@ export function FlyersPart1Engine({
           )}
         </div>
 
-        {/* ── Right panel: Image + Questions ── */}
+        {/* ── Right panel: Questions only ── */}
         <div className="fp1-right">
 
-          {/* Image — shown above questions on right col (desktop) */}
-          {hasImage && (
-            <div className="fp1-image-wrap" onClick={() => setLightboxOpen(true)}>
-              <img
-                src={quiz.image_url!}
-                alt={quiz.title}
-                className="fp1-image"
-              />
-              <span className="fp1-image__zoom-hint">🔍 Click để phóng to</span>
-            </div>
-          )}
-
-          {/* Image — mobile only (between Word Bank and Example) */}
+          {/* Image — mobile only (top of right content on mobile) */}
           {hasImage && (
             <div className="fp1-image-wrap fp1-image-mobile" onClick={() => setLightboxOpen(true)}>
               <img
