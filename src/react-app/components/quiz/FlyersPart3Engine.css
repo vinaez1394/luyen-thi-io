@@ -23,8 +23,9 @@
   border: 2px dashed #f59e0b;
   border-radius: 12px;
   padding: 0.75rem 1.25rem;
-  font-size: 0.83rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
   line-height: 1.6;
   color: #78350f;
   text-align: center;
@@ -126,8 +127,9 @@
   border: 2px solid #d1d5db;
   border-radius: 8px;
   background: #f9fafb;
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 500;
+  font-family: inherit;
   color: #374151;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s, transform 0.1s;
@@ -182,7 +184,8 @@
   border: 2px solid var(--color-border, #e5e7eb);
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-family: inherit;
   line-height: 2;
   color: #1f2937;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -207,8 +210,9 @@
   min-width: 90px;
   padding: 0.2rem 0.7rem;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
   border: 2px solid;
   transition: all 0.15s;
@@ -313,7 +317,8 @@
   border: 2px solid #e5e7eb;
   border-radius: 10px;
   background: #f9fafb;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-family: inherit;
   font-weight: 500;
   color: #374151;
   cursor: pointer;
@@ -789,7 +794,7 @@
   }
 
   .fp3-story-text {
-    font-size: 0.92rem;
+    font-size: 1rem;
     padding: 1rem;
     line-height: 2.2;
   }

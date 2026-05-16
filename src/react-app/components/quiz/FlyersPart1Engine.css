@@ -183,6 +183,11 @@
   pointer-events: none;
 }
 
+/* Image desktop — shown in left col on desktop, hidden on mobile */
+.fp1-image-desktop {
+  display: block;
+}
+
 /* Image mobile variant — hidden on desktop */
 .fp1-image-mobile {
   display: none;
@@ -193,8 +198,9 @@
   border: 2px solid #f59e0b;
   border-radius: 12px;
   padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
   line-height: 1.5;
   color: #78350f;
   text-align: center;
@@ -217,15 +223,17 @@
 }
 
 .fp1-example__prompt {
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.7;
   color: var(--text-primary, #1e293b);
   margin: 0 0 0.5rem;
 }
 
 .fp1-example__answer {
   margin: 0;
-  font-size: 0.97rem;
+  font-size: 1.05rem;
+  font-family: inherit;
   color: var(--color-primary, #6c63ff);
 }
 
@@ -312,8 +320,9 @@
 
 .fp1-question__prompt {
   margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.7;
   color: var(--text-primary, #1e293b);
 }
 
@@ -578,7 +587,7 @@
 
 @media (max-width: 767px) {
   /* Image: desktop version hidden, mobile version shown */
-  .fp1-image-wrap:not(.fp1-image-mobile) {
+  .fp1-image-desktop {
     display: none;
   }
   .fp1-image-mobile {
@@ -661,7 +670,7 @@
   }
 
   .fp1-instruction {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     padding: 0.5rem 0.75rem;
     margin: 0 0.75rem;
     border-radius: 10px;
@@ -673,7 +682,7 @@
   }
 
   .fp1-example__prompt {
-    font-size: 0.85rem;
+    font-size: 0.93rem;
   }
 
   .fp1-question {
@@ -683,7 +692,7 @@
   }
 
   .fp1-question__prompt {
-    font-size: 0.87rem;
+    font-size: 0.93rem;
     line-height: 1.5;
   }
 

@@ -44,6 +44,9 @@ import { KienThucPage }          from "./pages/KienThucPage";
 import { BlogDetailPage }        from "./pages/BlogDetailPage";
 import { VocabularyPage }        from "./pages/VocabularyPage";
 import { VocabularyLesson }      from "./components/vocabulary/VocabularyLesson";
+import { AboutPage }             from "./pages/AboutPage";
+import { ContactPage }           from "./pages/ContactPage";
+import { PrivacyPage }           from "./pages/PrivacyPage";
 
 /**
  * HomeRoute — Redirect User đã login → /dashboard
@@ -69,6 +72,9 @@ export default function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/kien-thuc"        element={<KienThucPage />} />
               <Route path="/kien-thuc/:slug"  element={<BlogDetailPage />} />
+              <Route path="/ve-chung-toi"     element={<AboutPage />} />
+              <Route path="/lien-he"          element={<ContactPage />} />
+              <Route path="/chinh-sach-bao-mat" element={<PrivacyPage />} />
 
               {/* ── CAMBRIDGE PATHWAY ── */}
               <Route path="/cambridge"                          element={<CambridgePage />} />

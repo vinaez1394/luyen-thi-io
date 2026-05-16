@@ -1,0 +1,145 @@
+{
+  "id": "FW1-MED-009",
+  "title": "Flyers Part 1 — Set 9: 👕 Clothes, Jobs & Activities (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-09-clothes-jobs.jpg",
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+  "word_bank": [
+    "a mechanic",
+    "an actor",
+    "an astronaut",
+    "a manager",
+    "a uniform",
+    "tights",
+    "gloves",
+    "a pocket",
+    "camping",
+    "skiing",
+    "a pilot",
+    "an engineer",
+    "a belt",
+    "ice skating",
+    "an umbrella"
+  ],
+  "example": {
+    "prompt": "This person's job is to fly planes to different parts of the world.",
+    "answer": "a pilot"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This person works in a garage and fixes cars when they are broken.",
+      "correct": "a mechanic",
+      "explanation_vi": "Mechanic = thợ máy, người làm việc ở gara và sửa chữa ô tô hỏng."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "This person works in a theatre or makes films for people to watch.",
+      "correct": "an actor",
+      "explanation_vi": "Actor = diễn viên, người làm việc trong rạp hát hoặc đóng phim."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This person travels into space in a rocket to learn about stars and planets.",
+      "correct": "an astronaut",
+      "explanation_vi": "Astronaut = phi hành gia, người bay vào không gian bằng tên lửa để nghiên cứu các vì sao."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This person is the boss of an office or a shop and tells people what to do.",
+      "correct": "a manager",
+      "explanation_vi": "Manager = người quản lý, người đứng đầu một văn phòng hoặc cửa hàng và phân công công việc."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "Police officers and nurses wear these special clothes at work.",
+      "correct": "a uniform",
+      "explanation_vi": "Uniform = đồng phục, bộ quần áo đặc biệt mà cảnh sát và y tá mặc khi làm việc."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "Girls or women wear these on their legs when it is cold to keep warm.",
+      "correct": "tights",
+      "explanation_vi": "Tights = quần tất, đồ mặc ở chân giúp phụ nữ và trẻ em gái giữ ấm khi trời lạnh."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "You wear these on your hands to keep them warm when you play in the snow.",
+      "correct": "gloves",
+      "explanation_vi": "Gloves = găng tay, thứ đeo ở tay để giữ ấm khi chơi dưới tuyết."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "This is a small part of your trousers or coat where you can keep your money or keys.",
+      "correct": "a pocket",
+      "explanation_vi": "Pocket = túi (áo, quần), ngăn nhỏ trên quần áo để đựng tiền hoặc chìa khóa."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "This is when you sleep in a tent outside, perhaps in a forest or near a lake.",
+      "correct": "camping",
+      "explanation_vi": "Camping = cắm trại, hoạt động ngủ trong lều ngoài trời, trong rừng hoặc gần hồ."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a popular winter sport where people slide down mountains on snow.",
+      "correct": "skiing",
+      "explanation_vi": "Skiing = trượt tuyết, môn thể thao mùa đông trượt xuống núi trên tuyết."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "mechanic",
+      "vocabulary_bank_id": "fl-wk-017",
+      "translation_vi": "thợ máy",
+      "ipa": "/mɪˈkæn.ɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/mechanic.mp3"
+    },
+    {
+      "word": "actor",
+      "vocabulary_bank_id": "fl-wk-001",
+      "translation_vi": "diễn viên",
+      "ipa": "/ˈæk.tər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/actor.mp3"
+    },
+    {
+      "word": "astronaut",
+      "vocabulary_bank_id": "fl-wk-005",
+      "translation_vi": "phi hành gia",
+      "ipa": "/ˈæs.trə.nɔːt/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/astronaut.mp3"
+    },
+    {
+      "word": "manager",
+      "vocabulary_bank_id": "fl-wk-016",
+      "translation_vi": "người quản lý",
+      "ipa": "/ˈmæn.ɪ.dʒər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/manager.mp3"
+    },
+    {
+      "word": "uniform",
+      "vocabulary_bank_id": "fl-cl-014",
+      "translation_vi": "đồng phục",
+      "ipa": "/ˈjuː.nə.fɔːrm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/uniform.mp3"
+    }
+  ]
+}

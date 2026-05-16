@@ -1,0 +1,152 @@
+{
+  "id": "FW1-MED-006",
+  "title": "Flyers Part 1 — Set 6: 🏥 Health, Body & Daily Life (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-06-health-and-body.jpg",
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+  "word_bank": [
+    "a dentist",
+    "a temperature",
+    "medicine",
+    "a headache",
+    "a stomach",
+    "a hospital",
+    "fingers",
+    "soap",
+    "a towel",
+    "a comb",
+    "scissors",
+    "a nurse",
+    "a shoulder",
+    "a brush",
+    "blood"
+  ],
+  "example": {
+    "prompt": "This vehicle drives very fast to take people who are very ill to see a doctor.",
+    "answer": "an ambulance"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "You go to see this person when you have a problem with your teeth.",
+      "correct": "a dentist",
+      "explanation_vi": "Dentist = nha sĩ, người bạn đến gặp khi có vấn đề về răng."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "You have this when your body is very hot because you are ill.",
+      "correct": "a temperature",
+      "explanation_vi": "Temperature = nhiệt độ/sốt. 'Have a temperature' nghĩa là bị sốt, cơ thể rất nóng vì ốm."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "When you are not well, a doctor might give you this to help you feel better.",
+      "correct": "medicine",
+      "explanation_vi": "Medicine = thuốc, thứ bác sĩ kê để giúp bạn khỏe lại khi bị ốm."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This is what you have when your head hurts a lot.",
+      "correct": "a headache",
+      "explanation_vi": "Headache = đau đầu, cảm giác đau nhức ở phần đầu."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "This is the part of your body where your food goes after you eat it.",
+      "correct": "a stomach",
+      "explanation_vi": "Stomach = dạ dày/bụng, nơi chứa thức ăn sau khi bạn ăn."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is a place where you go when you are very sick and need to see a doctor.",
+      "correct": "a hospital",
+      "explanation_vi": "Hospital = bệnh viện, nơi bạn đến khi ốm nặng và cần gặp bác sĩ."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "You have five of these on each of your hands, and you use them to hold things.",
+      "correct": "fingers",
+      "explanation_vi": "Fingers = ngón tay, mỗi bàn tay có năm ngón dùng để cầm nắm đồ vật."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "You use this with water to wash your hands and make them clean.",
+      "correct": "soap",
+      "explanation_vi": "Soap = xà phòng, dùng cùng với nước để rửa tay cho sạch."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "You use this piece of cloth to dry your body after you have a shower.",
+      "correct": "a towel",
+      "explanation_vi": "Towel = khăn tắm, miếng vải dùng để lau khô người sau khi tắm."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "You use this plastic object to make your hair look tidy.",
+      "correct": "a comb",
+      "explanation_vi": "Comb = cái lược, vật bằng nhựa dùng để chải tóc cho gọn gàng."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "dentist",
+      "vocabulary_bank_id": "mv-hl-004",
+      "translation_vi": "nha sĩ",
+      "ipa": "/ˈden.tɪst/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/dentist.mp3"
+    },
+    {
+      "word": "temperature",
+      "vocabulary_bank_id": "mv-hl-016",
+      "translation_vi": "nhiệt độ, cơn sốt",
+      "ipa": "/ˈtem.prə.tʃər/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/temperature.mp3"
+    },
+    {
+      "word": "medicine",
+      "vocabulary_bank_id": "fl-hl-005",
+      "translation_vi": "thuốc",
+      "ipa": "/ˈmed.ɪ.sən/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/medicine.mp3"
+    },
+    {
+      "word": "headache",
+      "vocabulary_bank_id": "mv-hl-009",
+      "translation_vi": "đau đầu",
+      "ipa": "/ˈhed.eɪk/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/headache.mp3"
+    },
+    {
+      "word": "stomach",
+      "vocabulary_bank_id": "fl-bd-010",
+      "translation_vi": "dạ dày, bụng",
+      "ipa": "/ˈstʌm.ək/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/stomach.mp3"
+    },
+    {
+      "word": "comb",
+      "vocabulary_bank_id": "fl-ho-002",
+      "translation_vi": "cái lược",
+      "ipa": "/kəʊm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/comb.mp3"
+    }
+  ]
+}

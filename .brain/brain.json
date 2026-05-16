@@ -14,7 +14,7 @@
   "api_endpoints": [
     {
       "path": "/api/quiz/:id",
-      "explained": "Lấy dữ liệu bài tập JSON — ưu tiên từ R2 bucket (CONTENT binding), fallback về LOCAL_QUIZ_MAP (static import lúc build). Tất cả file Flyers Part1-4 đều được serve từ R2."
+      "explained": "Lấy dữ liệu bài tập JSON — ưu tiên từ R2 bucket (CONTENT binding), fallback về LOCAL_QUIZ_MAP (static import lúc build). Tất cả file Flyers Part1-7 đều được serve từ R2."
     },
     {
       "path": "/api/subjects",
@@ -53,14 +53,16 @@
     "Cambridge có 3 level (Starters, Movers, Flyers). Dashboard chia làm 5 thẻ kỹ năng riêng biệt cho mỗi level.",
     "Tra nghĩa từ vựng trong lúc làm bài reading có 3 lượt miễn phí, lượt 4+ sẽ trừ 1 sao.",
     "Audio pipeline cho vocab_highlight: (1) node scripts/patch-vocab-audio.mjs → patch JSON local từ DB, (2) node scripts/upload-content-r2.mjs → upload lên R2 REMOTE. LUÔN dùng --remote flag.",
-    "vocab_highlight trong JSON bài tập có 2 cách điền audio_url: (1) Tự động qua patch-vocab-audio.mjs, (2) Thủ công điền vocabulary_bank_id + audio_url trực tiếp trong JSON."
+    "vocab_highlight trong JSON bài tập có 2 cách điền audio_url: (1) Tự động qua patch-vocab-audio.mjs, (2) Thủ công điền vocabulary_bank_id + audio_url trực tiếp trong JSON.",
+    "Typography: Always use `font-family: inherit` and scale fonts to >=1rem for kids' readability (based on Part 6 Gold Standard)."
   ],
   "features": [
     "Dynamic Quiz Catalog (D1 + R2 + KV)",
     "Vocabulary System with MP3/TTS Audio (PictureMatch, WordBankFill, Learn)",
     "Vocabulary Dictionary Engine (Tra nghĩa & Phát âm in-place + Fallback TTS + DB Tracking + Trừ sao)",
-    "Flyers R&W Part 1-4 Engine (vocab_highlight panel với audio từ CDN)",
+    "Flyers R&W Part 1-5 Engines (vocab_highlight panel with audio, unified typography)",
     "Flyers R&W Part 6 Engine (Grammar/Cloze) with responsive VocabPanel & Grade Result logic",
+    "Flyers R&W Part 7 Write a Story Engine (Zero-Essay Policy with AI prompt placeholders)",
     "Staging & Production CI/CD separation",
     "Cambridge Multi-level Dashboard (Starters, Movers, Flyers) & Lớp 6 Dashboard",
     "Admin Dashboard (Planned)"

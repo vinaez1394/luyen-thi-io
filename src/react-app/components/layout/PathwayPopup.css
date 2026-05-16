@@ -1,0 +1,409 @@
+/* PathwayPopup.css — Popup chọn lộ trình + Sticky Banner */
+
+/* ═══════════════════════ POPUP OVERLAY ═══════════════════════ */
+
+.pathway-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+  animation: overlayFadeIn 0.2s ease;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ═══════════════════════ POPUP BOX ═══════════════════════ */
+
+.pathway-popup {
+  background: var(--color-bg);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 720px;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+  animation: popupSlideUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  /* Không cho tràn khỏi viewport */
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+}
+
+@keyframes popupSlideUp {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Header */
+.pathway-popup__header {
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+
+.pathway-popup__title {
+  font-size: var(--font-xl);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.pathway-popup__subtitle {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+/* ═══════════════════════ CARDS ═══════════════════════ */
+
+.pathway-popup__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+/* Mobile: thẻ Lớp 6 trên, Cambridge dưới, hiển thị đầy đủ */
+@media (max-width: 560px) {
+  .pathway-popup {
+    padding: var(--space-3) var(--space-2);
+    border-radius: 18px;
+  }
+  .pathway-popup__cards {
+    grid-template-columns: 1fr; /* Trở về 1 cột */
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  
+  .pp-card {
+    padding: var(--space-3);
+  }
+
+  .pp-card__header {
+    padding-right: 0;
+  }
+
+  .pp-card__title {
+    font-size: var(--font-md);
+    white-space: normal; /* Cho phép xuống dòng nếu cần */
+    line-height: 1.3;
+  }
+
+  .pp-card__illus {
+    width: 100px;
+    height: 100px;
+    opacity: 0.9;
+  }
+}
+
+.pp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: var(--space-2) var(--space-2);
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background: var(--color-card);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* Header: icon + tiêu đề cùng hàng */
+.pp-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  /* Giới hạn chiều rộng phần chữ, nhường chỗ cho ảnh */
+  padding-right: 30%;
+}
+
+.pp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pp-card--lop6:hover  { border-color: var(--color-primary); }
+.pp-card--cambridge:hover { border-color: #4e89e8; }
+
+
+
+/* Emoji flag in header */
+.pp-card__flag {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Body */
+.pp-card__body { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+
+.pp-card__title {
+  font-size: var(--font-md);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text);
+  line-height: 1.2;
+  white-space: nowrap; /* Không xuống dòng */
+}
+
+.pp-card__desc {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  /* Giới hạn chiều rộng phần chữ, nhường chỗ cho ảnh */
+  padding-right: 30%;
+}
+
+/* Badges */
+.pp-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  position: relative;
+  z-index: 2;
+  /* Chừa không gian bên phải để không bị hình đè lên chữ */
+  padding-right: 80px; 
+}
+
+.pp-card__badges-break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.pp-card__badge {
+  font-size: 11px;
+  font-weight: var(--font-semibold);
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+/* Lớp 6 Badges */
+.pp-card__badge--toan       { background: #fff1f0; color: #cf1322; border-color: #ffa39e; }
+.pp-card__badge--tieng-anh  { background: #e6f7ff; color: #096dd9; border-color: #91d5ff; }
+.pp-card__badge--tieng-viet { background: #f6ffed; color: #389e0d; border-color: #b7eb8f; }
+.pp-card__badge--khoa-hoc   { background: #f9f0ff; color: #531dab; border-color: #d3adf7; }
+
+/* Cambridge Badges */
+.pp-card__badge--starters { background: #fffbe6; color: #d48806; border-color: #ffe58f; }
+.pp-card__badge--movers   { background: #fff0f6; color: #c41d7f; border-color: #ffadd2; }
+.pp-card__badge--flyers   { background: #e8f0fe; color: #4e89e8; border-color: #c5d8fb; }
+.pp-card__badge--ket      { background: #e6fffb; color: #08979c; border-color: #87e8de; }
+.pp-card__badge--pet      { background: #fcffe6; color: #7cb305; border-color: #eaff8f; }
+
+/* CTA footer */
+.pp-card__cta {
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-top: 2px;
+}
+.pp-card--cambridge .pp-card__cta { color: #4e89e8; }
+
+/* Illustration — giống homepage pathway card */
+.pp-card__illus {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  opacity: 0.85;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+}
+
+.pp-card:hover .pp-card__illus {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* ═══════════════════════ VOCABULARY ROW ═══════════════════════ */
+
+.pathway-popup__vocab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 12px var(--space-3);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pathway-popup__vocab-label {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--font-semibold);
+}
+
+.pathway-popup__vocab-btn {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+.pathway-popup__vocab-btn:hover { opacity: 0.7; text-decoration: underline; }
+
+/* ═══════════════════════ FOOTER ═══════════════════════ */
+
+.pathway-popup__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.pathway-popup__footer-text {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+.pathway-popup__login-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  padding: 0;
+  transition: opacity 0.15s;
+}
+.pathway-popup__login-link:hover { opacity: 0.7; text-decoration: underline; }
+
+.pathway-popup__close {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+.pathway-popup__close:hover { background: var(--color-border); color: var(--color-text); }
+
+/* ═══════════════════════ STICKY BANNER ═══════════════════════ */
+
+.sticky-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  animation: bannerSlideDown 0.25s ease;
+}
+
+@keyframes bannerSlideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sticky-banner__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.sticky-banner__label {
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.sticky-banner__btns {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.sticky-banner__btn {
+  font-size: var(--font-xs);
+  font-weight: var(--font-semibold);
+  font-family: inherit;
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.15s;
+}
+
+.sticky-banner__btn--lop6 {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary-light);
+}
+.sticky-banner__btn--lop6:hover { background: var(--color-primary); color: #fff; }
+
+.sticky-banner__btn--cambridge {
+  background: #e8f0fe;
+  color: #4e89e8;
+  border-color: #c5d8fb;
+}
+.sticky-banner__btn--cambridge:hover { background: #4e89e8; color: #fff; }
+
+.sticky-banner__btn--login {
+  background: none;
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+.sticky-banner__btn--login:hover { background: var(--color-bg-subtle); color: var(--color-text); }
+
+.sticky-banner__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--color-text-muted);
+  padding: 4px;
+  line-height: 1;
+  margin-left: auto;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+.sticky-banner__close:hover { color: var(--color-text); }
+
+/* Hide sticky banner on mobile — bottom nav đủ rồi */
+@media (max-width: 640px) {
+  .sticky-banner { display: none; }
+}

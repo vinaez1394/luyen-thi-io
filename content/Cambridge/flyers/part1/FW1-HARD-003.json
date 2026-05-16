@@ -65,7 +65,7 @@
     {
       "id": "q5",
       "number": 5,
-      "prompt": "Something that is known by only a few people and should not be told to anyone else.",
+      "prompt": "This is something that is known by only a few people and should not be told to anyone else.",
       "correct": "a secret",
       "explanation_vi": "Secret = bí mật, điều chỉ vài người biết và không nên kể cho ai khác."
     },

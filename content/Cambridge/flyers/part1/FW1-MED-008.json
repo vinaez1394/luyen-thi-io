@@ -1,0 +1,145 @@
+{
+  "id": "FW1-MED-008",
+  "title": "Flyers Part 1 — Set 8: 🌍 Environment, Weather & The World (Medium)",
+  "skill": "reading",
+  "level": "flyers",
+  "part": 1,
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-08-environment-weather.jpg",
+  "type": "flyers-part1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "ui_language": "en",
+  "instructions_en": "Look and read. Choose the correct words and write them on the lines. There is one example.",
+  "word_bank": [
+    "an island",
+    "a storm",
+    "a cave",
+    "a desert",
+    "the sky",
+    "space",
+    "an ocean",
+    "a rainbow",
+    "a forest",
+    "a path",
+    "a continent",
+    "a waterfall",
+    "weather",
+    "a field",
+    "a valley"
+  ],
+  "example": {
+    "prompt": "This water comes down from a mountain or a high place very quickly.",
+    "answer": "a waterfall"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "prompt": "This is an area of land that has water all around it.",
+      "correct": "an island",
+      "explanation_vi": "Island = hòn đảo, vùng đất có nước bao quanh."
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "prompt": "This is when there is a lot of strong wind and rain.",
+      "correct": "a storm",
+      "explanation_vi": "Storm = cơn bão, hiện tượng thời tiết có gió mạnh và mưa lớn."
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "prompt": "This is a large, dark hole in the side of a hill or under the ground.",
+      "correct": "a cave",
+      "explanation_vi": "Cave = hang động, một cái hố lớn và tối bên sườn đồi hoặc dưới mặt đất."
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "prompt": "This is a very hot and dry place where there is a lot of sand.",
+      "correct": "a desert",
+      "explanation_vi": "Desert = sa mạc, nơi rất nóng, khô và có nhiều cát."
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "prompt": "You look up at this during the day to see the sun or clouds.",
+      "correct": "the sky",
+      "explanation_vi": "Sky = bầu trời, nơi bạn nhìn lên để thấy mặt trời hoặc những đám mây."
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "prompt": "This is where astronauts go, and it is full of stars and planets.",
+      "correct": "space",
+      "explanation_vi": "Space = không gian/vũ trụ, nơi các phi hành gia đi tới, chứa đầy các ngôi sao và hành tinh."
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "prompt": "This is a very large area of sea water, and whales and sharks live here.",
+      "correct": "an ocean",
+      "explanation_vi": "Ocean = đại dương, khu vực nước biển rất rộng lớn nơi cá voi và cá mập sinh sống."
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "prompt": "You can sometimes see this beautiful curve of colors in the sky after it rains.",
+      "correct": "a rainbow",
+      "explanation_vi": "Rainbow = cầu vồng, dải màu sắc rực rỡ xuất hiện trên bầu trời sau cơn mưa."
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "prompt": "This is a large area with many tall trees where wild animals live.",
+      "correct": "a forest",
+      "explanation_vi": "Forest = khu rừng, khu vực rộng lớn có nhiều cây cao và động vật hoang dã."
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "prompt": "This is a narrow way that you can walk along in a park or forest.",
+      "correct": "a path",
+      "explanation_vi": "Path = con đường mòn, lối đi nhỏ hẹp trong công viên hoặc khu rừng."
+    }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "island",
+      "vocabulary_bank_id": "mv-wa-009",
+      "translation_vi": "hòn đảo",
+      "ipa": "/ˈaɪlənd/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/island.mp3"
+    },
+    {
+      "word": "storm",
+      "vocabulary_bank_id": "fl-we-003",
+      "translation_vi": "cơn bão",
+      "ipa": "/stɔːm/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/storm.mp3"
+    },
+    {
+      "word": "desert",
+      "vocabulary_bank_id": "fl-wa-005",
+      "translation_vi": "sa mạc",
+      "ipa": "/ˈdez.ət/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/desert.mp3"
+    },
+    {
+      "word": "space",
+      "vocabulary_bank_id": "fl-wa-017",
+      "translation_vi": "không gian / vũ trụ",
+      "ipa": "/speɪs/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/space.mp3"
+    },
+    {
+      "word": "rainbow",
+      "vocabulary_bank_id": "mv-we-005",
+      "translation_vi": "cầu vồng",
+      "ipa": "/ˈreɪn.bəʊ/",
+      "audio_url": "https://cdn.luyenthi.io.vn/vocabulary-mp3/rainbow.mp3"
+    }
+  ]
+}

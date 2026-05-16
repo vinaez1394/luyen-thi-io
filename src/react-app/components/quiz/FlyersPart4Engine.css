@@ -20,8 +20,9 @@
   border: 2px dashed #f59e0b;
   border-radius: 12px;
   padding: 0.7rem 1.25rem;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  font-family: inherit;
   color: #78350f;
   text-align: center;
   text-transform: uppercase;
@@ -375,7 +376,8 @@
   text-align: left;
   background: transparent;
   border: none;
-  font-size: 0.88rem;
+  font-size: 1rem;
+  font-family: inherit;
   font-weight: 600;
   color: #374151;
   cursor: pointer;
@@ -407,7 +409,8 @@
   border: 2px solid #e5e7eb;
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
-  font-size: 0.96rem;
+  font-size: 1.1rem;
+  font-family: inherit;
   line-height: 2.3;
   color: #1f2937;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -431,7 +434,7 @@
   min-width: 78px;
   padding: 0.18rem 0.6rem;
   border-radius: 7px;
-  font-size: 0.87rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   border: 2px solid;
@@ -586,7 +589,7 @@
   }
 
   .fp4-passage-text {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 1rem;
     line-height: 2.2;
   }
