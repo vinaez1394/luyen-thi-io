@@ -1,5 +1,5 @@
 # 📘 HƯỚNG DẪN DỰ ÁN — luyen-thi-io
-> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-06 | Grade Sync Mobile Fix
+> Tài liệu tổng quan cho owner và AI. Cập nhật: 2026-05-16 | Staging Deploy Fix & PathwayPopup UI Refactor
 
 ---
 
@@ -303,21 +303,39 @@ git push origin main          # Tự động deploy lên Production
 # => Cập nhật chính thức tại luyenthi.io.vn
 ```
 
-### ⚠️ Lưu ý kỹ thuật: Lỗi của Vite Plugin & Cách xử lý
+### ⚠️ Lưu ý kỹ thuật: Lỗi của Vite Plugin & Cách xử lý ĐÚNG (Cập nhật 2026-05-16)
 
 Dự án sử dụng `@cloudflare/vite-plugin` để build frontend React và Cloudflare Workers cùng lúc.
-Tuy nhiên, plugin này có một **hạn chế**: nó sẽ ghi đè thiết lập trong `wrangler.json` và **bỏ qua cờ `--env staging`** khi chạy lệnh `wrangler deploy`. Nếu không cẩn thận, việc deploy Staging sẽ vô tình ghi đè lên Worker Production (`luyen-thi-io`).
+Plugin này có một **hạn chế quan trọng**: sau khi `npm run build`, nó sinh ra file `dist/luyen_thi_io/wrangler.json` riêng biệt với `topLevelName: "luyen-thi-io"` lấy cứng từ `package.json`. **Khi `wrangler deploy` chạy, nó đọc file dist này** chứ không phải file `wrangler.json` gốc ở root. Do đó:
 
-**Giải pháp (Đã được áp dụng trong `.github/workflows/deploy.yml`):**
-Trong Job Deploy Staging, chúng ta phải dùng lệnh `sed` để sửa trực tiếp tên Worker trong `wrangler.json` ngay trước khi deploy:
+- ❌ **Dùng `sed` trên `wrangler.json` ở root không có tác dụng** vì build đã xong trước đó.
+- ❌ **Dùng `wrangler deploy --env staging`** cũng bị bỏ qua bởi Vite Plugin.
+- ❌ Nếu deploy sai cách, Job staging sẽ **ghi đè lên Production** (`luyen-thi-io`).
+
+**✅ Giải pháp ĐÚNG — Dùng script `npm run deploy:staging`:**
+
+File `scripts/deploy-staging.mjs` được viết để xử lý đúng vấn đề này:
+1. Chạy `npm run build` xong.
+2. Đọc và patch **trực tiếp vào `dist/luyen_thi_io/wrangler.json`** (file do Vite Plugin sinh ra) → đổi `name` thành `luyen-thi-io-staging`.
+3. Chạy `wrangler deploy` → deploy đúng worker Staging.
+4. Tự động invalidate KV Cache trên `dev.luyenthi.io.vn`.
+
 ```yaml
-# Sửa trực tiếp tên worker thành luyen-thi-io-staging vì Vite Plugin bỏ qua cờ --env
-- run: |
-    sed -i 's/"name": "luyen-thi-io"/"name": "luyen-thi-io-staging"/' wrangler.json
-    ./node_modules/.bin/wrangler deploy
+# Trong .github/workflows/deploy.yml — Job deploy-staging:
+- name: 🚀 Deploy to Staging (luyen-thi-io-staging)
+  env:
+    CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    CLOUDFLARE_ACCOUNT_ID: "55e3a88290a27547ff01294004561906"
+  run: npm run deploy:staging
 ```
 
-> **LƯU Ý:** Không chạy lệnh `wrangler deploy --env staging` trên máy local nếu chưa hiểu rõ cách Vite Plugin sinh ra cấu hình build, tránh việc vô tình ghi đè Production. Để an toàn nhất, cứ push lên nhánh `dev` để GitHub Actions xử lý.
+> **⚠️ CẢNH BÁO:** Không được thay `npm run deploy:staging` bằng lệnh `sed wrangler.json && wrangler deploy`. Cách này luôn deploy nhầm vào Production. Đây là lỗi đã xảy ra thực tế (2026-05-16) và mất nhiều giờ để debug.
+
+**Deploy manual trên máy local (an toàn):**
+```bash
+npm run deploy:staging   # Deploy lên Staging (dev.luyenthi.io.vn)
+npm run deploy:prod      # Deploy lên Production (luyenthi.io.vn)
+```
 
 ### Quy tắc báo cáo "hoàn thành"
 
@@ -551,6 +569,22 @@ const totalQuestions = (quiz as any)?.questions?.length
 2. Sửa `GlobalHeader.tsx` & `SubjectPage.tsx`: Header tự động ghi đè `localStorage` và phát event `grade:updated` để SubjectPage cập nhật UI ngay lập tức.
 3. Chỉnh sửa UI drawer mobile: tháo bỏ card bọc avatar, dùng 3 pill tự do (Grade, Sao, Streak) và bỏ nút "Trang chủ" để tối giản không gian.
 
+### Staging không cập nhật dù đã push `dev` — Deploy nhầm sang Production (2026-05-16)
+
+**Mô tả:** Sau nhiều lần push lên nhánh `dev`, `dev.luyenthi.io.vn` (Staging) vẫn không cập nhật. Kiểm tra Cloudflare Dashboard thấy `luyen-thi-io-staging` vẫn là bản 4h+ ago, trong khi `luyen-thi-io` (Production) lại liên tục bị ghi đè bởi code từ nhánh `dev`.
+
+**Phân tích 5 Whys:**
+1. **Tại sao Staging không cập nhật?** → Vì mọi push `dev` đều deploy vào Production thay vì Staging.
+2. **Tại sao lại deploy vào Production?** → Vì lệnh `wrangler deploy` đọc `dist/luyen_thi_io/wrangler.json` (do Vite Plugin sinh ra) với `name: "luyen-thi-io"` (Production).
+3. **Tại sao `sed` trong `deploy.yml` không có tác dụng?** → Vì `sed` chỉ sửa `wrangler.json` ở *root*, nhưng `wrangler deploy` đọc file trong *dist/* — hai file khác nhau.
+4. **Tại sao lại dùng `sed`?** → Vì một commit CI refactor (2026-05-10) đã thay thế `npm run deploy:staging` bằng lệnh `sed` inline tưởng là đơn giản hơn, nhưng không hiểu cơ chế Vite Plugin.
+5. **Tại sao trước đây deploy được đúng?** → Vì script `scripts/deploy-staging.mjs` patch đúng vào *file trong dist/* sau khi build — cách này mới chính xác.
+
+**Fix (commit: `fix: use correct deploy-staging script in CI`):**
+Xóa lệnh `sed` trong `.github/workflows/deploy.yml` và thay bằng `npm run deploy:staging`, gọi đúng script `scripts/deploy-staging.mjs`.
+
+**Bài học:** Vite Plugin `@cloudflare/vite-plugin` tạo ra một file `wrangler.json` **hoàn toàn riêng biệt** trong `dist/`. Bất kỳ thay đổi nào vào `wrangler.json` root sau khi build đều **không có tác dụng**. Luôn patch file trong `dist/` hoặc dùng script đã có sẵn.
+
 ---
 
 ## 💰 PRICING DỰ KIẾN
@@ -601,7 +635,7 @@ Dùng lệnh `/debug` → AI hỏi thông tin, điều tra, sửa đúng chỗ.
 ---
 
 *GitHub: https://github.com/vinaez1394/luyen-thi-io*
-*Cập nhật: 2026-05-06 | Grade Sync Mobile Fix & Drawer UI Refactor*
+*Cập nhật: 2026-05-16 | Staging Deploy Fix (5-Whys) & PathwayPopup UI Refactor*
 
 ---
 
