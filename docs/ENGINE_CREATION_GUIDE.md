@@ -675,6 +675,137 @@ Khi tích hợp các module vào engine mới, hãy lưu ý tránh các bug sau 
 
 ---
 
+## 🌙 DARK MODE CSS — Tiêu Chuẩn Bắt Buộc (v3.1)
+
+> **Áp dụng từ:** 2026-05-17  
+> **Nguồn gốc:** Fix loạt lỗi dark mode trên Part 2–7 và Listening (các engine dùng màu hardcode light-mode).
+
+### ❗ Quy tắc cốt lõi
+
+| # | Quy tắc | Lý do |
+|---|---------|-------|
+| 1 | Selector bắt buộc: **`[data-theme="night"]`** (KHÔNG phải `"dark"`) | `themes.css` định nghĩa `data-theme="night"` — dùng `"dark"` không có tác dụng |
+| 2 | **KHÔNG sửa CSS gốc** — chỉ append block `[data-theme="night"]` **ở cuối file** | Light mode không bị regression |
+| 3 | Dùng CSS Variables chuẩn (xem bảng dưới) thay vì HEX hardcode | Tự động sync khi theme system thay đổi |
+| 4 | **KHÔNG thêm `overflow: hidden`** vào container chứa dropdown/popup | Dropdown bị clip, không hiển thị được trên mobile |
+
+### 📐 Bảng CSS Variables Chuẩn (Night Theme)
+
+| Variable | Fallback HEX | Dùng cho |
+|----------|-------------|----------|
+| `--color-card` | `#1e293b` | Nền thẻ, panel, accordion |
+| `--color-text` | `#e2e8f0` | Chữ chính |
+| `--color-text-muted` | `#94a3b8` | Chữ phụ, label, số thứ tự |
+| `--color-border` | `#334155` | Viền thẻ, divider |
+| `--color-bg` | `#0f172a` | Nền trang (dùng cho fixed bars) |
+| `--color-bg-subtle` | `#1e293b` | Nền row lẻ, section phụ |
+| `--color-primary` | `#818cf8` | Highlight, active state, focus border |
+
+> ⚠️ **Biến cũ không dùng nữa:** `--card-bg`, `--border-color`, `--text-muted`, `--text-primary`  
+> Part 1 từng dùng các biến này → được fix trong v3.1.
+
+### 🏗️ Template Dark Mode Block (Copy & Paste)
+
+Thêm đoạn này vào **cuối file CSS** của engine mới, sau tất cả `@media` queries:
+
+```css
+/* ═══════════════════════════════════════════════════
+   DARK MODE — [data-theme="night"]
+   Override hardcoded light-mode colors.
+   ═══════════════════════════════════════════════════ */
+
+/* Instruction banner */
+[data-theme="night"] .fXX-instruction {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: #f59e0b;
+  color: #fde68a;
+}
+
+/* Main content panel */
+[data-theme="night"] .fXX-main-panel {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+  color: var(--color-text, #e2e8f0);
+}
+
+/* Interactive elements (inputs, blank buttons) */
+[data-theme="night"] .fXX-input {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #475569);
+  color: var(--color-text, #e2e8f0);
+}
+[data-theme="night"] .fXX-input:focus {
+  border-color: var(--color-primary, #818cf8);
+  background: rgba(129, 140, 248, 0.08);
+}
+
+/* Feedback states */
+[data-theme="night"] .fXX-explanation--correct {
+  background: rgba(52, 211, 153, 0.12);
+  color: #6ee7b7;
+}
+[data-theme="night"] .fXX-explanation--wrong {
+  background: rgba(252, 129, 74, 0.12);
+  color: #fca5a5;
+}
+
+/* Vocab panel */
+[data-theme="night"] .fXX-vocab-panel {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fXX-vocab-item__word { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fXX-vocab-item__ipa  { color: #64748b; }
+[data-theme="night"] .fXX-vocab-item__translation { background: rgba(52,211,153,0.1); color: #6ee7b7; }
+
+/* Footer bar */
+[data-theme="night"] .fXX-footer {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+
+/* Result panel */
+[data-theme="night"] .fXX-result {
+  background: linear-gradient(135deg, rgba(52,211,153,0.08), rgba(129,140,248,0.08));
+  border-color: rgba(52, 211, 153, 0.3);
+}
+[data-theme="night"] .fXX-result__text { color: var(--color-text, #e2e8f0); }
+
+/* Auth nudge popup */
+[data-theme="night"] .fXX-nudge-popup {
+  background: var(--color-card, #1e293b);
+  color: var(--color-text, #e2e8f0);
+}
+```
+
+### 📋 Engines đã áp dụng chuẩn v3.1
+
+| Engine CSS | Selector | Trạng thái | Ghi chú |
+|------------|----------|-----------|---------|
+| `FlyersPart1Engine.css` | `[data-theme="night"]` | ✅ Fixed 2026-05-17 | Trước đó dùng `"dark"` — biến `--card-bg` → `--color-card` |
+| `FlyersPart2Engine.css` | `[data-theme="night"]` | ✅ Chuẩn | Reference engine — đây là mẫu chuẩn |
+| `FlyersPart3Engine.css` | `[data-theme="night"]` | ✅ Fixed 2026-05-17 | |
+| `FlyersPart4Engine.css` | `[data-theme="night"]` | ✅ Fixed 2026-05-17 | Có override cho inline dropdown |
+| `FlyersPart5Engine.css` | `[data-theme="night"]` | ✅ Fixed 2026-05-17 | Có override cho accordion mobile |
+| `FlyersPart6Engine.css` | `[data-theme="night"]` | ✅ Fixed 2026-05-17 | Có override cho diary card, grammar tips |
+| `FlyersPart7Engine.css` | `[data-theme="night"]` | ✅ Fixed 2026-05-17 | Engine write story — textarea override |
+| `FlyersListeningPart1Engine.css` | `[data-theme="night"]` | ✅ Fixed 2026-05-17 | Audio bar giữ nguyên (dark-native) |
+
+### 8. Bug: Dark mode không hoạt động — text vẫn màu tối (2026-05-17)
+
+- **Nguyên nhân Why 1:** Chữ không đọc được trong dark mode → CSS variables không được ghi đè.  
+- **Nguyên nhân Why 2:** Không có block `[data-theme="night"]` trong CSS của engine.  
+- **Nguyên nhân Why 3:** Engine dùng màu HEX hardcode (light-mode) thay vì CSS variables.  
+- **Nguyên nhân Why 4:** Không biết cần thêm override vì không có quy tắc tài liệu hóa rõ ràng.  
+- **Nguyên nhân Why 5 (Root Cause):** Part 1 từng được tạo với selector sai `[data-theme="dark"]` → không match → sửa nhưng pattern cũ không được document → các engine sau lặp lại lỗi.
+
+- **Fix vĩnh viễn:**  
+  - Tất cả 8 engines đã được cập nhật về `[data-theme="night"]`.  
+  - Section "Dark Mode CSS" này được thêm vào guide để mọi engine mới đều follow đúng pattern.  
+  - Template block ở trên dùng để copy-paste, thay `fXX` bằng prefix của engine mới.
+
+---
+
 ## 🎧 FL1 ENGINE — Flyers Listening Part 1 (Click-to-Connect)
 
 > Quy tắc riêng cho engine `FlyersListeningPart1Engine.tsx` — kiểu bài nghe và kéo đường nối tên ↔ nhân vật trên hình.
