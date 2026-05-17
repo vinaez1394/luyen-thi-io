@@ -364,3 +364,79 @@
   /* Footer */
   .fp2-footer { padding: 0.6rem 0.75rem; }
 }
+
+/* ═══════════════════════════════════════════════════
+   DARK MODE — [data-theme="night"]
+   Override hardcoded light-mode colors.
+   KHÔNG sửa màu gốc ở trên để light mode không bị ảnh hưởng.
+   ═══════════════════════════════════════════════════ */
+
+/* Instruction banner */
+[data-theme="night"] .fp2-instruction {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: #f59e0b;
+  color: #fde68a;
+}
+
+/* Options list card */
+[data-theme="night"] .fp2-options-list {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+
+/* Option item text */
+[data-theme="night"] .fp2-option {
+  color: var(--color-text, #e2e8f0);
+}
+
+/* Conversation card */
+[data-theme="night"] .fp2-conversation-panel {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+
+/* Turn example row bg */
+[data-theme="night"] .fp2-turn--example {
+  background: rgba(129, 140, 248, 0.08);
+}
+
+/* Turn text */
+[data-theme="night"] .fp2-turn__text {
+  color: var(--color-text, #e2e8f0);
+}
+
+/* Blank button (unfilled / empty state) */
+[data-theme="night"] .fp2-blank {
+  border-color: var(--color-border, #334155);
+  background: var(--color-bg-subtle, #1e293b);
+  color: var(--color-text-muted, #94a3b8);
+}
+
+/* Example blank */
+[data-theme="night"] .fp2-blank--example {
+  border-color: var(--color-border, #475569);
+  background: var(--color-bg-subtle, #1e293b);
+  color: var(--color-text, #e2e8f0);
+}
+
+/* Explanation banners */
+[data-theme="night"] .fp2-explanation--correct {
+  background: rgba(52, 211, 153, 0.12);
+  color: #6ee7b7;
+}
+[data-theme="night"] .fp2-explanation--wrong {
+  background: rgba(252, 129, 74, 0.12);
+  color: #fca5a5;
+}
+
+/* Footer card */
+[data-theme="night"] .fp2-footer {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+
+/* Image wrap bg (before image loads) */
+[data-theme="night"] .fp2-image-wrap {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #334155);
+}
