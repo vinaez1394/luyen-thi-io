@@ -604,3 +604,105 @@
     font-size: 0.85rem;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   DARK MODE — [data-theme="night"]
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="night"] .fp4-instruction {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: #f59e0b;
+  color: #fde68a;
+}
+
+[data-theme="night"] .fp4-image-wrap {
+  border-color: var(--color-border, #334155);
+}
+
+[data-theme="night"] .fp4-vocab-panel {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp4-vocab-panel__title { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp4-vocab-panel__rule {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #334155);
+  color: #94a3b8;
+}
+[data-theme="night"] .fp4-vocab-item { border-bottom-color: var(--color-border, #334155); }
+[data-theme="night"] .fp4-vocab-item__word { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp4-vocab-item__ipa { color: #64748b; }
+[data-theme="night"] .fp4-vocab-btn--audio { background: rgba(59,130,246,0.12); border-color: #3b82f6; color: #93c5fd; }
+[data-theme="night"] .fp4-vocab-btn--translate { background: rgba(167,139,250,0.12); border-color: #a78bfa; color: #c4b5fd; }
+[data-theme="night"] .fp4-vocab-item__translation { background: rgba(52,211,153,0.1); color: #6ee7b7; }
+
+[data-theme="night"] .fp4-passage-text {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+  color: var(--color-text, #e2e8f0);
+}
+
+[data-theme="night"] .fp4-blank--empty {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #475569);
+  color: var(--color-text-muted, #94a3b8);
+}
+[data-theme="night"] .fp4-blank--empty:hover:not(:disabled) {
+  border-color: var(--color-primary, #818cf8);
+  background: rgba(129, 140, 248, 0.12);
+  color: #c7d2fe;
+}
+[data-theme="night"] .fp4-blank--active {
+  border-color: var(--color-primary, #818cf8) !important;
+  background: rgba(129, 140, 248, 0.12) !important;
+  color: #c7d2fe !important;
+}
+[data-theme="night"] .fp4-blank--filled {
+  background: rgba(129, 140, 248, 0.12);
+  border-color: var(--color-primary, #818cf8);
+  color: #c7d2fe;
+}
+[data-theme="night"] .fp4-blank--example {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: #34d399;
+  color: #6ee7b7;
+}
+
+[data-theme="night"] .fp4-inline-dropdown {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-primary, #818cf8);
+  box-shadow: 0 8px 28px rgba(129, 140, 248, 0.2);
+}
+[data-theme="night"] .fp4-inline-dropdown__option {
+  color: var(--color-text, #e2e8f0);
+  border-bottom-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp4-inline-dropdown__option:hover {
+  background: rgba(129, 140, 248, 0.12);
+  color: #c7d2fe;
+}
+
+[data-theme="night"] .fp4-explanations {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp4-explanations__title { color: #94a3b8; }
+[data-theme="night"] .fp4-explain-row { border-bottom-color: var(--color-border, #334155); }
+[data-theme="night"] .fp4-explain-row__ans { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp4-explain-row__vi { color: #94a3b8; }
+
+[data-theme="night"] .fp4-footer {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp4-footer__progress { background: var(--color-bg-subtle, #334155); }
+[data-theme="night"] .fp4-footer__count { color: #94a3b8; }
+
+[data-theme="night"] .fp4-result {
+  background: linear-gradient(135deg, rgba(52,211,153,0.08), rgba(129,140,248,0.08));
+  border-color: rgba(52, 211, 153, 0.3);
+}
+[data-theme="night"] .fp4-result__text { color: var(--color-text, #e2e8f0); }
+
+[data-theme="night"] .fp4-nudge-popup { background: var(--color-card, #1e293b); }
+[data-theme="night"] .fp4-nudge-popup p { color: var(--color-text, #e2e8f0); }

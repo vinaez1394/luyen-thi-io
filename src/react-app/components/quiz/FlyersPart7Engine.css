@@ -720,3 +720,117 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   DARK MODE — [data-theme="night"]
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="night"] .fp7-engine { color: var(--color-text, #e2e8f0); }
+
+[data-theme="night"] .fp7-instructions {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+[data-theme="night"] .fp7-instructions__text { color: #93c5fd; }
+[data-theme="night"] .fp7-instructions__sub { color: #60a5fa; }
+
+[data-theme="night"] .fp7-picture-card {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp7-picture-card:hover {
+  border-color: var(--color-primary, #818cf8);
+  box-shadow: 0 6px 20px rgba(129, 140, 248, 0.2);
+}
+[data-theme="night"] .fp7-picture-card__num { color: #94a3b8; }
+
+[data-theme="night"] .fp7-writing-zone {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp7-writing-zone__label { color: var(--color-text-muted, #94a3b8); }
+
+[data-theme="night"] .fp7-textarea {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #334155);
+  color: var(--color-text, #e2e8f0);
+}
+[data-theme="night"] .fp7-textarea:focus {
+  border-color: var(--color-primary, #818cf8);
+  background: rgba(129, 140, 248, 0.05);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.12);
+}
+[data-theme="night"] .fp7-textarea::placeholder { color: #475569; }
+
+[data-theme="night"] .fp7-word-counter__bar-wrap { background: var(--color-border, #334155); }
+[data-theme="night"] .fp7-word-counter__label { color: #94a3b8; }
+[data-theme="night"] .fp7-word-counter__label--done { color: #34d399; }
+
+[data-theme="night"] .fp7-result-header {
+  background: rgba(253, 211, 77, 0.08);
+  border-color: rgba(253, 211, 77, 0.25);
+}
+[data-theme="night"] .fp7-result-msg--great { color: #34d399; }
+[data-theme="night"] .fp7-result-msg--good  { color: #93c5fd; }
+[data-theme="night"] .fp7-result-msg--ok    { color: #fcd34d; }
+[data-theme="night"] .fp7-result-msg--low   { color: #fca5a5; }
+[data-theme="night"] .fp7-result-word-count { color: #94a3b8; }
+
+[data-theme="night"] .fp7-essay-preview {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp7-essay-preview__label { color: #94a3b8; }
+[data-theme="night"] .fp7-essay-preview__text { color: var(--color-text, #e2e8f0); }
+
+[data-theme="night"] .fp7-checklist {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp7-checklist__title { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp7-checklist__item--pass {
+  background: rgba(52, 211, 153, 0.1);
+  color: #6ee7b7;
+  border-color: rgba(52, 211, 153, 0.3);
+}
+[data-theme="night"] .fp7-checklist__item--fail {
+  background: rgba(252, 211, 77, 0.08);
+  color: #fcd34d;
+  border-color: rgba(252, 211, 77, 0.25);
+}
+
+[data-theme="night"] .fp7-tips {
+  background: rgba(14, 165, 233, 0.08);
+  border-color: rgba(14, 165, 233, 0.25);
+}
+[data-theme="night"] .fp7-tips__title { color: #38bdf8; }
+[data-theme="night"] .fp7-tips__item { color: #bae6fd; }
+
+[data-theme="night"] .fp7-smart-prompt {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+[data-theme="night"] .fp7-smart-prompt__title { color: #c4b5fd; }
+[data-theme="night"] .fp7-smart-prompt__intro { color: #a78bfa; }
+[data-theme="night"] .fp7-smart-prompt__step { color: #c4b5fd; background: rgba(255,255,255,0.04); }
+[data-theme="night"] .fp7-smart-prompt__note { color: #a78bfa; }
+
+[data-theme="night"] .fp7-prompt-btn--copy {
+  background: var(--color-bg-subtle, #1e293b);
+  color: var(--color-text-muted, #94a3b8);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp7-prompt-btn--copy:hover {
+  border-color: var(--color-border, #475569);
+  background: rgba(255,255,255,0.05);
+}
+
+[data-theme="night"] .fp7-footer-btn--back {
+  background: var(--color-bg-subtle, #1e293b);
+  color: var(--color-text-muted, #94a3b8);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp7-footer-btn--back:hover { background: rgba(255,255,255,0.05); }
+
+[data-theme="night"] .fp7-lightbox__inner { background: var(--color-card, #1e293b); }
+[data-theme="night"] .fp7-lightbox__caption { background: var(--color-bg-subtle, #1e293b); color: #94a3b8; }

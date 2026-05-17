@@ -439,3 +439,80 @@
   .fl1-vocab-item__top { grid-template-columns: 1fr 80px; }
   .fl1-vocab-item__ipa { display: none; }
 }
+
+/* ═══════════════════════════════════════════════════
+   DARK MODE — [data-theme="night"]
+   ═══════════════════════════════════════════════════ */
+
+/* Instruction banner */
+[data-theme="night"] .fl1-instruction {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.35);
+  color: #c4b5fd;
+}
+
+/* Audio bar: intentionally keep dark (already dark-native at #1e1b4b) */
+
+/* SVG canvas zone (where lines are drawn) */
+[data-theme="night"] .fl1-canvas-zone {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+
+/* Name chips (person names at top) */
+[data-theme="night"] .fl1-name-chip {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+  color: var(--color-text, #e2e8f0);
+}
+[data-theme="night"] .fl1-name-chip--active {
+  border-color: var(--color-primary, #818cf8);
+  background: rgba(129, 140, 248, 0.15);
+  color: #c7d2fe;
+}
+[data-theme="night"] .fl1-name-chip--connected {
+  border-color: var(--color-success, #34d399);
+  background: rgba(52, 211, 153, 0.1);
+  color: #6ee7b7;
+}
+
+/* Hotspot labels */
+[data-theme="night"] .fl1-hotspot-label {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+  color: var(--color-text, #e2e8f0);
+}
+[data-theme="night"] .fl1-hotspot-label--connected {
+  border-color: var(--color-success, #34d399);
+  color: #6ee7b7;
+}
+
+/* Result panel */
+[data-theme="night"] .fl1-result {
+  background: linear-gradient(135deg, rgba(129,140,248,0.08), rgba(52,211,153,0.08));
+  border-color: rgba(129, 140, 248, 0.3);
+}
+[data-theme="night"] .fl1-result__score { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fl1-feedback-row { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fl1-feedback-row--correct { color: #6ee7b7; }
+[data-theme="night"] .fl1-feedback-row--wrong { color: #fca5a5; }
+
+/* Vocab panel */
+[data-theme="night"] .fl1-vocab-panel {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fl1-vocab-panel__title { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fl1-vocab-panel__counter { background: rgba(124,58,237,0.15); color: #c4b5fd; }
+[data-theme="night"] .fl1-vocab-item { border-bottom-color: var(--color-border, #334155); }
+[data-theme="night"] .fl1-vocab-item__word { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fl1-vocab-item__ipa { color: #64748b; }
+[data-theme="night"] .fl1-vocab-btn { background: var(--color-bg-subtle, #1e293b); border-color: #334155; color: #94a3b8; }
+[data-theme="night"] .fl1-vocab-btn:hover:not(:disabled) { background: rgba(129,140,248,0.1); }
+[data-theme="night"] .fl1-vocab-item__translation { color: #93c5fd; }
+
+/* Auth nudge popup */
+[data-theme="night"] .fl1-nudge-popup {
+  background: var(--color-card, #1e293b);
+  color: var(--color-text, #e2e8f0);
+}

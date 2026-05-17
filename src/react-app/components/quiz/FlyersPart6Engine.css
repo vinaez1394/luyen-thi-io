@@ -698,3 +698,99 @@
   .fp6-result-actions { flex-direction: column; }
   .fp6-finish-btn, .fp6-back-btn { width: 100%; }
 }
+
+/* ═══════════════════════════════════════════════════
+   DARK MODE — [data-theme="night"]
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="night"] .fp6-instructions {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: #f59e0b;
+  color: #fde68a;
+}
+
+[data-theme="night"] .fp6-image-wrap { background: var(--color-bg-subtle, #1e293b); }
+
+[data-theme="night"] .fp6-diary {
+  background: rgba(253, 230, 138, 0.04);
+  border-color: rgba(253, 230, 138, 0.2);
+}
+[data-theme="night"] .fp6-diary__date {
+  color: var(--color-text, #e2e8f0);
+  border-bottom-color: rgba(253, 230, 138, 0.2);
+}
+[data-theme="night"] .fp6-diary__body { color: var(--color-text, #e2e8f0); }
+
+[data-theme="night"] .fp6-inline-input {
+  background: var(--color-bg-subtle, #1e293b);
+  border-color: var(--color-border, #475569);
+  color: var(--color-text, #e2e8f0);
+}
+[data-theme="night"] .fp6-inline-input:focus {
+  border-color: var(--color-primary, #818cf8);
+  background: rgba(129, 140, 248, 0.08);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+}
+[data-theme="night"] .fp6-inline-input::placeholder { color: #475569; }
+
+[data-theme="night"] .fp6-progress-bar { background: var(--color-border, #334155); }
+[data-theme="night"] .fp6-progress-bar__label { color: #94a3b8; }
+
+[data-theme="night"] .fp6-score-summary--good {
+  background: linear-gradient(135deg, rgba(52,211,153,0.12), rgba(74,222,128,0.08));
+  border-color: rgba(52, 211, 153, 0.3);
+}
+[data-theme="night"] .fp6-score-summary--low {
+  background: linear-gradient(135deg, rgba(252,129,74,0.12), rgba(248,113,113,0.08));
+  border-color: rgba(248, 113, 113, 0.3);
+}
+[data-theme="night"] .fp6-score-summary__score { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp6-score-summary__pct { color: var(--color-text, #e2e8f0); }
+
+[data-theme="night"] .fp6-explanations__title { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp6-exp-item--correct {
+  background: rgba(52, 211, 153, 0.1);
+  border-left-color: #34d399;
+}
+[data-theme="night"] .fp6-exp-item--wrong {
+  background: rgba(252, 129, 74, 0.1);
+  border-left-color: #f87171;
+}
+[data-theme="night"] .fp6-exp-item__label { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp6-exp-item__vi { color: #94a3b8; }
+
+[data-theme="night"] .fp6-grammar-tips {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+[data-theme="night"] .fp6-grammar-tips__title { color: #93c5fd; }
+[data-theme="night"] .fp6-grammar-tip { background: rgba(255,255,255,0.04); border-left-color: #3b82f6; }
+[data-theme="night"] .fp6-grammar-tip__title { color: #93c5fd; }
+[data-theme="night"] .fp6-grammar-tip__body { color: var(--color-text, #e2e8f0); }
+
+[data-theme="night"] .fp6-vocab-panel {
+  background: var(--color-card, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp6-vocab-panel__header {
+  background: var(--color-bg-subtle, #1e293b);
+  border-bottom-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp6-vocab-panel__title { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp6-vocab-item { border-bottom-color: var(--color-border, #334155); }
+[data-theme="night"] .fp6-vocab-item__word { color: var(--color-text, #e2e8f0); }
+[data-theme="night"] .fp6-vocab-item__ipa { color: #64748b; }
+[data-theme="night"] .fp6-vocab-btn { background: var(--color-bg-subtle, #1e293b); border-color: #334155; }
+[data-theme="night"] .fp6-vocab-btn--audio { color: #93c5fd; }
+[data-theme="night"] .fp6-vocab-btn--translate { color: #c4b5fd; }
+[data-theme="night"] .fp6-vocab-item__translation { background: rgba(52,211,153,0.1); color: #6ee7b7; }
+
+[data-theme="night"] .fp6-back-btn {
+  background: var(--color-bg-subtle, #1e293b);
+  color: var(--color-text-muted, #94a3b8);
+  border-color: var(--color-border, #334155);
+}
+[data-theme="night"] .fp6-back-btn:hover { background: rgba(255,255,255,0.05); }
+
+[data-theme="night"] .fp6-nudge-popup { background: var(--color-card, #1e293b); }
+[data-theme="night"] .fp6-nudge-popup p { color: var(--color-text, #e2e8f0); }
