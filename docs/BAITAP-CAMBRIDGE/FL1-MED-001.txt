@@ -1,0 +1,248 @@
+Để giúp các bé, đặc biệt là ở độ tuổi lớp 3 đang rèn luyện và làm quen dần với tiếng Anh và khoa học, chủ đề thiên nhiên như **"A Day at the Park" (Một ngày ở công viên)** là một lựa chọn tuyệt vời. Nó vừa gần gũi, vừa cung cấp nhiều từ vựng về hoạt động ngoài trời, động vật và trang phục.
+
+Dưới đây là kịch bản hội thoại mức độ **Medium**, bám sát logic của đề thi Flyers cùng với các thông số cài đặt giọng đọc chi tiết.
+
+### 1. Thông số thiết lập AI Studio (AI Studio Settings)
+
+**Scene (Ngữ cảnh chung):**
+
+> A sunny afternoon at a busy park with a large lake. An aunt and her young nephew are sitting on a bench, looking at the people around them.
+
+**Sample Context (Âm hưởng chung):**
+
+> Clear British (RP) pronunciation. The pacing is natural but steady, with clear articulation of descriptive adjectives (colors, patterns, clothes) and continuous verbs to help young learners catch the key details.
+
+**Nhân vật 1: Người dì (Adult - Female)**
+
+* **Voice Suggestion:** Aoede (Breezy, Middle pitch) hoặc Callirrhoe (Easy-going, Middle pitch).
+* **Accent:** British (RP).
+* **Audio Profile:** A warm, friendly, and curious adult female. She asks questions with a gentle, encouraging tone, pausing slightly to let the child answer.
+* **Style:** Empathetic hoặc Natural.
+* **Pace:** Natural.
+
+**Nhân vật 2: Cháu trai (Child - Male)**
+
+* **Voice Suggestion:** Achird (Friendly, Lower middle pitch) - *Lưu ý: Có thể chỉnh pitch cao lên một chút trong phần mềm để tạo giọng bé trai.*
+* **Accent:** British (RP).
+* **Audio Profile:** An energetic, observant, and cheerful young boy (around 9 years old). He is happy to point out the people he knows in the park.
+* **Style:** Vocal Smile hoặc Natural.
+* **Pace:** Natural (đôi lúc hơi nhanh nhẹ ở các từ chỉ hành động để tạo bẫy nghe).
+
+---
+
+### 2. Kịch bản hội thoại (Listening Script)
+
+**A = Aunt (Dì), T = Tom (Cháu trai)**
+*(Tên cung cấp trong bài: George, Daisy, Harry, Richard, Katy, Michael, Emma)*
+*(Tên gây nhiễu: Richard)*
+
+**Introduction:**
+*Look at Part 1. Now look at the picture. Listen and look. There is one example.*
+
+**(Example)**
+
+* **Aunt:** It’s so nice in the park today, Tom. There are a lot of people!
+* **Tom:** Yes! Look at George. He’s standing by the bridge.
+* **Aunt:** Is he the boy who is fishing?
+* **Tom:** Yes, that's right. He loves fishing on the weekend.
+* *Can you see the line? This is an example. Now you listen and draw lines.*
+
+**(Question 1)**
+
+* **Aunt:** Can you see your friend Emma?
+* **Tom:** Yes, she’s near the lake. She’s feeding the swans.
+* **Aunt:** Oh, I see two girls feeding the swans. Which one is Emma?
+* **Tom:** She’s the one wearing the purple backpack.
+* **Aunt:** Ah, yes. The swans look very hungry!
+
+**(Question 2)**
+
+* **Aunt:** Who is the boy sitting under the big tree?
+* **Tom:** Do you mean the boy who is sleeping?
+* **Aunt:** No, the other boy. The one who is reading a comic book.
+* **Tom:** Oh, that’s Harry. Look at his curly hair! He’s wearing a yellow sweater.
+
+**(Question 3)**
+
+* **Aunt:** There’s a girl going very fast over there!
+* **Tom:** That’s Katy. She’s riding her new bike.
+* **Aunt:** Is she wearing a helmet?
+* **Tom:** Yes, she is. She’s got a white helmet with black spots on it.
+* **Aunt:** That's a very safe thing to do.
+
+**(Question 4)**
+
+* **Aunt:** Look at that dog! It’s catching a ball.
+* **Tom:** That’s my friend Michael's dog. Michael is playing with it.
+* **Aunt:** Is Michael the boy in the blue jacket?
+* **Tom:** No, Michael has a striped T-shirt. He's throwing the ball right now.
+* **Aunt:** He throws very far!
+
+**(Question 5)**
+
+* **Aunt:** I’m getting a little hungry.
+* **Tom:** Me too! Look, Daisy is having a picnic on the grass.
+* **Aunt:** Is she eating an apple?
+* **Tom:** No, she’s eating a big cheese sandwich. She's sitting on a red blanket.
+* **Aunt:** That looks delicious. Let's go and get some food too.
+
+
+=======
+
+
+{
+  "characters": [
+    {
+      "id": "char-george",
+      "description": "[mô tả George]",
+      "hotspot": {
+        "x": 52,
+        "y": 22
+      }
+    },
+    {
+      "id": "char-daisy",
+      "description": "[mô tả Daisy]",
+      "hotspot": {
+        "x": 62,
+        "y": 88.1
+      }
+    },
+    {
+      "id": "char-harry",
+      "description": "[mô tả Harry]",
+      "hotspot": {
+        "x": 22.1,
+        "y": 72.6
+      }
+    },
+    {
+      "id": "char-katy",
+      "description": "[mô tả Katy]",
+      "hotspot": {
+        "x": 87.7,
+        "y": 37.6
+      }
+    },
+    {
+      "id": "char-michael",
+      "description": "[mô tả Michael]",
+      "hotspot": {
+        "x": 89.2,
+        "y": 65.7
+      }
+    },
+    {
+      "id": "char-emma",
+      "description": "[mô tả Emma]",
+      "hotspot": {
+        "x": 56,
+        "y": 55.8
+      }
+    }
+  ],
+  "example": {
+    "name": "George",
+    "character_id": "char-george"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "name": "Daisy",
+      "correct_character_id": "char-daisy"
+    },
+    {
+      "id": "q2",
+      "name": "Harry",
+      "correct_character_id": "char-harry"
+    },
+    {
+      "id": "q3",
+      "name": "Katy",
+      "correct_character_id": "char-katy"
+    },
+    {
+      "id": "q4",
+      "name": "Michael",
+      "correct_character_id": "char-michael"
+    },
+    {
+      "id": "q5",
+      "name": "Emma",
+      "correct_character_id": "char-emma"
+    }
+  ]
+}
+
+
+---
+
+
+image_url: https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-MED-001.jpg
+
+
+==========
+
+
+### 3. Phân tích bẫy (Logic & Distractors) trong bài
+
+Đoạn hội thoại này chứa các cấu trúc ngữ pháp và từ vựng trọng tâm của Flyers, được thiết kế để học sinh phải nghe hiểu trọn vẹn cụm từ thay vì chỉ bắt một từ đơn lẻ:
+
+* **Câu 1 (Emma):** Bẫy số lượng. Có tận *hai người* đang cho thiên nga ăn. Học sinh phải nghe được từ khóa quyết định là **"purple backpack"** (balo màu tím) thay vì vội vàng nối tên ngay khi nghe thấy "feeding the swans".
+* **Câu 2 (Harry):** Bẫy hành động. Dưới gốc cây có hai người: một người ngủ (sleeping) và một người đọc truyện (reading). Dì nhầm lẫn hỏi người đang ngủ, nhưng Tom đính chính lại. Học sinh phải tập trung vào mô tả **"curly hair"** và **"yellow sweater"**.
+* **Câu 3 (Katy):** Kiểm tra từ vựng họa tiết. Từ khóa **"spots"** (chấm bi) được sử dụng để phân biệt chiếc mũ bảo hiểm.
+* **Câu 4 (Michael):** Phủ định miêu tả. Người Dì đoán sai trang phục (blue jacket), Tom đính chính lại bằng **"striped T-shirt"** (áo thun kẻ sọc). Đây là dạng bẫy rất điển hình trong Cambridge.
+* **Câu 5 (Daisy):** Phủ định thức ăn. Dì hỏi Daisy đang ăn táo phải không (eating an apple?), Tom trả lời là không, mà là ăn bánh mì kẹp (cheese sandwich).
+
+Việc luyện tập với các kịch bản có yếu tố "hỏi - phủ định - đính chính" như trên sẽ giúp các bé hình thành phản xạ phân tích thông tin rất tốt. Bạn có muốn tạo thêm một file tóm tắt các tính từ chỉ họa tiết (spots, stripes, checked...) để bé dễ ôn tập trước khi nghe bài này không?
+
+
+
+=============
+
+
+
+
+Dưới đây là phần đáp án chi tiết phục vụ việc xác nhận và Image Prompt bám sát chính xác kịch bản "Một ngày ở công viên" trình độ Flyers của bạn.
+
+---
+
+### Part 1: Đáp án (Verification Descriptions)
+
+Đây là những đặc điểm cốt lõi nhất để xác nhận tên nào nối với người nào trong bức tranh khi bạn nghe:
+
+* **Example: George.** Cần một **bé trai** đứng **gần/trên cầu**, tay đang cầm **cần câu cá**.
+* **1. Emma.** Cần **hai bé gái** cùng cho thiên nga ăn (để tạo bẫy), nhưng người được nối tên là bé gái **đang đeo một chiếc balo màu tím**.
+* **2. Harry.** Cần hai bé trai dưới gốc cây: một người đang ngủ (bẫy), người được nối tên là bé trai có **tóc xoăn**, **mặc áo len màu vàng** và đang **đọc truyện tranh**.
+* **3. Katy.** Cần một **bé gái** đang đi xe đạp rất nhanh trên đường, đầu đội chiếc **mũ bảo hiểm màu trắng có chấm bi đen**.
+* **4. Michael.** Cần bé trai đang chơi ném bóng với chó trên bãi cỏ. Dì đoán sai màu áo, nên người được nối tên là bé trai **mặc áo thun kẻ sọc**.
+* **5. Daisy.** Cần bé gái đang ngồi picnic trên bãi cỏ. Dì đoán sai thức ăn, người được nối tên là bé gái đang ngồi trên **tấm thảm màu đỏ** và đang **cầm ăn một chiếc bánh mì kẹp phô mai lớn**.
+
+---
+
+### Part 2: Image Prompt
+
+Prompt này được viết bằng tiếng Anh để tương thích với các mô hình tạo ảnh AI, đảm bảo mô tả chính xác các đặc điểm của từng nhân vật và các "bẫy" trực quan cần thiết cho bài nghe.
+
+---
+
+#### **Image Prompt: "A Day at the Park (Flyers Listening Part 1)"**
+
+**Style:** A cheerful, friendly vector digital illustration with clean lines and bright, flat colors, strictly in the visual style of Cambridge Flyers ESL exam Part 1 pictures. The overall composition is open, easy to read, and clearly features a park with a large lake.
+
+**Scene Setting:**
+A sunny afternoon in a lively public park. In the center-background is a stone footbridge over a large, calm lake. The lake has green ducks/swans on the water. A path winds through the green grass, and several large old trees are dotted around.
+
+**Character Groups & Placement (Must be precise):**
+
+1. **Left Side, Under Large Tree (Harry & Distractor):** TWO boys are sitting under a big tree. One boy is lying down, *sleeping* soundly (distractor). The boy next to him is **Harry**, who has **curly brown hair**, wears a **yellow sweater**, and is actively **reading a comic book**.
+2. **Center-Background (Example Character - George):** Standing directly **on/near the stone bridge**, looking down at the lake, is **George**. He is **holding a fishing rod** with the line in the water.
+3. **Center-Right, Lakeside (Emma & Distractor):** At the edge of the lake, **TWO girls** are **tossing bread to swans** in the water. **Emma** is distinguished by the **purple backpack** she is wearing. The other girl (distractor) has a green backpack and a purple hoodie.
+4. **Right Side Path (Katy):** A girl, **Katy**, is **riding a bicycle** quickly on the path. She is wearing a distinct **white helmet with black spots on it**.
+5. **Right-Middle Grass (Michael, Dog & Distractor):** A brown friendly dog is jumping to catch a ball. Two boys are on the grass. **Michael** is the boy currently **throwing the ball** to the dog, and he must be wearing a **striped T-shirt**. *Distractor Person:* A different boy, wearing a plain **blue jacket** (captures Aunt's guess), is walking *away* from them in the background.
+6. **Foreground (Daisy & Distractor):** Picnic area on the grass. TWO people. One boy is eating an apple (distractor). **Daisy** is sitting on a prominent **red picnic blanket** and is actively **eating a large cheese sandwich**.
+7. **General Distractors (Filler):** Add 2-3 generic extra characters to make the scene busy for potential distractors (e.g., a man walking a small baby stroller, a group of three kids playing football in the far distance).
+
+---
+
+**Lưu ý khi tạo ảnh:** Prompt này tập trung vào việc đặt "hai đối tượng tương tự" (2 bé gái bên hồ, 2 bé trai dưới cây, 2 người picnic) nhưng chỉ có 1 người khớp chính xác mô tả chi tiết của kịch bản, để thử thách kỹ năng nghe phân biệt thông tin của học sinh.

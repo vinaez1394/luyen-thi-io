@@ -1,8 +1,9 @@
 # 📋 Hướng Dẫn Tạo Quiz Engine Mới
 
-> **Phiên bản:** 2.0 | **Cập nhật:** 2026-05-12  
+> **Phiên bản:** 3.0 | **Cập nhật:** 2026-05-17  
 > Áp dụng cho: tất cả quiz engine trong `src/react-app/components/quiz/`  
-> **v2.0:** Thêm Standard Feature Modules (VocabPanel, Star mechanic, Auth nudge, DB tracking)
+> **v2.0:** Thêm Standard Feature Modules (VocabPanel, Star mechanic, Auth nudge, DB tracking)  
+> **v3.0:** Bắt buộc Lazy Load (React.lazy + Suspense) để mỗi engine là 1 JS chunk riêng — không làm phình bundle size chính.
 
 ---
 
@@ -312,9 +313,43 @@ const handleSubmit = useCallback(() => {
 
 ---
 
-### 2. **Trong `QuizPage.tsx`**
+### 2. **Trong `QuizPage.tsx`** — BẮT BUỘC LAZY LOAD (v3.0)
 
-Khi thêm engine mới, dùng pattern `saveFlyersScore()` đã có sẵn:
+> ⚠️ **QUY TẮC BẮT BUỘC (kể từ v3.0):**  
+> Mọi engine mới PHẢI được đăng ký bằng `React.lazy()` — KHÔNG được `import` tĩnh.  
+> Lý do: mỗi engine khoảng 500–800 dòng. Nếu import tĩnh, toàn bộ code của tất cả engines
+> sẽ được bundle vào 1 file JS lớn và tải về máy user ở MỌI TRANG, dù họ chỉ làm 1 loại bài.
+
+#### Bước 2a — Đăng ký lazy() ở đầu file (sau các import khác)
+
+```typescript
+// File: src/react-app/pages/QuizPage.tsx
+// Tìm phần "Lazy-loaded engines" và thêm engine mới VÀO ĐÓ:
+
+// ── Lazy-loaded engines — mỗi engine là 1 JS chunk riêng (code splitting) ──
+// ... (các engine cũ) ...
+
+// Thêm engine mới tại đây:
+const XYZEngine = lazy(() =>
+  import("../components/quiz/XYZEngine").then((m) => ({ default: m.XYZEngine }))
+);
+```
+
+> **Tại sao dùng `.then(m => ({ default: m.XYZEngine }))` ?**  
+> Vì engine export theo kiểu **named export** (`export function XYZEngine`), không phải default export.  
+> `React.lazy()` chỉ nhận `default` export → cần map lại.
+
+#### Bước 2b — Giữ nguyên `import type` (KHÔNG thay bằng lazy)
+
+```typescript
+// Những dòng này KHÔNG thay đổi — chúng bị xóa sau build, không ảnh hưởng bundle:
+import type { XYZQuiz } from "../components/quiz/XYZEngine";
+import type { XYZResult } from "../components/quiz/XYZEngine";
+```
+
+#### Bước 2c — Bọc engine trong `<Suspense>` khi render
+
+Dùng constant `ENGINE_FALLBACK` đã có sẵn (khai báo ngay trước `QuizPage` function):
 
 ```typescript
 // ===== XYZ Engine =====
@@ -325,15 +360,34 @@ if ((quiz as unknown as XYZQuiz).type === "xyz-type") {
       {/* Sub-header (breadcrumb + exit btn) */}
       ...
 
-      {/* Engine */}
+      {/* Engine — BẮT BUỘC bọc trong Suspense */}
       <div className="quiz-layout__content">
-        <XYZEngine
-          quiz={xyzQuiz}
-          onSubmitResult={(res) => {
-            // ✅ Dùng saveFlyersScore — đã có sẵn trong QuizPage
-            saveFlyersScore(res.answersForApi, res.startTime);
-          }}
-        />
+        <Suspense fallback={ENGINE_FALLBACK}>   {/* ← BẮT BUỘC */}
+          <XYZEngine
+            quiz={xyzQuiz}
+            onSubmitResult={(res) => {
+              // ✅ Dùng saveFlyersScore — đã có sẵn trong QuizPage
+              setFlyersPendingResult({
+                answersForApi: res.answersForApi,
+                startTime: res.startTime,
+                score: res.score,
+                maxScore: res.maxScore,
+                percentage: res.percentage,
+                starsEarned: res.starsEarned,
+              });
+            }}
+            onFinish={() => {
+              if (flyersPendingResult) {
+                saveFlyersScore(
+                  flyersPendingResult.answersForApi,
+                  flyersPendingResult.startTime,
+                  flyersPendingResult
+                );
+              }
+            }}
+            onBack={() => navigate(backUrl)}
+          />
+        </Suspense>                              {/* ← BẮT BUỘC */}
       </div>
     </div>
   );
@@ -346,6 +400,12 @@ if ((quiz as unknown as XYZQuiz).type === "xyz-type") {
 > - Cộng sao, cập nhật streak
 > - Hiển thị `QuizResultScreen` (với % badge, sao, bài gần đây)
 > - Dispatch `stars:updated` event (cập nhật header)
+
+#### Verify sau khi thêm engine:
+```bash
+npm run build 2>&1 | grep "XYZEngine"
+# Mong đợi: thấy dòng "XYZEngine-[hash].js" trong output → chunk riêng thành công
+```
 
 ---
 
@@ -612,3 +672,117 @@ Khi tích hợp các module vào engine mới, hãy lưu ý tránh các bug sau 
   - **R2:** Sau khi tạo/sửa bất kỳ file JSON nào → luôn chạy `node scripts/upload-content-r2.mjs --remote`.
   - **Vocab:** Nếu `vocabulary_bank_id` có giá trị → `audio_url` bắt buộc phải có. Không có trong DB → gán cả 2 là `null`.
   - **Browser cache:** Sau deploy, `Ctrl+Shift+R` để bỏ cache trình duyệt (5 phút).
+
+---
+
+## 🎧 FL1 ENGINE — Flyers Listening Part 1 (Click-to-Connect)
+
+> Quy tắc riêng cho engine `FlyersListeningPart1Engine.tsx` — kiểu bài nghe và kéo đường nối tên ↔ nhân vật trên hình.
+
+### Cấu trúc JSON chuẩn
+
+```json
+{
+  "id": "FL1-EASY-001",
+  "type": "flyers-listening-p1",
+  "image_url": "https://cdn.../FL1-EASY-001.jpg",
+  "audio_url": "https://cdn.../FL1-EASY-001.MP3",
+  "names": ["Robert", "Helen", "Frank", "Betty", "William", "Sarah", "Richard"],
+  "characters": [
+    { "id": "char-robert",  "description": "...", "hotspot": { "x": 51.1, "y": 74.2 } },
+    { "id": "char-helen",   "description": "...", "hotspot": { "x": 8.4,  "y": 76.0 } },
+    ...
+    // 4 DECOY characters (không có tên trong questions):
+    { "id": "char-u1", "description": "...", "hotspot": { "x": 59.3, "y": 44.0 } },
+    { "id": "char-u2", "description": "...", "hotspot": { "x": 92.9, "y": 70.5 } },
+    { "id": "char-u3", "description": "...", "hotspot": { "x": 12.9, "y": 52.3 } },
+    { "id": "char-u4", "description": "...", "hotspot": { "x": 5.8,  "y": 34.3 } }
+  ],
+  "example": { "name": "Robert", "character_id": "char-robert" },
+  "questions": [
+    { "id": "q1", "name": "Helen",   "correct_character_id": "char-helen"   },
+    { "id": "q2", "name": "Frank",   "correct_character_id": "char-frank"   },
+    { "id": "q3", "name": "Betty",   "correct_character_id": "char-betty"   },
+    { "id": "q4", "name": "William", "correct_character_id": "char-william" },
+    { "id": "q5", "name": "Sarah",   "correct_character_id": "char-sarah"   }
+  ]
+}
+```
+
+### 🎯 Quy tắc DECOY HOTSPOT (Gây Nhiễu)
+
+**Mục đích:** Làm bài khó hơn — học sinh thấy nhiều vòng tròn trên hình nhưng chỉ cần nối 5 tên.
+
+**Cách thêm decoy:**
+1. Thêm vào mảng `characters` với id `char-u1`, `char-u2`, `char-u3`, `char-u4`
+2. **KHÔNG** thêm vào `questions`
+3. Engine tự động hiển thị vòng tròn cho TẤT CẢ characters (kể cả decoy)
+4. Học sinh có thể click decoy → không sai, không đúng → chỉ chiếm 1 trong 5 slot
+
+**Kết quả:** 6 named chars + 4 decoys = **10 vòng tròn** trên hình, nhưng chỉ có **5 tên** để nối.
+
+**Số lượng decoy khuyến nghị:**
+- Easy: 4 decoys (10 hotspot tổng)
+- Medium: 4 decoys (10 hotspot tổng)
+- Hard: có thể tăng lên 6 decoys (12 hotspot tổng)
+
+### ✅ Quy tắc Submit Button — BẮT BUỘC
+
+```typescript
+// ✅ ĐÚNG: Đếm TỔNG số hotspot đã nối (bất kỳ)
+const connectedCount = Object.keys(connections).length;
+const allConnected = connectedCount >= quiz.questions.length; // >= 5
+
+// ❌ SAI: Chỉ đếm hotspot đúng đáp án
+// const questionCharIds = quiz.questions.map(q => q.correct_character_id);
+// const connectedCount = questionCharIds.filter(cid => connections[cid]).length;
+```
+
+**Lý do:** Học sinh được quyền nối vào bất kỳ hotspot nào (kể cả decoy). Backend chấm điểm theo đáp án, không phải frontend kiểm soát. Submit phải hiện ngay khi đủ 5 kết nối.
+
+### 📦 R2 Path cho FL1 Quizzes
+
+```
+R2 bucket: luyen-thi-content
+Path: quizzes/cambridge/flyers/listening/part1/FL1-EASY-001.json
+                                                 ↑ có prefix "quizzes/"!
+```
+
+**Upload command:**
+```bash
+npx wrangler r2 object put \
+  "luyen-thi-content/quizzes/cambridge/flyers/listening/part1/FL1-EASY-001.json" \
+  --file="content/Cambridge/flyers/listening/part1/FL1-EASY-001.json" \
+  --content-type="application/json" --remote
+```
+
+⚠️ **Lỗi hay gặp:** Upload thiếu prefix `quizzes/` → Worker 404 vì `getR2Key()` trong `quiz.ts` trả về `quizzes/cambridge/...`.
+
+### 🛠️ Local Dev Map — Bắt Buộc Đăng Ký
+
+Mỗi file JSON FL1 mới phải được thêm vào `LOCAL_QUIZ_MAP` trong `src/worker/routes/quiz.ts`:
+
+```typescript
+// File: src/worker/routes/quiz.ts — ~line 179
+// ⚠️ CAMBRIDGE FLYERS Listening Part 1 — Click-to-Connect Engine (FL1-*)
+try { const d = await import("../../../content/Cambridge/flyers/listening/part1/FL1-EASY-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FL1-EASY-001"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/listening/part1/FL1-MED-001.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FL1-MED-001"]  = d.default; } catch { /* R2 */ }
+// Thêm bài mới tại đây ↑
+```
+
+**Tại sao cần:** Local dev server không có R2. Nếu không đăng ký, local sẽ fallback về R2 (cache cũ) → không thấy bài mới khi dev.
+
+### 🔧 Hotspot Coordinates — Cách Lấy Đúng
+
+Dùng tool `tools/hotspot-builder.html` để lấy tọa độ:
+1. Load ảnh vào tool
+2. Click vào từng nhân vật → ghi lại `x, y` (đơn vị: % so với kích thước ảnh)
+3. Copy JSON output → paste vào `characters[]` trong file JSON
+
+**Lưu ý:** Tọa độ trong file JSON của user (hotspot-builder output) là nguồn sự thật — không đoán hay hard-code tay.
+
+### 7. Bug: FL1 Submit không hiện dù đã nối đủ hotspot (2026-05-16)
+
+- **Nguyên nhân:** Logic `allConnected` chỉ đếm các hotspot **đúng đáp án** (`questionCharIds.filter(cid => connections[cid])`). Nếu user nối vào decoy hotspot, count không tăng → Submit mãi không hiện.
+- **Fix:** Dùng `Object.keys(connections).length` thay vì filter theo correct IDs.
+- **Rule:** Submit = `Object.keys(connections).length >= quiz.questions.length` — bất kỳ 5 hotspot nào cũng tính.

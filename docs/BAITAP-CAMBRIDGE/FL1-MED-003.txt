@@ -1,0 +1,294 @@
+Chủ đề **"At the Airport" (Ở sân bay)** là một bối cảnh cực kỳ phổ biến và chuẩn xác với kỳ thi Cambridge Flyers. Không gian sân bay cho phép khai thác rất nhiều từ vựng về hành lý, trang phục, các hoạt động chờ đợi và nhân viên hàng không.
+
+Dưới đây là kịch bản hội thoại mức độ **MEDIUM**, bám sát logic của đề thi Flyers cùng với các thông số cài đặt giọng đọc trong AI Studio.
+
+### 1. Thông số thiết lập AI Studio (AI Studio Settings)
+
+**Scene (Ngữ cảnh chung):**
+
+> A busy departure lounge at a large airport. Through the big windows, planes can be seen. A mother and her young son are sitting on chairs, waiting for their flight and looking at the people around them.
+
+**Sample Context (Âm hưởng chung):**
+
+> Clear British (RP) pronunciation. The pacing is natural and conversational. The audio features gentle corrections and specific descriptive vocabulary (luggage types, patterns, actions) typical of A2 level exams.
+
+**Nhân vật 1: Người mẹ (Adult - Female)**
+
+* **Voice Suggestion:** Callirrhoe (Easy-going, Middle pitch) hoặc Aoede (Breezy, Middle pitch).
+* **Accent:** British (RP).
+* **Audio Profile:** A warm, patient, and observant adult female. She uses a gentle, conversational tone to keep her son entertained while they wait.
+* **Style:** Empathetic hoặc Natural.
+* **Pace:** Natural.
+
+**Nhân vật 2: Con trai (Child - Male)**
+
+* **Voice Suggestion:** Achird (Friendly, Lower middle pitch) - *Nên chỉnh pitch cao lên một chút trong phần mềm để tạo giọng bé trai khoảng 9-10 tuổi.*
+* **Accent:** British (RP).
+* **Audio Profile:** An energetic, observant boy. He is excited about the trip and speaks with enthusiasm when spotting interesting people or things.
+* **Style:** Vocal Smile.
+* **Pace:** Natural.
+
+---
+
+### 2. Kịch bản hội thoại (Listening Script)
+
+**M = Mother (Mẹ), S = Son (Con trai)**
+*(Tên cung cấp trong bài: Robert, Emma, Frank, Betty, William, Sarah, Tom)*
+*(Tên gây nhiễu: Tom)*
+
+**Introduction:**
+*Look at Part 1. Now look at the picture. Listen and look. There is one example.*
+
+Speaker 1: [sighs happily] There are so many people at the airport today! [short pause] Look at that pilot.
+Speaker 2: [hmm] Where is he, Mum? Is he buying a newspaper?
+Speaker 1: No, he's standing near the window. He is looking at his watch.
+Speaker 2: [gasps softly] Oh, I see him. That's Robert. He is my dad's friend.
+
+
+Speaker 2: [excited] Look at the big screen with all the flight times.
+Speaker 1: Yes. [short pause] There are two women looking at it. Do you know them?
+Speaker 2: I know the woman pointing at the screen. Her name is Emma.
+Speaker 1: [hmm] Is she the one wearing the grey coat?
+Speaker 2: No, Emma is wearing a jacket with white spots.
+Speaker 1: [chuckles] Oh, yes. I think she’s trying to find her flight.
+
+
+Speaker 1: [sigh] I'm a bit hungry. Look at that boy eating over there.
+Speaker 2: Do you mean the boy eating a large burger?
+Speaker 1: No, the other boy at the table. [short pause] He is eating a bowl of hot soup.
+Speaker 2: [laughs] Oh, that’s Frank! He’s in my class at school. He has a green sweater on.
+Speaker 1: It looks very tasty.
+
+
+Speaker 1: Look at that woman pulling a suitcase. She’s walking very fast.
+Speaker 2: Which one? [short pause] The woman with the pink suitcase?
+Speaker 1: No, the woman with the yellow suitcase. It has lots of stickers on it.
+Speaker 2: Oh, that's Betty. She works here at the airport.
+Speaker 1: She must be very busy today.
+
+
+Speaker 2: [whisper] Mum, that man is very tired!
+Speaker 1: [confused] Who? The man reading the magazine?
+Speaker 2: No, look! [short pause] The man sleeping on the blue chairs.
+Speaker 1: [gasps] Oh dear! He's wearing dark sunglasses inside the airport.
+Speaker 2: [giggles] Yes, that's William. I hope he doesn't miss his plane!
+
+
+Speaker 2: Look at the girl sitting on the floor. She has a lot of bags.
+Speaker 1: Yes, she does. [hmm] Is she playing with a toy plane?
+Speaker 2: No, she’s playing a game on her tablet.
+Speaker 1: Oh, I see. What's her name?
+Speaker 2: Her name is Sarah. [short pause] She has beautiful curly blonde hair.
+Speaker 1: Yes, she does. [laughs lightly] Well, it's almost time for our flight!
+
+---
+
+{
+  "characters": [
+    {
+      "id": "char-robert",
+      "description": "[mô tả Robert]",
+      "hotspot": {
+        "x": 16.4,
+        "y": 30.2
+      }
+    },
+    {
+      "id": "char-emma",
+      "description": "[mô tả Emma]",
+      "hotspot": {
+        "x": 68.2,
+        "y": 35.4
+      }
+    },
+    {
+      "id": "char-frank",
+      "description": "[mô tả Frank]",
+      "hotspot": {
+        "x": 26.9,
+        "y": 55.8
+      }
+    },
+    {
+      "id": "char-betty",
+      "description": "[mô tả Betty]",
+      "hotspot": {
+        "x": 50,
+        "y": 64
+      }
+    },
+    {
+      "id": "char-william",
+      "description": "[mô tả William]",
+      "hotspot": {
+        "x": 90,
+        "y": 66.2
+      }
+    },
+    {
+      "id": "char-sarah",
+      "description": "[mô tả Sarah]",
+      "hotspot": {
+        "x": 91.4,
+        "y": 91.1
+      }
+    },
+    {
+      "id": "char-tom",
+      "description": "[mô tả Tom]",
+      "hotspot": {
+        "x": 74,
+        "y": 63.6
+      }
+    },
+    {
+      "id": "char-u1",
+      "description": "[mô tả u1]",
+      "hotspot": {
+        "x": 8.6,
+        "y": 57.2
+      }
+    },
+    {
+      "id": "char-u2",
+      "description": "[mô tả u2]",
+      "hotspot": {
+        "x": 41,
+        "y": 61.3
+      }
+    },
+    {
+      "id": "char-u3",
+      "description": "[mô tả u3]",
+      "hotspot": {
+        "x": 57.1,
+        "y": 38
+      }
+    },
+    {
+      "id": "char-u4",
+      "description": "[mô tả u4]",
+      "hotspot": {
+        "x": 71.7,
+        "y": 90.7
+      }
+    }
+  ],
+  "example": {
+    "name": "Robert",
+    "character_id": "char-robert"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "name": "Emma",
+      "correct_character_id": "char-emma"
+    },
+    {
+      "id": "q2",
+      "name": "Frank",
+      "correct_character_id": "char-frank"
+    },
+    {
+      "id": "q3",
+      "name": "Betty",
+      "correct_character_id": "char-betty"
+    },
+    {
+      "id": "q4",
+      "name": "William",
+      "correct_character_id": "char-william"
+    },
+    {
+      "id": "q5",
+      "name": "Sarah",
+      "correct_character_id": "char-sarah"
+    },
+    {
+      "id": "q6",
+      "name": "Tom",
+      "correct_character_id": "char-tom"
+    },
+    {
+      "id": "q7",
+      "name": "u1",
+      "correct_character_id": "char-u1"
+    },
+    {
+      "id": "q8",
+      "name": "u2",
+      "correct_character_id": "char-u2"
+    },
+    {
+      "id": "q9",
+      "name": "u3",
+      "correct_character_id": "char-u3"
+    },
+    {
+      "id": "q10",
+      "name": "u4",
+      "correct_character_id": "char-u4"
+    }
+  ]
+}
+
+---
+
+image_url: https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-MED-003.jpg
+
+====
+
+
+### 3. Phân tích bẫy (Logic & Distractors) trong bài
+
+Kịch bản này sử dụng rất nhiều bẫy kinh điển của Cambridge Flyers, yêu cầu sự tập trung vào nhiều chi tiết thay vì một từ khóa:
+
+* **Câu 1 (Emma - Bẫy trang phục & hành động):** Có hai người phụ nữ nhìn vào màn hình (screen). Mẹ đoán người mặc áo khoác xám (grey coat), con đính chính là người *chỉ tay vào màn hình (pointing at the screen)* và mặc *áo khoác họa tiết chấm bi trắng (jacket with white spots)*.
+* **Câu 2 (Frank - Bẫy thức ăn):** Cùng khu vực ăn uống, mẹ phủ định cậu bé ăn hamburger, hướng sự chú ý đến người đang ăn *một bát súp nóng (a bowl of hot soup)* và mặc *áo len màu xanh lá (green sweater)*.
+* **Câu 3 (Betty - Bẫy hành lý & đạo cụ):** Cùng là phụ nữ kéo vali đi nhanh. Con đoán là vali màu hồng (pink suitcase), mẹ phủ định và chỉ định người kéo *vali màu vàng (yellow suitcase)* có dán *nhiều hình dán (lots of stickers)*.
+* **Câu 4 (William - Bẫy hành động & phụ kiện):** Cùng ở khu vực ghế ngồi. Mẹ đoán người đang đọc tạp chí (reading the magazine), con chỉ ra người đang *ngủ (sleeping)*. Mẹ bổ sung chi tiết người đó đang đeo *kính râm tối màu (dark sunglasses)*.
+* **Câu 5 (Sarah - Bẫy hành động):** Cùng ngồi trên sàn cạnh nhiều hành lý. Mẹ đoán cô bé đang chơi máy bay đồ chơi (playing with a toy plane). Con đính chính cô bé đang *chơi game trên máy tính bảng (playing a game on her tablet)* và có *mái tóc vàng xoăn (curly blonde hair)*.
+
+
+----
+
+
+Dưới đây là phần đáp án chi tiết và Image Prompt bám sát kịch bản "At the Airport" (Ở sân bay) để bạn dễ dàng tạo ảnh minh họa chuẩn xác.
+
+---
+
+### Part 1: Đáp án (Verification Descriptions)
+
+Đây là các đặc điểm nhận dạng cốt lõi để bạn và học sinh đối chiếu khi nghe, đặc biệt chú ý vào sự khác biệt so với các nhân vật gây nhiễu (distractors):
+
+* **Example: Robert.** Cần một người mặc đồng phục **phi công**, đứng gần cửa sổ lớn và đang cúi nhìn **đồng hồ đeo tay**. (Bỏ qua người đàn ông đang mua/đọc báo).
+* **1. Emma.** Khu vực bảng thông tin chuyến bay có hai người phụ nữ. Bỏ qua người mặc áo khoác xám. Emma là người đang **chỉ tay lên màn hình** và mặc một chiếc **áo khoác có họa tiết chấm bi trắng**.
+* **2. Frank.** Khu vực ăn uống có hai bé trai. Bỏ qua bé đang ăn hamburger. Frank là bé trai mặc **áo len màu xanh lá cây** và đang cầm thìa ăn một **bát súp nóng**.
+* **3. Betty.** Có hai người phụ nữ đang kéo vali đi nhanh. Bỏ qua người kéo vali màu hồng. Betty là người phụ nữ đang kéo một chiếc **vali màu vàng** và trên vali có dán **rất nhiều hình dán (stickers)**.
+* **4. William.** Khu vực dãy ghế ngồi chờ. Bỏ qua người đàn ông đang đọc tạp chí. William là người đàn ông đang **ngủ** (nhắm mắt, ngả đầu) trên dãy **ghế màu xanh dương**, và trên mặt có đeo một chiếc **kính râm tối màu**.
+* **5. Sarah.** Khu vực sàn nhà có nhiều hành lý. Có hai bé gái đang ngồi. Bỏ qua bé đang chơi máy bay đồ chơi. Sarah là bé gái có mái **tóc vàng xoăn**, đang cầm và chăm chú bấm chơi **máy tính bảng (tablet)**.
+
+---
+
+### Part 2: Image Prompt
+
+Sử dụng prompt tiếng Anh này cho các công cụ tạo ảnh AI (như Midjourney, DALL-E 3, Stable Diffusion). Prompt đã được tinh chỉnh để bắt buộc AI vẽ các "bẫy" trực quan bên cạnh nhân vật chính.
+
+---
+
+#### **Image Prompt: "At the Airport (Flyers Listening Part 1)"**
+
+**Style:** A cheerful, friendly vector digital illustration with clean lines and bright, flat colors. Strictly in the visual style of Cambridge Flyers ESL exam Part 1 pictures. The composition should be wide and busy, showing a vibrant airport departure lounge.
+
+**Scene Setting:**
+A large indoor airport departure lounge. In the background, there are big glass windows showing parts of white airplanes outside. Inside, there is a large electronic flight information screen, a small cafe area with tables, and a waiting area with rows of blue chairs.
+
+**Character Groups & Placement (Must be precise):**
+
+1. **By the Window (Robert - Example):** A man wearing a pilot uniform (**Robert**) is standing near the large window. He is looking down at his wristwatch. Nearby (distractor), another man is standing and reading a newspaper.
+2. **Flight Screen Area (Emma & Distractor):** TWO women are looking up at the large flight schedule screen. One woman (distractor) is wearing a plain grey coat with her hands in her pockets. The other woman, **Emma**, is actively **pointing her finger at the screen** and is wearing a **jacket with prominent white spots**.
+3. **Cafe Tables (Frank & Distractor):** TWO boys are sitting at a table eating. One boy (distractor) is holding and eating a giant burger. Sitting next to him is **Frank**, who is wearing a **green sweater** and is using a spoon to eat from a **bowl of hot soup**.
+4. **Walking Path (Betty & Distractor):** TWO women are walking fast, pulling rolling suitcases behind them. One woman (distractor) is pulling a plain pink suitcase. The other woman, **Betty**, is pulling a **bright yellow suitcase that is covered in many colorful stickers**.
+5. **Waiting Area Chairs (William & Distractor):** A row of blue chairs. A man (distractor) is sitting up straight, reading a magazine. Sitting next to him is **William**, who is leaning back and **sleeping** with his eyes closed. William is wearing **dark sunglasses** indoors.
+6. **On the Floor (Sarah & Distractor):** On the floor near a pile of bags, TWO girls are sitting. One girl (distractor) is playing with a small toy airplane. The other girl, **Sarah**, has **curly blonde hair** and is holding and playing a game on a **digital tablet (iPad)**.
+7. **General Distractors (Filler):** Add 1 or 2 generic extra characters, like a person walking with a backpack or an airport worker sweeping the floor in the distance, to make the scene appropriately busy for the exam format.

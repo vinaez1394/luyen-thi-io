@@ -1,0 +1,122 @@
+{
+  "id": "FL1-MED-001",
+  "title": "Flyers Listening Part 1 — Set 2: 🌳 A Day at the Park",
+  "skill": "listening",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-listening-p1",
+  "is_free": false,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "medium",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-MED-001.jpg",
+  "audio_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-MED-001.MP3",
+  "names": ["George", "Emma", "Harry", "Katy", "Michael", "Daisy", "Richard"],
+  "characters": [
+    {
+      "id": "char-george",
+      "description": "boy standing on the bridge holding a fishing rod",
+      "hotspot": { "x": 52.0, "y": 22.0 }
+    },
+    {
+      "id": "char-emma",
+      "description": "girl feeding swans near the lake wearing a purple backpack",
+      "hotspot": { "x": 56.0, "y": 55.8 }
+    },
+    {
+      "id": "char-harry",
+      "description": "boy with curly hair in yellow sweater reading a comic book under the tree",
+      "hotspot": { "x": 22.1, "y": 72.6 }
+    },
+    {
+      "id": "char-katy",
+      "description": "girl riding a bicycle wearing a white helmet with black spots",
+      "hotspot": { "x": 87.7, "y": 37.6 }
+    },
+    {
+      "id": "char-michael",
+      "description": "boy in a striped T-shirt throwing a ball to a dog",
+      "hotspot": { "x": 89.2, "y": 65.7 }
+    },
+    {
+      "id": "char-daisy",
+      "description": "girl sitting on a red blanket eating a large cheese sandwich",
+      "hotspot": { "x": 62.0, "y": 88.1 }
+    },
+    {
+      "id": "char-u1",
+      "description": "adult pushing a baby stroller along the path near the left tree",
+      "hotspot": { "x": 14.5, "y": 82.2 }
+    },
+    {
+      "id": "char-u2",
+      "description": "boy sitting on the grass eating an apple near the red blanket",
+      "hotspot": { "x": 43.4, "y": 88.0 }
+    },
+    {
+      "id": "char-u3",
+      "description": "children playing football in the background near the far bridge",
+      "hotspot": { "x": 64.3, "y": 50.7 }
+    },
+    {
+      "id": "char-u4",
+      "description": "boy in blue jacket walking away on the right side path",
+      "hotspot": { "x": 95.8, "y": 57.2 }
+    }
+  ],
+  "example": {
+    "name": "George",
+    "character_id": "char-george"
+  },
+  "questions": [
+    { "id": "q1", "name": "Emma",    "correct_character_id": "char-emma"    },
+    { "id": "q2", "name": "Harry",   "correct_character_id": "char-harry"   },
+    { "id": "q3", "name": "Katy",    "correct_character_id": "char-katy"    },
+    { "id": "q4", "name": "Michael", "correct_character_id": "char-michael" },
+    { "id": "q5", "name": "Daisy",   "correct_character_id": "char-daisy"   }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "swan",
+      "vocabulary_bank_id": null,
+      "translation_vi": "con thiên nga",
+      "ipa": "/swɒn/",
+      "audio_url": null
+    },
+    {
+      "word": "curly",
+      "vocabulary_bank_id": null,
+      "translation_vi": "xoăn (tóc)",
+      "ipa": "/ˈkɜːli/",
+      "audio_url": null
+    },
+    {
+      "word": "helmet",
+      "vocabulary_bank_id": null,
+      "translation_vi": "mũ bảo hiểm",
+      "ipa": "/ˈhelmɪt/",
+      "audio_url": null
+    },
+    {
+      "word": "striped",
+      "vocabulary_bank_id": null,
+      "translation_vi": "kẻ sọc",
+      "ipa": "/straɪpt/",
+      "audio_url": null
+    },
+    {
+      "word": "picnic",
+      "vocabulary_bank_id": null,
+      "translation_vi": "dã ngoại / bữa ăn ngoài trời",
+      "ipa": "/ˈpɪknɪk/",
+      "audio_url": null
+    },
+    {
+      "word": "blanket",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tấm chăn / thảm",
+      "ipa": "/ˈblæŋkɪt/",
+      "audio_url": null
+    }
+  ]
+}

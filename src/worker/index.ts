@@ -31,8 +31,12 @@ app.use("/api/*", cors({
   origin: [
     "https://luyenthi.io.vn",
     "https://www.luyenthi.io.vn",
+    "https://dev.luyenthi.io.vn",          // staging
     "https://luyen-thi-io.vinaez1394.workers.dev",
-    "http://localhost:8788",   // wrangler dev
+    "http://localhost:8788",               // wrangler dev
+    "http://localhost:5175",               // vite dev (primary)
+    "http://localhost:5173",               // vite dev (fallback)
+    "http://localhost:5174",               // vite dev (fallback 2)
   ],
   allowMethods: ["GET", "POST", "OPTIONS"],
   allowHeaders: ["Content-Type", "Cookie"],

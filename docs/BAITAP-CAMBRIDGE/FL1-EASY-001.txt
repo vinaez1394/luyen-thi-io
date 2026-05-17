@@ -1,0 +1,99 @@
+Speaker 1: Look at the children in the school yard! They’re having a lot of fun.
+
+Speaker 2: Yes! Can you see Robert?
+
+Speaker 1: Is he the boy who is eating a large chocolate ice cream?
+
+Speaker 2: That’s right. He loves sweets!
+
+
+
+Speaker 1: There are so many people here. Who is the Speaker 2 painting a picture?
+
+Speaker 2: Do you mean the one in the spotted dress?
+
+Speaker 1: Yes, she’s sitting at the blue table.
+
+Speaker 2: That’s Helen. She’s the best artist in our class.
+
+
+
+Speaker 1: And who is that boy playing the guitar? He’s very good.
+
+Speaker 2: Oh, that’s Frank. He’s wearing his new glasses today.
+
+Speaker 1: I see. The boy with the striped T-shirt and glasses?
+
+Speaker 2: Yes, that’s him!
+
+
+
+Speaker 1: I’m thirsty. Is there any juice?
+
+Speaker 2: Look over there! Betty is selling lemonade.
+
+Speaker 1: Is she the woman with the curly blonde hair?
+
+Speaker 2: No, that’s her mum. Betty is the Speaker 2 with the long ponytail.
+
+Speaker 1: Oh, I see her now.
+
+
+
+Speaker 1: Who is the man with the beard? He’s carrying a lot of balloons.
+
+Speaker 2: That’s William. He’s our sports teacher.
+
+Speaker 1: Is he the one wearing the red hat?
+
+Speaker 2: No, he’s the tall man next to the big tree.
+
+Speaker 1: Right, he looks very busy!
+
+
+
+Speaker 2: Look at Sarah! She’s jumping so high!
+
+Speaker 1: Where is she?
+
+Speaker 2: She’s on the bouncy castle. She’s wearing a bright pink skirt.
+
+Speaker 1: Ah, yes. She looks like she’s having a great time.
+
+
+===========
+
+
+Image Prompt: "A Busy School Fair"
+Style: A cheerful, friendly vector digital illustration with clean lines and bright, flat colors, strictly in the style of Cambridge Flyers ESL exam Part 1 pictures. The overall composition is open and easy to understand for young learners.
+
+Scene Setting:
+An outdoor school playground on a sunny day with green grass. A simple school building is visible in the distance. The scene is full of activity and includes the following specific elements based on the dialogue:
+
+Specific Character Groups & Placements:
+
+Center-Foreground (Example Character - Robert): A young boy named Robert standing near the center, happily eating a very large chocolate ice cream cone. He is wearing a bright blue T-shirt and shorts.
+
+Left Side (Helen): A blue wooden table is set up with art supplies. Sitting at the table is a girl named Helen, who is focused on painting a picture (perhaps of a tree). She is wearing the distinctive yellow dress with white spotted dots.
+
+Left-Middle (Frank): Near Helen, a boy named Frank is standing, playing an acoustic guitar. He has dark hair, is wearing the required new glasses, and a red and white striped T-shirt.
+
+Right Side (Betty & Mom): A wooden lemonade stand with a "LEMONADE" sign, pitchers, and cups. Behind the stand, selling the lemonade, is a girl named Betty with a long ponytail (must be prominent). Next to her, helping, is a woman (her mom) with short, curly blonde hair.
+
+Right-Background (Sarah): A large, colorful (red, blue, yellow) inflatable bouncy castle. A girl named Sarah is captured mid-air, jumping high on the castle, wearing a bright pink skirt.
+
+Background (William & Distraction): A large, old oak tree. Standing next to the big tree is a tall man with a beard named William. He is holding a large cluster of many colorful balloons. Distraction Person: A generic boy wearing a bright red hat is walking past William, but not holding balloons.
+
+General Distractors (Filler): To make the scene busy and create "Richard" or filler names, add 2-3 more generic children doing simple activities: a girl in a purple hoodie nearby Frank, and two boys throwing a ball far in the background.
+
+
+=====
+
+
+tiếp tục viết 1 đoạn hội thoại tiêu chuẩn (trình độ Flyers) kèm theo giọng điệu của nhân vật (giọng tiếng Anh nào? (British English, American English hay giọng Úc,...), nam hay nữ, lớn hay trẻ em,...Audio Profile (riêng mỗi nhân vật), Scene (dùng chung), Sample Context (dùng chung)
+Yêu cầu: đoạn hội thoại về 1 chủ đề khác, với mức độ khó là: "MEDIUM" và bám sát chương trình flyers Cambridge (từ vựng, grammar, logic,...) 
+
+===
+
+Viết đáp án (mô tả người trong đáp án) cho tôi dễ xác nhận
+viết image prompt cho chủ đề trên (chứ không tạo ảnh), phong cách tranh vẽ phù hợp và giống với style cambridge Flyers - phần thi part 1. Yêu cầu: mô tả chính xác các nhân vật trong bài trên (quần áo, đạo cụ, hành động,...)

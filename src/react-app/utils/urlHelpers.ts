@@ -9,7 +9,8 @@
  *   Lớp 6:    /lop6/:group/:quizId
  */
 
-import type { Subject } from "../data/subjects";
+import type { Subject } from "../data/subjects.types";
+
 
 
 /** URL trang danh sách môn theo pathway: /cambridge hoặc /lop6 */

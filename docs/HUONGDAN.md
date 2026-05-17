@@ -386,10 +386,18 @@ Trước khi push, verify 2 breakpoint trong DevTools (Cmd+Shift+M / F12):
 | Quiz ID Pattern | R2 Path | URL |
 |----------------|---------|-----|
 | `MATH-L*-P*` | `quizzes/lop6/toan/{ID}.json` | `/lop6/toan/{slug}` |
-| `RW*`, `RW2-*`, `RW3-*` | `quizzes/cambridge/flyers/reading/{ID}.json` | `/cambridge/flyers/{slug}` |
-| `L001-L003` | `quizzes/cambridge/flyers/listening/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FW1-*` | `quizzes/cambridge/flyers/part1/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FW2-*` | `quizzes/cambridge/flyers/part2/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FW3-*` | `quizzes/cambridge/flyers/part3/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FW4-*` | `quizzes/cambridge/flyers/part4/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FW5-*` | `quizzes/cambridge/flyers/part5/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FW6-*` | `quizzes/cambridge/flyers/part6/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FW7-*` | `quizzes/cambridge/flyers/part7/{ID}.json` | `/cambridge/flyers/{slug}` |
+| `FL1-*` | `quizzes/cambridge/flyers/listening/part1/{ID}.json` | `/cambridge/flyers/{slug}` |
 | `READING-*` | `quizzes/lop6/tieng-anh/reading/{ID}.json` | `/lop6/tieng-anh/{slug}` |
 | `WRITING-*` | `quizzes/lop6/tieng-anh/writing/{ID}.json` | `/lop6/tieng-anh/{slug}` |
+
+> ⚠️ **FL1 có subfolder `part1/`** — khác với dạng listening cũ (`L001-L003`) không có subfolder.
 
 ### Cấu trúc R2 Bucket `luyen-thi-content`
 
@@ -401,8 +409,15 @@ luyen-thi-content/quizzes/
 │       └── reading/    ← READING-EASY/MED/HARD-GRADE3/4/5-P1 (9 bài)
 └── cambridge/
     └── flyers/
-        ├── reading/    ← RW001, RW2-001, RW3-001
-        └── listening/  ← L001, L002, L003
+        ├── part1/      ← FW1-EASY/MED/HARD-*
+        ├── part2/      ← FW2-EASY/MED/HARD-*
+        ├── part3/      ← FW3-MED/HARD-*
+        ├── part4/      ← FW4-*
+        ├── part5/      ← FW5-*
+        ├── part6/      ← FW6-*
+        ├── part7/      ← FW7-*
+        └── listening/
+            └── part1/  ← FL1-EASY/MED-*  (⚠️ có subfolder part1/)
 ```
 
 ### Verify sau deploy
@@ -585,6 +600,34 @@ Xóa lệnh `sed` trong `.github/workflows/deploy.yml` và thay bằng `npm run 
 
 **Bài học:** Vite Plugin `@cloudflare/vite-plugin` tạo ra một file `wrangler.json` **hoàn toàn riêng biệt** trong `dist/`. Bất kỳ thay đổi nào vào `wrangler.json` root sau khi build đều **không có tác dụng**. Luôn patch file trong `dist/` hoặc dùng script đã có sẵn.
 
+### Lỗi mất ảnh thumbnail ở trang danh sách bài học (2026-05-16)
+
+**Mô tả:** Các thẻ bài học trên trang `/cambridge/flyers` chỉ hiển thị icon fallback (emoji trên nền màu) thay vì ảnh thật, mặc dù trong database D1 đã có `image_url`.
+
+**Nguyên nhân (2 tầng):**
+1. **Tầng kiến trúc (`useSubjects.ts`):** Hook này chỉ đọc dữ liệu cứng từ `subjects.ts` (static source) mà không fetch metadata từ API (`/api/subjects`) để lấy dữ liệu động từ D1. Khi thêm bài mới, nếu quên thêm `image_url` vào `subjects.ts`, ảnh sẽ bị mất.
+2. **Tầng dữ liệu:** URL lưu trong D1 có thể sai lệch so với tên file thực tế trên CDN (VD: dư `FLYERS/` trên đường dẫn).
+
+**Fix đã thực hiện:**
+1. **Cải tiến `useSubjects.ts` (2-source strategy):** Render list ban đầu bằng `subjects.ts` để UI không bị giật (flash), sau đó fetch âm thầm từ `/api/subjects` và merge `image_url` chuẩn từ D1 vào để hiển thị.
+2. **Tạo script sync vĩnh viễn:** Tạo `scripts/sync-image-urls.mjs` để đọc `image_url` thẳng từ file JSON (nguồn sự thật duy nhất) và đồng bộ vào `subjects.ts` làm lớp dự phòng (fallback).
+
+**💡 CÁCH TỰ FIX NẾU BỊ MẤT THUMBNAIL LẠI SAU NÀY:**
+
+1. **Kiểm tra JSON gốc:** Mở file JSON của bài đó (VD: `content/Cambridge/flyers/part2/FW2-EASY-001.json`), tìm xuống dưới cùng xem có `"image_url"` trỏ đúng file ảnh trên `cdn.luyenthi.io.vn` chưa. Đây là nguồn sự thật chuẩn nhất!
+2. **Đồng bộ vào UI:** Chạy script sync để tự động patch URL vào file danh sách `subjects.ts`:
+   ```bash
+   node scripts/sync-image-urls.mjs
+   ```
+3. **Kiểm tra Database (D1):** Chắc chắn rằng D1 cũng đang lưu URL đúng:
+   ```bash
+   npx wrangler d1 execute luyen-thi-db --remote --command="SELECT quiz_id, image_url FROM quiz_catalog WHERE quiz_id='FW2-EASY-001';"
+   ```
+4. **Build & Deploy:** 
+   ```bash
+   npm run build && npm run deploy:staging
+   ```
+
 ---
 
 ## 💰 PRICING DỰ KIẾN
@@ -764,14 +807,66 @@ subject.lessons[]
    INSERT INTO quiz_catalog (quiz_id, slug, pathway, subject_slug, title, skill, part, difficulty, questions, is_free, is_published)
    VALUES ('FW2-HARD-001', 'fw2-hard-001', 'cambridge', 'flyers', 'Set 1: Hard', 'reading', 2, 'hard', 5, 0, 1);
    ```
-4. Invalidate KV Cache để bài xuất hiện ngay:
+4. Invalidate KV Cache để bài xuất hiện ngay — **bắt buộc có `x-admin-key` header**:
    ```bash
+   # Production
    curl -X POST https://luyenthi.io.vn/api/subjects/cache/invalidate \
-     -H "Content-Type: application/json" -d '{"pathway":"cambridge","subject":"flyers"}'
+     -H "Content-Type: application/json" \
+     -H "x-admin-key: $CACHE_ADMIN_KEY" \
+     -d '{"pathway":"cambridge","subject":"flyers"}'
+
+   # Staging
+   curl -X POST https://dev.luyenthi.io.vn/api/subjects/cache/invalidate \
+     -H "Content-Type: application/json" \
+     -H "x-admin-key: $CACHE_ADMIN_KEY" \
+     -d '{"pathway":"cambridge","subject":"flyers"}'
    ```
+   > `CACHE_ADMIN_KEY` lưu trong Cloudflare Worker Secrets. Thiếu header → `403 Forbidden`.
+   > `deploy-staging.mjs` tự động gửi header này sau mỗi deploy staging.
 
 ### 4. Backups & Rollbacks
 - Trước khi thực hiện migration, dự án đã tạo snapshot git trên branch `feature/quiz-catalog-migration`.
 - Data D1 được export ra thư mục `backup/d1-backup-20260510-0712.sql`.
 - File `subjects.ts` cũ được lưu tại `backup/subjects.ts.bak`.
+
+---
+
+## ⚡ FRONTEND BUNDLE OPTIMIZATION (2026-05-17)
+
+> **Mục tiêu:** Giảm JS tải ban đầu cho user. Mỗi engine chỉ tải khi user mở bài cần engine đó.
+
+### 1. Code Splitting — `QuizPage.tsx`
+
+**Vấn đề:** `QuizPage.tsx` static-import toàn bộ 9 Flyers engines → ~80KB engine JS bundle vào 1 file, tải xuống dù user chỉ vào trang chủ.
+
+**Fix:** Chuyển 9 engines sang `React.lazy()` + `<Suspense>`. Vite tự động split thành 9 JS chunk riêng.
+
+**Kết quả:** User vào bài Part 1 chỉ tải `FlyersPart1Engine` (~10.6 kB gzip: 3.7 kB), không phải toàn bộ.
+
+**Quy tắc cho engine mới:** Xem `docs/ENGINE_CREATION_GUIDE.md` mục **"2. Trong QuizPage.tsx — BẮT BUỘC LAZY LOAD (v3.0)"**.
+
+### 2. Tách Types — `subjects.types.ts`
+
+**Vấn đề:** Component chỉ cần `interface Lesson` nhưng phải kéo theo toàn bộ `subjects.ts` (69 kB data).
+
+**Fix:** Tách 2 interface ra `src/react-app/data/subjects.types.ts`. `subjects.ts` re-export lại → backward-compatible.
+
+```typescript
+// Chỉ cần types → import nhẹ:
+import type { Lesson } from "../data/subjects.types";
+
+// Backward-compatible (không cần đổi file cũ):
+import type { Lesson } from "../data/subjects"; // vẫn hoạt động
+```
+
+### 3. Files đã sửa
+
+| File | Thay đổi |
+|------|----------|
+| `src/react-app/pages/QuizPage.tsx` | 9 static imports → `React.lazy()` + `<Suspense>` |
+| `src/react-app/data/subjects.types.ts` | Mới — `Lesson` + `Subject` interfaces |
+| `src/react-app/data/subjects.ts` | Re-export types từ `subjects.types.ts` |
+| `src/react-app/utils/urlHelpers.ts` | Import từ `subjects.types` |
+| `src/react-app/components/dashboard/LessonCard.tsx` | Import từ `subjects.types` |
+| `docs/ENGINE_CREATION_GUIDE.md` | v3.0 — quy tắc lazy load bắt buộc |
 

@@ -53,7 +53,7 @@ try {
     { encoding: "utf8" }
   );
   const secrets = JSON.parse(secretsOut || "[]");
-  const required = ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "SESSION_SECRET"];
+  const required = ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "SESSION_SECRET", "CACHE_ADMIN_KEY"];
   const missing = required.filter(
     (k) => !secrets.some((s) => s.name === k)
   );
@@ -80,13 +80,25 @@ try {
   const { execFileSync } = await import("child_process");
   // Chờ 3 giây để worker khởi động xong trước khi gọi API
   await new Promise((r) => setTimeout(r, 3000));
+  // Đọc key từ env var trước, fallback về .dev.vars
+  let adminKey = process.env.CACHE_ADMIN_KEY || "";
+  if (!adminKey) {
+    try {
+      const { readFileSync } = await import("fs");
+      const devVars = readFileSync(join(ROOT, ".dev.vars"), "utf8");
+      const match = devVars.match(/^CACHE_ADMIN_KEY=(.+)$/m);
+      if (match) adminKey = match[1].trim();
+    } catch { /* không có .dev.vars, bỏ qua */ }
+  }
   const res = execSync(
-    `curl -s -X POST "https://dev.luyenthi.io.vn/api/subjects/cache/invalidate" -H "Content-Type: application/json" -d '{}'`,
+    `curl -s -X POST "https://dev.luyenthi.io.vn/api/subjects/cache/invalidate" -H "Content-Type: application/json" -H "x-admin-key: ${adminKey}" -d '{}'`,
     { encoding: "utf8" }
   );
   const parsed = JSON.parse(res || "{}");
   if (parsed.ok) {
     console.log(`   ✅ KV cache invalidated. Deleted ${parsed.deleted} key(s).`);
+  } else if (res.includes("Unauthorized")) {
+    console.warn(`   ⚠️  Cache invalidation failed: Unauthorized. Set CACHE_ADMIN_KEY env var or wrangler secret.`);
   } else {
     console.warn(`   ⚠️  Cache invalidation returned unexpected response:`, res);
   }

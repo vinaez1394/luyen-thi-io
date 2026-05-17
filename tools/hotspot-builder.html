@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎯 Hotspot Builder — Flyers Listening P1</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0f0f1a;
+    color: #e2e8f0;
+    min-height: 100vh;
+  }
+
+  header {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #4c1d95;
+  }
+  header h1 { font-size: 1.2rem; font-weight: 700; color: #a78bfa; }
+  header p { font-size: 0.8rem; color: #94a3b8; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    height: calc(100vh - 64px);
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    background: #1e1e2e;
+    border-right: 1px solid #2d2d44;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7c3aed;
+    margin-bottom: 8px;
+  }
+
+  .input-group { display: flex; flex-direction: column; gap: 6px; }
+  .input-group label { font-size: 0.75rem; color: #94a3b8; }
+  input[type="text"], input[type="file"] {
+    background: #2a2a3e;
+    border: 1px solid #3d3d5c;
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+  input[type="text"]:focus { outline: none; border-color: #7c3aed; }
+
+  .btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: #7c3aed; color: white; }
+  .btn-primary:hover { background: #6d28d9; }
+  .btn-danger { background: #ef4444; color: white; }
+  .btn-danger:hover { background: #dc2626; }
+  .btn-success { background: #10b981; color: white; }
+  .btn-success:hover { background: #059669; }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid #4b5563;
+    color: #94a3b8;
+  }
+  .btn-outline:hover { border-color: #7c3aed; color: #a78bfa; }
+
+  /* Hotspot list */
+  .hotspot-list { display: flex; flex-direction: column; gap: 6px; }
+  .hotspot-item {
+    background: #2a2a3e;
+    border: 1px solid #3d3d5c;
+    border-radius: 8px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .hotspot-item:hover { border-color: #7c3aed; }
+  .hotspot-item.active { border-color: #a78bfa; background: #2d1b69; }
+  .hotspot-dot {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .hotspot-item-info { flex: 1; min-width: 0; }
+  .hotspot-item-name { font-size: 0.8rem; font-weight: 600; }
+  .hotspot-item-coords { font-size: 0.68rem; color: #64748b; font-family: monospace; }
+  .hotspot-item-coords.placed { color: #10b981; }
+  .btn-remove-hs {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 2px;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  .btn-remove-hs:hover { opacity: 1; }
+
+  /* JSON output */
+  .json-output {
+    background: #0d1117;
+    border: 1px solid #2d2d44;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.68rem;
+    color: #7ee787;
+    white-space: pre;
+    overflow: auto;
+    max-height: 200px;
+    line-height: 1.5;
+  }
+
+  /* ── Canvas area ── */
+  .canvas-area {
+    background: #141420;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: auto;
+    padding: 20px;
+    position: relative;
+  }
+
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: crosshair;
+    border: 2px solid #3d3d5c;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .image-wrapper img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hotspot markers on image */
+  .hs-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 800;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.8);
+    cursor: pointer;
+    transition: transform 0.15s;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .hs-marker:hover { transform: translate(-50%, -50%) scale(1.3); }
+  .hs-marker.example { background: #6b7280; }
+  .hs-marker.active-placing {
+    background: white !important;
+    color: #1e1e2e;
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(167,139,250,0.6); }
+    50% { box-shadow: 0 0 0 8px rgba(167,139,250,0); }
+  }
+
+  .hs-label {
+    position: absolute;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.85);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    top: calc(100% + 4px);
+    left: 50%;
+  }
+
+  .placeholder {
+    text-align: center;
+    color: #4b5563;
+    padding: 40px;
+  }
+  .placeholder .icon { font-size: 3rem; margin-bottom: 12px; }
+  .placeholder p { font-size: 0.85rem; line-height: 1.6; }
+
+  .tip-bar {
+    position: sticky;
+    top: 0;
+    background: #1e2235;
+    border: 1px solid #3d3d5c;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 800px;
+    z-index: 5;
+  }
+  .tip-bar strong { color: #a78bfa; }
+
+  .progress-bar {
+    display: flex; gap: 4px; flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .progress-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #2a2a3e; border: 1px solid #4b5563;
+  }
+  .progress-dot.done { background: #10b981; border-color: #10b981; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #2d2d44;
+    margin: 4px 0;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center;
+    background: #2d1b69; color: #a78bfa;
+    border-radius: 20px; padding: 2px 8px;
+    font-size: 0.7rem; font-weight: 600;
+  }
+
+  .flex-row { display: flex; gap: 8px; align-items: center; }
+  .flex-col { display: flex; flex-direction: column; gap: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🎯 Hotspot Builder — Flyers Listening Part 1</h1>
+    <p>Upload ảnh → Click vào từng nhân vật → Export JSON tọa độ</p>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar">
+
+    <!-- Image source -->
+    <div>
+      <div class="section-title">📷 Ảnh</div>
+      <div class="flex-col">
+        <input type="file" id="file-upload" accept="image/*">
+        <div style="text-align:center; font-size:0.7rem; color:#4b5563;">— hoặc URL —</div>
+        <input type="text" id="img-url" placeholder="https://...jpg">
+        <button class="btn btn-primary" onclick="loadFromUrl()">Load URL</button>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Characters setup -->
+    <div>
+      <div class="section-title">👥 Nhân vật (Characters)</div>
+      <div class="input-group">
+        <label>Paste danh sách tên (mỗi tên một dòng):</label>
+        <textarea id="names-input" rows="8" style="background:#2a2a3e;border:1px solid #3d3d5c;border-radius:6px;padding:8px;color:#e2e8f0;font-size:0.8rem;resize:vertical;width:100%">Robert (Example)
+Helen
+Frank
+Betty
+William
+Sarah</textarea>
+        <button class="btn btn-primary" onclick="setupCharacters()">✓ Tạo Hotspot Slots</button>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Hotspot list -->
+    <div>
+      <div class="section-title">📍 Hotspots <span id="hs-count" class="badge">0/0</span></div>
+      <div class="hotspot-list" id="hotspot-list">
+        <p style="font-size:0.75rem;color:#4b5563">Tạo slots trước, rồi click vào nhân vật trên ảnh.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Actions -->
+    <div class="flex-col">
+      <button class="btn btn-success" onclick="exportJSON()">📋 Copy JSON</button>
+      <button class="btn btn-outline" onclick="resetAll()">🔄 Reset tất cả</button>
+    </div>
+
+    <hr class="divider">
+
+    <!-- JSON Preview -->
+    <div>
+      <div class="section-title">📄 JSON Preview</div>
+      <div class="json-output" id="json-preview">// Click "Copy JSON" để xem</div>
+    </div>
+
+  </div>
+
+  <!-- ── CANVAS AREA ── -->
+  <div class="canvas-area" id="canvas-area">
+
+    <div class="tip-bar" id="tip-bar">
+      <strong>💡 Hướng dẫn:</strong>
+      <span id="tip-text">Bắt đầu bằng cách upload ảnh hoặc nhập URL ảnh ở cột trái.</span>
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <div class="placeholder" id="placeholder">
+      <div class="icon">🖼️</div>
+      <p>Upload ảnh hoặc nhập URL<br>rồi tạo danh sách nhân vật<br>để bắt đầu đặt hotspot.</p>
+    </div>
+
+    <div class="image-wrapper" id="image-wrapper" style="display:none">
+      <img id="main-image" alt="Scene image" draggable="false">
+      <!-- Hotspot markers injected here -->
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+const COLORS = [
+  '#7c3aed','#2563eb','#dc2626','#d97706','#059669',
+  '#db2777','#0891b2','#65a30d','#9333ea','#c2410c'
+];
+
+let characters = []; // { id, name, isExample, color, hotspot: null | {x,y} }
+let activePlacingIdx = null;
+let imageEl = document.getElementById('main-image');
+let wrapperEl = document.getElementById('image-wrapper');
+
+// ── Image loading ──────────────────────────────────────────────────────────
+document.getElementById('file-upload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  loadImage(url);
+});
+
+function loadFromUrl() {
+  const url = document.getElementById('img-url').value.trim();
+  if (url) loadImage(url);
+}
+
+function loadImage(src) {
+  imageEl.src = src;
+  imageEl.onload = () => {
+    document.getElementById('placeholder').style.display = 'none';
+    wrapperEl.style.display = 'inline-block';
+    updateTip();
+  };
+}
+
+// ── Click on image ─────────────────────────────────────────────────────────
+wrapperEl.addEventListener('click', function(e) {
+  if (activePlacingIdx === null) return;
+  if (e.target.classList.contains('hs-marker')) return;
+
+  const rect = imageEl.getBoundingClientRect();
+  const x = parseFloat(((e.clientX - rect.left) / rect.width * 100).toFixed(1));
+  const y = parseFloat(((e.clientY - rect.top) / rect.height * 100).toFixed(1));
+
+  characters[activePlacingIdx].hotspot = { x, y };
+  activePlacingIdx = null;
+
+  renderMarkers();
+  renderHotspotList();
+  updateTip();
+  updateProgress();
+});
+
+// ── Setup characters ───────────────────────────────────────────────────────
+function setupCharacters() {
+  const lines = document.getElementById('names-input').value
+    .split('\n')
+    .map(l => l.trim())
+    .filter(Boolean);
+
+  if (!lines.length) return alert('Nhập ít nhất 1 tên!');
+
+  characters = lines.map((line, i) => {
+    const isExample = line.toLowerCase().includes('(example)') || line.toLowerCase().includes('example');
+    const name = line.replace(/\(example\)/gi, '').replace(/example/gi, '').trim();
+    return {
+      id: 'char-' + name.toLowerCase().replace(/\s+/g,'-'),
+      name,
+      isExample,
+      color: isExample ? '#6b7280' : COLORS[i % COLORS.length],
+      hotspot: null,
+    };
+  });
+
+  activePlacingIdx = null;
+  renderHotspotList();
+  renderMarkers();
+  updateProgress();
+  updateTip();
+}
+
+// ── Render sidebar list ────────────────────────────────────────────────────
+function renderHotspotList() {
+  const list = document.getElementById('hotspot-list');
+  if (!characters.length) {
+    list.innerHTML = '<p style="font-size:0.75rem;color:#4b5563">Tạo slots trước, rồi click vào nhân vật trên ảnh.</p>';
+    document.getElementById('hs-count').textContent = '0/0';
+    return;
+  }
+
+  const placed = characters.filter(c => c.hotspot).length;
+  document.getElementById('hs-count').textContent = `${placed}/${characters.length}`;
+
+  list.innerHTML = characters.map((c, i) => `
+    <div class="hotspot-item ${activePlacingIdx === i ? 'active' : ''}" onclick="selectForPlacing(${i})">
+      <div class="hotspot-dot" style="background:${c.color}">${c.isExample ? '★' : i + 1}</div>
+      <div class="hotspot-item-info">
+        <div class="hotspot-item-name">${c.name}${c.isExample ? ' <span style="font-size:0.65rem;color:#6b7280">(Example)</span>' : ''}</div>
+        <div class="hotspot-item-coords ${c.hotspot ? 'placed' : ''}">
+          ${c.hotspot ? `x: ${c.hotspot.x}%, y: ${c.hotspot.y}%` : 'Click tên → click nhân vật trên ảnh'}
+        </div>
+      </div>
+      ${c.hotspot ? `<button class="btn-remove-hs" onclick="removeHotspot(event,${i})">✕</button>` : ''}
+    </div>
+  `).join('');
+}
+
+function selectForPlacing(idx) {
+  activePlacingIdx = activePlacingIdx === idx ? null : idx;
+  renderHotspotList();
+  updateTip();
+}
+
+function removeHotspot(e, idx) {
+  e.stopPropagation();
+  characters[idx].hotspot = null;
+  renderMarkers();
+  renderHotspotList();
+  updateProgress();
+}
+
+// ── Render markers on image ────────────────────────────────────────────────
+function renderMarkers() {
+  // Remove old markers
+  wrapperEl.querySelectorAll('.hs-marker, .hs-label').forEach(el => el.remove());
+
+  characters.forEach((c, i) => {
+    if (!c.hotspot) return;
+    const marker = document.createElement('div');
+    marker.className = 'hs-marker' + (c.isExample ? ' example' : '');
+    marker.style.cssText = `left:${c.hotspot.x}%;top:${c.hotspot.y}%;background:${c.color};`;
+    marker.textContent = c.isExample ? '★' : i + 1;
+    marker.title = c.name;
+    marker.onclick = (e) => { e.stopPropagation(); selectForPlacing(i); };
+
+    const label = document.createElement('div');
+    label.className = 'hs-label';
+    label.textContent = c.name;
+    marker.appendChild(label);
+
+    wrapperEl.appendChild(marker);
+  });
+
+  // Show active cursor marker
+  if (activePlacingIdx !== null && !characters[activePlacingIdx]?.hotspot) {
+    // Add visual feedback on image wrapper
+    wrapperEl.style.outline = '2px solid #a78bfa';
+  } else {
+    wrapperEl.style.outline = 'none';
+  }
+}
+
+// ── Progress ───────────────────────────────────────────────────────────────
+function updateProgress() {
+  const bar = document.getElementById('progress-bar');
+  bar.innerHTML = characters.map(c =>
+    `<div class="progress-dot ${c.hotspot ? 'done' : ''}" title="${c.name}"></div>`
+  ).join('');
+}
+
+function updateTip() {
+  const tip = document.getElementById('tip-text');
+  if (!characters.length) {
+    tip.textContent = 'Nhập danh sách tên nhân vật ở cột trái, rồi click "Tạo Hotspot Slots".';
+    return;
+  }
+  if (activePlacingIdx !== null) {
+    const c = characters[activePlacingIdx];
+    tip.innerHTML = `<strong style="color:#fbbf24">Đang đặt: ${c.name}</strong> — Click vào nhân vật trên ảnh để đánh dấu vị trí.`;
+    wrapperEl.style.cursor = 'crosshair';
+  } else {
+    const remaining = characters.filter(c => !c.hotspot).length;
+    if (remaining === 0) {
+      tip.innerHTML = '✅ Tất cả hotspot đã đặt xong! Click <strong>Copy JSON</strong> để lấy tọa độ.';
+    } else {
+      tip.innerHTML = `Click vào tên ở cột trái để chọn nhân vật cần đặt (còn <strong>${remaining}</strong> chưa đặt).`;
+    }
+    wrapperEl.style.cursor = 'default';
+  }
+}
+
+// ── Export JSON ────────────────────────────────────────────────────────────
+function exportJSON() {
+  const exampleChar = characters.find(c => c.isExample);
+  const questionChars = characters.filter(c => !c.isExample);
+
+  const output = {
+    characters: characters.map(c => ({
+      id: c.id,
+      description: `[mô tả ${c.name}]`,
+      hotspot: c.hotspot || { x: "CHƯA ĐẶT", y: "CHƯA ĐẶT" },
+    })),
+    example: exampleChar ? {
+      name: exampleChar.name,
+      character_id: exampleChar.id,
+    } : null,
+    questions: questionChars.map((c, i) => ({
+      id: `q${i + 1}`,
+      name: c.name,
+      correct_character_id: c.id,
+    })),
+  };
+
+  const jsonStr = JSON.stringify(output, null, 2);
+  document.getElementById('json-preview').textContent = jsonStr;
+
+  navigator.clipboard.writeText(jsonStr).then(() => {
+    alert('✅ Đã copy JSON vào clipboard!\n\nDán vào file JSON của bài thi.');
+  }).catch(() => {
+    // fallback: show in textarea
+    alert('Copy thủ công từ phần "JSON Preview" bên dưới.');
+  });
+}
+
+// ── Reset ──────────────────────────────────────────────────────────────────
+function resetAll() {
+  if (!confirm('Reset tất cả hotspot?')) return;
+  characters.forEach(c => c.hotspot = null);
+  activePlacingIdx = null;
+  renderMarkers();
+  renderHotspotList();
+  updateProgress();
+  updateTip();
+}
+
+// Init
+updateTip();
+</script>
+</body>
+</html>

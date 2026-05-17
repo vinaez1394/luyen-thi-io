@@ -37,7 +37,7 @@ export function HangmanLauncher({
   group = "flyers",
 }: HangmanLauncherProps) {
   const [gameOpen, setGameOpen] = useState(false);
-  const [result, setResult]     = useState<HangmanResult | null>(null);
+  const [result, setResult] = useState<HangmanResult | null>(null);
 
   // Hook kết nối DB — chọn 5 từ thông minh
   const { words, isLoading, source, refresh } = useHangmanWords({
@@ -59,7 +59,7 @@ export function HangmanLauncher({
     ? `${pendingWords.filter((w) => !w.isMastered).length} từ cần ôn`
     : source === "db"
       ? "250 từ Cambridge Flyers"
-      : "Từ vựng Cambridge";
+      : "Vocabulary Cambridge";
 
   return (
     <>

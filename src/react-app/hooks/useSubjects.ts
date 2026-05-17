@@ -1,12 +1,17 @@
 /**
- * useSubjects — Hook fetch quiz catalog từ API
+ * useSubjects — Hook lấy danh sách bài học
  *
- * Thay thế việc đọc subjects.ts trực tiếp trong components.
- * Có fallback về subjects.ts nếu API fail (offline / dev).
+ * Chiến lược 2 nguồn:
+ * 1. subjects.ts (static) → base list, render ngay, không flash
+ * 2. /api/subjects (D1) → bổ sung image_url + metadata động sau khi mount
+ *
+ * Kết quả: UI render nhanh, ảnh thumbnail luôn đúng theo D1/CDN
+ * Fallback: Nếu API lỗi → vẫn dùng subjects.ts (có image_url từ sync script)
  */
 
 import { useState, useEffect } from "react";
 import type { Lesson } from "../data/subjects";
+import { findByPathwayGroup } from "../data/subjects";
 
 interface UseSubjectsOptions {
   pathway: string;
@@ -14,62 +19,53 @@ interface UseSubjectsOptions {
 }
 
 export function useSubjects({ pathway, subject }: UseSubjectsOptions) {
-  const [lessons, setLessons] = useState<Lesson[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const subjectMeta = subject ? findByPathwayGroup(pathway, subject) : null;
+  const baseLessons: Lesson[] = subjectMeta?.lessons ?? [];
+
+  const [lessons, setLessons] = useState<Lesson[]>(baseLessons);
+  const [loading] = useState(false);
+  const [error] = useState<string | null>(null);
 
   useEffect(() => {
-    let isMounted = true;
-    setLoading(true);
+    if (!pathway || !subject || baseLessons.length === 0) return;
 
-    const url = `/api/subjects?pathway=${pathway}${subject ? `&subject=${subject}` : ""}`;
+    // Fetch image_url + metadata từ API (D1) — không block render
+    const controller = new AbortController();
+    fetch(`/api/subjects?pathway=${encodeURIComponent(pathway)}&subject=${encodeURIComponent(subject)}`, {
+      signal: controller.signal,
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((apiData: Record<string, unknown>[] | null) => {
+        if (!apiData || !Array.isArray(apiData)) return;
 
-    fetch(url)
-      .then((r) => {
-        if (!r.ok) throw new Error("API Subjects trả về lỗi");
-        return r.json();
-      })
-      .then((data) => {
-        if (!isMounted) return;
-        setLessons(
-          (data as any[]).map((row) => ({
-            id: row.quiz_id,
-            slug: row.slug,
-            title: row.title,
-            skill: row.skill,
-            part: row.part,
-            level: row.level,
-            questions: row.questions,
-            is_free: Boolean(row.is_free),
-            emoji: row.emoji,
-            showOnHome: Boolean(row.show_on_home),
-            grade_target: row.grade_target,
-            unlocks_game: row.unlocks_game,
-            difficulty: row.difficulty,
-            grade_min: row.grade_min,
-            grade_max: row.grade_max,
-            in_pool: Boolean(row.in_pool),
-            recommended: Boolean(row.recommended),
-            est_minutes: row.est_minutes,
-            image_url: row.image_url ?? null,
-          }))
-
-        );
-        setError(null);
-      })
-      .catch((err) => {
-        console.warn("[useSubjects] API fail, sẽ dùng static fallback:", err);
-        if (isMounted) {
-          setError("API unavailable");
+        // Build lookup map: quiz_id → { image_url, ... }
+        const apiMap = new Map<string, Record<string, unknown>>();
+        for (const item of apiData) {
+          if (item.quiz_id && typeof item.quiz_id === "string") {
+            apiMap.set(item.quiz_id, item);
+          }
         }
+
+        // Merge: giữ tất cả lessons từ subjects.ts,
+        // chỉ override image_url (và các trường có trong API mà subjects.ts thiếu)
+        const merged = baseLessons.map((lesson) => {
+          const api = apiMap.get(lesson.id);
+          if (!api) return lesson;
+          return {
+            ...lesson,
+            // Override image_url từ API nếu API có và subjects.ts không có (hoặc khác)
+            image_url: (api.image_url as string | null) ?? lesson.image_url ?? null,
+          };
+        });
+
+        setLessons(merged);
       })
-      .finally(() => {
-        if (isMounted) setLoading(false);
+      .catch(() => {
+        // API lỗi → giữ nguyên subjects.ts data (đã có image_url từ sync script)
       });
 
-    return () => {
-      isMounted = false;
-    };
+    return () => controller.abort();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathway, subject]);
 
   return { lessons, loading, error };

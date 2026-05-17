@@ -176,6 +176,10 @@ try { const d = await import("../../../content/Cambridge/flyers/part6/FW6-MED-00
 // ⚠️ CAMBRIDGE FLYERS Part 7 — Write a Story (3 Pictures) (FW7-*)
 try { const d = await import("../../../content/Cambridge/flyers/part7/FW7-MED-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FW7-MED-001"] = d.default; } catch { /* R2 */ }
 
+// ⚠️ CAMBRIDGE FLYERS Listening Part 1 — Click-to-Connect Engine (FL1-*)
+try { const d = await import("../../../content/Cambridge/flyers/listening/part1/FL1-EASY-001.json", { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FL1-EASY-001"] = d.default; } catch { /* R2 */ }
+try { const d = await import("../../../content/Cambridge/flyers/listening/part1/FL1-MED-001.json",  { assert: { type: "json" } }); LOCAL_QUIZ_MAP["FL1-MED-001"]  = d.default; } catch { /* R2 */ }
+
 type Env = {
   DB: D1Database;
   SESSION: KVNamespace;
@@ -233,6 +237,10 @@ function getR2Key(quizId: string): string {
   if (/^FW6-/.test(quizId)) {
     return `quizzes/cambridge/flyers/part6/${quizId}.json`;
   }
+  // Cambridge Flyers — Listening Part 1 (FL1-*)
+  if (/^FL1-/.test(quizId)) {
+    return `quizzes/cambridge/flyers/listening/part1/${quizId}.json`;
+  }
   // Fallback — không nên xảy ra
   console.warn(`[quiz] Unknown quizId format: "${quizId}" — using flat path. Add rule to getR2Key().`);
   return `quizzes/${quizId}.json`;
@@ -276,6 +284,10 @@ function detectQuizMeta(quizId: string): { pathway: string | null; subject: stri
   }
   // Cambridge — Flyers Part 3–6 (FW3-*, FW4-*, FW5-*, FW6-*)
   if (/^FW[3456]-/i.test(quizId)) {
+    return { pathway: "cambridge", subject: "flyers" };
+  }
+  // Cambridge — Flyers Listening Part 1 (FL1-*)
+  if (/^FL1-/i.test(quizId)) {
     return { pathway: "cambridge", subject: "flyers" };
   }
   // Không xác định được
@@ -429,9 +441,77 @@ quizRoute.post("/:quizId/submit", async (c) => {
   }
 
   // flyers-part6 và flyers-part7 dùng cấu trúc riêng, không có `questions`
-  if (questions.length === 0 && quizRaw.type !== "flyers-part6" && quizRaw.type !== "flyers-part7") {
+  if (questions.length === 0 && quizRaw.type !== "flyers-part6" && quizRaw.type !== "flyers-part7" && quizRaw.type !== "flyers-listening-p1") {
     return c.json({ error: "Bài học không có câu hỏi" }, 422);
   }
+
+  // ===== Chấm điểm riêng cho flyers-listening-p1 (click-to-connect) =====
+  // answers: { "q1": "char-helen", "q2": "char-frank", ... } (character_id)
+  if (quizRaw.type === "flyers-listening-p1") {
+    const lp1Quiz = quizRaw as unknown as {
+      type: string;
+      questions: Array<{ id: string; correct_character_id: string }>;
+      skill?: string;
+      part?: number;
+    };
+
+    let lp1Correct = 0;
+    const lp1CorrectAnswers: Record<string, string> = {};
+    for (const q of lp1Quiz.questions) {
+      const userAns = String(body.answers[q.id] ?? "");
+      if (userAns === q.correct_character_id) lp1Correct++;
+      lp1CorrectAnswers[q.id] = q.correct_character_id;
+    }
+
+    const lp1Total = lp1Quiz.questions.length;
+    const lp1Pct = Math.round((lp1Correct / lp1Total) * 100);
+    const lp1Stars = calcStars(lp1Pct);
+
+    const userIdLp1 = await getOptionalSession(c.req.header("Cookie") ?? null, c.env);
+    let savedLp1 = false;
+    if (userIdLp1) {
+      const profileLp1 = await c.env.DB.prepare(
+        "SELECT id FROM student_profiles WHERE user_id = ? LIMIT 1"
+      ).bind(userIdLp1).first<{ id: string }>();
+      if (profileLp1) {
+        const metaLp1 = detectQuizMeta(quizId);
+        let quizIsFreeLp1 = 1;
+        try {
+          const cfgLp1 = await c.env.DB.prepare(
+            "SELECT is_free FROM quiz_configs WHERE quiz_id = ? LIMIT 1"
+          ).bind(quizId).first<{ is_free: number }>();
+          if (cfgLp1 !== null) quizIsFreeLp1 = cfgLp1.is_free;
+        } catch { /* fallback free */ }
+
+        await updateStarsAfterQuiz({
+          studentId: profileLp1.id,
+          starsEarned: lp1Stars,
+          quizId,
+          skill: lp1Quiz.skill ?? "listening",
+          partNumber: lp1Quiz.part ?? 1,
+          score: lp1Correct,
+          maxScore: lp1Total,
+          timeSpent: body.timeSpent ?? 0,
+          answersJson: JSON.stringify(body.answers),
+          pathway: metaLp1.pathway,
+          subject: metaLp1.subject,
+          isFree: quizIsFreeLp1,
+          env: c.env,
+        });
+        savedLp1 = true;
+      }
+    }
+    return c.json({
+      ok: true,
+      saved: savedLp1,
+      score: lp1Correct,
+      maxScore: lp1Total,
+      percentage: lp1Pct,
+      starsEarned: lp1Stars,
+      correctAnswers: lp1CorrectAnswers,
+    });
+  }
+  // ===========================================================================
 
   // ===== Chấm điểm riêng cho flyers-part5 (normalize + accepted_answers) =====
   if (quizRaw.type === "flyers-part5") {

@@ -1,0 +1,108 @@
+{
+  "id": "FL1-EASY-001",
+  "title": "Flyers Listening Part 1 — Set 1: 🏫 At the School Yard",
+  "skill": "listening",
+  "level": "flyers",
+  "part": 1,
+  "type": "flyers-listening-p1",
+  "is_free": true,
+  "pathway": "cambridge",
+  "group": "flyers",
+  "difficulty": "easy",
+  "image_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-EASY-001.jpg",
+  "audio_url": "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-EASY-001.MP3",
+  "names": ["Robert", "Helen", "Frank", "Betty", "William", "Sarah", "Richard"],
+  "characters": [
+    {
+      "id": "char-robert",
+      "description": "boy eating chocolate ice cream",
+      "hotspot": { "x": 51.1, "y": 74.2 }
+    },
+    {
+      "id": "char-helen",
+      "description": "girl in spotted dress painting at blue table",
+      "hotspot": { "x": 8.4, "y": 76.0 }
+    },
+    {
+      "id": "char-frank",
+      "description": "boy with striped T-shirt and glasses playing guitar",
+      "hotspot": { "x": 27.8, "y": 53.2 }
+    },
+    {
+      "id": "char-betty",
+      "description": "girl with long ponytail selling lemonade",
+      "hotspot": { "x": 79.8, "y": 69.8 }
+    },
+    {
+      "id": "char-william",
+      "description": "tall man with beard next to big tree carrying balloons",
+      "hotspot": { "x": 44.3, "y": 32.0 }
+    },
+    {
+      "id": "char-sarah",
+      "description": "girl on bouncy castle wearing bright pink skirt",
+      "hotspot": { "x": 82.1, "y": 27.8 }
+    },
+    {
+      "id": "char-u1",
+      "description": "child standing near the stalls in the middle of the schoolyard",
+      "hotspot": { "x": 59.3, "y": 44.0 }
+    },
+    {
+      "id": "char-u2",
+      "description": "child on the far right edge of the scene near the fence",
+      "hotspot": { "x": 92.9, "y": 70.5 }
+    },
+    {
+      "id": "char-u3",
+      "description": "child on the left side near the art table area",
+      "hotspot": { "x": 12.9, "y": 52.3 }
+    },
+    {
+      "id": "char-u4",
+      "description": "child in the upper-left background near the school wall",
+      "hotspot": { "x": 5.8, "y": 34.3 }
+    }
+  ],
+  "example": {
+    "name": "Robert",
+    "character_id": "char-robert"
+  },
+  "questions": [
+    { "id": "q1", "name": "Helen",   "correct_character_id": "char-helen"   },
+    { "id": "q2", "name": "Frank",   "correct_character_id": "char-frank"   },
+    { "id": "q3", "name": "Betty",   "correct_character_id": "char-betty"   },
+    { "id": "q4", "name": "William", "correct_character_id": "char-william" },
+    { "id": "q5", "name": "Sarah",   "correct_character_id": "char-sarah"   }
+  ],
+  "vocab_highlight": [
+    {
+      "word": "spotted",
+      "vocabulary_bank_id": null,
+      "translation_vi": "có chấm bi",
+      "ipa": "/ˈspɒtɪd/",
+      "audio_url": null
+    },
+    {
+      "word": "ponytail",
+      "vocabulary_bank_id": null,
+      "translation_vi": "tóc đuôi ngựa",
+      "ipa": "/ˈpəʊnɪteɪl/",
+      "audio_url": null
+    },
+    {
+      "word": "bouncy castle",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nhà phao",
+      "ipa": "/ˈbaʊnsi ˈkɑːsəl/",
+      "audio_url": null
+    },
+    {
+      "word": "lemonade",
+      "vocabulary_bank_id": null,
+      "translation_vi": "nước chanh",
+      "ipa": "/ˌleməˈneɪd/",
+      "audio_url": null
+    }
+  ]
+}

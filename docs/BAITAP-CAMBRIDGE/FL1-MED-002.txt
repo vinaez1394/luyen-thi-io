@@ -1,0 +1,304 @@
+Chủ đề về khoa học và thế giới tự nhiên luôn có sức hấp dẫn lớn với các bé ở lứa tuổi tiểu học. Việc kết hợp các từ vựng về không gian, máy móc hay hóa học cơ bản vào bài nghe tiếng Anh vừa giúp các bé luyện kỹ năng, vừa kích thích sự tò mò khám phá.
+
+Dưới đây là một kịch bản với chủ đề **"A Visit to the Science Museum" (Chuyến tham quan Bảo tàng Khoa học)**. Kịch bản được thiết kế ở mức độ **MEDIUM**, bám sát các bẫy ngữ pháp và từ vựng đặc trưng của Flyers.
+
+---
+
+### 1. Thông số thiết lập AI Studio (AI Studio Settings)
+
+**Scene (Ngữ cảnh chung):**
+
+> A large, busy room inside a Science Museum. There are different exhibits like dinosaurs, robots, and a space area. An uncle and his young niece are watching her classmates interact with the displays.
+
+**Sample Context (Âm hưởng chung):**
+
+> Clear British (RP) pronunciation. The conversation flows naturally but with deliberate clarity on descriptive phrases (clothing patterns, specific objects like 'rocket' or 'robot'). The tone is educational and inquisitive.
+
+**Nhân vật 1: Người chú (Adult - Male)**
+
+* **Voice Suggestion:** Alnilam (Firm, Lower middle pitch) hoặc Algieba (Smooth, Lower pitch).
+* **Accent:** British (RP).
+* **Audio Profile:** A curious and supportive adult male. He asks questions to learn more about the children in the museum, speaking clearly with a steady pace.
+* **Style:** Natural hoặc Newscaster (để đảm bảo phát âm rõ chữ).
+* **Pace:** Natural.
+
+**Nhân vật 2: Cháu gái (Child - Female)**
+
+* **Voice Suggestion:** Achernar (Soft, Higher pitch).
+* **Accent:** British (RP).
+* **Audio Profile:** An enthusiastic, smart 9-year-old girl. She loves science and is very excited to point out what her friends are doing at the different museum exhibits.
+* **Style:** Vocal Smile.
+* **Pace:** Natural (đôi lúc nhấn giọng vào các từ đính chính thông tin).
+
+---
+
+### 2. Kịch bản hội thoại (Listening Script)
+
+**U = Uncle (Chú), M = Mary (Cháu gái)**
+*(Tên cung cấp trong bài: Paul, Betty, David, Lily, William, Sophia, Richard)*
+*(Tên gây nhiễu: Richard)*
+
+**Introduction:**
+*Look at Part 1. Now look at the picture. Listen and look. There is one example.*
+
+**(Example)**
+
+* **Uncle:** Wow, Mary! Your school trip to the Science Museum looks like fun.
+* **Mary:** It is! Everyone is looking at different things. Look at Paul over there.
+* **Uncle:** Is he the boy standing next to the big dinosaur?
+* **Mary:** Yes! He’s taking a photo of its teeth with his phone.
+* *Can you see the line? This is an example. Now you listen and draw lines.*
+
+**(Question 1)**
+
+* **Uncle:** There are two girls looking at the space exhibit. Is one of them your friend Betty?
+* **Mary:** Yes, she loves learning about planets.
+* **Uncle:** Is she the girl pointing at the big moon?
+* **Mary:** No, that’s her sister. Betty is the one holding a plastic model of a rocket.
+* **Uncle:** Oh, I see her. It's a very nice red rocket.
+
+**(Question 2)**
+
+* **Uncle:** Who is the boy working at the computer?
+* **Mary:** You mean the one with the grey sweater?
+* **Uncle:** Yes, he’s typing very fast.
+* **Mary:** Oh, no, wait. That's not David. David is the boy sitting next to him. He is wearing a shirt with black stars on it.
+* **Uncle:** Ah, right. He's looking at the screen very carefully.
+
+**(Question 3)**
+
+* **Uncle:** Look at all those glass bottles. What are they doing?
+* **Mary:** They are mixing different liquids. My friend Lily is there.
+* **Uncle:** Is she the girl standing at the back of the room?
+* **Mary:** No, Lily is standing right near the door. She is wearing large safety glasses to protect her eyes.
+* **Uncle:** That’s very clever of her.
+
+**(Question 4)**
+
+* **Uncle:** What about that big silver robot? Who is the boy playing with it?
+* **Mary:** That’s William. He wants to be an engineer one day.
+* **Uncle:** Is he the one talking to the robot?
+* **Mary:** No, William is the boy who is fixing the robot's arm with a tool.
+* **Uncle:** He looks very busy!
+
+**(Question 5)**
+
+* **Uncle:** And who is the girl writing notes on a clipboard?
+* **Mary:** Do you mean Sophia? She has long, straight dark hair.
+* **Uncle:** Yes, and she’s wearing a beautiful silver watch.
+* **Mary:** That's right. That's Sophia. She’s writing down all the answers for our science quiz.
+
+---
+
+Json
+
+{
+  "characters": [
+    {
+      "id": "char-paul",
+      "description": "[mô tả Paul]",
+      "hotspot": {
+        "x": 32.8,
+        "y": 41.2
+      }
+    },
+    {
+      "id": "char-betty",
+      "description": "[mô tả Betty]",
+      "hotspot": {
+        "x": 60,
+        "y": 38.1
+      }
+    },
+    {
+      "id": "char-david",
+      "description": "[mô tả David]",
+      "hotspot": {
+        "x": 27.9,
+        "y": 83.3
+      }
+    },
+    {
+      "id": "char-lily",
+      "description": "[mô tả Lily]",
+      "hotspot": {
+        "x": 89.1,
+        "y": 49.3
+      }
+    },
+    {
+      "id": "char-william",
+      "description": "[mô tả William]",
+      "hotspot": {
+        "x": 66.5,
+        "y": 78.5
+      }
+    },
+    {
+      "id": "char-sophia",
+      "description": "[mô tả Sophia]",
+      "hotspot": {
+        "x": 93.3,
+        "y": 91.1
+      }
+    },
+    {
+      "id": "char-richard",
+      "description": "[mô tả Richard]",
+      "hotspot": {
+        "x": 15.2,
+        "y": 70.6
+      }
+    },
+    {
+      "id": "char-u1",
+      "description": "[mô tả u1]",
+      "hotspot": {
+        "x": 74.9,
+        "y": 87
+      }
+    },
+    {
+      "id": "char-u2",
+      "description": "[mô tả u2]",
+      "hotspot": {
+        "x": 41.9,
+        "y": 75.6
+      }
+    },
+    {
+      "id": "char-u3",
+      "description": "[mô tả u3]",
+      "hotspot": {
+        "x": 47.5,
+        "y": 37.4
+      }
+    },
+    {
+      "id": "char-u4",
+      "description": "[mô tả u4]",
+      "hotspot": {
+        "x": 70.4,
+        "y": 31.4
+      }
+    }
+  ],
+  "example": {
+    "name": "Paul",
+    "character_id": "char-paul"
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "name": "Betty",
+      "correct_character_id": "char-betty"
+    },
+    {
+      "id": "q2",
+      "name": "David",
+      "correct_character_id": "char-david"
+    },
+    {
+      "id": "q3",
+      "name": "Lily",
+      "correct_character_id": "char-lily"
+    },
+    {
+      "id": "q4",
+      "name": "William",
+      "correct_character_id": "char-william"
+    },
+    {
+      "id": "q5",
+      "name": "Sophia",
+      "correct_character_id": "char-sophia"
+    },
+    {
+      "id": "q6",
+      "name": "Richard",
+      "correct_character_id": "char-richard"
+    },
+    {
+      "id": "q7",
+      "name": "u1",
+      "correct_character_id": "char-u1"
+    },
+    {
+      "id": "q8",
+      "name": "u2",
+      "correct_character_id": "char-u2"
+    },
+    {
+      "id": "q9",
+      "name": "u3",
+      "correct_character_id": "char-u3"
+    },
+    {
+      "id": "q10",
+      "name": "u4",
+      "correct_character_id": "char-u4"
+    }
+  ]
+}
+
+---
+
+image_url: https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-MED-002.jpg
+audio_url: https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-MED-002.MP3
+
+
+----
+
+
+### 3. Phân tích bẫy (Logic & Distractors) trong bài
+
+Kịch bản này duy trì độ khó **Medium** với những chiếc bẫy được thiết kế tinh tế nhằm buộc các bé phải nghe chuỗi thông tin thay vì chỉ bắt một từ đơn lẻ:
+
+* **Câu 1 (Betty - Bẫy Hành Động):** Chú đoán Betty là người đang *chỉ tay vào mặt trăng (pointing at the moon)*. Mary đính chính Betty là người đang *cầm mô hình tên lửa (holding a rocket)*.
+* **Câu 2 (David - Bẫy Trang Phục & Vị Trí):** Có hai cậu bé ở khu vực máy tính. Chú hỏi về người mặc áo len xám và đang gõ phím. Mary phủ định ngay lập tức và chỉ sang cậu bé *ngồi cạnh*, mặc *áo sơ mi có hình ngôi sao màu đen (shirt with black stars)*.
+* **Câu 3 (Lily - Bẫy Vị Trí & Đạo Cụ):** Chú đoán Lily ở *phía cuối phòng (back of the room)*. Mary sửa lại là Lily ở *gần cửa ra vào (near the door)* và điểm nhận dạng chính là đang đeo *kính bảo hộ lớn (large safety glasses)*.
+* **Câu 4 (William - Bẫy Hành Động Tương Tự):** Cùng tương tác với robot, nhưng một người đang *nói chuyện (talking)*, còn William thì đang *sửa cánh tay robot bằng dụng cụ (fixing the robot's arm with a tool)*.
+* **Câu 5 (Sophia - Xác nhận thông tin bổ sung):** Không có sự phủ định, nhưng thông tin được chia nhỏ ra cho cả hai nhân vật. Mary miêu tả *tóc thẳng dài (long, straight dark hair)*, người chú bổ sung thêm chi tiết chiếc *đồng hồ bạc (silver watch)*, và Mary xác nhận. Học sinh phải kết hợp cả hai yếu tố này để tìm đúng Sophia.
+
+
+=====
+
+Dưới đây là phần đáp án chi tiết và Image Prompt bám sát kịch bản "Chuyến tham quan Bảo tàng Khoa học" của bạn.
+
+---
+
+### Part 1: Đáp án (Verification Descriptions)
+
+Đây là các đặc điểm mấu chốt để bạn hoặc học sinh đối chiếu khi làm bài, đặc biệt chú ý vào các điểm khác biệt so với nhân vật gây nhiễu:
+
+* **Example: Paul.** Cần một bé trai đang đứng cạnh mô hình/bộ xương **khủng long lớn**, tay cầm điện thoại để **chụp ảnh phần răng** của nó.
+* **1. Betty.** Khu vực vũ trụ có hai bé gái. Đừng nối với người đang chỉ tay lên mặt trăng. Betty là bé gái đang **cầm một mô hình tên lửa màu đỏ** trên tay.
+* **2. David.** Bàn máy tính có hai bé trai. Đừng nối với bé mặc áo len xám đang gõ phím. David là bé trai **ngồi cạnh**, đang nhìn chăm chú vào màn hình và mặc **áo sơ mi có họa tiết những ngôi sao màu đen**.
+* **3. Lily.** Khu vực pha hóa chất (bình thủy tinh). Bỏ qua bé gái đứng ở tít cuối phòng. Lily là bé gái đứng **ngay gần cánh cửa ra vào** và đang đeo một chiếc **kính bảo hộ rất to** (large safety glasses).
+* **4. William.** Khu vực robot màu bạc. Bỏ qua bé trai đang đứng nói chuyện/vẫy tay với robot. William là bé trai đang **cầm một dụng cụ** (cờ lê/tuốc nơ vít) để **sửa chữa cánh tay** của robot.
+* **5. Sophia.** Có thể có nhiều bạn đang ghi chép, nhưng Sophia là bé gái đang cầm một **bảng kẹp hồ sơ (clipboard)**, có **mái tóc màu đen, dài và thẳng**, đặc biệt trên tay có đeo một chiếc **đồng hồ màu bạc**.
+
+---
+
+### Part 2: Image Prompt
+
+Prompt này được viết bằng tiếng Anh, mô tả cực kỳ chi tiết các vị trí, đạo cụ và bẫy (distractors) để AI vẽ tranh có thể tạo ra một đề thi Flyers hoàn chỉnh.
+
+---
+
+#### **Image Prompt: "A Visit to the Science Museum (Flyers Listening Part 1)"**
+
+**Style:** A cheerful, educational vector digital illustration with clean lines and bright, flat colors. Strictly in the visual style of Cambridge Flyers ESL exam Part 1 pictures. The composition should be wide and busy, showing different distinct zones of a science museum room.
+
+**Scene Setting:**
+A large indoor room of a Science Museum. There are several clear exhibition areas: a dinosaur zone, a space and planets zone, a computer/technology desk, a chemistry table with glass flasks, and a robot display. The room has a clear entrance door on one side.
+
+**Character Groups & Placement (Must be precise):**
+
+1. **Dinosaur Area (Paul - Example):** A large T-Rex dinosaur skeleton. Standing right next to its head is a boy, **Paul**, who is holding up a smartphone, actively **taking a photo of the dinosaur's sharp teeth**.
+2. **Space Exhibit (Betty & Distractor):** TWO girls are looking at planets. One girl (distractor) is pointing her finger up at a large hanging moon. **Betty** is standing nearby, looking happy, holding a small **red plastic rocket model** in her hands.
+3. **Computer Zone (David & Distractor):** TWO boys are sitting at a desk with computer screens. One boy (distractor) is wearing a plain grey sweater and is typing very fast on the keyboard. Sitting right next to him is **David**, who is wearing a **shirt with black stars on it**, looking very carefully at his monitor.
+4. **Chemistry Table (Lily & Distractor):** A table full of colorful liquid in glass bottles. One girl (distractor) is standing far away at the back of the room behind the table. **Lily** is standing right **next to the entrance door**, looking at a bottle, and she is wearing prominently **large, clear safety glasses** over her eyes.
+5. **Robot Display (William & Distractor):** A large, shiny silver robot. One boy (distractor) is standing in front of it, just talking and waving at it. **William** is standing close to the robot, holding a **mechanic's tool** (like a wrench), actively **fixing the robot's arm**.
+6. **Walking around / Clipboard (Sophia & Distractor):** TWO girls taking notes in the museum. One girl (distractor) has short curly blonde hair and is writing in a small notebook. **Sophia** is a girl with **long, straight dark hair**. She is writing notes on a **brown clipboard**, and she is wearing a distinct **silver watch** on her wrist.
+7. **General Distractors (Filler):** Add 1 or 2 extra generic characters, like a museum guard standing near the dinosaur, or a random boy looking at a poster on the wall, just to make the scene appropriately busy for the exam format.

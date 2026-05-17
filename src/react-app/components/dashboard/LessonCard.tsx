@@ -7,7 +7,8 @@
  * Phase 07
  */
 
-import type { Lesson } from "../../data/subjects";
+import type { Lesson } from "../../data/subjects.types";
+
 
 // ============================================
 // Props

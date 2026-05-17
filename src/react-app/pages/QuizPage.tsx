@@ -11,7 +11,7 @@
  *       └── QuizEngine (nội dung câu hỏi + prev/next)
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useQuiz } from "../hooks/useQuiz";
 import { useAuth } from "../hooks/useAuth";
@@ -19,13 +19,32 @@ import { useVocabulary } from "../hooks/useVocabulary";
 import { QuizEngine } from "../components/quiz/QuizEngine";
 import { ReadingEngine } from "../components/quiz/ReadingEngine";
 import { WritingEngine } from "../components/quiz/WritingEngine";
-import { FlyersPart1Engine } from "../components/quiz/FlyersPart1Engine";
-import { FlyersPart2Engine } from "../components/quiz/FlyersPart2Engine";
-import { FlyersPart3Engine } from "../components/quiz/FlyersPart3Engine";
-import { FlyersPart4Engine } from "../components/quiz/FlyersPart4Engine";
-import { FlyersPart5Engine } from "../components/quiz/FlyersPart5Engine";
-import { FlyersPart6Engine } from "../components/quiz/FlyersPart6Engine";
-import { FlyersPart7Engine } from "../components/quiz/FlyersPart7Engine";
+// ── Lazy-loaded engines — mỗi engine là 1 JS chunk riêng (code splitting) ──
+// User chỉ tải engine của bài đang làm, không phải tất cả 9 engine cùng lúc.
+const FlyersPart1Engine = lazy(() =>
+  import("../components/quiz/FlyersPart1Engine").then((m) => ({ default: m.FlyersPart1Engine }))
+);
+const FlyersPart2Engine = lazy(() =>
+  import("../components/quiz/FlyersPart2Engine").then((m) => ({ default: m.FlyersPart2Engine }))
+);
+const FlyersPart3Engine = lazy(() =>
+  import("../components/quiz/FlyersPart3Engine").then((m) => ({ default: m.FlyersPart3Engine }))
+);
+const FlyersPart4Engine = lazy(() =>
+  import("../components/quiz/FlyersPart4Engine").then((m) => ({ default: m.FlyersPart4Engine }))
+);
+const FlyersPart5Engine = lazy(() =>
+  import("../components/quiz/FlyersPart5Engine").then((m) => ({ default: m.FlyersPart5Engine }))
+);
+const FlyersPart6Engine = lazy(() =>
+  import("../components/quiz/FlyersPart6Engine").then((m) => ({ default: m.FlyersPart6Engine }))
+);
+const FlyersPart7Engine = lazy(() =>
+  import("../components/quiz/FlyersPart7Engine").then((m) => ({ default: m.FlyersPart7Engine }))
+);
+const FlyersListeningPart1Engine = lazy(() =>
+  import("../components/quiz/FlyersListeningPart1Engine").then((m) => ({ default: m.FlyersListeningPart1Engine }))
+);
 import { QuizResultScreen } from "../components/quiz/QuizResultScreen";
 import { QuizLayout } from "../components/layout/QuizLayout";
 import { getPathwayFromPathname, getPathwayUrl } from "../utils/urlHelpers";
@@ -40,6 +59,15 @@ import type { FlyersPart4Quiz } from "../components/quiz/FlyersPart4Engine";
 import type { FlyersPart5Quiz } from "../components/quiz/FlyersPart5Engine";
 import type { FlyersPart6Quiz } from "../components/quiz/FlyersPart6Engine";
 import type { FlyersPart7Quiz } from "../components/quiz/FlyersPart7Engine";
+import type { FlyersListeningP1Quiz } from "../components/quiz/FlyersListeningPart1Engine";
+
+/** Fallback hiển thị khi lazy engine đang tải */
+const ENGINE_FALLBACK = (
+  <div className="quiz-page-loading">
+    <div className="quiz-page-loading__spinner" />
+    <p>Đang tải bài tập...</p>
+  </div>
+);
 
 export function QuizPage() {
   const location = useLocation();
@@ -514,6 +542,77 @@ export function QuizPage() {
     );
   }
 
+  // ===== Flyers Listening Part 1 — Click-to-Connect Line Engine =====
+  if ((quiz as unknown as FlyersListeningP1Quiz).type === "flyers-listening-p1") {
+    const lp1Quiz = quiz as unknown as FlyersListeningP1Quiz;
+    return (
+      <div className="quiz-layout">
+        {/* Sub-header */}
+        <div className="quiz-sub-header" role="banner" aria-label="Flyers Listening Part 1">
+          <div className="quiz-sub-header__inner">
+            <div className="quiz-sub-header__left">
+              <div className="quiz-sub-header__breadcrumb">
+                <span
+                  className="quiz-sub-header__breadcrumb-link"
+                  onClick={() => navigate(backUrl)}
+                  role="button" tabIndex={0}
+                  onKeyDown={e => e.key === "Enter" && navigate(backUrl)}
+                >
+                  🏠 Trang chủ
+                </span>
+                <span className="quiz-sub-header__breadcrumb-sep">›</span>
+                <span className="quiz-sub-header__breadcrumb-current">
+                  🎧 Flyers Listening
+                </span>
+              </div>
+              <h2 className="quiz-sub-header__title">{lp1Quiz.title}</h2>
+            </div>
+            <div className="quiz-sub-header__right">
+              <button
+                className="quiz-sub-header__exit-btn"
+                onClick={() => navigate(backUrl)}
+                aria-label="Thoát bài"
+                title="Thoát bài"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Engine */}
+        <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
+          <Suspense fallback={ENGINE_FALLBACK}>
+            <FlyersListeningPart1Engine
+              quiz={lp1Quiz}
+              isLoggedIn={isLoggedIn}
+              onSubmitResult={(res) => {
+                setFlyersPendingResult({
+                  answersForApi: res.answersForApi,
+                  startTime: res.startTime,
+                  score: res.score,
+                  maxScore: res.maxScore,
+                  percentage: res.percentage,
+                  starsEarned: res.starsEarned,
+                });
+              }}
+              onFinish={() => {
+                if (flyersPendingResult) {
+                  saveFlyersScore(
+                    flyersPendingResult.answersForApi,
+                    flyersPendingResult.startTime,
+                    flyersPendingResult
+                  );
+                }
+              }}
+              onBack={() => navigate(backUrl)}
+            />
+          </Suspense>
+        </div>
+      </div>
+    );
+  }
+
   // ===== Flyers Part 1 — Word Bank Click Engine =====
   if ((quiz as unknown as FlyersPart1Quiz).type === "flyers-part1") {
     const fp1Quiz = quiz as unknown as FlyersPart1Quiz;
@@ -554,32 +653,34 @@ export function QuizPage() {
 
         {/* Engine */}
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
-          <FlyersPart1Engine
-            quiz={fp1Quiz}
-            isLoggedIn={isLoggedIn}
-            onSubmitResult={(res) => {
-              // Ghi nhớ kết quả, đợi user bấm "Finish"
-              setFlyersPendingResult({
-                answersForApi: res.answersForApi,
-                startTime: res.startTime,
-                score: res.score,
-                maxScore: res.maxScore,
-                percentage: res.percentage,
-                starsEarned: res.starsEarned,
-              });
-            }}
-            onFinish={() => {
-              // User bấm Finish → save lên API → hiện QuizResultScreen
-              if (flyersPendingResult) {
-                saveFlyersScore(
-                  flyersPendingResult.answersForApi,
-                  flyersPendingResult.startTime,
-                  flyersPendingResult
-                );
-              }
-            }}
-            onBack={() => navigate(backUrl)}
-          />
+          <Suspense fallback={ENGINE_FALLBACK}>
+            <FlyersPart1Engine
+              quiz={fp1Quiz}
+              isLoggedIn={isLoggedIn}
+              onSubmitResult={(res) => {
+                // Ghi nhớ kết quả, đợi user bấm "Finish"
+                setFlyersPendingResult({
+                  answersForApi: res.answersForApi,
+                  startTime: res.startTime,
+                  score: res.score,
+                  maxScore: res.maxScore,
+                  percentage: res.percentage,
+                  starsEarned: res.starsEarned,
+                });
+              }}
+              onFinish={() => {
+                // User bấm Finish → save lên API → hiện QuizResultScreen
+                if (flyersPendingResult) {
+                  saveFlyersScore(
+                    flyersPendingResult.answersForApi,
+                    flyersPendingResult.startTime,
+                    flyersPendingResult
+                  );
+                }
+              }}
+              onBack={() => navigate(backUrl)}
+            />
+          </Suspense>
         </div>
       </div>
     );
@@ -696,30 +797,32 @@ export function QuizPage() {
 
         {/* Engine */}
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
-          <FlyersPart3Engine
-            quiz={fp3Quiz}
-            isLoggedIn={isLoggedIn}
-            onSubmitResult={(res) => {
-              setFlyersPendingResult({
-                answersForApi: res.answersForApi,
-                startTime: res.startTime,
-                score: res.score,
-                maxScore: res.maxScore,
-                percentage: res.percentage,
-                starsEarned: res.starsEarned,
-              });
-            }}
-            onFinish={() => {
-              if (flyersPendingResult) {
-                saveFlyersScore(
-                  flyersPendingResult.answersForApi,
-                  flyersPendingResult.startTime,
-                  flyersPendingResult
-                );
-              }
-            }}
-            onBack={() => navigate(backUrl)}
-          />
+          <Suspense fallback={ENGINE_FALLBACK}>
+            <FlyersPart3Engine
+              quiz={fp3Quiz}
+              isLoggedIn={isLoggedIn}
+              onSubmitResult={(res) => {
+                setFlyersPendingResult({
+                  answersForApi: res.answersForApi,
+                  startTime: res.startTime,
+                  score: res.score,
+                  maxScore: res.maxScore,
+                  percentage: res.percentage,
+                  starsEarned: res.starsEarned,
+                });
+              }}
+              onFinish={() => {
+                if (flyersPendingResult) {
+                  saveFlyersScore(
+                    flyersPendingResult.answersForApi,
+                    flyersPendingResult.startTime,
+                    flyersPendingResult
+                  );
+                }
+              }}
+              onBack={() => navigate(backUrl)}
+            />
+          </Suspense>
         </div>
       </div>
     );
@@ -762,30 +865,32 @@ export function QuizPage() {
           </div>
         </div>
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
-          <FlyersPart4Engine
-            quiz={fp4Quiz}
-            isLoggedIn={isLoggedIn}
-            onSubmitResult={(res) => {
-              setFlyersPendingResult({
-                answersForApi: res.answersForApi,
-                startTime: res.startTime,
-                score: res.score,
-                maxScore: res.maxScore,
-                percentage: res.percentage,
-                starsEarned: res.starsEarned,
-              });
-            }}
-            onFinish={() => {
-              if (flyersPendingResult) {
-                saveFlyersScore(
-                  flyersPendingResult.answersForApi,
-                  flyersPendingResult.startTime,
-                  flyersPendingResult
-                );
-              }
-            }}
-            onBack={() => navigate(backUrl)}
-          />
+          <Suspense fallback={ENGINE_FALLBACK}>
+            <FlyersPart4Engine
+              quiz={fp4Quiz}
+              isLoggedIn={isLoggedIn}
+              onSubmitResult={(res) => {
+                setFlyersPendingResult({
+                  answersForApi: res.answersForApi,
+                  startTime: res.startTime,
+                  score: res.score,
+                  maxScore: res.maxScore,
+                  percentage: res.percentage,
+                  starsEarned: res.starsEarned,
+                });
+              }}
+              onFinish={() => {
+                if (flyersPendingResult) {
+                  saveFlyersScore(
+                    flyersPendingResult.answersForApi,
+                    flyersPendingResult.startTime,
+                    flyersPendingResult
+                  );
+                }
+              }}
+              onBack={() => navigate(backUrl)}
+            />
+          </Suspense>
         </div>
       </div>
     );
@@ -828,30 +933,32 @@ export function QuizPage() {
           </div>
         </div>
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
-          <FlyersPart5Engine
-            quiz={fp5Quiz}
-            isLoggedIn={isLoggedIn}
-            onSubmitResult={(res) => {
-              setFlyersPendingResult({
-                answersForApi: res.answersForApi,
-                startTime: res.startTime,
-                score: res.score,
-                maxScore: res.maxScore,
-                percentage: res.percentage,
-                starsEarned: res.starsEarned,
-              });
-            }}
-            onFinish={() => {
-              if (flyersPendingResult) {
-                saveFlyersScore(
-                  flyersPendingResult.answersForApi,
-                  flyersPendingResult.startTime,
-                  flyersPendingResult
-                );
-              }
-            }}
-            onBack={() => navigate(backUrl)}
-          />
+          <Suspense fallback={ENGINE_FALLBACK}>
+            <FlyersPart5Engine
+              quiz={fp5Quiz}
+              isLoggedIn={isLoggedIn}
+              onSubmitResult={(res) => {
+                setFlyersPendingResult({
+                  answersForApi: res.answersForApi,
+                  startTime: res.startTime,
+                  score: res.score,
+                  maxScore: res.maxScore,
+                  percentage: res.percentage,
+                  starsEarned: res.starsEarned,
+                });
+              }}
+              onFinish={() => {
+                if (flyersPendingResult) {
+                  saveFlyersScore(
+                    flyersPendingResult.answersForApi,
+                    flyersPendingResult.startTime,
+                    flyersPendingResult
+                  );
+                }
+              }}
+              onBack={() => navigate(backUrl)}
+            />
+          </Suspense>
         </div>
       </div>
     );
@@ -894,12 +1001,14 @@ export function QuizPage() {
           </div>
         </div>
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
-          <FlyersPart7Engine
-            quiz={fp7Quiz}
-            isLoggedIn={isLoggedIn}
-            onFinish={() => navigate(backUrl)}
-            onBack={() => navigate(backUrl)}
-          />
+          <Suspense fallback={ENGINE_FALLBACK}>
+            <FlyersPart7Engine
+              quiz={fp7Quiz}
+              isLoggedIn={isLoggedIn}
+              onFinish={() => navigate(backUrl)}
+              onBack={() => navigate(backUrl)}
+            />
+          </Suspense>
         </div>
       </div>
     );
@@ -942,30 +1051,32 @@ export function QuizPage() {
           </div>
         </div>
         <div className="quiz-layout__content" style={{ paddingTop: "var(--space-4, 1rem)" }}>
-          <FlyersPart6Engine
-            quiz={fp6Quiz}
-            isLoggedIn={isLoggedIn}
-            onSubmitResult={(res) => {
-              setFlyersPendingResult({
-                answersForApi: res.answersForApi,
-                startTime: res.startTime,
-                score: res.score,
-                maxScore: res.maxScore,
-                percentage: res.percentage,
-                starsEarned: res.starsEarned,
-              });
-            }}
-            onFinish={() => {
-              if (flyersPendingResult) {
-                saveFlyersScore(
-                  flyersPendingResult.answersForApi,
-                  flyersPendingResult.startTime,
-                  flyersPendingResult
-                );
-              }
-            }}
-            onBack={() => navigate(backUrl)}
-          />
+          <Suspense fallback={ENGINE_FALLBACK}>
+            <FlyersPart6Engine
+              quiz={fp6Quiz}
+              isLoggedIn={isLoggedIn}
+              onSubmitResult={(res) => {
+                setFlyersPendingResult({
+                  answersForApi: res.answersForApi,
+                  startTime: res.startTime,
+                  score: res.score,
+                  maxScore: res.maxScore,
+                  percentage: res.percentage,
+                  starsEarned: res.starsEarned,
+                });
+              }}
+              onFinish={() => {
+                if (flyersPendingResult) {
+                  saveFlyersScore(
+                    flyersPendingResult.answersForApi,
+                    flyersPendingResult.startTime,
+                    flyersPendingResult
+                  );
+                }
+              }}
+              onBack={() => navigate(backUrl)}
+            />
+          </Suspense>
         </div>
       </div>
     );

@@ -13,83 +13,12 @@
  * ĐỂ THÊM MÔN HỌC MỚI: thêm 1 object vào mảng SUBJECTS bên dưới
  */
 
-export interface Lesson {
-  /** ID file JSON trong R2 (VD: "MATH-L1-P1") */
-  id: string;
-  /** Slug URL — sẽ là phần sau /:subject/ (VD: "math-l1-p1") */
-  slug: string;
-  title: string;
-  skill: "reading" | "listening" | "writing" | "math" | "mixed";
-  part?: number;
-  level?: string;
-  questions: number;
-  is_free: boolean;
-  emoji: string;
-  /** Hiện trong "Bài Luyện Tập" ở trang chủ? (default: true) */
-  showOnHome?: boolean;
-  /**
-   * [Phase IA] Mức độ lớp — chỉ dùng cho lộ trình lop6
-   * "3-4" = phù hợp bé lớp 3-4
-   * "4-5" = phù hợp bé lớp 4-5
-   * "5-6" = phù hợp bé lớp 5 chuẩn bị thi lớp 6
-   */
-  grade_target?: "3-4" | "4-5" | "5-6";
-  /**
-   * [Phase IA] Game củng cố mở ra sau khi hoàn thành bài này
-   * null = không có game, bỏ qua
-   */
-  unlocks_game?: "hangman" | "crossword" | null;
-  // ─── Reading Passage fields (dạng bài mới - Lớp 6 Tiếng Anh) ───────────
-  /** Độ khó của bài — easy / medium / hard */
-  difficulty?: "easy" | "medium" | "hard";
-  /** Phù hợp từ lớp bao nhiêu */
-  grade_min?: number;
-  /** Phù hợp đến lớp bao nhiêu */
-  grade_max?: number;
-  /** Nằm trong pool rút đề thi thử tự động */
-  in_pool?: boolean;
-  /**
-   * Bài được gợi ý — hiện badge "Recommended" trên card
-   * Thường là bài Easy đầu tiên mỗi grade trong Reading
-   */
-  recommended?: boolean;
-  /**
-   * Thời gian ước tính hoàn thành (phút)
-   * Math: ~12 phút / Reading: ~10 phút
-   */
-  est_minutes?: number;
-  /**
-   * Thumbnail image URL — hiển thị 16:9 full-image trên LessonCard
-   * null / undefined = gradient fallback + emoji
-   */
-  image_url?: string | null;
-}
+// Types được tách ra file riêng — import từ đây để backward-compatible
+export type { Lesson, Subject } from "./subjects.types";
+// Dùng nội bộ để TypeScript type-check mảng SUBJECTS bên dưới
+import type { Subject } from "./subjects.types";
 
 
-export interface Subject {
-  /** Slug dùng trong URL (VD: "toan-tu-duy" → /toan-tu-duy) */
-  id: string;
-  label: string;
-  emoji: string;
-  desc: string;
-  /** Màu accent riêng của môn (CSS color hoặc CSS variable) */
-  color: string;
-  /** false = hiện badge "Sắp có", không click được */
-  available: boolean;
-  /**
-   * [Phase IA] Lộ trình học tập
-   * "cambridge" = Chứng chỉ Cambridge (Starters → Movers → Flyers → KET → PET)
-   * "lop6"      = Thi tuyển sinh lớp 6 THCS (Toán / Tiếng Việt / Tiếng Anh / Khoa học)
-   */
-  pathway: "cambridge" | "lop6";
-  /**
-   * [Phase IA] Nhóm trong lộ trình
-   * Cambridge: "starters" | "movers" | "flyers" | "ket" | "pet" | "ielts"
-   * Lớp 6:     "toan" | "tieng-viet" | "tieng-anh" | "khoa-hoc"
-   */
-  group: string;
-  lessons: Lesson[];
-}
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // DANH SÁCH MÔN HỌC — CHỈNH SỬA TẠI ĐÂY
@@ -931,6 +860,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 6,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-01-things-around-us.jpg",
       },
       {
         id: "FW1-EASY-002",
@@ -946,6 +876,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 6,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-02-food-and-drink.jpg",
       },
       {
         id: "FW1-EASY-003",
@@ -961,6 +892,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 6,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-03-clothes-and-weather.jpg",
       },
       {
         id: "FW1-EASY-004",
@@ -976,6 +908,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 6,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-EASY-04-hobbies-and-leisure.jpg",
       },
       {
         id: "FW1-MED-001",
@@ -991,6 +924,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-01-jobs-travel-and-places.jpg",
       },
       {
         id: "FW1-MED-002",
@@ -1006,6 +940,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-02-sports-and-health.jpg",
       },
       {
         id: "FW1-MED-003",
@@ -1021,6 +956,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-03-travel-and-transportation.jpg",
       },
       {
         id: "FW1-MED-004",
@@ -1036,6 +972,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-04-computing-and-technology.jpg",
       },
       {
         id: "FW1-MED-005",
@@ -1051,6 +988,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-05-nature-and-animals.jpg",
       },
       {
         id: "FW1-MED-006",
@@ -1066,6 +1004,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-06-health-and-body.jpg",
       },
       {
         id: "FW1-MED-007",
@@ -1081,6 +1020,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-07-school-and-objects.jpg",
       },
       {
         id: "FW1-MED-008",
@@ -1096,6 +1036,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-08-environment-weather.jpg",
       },
       {
         id: "FW1-MED-009",
@@ -1111,6 +1052,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-09-clothes-jobs.jpg",
       },
       {
         id: "FW1-MED-010",
@@ -1126,6 +1068,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-MED-10-holidays-sports.jpg",
       },
       {
         id: "FW1-HARD-001",
@@ -1141,6 +1084,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-01-education-and-professions.jpg",
       },
       {
         id: "FW1-HARD-002",
@@ -1156,6 +1100,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-02-science-and-discovery.jpg",
       },
       {
         id: "FW1-HARD-003",
@@ -1171,6 +1116,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-03-society-and-culture.jpg",
       },
       {
         id: "FW1-HARD-004",
@@ -1186,6 +1132,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-04-history-and-society.jpg",
       },
       {
         id: "FW1-HARD-005",
@@ -1201,6 +1148,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P1-HARD-05-technology-and-modern-world.jpg",
       },
       // --- PART 2 ---
       {
@@ -1217,6 +1165,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-01-a-visit-to-the-zoo.jpg",
       },
       {
         id: "FW2-EASY-002",
@@ -1232,6 +1181,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-02-weekend-activities.jpg",
       },
       {
         id: "FW2-EASY-003",
@@ -1247,6 +1197,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-03-a-cold-day.jpg",
       },
       {
         id: "FW2-EASY-004",
@@ -1262,6 +1213,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-04-helping-dad-in-the-kitchen.jpg",
       },
       {
         id: "FW2-EASY-005",
@@ -1277,6 +1229,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P2-EASY-05-a-new-hobby.jpg",
       },
       {
         id: "FW2-MED-001",
@@ -1292,6 +1245,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-01-a-trip-to-the-museum.jpg",
       },
       {
         id: "FW2-MED-002",
@@ -1307,6 +1261,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-02-a-camping-trip.jpg",
       },
       {
         id: "FW2-MED-003",
@@ -1322,6 +1277,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-03-the-science-project.jpg",
       },
       {
         id: "FW2-MED-004",
@@ -1337,6 +1293,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-04-the-lost-suitcase.jpg",
       },
       {
         id: "FW2-MED-005",
@@ -1352,6 +1309,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 5,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P2-MED-05-the-new-music-club.jpg",
       },
       // ── R&W Part 3 — "Read the Story, Choose a Word from the Box" ──────────
       {
@@ -1368,6 +1326,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-01-a-camping-adventure.jpg",
       },
       {
         id: "FW3-MED-002",
@@ -1383,6 +1342,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P3-MED-02-busy-day-at-the-farm.jpg",
       },
       {
         id: "FW3-MED-003",
@@ -1398,6 +1358,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-03-a-day-at-the-sea.jpg",
       },
       {
         id: "FW3-MED-004",
@@ -1413,6 +1374,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-04-the-space-museum.jpg",
       },
       {
         id: "FW3-MED-005",
@@ -1428,6 +1390,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-05-a-visit-to-the-hospital.jpg",
       },
       {
         id: "FW3-MED-006",
@@ -1443,6 +1406,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-RW-P3-MED-06-the-big-football-match.jpg",
       },
       {
         id: "FW3-MED-007",
@@ -1458,6 +1422,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-07-the-cooking-competition.jpg",
       },
       {
         id: "FW3-MED-008",
@@ -1473,6 +1438,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-08-a-trip-to-the-desert.jpg",
       },
       {
         id: "FW3-MED-009",
@@ -1488,6 +1454,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-09-the-new-invention.jpg",
       },
       {
         id: "FW3-MED-010",
@@ -1503,6 +1470,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-MED-10-a-rainy-day-at-the-zoo.jpg",
       },
       {
         id: "FW3-HARD-001",
@@ -1518,6 +1486,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-01-the-secret-of-the-ancient-cave.jpg",
       },
       {
         id: "FW3-HARD-002",
@@ -1533,6 +1502,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-02-saving-the-green-valley.jpg",
       },
       {
         id: "FW3-HARD-003",
@@ -1548,6 +1518,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-03-the-new-software.jpg",
       },
       {
         id: "FW3-HARD-004",
@@ -1563,6 +1534,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-04-the-weather-station.jpg",
       },
       {
         id: "FW3-HARD-005",
@@ -1578,6 +1550,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-05-the-mysterious-signal.jpg",
       },
       {
         id: "FW3-HARD-006",
@@ -1593,6 +1566,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-06-the-deep-sea-adventure.jpg",
       },
       {
         id: "FW3-HARD-007",
@@ -1608,6 +1582,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-07-the-endangered-forest.jpg",
       },
       {
         id: "FW3-HARD-008",
@@ -1623,6 +1598,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-08-the-robot-competition.jpg",
       },
       {
         id: "FW3-HARD-009",
@@ -1638,6 +1614,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-09-the-digital-discovery.jpg",
       },
       {
         id: "FW3-HARD-010",
@@ -1653,6 +1630,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "hard",
         recommended: false,
         est_minutes: 8,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P3-HARD-10-the-science-project.jpg",
       },
       // ── R&W Part 4 — "Read the Text, Choose the Right Words" ─────────────
       {
@@ -1669,6 +1647,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-01-LIVING%20IN%20SPACE.jpeg",
       },
       {
         id: "FW4-MED-002",
@@ -1684,6 +1663,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-02-THE%20AMAZING%20GIANT%20PANDA.jpeg",
       },
       {
         id: "FW4-MED-003",
@@ -1699,6 +1679,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-03-the-world-of-volcanoes.jpeg",
       },
       {
         id: "FW4-MED-004",
@@ -1714,6 +1695,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-04-the-story-of-money.jpeg",
       },
       {
         id: "FW4-MED-005",
@@ -1729,6 +1711,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-05-the-ship-of-the-desert.jpeg",
       },
       {
         id: "FW4-MED-006",
@@ -1744,6 +1727,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYER-R%26W-P4-MED-06-high-in-the-sky.jpeg",
       },
       // ── Part 5: Story Read + Free-Text Fill ──
       {
@@ -1760,6 +1744,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-01-sports-day-at-school.jpg",
       },
       {
         id: "FW5-EASY-002",
@@ -1775,6 +1760,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-02-a-visit-to-the-zoo.jpg",
       },
       {
         id: "FW5-EASY-003",
@@ -1790,6 +1776,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-03-baking-cookies-at-home.jpg",
       },
       {
         id: "FW5-EASY-004",
@@ -1805,6 +1792,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-04-a-birthday-surprise.jpg",
       },
       {
         id: "FW5-EASY-005",
@@ -1820,6 +1808,7 @@ export const SUBJECTS: Subject[] = [
         difficulty: "easy",
         recommended: false,
         est_minutes: 10,
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/FLYER-RW-P5-EASY-05-a-day-at-the-beach.jpg",
       },
       // ── Part 6 — Diary Read + Inline ONE-Word Fill ──────────────────────────
       {
@@ -1918,6 +1907,40 @@ export const SUBJECTS: Subject[] = [
         difficulty: "medium",
         recommended: true,
         est_minutes: 10,
+      },
+
+      // ── Listening Part 1 — Click-to-Connect (Draw Lines) ─────────────────
+      {
+        id: "FL1-EASY-001",
+        slug: "fl1-easy-001",
+        title: "Set 1: 🏫 At the School Yard",
+        skill: "listening",
+        part: 1,
+        level: "Flyers",
+        questions: 5,
+        is_free: true,
+        emoji: "🎧",
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-EASY-001.jpg",
+        showOnHome: false,
+        difficulty: "easy",
+        recommended: true,
+        est_minutes: 8,
+      },
+      {
+        id: "FL1-MED-001",
+        slug: "fl1-med-001",
+        title: "Set 2: 🌳 A Day at the Park",
+        skill: "listening",
+        part: 1,
+        level: "Flyers",
+        questions: 5,
+        is_free: true,
+        emoji: "🎧",
+        image_url: "https://cdn.luyenthi.io.vn/Cambridge/FLYERS/LISTENING/part1/FL1-MED-001.jpg",
+        showOnHome: false,
+        difficulty: "medium",
+        recommended: false,
+        est_minutes: 8,
       },
 
     ],

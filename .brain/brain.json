@@ -22,7 +22,7 @@
     },
     {
       "path": "/api/subjects/cache/invalidate",
-      "explained": "Xoá cache KV mỗi khi có bài tập mới được thêm vào DB"
+      "explained": "Xoá cache KV mỗi khi có bài tập mới được thêm vào DB. Bắt buộc yêu cầu x-admin-key header."
     },
     {
       "path": "/api/vocabulary/lesson/:grade/:topic",
@@ -46,7 +46,7 @@
     }
   ],
   "business_rules": [
-    "Bài tập mới được upload JSON lên R2, sau đó thêm dòng vào D1, rồi gọi API xoá cache",
+    "Bài tập mới được upload JSON lên R2, sau đó thêm dòng vào D1, rồi gọi API xoá cache (cần x-admin-key)",
     "Code ở nhánh `dev` deploy lên `dev.luyenthi.io.vn` (Staging)",
     "Code ở nhánh `main` deploy lên `luyenthi.io.vn` (Production)",
     "Phát âm từ vựng ưu tiên sử dụng MP3 từ Cloudflare R2 (audio_url), nếu rỗng hoặc lỗi sẽ fallback về trình duyệt Text-to-Speech (Web Speech API)",
@@ -63,6 +63,10 @@
     "Flyers R&W Part 1-5 Engines (vocab_highlight panel with audio, unified typography)",
     "Flyers R&W Part 6 Engine (Grammar/Cloze) with responsive VocabPanel & Grade Result logic",
     "Flyers R&W Part 7 Write a Story Engine (Zero-Essay Policy with AI prompt placeholders)",
+    "Flyers Listening Part 1 Engine (FL1 — Click-to-Connect, 10 hotspots, 4 decoys, 5 questions)",
+    "Frontend Engine Bundle Optimization (Code Splitting with React.lazy)",
+    "useSubjects 2-source strategy (subjects.ts base + /api/subjects merge for image_url)",
+    "scripts/sync-image-urls.mjs — sync image_url từ JSON files vào subjects.ts",
     "Staging & Production CI/CD separation",
     "Cambridge Multi-level Dashboard (Starters, Movers, Flyers) & Lớp 6 Dashboard",
     "Admin Dashboard (Planned)"
@@ -70,11 +74,15 @@
   "knowledge_items": { 
     "patterns": [
       "Staging deploy requires sed to rename worker because Vite Plugin ignores --env flag",
+      "React.lazy() Code Splitting: All new quiz engines must be dynamically imported in QuizPage.tsx using React.lazy() and wrapped in <Suspense fallback={<ENGINE_FALLBACK />}>.",
       "Syncing DB with R2 assets can be done programmatically using HTTP HEAD requests against the CDN URL",
       "Lookup Map Pattern on Frontend: Parse and format dynamic content using a generated Map from subjects.ts to avoid heavy SQL JOINs.",
       "Frontend Auth Verification: Derive identity from session cookies in the worker context for security.",
       "Audio URL patch pipeline: (1) wrangler d1 execute --remote --json để export word map, (2) node scripts/patch-vocab-audio.mjs để patch JSON local, (3) node scripts/upload-content-r2.mjs để upload R2 remote.",
-      "Quiz JSON serving: Worker ưu tiên R2 (env.CONTENT binding) → fallback LOCAL_QUIZ_MAP (static import). Cập nhật nội dung chỉ cần upload R2, không cần redeploy Worker."
+      "Quiz JSON serving: Worker ưu tiên R2 (env.CONTENT binding) → fallback LOCAL_QUIZ_MAP (static import). Cập nhật nội dung chỉ cần upload R2, không cần redeploy Worker.",
+      "FL1 Decoy Hotspot Pattern: Thêm char-u1 đến char-u4 vào characters[] nhưng KHÔNG thêm vào questions[]. Engine render tất cả hotspot, học sinh nối vào bất kỳ 5 hotspot → Submit hiện.",
+      "useSubjects 2-source: Render ngay từ subjects.ts (không flash), sau đó fetch /api/subjects và merge image_url. Fallback graceful nếu API lỗi.",
+      "Image URL sync: Nguồn sự thật là file JSON content (image_url cuối file). Chạy node scripts/sync-image-urls.mjs để đồng bộ vào subjects.ts."
     ], 
     "gotchas": [
       "Cloudflare Vite plugin overrides wrangler.json name during build",
@@ -82,12 +90,20 @@
       "Rules of Hooks: NEVER place useState or useEffect after early returns.",
       "D1 silent failures on UPSERT when using incorrect column names. Always verify schema against SQL statements.",
       "CRITICAL: Wrangler r2/d1 commands mặc định dùng LOCAL emulator. PHẢI thêm --remote flag để thao tác với Cloudflare thật. `wrangler r2 object put ... --remote`, `wrangler d1 execute ... --remote`. Không có --remote = chỉ thao tác local, KHÔNG lên cloud!",
-      "wrangler r2 object get --pipe đọc từ local emulator, không phải R2 remote thật. Dùng --remote --file để download và verify đúng nội dung từ cloud."
+      "wrangler r2 object get --pipe đọc từ local emulator, không phải R2 remote thật. Dùng --remote --file để download và verify đúng nội dung từ cloud.",
+      "FL1 R2 path PHẢI có prefix quizzes/: path đúng là quizzes/cambridge/flyers/listening/part1/FL1-*.json. Upload sai (thiếu quizzes/) → Worker 404 vì getR2Key() trả về đường dẫn có prefix.",
+      "FL1 Submit logic PHẢI dùng Object.keys(connections).length, KHÔNG filter theo correct_character_id. Nếu dùng filter → Submit không hiện khi user nối vào decoy hotspot.",
+      "FL1 Local Dev Map: Mỗi bài FL1 mới phải được đăng ký trong LOCAL_QUIZ_MAP (quiz.ts ~line 179). Nếu không → local dev fallback R2 stale cache.",
+      "Thumbnail mất sau sync script: sync-image-urls.mjs đọc image_url từ JSON file (không có /FLYERS/ trong path). Scripts cũ đoán URL từ D1 có thể dùng path sai (/FLYERS/ thừa). Luôn verify CDN URL bằng curl -I.",
+      "Importing types from data files with large arrays causes bundle bloat. Extract interfaces to `.types.ts` files.",
+      "Deploy script needs fallback to .dev.vars for CACHE_ADMIN_KEY if not running with env var injected."
     ], 
     "conventions": [
       "Feature branches -> merge to dev -> deploy staging -> verify -> deploy production",
-      "Scripts trong /scripts: patch-vocab-audio.mjs, upload-content-r2.mjs (--remote), find-missing-audio.mjs",
-      "Danh sách ~104 từ chưa có audio tại docs/missing_audio_words.md — cần upload MP3 lên CDN và seed vào vocabulary_bank, sau đó chạy lại patch + upload."
+      "Scripts trong /scripts: patch-vocab-audio.mjs, upload-content-r2.mjs (--remote), find-missing-audio.mjs, sync-image-urls.mjs",
+      "Danh sách ~104 từ chưa có audio tại docs/missing_audio_words.md — cần upload MP3 lên CDN và seed vào vocabulary_bank, sau đó chạy lại patch + upload.",
+      "FL1 bài mới checklist: (1) Tạo JSON với 10 chars (6 named + 4 decoy u1-u4), (2) Upload R2 với prefix quizzes/, (3) Đăng ký LOCAL_QUIZ_MAP trong quiz.ts, (4) Build + deploy staging.",
+      "Khi thumbnail mất: chạy node scripts/sync-image-urls.mjs → build → deploy. Tool đọc image_url từ JSON content files (nguồn sự thật)."
     ] 
   }
 }

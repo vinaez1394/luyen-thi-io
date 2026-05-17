@@ -19,6 +19,7 @@ type Env = {
   DB: D1Database;
   CACHE: KVNamespace;
   SESSION: KVNamespace;
+  CACHE_ADMIN_KEY?: string; // Cloudflare secret — bảo vệ endpoint cache/invalidate
 };
 
 export const subjectsRoute = new Hono<{ Bindings: Env }>();
@@ -82,7 +83,15 @@ subjectsRoute.get("/all", async (c) => {
 
 // ── POST /api/subjects/cache/invalidate ──────────────────────────
 // Dùng để xóa KV cache ngay khi thêm bài mới (không chờ 30 phút)
+// ⚠️ Bảo vệ bằng x-admin-key header (CACHE_ADMIN_KEY secret)
 subjectsRoute.post("/cache/invalidate", async (c) => {
+  // Auth guard — kiểm tra x-admin-key header
+  const adminKey = c.req.header("x-admin-key");
+  const expectedKey = c.env.CACHE_ADMIN_KEY;
+  if (!expectedKey || adminKey !== expectedKey) {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+
   const body = await c.req.json<{ pathway?: string; subject?: string }>().catch(() => ({} as { pathway?: string; subject?: string }));
 
   // Xóa các keys liên quan
